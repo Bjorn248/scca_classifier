@@ -19,6 +19,7 @@ Current iteration of rules: https://www.scca.com/downloads/45372-2019-04-30-solo
 * DOT Approved
 
 #### Wheels
+* Width must be stock
 * Offset +/- 7mm from standard
 * Diameter +/- 1" from standard
 * Spacers allowed as long as they do not make the wheel exceed the above offset restriction
