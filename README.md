@@ -30,7 +30,7 @@ Current iteration of rules: https://www.scca.com/downloads/49336-2020-solo-rules
 * Suspension Geometry must not be altered
 
 #### Brakes
-* Brake line material may be changed
+* Brake lining (pad/shoe) material may be changed
 * Clutch lines and brake lines may be solid or braided metal on cars made before 1992
 
 #### Anti-Roll (Sway) Bars
