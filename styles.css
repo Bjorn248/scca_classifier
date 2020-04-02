@@ -42,3 +42,15 @@
 .question {
     display: none;
 }
+
+.eligible {
+    display: none;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.notEligible {
+    display: none;
+    color: #F44336;
+    font-weight: bold;
+}
