@@ -10,9 +10,8 @@ I prefer this simple python server.
 python -m http.server
 ```
 
-Current iteration of rules: https://www.scca.com/downloads/49336-2020-solo-rules-complete-reduced-2020-03-16/download
-
 ## Rules Breakdown (Just a rough list for v0.1 of this app)
+Current iteration of rules: https://www.scca.com/downloads/49336-2020-solo-rules-complete-reduced-2020-03-16/download
 
 ### Street Touring
 #### Body Work
