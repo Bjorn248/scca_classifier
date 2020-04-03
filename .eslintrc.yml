@@ -8,4 +8,7 @@ globals:
   SharedArrayBuffer: readonly
 parserOptions:
   ecmaVersion: 2018
-rules: {}
+rules:
+  max-len:
+    - error
+    - code: 120

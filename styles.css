@@ -13,20 +13,92 @@
 }
 
 .yesButton {
-    border: 2px solid #4CAF50; /* Green */
+    border: 2px solid #4CAF50;
 }
 
 .yesButton:hover {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
+    color: white;
+}
+
+.streetButton {
+    border: 2px solid #4CAF50;
+}
+
+.streetButton:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.streetTouringButton {
+    border: 2px solid #AEAE4C;
+}
+
+.streetTouringButton:hover {
+    background-color: #AEAE4C;
+    color: white;
+}
+
+.xtremeStreetButton {
+    border: 2px solid #CC6600;
+}
+
+.xtremeStreetButton:hover {
+    background-color: #CC6600;
+    color: white;
+}
+
+.camButton {
+    border: 2px solid #3333FF;
+}
+
+.camButton:hover {
+    background-color: #3333FF;
+    color: white;
+}
+
+.streetPreparedButton {
+    border: 2px solid #4CAEAE;
+}
+
+.streetPreparedButton:hover {
+    background-color: #4CAEAE;
+    color: white;
+}
+
+.streetModifiedButton {
+    border: 2px solid #AE4CAE;
+}
+
+.streetModifiedButton:hover {
+    background-color: #AE4CAE;
+    color: white;
+}
+
+.preparedButton {
+    border: 2px solid #CC0000;
+}
+
+.preparedButton:hover {
+    background-color: #CC0000;
+    color: white;
+}
+
+.modifiedButton {
+    border: 2px solid black;
+}
+
+.modifiedButton:hover {
+    background-color: black;
     color: white;
 }
 
 .noButton {
-    border: 2px solid #F44336; /* Red */
+    border: 2px solid #F44336;
 }
 
 .noButton:hover {
-    background-color: #F44336; /* Red */
+    background-color: #F44336;
     color: white;
 }
 
@@ -37,6 +109,13 @@
 .center {
     padding: 70px 0;
     text-align: center;
+}
+
+.right {
+  position: absolute;
+  right: 0px;
+  width: 128px;
+  padding: 10px;
 }
 
 .question {
@@ -53,4 +132,9 @@
     display: none;
     color: #F44336;
     font-weight: bold;
+}
+
+.notEligibleExplanation {
+    color: black;
+    font-weight: normal;
 }

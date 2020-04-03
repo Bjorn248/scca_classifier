@@ -10,10 +10,13 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <h1 class="center sansserif">Street Class Questions</h1>
+    <div id="resetButton" class="right">
+      <button class="button noButton" onclick="resetState()">Reset</button>
+    </div>
   </head>
   <body onload="evalQueryParams()">
     <div id="steeringWheelUnchanged" class="center question">
-      <h1 class="sansserif">
+      <h1 id="steeringWheelUnchangedQuestion" class="sansserif">
         Is your steering wheel within 1 inch of standard size?
       </h1>
       <button class="button yesButton" onclick="setState('steeringWheelUnchanged', true)">Yes</button>
@@ -21,7 +24,7 @@
     </div>
 
     <div id="fendersUnmodified" class="center question">
-      <h1 class="sansserif">
+      <h1 id="fendersUnmodifiedQuestion" class="sansserif">
         Are your fenders unmodified?
       </h1>
       <button class="button yesButton" onclick="setState('fendersUnmodified', true)">Yes</button>
@@ -29,7 +32,7 @@
     </div>
 
     <div id="tires200Treadwear" class="center question">
-      <h1 class="sansserif">
+      <h1 id="tires200TreadwearQuestion" class="sansserif">
         Are your tires 200 treadwear and DOT legal?
       </h1>
       <button class="button yesButton" onclick="setState('tires200Treadwear', true)">Yes</button>
@@ -37,7 +40,7 @@
     </div>
 
     <div id="wheelsStockWidth" class="center question">
-      <h1 class="sansserif">
+      <h1 id="wheelsStockWidthQuestion" class="sansserif">
         Are your wheels stock width?
       </h1>
       <button class="button yesButton" onclick="setState('wheelsStockWidth', true)">Yes</button>
@@ -45,7 +48,7 @@
     </div>
 
     <div id="wheelOffsetPlusMinus7Inches" class="center question">
-      <h1 class="sansserif">
+      <h1 id="wheelOffsetPlusMinus7InchesQuestion" class="sansserif">
         Is your wheel offset ±7mm (±0.275 in) from a standard wheel for the car?
       </h1>
       <button class="button yesButton" onclick="setState('wheelOffsetPlusMinus7Inches', true)">Yes</button>
@@ -53,7 +56,7 @@
     </div>
 
     <div id="wheelDiameterPlusMinus1Inch" class="center question">
-      <h1 class="sansserif">
+      <h1 id="wheelDiameterPlusMinus1InchQuestion" class="sansserif">
         Is your wheel diameter ±1 inch from the standard wheel for the car?
       </h1>
       <button class="button yesButton" onclick="setState('wheelDiameterPlusMinus1Inch', true)">Yes</button>
@@ -61,7 +64,7 @@
     </div>
 
     <div id="stockNumberOfWheelBoltsOrStuds" class="center question">
-      <h1 class="sansserif">
+      <h1 id="stockNumberOfWheelBoltsOrStudsQuestion" class="sansserif">
         Do you have the stock number of wheel bolts or studs?
       </h1>
       <button class="button yesButton" onclick="setState('stockNumberOfWheelBoltsOrStuds', true)">Yes</button>
@@ -69,7 +72,7 @@
     </div>
 
     <div id="shocksAtMost2Way" class="center question">
-      <h1 class="sansserif">
+      <h1 id="shocksAtMost2WayQuestion" class="sansserif">
         Are your shocks at most adjustable in two ways? Cars that have shocks that are more
         adjustable from the factory are permitted.
       </h1>
@@ -78,7 +81,7 @@
     </div>
 
     <div id="suspensionGeometryAltered" class="center question">
-      <h1 class="sansserif">
+      <h1 id="suspensionGeometryAlteredQuestion" class="sansserif">
         Is your suspension geometry unmodified?
       </h1>
       <button class="button yesButton" onclick="setState('suspensionGeometryAltered', true)">Yes</button>
@@ -86,7 +89,7 @@
     </div>
 
     <div id="hasStandardBrakeLinesUnless1992OrOlder" class="center question">
-      <h1 class="sansserif">
+      <h1 id="hasStandardBrakeLinesUnless1992OrOlderQuestion" class="sansserif">
         Are your brake lines stock? If your car is 1992 or older you can have solid/braided lines.
       </h1>
       <button class="button yesButton" onclick="setState('hasStandardBrakeLinesUnless1992OrOlder', true)">Yes</button>
@@ -94,7 +97,7 @@
     </div>
 
     <div id="hasSingleAntiRollBar" class="center question">
-      <h1 class="sansserif">
+      <h1 id="hasSingleAntiRollBarQuestion" class="sansserif">
         Does your car meet the anti-roll bar restrictions?
       </h1>
       <h3 class="sansserif">
@@ -106,16 +109,70 @@
       <button class="button noButton" onclick="setState('hasSingleAntiRollBar', false)">No</button>
     </div>
 
+    <div id="hasStockSprings" class="center question">
+      <h1 id="hasStockSpringsQuestion" class="sansserif">
+        Does your car have stock springs?
+      </h1>
+      <button class="button yesButton" onclick="setState('hasStockSprings', true)">Yes</button>
+      <button class="button noButton" onclick="setState('hasStockSprings', false)">No</button>
+    </div>
+
+    <div id="hasStockBushings" class="center question">
+      <h1 id="hasStockBushingsQuestion" class="sansserif">
+        Does your car have stock bushings?
+      </h1>
+      <button class="button yesButton" onclick="setState('hasStockBushings', true)">Yes</button>
+      <button class="button noButton" onclick="setState('hasStockBushings', false)">No</button>
+    </div>
+
+    <div id="stockECUProgramming" class="center question">
+      <h1 id="stockECUProgrammingQuestion" class="sansserif">
+        Does your car have an unmodified electronic engine management system?
+      </h1>
+      <button class="button yesButton" onclick="setState('stockECUProgramming', true)">Yes</button>
+      <button class="button noButton" onclick="setState('stockECUProgramming', false)">No</button>
+    </div>
+
+    <div id="stockExhaust" class="center question">
+      <h1 id="stockExhaustQuestion" class="sansserif">
+        Does your exhaust meet the requirements below?
+      </h1>
+      <h3 class="sansserif">
+        Any part of the exhaust system beyond (downstream from) the last catalytic converter,
+        if so equipped, may be substituted or removed provided the system exits the car in the
+        original location. Vehicles equipped with exhausts that exit in multiple locations may
+        change to a single outlet in any of the original locations. Stainless steel heat
+        exchangers are permitted only if the physical dimensions and configuration remain unchanged.
+        Modifications of any type, including additions to or removal of, the catalytic converters,
+        thermal reactors, or any other pollution control devices in the exhaust system are not
+        allowed and the system must be operable. Replacement catalytic converters must be OE if
+        the vehicle has not exceeded the warranty period as mandated by the EPA. Converters must
+        be of the same type and size and used in the same location as the original equipment
+        converter(s). This does not allow for a high performance unit. If the vehicle has exceeded
+        the warranty period, replacement catalytic converters must be OE-type. Exhaust hangers
+        which are bolted or welded on the car are considered part of the body and may not be
+        changed or removed.
+      </h3>
+      <button class="button yesButton" onclick="setState('stockExhaust', true)">Yes</button>
+      <button class="button noButton" onclick="setState('stockExhaust', false)">No</button>
+    </div>
+
     <div id="eligible" class="center eligible">
       <h1 class="sansserif">
-        ELIGIBLE
+        Your car is eligible for Street class!
       </h1>
     </div>
 
     <div id="notEligible" class="center notEligible">
       <h1 class="sansserif">
-        NOT ELIGIBLE
+        Your car is NOT eligible for street class.
       </h1>
+      <div class="notEligibleExplanation sansserif">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
     </div>
   </body>
 </html>

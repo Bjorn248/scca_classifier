@@ -10,6 +10,10 @@ const StreetCar = [
   'suspensionGeometryAltered',
   'hasStandardBrakeLinesUnless1992OrOlder',
   'hasSingleAntiRollBar',
+  'hasStockSprings',
+  'hasStockBushings',
+  'stockECUProgramming',
+  'stockExhaust',
 ];
 
 function setState(keyName, isTrue) {
@@ -19,6 +23,11 @@ function setState(keyName, isTrue) {
   let e = document.getElementById(keyName);
   e.style.display = 'none';
 };
+
+function resetState() {
+  const url = window.location.href;
+  window.location.href = url.split('?')[0];
+}
 
 function evalQueryParams() {
   const url = new URL(window.location.href);
@@ -46,23 +55,25 @@ function evalQueryParams() {
 function checkEligibility(url) {
   let isEligible = true;
   let failedQuestions = [];
-  for (let i = 0; i < StreetCar.length; i++) {
-    console.log(url.searchParams.get(StreetCar[i]));
+  for (let i=0; i<StreetCar.length; i++) {
     if (url.searchParams.get(StreetCar[i]) == 'false') {
-      console.log('failed one');
       failedQuestions.push(StreetCar[i]);
       isEligible = false;
     }
   }
 
   if (isEligible) {
-    console.log('Your car is eligible for street class!');
     const e = document.getElementById('eligible');
     e.style.display = 'block';
   } else {
-    console.log('Your car is NOT eligible for street class');
-    console.log(failedQuestions);
     const e = document.getElementById('notEligible');
     e.style.display = 'block';
+    let questionString = '';
+    for (let i=0; i<failedQuestions.length; i++) {
+      const question = document.getElementById(failedQuestions[i] + 'Question');
+      questionString = questionString + question.innerHTML;
+      questionString = questionString + '</br>';
+    }
+    document.getElementById('ineligibilityQuestions').innerHTML = questionString;
   }
 }
