@@ -1,5 +1,5 @@
 const StreetCar = [
-  'steeringWheelUnchanged',
+  'stockInterior',
   'fendersUnmodified',
   'tires200Treadwear',
   'wheelsStockWidth',
@@ -16,20 +16,20 @@ const StreetCar = [
   'stockExhaust',
 ];
 
-function setState(keyName, isTrue) {
-  let url = new URL(window.location.href);
+function setState(keyName, isTrue) { // eslint-disable-line no-unused-vars
+  let url = new URL(window.location.href); // eslint-disable-line prefer-const
   url.searchParams.set(keyName, isTrue);
   window.location.href = url;
-  let e = document.getElementById(keyName);
+  let e = document.getElementById(keyName); // eslint-disable-line prefer-const
   e.style.display = 'none';
 };
 
-function resetState() {
+function resetState() { // eslint-disable-line no-unused-vars
   const url = window.location.href;
   window.location.href = url.split('?')[0];
 }
 
-function evalQueryParams() {
+function evalQueryParams() { // eslint-disable-line no-unused-vars
   const url = new URL(window.location.href);
   /* There are no query strings in the URL so
   we want to display the first question */
@@ -37,7 +37,7 @@ function evalQueryParams() {
     const e = document.getElementById(StreetCar[0]);
     e.style.display = 'block';
   } else {
-    let remainingQuestions = [];
+    let remainingQuestions = []; // eslint-disable-line prefer-const
     for (let i = 0; i < StreetCar.length; i++) {
       if (!url.searchParams.has(StreetCar[i])) {
         remainingQuestions.push(StreetCar[i]);
@@ -54,7 +54,7 @@ function evalQueryParams() {
 
 function checkEligibility(url) {
   let isEligible = true;
-  let failedQuestions = [];
+  let failedQuestions = []; // eslint-disable-line prefer-const
   for (let i=0; i<StreetCar.length; i++) {
     if (url.searchParams.get(StreetCar[i]) == 'false') {
       failedQuestions.push(StreetCar[i]);
