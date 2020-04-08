@@ -98,6 +98,159 @@
     color: white;
 }
 
+.gt1Button {
+  border: 2px solid #b39886;
+}
+
+.gt1Button:hover {
+  background-color: #b39886;
+  color: white;
+}
+
+.gt2Button {
+  border: 2px solid #006b73;
+}
+
+.gt2Button:hover {
+  background-color: #006b73;
+  color: white;
+}
+
+.gt3Button {
+  border: 2px solid #40d9ff;
+}
+
+.gt3Button:hover {
+  background-color: #40d9ff;
+  color: white;
+}
+
+.gtaButton {
+  border: 2px solid #acdae6;
+}
+
+.gtaButton:hover {
+  background-color: #acdae6;
+  color: white;
+}
+
+.gtxButton {
+  border: 2px solid #2d86b3;
+}
+
+.gtxButton:hover {
+  background-color: #2d86b3;
+  color: white;
+}
+
+.improvedTouring {
+  border: 2px solid #0058a6;
+}
+
+.improvedTouring:hover {
+  background-color: #0058a6;
+  color: white;
+}
+
+.superTouring {
+  border: 2px solid #40a6ff;
+}
+
+.superTouring:hover {
+  background-color: #40a6ff;
+  color: white;
+}
+
+.production {
+  border: 2px solid #0d1c33;
+}
+
+.production:hover {
+  background-color: #0d1c33;
+  color: white;
+}
+
+.americanSedan {
+  border: 2px solid #acbbe6;
+}
+
+.americanSedan:hover {
+  background-color: #acbbe6;
+  color: white;
+}
+
+.specMiata {
+  border: 2px solid #000059;
+}
+
+.specMiata:hover {
+  background-color: #000059;
+  color: white;
+}
+
+.aSports {
+  border: 2px solid #4330bf;
+}
+
+.aSports:hover {
+  background-color: #4330bf;
+  color: white;
+}
+
+.t1 {
+  border: 2px solid #b380ff;
+}
+
+.t1:hover {
+  background-color: #b380ff;
+  color: white;
+}
+
+.t2 {
+  border: 2px solid #3b264d;
+}
+
+.t2:hover {
+  background-color: #3b264d;
+  color: white;
+}
+
+.t3 {
+  border: 2px solid #d600e6;
+}
+
+.t3:hover {
+  background-color: #d600e6;
+  color: white;
+}
+
+.t4 {
+  border: 2px solid #73004d;
+}
+
+.t4:hover {
+  background-color: #73004d;
+  color: white;
+}
+
+.bSpec {
+  border: 2px solid #e639ac;
+}
+
+.bSpec:hover {
+  background-color: #e639ac;
+  color: white;
+}
+
+.specMX5 {
+  border: 2px solid #b386a4;
+}
+
+.specMX5:hover {
+  background-color: #b386a4;
+  color: white;
+}
+
 .noButton {
     border: 2px solid #F44336;
 }
