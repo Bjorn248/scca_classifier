@@ -1,20 +1,39 @@
-const StreetCar = [
-  'stockInterior',
-  'fendersUnmodified',
-  'tires200Treadwear',
-  'wheelsStockWidth',
-  'wheelOffsetPlusMinus7Inches',
-  'wheelDiameterPlusMinus1Inch',
-  'stockNumberOfWheelBoltsOrStuds',
-  'shocksAtMost2Way',
-  'suspensionGeometryAltered',
-  'hasStandardBrakeLinesUnless1992OrOlder',
-  'hasSingleAntiRollBar',
-  'hasStockSprings',
-  'hasStockBushings',
-  'stockECUProgramming',
-  'stockExhaust',
-];
+const carFlags = {
+  "StreetCar": [
+    'stockInterior',
+    'fendersUnmodified',
+    'tires200Treadwear',
+    'wheelsStockWidth',
+    'wheelOffsetPlusMinus7Inches',
+    'wheelDiameterPlusMinus1Inch',
+    'stockNumberOfWheelBoltsOrStuds',
+    'shocksAtMost2Way',
+    'suspensionGeometryAltered',
+    'hasStandardBrakeLinesUnless1992OrOlder',
+    'hasSingleAntiRollBar',
+    'hasStockSprings',
+    'hasStockBushings',
+    'stockECUProgramming',
+    'stockExhaust'
+  ],
+  "StreetTouringCar": [
+    'streetTouringBodywork',
+    'fendersUnmodified',
+    'tires200Treadwear',
+    'wheelsStockWidth',
+    'wheelOffsetPlusMinus7Inches',
+    'wheelDiameterPlusMinus1Inch',
+    'stockNumberOfWheelBoltsOrStuds',
+    'shocksAtMost2Way',
+    'suspensionGeometryAltered',
+    'hasStandardBrakeLinesUnless1992OrOlder',
+    'hasSingleAntiRollBar',
+    'hasStockSprings',
+    'hasStockBushings',
+    'stockECUProgramming',
+    'stockExhaust'
+  ]
+};
 
 function setState(keyName, isTrue) { // eslint-disable-line no-unused-vars
   let url = new URL(window.location.href); // eslint-disable-line prefer-const
@@ -29,35 +48,35 @@ function resetState() { // eslint-disable-line no-unused-vars
   window.location.href = url.split('?')[0];
 }
 
-function evalQueryParams() { // eslint-disable-line no-unused-vars
+function evalQueryParams(className) { // eslint-disable-line no-unused-vars
   const url = new URL(window.location.href);
   /* There are no query strings in the URL so
   we want to display the first question */
   if (url.searchParams.keys().next().done) {
-    const e = document.getElementById(StreetCar[0]);
+    const e = document.getElementById(carFlags[className][0]);
     e.style.display = 'block';
   } else {
     let remainingQuestions = []; // eslint-disable-line prefer-const
-    for (let i = 0; i < StreetCar.length; i++) {
-      if (!url.searchParams.has(StreetCar[i])) {
-        remainingQuestions.push(StreetCar[i]);
+    for (let i = 0; i < carFlags[className].length; i++) {
+      if (!url.searchParams.has(carFlags[className][i])) {
+        remainingQuestions.push(carFlags[className][i]);
       }
     }
     if (remainingQuestions.length != 0) {
       const e = document.getElementById(remainingQuestions[0]);
       e.style.display = 'block';
     } else {
-      checkEligibility(url);
+      checkEligibility(url, className);
     }
   }
 };
 
-function checkEligibility(url) {
+function checkEligibility(url, className) {
   let isEligible = true;
   let failedQuestions = []; // eslint-disable-line prefer-const
-  for (let i=0; i<StreetCar.length; i++) {
-    if (url.searchParams.get(StreetCar[i]) == 'false') {
-      failedQuestions.push(StreetCar[i]);
+  for (let i=0; i<carFlags[className].length; i++) {
+    if (url.searchParams.get(carFlags[className][i]) == 'false') {
+      failedQuestions.push(carFlags[className][i]);
       isEligible = false;
     }
   }
