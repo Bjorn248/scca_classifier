@@ -10,15 +10,26 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <h1 class="center sansserif">Street Class Questionnaire</h1>
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
     <div id="resetButton" class="right">
       <button class="button noButton" onclick="resetState()">Reset</button>
     </div>
   </head>
 
   <body onload="evalQueryParams('StreetCar')">
-    <div id="stockInterior" class="center question">
-      <h2 id="stockInterior" class="sansserif">
-        Is your interior mostly stock and does it meet the requirements below?
+    <div id="makeModelYear" class="center question">
+      <h2 id="makeModelYearQuestion" class="sansserif">
+        Please enter the make, model, and production year of your car.
+      </h2>
+      <button class="button yesButton" onclick="setState('makeModelYear', true)">Yes</button>
+      <button class="button noButton" onclick="setState('makeModelYear', false)">No</button>
+    </div>
+
+    <div id="streetBodywork" class="center question">
+      <h2 id="streetBodywork" class="sansserif">
+        Is your car body mostly stock and does it meet the requirements below?
       </h2>
       <div id="explanation" class="explanation">
         <h3 class="sansserif">
@@ -52,15 +63,43 @@
               fasteners may be removed.
             </li>
             <li>
+              Hood straps or fasteners may be added.
+            </li>
+            <li>
               Roll bars, roll cages, harness bars, and harnesses are permitted, as long as seats are
               not cut to accommodate their installation.
+            </li>
+            <li>
+              Driver restraints as outlined in Section 3.3.1 are allowed. Seats may not
+              be cut to allow for the installation of alternate seat belts or harnesses.
+              Passive restraint systems may disabled but may not be removed. Removeable
+              seat headrests may be repositioned using the original mounting hardware only
+              if the OE components permit it with no modifications. This includes removing a headrest
+              and reinstalling it backwards. A horizontal “harness bar” may be used as part of the
+              installation hardware for allowed driver restraints provided it has no more than 2
+              attachment points to the chassis and is bolted at those locations. A C-type
+              harness bar may also be used. It may have 4 bolted attachment points to
+              the chassis (2 primary and 2 supporting connections to resist rotation).
+              Truss-type harness bars with more than two (2) attachment points are
+              not allowed.
+            </li>
+            <li>
+              Cars may add one rear trailer hitch. The resulting weight addition is
+              allowed. The hitch may serve no other purpose. Factory tie downs and
+              cosmetic pieces (e.g., diffusers) may be modified or removed to facilitate
+              hitch installation. Complete or partial removal of the hitch is
+              allowed for competition, provided it does not result in a reduction in
+              weight compared to the unmodified standard configuration.
+            </li>
+            <li>
+              Tow bar brackets may be installed but may serve no other purpose.
             </li>
           </ul>
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState('stockInterior', true)">Yes</button>
-      <button class="button noButton" onclick="setState('stockInterior', false)">No</button>
+      <button class="button yesButton" onclick="setState('streetBodywork', true)">Yes</button>
+      <button class="button noButton" onclick="setState('streetBodywork', false)">No</button>
     </div>
 
     <div id="fendersUnmodified" class="center question">

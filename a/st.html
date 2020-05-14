@@ -10,6 +10,9 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <h1 class="center sansserif">Street Touring Class Questionnaire</h1>
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
     <div id="resetButton" class="right">
       <button class="button noButton" onclick="resetState()">Reset</button>
     </div>
@@ -153,12 +156,24 @@
       <button class="button noButton" onclick="setState('streetTouringBodywork', false)">No</button>
     </div>
 
-    <div id="fendersUnmodified" class="center question">
-      <h2 id="fendersUnmodifiedQuestion" class="sansserif">
-        Are your fenders unmodified?
+    <div id="stTiresLegal" class="center question">
+      <h2 id="stTiresLegal" class="sansserif">
+        Are your tires legal according to the following restrictions?
+        <h3 class="sansserif">
+          </br>
+          STR (AWD), STS - 225
+          </br>
+          STX (AWD), STH (AWD) - 245
+          </br>
+          STR (2WD) - 255
+          </br>
+          STU (AWD & 2WD mid- or rear-engine), STX (2WD), STH (2WD) - 265
+          </br>
+          STU (2WD front-engine) - 285
+        </h3>
       </h2>
-      <button class="button yesButton" onclick="setState('fendersUnmodified', true)">Yes</button>
-      <button class="button noButton" onclick="setState('fendersUnmodified', false)">No</button>
+      <button class="button yesButton" onclick="setState('stTiresLegal', true)">Yes</button>
+      <button class="button noButton" onclick="setState('stTiresLegal', false)">No</button>
     </div>
 
     <div id="tires200Treadwear" class="center question">

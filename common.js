@@ -1,6 +1,7 @@
 const carFlags = {
   "StreetCar": [
-    'stockInterior',
+    'makeModelYear',
+    'streetBodywork',
     'fendersUnmodified',
     'tires200Treadwear',
     'wheelsStockWidth',
@@ -17,8 +18,9 @@ const carFlags = {
     'stockExhaust'
   ],
   "StreetTouringCar": [
+    'makeModelYear',
     'streetTouringBodywork',
-    'fendersUnmodified',
+    'stTiresLegal',
     'tires200Treadwear',
     'wheelsStockWidth',
     'wheelOffsetPlusMinus7Inches',
