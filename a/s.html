@@ -6,6 +6,7 @@
     <meta name="Description" content="SCCA Solo Classifier Application - Street Car Page">
     <title>SCCA Solo Classification Assistant</title>
     <script src="../common.js"></script>
+    <script src="../carLookup.js"></script>
     <link rel="stylesheet" href="../styles.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -18,13 +19,20 @@
     </div>
   </head>
 
-  <body onload="evalQueryParams('StreetCar')">
+  <body onload="evalQueryParams('StreetCar'); lookupMakeModelYear();">
     <div id="makeModelYear" class="center question">
       <h2 id="makeModelYearQuestion" class="sansserif">
-        Please enter the make, model, and production year of your car.
+        Please choose the make, model, and year of your car.
       </h2>
-      <button class="button yesButton" onclick="setState('makeModelYear', true)">Yes</button>
-      <button class="button noButton" onclick="setState('makeModelYear', false)">No</button>
+      <label for="make" class="sansserif">Make:</label>
+      <select name="make" id="make" onchange="setState('make', this.value); lookupMakeModelYear();">
+      </select>
+      <label for="model" class="sansserif">Model:</label>
+      <select name="model" id="model">
+      </select>
+      <label for="year" class="sansserif">Year:</label>
+      <select name="year" id="year">
+      </select>
     </div>
 
     <div id="streetBodywork" class="center question">

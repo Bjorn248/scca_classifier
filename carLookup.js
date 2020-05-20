@@ -1,4 +1,4 @@
-allCars = {
+const allCars = {
   'Acura': {
     'NSX Alex Zanardi Signature Edition': {
       0: ['A Street (AS)'],
@@ -185,3 +185,48 @@ allCars = {
     },
   },
 };
+
+/**
+ * populates the make, model, and year drop-down lists
+ */
+function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
+  console.log('lookup happening');
+  const url = new URL(window.location.href);
+  const makeSelect = document.getElementById('make');
+  const makeLength = makeSelect.options.length;
+  for (i = makeLength-1; i >= 0; i--) {
+    makeSelect.remove(i);
+  }
+  for (const make of Object.keys(allCars)) {
+    const newMake = document.createElement('option');
+    newMake.text = make;
+    makeSelect.add(newMake);
+  }
+  if (url.searchParams.has('make') && url.searchParams.get('make') in allCars) {
+    const providedMake = url.searchParams.get('make');
+    makeSelect.value = providedMake;
+  }
+  const modelSelect = document.getElementById('model');
+  const modelLength = modelSelect.options.length;
+  for (i = modelLength-1; i >= 0; i--) {
+    modelSelect.remove(i);
+  }
+  for (const model of Object.keys(allCars[makeSelect.value])) {
+    const newModel = document.createElement('option');
+    newModel.text = model;
+    modelSelect.add(newModel);
+  }
+  const yearSelect = document.getElementById('year');
+  const yearLength = yearSelect.options.length;
+  for (i = yearLength-1; i >= 0; i--) {
+    yearSelect.remove(i);
+  }
+  for (var year of Object.keys(allCars[makeSelect.value][modelSelect.value])) { // eslint-disable-line no-var
+    const newYear = document.createElement('option');
+    if (year == 0) {
+      year = 'all';
+    }
+    newYear.text = year;
+    yearSelect.add(newYear);
+  }
+}

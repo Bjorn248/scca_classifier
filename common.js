@@ -1,5 +1,5 @@
 const carFlags = {
-  "StreetCar": [
+  'StreetCar': [
     'makeModelYear',
     'streetBodywork',
     'fendersUnmodified',
@@ -15,9 +15,9 @@ const carFlags = {
     'hasStockSprings',
     'hasStockBushings',
     'stockECUProgramming',
-    'stockExhaust'
+    'stockExhaust',
   ],
-  "StreetTouringCar": [
+  'StreetTouringCar': [
     'makeModelYear',
     'streetTouringBodywork',
     'stTiresLegal',
@@ -33,23 +33,36 @@ const carFlags = {
     'hasStockSprings',
     'hasStockBushings',
     'stockECUProgramming',
-    'stockExhaust'
-  ]
+    'stockExhaust',
+  ],
 };
 
-function setState(keyName, isTrue) { // eslint-disable-line no-unused-vars
+/**
+ * adds a URL parameter to store the answer to a question
+ * @param {string} keyName is the url parameter name
+ * @param {string} value is the url parameter value
+ */
+function setState(keyName, value) { // eslint-disable-line no-unused-vars
   let url = new URL(window.location.href); // eslint-disable-line prefer-const
-  url.searchParams.set(keyName, isTrue);
+  url.searchParams.set(keyName, value);
   window.location.href = url;
   let e = document.getElementById(keyName); // eslint-disable-line prefer-const
   e.style.display = 'none';
 };
 
+/**
+ * clears all URL parameters
+ */
 function resetState() { // eslint-disable-line no-unused-vars
   const url = window.location.href;
   window.location.href = url.split('?')[0];
 }
 
+/**
+ * parses existing URL parameters to determine which questions
+ * should be displayed
+ * @param {string} className the name of the class being evaluated
+ */
 function evalQueryParams(className) { // eslint-disable-line no-unused-vars
   const url = new URL(window.location.href);
   /* There are no query strings in the URL so
@@ -73,6 +86,14 @@ function evalQueryParams(className) { // eslint-disable-line no-unused-vars
   }
 };
 
+/**
+ * checks to see if a car is eligible for a class
+ * based on the answers to the provided questions
+ * @param {string} url the URL containing all the parameters
+ * thus answers to the questions
+ * @param {string} className the class the questions are being
+ * checked against
+ */
 function checkEligibility(url, className) {
   let isEligible = true;
   let failedQuestions = []; // eslint-disable-line prefer-const
