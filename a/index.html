@@ -5,41 +5,170 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Description" content="SCCA Solo Classifier Application - Autocross Starting Page">
     <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
     <link rel="stylesheet" href="../styles.css">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
   </head>
 
-  <body>
-    <div class="center">
-      <h1 class="sansserif">
+  <body onload="lookupMakeModelYear();">
+    <div class="center sansserif">
+      <h1>
         Welcome to the SCCA Solo Classification Assistant!
       </h1>
-      <h3 class="sansserif">
-        Don't know which class you belong to yet? Click 'Start Fresh'
+      <div id="makeModelYear" class="center">
+        <h2 id="makeModelYearQuestion">
+          Please choose the make, model, and year of your car. This will
+          help determine which classes you are eligible for.
+        </h2>
+        <label for="make">Make:</label>
+        <select name="make" id="make" class="select-css" onchange="setState(['make'], [this.value]); lookupMakeModelYear();">
+        </select>
+        <label for="model">Model:</label>
+        <select name="model" id="model" class="select-css" onchange="setState(['model'], [this.value]); lookupMakeModelYear();">
+        </select>
+        <label for="year">Year:</label>
+        <select name="year" id="year" class="select-css" onchange="setState(['year'], [this.value]);">
+        </select>
+        </br>
+        </br>
+        <button class="button yesButton" onclick="setMakeModelYear();">Find Classes</button>
+      </div>
+      <h3>
+        Choose your class below.
       </h3>
-      <button class="button yesButton" onclick="window.location.href = '/a/s.html';">Start Fresh</button>
-      </br>
-      </br>
-      <h3 class="sansserif">
-        You know which class you are targeting. Choose your class below.
-      </h3>
-      <button class="button streetButton" onclick="window.location.href = '/a/s.html';">Street</button>
-      </br>
-      <button class="button streetTouringButton" onclick="window.location.href = '/a/st.html';">Street Touring</button>
-      </br>
-      <button class="button camButton" onclick="window.location.href = '/a/cam.html';">CAM</button>
-      </br>
-      <button class="button xtremeStreetButton" onclick="window.location.href = '/a/xs.html';">Xtreme Street</button>
-      </br>
-      <button class="button streetPreparedButton" onclick="window.location.href = '/a/sp.html';">Street Prepared</button>
-      </br>
-      <button class="button streetModifiedButton" onclick="window.location.href = '/a/sm.html';">Street Modified</button>
-      </br>
-      <button class="button preparedButton" onclick="window.location.href = '/a/p.html';">Prepared</button>
-      </br>
-      <button class="button modifiedButton" onclick="window.location.href = '/a/m.html';">Modified</button>
-      </br>
+      <!--
+        <button class="button streetButton" onclick="window.location.href = '/a/s.html';">Street</button>
+        </br>
+        <button class="button streetTouringButton" onclick="window.location.href = '/a/st.html';">Street Touring</button>
+        </br>
+        <button class="button camButton" onclick="window.location.href = '/a/cam.html';">CAM</button>
+        </br>
+        <button class="button xtremeStreetButton" onclick="window.location.href = '/a/xs.html';">Xtreme Street</button>
+        </br>
+        <button class="button streetPreparedButton" onclick="window.location.href = '/a/sp.html';">Street Prepared</button>
+        </br>
+        <button class="button streetModifiedButton" onclick="window.location.href = '/a/sm.html';">Street Modified</button>
+        </br>
+        <button class="button preparedButton" onclick="window.location.href = '/a/p.html';">Prepared</button>
+        </br>
+        <button class="button modifiedButton" onclick="window.location.href = '/a/m.html';">Modified</button>
+        </br>
+      -->
+      <div class="classesTable">
+        <table>
+          <tr>
+            <th>Street</th>
+            <th>Street Touring</th>
+            <th>Classic American Muscle (CAM)</th>
+            <th>Xtreme Street</th>
+            <th>Street Prepared</th>
+            <th>Street Modified</th>
+            <th>Prepared</th>
+            <th>Modified</th>
+          </tr>
+          <tr>
+            <td>Super Street (SS)</td>
+            <td>Street Touring Ultra (STU)</td>
+            <td>Classic American Muscle Contemporary (CAM C)</td>
+            <td>Xtreme Street A (XSA)</td>
+            <td>Super Street Prepared (SSP)</td>
+            <td>Super Street Modified (SSM)</td>
+            <td>X Prepared (XP)</td>
+            <td>A Modified (AM)</td>
+          </tr>
+          <tr>
+            <td>A Street (AS)</td>
+            <td>Street Touring Roadster (STR)</td>
+            <td>Classic American Muscle Traditional (CAM T)</td>
+            <td>Xtreme Street B (XSB)</td>
+            <td>A Street Prepared (ASP)</td>
+            <td>Street Modified (SM)</td>
+            <td>C Prepared (CP)</td>
+            <td>B Modified (BM)</td>
+          </tr>
+          <tr>
+            <td>B Street (BS)</td>
+            <td>Street Touring Xtreme (STX)</td>
+            <td>Classic American Muscle Sports (CAM S)</td>
+            <td></td>
+            <td>B Street Prepared (BSP)</td>
+            <td>Street Modified Front-Wheel-Drive (SMF)</td>
+            <td>D Prepared (DP)</td>
+            <td>C Modified (CM)</td>
+          </tr>
+          <tr>
+            <td>C Street (CS)</td>
+            <td>Street Touring Sport (STS)</td>
+            <td></td>
+            <td></td>
+            <td>C Street Prepared (CSP)</td>
+            <td></td>
+            <td>E Prepared (EP)</td>
+            <td>D Modified (DM)</td>
+          </tr>
+          <tr>
+            <td>D Street (DS)</td>
+            <td>Street Touring Hatchback (STH)</td>
+            <td></td>
+            <td></td>
+            <td>D Street Prepared (DSP)</td>
+            <td></td>
+            <td>F Prepared (FP)</td>
+            <td>E Modified (EM)</td>
+          </tr>
+          <tr>
+            <td>E Street (ES)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>E Street Prepared (ESP)</td>
+            <td></td>
+            <td></td>
+            <td>F Modified (FM)</td>
+          </tr>
+          <tr>
+            <td>F Street (FS)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>F Street Prepared (FSP)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>G Street (GS)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>H Street (HS)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Super Street-R (SSR)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
     </div>
   </body>
 </html>

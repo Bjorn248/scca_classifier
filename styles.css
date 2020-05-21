@@ -380,3 +380,25 @@
 .select-css:disabled:hover, .select-css[aria-disabled=true] {
   border-color: #aaa;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border-spacing: 0;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 15px;
+}
+
+td:hover {
+  background-color: #ddd;
+}
+
+.classesTable {
+  overflow-x: auto;
+}

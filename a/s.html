@@ -19,24 +19,6 @@
   </head>
 
   <body onload="evalQueryParams('StreetCar'); lookupMakeModelYear();">
-    <div id="makeModelYear" class="center question">
-      <h2 id="makeModelYearQuestion" class="sansserif">
-        Please choose the make, model, and year of your car.
-      </h2>
-      <label for="make" class="sansserif">Make:</label>
-      <select name="make" id="make" class="select-css" onchange="setState(['make'], [this.value]); lookupMakeModelYear();">
-      </select>
-      <label for="model" class="sansserif">Model:</label>
-      <select name="model" id="model" class="select-css" onchange="setState(['model'], [this.value]); lookupMakeModelYear();">
-      </select>
-      <label for="year" class="sansserif">Year:</label>
-      <select name="year" id="year" class="select-css" onchange="setState(['year'], [this.value]);">
-      </select>
-      </br>
-      </br>
-      <button class="button yesButton" onclick="setMakeModelYear();">Submit</button>
-    </div>
-
     <div id="streetBodywork" class="center question">
       <h2 id="streetBodywork" class="sansserif">
         Is your car body mostly stock and does it meet the requirements below?
