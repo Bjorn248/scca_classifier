@@ -6,6 +6,7 @@
     <meta name="Description" content="SCCA Solo Classifier Application - Street Touring Car Page">
     <title>SCCA Solo Classification Assistant</title>
     <script src="../common.js"></script>
+    <script src="../carLookup.js"></script>
     <link rel="stylesheet" href="../styles.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -18,7 +19,25 @@
     </div>
   </head>
 
-  <body onload="evalQueryParams('StreetTouringCar')">
+  <body onload="evalQueryParams('StreetTouringCar'); lookupMakeModelYear();">
+    <div id="makeModelYear" class="center question">
+      <h2 id="makeModelYearQuestion" class="sansserif">
+        Please choose the make, model, and year of your car.
+      </h2>
+      <label for="make" class="sansserif">Make:</label>
+      <select name="make" id="make" class="select-css" onchange="setState('make', this.value); lookupMakeModelYear();">
+      </select>
+      <label for="model" class="sansserif">Model:</label>
+      <select name="model" id="model" class="select-css" onchange="setState('model', this.value); lookupMakeModelYear();">
+      </select>
+      <label for="year" class="sansserif">Year:</label>
+      <select name="year" id="year" class="select-css" onchange="setState('year', this.value);">
+      </select>
+      </br>
+      </br>
+      <button class="button yesButton" onclick="setState('makeModelYear', true)">Submit</button>
+    </div>
+
     <div id="streetTouringBodywork" class="center question">
       <h2 id="streetTouringBodywork" class="sansserif">
         Does your car meet the body work limitations defined below?

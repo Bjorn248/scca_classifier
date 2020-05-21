@@ -190,8 +190,8 @@ const allCars = {
  * populates the make, model, and year drop-down lists
  */
 function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
-  console.log('lookup happening');
   const url = new URL(window.location.href);
+
   const makeSelect = document.getElementById('make');
   const makeLength = makeSelect.options.length;
   for (i = makeLength-1; i >= 0; i--) {
@@ -206,6 +206,7 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     const providedMake = url.searchParams.get('make');
     makeSelect.value = providedMake;
   }
+
   const modelSelect = document.getElementById('model');
   const modelLength = modelSelect.options.length;
   for (i = modelLength-1; i >= 0; i--) {
@@ -216,6 +217,11 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     newModel.text = model;
     modelSelect.add(newModel);
   }
+  if (url.searchParams.has('model') && url.searchParams.get('model') in allCars[makeSelect.value]) {
+    const providedModel = url.searchParams.get('model');
+    modelSelect.value = providedModel;
+  }
+
   const yearSelect = document.getElementById('year');
   const yearLength = yearSelect.options.length;
   for (i = yearLength-1; i >= 0; i--) {
@@ -228,5 +234,9 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     }
     newYear.text = year;
     yearSelect.add(newYear);
+  }
+  if (url.searchParams.has('year') && url.searchParams.get('year') in allCars[makeSelect.value][modelSelect.value]) {
+    const providedYear = url.searchParams.get('year');
+    yearSelect.value = providedYear;
   }
 }
