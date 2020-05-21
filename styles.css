@@ -293,6 +293,11 @@
   font-weight: bold;
 }
 
+.specificClass {
+  color: #000000;
+  font-weight: bold;
+}
+
 .notEligible {
   display: none;
   color: #F44336;
