@@ -399,6 +399,12 @@ td:hover {
   background-color: #ddd;
 }
 
-.classesTable {
+.classesTable a {
   overflow-x: auto;
+  display:block;
+  text-decoration:none;
+}
+
+.highlighted {
+  background-color: #7FFFD4;
 }

@@ -37,193 +37,253 @@ const carFlags = {
   ],
 };
 
+/*
+ * this maps the friendly subclass names
+ * to the html id tag names
+ */
+const subclassMap = {
+  'ss': 'Super Street (SS)',
+  'as': 'A Street (AS)',
+  'bs': 'B Street (BS)',
+  'cs': 'C Street (CS)',
+  'ds': 'D Street (DS)',
+  'es': 'E Street (ES)',
+  'fs': 'F Street (FS)',
+  'gs': 'G Street (GS)',
+  'hs': 'H Street (HS)',
+  'ssr': 'Super Street R (SSR)',
+  'ssc': 'Solo Spec Coupe (SSC)',
+  'stu': 'Street Touring Ultra (STU)',
+  'str': 'Street Touring Roadster (STR)',
+  'stx': 'Street Touring Xtreme (STX)',
+  'sts': 'Street Touring Sport (STS)',
+  'sth': 'Street Touring Hatchback (STH)',
+  'camc': 'Classic American Muscle Contemporary (CAM C)',
+  'camt': 'Classic American Muscle Traditional (CAM T)',
+  'cams': 'Classic American Muscle Sports (CAM S)',
+  'xsa': 'Xtreme Street A (XSA)',
+  'xsb': 'Xtreme Street B (XSB)',
+  'ssp': 'Super Street Prepared (SSP)',
+  'asp': 'A Street Prepared (ASP)',
+  'bsp': 'B Street Prepared (BSP)',
+  'csp': 'C Street Prepared (CSP)',
+  'dsp': 'D Street Prepared (DSP)',
+  'esp': 'E Street Prepared (ESP)',
+  'fsp': 'F Street Prepared (FSP)',
+  'ssm': 'Super Street Modified (SSM)',
+  'sm': 'Street Modified (SM)',
+  'smf': 'Street Modified Front-Wheel-Drive (SMF)',
+  'xp': 'X Prepared (XP)',
+  'cp': 'C Prepared (CP)',
+  'dp': 'D Prepared (DP)',
+  'ep': 'E Prepared (EP)',
+  'fp': 'F Prepared (FP)',
+  'am': 'A Modified (AM)',
+  'bm': 'B Modified (BM)',
+  'cm': 'C Modified (CM)',
+  'dm': 'D Modified (DM)',
+  'em': 'E Modified (EM)',
+  'fm': 'F Modified (FM)',
+};
+
 const allCars = {
   'Acura': {
     'NSX Alex Zanardi Signature Edition': {
-      0: ['A Street (AS)'],
+      'all': ['as'],
     },
     'NSX': {
-      1990: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      1991: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      1992: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      1993: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      1994: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      1995: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      1996: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      1997: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      1998: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      1999: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      2000: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      2001: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      2002: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      2003: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      2004: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      2005: ['B Street (BS)', 'A Street Prepared (ASP)', 'F Prepared (FP)'],
-      2016: ['Super Street (SS)', 'Super Street Prepared (SSP)'],
-      2017: ['Super Street (SS)', 'Super Street Prepared (SSP)'],
-      2018: ['Super Street (SS)', 'Super Street Prepared (SSP)'],
-      2019: ['Super Street (SS)', 'Super Street Prepared (SSP)'],
-      2020: ['Super Street (SS)', 'Super Street Prepared (SSP)'],
+      '1990': ['bs', 'asp', 'fp'],
+      '1991': ['bs', 'asp', 'fp'],
+      '1992': ['bs', 'asp', 'fp'],
+      '1993': ['bs', 'asp', 'fp'],
+      '1994': ['bs', 'asp', 'fp'],
+      '1995': ['bs', 'asp', 'fp'],
+      '1996': ['bs', 'asp', 'fp'],
+      '1997': ['bs', 'asp', 'fp'],
+      '1998': ['bs', 'asp', 'fp'],
+      '1999': ['bs', 'asp', 'fp'],
+      '2000': ['bs', 'asp', 'fp'],
+      '2001': ['bs', 'asp', 'fp'],
+      '2002': ['bs', 'asp', 'fp'],
+      '2003': ['bs', 'asp', 'fp'],
+      '2004': ['bs', 'asp', 'fp'],
+      '2005': ['bs', 'asp', 'fp'],
+      '2016': ['ss', 'ssp'],
+      '2017': ['ss', 'ssp'],
+      '2018': ['ss', 'ssp'],
+      '2019': ['ss', 'ssp'],
+      '2020': ['ss', 'ssp'],
     },
     'Integra Type R': {
-      0: ['D Street (DS)', 'Street Touring Xtreme (STX)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
+      'all': ['ds', 'stx', 'dsp', 'ep'],
     },
     'RLX': {
-      0: ['G Street (GS)'],
+      'all': ['gs'],
     },
     'TLX': {
-      0: ['G Street (GS)'],
+      'all': ['gs'],
     },
     'CL (all)': {
-      0: ['H Street (HS)'],
+      'all': ['hs'],
     },
     'ILX': {
-      2012: ['H Street (HS)'],
-      2013: ['H Street (HS)', 'Street Touring Xtreme (STX)'],
-      2014: ['H Street (HS)', 'Street Touring Xtreme (STX)'],
-      2015: ['H Street (HS)', 'Street Touring Xtreme (STX)'],
-      2016: ['H Street (HS)', 'Street Touring Xtreme (STX)'],
-      2017: ['H Street (HS)', 'Street Touring Xtreme (STX)'],
-      2018: ['H Street (HS)', 'Street Touring Xtreme (STX)'],
-      2019: ['H Street (HS)', 'Street Touring Xtreme (STX)'],
-      2020: ['H Street (HS)', 'Street Touring Xtreme (STX)'],
+      '2012': ['hs'],
+      '2013': ['hs', 'stx'],
+      '2014': ['hs', 'stx'],
+      '2015': ['hs', 'stx'],
+      '2016': ['hs', 'stx'],
+      '2017': ['hs', 'stx'],
+      '2018': ['hs', 'stx'],
+      '2019': ['hs', 'stx'],
+      '2020': ['hs', 'stx'],
     },
     'Integra (all except Type R)': {
-      1986: ['H Street (HS)', 'Street Touring Sport (STS)', 'F Street Prepared (FSP)', 'E Prepared (EP)'],
-      1987: ['H Street (HS)', 'Street Touring Sport (STS)', 'F Street Prepared (FSP)', 'E Prepared (EP)'],
-      1988: ['H Street (HS)', 'Street Touring Sport (STS)', 'F Street Prepared (FSP)', 'E Prepared (EP)'],
-      1989: ['H Street (HS)', 'Street Touring Sport (STS)', 'F Street Prepared (FSP)', 'E Prepared (EP)'],
-      1990: ['H Street (HS)', 'Street Touring Sport (STS)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
-      1991: ['H Street (HS)', 'Street Touring Sport (STS)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
-      1992: ['H Street (HS)', 'Street Touring Sport (STS)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
-      1993: ['H Street (HS)', 'Street Touring Sport (STS)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
-      1994: ['H Street (HS)', 'Street Touring Xtreme (STX)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
-      1995: ['H Street (HS)', 'Street Touring Xtreme (STX)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
-      1996: ['H Street (HS)', 'Street Touring Xtreme (STX)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
-      1997: ['H Street (HS)', 'Street Touring Xtreme (STX)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
-      1998: ['H Street (HS)', 'Street Touring Xtreme (STX)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
-      1999: ['H Street (HS)', 'Street Touring Xtreme (STX)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
-      2000: ['H Street (HS)', 'Street Touring Xtreme (STX)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
-      2001: ['H Street (HS)', 'Street Touring Xtreme (STX)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
+      '1986': ['hs', 'sts', 'fsp', 'ep'],
+      '1987': ['hs', 'sts', 'fsp', 'ep'],
+      '1988': ['hs', 'sts', 'fsp', 'ep'],
+      '1989': ['hs', 'sts', 'fsp', 'ep'],
+      '1990': ['hs', 'sts', 'dsp', 'ep'],
+      '1991': ['hs', 'sts', 'dsp', 'ep'],
+      '1992': ['hs', 'sts', 'dsp', 'ep'],
+      '1993': ['hs', 'sts', 'dsp', 'ep'],
+      '1994': ['hs', 'stx', 'dsp', 'ep'],
+      '1995': ['hs', 'stx', 'dsp', 'ep'],
+      '1996': ['hs', 'stx', 'dsp', 'ep'],
+      '1997': ['hs', 'stx', 'dsp', 'ep'],
+      '1998': ['hs', 'stx', 'dsp', 'ep'],
+      '1999': ['hs', 'stx', 'dsp', 'ep'],
+      '2000': ['hs', 'stx', 'dsp', 'ep'],
+      '2001': ['hs', 'stx', 'dsp', 'ep'],
     },
     'Legend': {
-      0: ['H Street (HS)', 'F Street Prepared (FSP)'],
+      'all': ['hs', 'fsp'],
     },
     'RSX': {
-      0: ['H Street (HS)', 'Street Touring Xtreme (STX)', 'D Street Prepared (DSP)', 'E Prepared (EP)'],
+      'all': ['hs', 'stx', 'dsp', 'ep'],
     },
     'TL': {
-      0: ['H Street (HS)'],
+      'all': ['hs'],
     },
     'TSX': {
-      0: ['H Street (HS)', 'Street Touring Xtreme (STX)', 'D Street Prepared (DSP)'],
+      'all': ['hs', 'stx', 'dsp'],
     },
     'Vigor': {
-      0: ['H Street (HS)'],
+      'all': ['hs'],
     },
   },
   'Alfa Romeo': {
     '4C (incl. Spider)': {
-      2015: ['Super Street (SS)', 'Super Street R (SSR)'],
-      2016: ['Super Street (SS)', 'Super Street R (SSR)'],
-      2017: ['Super Street (SS)', 'Super Street R (SSR)'],
-      2018: ['Super Street (SS)', 'Super Street R (SSR)'],
-      2019: ['Super Street (SS)', 'Super Street R (SSR)'],
-      2020: ['Super Street (SS)', 'Super Street R (SSR)'],
+      '2015': ['ss', 'ssr'],
+      '2016': ['ss', 'ssr'],
+      '2017': ['ss', 'ssr'],
+      '2018': ['ss', 'ssr'],
+      '2019': ['ss', 'ssr'],
+      '2020': ['ss', 'ssr'],
     },
     'Giulia Quadrifoglio': {
-      2017: ['A Street'],
-      2018: ['A Street'],
-      2019: ['A Street'],
-      2020: ['A Street'],
+      '2017': ['as'],
+      '2018': ['as'],
+      '2019': ['as'],
+      '2020': ['as'],
     },
     'Giulia (incl. Ti)': {
-      2016: ['D Street (DS)', 'Street Touring Ultra (STU)'],
-      2017: ['D Street (DS)', 'Street Touring Ultra (STU)'],
-      2018: ['D Street (DS)', 'Street Touring Ultra (STU)'],
-      2019: ['D Street (DS)', 'Street Touring Ultra (STU)'],
-      2020: ['D Street (DS)', 'Street Touring Ultra (STU)'],
+      '2016': ['ds', 'stu'],
+      '2017': ['ds', 'stu'],
+      '2018': ['ds', 'stu'],
+      '2019': ['ds', 'stu'],
+      '2020': ['ds', 'stu'],
     },
     '2000 GTV': {
-      0: ['E Street', 'F Street Prepared (FSP)', 'D Prepared (DP)'],
+      'all': ['es', 'fsp', 'dp'],
     },
     '2000 Spider': {
-      0: ['E Street', 'F Street Prepared (FSP)', 'D Prepared (DP)'],
+      'all': ['es', 'fsp', 'dp'],
     },
     '1300': {
-      0: ['H Street', 'F Street Prepared (FSP)'],
+      'all': ['hs', 'fsp'],
     },
     '1600': {
-      0: ['H Street', 'F Street Prepared (FSP)', 'D Prepared (DP)'],
+      'all': ['hs', 'fsp', 'dp'],
     },
     '164 (non-S)': {
-      1991: ['H Street'],
-      1992: ['H Street'],
-      1993: ['H Street'],
+      '1991': ['hs'],
+      '1992': ['hs'],
+      '1993': ['hs'],
     },
     '1750 & 1750 GTV': {
-      0: ['H Street', 'F Street Prepared (FSP)', 'D Prepared (DP)'],
+      'all': ['hs', 'fsp', 'dp'],
     },
     '2000 (4-door sedan)': {
-      0: ['H Street', 'F Street Prepared (FSP)'],
+      'all': ['hs', 'fsp'],
     },
     'GTV V6': {
-      0: ['H Street', 'D Street Prepared (DSP)', 'F Prepared (FP)'],
+      'all': ['hs', 'dsp', 'fp'],
     },
     'Milano': {
-      0: ['H Street', 'D Street Prepared (DSP)'],
+      'all': ['hs', 'dsp'],
     },
     'Sedan (NOC)': {
-      0: ['H Street'],
+      'all': ['hs'],
     },
     'Sport Sedan': {
-      0: ['D Prepared (DP)'],
+      'all': ['dp'],
     },
     'Alfetta GT': {
-      0: ['F Street Prepared', 'D Prepared (DP)'],
+      'all': ['fsp', 'dp'],
     },
     '1600 GTV': {
-      0: ['D Prepared (DP)'],
+      'all': ['dp'],
     },
     'Giuletta Sprint & Spider (1570 cc)': {
-      0: ['D Prepared (DP)'],
+      'all': ['dp'],
     },
     'Giulia 1300 & 1300 Ti': {
-      1964: ['D Prepared (DP)'],
-      1965: ['D Prepared (DP)'],
-      1966: ['D Prepared (DP)'],
-      1967: ['D Prepared (DP)'],
-      1968: ['D Prepared (DP)'],
-      1969: ['D Prepared (DP)'],
-      1970: ['D Prepared (DP)'],
-      1971: ['D Prepared (DP)'],
+      '1964': ['dp'],
+      '1965': ['dp'],
+      '1966': ['dp'],
+      '1967': ['dp'],
+      '1968': ['dp'],
+      '1969': ['dp'],
+      '1970': ['dp'],
+      '1971': ['dp'],
     },
     'GT 1300 Junior & GTA Junior': {
-      1966: ['D Prepared (DP)'],
-      1967: ['D Prepared (DP)'],
-      1968: ['D Prepared (DP)'],
-      1969: ['D Prepared (DP)'],
-      1970: ['D Prepared (DP)'],
-      1971: ['D Prepared (DP)'],
-      1972: ['D Prepared (DP)'],
-      1973: ['D Prepared (DP)'],
-      1974: ['D Prepared (DP)'],
-      1975: ['D Prepared (DP)'],
-      1976: ['D Prepared (DP)'],
-      1977: ['D Prepared (DP)'],
+      '1966': ['dp'],
+      '1967': ['dp'],
+      '1968': ['dp'],
+      '1969': ['dp'],
+      '1970': ['dp'],
+      '1971': ['dp'],
+      '1972': ['dp'],
+      '1973': ['dp'],
+      '1974': ['dp'],
+      '1975': ['dp'],
+      '1976': ['dp'],
+      '1977': ['dp'],
     },
     'GTA (bore & stroke: 78mm x 67.5mm)': {
-      0: ['D Prepared (DP)'],
+      'all': ['dp'],
     },
     'Junior Z': {
-      0: ['D Prepared (DP)'],
+      'all': ['dp'],
     },
     'Spider Duetto 1750 Spider Veloce (1779 cc)': {
-      1969: ['D Prepared (DP)'],
-      1970: ['D Prepared (DP)'],
+      '1969': ['dp'],
+      '1970': ['dp'],
     },
   },
 };
+
+/**
+ * populates the subclass table
+ */
+function populateSubclasses() {
+  for (let classAcronym in subclassMap) {
+    let id = classAcronym.concat("-a");
+    aSelect = document.getElementById(id);
+    aSelect.text = subclassMap[classAcronym];
+  }
+}
 
 /**
  * populates the make, model, and year drop-down lists
@@ -242,7 +302,7 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     makeSelect.add(newMake);
   }
   if (url.searchParams.has('make') && url.searchParams.get('make') in allCars) {
-    const providedMake = url.searchParams.get('make');
+    let providedMake = url.searchParams.get('make');
     makeSelect.value = providedMake;
   }
 
@@ -257,7 +317,7 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     modelSelect.add(newModel);
   }
   if (url.searchParams.has('model') && url.searchParams.get('model') in allCars[makeSelect.value]) {
-    const providedModel = url.searchParams.get('model');
+    let providedModel = url.searchParams.get('model');
     modelSelect.value = providedModel;
   }
 
@@ -275,10 +335,26 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     yearSelect.add(newYear);
   }
   if (url.searchParams.has('year') && url.searchParams.get('year') in allCars[makeSelect.value][modelSelect.value]) {
-    const providedYear = url.searchParams.get('year');
+    let providedYear = url.searchParams.get('year');
     yearSelect.value = providedYear;
   }
 
+  if (url.searchParams.has('make') && url.searchParams.has('model') && url.searchParams.has('year')) {
+    let providedMake = url.searchParams.get('make');
+    let providedModel = url.searchParams.get('model');
+    let providedYear = url.searchParams.get('year');
+    console.log(providedMake);
+    console.log(providedModel);
+    console.log(providedYear);
+
+    subClasses = allCars[providedMake][providedModel][providedYear];
+    console.log(subClasses);
+    for (let i = 0; i < subClasses.length; i++) {
+      console.log(subClasses[i]);
+      let tableElement = document.getElementById(subClasses[i]);
+      tableElement.classList.add("highlighted");
+    }
+  }
 }
 
 /**
@@ -306,10 +382,10 @@ function setState(keyArray, valueArray) { // eslint-disable-line no-unused-vars
 
   for (let i = 0; i < keyArray.length; i++) {
     url.searchParams.set(keyArray[i], valueArray[i]);
+    let e = document.getElementById(keyArray[i]); // eslint-disable-line prefer-const
+    e.style.display = 'none';
   }
   window.location.href = url;
-  let e = document.getElementById(keyName); // eslint-disable-line prefer-const
-  e.style.display = 'none';
 };
 
 /**

@@ -11,7 +11,7 @@
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
   </head>
 
-  <body onload="lookupMakeModelYear();">
+  <body onload="lookupMakeModelYear(); populateSubclasses();">
     <div class="center sansserif">
       <h1>
         Welcome to the SCCA Solo Classification Assistant!
@@ -59,6 +59,7 @@
         <table>
           <tr>
             <th>Street</th>
+            <th>Solo Spec Coupe (SSC)</th>
             <th>Street Touring</th>
             <th>Classic American Muscle (CAM)</th>
             <th>Xtreme Street</th>
@@ -68,87 +69,85 @@
             <th>Modified</th>
           </tr>
           <tr>
-            <td>Super Street (SS)</td>
-            <td>Street Touring Ultra (STU)</td>
-            <td>Classic American Muscle Contemporary (CAM C)</td>
-            <td>Xtreme Street A (XSA)</td>
-            <td>Super Street Prepared (SSP)</td>
-            <td>Super Street Modified (SSM)</td>
-            <td>X Prepared (XP)</td>
-            <td>A Modified (AM)</td>
+            <td id="ss"><a id="ss-a" href="/a/s.html"></a></td>
+            <td id="ssc"><a id="ssc-a" href="/a/ssc.html"></a></td>
+            <td id="stu"><a id="stu-a" href="/a/st.html"></a></td>
+            <td id="camc"><a id="camc-a" href="/a/cam.html"></a></td>
+            <td id="xsa"><a id="xsa-a" href="/a/xs.html"></a></td>
+            <td id="ssp"><a id="ssp-a" href="/a/sp.html"></a></td>
+            <td id="ssm"><a id="ssm-a" href="/a/sm.html"></a></td>
+            <td id="xp"><a id="xp-a" href="/a/p.html"></a></td>
+            <td id="am"><a id="am-a" href="/a/m.html"></a></td>
           </tr>
           <tr>
-            <td>A Street (AS)</td>
-            <td>Street Touring Roadster (STR)</td>
-            <td>Classic American Muscle Traditional (CAM T)</td>
-            <td>Xtreme Street B (XSB)</td>
-            <td>A Street Prepared (ASP)</td>
-            <td>Street Modified (SM)</td>
-            <td>C Prepared (CP)</td>
-            <td>B Modified (BM)</td>
+            <td id="as"><a id="as-a" href="/a/s.html"></a></td>
+            <td></td>
+            <td id="str"><a id="str-a" href="/a/st.html"></a></td>
+            <td id="camt"><a id="camt-a" href="/a/cam.html"></a></td>
+            <td id="xsb"><a id="xsb-a" href="/a/xs.html"></a></td>
+            <td id="asp"><a id="asp-a" href="/a/sp.html"></a></td>
+            <td id="sm"><a id="sm-a" href="/a/sm.html"></a></td>
+            <td id="cp"><a id="cp-a" href="/a/p.html"></a></td>
+            <td id="bm"><a id="bm-a" href="/a/m.html"></a></td>
           </tr>
           <tr>
-            <td>B Street (BS)</td>
-            <td>Street Touring Xtreme (STX)</td>
-            <td>Classic American Muscle Sports (CAM S)</td>
+            <td id='bs'><a id="bs-a" href="/a/s.html"></a></td>
             <td></td>
-            <td>B Street Prepared (BSP)</td>
-            <td>Street Modified Front-Wheel-Drive (SMF)</td>
-            <td>D Prepared (DP)</td>
-            <td>C Modified (CM)</td>
+            <td id='stx'><a id="stx-a" href="/a/st.html"></a></td>
+            <td id='cams'><a id="cams-a" href="/a/cam.html"></a></td>
+            <td></td>
+            <td id='bsp'><a id="bsp-a" href="/a/sp.html"></a></td>
+            <td id='smf'><a id="smf-a" href="/a/sm.html"></a></td>
+            <td id='dp'><a id="dp-a" href="/a/p.html"></a></td>
+            <td id='cm'><a id="cm-a" href="/a/m.html"></a></td>
           </tr>
           <tr>
-            <td>C Street (CS)</td>
-            <td>Street Touring Sport (STS)</td>
+            <td id='cs'><a id="cs-a" href="/a/s.html"></a></td>
+            <td></td>
+            <td id='sts'><a id="sts-a" href="/a/st.html"></a></td>
             <td></td>
             <td></td>
-            <td>C Street Prepared (CSP)</td>
+            <td id='csp'><a id="csp-a" href="/a/sp.html"></a></td>
             <td></td>
-            <td>E Prepared (EP)</td>
-            <td>D Modified (DM)</td>
+            <td id='ep'><a id="ep-a" href="/a/p.html"></a></td>
+            <td id='dm'><a id="dm-a" href="/a/m.html"></a></td>
           </tr>
           <tr>
-            <td>D Street (DS)</td>
-            <td>Street Touring Hatchback (STH)</td>
+            <td id='ds'><a id="ds-a" href="/a/s.html"></a></td>
+            <td></td>
+            <td id='sth'><a id="sth-a" href="/a/st.html"></a></td>
             <td></td>
             <td></td>
-            <td>D Street Prepared (DSP)</td>
+            <td id='dsp'><a id="dsp-a" href="/a/sp.html"></a></td>
             <td></td>
-            <td>F Prepared (FP)</td>
-            <td>E Modified (EM)</td>
+            <td id='fp'><a id="fp-a" href="/a/p.html"></a></td>
+            <td id='em'><a id="em-a" href="/a/m.html"></a></td>
           </tr>
           <tr>
-            <td>E Street (ES)</td>
+            <td id='es'><a id="es-a" href="/a/s.html"></a></td>
             <td></td>
             <td></td>
             <td></td>
-            <td>E Street Prepared (ESP)</td>
+            <td></td>
+            <td id='esp'><a id="esp-a" href="/a/sp.html"></a></td>
             <td></td>
             <td></td>
-            <td>F Modified (FM)</td>
+            <td id='fm'><a id="fm-a" href="/a/fm.html"></a></td>
           </tr>
           <tr>
-            <td>F Street (FS)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>F Street Prepared (FSP)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>G Street (GS)</td>
+            <td id='fs'><a id="fs-a" href="/a/s.html"></a></td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
+            <td id='fsp'><a id="fsp-a" href="/a/sp.html"></a></td>
             <td></td>
             <td></td>
             <td></td>
           </tr>
           <tr>
-            <td>H Street (HS)</td>
+            <td id='gs'><a id="gs-a" href="/a/s.html"></a></td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -158,7 +157,19 @@
             <td></td>
           </tr>
           <tr>
-            <td>Super Street-R (SSR)</td>
+            <td id='hs'><a id="hs-a" href="/a/s.html"></a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td id='ssr'><a id="ssr-a" href="/a/s.html"></a></td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
