@@ -1,6 +1,5 @@
 const carFlags = {
   'StreetCar': [
-    'makeModelYear',
     'streetBodywork',
     'fendersUnmodified',
     'tires200Treadwear',
@@ -18,7 +17,6 @@ const carFlags = {
     'stockExhaust',
   ],
   'StreetTouringCar': [
-    'makeModelYear',
     'streetTouringBodywork',
     'stTiresLegal',
     'tires200Treadwear',
@@ -289,7 +287,6 @@ function populateSubclasses() {
  * populates the make, model, and year drop-down lists
  */
 function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
-  const url = new URL(window.location.href);
 
   const makeSelect = document.getElementById('make');
   const makeLength = makeSelect.options.length;
@@ -301,9 +298,11 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     newMake.text = make;
     makeSelect.add(newMake);
   }
-  if (url.searchParams.has('make') && url.searchParams.get('make') in allCars) {
-    let providedMake = url.searchParams.get('make');
+  if (sessionStorage.getItem('make') in allCars) {
+    let providedMake = sessionStorage.getItem('make');
     makeSelect.value = providedMake;
+  } else {
+    sessionStorage.setItem('make', makeSelect.value);
   }
 
   const modelSelect = document.getElementById('model');
@@ -316,9 +315,11 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     newModel.text = model;
     modelSelect.add(newModel);
   }
-  if (url.searchParams.has('model') && url.searchParams.get('model') in allCars[makeSelect.value]) {
-    let providedModel = url.searchParams.get('model');
+  if (sessionStorage.getItem('model') in allCars[makeSelect.value]) {
+    let providedModel = sessionStorage.getItem('model');
     modelSelect.value = providedModel;
+  } else {
+    sessionStorage.setItem('model', modelSelect.value);
   }
 
   const yearSelect = document.getElementById('year');
@@ -334,23 +335,27 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     newYear.text = year;
     yearSelect.add(newYear);
   }
-  if (url.searchParams.has('year') && url.searchParams.get('year') in allCars[makeSelect.value][modelSelect.value]) {
-    let providedYear = url.searchParams.get('year');
+  if (sessionStorage.getItem('year') in allCars[makeSelect.value][modelSelect.value]) {
+    let providedYear = sessionStorage.getItem('year');
     yearSelect.value = providedYear;
+  } else {
+    sessionStorage.setItem('year', yearSelect.value);
   }
 
-  if (url.searchParams.has('make') && url.searchParams.has('model') && url.searchParams.has('year')) {
-    let providedMake = url.searchParams.get('make');
-    let providedModel = url.searchParams.get('model');
-    let providedYear = url.searchParams.get('year');
-    console.log(providedMake);
-    console.log(providedModel);
-    console.log(providedYear);
+  if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
+    let providedMake = sessionStorage.getItem('make');
+    let providedModel = sessionStorage.getItem('model');
+    let providedYear = sessionStorage.getItem('year');
+
+    let table = document.getElementById('classesTable');
+    for (var i = 0, row; row = table.rows[i]; i++) {
+      for (var j = 0, col; col = row.cells[j]; j++) {
+        col.classList.remove("highlighted");
+      }
+    }
 
     subClasses = allCars[providedMake][providedModel][providedYear];
-    console.log(subClasses);
     for (let i = 0; i < subClasses.length; i++) {
-      console.log(subClasses[i]);
       let tableElement = document.getElementById(subClasses[i]);
       tableElement.classList.add("highlighted");
     }
@@ -358,85 +363,60 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
 }
 
 /**
- * saves make model and year in URL params
- */
-function setMakeModelYear() {
-  let keyArr = ['makeModelYear', 'make', 'model', 'year']
-  let valueArr = [
-    true,
-    document.getElementById('make').value,
-    document.getElementById('model').value,
-    document.getElementById('year').value,
-  ];
-  setState(keyArr, valueArr);
-}
-
-/**
- * Adds one or more URL parameters to store the answer to a question
+ * Adds one or more session storage keys to store the answer to a question
  * The index of each array is used to match the key to the value
- * @param {Array} keyArray is an array of url parameter names
- * @param {Array} valueArray is an array of url parameter values
+ * @param {Array} keyArray is an array of key names
+ * @param {Array} valueArray is an array of values
  */
 function setState(keyArray, valueArray) { // eslint-disable-line no-unused-vars
-  let url = new URL(window.location.href); // eslint-disable-line prefer-const
-
   for (let i = 0; i < keyArray.length; i++) {
-    url.searchParams.set(keyArray[i], valueArray[i]);
-    let e = document.getElementById(keyArray[i]); // eslint-disable-line prefer-const
-    e.style.display = 'none';
+    sessionStorage.setItem(keyArray[i], valueArray[i]);
+    if (keyArray[i] != 'make' && keyArray[i] != 'model' && keyArray[i] != 'year') {
+      let e = document.getElementById(keyArray[i]); // eslint-disable-line prefer-const
+      e.style.display = 'none';
+    }
   }
-  window.location.href = url;
 };
 
 /**
- * clears all URL parameters
+ * clears session storage
  */
 function resetState() { // eslint-disable-line no-unused-vars
-  const url = window.location.href;
-  window.location.href = url.split('?')[0];
+  sessionStorage.clear();
 }
 
 /**
- * parses existing URL parameters to determine which questions
+ * parses session storage to determine which questions
  * should be displayed
  * @param {string} className the name of the class being evaluated
  */
-function evalQueryParams(className) { // eslint-disable-line no-unused-vars
-  const url = new URL(window.location.href);
-  /* There are no query strings in the URL so
-  we want to display the first question */
-  if (url.searchParams.keys().next().done) {
-    const e = document.getElementById(carFlags[className][0]);
+
+function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
+  let remainingQuestions = []; // eslint-disable-line prefer-const
+  for (let i = 0; i < carFlags[className].length; i++) {
+    if (!sessionStorage.getItem(carFlags[className][i])) {
+      remainingQuestions.push(carFlags[className][i]);
+    }
+  }
+  if (remainingQuestions.length != 0) {
+    const e = document.getElementById(remainingQuestions[0]);
     e.style.display = 'block';
   } else {
-    let remainingQuestions = []; // eslint-disable-line prefer-const
-    for (let i = 0; i < carFlags[className].length; i++) {
-      if (!url.searchParams.has(carFlags[className][i])) {
-        remainingQuestions.push(carFlags[className][i]);
-      }
-    }
-    if (remainingQuestions.length != 0) {
-      const e = document.getElementById(remainingQuestions[0]);
-      e.style.display = 'block';
-    } else {
-      checkEligibility(url, className);
-    }
+    checkEligibility(className);
   }
 };
 
 /**
  * checks to see if a car is eligible for a class
  * based on the answers to the provided questions
- * @param {string} url the URL containing all the parameters
- * thus answers to the questions
  * @param {string} className the class the questions are being
  * checked against
  */
-function checkEligibility(url, className) {
+function checkEligibility(className) {
   let isEligible = true;
   let failedQuestions = []; // eslint-disable-line prefer-const
   for (let i=0; i<carFlags[className].length; i++) {
-    if (url.searchParams.get(carFlags[className][i]) == 'false') {
+    if (sessionStorage.getItem(carFlags[className][i]) == 'false') {
       failedQuestions.push(carFlags[className][i]);
       isEligible = false;
     }
@@ -446,7 +426,7 @@ function checkEligibility(url, className) {
     const e = document.getElementById('eligible');
     e.style.display = 'block';
     let specificClass = document.getElementById('specificClass');
-    let possibleClasses = document.createTextNode(allCars[url.searchParams.get('make')][url.searchParams.get('model')][url.searchParams.get('year')]);
+    let possibleClasses = document.createTextNode(allCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')]);
     specificClass.appendChild(possibleClasses);
   } else {
     const e = document.getElementById('notEligible');

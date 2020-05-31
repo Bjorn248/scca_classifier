@@ -28,35 +28,16 @@
         <select name="model" id="model" class="select-css" onchange="setState(['model'], [this.value]); lookupMakeModelYear();">
         </select>
         <label for="year">Year:</label>
-        <select name="year" id="year" class="select-css" onchange="setState(['year'], [this.value]);">
+        <select name="year" id="year" class="select-css" onchange="setState(['year'], [this.value]); lookupMakeModelYear();">
         </select>
         </br>
         </br>
-        <button class="button yesButton" onclick="setMakeModelYear();">Find Classes</button>
       </div>
       <h3>
         Choose your class below.
       </h3>
-      <!--
-        <button class="button streetButton" onclick="window.location.href = '/a/s.html';">Street</button>
-        </br>
-        <button class="button streetTouringButton" onclick="window.location.href = '/a/st.html';">Street Touring</button>
-        </br>
-        <button class="button camButton" onclick="window.location.href = '/a/cam.html';">CAM</button>
-        </br>
-        <button class="button xtremeStreetButton" onclick="window.location.href = '/a/xs.html';">Xtreme Street</button>
-        </br>
-        <button class="button streetPreparedButton" onclick="window.location.href = '/a/sp.html';">Street Prepared</button>
-        </br>
-        <button class="button streetModifiedButton" onclick="window.location.href = '/a/sm.html';">Street Modified</button>
-        </br>
-        <button class="button preparedButton" onclick="window.location.href = '/a/p.html';">Prepared</button>
-        </br>
-        <button class="button modifiedButton" onclick="window.location.href = '/a/m.html';">Modified</button>
-        </br>
-      -->
       <div class="classesTable">
-        <table>
+        <table id="classesTable">
           <tr>
             <th>Street</th>
             <th>Solo Spec Coupe (SSC)</th>
