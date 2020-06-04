@@ -521,8 +521,15 @@ function checkEligibility(className) {
     const e = document.getElementById('eligible');
     e.style.display = 'block';
     let specificClass = document.getElementById('specificClass');
-    let possibleClasses = document.createTextNode(allCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')]);
-    specificClass.appendChild(possibleClasses);
+    let possibleClasses = allCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')];
+    let possibleClassesString = "";
+    for (let i=0; i<possibleClasses.length; i++) {
+      possibleClassesString = possibleClassesString.concat(subclassMap[possibleClasses[i]]);
+      possibleClassesString = possibleClassesString.concat('\n');
+    }
+    console.log(possibleClassesString);
+    let newChild = document.createTextNode(possibleClassesString);
+    specificClass.appendChild(newChild);
   } else {
     const e = document.getElementById('notEligible');
     e.style.display = 'block';

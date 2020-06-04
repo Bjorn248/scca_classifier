@@ -291,11 +291,14 @@
   display: none;
   color: #4CAF50;
   font-weight: bold;
+  text-align: center;
 }
 
 .specificClass {
   color: #000000;
   font-weight: bold;
+  white-space: pre;
+  text-align: center;
 }
 
 .notEligible {
@@ -407,4 +410,9 @@ td:hover {
 
 .highlighted {
   background-color: #7FFFD4;
+}
+
+.possibleClasses {
+  width: 50%;
+  margin: 0 auto;
 }
