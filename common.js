@@ -17,21 +17,21 @@ const carFlags = {
     'stockExhaust',
   ],
   'StreetCarMenu': [
-    'bodyworkMenu',
-    'fendersMenu',
-    'tiresMenu',
-    'wheelWidthMenu',
-    'wheelOffsetMenu',
-    'wheelDiameterMenu',
-    'wheelBoltsMenu',
-    'shocksMenu',
-    'geometryMenu',
-    'brakeLinesMenu',
-    'antiRollBarMenu',
-    'springsMenu',
-    'bushingsMenu',
-    'ecuMenu',
-    'exhaustMenu',
+    'streetBodyworkMenu',
+    'fendersUnmodifiedMenu',
+    'tires200TreadwearMenu',
+    'wheelsStockWidthMenu',
+    'wheelOffsetPlusMinus7InchesMenu',
+    'wheelDiameterPlusMinus1InchMenu',
+    'stockNumberOfWheelBoltsOrStudsMenu',
+    'shocksAtMost2WayMenu',
+    'suspensionGeometryAlteredMenu',
+    'hasStandardBrakeLinesUnless1992OrOlderMenu',
+    'hasSingleAntiRollBarMenu',
+    'hasStockSpringsMenu',
+    'hasStockBushingsMenu',
+    'stockECUProgrammingMenu',
+    'stockExhaustMenu',
   ],
   'StreetTouringCar': [
     'streetTouringBodywork',
@@ -1324,6 +1324,14 @@ function hideItem(id) {
 }
 
 /**
+ * Removes the answer to a question from sessionStorage
+ * @param {String} question is the sessionState key to remove
+ */
+function resetQuestion(question) {
+  sessionStorage.removeItem(question);
+}
+
+/**
  * clears session storage
  */
 function resetState() { // eslint-disable-line no-unused-vars
@@ -1340,6 +1348,7 @@ function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
   let remainingQuestions = []; // eslint-disable-line prefer-const
   let menuName = className.concat("Menu");
   for (let i = 0; i < carFlags[className].length; i++) {
+    hideItem(carFlags[className][i]);
     if (!sessionStorage.getItem(carFlags[className][i])) {
       remainingQuestions.push(carFlags[className][i]);
     }
@@ -1351,6 +1360,8 @@ function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
   if (remainingQuestions.length != 0) {
     const e = document.getElementById(remainingQuestions[0]);
     e.style.display = 'block';
+    const menuElement = document.getElementById(remainingQuestions[0].concat("Menu"));
+    menuElement.style.color = '#f1f1f1';
   } else {
     checkEligibility(className);
   }
@@ -1373,8 +1384,10 @@ function checkEligibility(className) {
   }
 
   if (isEligible) {
-    const e = document.getElementById('eligible');
-    e.style.display = 'block';
+    const notEligibleElement = document.getElementById('notEligible');
+    notEligibleElement.style.display = 'none';
+    const eligibleElement = document.getElementById('eligible');
+    eligibleElement.style.display = 'block';
     let specificClass = document.getElementById('specificClass');
     let possibleClasses = allSoloCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')];
     let possibleClassesString = "";
@@ -1389,8 +1402,10 @@ function checkEligibility(className) {
     let newChild = document.createTextNode(possibleClassesString);
     specificClass.appendChild(newChild);
   } else {
-    const e = document.getElementById('notEligible');
-    e.style.display = 'block';
+    const notEligibleElement = document.getElementById('notEligible');
+    notEligibleElement.style.display = 'block';
+    const eligibleElement = document.getElementById('eligible');
+    eligibleElement.style.display = 'none';
     let questionString = '';
     for (let i=0; i<failedQuestions.length; i++) {
       const question = document.getElementById(failedQuestions[i] + 'Question');

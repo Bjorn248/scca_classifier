@@ -12,21 +12,21 @@
 
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a id='bodyworkMenu' href="#">Bodywork</a>
-      <a id='fendersMenu' href="#">Fenders</a>
-      <a id='tiresMenu' href="#">Tires</a>
-      <a id='wheelWidthMenu' href="#">WheelWidth</a>
-      <a id='wheelOffsetMenu' href="#">WheelOffset</a>
-      <a id='wheelDiameterMenu' href="#">WheelDiameter</a>
-      <a id='wheelBoltsMenu' href="#">WheelBolts</a>
-      <a id='shocksMenu' href="#">Shocks</a>
-      <a id='geometryMenu' href="#">Geometry</a>
-      <a id='brakeLinesMenu' href="#">BrakeLines</a>
-      <a id='antiRollBarMenu' href="#">AntiRollBar</a>
-      <a id='springsMenu' href="#">Springs</a>
-      <a id='bushingsMenu' href="#">Bushings</a>
-      <a id='ecuMenu' href="#">ECU</a>
-      <a id='exhaustMenu' href="#">Exhaust</a>
+      <a id='streetBodyworkMenu' href="#" onclick="resetQuestion('streetBodywork'); evalSessionStorage('StreetCar');">Bodywork</a>
+      <a id='fendersUnmodifiedMenu' href="#" onclick="resetQuestion('fendersUnmodified'); evalSessionStorage('StreetCar');">Fenders</a>
+      <a id='tires200TreadwearMenu' href="#" onclick="resetQuestion('tires200Treadwear'); evalSessionStorage('StreetCar');">Tires</a>
+      <a id='wheelsStockWidthMenu' href="#" onclick="resetQuestion('wheelsStockWidth'); evalSessionStorage('StreetCar');">WheelWidth</a>
+      <a id='wheelOffsetPlusMinus7InchesMenu' href="#" onclick="resetQuestion('wheelOffsetPlusMinus7Inches'); evalSessionStorage('StreetCar');">WheelOffset</a>
+      <a id='wheelDiameterPlusMinus1InchMenu' href="#" onclick="resetQuestion('wheelDiameterPlusMinus1Inch'); evalSessionStorage('StreetCar');">WheelDiameter</a>
+      <a id='stockNumberOfWheelBoltsOrStudsMenu' href="#" onclick="resetQuestion('stockNumberOfWheelBoltsOrStuds'); evalSessionStorage('StreetCar');">WheelBolts</a>
+      <a id='shocksAtMost2WayMenu' href="#" onclick="resetQuestion('shocksAtMost2Way'); evalSessionStorage('StreetCar');">Shocks</a>
+      <a id='suspensionGeometryAlteredMenu' href="#" onclick="resetQuestion('suspensionGeometryAltered'); evalSessionStorage('StreetCar');">Geometry</a>
+      <a id='hasStandardBrakeLinesUnless1992OrOlderMenu' href="#" onclick="resetQuestion('hasStandardBrakeLinesUnless1992OrOlder'); evalSessionStorage('StreetCar');">BrakeLines</a>
+      <a id='hasSingleAntiRollBarMenu' href="#" onclick="resetQuestion('hasSingleAntiRollBar'); evalSessionStorage('StreetCar');">AntiRollBar</a>
+      <a id='hasStockSpringsMenu' href="#" onclick="resetQuestion('hasStockSprings'); evalSessionStorage('StreetCar');">Springs</a>
+      <a id='hasStockBushingsMenu' href="#" onclick="resetQuestion('hasStockBushings'); evalSessionStorage('StreetCar');">Bushings</a>
+      <a id='stockECUProgrammingMenu' href="#" onclick="resetQuestion('stockECUProgramming'); evalSessionStorage('StreetCar');">ECU</a>
+      <a id='stockExhaustMenu' href="#" onclick="resetQuestion('stockExhaust'); evalSessionStorage('StreetCar');">Exhaust</a>
     </div>
 
     <div id="main">
