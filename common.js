@@ -16,6 +16,23 @@ const carFlags = {
     'stockECUProgramming',
     'stockExhaust',
   ],
+  'StreetCarMenu': [
+    'bodyworkMenu',
+    'fendersMenu',
+    'tiresMenu',
+    'wheelWidthMenu',
+    'wheelOffsetMenu',
+    'wheelDiameterMenu',
+    'wheelBoltsMenu',
+    'shocksMenu',
+    'geometryMenu',
+    'brakeLinesMenu',
+    'antiRollBarMenu',
+    'springsMenu',
+    'bushingsMenu',
+    'ecuMenu',
+    'exhaustMenu',
+  ],
   'StreetTouringCar': [
     'streetTouringBodywork',
     'stTiresLegal',
@@ -1294,12 +1311,17 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
 function setState(keyArray, valueArray) { // eslint-disable-line no-unused-vars
   for (let i = 0; i < keyArray.length; i++) {
     sessionStorage.setItem(keyArray[i], valueArray[i]);
-    if (keyArray[i] != 'make' && keyArray[i] != 'model' && keyArray[i] != 'year') {
-      let e = document.getElementById(keyArray[i]); // eslint-disable-line prefer-const
-      e.style.display = 'none';
-    }
   }
 };
+
+/**
+ * Hides an item by setting its display to 'none'
+ * @param {String} id is the id of the html element to hide
+ */
+function hideItem(id) {
+  let e = document.getElementById(id);
+  e.style.display = 'none';
+}
 
 /**
  * clears session storage
@@ -1316,10 +1338,15 @@ function resetState() { // eslint-disable-line no-unused-vars
 
 function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
   let remainingQuestions = []; // eslint-disable-line prefer-const
+  let menuName = className.concat("Menu");
   for (let i = 0; i < carFlags[className].length; i++) {
     if (!sessionStorage.getItem(carFlags[className][i])) {
       remainingQuestions.push(carFlags[className][i]);
     }
+  }
+  if (sessionStorage.getItem('answeredIndex')) {
+    const menuElement = document.getElementById(carFlags[menuName][sessionStorage.getItem('answeredIndex')]);
+    menuElement.style.color = '#818181';
   }
   if (remainingQuestions.length != 0) {
     const e = document.getElementById(remainingQuestions[0]);

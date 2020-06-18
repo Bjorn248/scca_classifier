@@ -12,10 +12,21 @@
 
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
+      <a id='bodyworkMenu' href="#">Bodywork</a>
+      <a id='fendersMenu' href="#">Fenders</a>
+      <a id='tiresMenu' href="#">Tires</a>
+      <a id='wheelWidthMenu' href="#">WheelWidth</a>
+      <a id='wheelOffsetMenu' href="#">WheelOffset</a>
+      <a id='wheelDiameterMenu' href="#">WheelDiameter</a>
+      <a id='wheelBoltsMenu' href="#">WheelBolts</a>
+      <a id='shocksMenu' href="#">Shocks</a>
+      <a id='geometryMenu' href="#">Geometry</a>
+      <a id='brakeLinesMenu' href="#">BrakeLines</a>
+      <a id='antiRollBarMenu' href="#">AntiRollBar</a>
+      <a id='springsMenu' href="#">Springs</a>
+      <a id='bushingsMenu' href="#">Bushings</a>
+      <a id='ecuMenu' href="#">ECU</a>
+      <a id='exhaustMenu' href="#">Exhaust</a>
     </div>
 
     <div id="main">
@@ -104,56 +115,56 @@
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetBodywork'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['streetBodywork'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['streetBodywork', 'answeredIndex'], [true, 0]); hideItem('streetBodywork'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['streetBodywork', 'answeredIndex'], [false, 0]); hideItem('streetBodywork'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="fendersUnmodified" class="center question">
       <h2 id="fendersUnmodifiedQuestion" class="sansserif">
         Are your fenders unmodified?
       </h2>
-      <button class="button yesButton" onclick="setState(['fendersUnmodified'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['fendersUnmodified'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['fendersUnmodified', 'answeredIndex'], [true, 1]); hideItem('fendersUnmodified'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['fendersUnmodified', 'answeredIndex'], [false, 1]); hideItem('fendersUnmodified'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="tires200Treadwear" class="center question">
       <h2 id="tires200TreadwearQuestion" class="sansserif">
         Are your tires 200 treadwear and DOT legal?
       </h2>
-      <button class="button yesButton" onclick="setState(['tires200Treadwear'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['tires200Treadwear'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['tires200Treadwear', 'answeredIndex'], [true, 2]); hideItem('tires200Treadwear'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['tires200Treadwear', 'answeredIndex'], [false, 2]); hideItem('tires200Treadwear'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="wheelsStockWidth" class="center question">
       <h2 id="wheelsStockWidthQuestion" class="sansserif">
         Are your wheels stock width?
       </h2>
-      <button class="button yesButton" onclick="setState(['wheelsStockWidth'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['wheelsStockWidth'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['wheelsStockWidth', 'answeredIndex'], [true, 3]); hideItem('wheelsStockWidth'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['wheelsStockWidth', 'answeredIndex'], [false, 3]); hideItem('wheelsStockWidth'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="wheelOffsetPlusMinus7Inches" class="center question">
       <h2 id="wheelOffsetPlusMinus7InchesQuestion" class="sansserif">
         Is your wheel offset ±7mm (±0.275 in) from a standard wheel for the car?
       </h2>
-      <button class="button yesButton" onclick="setState(['wheelOffsetPlusMinus7Inches'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['wheelOffsetPlusMinus7Inches'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['wheelOffsetPlusMinus7Inches', 'answeredIndex'], [true, 4]); hideItem('wheelOffsetPlusMinus7Inches'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['wheelOffsetPlusMinus7Inches', 'answeredIndex'], [false, 4]); hideItem('wheelOffsetPlusMinus7Inches'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="wheelDiameterPlusMinus1Inch" class="center question">
       <h2 id="wheelDiameterPlusMinus1InchQuestion" class="sansserif">
         Is your wheel diameter ±1 inch from the standard wheel for the car?
       </h2>
-      <button class="button yesButton" onclick="setState(['wheelDiameterPlusMinus1Inch'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['wheelDiameterPlusMinus1Inch'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['wheelDiameterPlusMinus1Inch', 'answeredIndex'], [true, 5]); hideItem('wheelDiameterPlusMinus1Inch'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['wheelDiameterPlusMinus1Inch', 'answeredIndex'], [false, 5]); hideItem('wheelDiameterPlusMinus1Inch'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="stockNumberOfWheelBoltsOrStuds" class="center question">
       <h2 id="stockNumberOfWheelBoltsOrStudsQuestion" class="sansserif">
         Do you have the stock number of wheel bolts or studs?
       </h2>
-      <button class="button yesButton" onclick="setState(['stockNumberOfWheelBoltsOrStuds'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stockNumberOfWheelBoltsOrStuds'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stockNumberOfWheelBoltsOrStuds', 'answeredIndex'], [true, 6]); hideItem('stockNumberOfWheelBoltsOrStuds'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stockNumberOfWheelBoltsOrStuds', 'answeredIndex'], [false, 6]); hideItem('stockNumberOfWheelBoltsOrStuds'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="shocksAtMost2Way" class="center question">
@@ -161,24 +172,24 @@
         Are your shocks at most adjustable in two ways? Cars that have shocks that are more
         adjustable from the factory are permitted.
       </h2>
-      <button class="button yesButton" onclick="setState(['shocksAtMost2Way'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['shocksAtMost2Way'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['shocksAtMost2Way', 'answeredIndex'], [true, 7]); hideItem('shocksAtMost2Way'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['shocksAtMost2Way', 'answeredIndex'], [false, 7]); hideItem('shocksAtMost2Way'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="suspensionGeometryAltered" class="center question">
       <h2 id="suspensionGeometryAlteredQuestion" class="sansserif">
         Is your suspension geometry unmodified?
       </h2>
-      <button class="button yesButton" onclick="setState(['suspensionGeometryAltered'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['suspensionGeometryAltered'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['suspensionGeometryAltered', 'answeredIndex'], [true, 8]); hideItem('suspensionGeometryAltered'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['suspensionGeometryAltered', 'answeredIndex'], [false, 8]); hideItem('suspensionGeometryAltered'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="hasStandardBrakeLinesUnless1992OrOlder" class="center question">
       <h2 id="hasStandardBrakeLinesUnless1992OrOlderQuestion" class="sansserif">
         Are your brake lines stock? If your car is 1992 or older you can have solid/braided lines.
       </h2>
-      <button class="button yesButton" onclick="setState(['hasStandardBrakeLinesUnless1992OrOlder'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['hasStandardBrakeLinesUnless1992OrOlder'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['hasStandardBrakeLinesUnless1992OrOlder', 'answeredIndex'], [true, 9]); hideItem('hasStandardBrakeLinesUnless1992OrOlder'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['hasStandardBrakeLinesUnless1992OrOlder', 'answeredIndex'], [false, 9]); hideItem('hasStandardBrakeLinesUnless1992OrOlder'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="hasSingleAntiRollBar" class="center question">
@@ -190,31 +201,31 @@
         hardware (brackets, endlinks, bushings, etc.) is permitted. The use of any bushing
         material is permitted. A bushing may be implemented as a bearing.
       </h3>
-      <button class="button yesButton" onclick="setState(['hasSingleAntiRollBar'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['hasSingleAntiRollBar'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['hasSingleAntiRollBar', 'answeredIndex'], [true, 10]); hideItem('hasSingleAntiRollBar'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['hasSingleAntiRollBar', 'answeredIndex'], [false, 10]); hideItem('hasSingleAntiRollBar'); evalSessionStorage('StreetCar');">No</button>
     </div>
     <div id="hasStockSprings" class="center question">
       <h2 id="hasStockSpringsQuestion" class="sansserif">
         Does your car have stock springs?
       </h2>
-      <button class="button yesButton" onclick="setState(['hasStockSprings'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['hasStockSprings'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['hasStockSprings', 'answeredIndex'], [true, 11]); hideItem('hasStockSprings'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['hasStockSprings', 'answeredIndex'], [false, 11]); hideItem('hasStockSprings'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="hasStockBushings" class="center question">
       <h2 id="hasStockBushingsQuestion" class="sansserif">
         Does your car have stock bushings?
       </h2>
-      <button class="button yesButton" onclick="setState(['hasStockBushings'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['hasStockBushings'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['hasStockBushings', 'answeredIndex'], [true, 12]); hideItem('hasStockBushings'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['hasStockBushings', 'answeredIndex'], [false, 12]); hideItem('hasStockBushings'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="stockECUProgramming" class="center question">
       <h2 id="stockECUProgrammingQuestion" class="sansserif">
         Does your car have an unmodified electronic engine management system?
       </h2>
-      <button class="button yesButton" onclick="setState(['stockECUProgramming'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stockECUProgramming'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stockECUProgramming', 'answeredIndex'], [true, 13]); hideItem('stockECUProgramming'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stockECUProgramming', 'answeredIndex'], [false, 13]); hideItem('stockECUProgramming'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="stockExhaust" class="center question">
@@ -237,8 +248,8 @@
         which are bolted or welded on the car are considered part of the body and may not be
         changed or removed.
       </h3>
-      <button class="button yesButton" onclick="setState(['stockExhaust'], [true]); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stockExhaust'], [false]); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stockExhaust', 'answeredIndex'], [true, 14]); hideItem('stockExhaust'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stockExhaust', 'answeredIndex'], [false, 14]); hideItem('stockExhaust'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="eligible" class="center eligible">
