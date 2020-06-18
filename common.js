@@ -16,23 +16,6 @@ const carFlags = {
     'stockECUProgramming',
     'stockExhaust',
   ],
-  'StreetCarMenu': [
-    'streetBodyworkMenu',
-    'fendersUnmodifiedMenu',
-    'tires200TreadwearMenu',
-    'wheelsStockWidthMenu',
-    'wheelOffsetPlusMinus7InchesMenu',
-    'wheelDiameterPlusMinus1InchMenu',
-    'stockNumberOfWheelBoltsOrStudsMenu',
-    'shocksAtMost2WayMenu',
-    'suspensionGeometryAlteredMenu',
-    'hasStandardBrakeLinesUnless1992OrOlderMenu',
-    'hasSingleAntiRollBarMenu',
-    'hasStockSpringsMenu',
-    'hasStockBushingsMenu',
-    'stockECUProgrammingMenu',
-    'stockExhaustMenu',
-  ],
   'StreetTouringCar': [
     'streetTouringBodywork',
     'stTiresLegal',
@@ -1346,7 +1329,6 @@ function resetState() { // eslint-disable-line no-unused-vars
 
 function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
   let remainingQuestions = []; // eslint-disable-line prefer-const
-  let menuName = className.concat("Menu");
   for (let i = 0; i < carFlags[className].length; i++) {
     hideItem(carFlags[className][i]);
     if (!sessionStorage.getItem(carFlags[className][i])) {
@@ -1354,7 +1336,7 @@ function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
     }
   }
   if (sessionStorage.getItem('answeredIndex')) {
-    const menuElement = document.getElementById(carFlags[menuName][sessionStorage.getItem('answeredIndex')]);
+    const menuElement = document.getElementById(carFlags[className][sessionStorage.getItem('answeredIndex')].concat("Menu"));
     menuElement.style.color = '#818181';
   }
   if (remainingQuestions.length != 0) {
@@ -1388,19 +1370,24 @@ function checkEligibility(className) {
     notEligibleElement.style.display = 'none';
     const eligibleElement = document.getElementById('eligible');
     eligibleElement.style.display = 'block';
-    let specificClass = document.getElementById('specificClass');
-    let possibleClasses = allSoloCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')];
-    let possibleClassesString = "";
-    for (let i=0; i<possibleClasses.length; i++) {
-      if (i == 0) {
+    if (!document.getElementById('possibleClassesList')) {
+      let newDiv = document.createElement("p");
+      newDiv.setAttribute("id", "possibleClassesList");
+      let specificClass = document.getElementById('possibleClasses');
+      let possibleClasses = allSoloCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')];
+      let possibleClassesString = "";
+      for (let i=0; i<possibleClasses.length; i++) {
+        if (i == 0) {
+          possibleClassesString = possibleClassesString.concat('\n');
+        }
+        possibleClassesString = possibleClassesString.concat(subclassMap[possibleClasses[i]]);
         possibleClassesString = possibleClassesString.concat('\n');
       }
-      possibleClassesString = possibleClassesString.concat(subclassMap[possibleClasses[i]]);
-      possibleClassesString = possibleClassesString.concat('\n');
+      let newChild = document.createTextNode(possibleClassesString);
+      newDiv.appendChild(newChild);
+      console.log(newDiv);
+      specificClass.insertBefore(newDiv, null);
     }
-    console.log(possibleClassesString);
-    let newChild = document.createTextNode(possibleClassesString);
-    specificClass.appendChild(newChild);
   } else {
     const notEligibleElement = document.getElementById('notEligible');
     notEligibleElement.style.display = 'block';
