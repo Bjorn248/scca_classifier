@@ -413,6 +413,7 @@ td:hover {
 }
 
 .possibleClasses {
+  color: #000000;
   width: 50%;
   margin: 0 auto;
 }
@@ -434,7 +435,7 @@ td:hover {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #f1f1f1;
+  color: #ffffff;
   display: block;
   transition: 0.3s;
 }

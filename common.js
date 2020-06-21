@@ -1177,6 +1177,269 @@ const allSoloCars = {
       '2020': ['ds', 'sm'],
     },
   },
+  'Cadillac': {
+    'XLR': {
+      'all': ['ssr', 'as'],
+    },
+    'ATS-V': {
+      '2016': ['bs'],
+      '2017': ['bs'],
+      '2018': ['bs'],
+      '2019': ['bs'],
+    },
+    'ATS (2.0L Turbo)': {
+      '2012': ['ds', 'stu'],
+      '2013': ['ds', 'stu'],
+      '2014': ['ds', 'stu'],
+      '2015': ['ds', 'stu'],
+      '2016': ['ds', 'stu'],
+      '2017': ['ds', 'stu'],
+      '2018': ['ds', 'stu'],
+      '2019': ['ds', 'stu'],
+    },
+    'ATS (3.6L V6)': {
+      'all': ['fs'],
+    },
+    'ATS (2.5L 4-cyl non-turbo)': {
+      '2013': ['gs'],
+      '2014': ['gs'],
+      '2015': ['gs'],
+      '2016': ['gs'],
+    },
+    'CTS (non-V, non-Vsport)': {
+      '2003': ['ds', 'cp'],
+      '2004': ['ds', 'cp'],
+      '2005': ['ds', 'cp'],
+      '2006': ['ds', 'cp'],
+      '2007': ['ds', 'cp'],
+      '2008': ['ds'],
+      '2009': ['ds'],
+      '2010': ['ds'],
+      '2011': ['ds'],
+      '2012': ['ds'],
+      '2013': ['ds'],
+      '2014': ['ds'],
+      '2015': ['ds'],
+      '2016': ['ds'],
+      '2017': ['ds'],
+      '2018': ['ds'],
+      '2019': ['ds'],
+    },
+    'CTS-V & CTS-Vsport': {
+      '2004': ['fs', 'esp', 'cp'],
+      '2005': ['fs', 'esp', 'cp'],
+      '2006': ['fs', 'esp', 'cp'],
+      '2007': ['fs', 'esp', 'cp'],
+      '2008': ['fs'],
+      '2009': ['fs'],
+      '2010': ['fs'],
+      '2011': ['fs'],
+      '2012': ['fs'],
+      '2013': ['fs'],
+      '2014': ['fs'],
+      '2015': ['fs'],
+      '2016': ['fs'],
+      '2017': ['fs'],
+      '2018': ['fs'],
+      '2019': ['fs'],
+    },
+    'ELR': {
+      '2014': ['gs'],
+      '2015': ['gs'],
+      '2016': ['gs'],
+    },
+    'Catera': {
+      'all': ['hs'],
+    },
+  },
+  'Chevrolet': {
+    'Camaro ZL1 1LE': {
+      '2018': ['ss'],
+      '2019': ['ss'],
+      '2020': ['ss'],
+    },
+    'Corvette Grand Sport': {
+      '2017': ['ss'],
+      '2018': ['ss'],
+      '2019': ['ss'],
+    },
+    'Corvette Stingray': {
+      '2014': ['as'],
+      '2015': ['as'],
+      '2016': ['as'],
+      '2017': ['as'],
+      '2018': ['as'],
+      '2019': ['as'],
+      '2020': ['ss'],
+    },
+    'Corvette Z06': {
+      '2001': ['as'],
+      '2002': ['as'],
+      '2003': ['as'],
+      '2004': ['as'],
+      '2015': ['ss'],
+      '2016': ['ss'],
+      '2017': ['ss'],
+      '2018': ['ss'],
+      '2019': ['ss'],
+    },
+    'Corvette ZR1': {
+      '2009': ['ss'],
+      '2010': ['ss'],
+      '2011': ['ss'],
+      '2012': ['ss'],
+      '2013': ['ss'],
+    },
+    'Camaro Z28': {
+      '2014': ['as'],
+      '2015': ['as'],
+    },
+    'Camaro ZL1 (non-1LE)': {
+      '2012': ['as'],
+      '2013': ['as'],
+      '2014': ['as'],
+      '2015': ['as'],
+      '2017': ['as'],
+      '2018': ['as'],
+      '2019': ['as'],
+      '2020': ['as'],
+    },
+    'Corvette (C6, non-ZR1)': {
+      '2005': ['as'],
+      '2006': ['as'],
+      '2007': ['as'],
+      '2008': ['as'],
+      '2009': ['as'],
+      '2010': ['as'],
+      '2011': ['as'],
+      '2012': ['as'],
+      '2013': ['as'],
+    },
+    'Camaro SS 1LE': {
+      '1998': ['fs'],
+      '1999': ['fs'],
+      '2000': ['fs'],
+      '2001': ['fs'],
+      '2002': ['fs'],
+      '2010': ['fs'],
+      '2011': ['fs'],
+      '2012': ['fs'],
+      '2013': ['fs'],
+      '2014': ['fs'],
+      '2015': ['fs'],
+      '2017': ['bs'],
+      '2018': ['bs'],
+      '2019': ['bs'],
+      '2020': ['bs'],
+    },
+    'Camaro SS (non-1LE)': {
+      '2016': ['fs'],
+      '2017': ['fs'],
+      '2018': ['fs'],
+      '2019': ['fs'],
+      '2020': ['fs'],
+    },
+    'Corvette (C5, non-Z06)': {
+      '1997': ['bs'],
+      '1998': ['bs'],
+      '1999': ['bs'],
+      '2000': ['bs'],
+      '2001': ['bs'],
+      '2002': ['bs'],
+      '2003': ['bs'],
+      '2004': ['bs'],
+    },
+    'Corvette (C4, all)': {
+      '1984': ['bs'],
+      '1985': ['bs'],
+      '1986': ['bs'],
+      '1987': ['bs'],
+      '1988': ['bs'],
+      '1989': ['bs'],
+      '1990': ['bs'],
+      '1991': ['bs'],
+      '1992': ['bs'],
+      '1993': ['bs'],
+      '1994': ['bs'],
+      '1995': ['bs'],
+      '1996': ['bs'],
+    },
+    'Corvette': {
+      '1953': ['fs'],
+      '1954': ['fs'],
+      '1955': ['fs'],
+      '1956': ['fs'],
+      '1957': ['fs'],
+      '1958': ['fs'],
+      '1959': ['fs'],
+      '1960': ['fs'],
+      '1961': ['fs'],
+      '1962': ['fs'],
+      '1963': ['cs'],
+      '1964': ['cs'],
+      '1965': ['cs'],
+      '1966': ['cs'],
+      '1967': ['cs'],
+      '1968': ['cs'],
+      '1969': ['cs'],
+      '1970': ['cs'],
+      '1971': ['cs'],
+      '1972': ['cs'],
+      '1973': ['cs'],
+      '1974': ['cs'],
+      '1975': ['cs'],
+      '1976': ['cs'],
+      '1977': ['cs'],
+      '1978': ['cs'],
+      '1979': ['cs'],
+      '1980': ['cs'],
+      '1981': ['cs'],
+      '1982': ['cs'],
+    },
+    'Camaro LS & LT (2.0L Turbo; incl. 1LE)': {
+      '2016': ['ds'],
+      '2017': ['ds'],
+      '2018': ['ds'],
+      '2019': ['ds'],
+      '2020': ['ds'],
+    },
+    'Camaro (V6)': {
+      '2010': ['ds'],
+      '2011': ['ds'],
+      '2012': ['ds'],
+      '2013': ['ds'],
+      '2014': ['ds'],
+      '2015': ['ds'],
+    },
+    'Cobalt SS (2.0L Turbo)': {
+      '2008': ['ds'],
+      '2009': ['ds'],
+      '2010': ['ds'],
+    },
+    'Camaro (V8 non-supercharged, not otherwise classified)': {
+      'all': ['fs'],
+    },
+    'Camaro V6 1LE': {
+      '2017': ['fs'],
+      '2018': ['fs'],
+      '2019': ['fs'],
+      '2020': ['fs'],
+    },
+    'Camaro (V6 & V8; excl. SS 1LE, ZL1, Suspension Lowering Kit, and Brembo® 6-piston Front Brake Kit)': {
+      '2016': ['fs'],
+      '2017': ['fs'],
+      '2018': ['fs'],
+      '2019': ['fs'],
+      '2020': ['fs'],
+    },
+    'SS Sedan': {
+      '2013': ['fs'],
+      '2014': ['fs'],
+      '2015': ['fs'],
+      '2016': ['fs'],
+      '2017': ['fs'],
+    },
+  },
 };
 
 /**
@@ -1337,7 +1600,13 @@ function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
   }
   if (sessionStorage.getItem('answeredIndex')) {
     const menuElement = document.getElementById(carFlags[className][sessionStorage.getItem('answeredIndex')].concat("Menu"));
-    menuElement.style.color = '#818181';
+    menuElement.style.color = '#000000';
+    if (sessionStorage.getItem(carFlags[className][sessionStorage.getItem('answeredIndex')]) == "true") {
+      menuElement.style.backgroundColor = '#4caf50';
+    } else {
+      menuElement.style.backgroundColor = '#f44336';
+    }
+
   }
   if (remainingQuestions.length != 0) {
     const e = document.getElementById(remainingQuestions[0]);
@@ -1371,9 +1640,9 @@ function checkEligibility(className) {
     const eligibleElement = document.getElementById('eligible');
     eligibleElement.style.display = 'block';
     if (!document.getElementById('possibleClassesList')) {
-      let newDiv = document.createElement("p");
+      let newDiv = document.createElement("div");
       newDiv.setAttribute("id", "possibleClassesList");
-      let specificClass = document.getElementById('possibleClasses');
+      let specificClass = document.getElementById('specificClass');
       let possibleClasses = allSoloCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')];
       let possibleClassesString = "";
       for (let i=0; i<possibleClasses.length; i++) {
@@ -1385,7 +1654,6 @@ function checkEligibility(className) {
       }
       let newChild = document.createTextNode(possibleClassesString);
       newDiv.appendChild(newChild);
-      console.log(newDiv);
       specificClass.insertBefore(newDiv, null);
     }
   } else {
