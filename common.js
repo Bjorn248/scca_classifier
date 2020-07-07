@@ -1259,12 +1259,12 @@ const allSoloCars = {
       '2020': ['ss'],
     },
     'Corvette Grand Sport': {
-      '2017': ['ss'],
-      '2018': ['ss'],
-      '2019': ['ss'],
+      '2017': ['ss', 'ssr'],
+      '2018': ['ss', 'ssr'],
+      '2019': ['ss', 'ssr'],
     },
     'Corvette Stingray': {
-      '2014': ['as'],
+      '2014': ['as', 'ssr'],
       '2015': ['as'],
       '2016': ['as'],
       '2017': ['as'],
@@ -1273,10 +1273,10 @@ const allSoloCars = {
       '2020': ['ss'],
     },
     'Corvette Z06': {
-      '2001': ['as'],
-      '2002': ['as'],
-      '2003': ['as'],
-      '2004': ['as'],
+      '2001': ['as', 'ssr'],
+      '2002': ['as', 'ssr'],
+      '2003': ['as', 'ssr'],
+      '2004': ['as', 'ssr'],
       '2015': ['ss'],
       '2016': ['ss'],
       '2017': ['ss'],
@@ -1291,29 +1291,29 @@ const allSoloCars = {
       '2013': ['ss'],
     },
     'Camaro Z28': {
-      '2014': ['as'],
-      '2015': ['as'],
+      '2014': ['as', 'ssr'],
+      '2015': ['as', 'ssr'],
     },
     'Camaro ZL1 (non-1LE)': {
-      '2012': ['as'],
-      '2013': ['as'],
-      '2014': ['as'],
-      '2015': ['as'],
-      '2017': ['as'],
-      '2018': ['as'],
-      '2019': ['as'],
-      '2020': ['as'],
+      '2012': ['as', 'ssr'],
+      '2013': ['as', 'ssr'],
+      '2014': ['as', 'ssr'],
+      '2015': ['as', 'ssr'],
+      '2017': ['as', 'ssr'],
+      '2018': ['as', 'ssr'],
+      '2019': ['as', 'ssr'],
+      '2020': ['as', 'ssr'],
     },
     'Corvette (C6, non-ZR1)': {
-      '2005': ['as'],
-      '2006': ['as'],
-      '2007': ['as'],
-      '2008': ['as'],
-      '2009': ['as'],
-      '2010': ['as'],
-      '2011': ['as'],
-      '2012': ['as'],
-      '2013': ['as'],
+      '2005': ['as', 'ssr'],
+      '2006': ['as', 'ssr'],
+      '2007': ['as', 'ssr'],
+      '2008': ['as', 'ssr'],
+      '2009': ['as', 'ssr'],
+      '2010': ['as', 'ssr'],
+      '2011': ['as', 'ssr'],
+      '2012': ['as', 'ssr'],
+      '2013': ['as', 'ssr'],
     },
     'Camaro SS 1LE': {
       '1998': ['fs'],
@@ -1327,10 +1327,10 @@ const allSoloCars = {
       '2013': ['fs'],
       '2014': ['fs'],
       '2015': ['fs'],
-      '2017': ['bs'],
-      '2018': ['bs'],
-      '2019': ['bs'],
-      '2020': ['bs'],
+      '2017': ['bs', 'ssr'],
+      '2018': ['bs', 'ssr'],
+      '2019': ['bs', 'ssr'],
+      '2020': ['bs', 'ssr'],
     },
     'Camaro SS (non-1LE)': {
       '2016': ['fs'],
@@ -1439,6 +1439,146 @@ const allSoloCars = {
       '2016': ['fs'],
       '2017': ['fs'],
     },
+    'Cobalt SS (2.0L SC)': {
+      '2005': ['gs'],
+      '2006': ['gs'],
+      '2007': ['gs'],
+    },
+    'Malibu (all)': {
+      '2008': ['gs'],
+      '2009': ['gs'],
+      '2010': ['gs'],
+      '2011': ['gs'],
+      '2012': ['gs'],
+      '2013': ['gs'],
+      '2014': ['gs'],
+      '2015': ['gs'],
+      '2016': ['gs'],
+      '2017': ['gs'],
+      '2018': ['gs'],
+      '2019': ['gs'],
+      '2020': ['gs'],
+    },
+    'Aveo': {
+      'all': ['hs'],
+    },
+    'Beretta (NOC)': {
+      'all': ['hs'],
+    },
+    'Bolt': {
+      'all': ['hs'],
+    },
+    'Camaro (4-cyl & 6-cyl)': {
+      '1967': ['hs'],
+      '1968': ['hs'],
+      '1969': ['hs'],
+      '1970': ['hs'],
+      '1971': ['hs'],
+      '1972': ['hs'],
+      '1973': ['hs'],
+      '1974': ['hs'],
+      '1975': ['hs'],
+      '1976': ['hs'],
+      '1977': ['hs'],
+      '1978': ['hs'],
+      '1979': ['hs'],
+      '1980': ['hs'],
+      '1981': ['hs'],
+      '1982': ['hs'],
+      '1983': ['hs'],
+      '1984': ['hs'],
+      '1985': ['hs'],
+      '1986': ['hs'],
+      '1987': ['hs'],
+      '1988': ['hs'],
+      '1989': ['hs'],
+      '1990': ['hs'],
+      '1991': ['hs'],
+      '1992': ['hs'],
+      '1993': ['hs'],
+      '1994': ['hs'],
+      '1995': ['hs'],
+      '1996': ['hs'],
+      '1997': ['hs'],
+      '1998': ['hs'],
+      '1999': ['hs'],
+      '2000': ['hs'],
+      '2001': ['hs'],
+      '2002': ['hs'],
+    },
+    'Chevette': {
+      'all': ['hs'],
+    },
+    'Cobalt (all, non-turbo)': {
+      '2005': ['hs'],
+      '2006': ['hs'],
+      '2007': ['hs'],
+      '2008': ['hs'],
+      '2009': ['hs'],
+      '2010': ['hs'],
+    },
+    'Corvair (all)': {
+      'all': ['hs'],
+    },
+    'Cruze': {
+      'all': ['hs'],
+    },
+    'Nova (FWD)': {
+      '1986': ['hs'],
+      '1987': ['hs'],
+      '1988': ['hs'],
+    },
+    'Nova (RWD 4-cyl & 6-cyl)': {
+      '1962': ['hs'],
+      '1963': ['hs'],
+      '1964': ['hs'],
+      '1965': ['hs'],
+      '1966': ['hs'],
+      '1967': ['hs'],
+      '1968': ['hs'],
+      '1969': ['hs'],
+      '1970': ['hs'],
+      '1971': ['hs'],
+      '1972': ['hs'],
+      '1973': ['hs'],
+      '1974': ['hs'],
+      '1975': ['hs'],
+      '1976': ['hs'],
+      '1977': ['hs'],
+      '1978': ['hs'],
+      '1979': ['hs'],
+    },
+    'Sonic (all)': {
+      '2012': ['hs'],
+      '2013': ['hs'],
+      '2014': ['hs'],
+      '2015': ['hs'],
+      '2016': ['hs'],
+      '2017': ['hs'],
+      '2018': ['hs'],
+      '2019': ['hs'],
+      '2020': ['hs'],
+    },
+    'Spectrum': {
+      'all': ['hs'],
+    },
+    'Sprint': {
+      'all': ['hs'],
+    },
+    'Vega & Cosworth Vega': {
+      'all': ['hs'],
+    },
+    'Volt': {
+      '2011': ['hs'],
+      '2012': ['hs'],
+      '2013': ['hs'],
+      '2014': ['hs'],
+      '2015': ['hs'],
+      '2016': ['hs'],
+      '2017': ['hs'],
+      '2018': ['hs'],
+      '2019': ['hs'],
+    },
   },
 };
 
@@ -1446,16 +1586,16 @@ const allSoloCars = {
  * handles navbar opening
  */
 function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById('mySidebar').style.width = '250px';
+  document.getElementById('main').style.marginLeft = '250px';
 }
 
 /**
  * handles navbar closing
  */
 function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById('mySidebar').style.width = '0';
+  document.getElementById('main').style.marginLeft= '0';
 }
 
 /**
@@ -1463,7 +1603,7 @@ function closeNav() {
  */
 function populateSubclasses() {
   for (let classAcronym in subclassMap) {
-    let id = classAcronym.concat("-a");
+    let id = classAcronym.concat('-a');
     aSelect = document.getElementById(id);
     aSelect.text = subclassMap[classAcronym];
   }
@@ -1536,14 +1676,14 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     let table = document.getElementById('classesTable');
     for (var i = 0, row; row = table.rows[i]; i++) {
       for (var j = 0, col; col = row.cells[j]; j++) {
-        col.classList.remove("highlighted");
+        col.classList.remove('highlighted');
       }
     }
 
     subClasses = allSoloCars[providedMake][providedModel][providedYear];
     for (let i = 0; i < subClasses.length; i++) {
       let tableElement = document.getElementById(subClasses[i]);
-      tableElement.classList.add("highlighted");
+      tableElement.classList.add('highlighted');
     }
   }
 }
@@ -1599,19 +1739,18 @@ function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
     }
   }
   if (sessionStorage.getItem('answeredIndex')) {
-    const menuElement = document.getElementById(carFlags[className][sessionStorage.getItem('answeredIndex')].concat("Menu"));
+    const menuElement = document.getElementById(carFlags[className][sessionStorage.getItem('answeredIndex')].concat('Menu'));
     menuElement.style.color = '#000000';
-    if (sessionStorage.getItem(carFlags[className][sessionStorage.getItem('answeredIndex')]) == "true") {
+    if (sessionStorage.getItem(carFlags[className][sessionStorage.getItem('answeredIndex')]) == 'true') {
       menuElement.style.backgroundColor = '#4caf50';
     } else {
       menuElement.style.backgroundColor = '#f44336';
     }
-
   }
   if (remainingQuestions.length != 0) {
     const e = document.getElementById(remainingQuestions[0]);
     e.style.display = 'block';
-    const menuElement = document.getElementById(remainingQuestions[0].concat("Menu"));
+    const menuElement = document.getElementById(remainingQuestions[0].concat('Menu'));
     menuElement.style.color = '#f1f1f1';
   } else {
     checkEligibility(className);
@@ -1640,11 +1779,11 @@ function checkEligibility(className) {
     const eligibleElement = document.getElementById('eligible');
     eligibleElement.style.display = 'block';
     if (!document.getElementById('possibleClassesList')) {
-      let newDiv = document.createElement("div");
-      newDiv.setAttribute("id", "possibleClassesList");
+      let newDiv = document.createElement('div');
+      newDiv.setAttribute('id', 'possibleClassesList');
       let specificClass = document.getElementById('specificClass');
       let possibleClasses = allSoloCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')];
-      let possibleClassesString = "";
+      let possibleClassesString = '';
       for (let i=0; i<possibleClasses.length; i++) {
         if (i == 0) {
           possibleClassesString = possibleClassesString.concat('\n');
