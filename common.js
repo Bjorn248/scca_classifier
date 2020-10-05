@@ -1656,14 +1656,14 @@ const allSoloCars = {
     '275': {
       'all': ['asp'],
     },
+    '308': {
+      'all': ['cs', 'fp'],
+    },
     '308 Coupe & Spider': {
       'all': ['asp'],
     },
-    '308 & 328': {
+    '328': {
       'all': ['cs'],
-    },
-    '308 (all)': {
-      'all': ['fp'],
     },
     '330': {
       'all': ['asp'],
