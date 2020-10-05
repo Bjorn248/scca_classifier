@@ -1711,6 +1711,14 @@ const allSoloCars = {
       'all': ['ssp'],
     },
   },
+  'Sunbeam': {
+    'Tiger': {
+      'all': ['es', 'asp'],
+    },
+    'Alpine': {
+      'all': ['hs', 'fsp', 'dp'],
+    },
+  },
   'Oldsmobile': {
     'Calais W41': {
       'all': ['hs'],
