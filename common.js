@@ -1944,25 +1944,22 @@ const allSoloCars = {
     },
   },
   'Infinti': {
-    'G35': {
-        'all': ['esp'],
-      },
     'G35 Coupe': {
-      '2003': ['ds', 'stu'],
-      '2004': ['ds', 'stu'],
-      '2005': ['ds', 'stu'],
-      '2006': ['ds', 'stu'],
-      '2007': ['ds', 'stu'],
+      '2003': ['ds', 'stu', 'esp'],
+      '2004': ['ds', 'stu', 'esp'],
+      '2005': ['ds', 'stu', 'esp'],
+      '2006': ['ds', 'stu', 'esp'],
+      '2007': ['ds', 'stu', 'esp'],
     },
     'G35 Sedan': {
-      '2003': ['ds', 'stx'],
-      '2004': ['ds', 'stx'],
-      '2005': ['ds', 'stx'],
-      '2006': ['ds', 'stx'],
-      '2007': ['ds', 'stx'],
+      '2003': ['ds', 'stx', 'esp'],
+      '2004': ['ds', 'stx', 'esp'],
+      '2005': ['ds', 'stx', 'esp'],
+      '2006': ['ds', 'stx', 'esp'],
+      '2007': ['ds', 'stx', 'esp'],
     },
     'G37': {
-        'all': ['stu'],
+        'all': ['stu', 'esp'],
       },
     'G37 Coupe': {
       'all': ['fs'],
@@ -1971,7 +1968,7 @@ const allSoloCars = {
       'all': ['fs'],
     },
     'Q45': {
-      'all': ['fs'],
+      'all': ['fs', 'esp'],
     },
     'Q50 Sport': {
       '2014': ['fs'],
@@ -1995,7 +1992,7 @@ const allSoloCars = {
         'all': ['hs','fsp'],
       },
     'M30': {
-        'all': ['hs'],
+        'all': ['hs', 'esp'],
       },
     'I30': {
         '1996': ['ep'],
