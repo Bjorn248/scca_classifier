@@ -2926,6 +2926,32 @@ const allSoloCars = {
       '2018': ['ds'],
     },
   },
+  'McLaren': {
+    '570GT': {
+      'all': ['ss']
+    },
+    '570S': {
+      'all': ['ss']
+    },
+    '600LT (limited prep)': {
+      'all': ['ssp']
+    },
+    '620R (limited prep)': {
+      'all': ['ssp']
+    },
+    '650S': {
+      'all': ['ss']
+    },
+    '720S': {
+      'all': ['ssp']
+    },
+    'MP4-12C': {
+      'all' : ['ssm', 'ssp'],
+      '2012': ['ss'],
+      '2013': ['ss'],
+      '2014': ['ss']
+    }
+  }
 };
 
 /**
