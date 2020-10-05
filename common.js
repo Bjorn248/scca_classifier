@@ -1955,10 +1955,6 @@ const allSoloCars = {
       '2020': ['stx'],
     },
     'BRZ (with Performance Package)': {
-      '2013': ['stx', 'csp', 'dsp', 'ssc'],
-      '2014': ['stx', 'csp', 'dsp', 'ssc'],
-      '2015': ['ssc', 'stx', 'dsp'],
-      '2016': ['ssc', 'stx', 'dsp'],
       '2017': ['cs', 'stx', 'dsp'],
       '2018': ['cs', 'stx', 'dsp'],
       '2019': ['cs', 'stx'],
