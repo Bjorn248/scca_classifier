@@ -1708,6 +1708,42 @@ const allSoloCars = {
       'all': ['ssp'],
     },
   },
+  'TVR':{
+    '1800':{
+      'all':['dp']
+    },
+    '4-cyl':{
+      'all':['es','ssp'],
+    },
+    '6-cyl':{
+      'all':['ssp','fp'],
+    },
+    '8-cyl':{
+      'all':['bs']
+    },
+    'Inline-6':{
+      'all':['es']
+    },
+    'Griffith 200':{
+      'all':['xp'],
+    },
+    'Griffith 400':{
+      'all':['xp']
+    },
+    'V6':{
+      'all':['bs']
+    },
+    'V8':{
+      'all':['ssp']
+    },
+    'V12':{
+      'all':['bs']
+    },
+    // review this line please. page 237
+    'Vixen S2 (1599 cc; Pierced aluminum casting cylinder head)':{
+      'all':['dp']
+    },
+  },
 };
 
 /**
