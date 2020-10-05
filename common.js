@@ -1710,10 +1710,7 @@ const allSoloCars = {
   },
   'Sunbeam': {
     'Tiger': {
-      'all': ['es'],
-    },
-    'Tiger (260, 289)': {
-      'all': ['asp'],
+      'all': ['es', 'asp'],
     },
     'Alpine': {
       'all': ['hs', 'fsp', 'dp'],
