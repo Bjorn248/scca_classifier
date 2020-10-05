@@ -1621,6 +1621,34 @@ const allSoloCars = {
       'all': ['stx', 'fsp'],
     },
   },
+  'Eagle': {
+    'Talon Turbo (AWD)': {
+        'all': ['ds','sth']
+    },
+    'Summit': {
+        'all': ['hs']
+    },
+    'Talon (FWD)': {
+        'all': ['hs']
+    },
+    'Summit Turbo (16v)': {
+        '1989': ['dsp'],
+        '1990': ['dsp']
+    },
+    'Talon (non-turbo)': {
+        '1989': ['fsp'],
+        '1990': ['fsp'],
+        '1991': ['fsp'],
+        '1992': ['fsp'],
+        '1993': ['fsp'],
+        '1994': ['fsp'],
+        '1995': ['fsp'],
+        '1996': ['fsp'],
+        '1997': ['fsp'],
+        '1998': ['fsp'],
+        '1999': ['fsp']
+    }
+  },
   'Ferrari': {
     '250 (non-LM)': {
       'all': ['asp'],
