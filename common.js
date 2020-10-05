@@ -1708,6 +1708,17 @@ const allSoloCars = {
       'all': ['ssp'],
     },
   },
+  'Sunbeam': {
+    'Tiger': {
+      'all': ['es'],
+    },
+    'Tiger (260, 289)': {
+      'all': ['asp'],
+    },
+    'Alpine': {
+      'all': ['hs', 'fsp', 'dp'],
+    },
+  },
 };
 
 /**
