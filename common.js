@@ -1648,7 +1648,66 @@ const allSoloCars = {
         '1998': ['fsp'],
         '1999': ['fsp']
     }
-  }
+  },
+  'Ferrari': {
+    '250 (non-LM)': {
+      'all': ['asp'],
+    },
+    '275': {
+      'all': ['asp'],
+    },
+    '308': {
+      'all': ['cs', 'fp'],
+    },
+    '308 Coupe & Spider': {
+      'all': ['asp'],
+    },
+    '328': {
+      'all': ['cs'],
+    },
+    '330': {
+      'all': ['asp'],
+    },
+    '348': {
+      'all': ['asp'],
+    },
+    '355': {
+      'all': ['ssp'],
+    },
+    '360': {
+      'all': ['ssp'],
+    },
+    '360 Modena & Spider (non-Challenge Stradale)': {
+      '1999': ['ss'],
+      '2000': ['ss'],
+      '2001': ['ss'],
+      '2002': ['ss'],
+      '2003': ['ss'],
+      '2004': ['ss'],
+      '2005': ['ss'],
+    },
+    '365 Daytona GTB, GTC': {
+      'all': ['asp'],
+    },
+    '400 America (all)': {
+      'all': ['esp'],
+    },
+    '500 Superfast (all)': {
+      'all': ['esp'],
+    },
+    'Dino 206 & 246 (all)': {
+      'all': ['ssp'],
+    },
+    'Dino 246': {
+      'all': ['fp'],
+    },
+    'Dino 246 GT': {
+      'all': ['fp'],
+    },
+    'F430 (all)': {
+      'all': ['ssp'],
+    },
+  },
 };
 
 /**
