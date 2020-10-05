@@ -1623,14 +1623,20 @@ const allSoloCars = {
   },
   'Subaru': {
     'BRZ': {
-      '2013': ['stx', 'csp', 'dsp'],
-      '2014': ['stx', 'csp', 'dsp'],
-      '2015': ['stx', 'dsp'],
-      '2016': ['stx', 'dsp'],
+      '2013': ['stx', 'csp', 'dsp', 'ssc'],
+      '2014': ['stx', 'csp', 'dsp', 'ssc'],
+      '2015': ['stx', 'dsp', 'ssc'],
+      '2016': ['stx', 'dsp', 'ssc'],
       '2017': ['stx', 'dsp'],
       '2018': ['stx', 'dsp'],
       '2019': ['stx'],
       '2020': ['stx'],
+    },
+    'BRZ Series.Blue': {
+      '2015': ['ssc'],
+    },
+    'BRZ Series.HyperBlue': {
+      '2016': ['ssc'],
     },
     'BRZ tS': {
       '2018': ['cs'],
