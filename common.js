@@ -112,6 +112,9 @@ const allSoloCars = {
       '2019': ['ss', 'ssp', 'ssm'],
       '2020': ['ss', 'ssp', 'ssm'],
     },
+    'Daewoo' : {
+      'all' : ['hs'],
+    },
     'Integra Type R': {
       'all': ['ds', 'stx', 'dsp', 'sm', 'smf', 'ep'],
     },
