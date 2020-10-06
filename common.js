@@ -2794,6 +2794,86 @@ const allSoloCars = {
     'MP4-12C': {
       'all' : ['ss', 'ssm', 'ssp'],
     }
+  },
+  'Plymouth': {
+    'Neon': {
+      '1995': ['gs, sts'],
+      '1996': ['gs, sts'],
+      '1997': ['gs, sts'],
+      '1998': ['gs, sts'],
+      '1999': ['gs, sts']
+    },
+    'Acclaim': {
+      'all': ['hs']
+    },
+    'Arrow': {
+      'all': ['hs']
+    },
+    'Champ': {
+      'all': ['hs']
+    },
+    'Colt': {
+      'all': ['hs']
+    },
+    'Horizon': {
+      'all': ['hs']
+    },
+    'Laser (non-turbo)': {
+      'all': ['hs']
+    },
+    'Neon  Sapporo': {
+      '2000': ['hs'],
+      '2001': ['hs'],
+    },
+    'Scamp Sundance TC3 Turismo': {
+      'all': ['hs']
+    },
+    'Neon (NOC)': {
+      '2000': ['sts'],
+      '2001': ['sts'],
+      '2002': ['sts'],
+      '2003': ['sts'],
+      '2004': ['sts'],
+      '2005': ['sts']
+    },
+    'Neon R/T & ACR': {
+      '2000': ['sts'],
+      '2001': ['sts'],
+      '2002': ['sts'],
+      '2003': ['sts'],
+      '2004': ['sts']
+    },
+    'Acclaim (V6 & Turbo)': {
+      'all': ['d']
+    },
+    'Charger GLH-S': {
+      'all': ['d']
+    },
+    'Conquest & Starion (non-turbo)': {
+      'all': ['d']
+    },
+    'Crossfire (non-SRT-6)': {
+      'all': ['d']
+    },
+    'Laser (AWD)': {
+      'all': ['dsp']
+    },
+    'Laser (FWD)': {
+      'all': ['esp']
+    },
+    'Stealth (non-turbo)': {
+      'all': ['esp']
+    },
+    'Colt & Champ': {
+      '1971': ['dp'],
+      '1972': ['dp'],
+      '1973': ['dp'],
+      '1974': ['dp'],
+      '1975': ['dp'],
+      '1976': ['dp'],
+      '1977': ['dp'],
+      '1978': ['dp'],
+    }
   }
 };
 
