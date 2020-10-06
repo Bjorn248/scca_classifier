@@ -2938,6 +2938,19 @@ const allSoloCars = {
       'all' : ['ss', 'ssm', 'ssp'],
     }
   },
+  'MG': {
+    '1100, 1300 Sedan (all) ': {
+      'all': ['hs', 'fsp']
+    },
+    'A (all)': {
+      'all': ['hs', 'fsp']
+    },
+    'B & B GT (all)': {
+      'all': ['hs', 'fsp']
+    },
+    'C & C GT (all)': {
+      'all': ['hs', 'fsp']
+    },
   'Saleen': {
     'Mustang (w/o IRS or forced induction)' : {
       '1979': ['bs','cp'],
