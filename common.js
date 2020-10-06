@@ -3005,6 +3005,20 @@ const allSoloCars = {
       '2010': ['dsp'],
       '2011': ['dsp'],
       '2012': ['dsp'],
+    }
+  },
+  'MG': {
+    '1100, 1300 Sedan (all) ': {
+      'all': ['hs', 'fsp']
+    },
+    'A (all)': {
+      'all': ['hs', 'fsp']
+    },
+    'B & B GT (all)': {
+      'all': ['hs', 'fsp']
+    },
+    'C & C GT (all)': {
+      'all': ['hs', 'fsp']
     },
   'Saleen': {
     'Mustang (w/o IRS or forced induction)' : {
@@ -3026,48 +3040,49 @@ const allSoloCars = {
     },
     'Mustang S281E & Mustang (NOC)' : {
       'all' : ['bsp'],
-    }
+    },
     'Mustang 302 & 351 (non-super-charged)' : {
       '1984': ['esp'],
       '1985': ['esp'],
       '1986': ['esp'],
       '1987': ['esp'],
-      '1988': ['esp'],
-      '1989': ['esp'],
-      '1990': ['esp'],
-      '1991': ['esp'],
-      '1992': ['esp'],
-      '1993': ['esp'] 
+        '1988': ['esp'],
+        '1989': ['esp'],
+        '1990': ['esp'],
+        '1991': ['esp'],
+        '1992': ['esp'],
+        '1993': ['esp']
+      },
     },
-  },
-  'Triumph': {
-    'TR-8': {
-      'all': ['es', 'bsp']
-    },
-    'Stag': {
-      'all': ['fs']
-    },
-    'GT-6': {
-      'all': ['hs', 'fsp', 'dp']
-    },
-    'Herald (all) ': {
-      'all': ['hs', 'fsp']
-    },
-    'Spitfire': {
-      'all': ['hs', 'fsp', 'dp']
-    },
-    'TR-2 & TR-3 ': {
-      'all': ['hs', 'fsp', 'dp']
-    },
-    'TR-4 & TR-4A ': {
-      'all': ['hs', 'fsp', 'dp']
-    },
-    'TR-250 & TR-6 ': {
-      'all': ['hs', 'fsp']
-    },
-    'TR-7': {
-      'all': ['hs', 'fsp', 'dp']
-    },
+    'Triumph': {
+      'TR-8': {
+        'all': ['es', 'bsp']
+      },
+      'Stag': {
+        'all': ['fs']
+      },
+      'GT-6': {
+        'all': ['hs', 'fsp', 'dp']
+      },
+      'Herald (all) ': {
+        'all': ['hs', 'fsp']
+      },
+      'Spitfire': {
+        'all': ['hs', 'fsp', 'dp']
+      },
+      'TR-2 & TR-3 ': {
+        'all': ['hs', 'fsp', 'dp']
+      },
+      'TR-4 & TR-4A ': {
+        'all': ['hs', 'fsp', 'dp']
+      },
+      'TR-250 & TR-6 ': {
+        'all': ['hs', 'fsp']
+      },
+      'TR-7': {
+        'all': ['hs', 'fsp', 'dp']
+      },
+    }
   }
 };
 
