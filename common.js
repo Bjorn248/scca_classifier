@@ -3212,9 +3212,9 @@ const allSoloCars = {
       '2020': ['fs'],
     },
     'Stinger (4-cyl Turbo)': {
-      '2018': ['fs'],
-      '2019': ['fs'],
-      '2020': ['fs'],
+      '2018': ['gs'],
+      '2019': ['gs'],
+      '2020': ['gs'],
     },
     'Forte & Forte Koup (2.0L & 2.4L) ': {
       'all': ['hs']
@@ -3247,26 +3247,53 @@ const allSoloCars = {
       'all': ['hs']
     },
     'Forte & Forte Koup (non-turbo)': {
-      'all': ['hs']
+      'all': ['sts']
     },
     'Forte & Forte Koup (Turbo)': {
-      'all': ['sts']
+      'all': ['sth']
     },
     'Spectra (1.8L 4-cyl)': {
       'all': ['fsp']
     },
-    'Forte Koup': {
+    'Forte':{
       '2008': ['fsp'],
       '2009': ['fsp'],
-      '2010': ['dsp', 'fsp'],
-      '2011': ['dsp', 'fsp'],
-      '2012': ['dsp', 'fsp'],
+      '2010': ['fsp'],
+      '2011': ['fsp'],
+      '2012': ['fsp'],
       '2013': ['fsp'],
       '2014': ['fsp'],
       '2015': ['fsp'],
       '2016': ['fsp'],
       '2017': ['fsp'],
       '2018': ['fsp'],
+    },
+    'Forte Koup': {
+      '2010': ['dsp'],
+      '2011': ['dsp'],
+      '2012': ['dsp'],
+    },
+  },
+  'Saleen': {
+    'Mustang (w/o IRS or forced induction)' : {
+      '1979': ['bs','cp'],
+      '1980': ['bs','cp'],
+      '1981': ['bs','cp'],
+      '1982': ['bs','cp'],
+      '1983': ['bs','cp'],
+      '1984': ['bs','cp'],
+      '1985': ['bs','cp'],
+      '1986': ['bs','cp'],
+      '1987': ['bs','cp'],
+      '1988': ['bs','cp'],
+      '1989': ['bs','cp'],
+      '1990': ['bs','cp'],
+      '1991': ['bs','cp'],
+      '1992': ['bs','cp'],
+      '1993': ['bs','cp']      
+    },
+    'Mustang S281E & Mustang (NOC)' : {
+      'all' : ['bsp'],
     }
   }
 };
