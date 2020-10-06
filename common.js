@@ -1641,6 +1641,14 @@ const allSoloCars = {
       'all': ['stx', 'fsp'],
     },
   },
+  'DeTomaso': {
+    'Mangusta': {
+      'all': ['bs', 'asp']
+    },
+    'Pantera': {
+      'all': ['bs', 'asp']
+    }
+  },
   'Eagle': {
     'Talon Turbo (AWD)': {
       'all': ['ds','sth']
