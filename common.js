@@ -2794,6 +2794,70 @@ const allSoloCars = {
     'MP4-12C': {
       'all' : ['ss', 'ssm', 'ssp'],
     }
+  },
+  'Kia': {
+    'Stinger (V6 Turbo)': {
+      '2018': ['fs'],
+      '2019': ['fs'],
+      '2020': ['fs'],
+    },
+    'Stinger (4-cyl Turbo)': {
+      '2018': ['fs'],
+      '2019': ['fs'],
+      '2020': ['fs'],
+    },
+    'Forte & Forte Koup (2.0L & 2.4L) ': {
+      'all': ['hs']
+    },
+    'Forte5': {
+      '2014': ['hs'],
+      '2015': ['hs'],
+      '2016': ['hs'],
+      '2017': ['hs'],
+      '2018': ['hs'],
+    },
+    'Optima': {
+      'all': ['hs']
+    },
+    'Rio': {
+      '2012': ['hs', 'sts'],
+      '2013': ['hs', 'sts'],
+      '2014': ['hs', 'sts'],
+      '2015': ['hs', 'sts'],
+      '2016': ['hs', 'sts'],
+      '2017': ['hs', 'sts'],
+      '2018': ['hs'],
+      '2019': ['hs'],
+      '2020': ['hs'],
+    },
+    'Sephia': {
+      'all': ['hs']
+    },
+    'Spectra5': {
+      'all': ['hs']
+    },
+    'Forte & Forte Koup (non-turbo)': {
+      'all': ['hs']
+    },
+    'Forte & Forte Koup (Turbo)': {
+      'all': ['sts']
+    },
+    'Spectra (1.8L 4-cyl)': {
+      'all': ['fsp']
+    },
+    'Forte Koup': {
+      '2008': ['fsp'],
+      '2009': ['fsp'],
+      '2010': ['dsp', 'fsp'],
+      '2011': ['dsp', 'fsp'],
+      '2012': ['dsp', 'fsp'],
+      '2013': ['fsp'],
+      '2014': ['fsp'],
+      '2015': ['fsp'],
+      '2016': ['fsp'],
+      '2017': ['fsp'],
+      '2018': ['fsp'],
+    }
   }
 };
 
