@@ -2794,6 +2794,72 @@ const allSoloCars = {
     'MP4-12C': {
       'all' : ['ss', 'ssm', 'ssp'],
     }
+  },
+  'Geo':{
+    'Metro':{
+      'all': ['hs']
+    },
+    'Prizm':{
+      'all': ['hs']
+    },
+    'Spectrum':{
+      'all': ['hs']
+    },
+    'Storm':{
+      '2005': ['d'],
+      '2006': ['d'],
+      '2007': ['d'],
+    },
+    'Cobalt SS (N/A)':{
+      '2005': ['d'],
+      '2006': ['d'],
+      '2007': ['d'],
+    },
+    'Cobalt SS Turbo':{
+      '2008': ['d'],
+      '2009': ['d'],
+      '2010': ['d'],
+    },
+    'HHR SS Turbo':{
+      'all': ['d']
+    },
+    'J Body (4-cyl Turbo, Quad 4 DOHC, & V6)':{
+      'all': ['d']
+    },
+    'L Body (Quad 4 & V6)':{
+      'all': ['d']
+    },
+    'N Body (4-cyl Turbo, Quad 4, & V6)':{
+      'all': ['d']
+    },
+    'Spectrum Turbo':{
+      '1985': ['d'],
+      '1986': ['d'],
+      '1987': ['d'],
+      '1988': ['d'],
+      '1989': ['d'],
+    },
+    'Storm GSi':{
+      '1985': ['d'],
+      '1986': ['d'],
+      '1987': ['d'],
+      '1988': ['d'],
+      '1989': ['d'],
+    },
+    'X Body (V6)':{
+      'all': ['d']
+    },
+    'Cobalt SS Supercharged':{
+      'all': ['ssp']
+    },
+    'Metro 13BA':{
+      '1989': ['ep'],
+      '1990': ['ep'],
+      '1991': ['ep'],
+      '1992': ['ep'],
+      '1993': ['ep'],
+      '1994': ['ep'],
+    }
   }
 };
 
