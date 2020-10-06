@@ -2075,11 +2075,10 @@ const allSoloCars = {
       'all': ['hs', 'fsp']
     },
     'NX2000': {
-      'all': ['fsp'],
-      '1991': ['hs', 'sts'],
-      '1992': ['hs', 'sts'],
-      '1993': ['hs', 'sts'],
-      '1994': ['sts']
+      '1991': ['fsp', 'hs', 'sts'],
+      '1992': ['fsp', 'hs', 'sts'],
+      '1993': ['fsp', 'hs', 'sts'],
+      '1994': ['fsp', 'sts']
     },
     'Pulsar': {
       'all': ['hs', 'fsp']
