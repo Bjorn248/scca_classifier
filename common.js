@@ -1198,11 +1198,11 @@ const allSoloCars = {
     },
   },
   'Buick': {
-    'Grand National & Regal (V6Turbo)': {
+    'Grand National': {
       'all': ['fs']
     },
     'Reatta': {
-      'all': ['hs']
+      'all': ['hs', 'esp']
     },
     'Regal (all)': {
       '2014': ['gs'],
@@ -1212,6 +1212,20 @@ const allSoloCars = {
       '2018': ['gs'],
       '2019': ['gs'],
       '2020': ['gs']
+    },
+    'Regal (V6 & V8, RWD)': {
+      '1980': ['esp'],
+      '1981': ['esp'],
+      '1982': ['esp'],
+      '1983': ['esp'],
+      '1984': ['esp'],
+      '1985': ['esp'],
+      '1986': ['esp'],
+      '1987': ['esp'],
+      '1988': ['esp']
+    },
+    'Regal (V6Turbo)': {
+      'all': ['fs']
     },
     'Verano (non-turbo)': {
       '2013': ['hs'],
