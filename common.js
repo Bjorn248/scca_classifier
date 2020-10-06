@@ -2716,6 +2716,44 @@ const allSoloCars = {
         '2004': ['ep'],
     },
   },
+  'Scion': {
+    'FR-S (incl. Release Series 1.0 and 2.0)': {
+        'all': ['ssc','stx','csp'],
+    },
+    'FR-S *Limited Prep*': {
+      'all': ['dsp'],
+    },
+    'FR-S (with TRD suspension; incl. Release Series 1.0 and 2.0)': {
+      'all': ['cs'],
+    },
+    'FR-S (without TRD suspension components)': {
+      'all': ['ds'],
+    },
+    'iA': {
+      'all': ['hs','sts'],
+    },
+    'iM': {
+      'all': ['hs','sts'],
+    },
+    'iQ CVT': {
+      'all': ['sts'],
+    },
+    'tC': {
+      'all': ['sts','fsp'],
+    },
+    'tC (incl. Release Series 5.0 2009)': {
+      'all': ['hs'],
+    },
+    'xA': {
+      'all': ['hs','sts'],
+    },
+    'xB': {
+      'all': ['hs','sts'],
+    },
+    'xD': {
+      'all': ['sts'],
+    },
+  },
   'Subaru': {
     'BRZ (non-Performance Package)': {
       '2013': ['ds', 'stx', 'csp', 'dsp', 'ssc'],
