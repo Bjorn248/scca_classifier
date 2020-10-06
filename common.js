@@ -1782,38 +1782,32 @@ const allSoloCars = {
     },
   },
   'TVR':{
-    '1800':{
-      'all':['dp']
-    },
     '4-cyl':{
       'all':['es','ssp'],
     },
-    '6-cyl':{
-      'all':['ssp','fp'],
-    },
     '8-cyl':{
-      'all':['bs']
-    },
-    'Inline-6':{
-      'all':['es']
-    },
-    'Griffith 200':{
-      'all':['xp'],
-    },
-    'Griffith 400':{
-      'all':['xp']
+      'all':['bs', 'ssp']
     },
     'V6':{
-      'all':['bs']
-    },
-    'V8':{
-      'all':['ssp']
+      'all':['bs', 'ssp', 'fp']
     },
     'V12':{
       'all':['bs']
     },
+    'Inline-6':{
+      'all':['es', 'ssp', 'fp']
+    },
+    '1800':{
+      'all':['es', 'ssp', 'dp']
+    },
+    'Griffith 200':{
+      'all':['bs', 'ssp', 'xp'],
+    },
+    'Griffith 400':{
+      'all':['bs', 'ssp', 'xp']
+    },
     'Vixen S2 (1599 cc)':{
-      'all':['dp']
+      'all':['es', 'ssp', 'dp']
     },
   },
   'Lexus': {
