@@ -112,8 +112,8 @@ const allSoloCars = {
       '2019': ['ss', 'ssp', 'ssm'],
       '2020': ['ss', 'ssp', 'ssm'],
     },
-    'Daewoo' : {
-      'all' : ['hs'],
+    'Daewoo': {
+      'all': ['hs'],
     },
     'Integra Type R': {
       'all': ['ds', 'stx', 'dsp', 'sm', 'smf', 'ep'],
@@ -1643,7 +1643,7 @@ const allSoloCars = {
   },
   'Eagle': {
     'Talon Turbo (AWD)': {
-      'all': ['ds','sth']
+      'all': ['ds', 'sth']
     },
     'Summit': {
       'all': ['hs']
@@ -2669,7 +2669,7 @@ const allSoloCars = {
       '2020': ['fs'],
     },
     'G20': {
-      'all': ['hs','fsp'],
+      'all': ['hs', 'fsp'],
     },
     'M30': {
       'all': ['hs', 'esp'],
@@ -2935,67 +2935,39 @@ const allSoloCars = {
       'all': ['ssp']
     },
     'MP4-12C': {
-      'all' : ['ss', 'ssm', 'ssp'],
+      'all': ['ss', 'ssm', 'ssp'],
     }
   },
-  'Geo':{
-    'Metro':{
+  'Geo': {
+    'Metro': {
       'all': ['hs']
     },
-    'Prizm':{
+    'Prizm': {
       'all': ['hs']
     },
-    'Spectrum':{
+    'Spectrum': {
       'all': ['hs']
     },
-    'Storm':{
+    'Storm': {
       '2005': ['sp'],
       '2006': ['dsp'],
       '2007': ['dsp'],
     },
-    'Cobalt SS (N/A)':{
-      '2005': ['dsp'],
-      '2006': ['dsp'],
-      '2007': ['dsp'],
-    },
-    'Cobalt SS Turbo':{
-      '2008': ['dsp'],
-      '2009': ['dsp'],
-      '2010': ['dsp'],
-    },
-    'HHR SS Turbo':{
-      'all': ['dsp']
-    },
-    'J Body (4-cyl Turbo, Quad 4 DOHC, & V6)':{
-      'all': ['dsp']
-    },
-    'L Body (Quad 4 & V6)':{
-      'all': ['dsp']
-    },
-    'N Body (4-cyl Turbo, Quad 4, & V6)':{
-      'all': ['dsp']
-    },
-    'Spectrum Turbo':{
+    'Spectrum Turbo': {
       '1985': ['dsp'],
       '1986': ['dsp'],
       '1987': ['dsp'],
       '1988': ['dsp'],
       '1989': ['dsp'],
     },
-    'Storm GSi':{
+    'Storm GSi': {
       '1985': ['dsp'],
       '1986': ['dsp'],
       '1987': ['dsp'],
       '1988': ['dsp'],
       '1989': ['dsp'],
     },
-    'X Body (V6)':{
-      'all': ['dsp']
-    },
-    'Cobalt SS Supercharged':{
-      'all': ['ssp']
-    },
-    'Metro 13BA':{
+    'Metro 13BA': {
       '1989': ['ep'],
       '1990': ['ep'],
       '1991': ['ep'],
@@ -3017,40 +2989,40 @@ const allSoloCars = {
     'C & C GT (all)': {
       'all': ['hs', 'fsp']
     },
-  'Saleen': {
-    'Mustang (w/o IRS or forced induction)' : {
-      '1979': ['bs','cp'],
-      '1980': ['bs','cp'],
-      '1981': ['bs','cp'],
-      '1982': ['bs','cp'],
-      '1983': ['bs','cp'],
-      '1984': ['bs','cp'],
-      '1985': ['bs','cp'],
-      '1986': ['bs','cp'],
-      '1987': ['bs','cp'],
-      '1988': ['bs','cp'],
-      '1989': ['bs','cp'],
-      '1990': ['bs','cp'],
-      '1991': ['bs','cp'],
-      '1992': ['bs','cp'],
-      '1993': ['bs','cp']      
+    'Saleen': {
+      'Mustang (w/o IRS or forced induction)': {
+        '1979': ['bs', 'cp'],
+        '1980': ['bs', 'cp'],
+        '1981': ['bs', 'cp'],
+        '1982': ['bs', 'cp'],
+        '1983': ['bs', 'cp'],
+        '1984': ['bs', 'cp'],
+        '1985': ['bs', 'cp'],
+        '1986': ['bs', 'cp'],
+        '1987': ['bs', 'cp'],
+        '1988': ['bs', 'cp'],
+        '1989': ['bs', 'cp'],
+        '1990': ['bs', 'cp'],
+        '1991': ['bs', 'cp'],
+        '1992': ['bs', 'cp'],
+        '1993': ['bs', 'cp']
+      },
+      'Mustang S281E & Mustang (NOC)': {
+        'all': ['bsp'],
+      },
+      'Mustang 302 & 351 (non-super-charged)': {
+        '1984': ['esp'],
+        '1985': ['esp'],
+        '1986': ['esp'],
+        '1987': ['esp'],
+        '1988': ['esp'],
+        '1989': ['esp'],
+        '1990': ['esp'],
+        '1991': ['esp'],
+        '1992': ['esp'],
+        '1993': ['esp']
+      },
     },
-    'Mustang S281E & Mustang (NOC)' : {
-      'all' : ['bsp'],
-    },
-    'Mustang 302 & 351 (non-super-charged)' : {
-      '1984': ['esp'],
-      '1985': ['esp'],
-      '1986': ['esp'],
-      '1987': ['esp'],
-      '1988': ['esp'],
-      '1989': ['esp'],
-      '1990': ['esp'],
-      '1991': ['esp'],
-      '1992': ['esp'],
-      '1993': ['esp'] 
-    },
-  },
     'Triumph': {
       'TR-8': {
         'all': ['es', 'bsp']
