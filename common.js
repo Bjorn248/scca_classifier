@@ -1759,20 +1759,11 @@ const allSoloCars = {
       '2002': ['dsp', 'hs'],
     },
     '210': {
-      'all': ['fsp']
-    },
-    '210 (1397 & 1488 cc)': {
-      '1979': ['dp'],
-      '1980': ['dp'],
-      '1981': ['dp'],
-      '1982': ['dp']
-    },
-    '210 (B310 chassis; 1.4 L) - Alternate cylinder head: 11041-H2303 or 11041-H5704': {
-      '1978': ['dp'],
-      '1979': ['dp'],
-      '1980': ['dp'],
-      '1981': ['dp'],
-      '1982': ['dp']
+      '1978': ['dp', 'fsp'],
+      '1979': ['dp', 'fsp'],
+      '1980': ['dp', 'fsp'],
+      '1981': ['dp', 'fsp'],
+      '1982': ['dp', 'fsp']
     },
     '240SX - Alternate engine: L20B with cylinder head 11041-N7120/22010 or 11041-V9182/U0600A Hood may be modified for engine clearance.': {
       '1989': ['dp'],
