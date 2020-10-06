@@ -1765,20 +1765,18 @@ const allSoloCars = {
       '1981': ['dp', 'fsp'],
       '1982': ['dp', 'fsp']
     },
-    '240SX - Alternate engine: L20B with cylinder head 11041-N7120/22010 or 11041-V9182/U0600A Hood may be modified for engine clearance.': {
-      '1989': ['dp'],
-      '1990': ['dp'],
-      '1991': ['dp'],
-      '1992': ['dp'],
-      '1993': ['dp'],
-      '1994': ['dp'],
-      '1995': ['dp'],
-      '1996': ['dp'],
-      '1997': ['dp'],
-      '1998': ['dp']
-    },
     '240SX': {
-      'all': ['hs', 'stx']
+      '1988': ['hs', 'stx'],
+      '1989': ['hs', 'stx', 'dp'],
+      '1990': ['hs', 'stx', 'dp'],
+      '1991': ['hs', 'stx', 'dp'],
+      '1992': ['hs', 'stx', 'dp'],
+      '1993': ['hs', 'stx', 'dp'],
+      '1994': ['hs', 'stx', 'dp'],
+      '1995': ['hs', 'stx', 'dp'],
+      '1996': ['hs', 'stx', 'dp'],
+      '1997': ['hs', 'stx', 'dp'],
+      '1998': ['hs', 'stx', 'dp']
     },
     '240Z': {
       'all': ['bsp']
