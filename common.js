@@ -2794,6 +2794,20 @@ const allSoloCars = {
     'MP4-12C': {
       'all' : ['ss', 'ssm', 'ssp'],
     }
+  },
+  'MG': {
+    '1100, 1300 Sedan (all) ': {
+      'all': ['hs', 'fsp']
+    },
+    'A (all)': {
+      'all': ['hs', 'fsp']
+    },
+    'B & B GT (all)': {
+      'all': ['hs', 'fsp']
+    },
+    'C & C GT (all)': {
+      'all': ['hs', 'fsp']
+    }
   }
 };
 
