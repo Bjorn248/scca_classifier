@@ -112,8 +112,8 @@ const allSoloCars = {
       '2019': ['ss', 'ssp', 'ssm'],
       '2020': ['ss', 'ssp', 'ssm'],
     },
-    'Daewoo' : {
-      'all' : ['hs'],
+    'Daewoo': {
+      'all': ['hs'],
     },
     'Integra Type R': {
       'all': ['ds', 'stx', 'dsp', 'sm', 'smf', 'ep'],
@@ -1197,6 +1197,51 @@ const allSoloCars = {
       '2020': ['ds', 'sm'],
     },
   },
+  'Buick': {
+    'Grand National': {
+      'all': ['fs']
+    },
+    'Reatta': {
+      'all': ['hs', 'esp']
+    },
+    'Regal (all)': {
+      '2014': ['gs'],
+      '2015': ['gs'],
+      '2016': ['gs'],
+      '2017': ['gs'],
+      '2018': ['gs'],
+      '2019': ['gs'],
+      '2020': ['gs']
+    },
+    'Regal (V6 & V8, RWD)': {
+      '1980': ['esp'],
+      '1981': ['esp'],
+      '1982': ['esp', 'cp'],
+      '1983': ['esp', 'cp'],
+      '1984': ['esp', 'cp'],
+      '1985': ['esp', 'cp'],
+      '1986': ['esp', 'cp'],
+      '1987': ['esp', 'cp'],
+      '1988': ['esp', 'cp']
+    },
+    'Regal (V6Turbo)': {
+      'all': ['fs']
+    },
+    'Verano (non-turbo)': {
+      '2013': ['hs'],
+      '2014': ['hs'],
+      '2015': ['hs'],
+      '2016': ['hs'],
+      '2017': ['hs']
+    },
+    'Verano Turbo': {
+      '2013': ['gs'],
+      '2014': ['gs'],
+      '2015': ['gs'],
+      '2016': ['gs'],
+      '2017': ['gs']
+    }
+  },
   'Cadillac': {
     'XLR': {
       'all': ['ssr', 'as'],
@@ -1641,9 +1686,17 @@ const allSoloCars = {
       'all': ['stx', 'fsp'],
     },
   },
+  'DeTomaso': {
+    'Mangusta': {
+      'all': ['bs', 'asp']
+    },
+    'Pantera': {
+      'all': ['bs', 'asp']
+    }
+  },
   'Eagle': {
     'Talon Turbo (AWD)': {
-      'all': ['ds','sth']
+      'all': ['ds', 'sth']
     },
     'Summit': {
       'all': ['hs']
@@ -1726,6 +1779,41 @@ const allSoloCars = {
     },
     'F430 (all)': {
       'all': ['ssp'],
+    },
+  },
+  'TVR':{
+    '1800':{
+      'all':['dp']
+    },
+    '4-cyl':{
+      'all':['es','ssp'],
+    },
+    '6-cyl':{
+      'all':['ssp','fp'],
+    },
+    '8-cyl':{
+      'all':['bs']
+    },
+    'Inline-6':{
+      'all':['es']
+    },
+    'Griffith 200':{
+      'all':['xp'],
+    },
+    'Griffith 400':{
+      'all':['xp']
+    },
+    'V6':{
+      'all':['bs']
+    },
+    'V8':{
+      'all':['ssp']
+    },
+    'V12':{
+      'all':['bs']
+    },
+    'Vixen S2 (1599 cc)':{
+      'all':['dp']
     },
   },
   'Lexus': {
@@ -2669,7 +2757,7 @@ const allSoloCars = {
       '2020': ['fs'],
     },
     'G20': {
-      'all': ['hs','fsp'],
+      'all': ['hs', 'fsp'],
     },
     'M30': {
       'all': ['hs', 'esp'],
@@ -2935,7 +3023,45 @@ const allSoloCars = {
       'all': ['ssp']
     },
     'MP4-12C': {
-      'all' : ['ss', 'ssm', 'ssp'],
+      'all': ['ss', 'ssm', 'ssp'],
+    }
+  },
+  'Geo': {
+    'Metro': {
+      'all': ['hs']
+    },
+    'Prizm': {
+      'all': ['hs']
+    },
+    'Spectrum': {
+      'all': ['hs']
+    },
+    'Storm': {
+      '2005': ['sp'],
+      '2006': ['dsp'],
+      '2007': ['dsp'],
+    },
+    'Spectrum Turbo': {
+      '1985': ['dsp'],
+      '1986': ['dsp'],
+      '1987': ['dsp'],
+      '1988': ['dsp'],
+      '1989': ['dsp'],
+    },
+    'Storm GSi': {
+      '1985': ['dsp'],
+      '1986': ['dsp'],
+      '1987': ['dsp'],
+      '1988': ['dsp'],
+      '1989': ['dsp'],
+    },
+    'Metro 13BA': {
+      '1989': ['ep'],
+      '1990': ['ep'],
+      '1991': ['ep'],
+      '1992': ['ep'],
+      '1993': ['ep'],
+      '1994': ['ep'],
     }
   },
   'Plymouth': {
@@ -3031,39 +3157,39 @@ const allSoloCars = {
     'C & C GT (all)': {
       'all': ['hs', 'fsp']
     },
-  'Saleen': {
-    'Mustang (w/o IRS or forced induction)' : {
-      '1979': ['bs','cp'],
-      '1980': ['bs','cp'],
-      '1981': ['bs','cp'],
-      '1982': ['bs','cp'],
-      '1983': ['bs','cp'],
-      '1984': ['bs','cp'],
-      '1985': ['bs','cp'],
-      '1986': ['bs','cp'],
-      '1987': ['bs','cp'],
-      '1988': ['bs','cp'],
-      '1989': ['bs','cp'],
-      '1990': ['bs','cp'],
-      '1991': ['bs','cp'],
-      '1992': ['bs','cp'],
-      '1993': ['bs','cp']      
-    },
-    'Mustang S281E & Mustang (NOC)' : {
-      'all' : ['bsp'],
-    },
-    'Mustang 302 & 351 (non-super-charged)' : {
-      '1984': ['esp'],
-      '1985': ['esp'],
-      '1986': ['esp'],
-      '1987': ['esp'],
-      '1988': ['esp'],
-      '1989': ['esp'],
-      '1990': ['esp'],
-      '1991': ['esp'],
-      '1992': ['esp'],
-      '1993': ['esp'] 
-    },
+    'Saleen': {
+      'Mustang (w/o IRS or forced induction)': {
+        '1979': ['bs', 'cp'],
+        '1980': ['bs', 'cp'],
+        '1981': ['bs', 'cp'],
+        '1982': ['bs', 'cp'],
+        '1983': ['bs', 'cp'],
+        '1984': ['bs', 'cp'],
+        '1985': ['bs', 'cp'],
+        '1986': ['bs', 'cp'],
+        '1987': ['bs', 'cp'],
+        '1988': ['bs', 'cp'],
+        '1989': ['bs', 'cp'],
+        '1990': ['bs', 'cp'],
+        '1991': ['bs', 'cp'],
+        '1992': ['bs', 'cp'],
+        '1993': ['bs', 'cp']
+      },
+      'Mustang S281E & Mustang (NOC)': {
+        'all': ['bsp'],
+      },
+      'Mustang 302 & 351 (non-super-charged)': {
+        '1984': ['esp'],
+        '1985': ['esp'],
+        '1986': ['esp'],
+        '1987': ['esp'],
+        '1988': ['esp'],
+        '1989': ['esp'],
+        '1990': ['esp'],
+        '1991': ['esp'],
+        '1992': ['esp'],
+        '1993': ['esp']
+      },
     },
     'Triumph': {
       'TR-8': {
@@ -3093,6 +3219,76 @@ const allSoloCars = {
       'TR-7': {
         'all': ['hs', 'fsp', 'dp']
       },
+    },
+  'Opel': {
+      '1900': {
+          'all': ['fsp']
+      },
+      'Ascona': {
+        '1971': ['dp'],
+        '1972': ['dp'],
+        '1973': ['dp'],
+        '1974': ['dp'],
+        '1975': ['dp']
+      },
+      'Ascona SportWagon (1900cc)': {
+        '1971': ['dp'],
+        '1972': ['dp'],
+        '1973': ['dp'],
+        '1974': ['dp'],
+        '1975': ['dp']
+      },
+      'Manta': {
+          'all': ['fsp']
+      },
+      'Manta Sport Coupe': {
+        '1971': ['dp'],
+        '1972': ['dp'],
+        '1973': ['dp'],
+        '1974': ['dp'],
+        '1975': ['dp']
+      },
+      'Manta Rallye (1900 cc)': {
+        '1971': ['dp'],
+        '1972': ['dp'],
+        '1973': ['dp'],
+        '1974': ['dp'],
+        '1975': ['dp']
+      },
+      'GT 1100': {
+          'all': ['fsp', 'dp']
+      },
+      'GT 1500': {
+          'all': ['fsp']
+      },
+      'GT 1900': {
+          'all': ['fsp', 'dp']
+      },
+      'Kadett 1100': {
+          '1964': ['fsp', 'dp'],
+          '1965': ['fsp', 'dp'],
+          '1966': ['fsp', 'dp'],
+          '1967': ['fsp', 'dp'],
+          '1968': ['fsp', 'dp'],
+          '1969': ['fsp', 'dp'],
+          '1970': ['fsp', 'dp'],
+          '1971': ['fsp', 'dp'],
+          '1972': ['fsp', 'dp']
+      },
+      'Kadett 1500': {
+          'all': ['fsp']
+      },
+      'Kadett 1900': {
+          '1964': ['fsp', 'dp'],
+          '1965': ['fsp', 'dp'],
+          '1966': ['fsp', 'dp'],
+          '1967': ['fsp', 'dp'],
+          '1968': ['fsp', 'dp'],
+          '1969': ['fsp', 'dp'],
+          '1970': ['fsp', 'dp'],
+          '1971': ['fsp', 'dp'],
+          '1972': ['fsp', 'dp']
+      }
     }
   }
 };
