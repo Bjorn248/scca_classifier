@@ -2963,10 +2963,7 @@ const allSoloCars = {
       'all': ['ssp']
     },
     'MP4-12C': {
-      'all' : ['ssm', 'ssp'],
-      '2012': ['ss'],
-      '2013': ['ss'],
-      '2014': ['ss']
+      'all' : ['ss', 'ssm', 'ssp'],
     }
   }
 };
