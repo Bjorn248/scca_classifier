@@ -1782,38 +1782,32 @@ const allSoloCars = {
     },
   },
   'TVR':{
-    '1800':{
-      'all':['dp']
-    },
     '4-cyl':{
       'all':['es','ssp'],
     },
-    '6-cyl':{
-      'all':['ssp','fp'],
-    },
     '8-cyl':{
-      'all':['bs']
-    },
-    'Inline-6':{
-      'all':['es']
-    },
-    'Griffith 200':{
-      'all':['xp'],
-    },
-    'Griffith 400':{
-      'all':['xp']
+      'all':['bs', 'ssp']
     },
     'V6':{
-      'all':['bs']
-    },
-    'V8':{
-      'all':['ssp']
+      'all':['bs', 'ssp', 'fp']
     },
     'V12':{
       'all':['bs']
     },
+    'Inline-6':{
+      'all':['es', 'ssp', 'fp']
+    },
+    '1800':{
+      'all':['es', 'ssp', 'dp']
+    },
+    'Griffith 200':{
+      'all':['bs', 'ssp', 'xp'],
+    },
+    'Griffith 400':{
+      'all':['bs', 'ssp', 'xp']
+    },
     'Vixen S2 (1599 cc)':{
-      'all':['dp']
+      'all':['es', 'ssp', 'dp']
     },
   },
   'Lexus': {
@@ -3140,9 +3134,9 @@ const allSoloCars = {
         'all': ['hs', 'fsp', 'dp']
       },
     },
-  'Opel': {
+    'Opel': {
       '1900': {
-          'all': ['fsp']
+        'all': ['fsp']
       },
       'Ascona': {
         '1971': ['dp'],
@@ -3159,7 +3153,7 @@ const allSoloCars = {
         '1975': ['dp']
       },
       'Manta': {
-          'all': ['fsp']
+        'all': ['fsp']
       },
       'Manta Sport Coupe': {
         '1971': ['dp'],
@@ -3176,41 +3170,41 @@ const allSoloCars = {
         '1975': ['dp']
       },
       'GT 1100': {
-          'all': ['fsp', 'dp']
+        'all': ['fsp', 'dp']
       },
       'GT 1500': {
-          'all': ['fsp']
+        'all': ['fsp']
       },
       'GT 1900': {
-          'all': ['fsp', 'dp']
+        'all': ['fsp', 'dp']
       },
       'Kadett 1100': {
-          '1964': ['fsp', 'dp'],
-          '1965': ['fsp', 'dp'],
-          '1966': ['fsp', 'dp'],
-          '1967': ['fsp', 'dp'],
-          '1968': ['fsp', 'dp'],
-          '1969': ['fsp', 'dp'],
-          '1970': ['fsp', 'dp'],
-          '1971': ['fsp', 'dp'],
-          '1972': ['fsp', 'dp']
+        '1964': ['fsp', 'dp'],
+        '1965': ['fsp', 'dp'],
+        '1966': ['fsp', 'dp'],
+        '1967': ['fsp', 'dp'],
+        '1968': ['fsp', 'dp'],
+        '1969': ['fsp', 'dp'],
+        '1970': ['fsp', 'dp'],
+        '1971': ['fsp', 'dp'],
+        '1972': ['fsp', 'dp']
       },
       'Kadett 1500': {
-          'all': ['fsp']
+        'all': ['fsp']
       },
       'Kadett 1900': {
-          '1964': ['fsp', 'dp'],
-          '1965': ['fsp', 'dp'],
-          '1966': ['fsp', 'dp'],
-          '1967': ['fsp', 'dp'],
-          '1968': ['fsp', 'dp'],
-          '1969': ['fsp', 'dp'],
-          '1970': ['fsp', 'dp'],
-          '1971': ['fsp', 'dp'],
-          '1972': ['fsp', 'dp']
+        '1964': ['fsp', 'dp'],
+        '1965': ['fsp', 'dp'],
+        '1966': ['fsp', 'dp'],
+        '1967': ['fsp', 'dp'],
+        '1968': ['fsp', 'dp'],
+        '1969': ['fsp', 'dp'],
+        '1970': ['fsp', 'dp'],
+        '1971': ['fsp', 'dp'],
+        '1972': ['fsp', 'dp']
       }
-  }
-};
+    }
+  };
 
 /**
  * handles navbar opening
