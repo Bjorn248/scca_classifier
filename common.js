@@ -2794,6 +2794,36 @@ const allSoloCars = {
     'MP4-12C': {
       'all' : ['ss', 'ssm', 'ssp'],
     }
+  },
+  'Triumph': {
+    'TR-8': {
+      'all': ['es', 'bsp']
+    },
+    'Stag': {
+      'all': ['fs']
+    },
+    'GT-6': {
+      'all': ['hs', 'fsp', 'dp']
+    },
+    'Herald (all) ': {
+      'all': ['hs', 'fsp']
+    },
+    'Spitfire': {
+      'all': ['hs', 'fsp', 'dp']
+    },
+    'TR-2 & TR-3 ': {
+      'all': ['hs', 'fsp', 'dp']
+    },
+    'TR-4 & TR-4A ': {
+      'all': ['hs', 'fsp', 'dp']
+    },
+    'TR-250 & TR-6 ': {
+      'all': ['hs', 'fsp']
+    },
+    'TR-7': {
+      'all': ['hs', 'fsp', 'dp']
+    },
+
   }
 };
 
