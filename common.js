@@ -2938,6 +2938,40 @@ const allSoloCars = {
       'all' : ['ss', 'ssm', 'ssp'],
     }
   },
+  'Saleen': {
+    'Mustang (w/o IRS or forced induction)' : {
+      '1979': ['bs','cp'],
+      '1980': ['bs','cp'],
+      '1981': ['bs','cp'],
+      '1982': ['bs','cp'],
+      '1983': ['bs','cp'],
+      '1984': ['bs','cp'],
+      '1985': ['bs','cp'],
+      '1986': ['bs','cp'],
+      '1987': ['bs','cp'],
+      '1988': ['bs','cp'],
+      '1989': ['bs','cp'],
+      '1990': ['bs','cp'],
+      '1991': ['bs','cp'],
+      '1992': ['bs','cp'],
+      '1993': ['bs','cp']      
+    },
+    'Mustang S281E & Mustang (NOC)' : {
+      'all' : ['bsp'],
+    }
+    'Mustang 302 & 351 (non-super-charged)' : {
+      '1984': ['esp'],
+      '1985': ['esp'],
+      '1986': ['esp'],
+      '1987': ['esp'],
+      '1988': ['esp'],
+      '1989': ['esp'],
+      '1990': ['esp'],
+      '1991': ['esp'],
+      '1992': ['esp'],
+      '1993': ['esp'] 
+    },
+  },
   'Triumph': {
     'TR-8': {
       'all': ['es', 'bsp']
@@ -2966,7 +3000,6 @@ const allSoloCars = {
     'TR-7': {
       'all': ['hs', 'fsp', 'dp']
     },
-
   }
 };
 
