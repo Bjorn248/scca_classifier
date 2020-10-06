@@ -1739,8 +1739,7 @@ const allSoloCars = {
     'V12':{
       'all':['bs']
     },
-    // review this line please. page 237
-    'Vixen S2 (1599 cc; Pierced aluminum casting cylinder head)':{
+    'Vixen S2 (1599 cc)':{
       'all':['dp']
     },
   },
