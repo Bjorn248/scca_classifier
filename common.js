@@ -1199,10 +1199,10 @@ const allSoloCars = {
   },
   'Buick': {
     'Grand National': {
-      'all': ['fs']
+      'all': ['fs'],
     },
     'Reatta': {
-      'all': ['hs', 'esp']
+      'all': ['hs', 'esp'],
     },
     'Regal (all)': {
       '2014': ['gs'],
@@ -1211,7 +1211,7 @@ const allSoloCars = {
       '2017': ['gs'],
       '2018': ['gs'],
       '2019': ['gs'],
-      '2020': ['gs']
+      '2020': ['gs'],
     },
     'Regal (V6 & V8, RWD)': {
       '1980': ['esp'],
@@ -1222,25 +1222,25 @@ const allSoloCars = {
       '1985': ['esp', 'cp'],
       '1986': ['esp', 'cp'],
       '1987': ['esp', 'cp'],
-      '1988': ['esp', 'cp']
+      '1988': ['esp', 'cp'],
     },
     'Regal (V6Turbo)': {
-      'all': ['fs']
+      'all': ['fs'],
     },
     'Verano (non-turbo)': {
       '2013': ['hs'],
       '2014': ['hs'],
       '2015': ['hs'],
       '2016': ['hs'],
-      '2017': ['hs']
+      '2017': ['hs'],
     },
     'Verano Turbo': {
       '2013': ['gs'],
       '2014': ['gs'],
       '2015': ['gs'],
       '2016': ['gs'],
-      '2017': ['gs']
-    }
+      '2017': ['gs'],
+    },
   },
   'Cadillac': {
     'XLR': {
@@ -1688,25 +1688,25 @@ const allSoloCars = {
   },
   'DeTomaso': {
     'Mangusta': {
-      'all': ['bs', 'asp']
+      'all': ['bs', 'asp'],
     },
     'Pantera': {
-      'all': ['bs', 'asp']
-    }
+      'all': ['bs', 'asp'],
+    },
   },
   'Eagle': {
     'Talon Turbo (AWD)': {
-      'all': ['ds', 'sth']
+      'all': ['ds', 'sth'],
     },
     'Summit': {
-      'all': ['hs']
+      'all': ['hs'],
     },
     'Talon (FWD)': {
-      'all': ['hs']
+      'all': ['hs'],
     },
     'Summit Turbo (16v)': {
       '1989': ['dsp'],
-      '1990': ['dsp']
+      '1990': ['dsp'],
     },
     'Talon (non-turbo)': {
       '1989': ['fsp'],
@@ -1719,8 +1719,8 @@ const allSoloCars = {
       '1996': ['fsp'],
       '1997': ['fsp'],
       '1998': ['fsp'],
-      '1999': ['fsp']
-    }
+      '1999': ['fsp'],
+    },
   },
   'Ferrari': {
     '250 (non-LM)': {
@@ -1781,33 +1781,33 @@ const allSoloCars = {
       'all': ['ssp'],
     },
   },
-  'TVR':{
-    '4-cyl':{
-      'all':['es','ssp'],
+  'TVR': {
+    '4-cyl': {
+      'all': ['es', 'ssp'],
     },
-    '8-cyl':{
-      'all':['bs', 'ssp']
+    '8-cyl': {
+      'all': ['bs', 'ssp'],
     },
-    'V6':{
-      'all':['bs', 'ssp', 'fp']
+    'V6': {
+      'all': ['bs', 'ssp', 'fp'],
     },
-    'V12':{
-      'all':['bs']
+    'V12': {
+      'all': ['bs'],
     },
-    'Inline-6':{
-      'all':['es', 'ssp', 'fp']
+    'Inline-6': {
+      'all': ['es', 'ssp', 'fp'],
     },
-    '1800':{
-      'all':['es', 'ssp', 'dp']
+    '1800': {
+      'all': ['es', 'ssp', 'dp'],
     },
-    'Griffith 200':{
-      'all':['bs', 'ssp', 'xp'],
+    'Griffith 200': {
+      'all': ['bs', 'ssp', 'xp'],
     },
-    'Griffith 400':{
-      'all':['bs', 'ssp', 'xp']
+    'Griffith 400': {
+      'all': ['bs', 'ssp', 'xp'],
     },
-    'Vixen S2 (1599 cc)':{
-      'all':['es', 'ssp', 'dp']
+    'Vixen S2 (1599 cc)': {
+      'all': ['es', 'ssp', 'dp'],
     },
   },
   'Lexus': {
@@ -1818,16 +1818,16 @@ const allSoloCars = {
       '2014': ['hs', 'sts'],
       '2015': ['hs', 'sts'],
       '2016': ['hs', 'sts'],
-      '2017': ['hs']
+      '2017': ['hs'],
     },
     'ES 250': {
-      'all': ['hs', 'esp']
+      'all': ['hs', 'esp'],
     },
     'ES 300': {
-      'all': ['hs']
+      'all': ['hs'],
     },
     'GS 300': {
-      'all': ['hs']
+      'all': ['hs'],
     },
     'GS 350': {
       '2005': ['ds'],
@@ -1843,19 +1843,19 @@ const allSoloCars = {
       '2015': ['ds'],
       '2016': ['ds'],
       '2017': ['ds'],
-      '2018': ['ds']
+      '2018': ['ds'],
     },
     'GS 400': {
       '1998': ['esp', 'fs'],
       '1999': ['esp', 'fs'],
-      '2000': ['esp', 'fs']
+      '2000': ['esp', 'fs'],
     },
     'GS-F': {
       '2016': ['fs'],
       '2017': ['fs'],
       '2018': ['fs'],
       '2019': ['fs'],
-      '2020': ['fs']
+      '2020': ['fs'],
     },
     'IS (all excl. IS-F)': {
       '2006': ['ds'],
@@ -1872,10 +1872,10 @@ const allSoloCars = {
       '2017': ['ds'],
       '2018': ['ds'],
       '2019': ['ds'],
-      '2020': ['ds']
+      '2020': ['ds'],
     },
     'IS 250': {
-      'all': ['stx']
+      'all': ['stx'],
     },
     'IS 300': {
       '2000': ['dsp', 'stx'],
@@ -1900,7 +1900,7 @@ const allSoloCars = {
       '2020': ['dsp', 'stx'],
     },
     'IS 350': {
-      'all': ['stx']
+      'all': ['stx'],
     },
     'IS F': {
       '2008': ['esp', 'fs', 'stu'],
@@ -1909,10 +1909,10 @@ const allSoloCars = {
       '2011': ['esp', 'fs', 'stu'],
       '2012': ['esp', 'fs', 'stu'],
       '2013': ['esp', 'fs', 'stu'],
-      '2014': ['esp', 'fs', 'stu']
+      '2014': ['esp', 'fs', 'stu'],
     },
     'LS 400': {
-      'all': ['esp']
+      'all': ['esp'],
     },
     'RC-F': {
       '2015': ['bs'],
@@ -1920,7 +1920,7 @@ const allSoloCars = {
       '2017': ['bs'],
       '2018': ['bs'],
       '2019': ['bs'],
-      '2020': ['bs']
+      '2020': ['bs'],
     },
     'RC (non-F)': {
       '2015': ['fs'],
@@ -1928,7 +1928,7 @@ const allSoloCars = {
       '2017': ['fs'],
       '2018': ['fs'],
       '2019': ['fs'],
-      '2020': ['fs']
+      '2020': ['fs'],
     },
     'SC 300': {
       '1992': ['gs', 'stx'],
@@ -1939,7 +1939,7 @@ const allSoloCars = {
       '1997': ['gs', 'stx'],
       '1998': ['gs', 'stx'],
       '1999': ['gs', 'stx'],
-      '2000': ['gs', 'stx']
+      '2000': ['gs', 'stx'],
     },
     'SC 400': {
       '1992': ['ds', 'esp'],
@@ -1950,8 +1950,8 @@ const allSoloCars = {
       '1997': ['ds', 'esp'],
       '1998': ['ds', 'esp'],
       '1999': ['ds', 'esp'],
-      '2000': ['ds', 'esp']
-    }
+      '2000': ['ds', 'esp'],
+    },
   },
   'Porsche': {
     'all': {
@@ -2105,7 +2105,7 @@ const allSoloCars = {
     '911 Club Sport': {
       '1987': ['cs'],
       '1988': ['cs'],
-      '1989': ['cs']
+      '1989': ['cs'],
     },
     '911 GT3': {
       '1999': ['ss', 'ssr', 'ssp'],
@@ -2656,7 +2656,7 @@ const allSoloCars = {
   },
   'Lincoln': {
     'LS (V6)': {
-      'all': ['hs']
+      'all': ['hs'],
     },
     'LS (V8)': {
       '2000': ['fs'],
@@ -2665,7 +2665,7 @@ const allSoloCars = {
       '2003': ['fs'],
       '2004': ['fs'],
       '2005': ['fs'],
-      '2006': ['fs']
+      '2006': ['fs'],
     },
     'Mark VIII': {
       '1993': ['fs'],
@@ -2673,7 +2673,7 @@ const allSoloCars = {
       '1995': ['fs'],
       '1996': ['fs'],
       '1997': ['fs'],
-      '1998': ['fs']
+      '1998': ['fs'],
     },
     'MKZ (AWD)': {
       '2013': ['ds'],
@@ -2683,7 +2683,7 @@ const allSoloCars = {
       '2017': ['ds'],
       '2018': ['ds'],
       '2019': ['ds'],
-      '2020': ['ds']
+      '2020': ['ds'],
     },
     'MKZ (FWD)': {
       '2013': ['gs'],
@@ -2693,7 +2693,7 @@ const allSoloCars = {
       '2017': ['gs'],
       '2018': ['gs'],
       '2019': ['gs'],
-      '2020': ['gs']
+      '2020': ['gs'],
     },
     'MKZ': {
       '2006': ['gs'],
@@ -2999,36 +2999,36 @@ const allSoloCars = {
   },
   'McLaren': {
     '570GT': {
-      'all': ['ss']
+      'all': ['ss'],
     },
     '570S': {
-      'all': ['ss']
+      'all': ['ss'],
     },
     '600LT (limited prep)': {
-      'all': ['ssp']
+      'all': ['ssp'],
     },
     '620R (limited prep)': {
-      'all': ['ssp']
+      'all': ['ssp'],
     },
     '650S': {
-      'all': ['ss']
+      'all': ['ss'],
     },
     '720S': {
-      'all': ['ssp']
+      'all': ['ssp'],
     },
     'MP4-12C': {
       'all': ['ss', 'ssm', 'ssp'],
-    }
+    },
   },
   'Geo': {
     'Metro': {
-      'all': ['hs']
+      'all': ['hs'],
     },
     'Prizm': {
-      'all': ['hs']
+      'all': ['hs'],
     },
     'Spectrum': {
-      'all': ['hs']
+      'all': ['hs'],
     },
     'Storm': {
       '2005': ['sp'],
@@ -3056,20 +3056,20 @@ const allSoloCars = {
       '1992': ['ep'],
       '1993': ['ep'],
       '1994': ['ep'],
-    }
+    },
   },
   'MG': {
     '1100, 1300 Sedan (all) ': {
-      'all': ['hs', 'fsp']
+      'all': ['hs', 'fsp'],
     },
     'A (all)': {
-      'all': ['hs', 'fsp']
+      'all': ['hs', 'fsp'],
     },
     'B & B GT (all)': {
-      'all': ['hs', 'fsp']
+      'all': ['hs', 'fsp'],
     },
     'C & C GT (all)': {
-      'all': ['hs', 'fsp']
+      'all': ['hs', 'fsp'],
     },
     'Saleen': {
       'Mustang (w/o IRS or forced induction)': {
@@ -3087,7 +3087,7 @@ const allSoloCars = {
         '1990': ['bs', 'cp'],
         '1991': ['bs', 'cp'],
         '1992': ['bs', 'cp'],
-        '1993': ['bs', 'cp']
+        '1993': ['bs', 'cp'],
       },
       'Mustang S281E & Mustang (NOC)': {
         'all': ['bsp'],
@@ -3102,81 +3102,81 @@ const allSoloCars = {
         '1990': ['esp'],
         '1991': ['esp'],
         '1992': ['esp'],
-        '1993': ['esp']
+        '1993': ['esp'],
       },
     },
     'Triumph': {
       'TR-8': {
-        'all': ['es', 'bsp']
+        'all': ['es', 'bsp'],
       },
       'Stag': {
-        'all': ['fs']
+        'all': ['fs'],
       },
       'GT-6': {
-        'all': ['hs', 'fsp', 'dp']
+        'all': ['hs', 'fsp', 'dp'],
       },
       'Herald (all) ': {
-        'all': ['hs', 'fsp']
+        'all': ['hs', 'fsp'],
       },
       'Spitfire': {
-        'all': ['hs', 'fsp', 'dp']
+        'all': ['hs', 'fsp', 'dp'],
       },
       'TR-2 & TR-3 ': {
-        'all': ['hs', 'fsp', 'dp']
+        'all': ['hs', 'fsp', 'dp'],
       },
       'TR-4 & TR-4A ': {
-        'all': ['hs', 'fsp', 'dp']
+        'all': ['hs', 'fsp', 'dp'],
       },
       'TR-250 & TR-6 ': {
-        'all': ['hs', 'fsp']
+        'all': ['hs', 'fsp'],
       },
       'TR-7': {
-        'all': ['hs', 'fsp', 'dp']
+        'all': ['hs', 'fsp', 'dp'],
       },
     },
     'Opel': {
       '1900': {
-        'all': ['fsp']
+        'all': ['fsp'],
       },
       'Ascona': {
         '1971': ['dp'],
         '1972': ['dp'],
         '1973': ['dp'],
         '1974': ['dp'],
-        '1975': ['dp']
+        '1975': ['dp'],
       },
       'Ascona SportWagon (1900cc)': {
         '1971': ['dp'],
         '1972': ['dp'],
         '1973': ['dp'],
         '1974': ['dp'],
-        '1975': ['dp']
+        '1975': ['dp'],
       },
       'Manta': {
-        'all': ['fsp']
+        'all': ['fsp'],
       },
       'Manta Sport Coupe': {
         '1971': ['dp'],
         '1972': ['dp'],
         '1973': ['dp'],
         '1974': ['dp'],
-        '1975': ['dp']
+        '1975': ['dp'],
       },
       'Manta Rallye (1900 cc)': {
         '1971': ['dp'],
         '1972': ['dp'],
         '1973': ['dp'],
         '1974': ['dp'],
-        '1975': ['dp']
+        '1975': ['dp'],
       },
       'GT 1100': {
-        'all': ['fsp', 'dp']
+        'all': ['fsp', 'dp'],
       },
       'GT 1500': {
-        'all': ['fsp']
+        'all': ['fsp'],
       },
       'GT 1900': {
-        'all': ['fsp', 'dp']
+        'all': ['fsp', 'dp'],
       },
       'Kadett 1100': {
         '1964': ['fsp', 'dp'],
@@ -3187,10 +3187,10 @@ const allSoloCars = {
         '1969': ['fsp', 'dp'],
         '1970': ['fsp', 'dp'],
         '1971': ['fsp', 'dp'],
-        '1972': ['fsp', 'dp']
+        '1972': ['fsp', 'dp'],
       },
       'Kadett 1500': {
-        'all': ['fsp']
+        'all': ['fsp'],
       },
       'Kadett 1900': {
         '1964': ['fsp', 'dp'],
@@ -3201,10 +3201,84 @@ const allSoloCars = {
         '1969': ['fsp', 'dp'],
         '1970': ['fsp', 'dp'],
         '1971': ['fsp', 'dp'],
-        '1972': ['fsp', 'dp']
-      }
-    }
-  };
+        '1972': ['fsp', 'dp'],
+      },
+    },
+  },
+  'Kia': {
+    'Stinger (V6 Turbo)': {
+      '2018': ['fs'],
+      '2019': ['fs'],
+      '2020': ['fs'],
+    },
+    'Stinger (4-cyl Turbo)': {
+      '2018': ['gs'],
+      '2019': ['gs'],
+      '2020': ['gs'],
+    },
+    'Forte (non-turbo)': {
+      'all': ['hs', 'sts', 'fsp'],
+    },
+    'Forte Koup (non-turbo)': {
+      'all': ['hs', 'sts', 'dsp'],
+    },
+    'Forte Turbo': {
+      'all': ['hs', 'sth', 'fsp'],
+    },
+    'Forte Koup Turbo': {
+      'all': ['hs', 'sth', 'dsp'],
+    },
+    'Forte5': {
+      '2014': ['hs'],
+      '2015': ['hs'],
+      '2016': ['hs'],
+      '2017': ['hs'],
+      '2018': ['hs'],
+    },
+    'Optima': {
+      'all': ['hs'],
+    },
+    'Rio': {
+      '2012': ['hs', 'sts'],
+      '2013': ['hs', 'sts'],
+      '2014': ['hs', 'sts'],
+      '2015': ['hs', 'sts'],
+      '2016': ['hs', 'sts'],
+      '2017': ['hs', 'sts'],
+      '2018': ['hs'],
+      '2019': ['hs'],
+      '2020': ['hs'],
+    },
+    'Sephia': {
+      'all': ['hs'],
+    },
+    'Spectra': {
+      'all': ['hs', 'fsp'],
+    },
+  },
+  'Saleen': {
+    'Mustang (w/o IRS or forced induction)': {
+      '1979': ['bs', 'cp'],
+      '1980': ['bs', 'cp'],
+      '1981': ['bs', 'cp'],
+      '1982': ['bs', 'cp'],
+      '1983': ['bs', 'cp'],
+      '1984': ['bs', 'cp'],
+      '1985': ['bs', 'cp'],
+      '1986': ['bs', 'cp'],
+      '1987': ['bs', 'cp'],
+      '1988': ['bs', 'cp'],
+      '1989': ['bs', 'cp'],
+      '1990': ['bs', 'cp'],
+      '1991': ['bs', 'cp'],
+      '1992': ['bs', 'cp'],
+      '1993': ['bs', 'cp'],
+    },
+    'Mustang S281E & Mustang (NOC)': {
+      'all': ['bsp'],
+    },
+  },
+};
 
 /**
  * handles navbar opening
