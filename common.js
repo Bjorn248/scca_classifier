@@ -1645,7 +1645,6 @@ const allSoloCars = {
       'all': ['fsp'],
     },
     'Celica FWD; NOC': {
-      'all': ['gs'],
       '1986': ['gs','fsp'],
       '1987': ['gs','fsp'],
       '1988': ['gs','fsp'],
@@ -1730,7 +1729,6 @@ const allSoloCars = {
       '2003': ['gs'],
     },
     'Corolla': {
-      'all': ['hs'],
       '1986': ['sts','hs'],
       '1987': ['sts','hs'],
       '1988': ['sts','hs'],
@@ -1798,7 +1796,6 @@ const allSoloCars = {
       'all': ['hs'],
     },
     'Echo': {
-      'all': ['hs'],
       '2001': ['sts','hs'],
       '2002': ['sts','hs'],
       '2003': ['sts','hs'],
@@ -1806,7 +1803,6 @@ const allSoloCars = {
       '2005': ['sts','hs'],
     },
     'Matrix': {
-      'all': ['hs'],
       '2003': ['sts','hs'],
       '2004': ['sts','hs'],
       '2005': ['sts','hs'],
@@ -1820,7 +1816,6 @@ const allSoloCars = {
       '2013': ['sts','hs'],
     },
     'MR2 Turbo': {
-      'all': ['cs'],
       '1991': ['cs','asp'],
       '1992': ['cs','asp'],
       '1993': ['cs','asp'],
@@ -1841,12 +1836,11 @@ const allSoloCars = {
       '1995': ['es','sts','asp'],
     },
     'MR2 Spyder': {
-      'all': ['stu'],
-      '1991': ['asp'],
-      '1992': ['asp'],
-      '1993': ['asp'],
-      '1994': ['asp'],
-      '1995': ['asp'],
+      '1991': ['asp','stu'],
+      '1992': ['asp','stu'],
+      '1993': ['asp','stu'],
+      '1994': ['asp','stu'],
+      '1995': ['asp','stu'],
       '2000': ['es','stu','csp'],
       '2001': ['es','stu','csp'],
       '2002': ['es','stu','csp'],
@@ -1855,25 +1849,23 @@ const allSoloCars = {
       '2005': ['es','stu','csp'],
     },
     'MR2 Supercharged': {
-      'all': ['es'],
-      '1985': ['csp'],
-      '1986': ['csp'],
-      '1987': ['csp'],
+      '1985': ['csp','es'],
+      '1986': ['csp','es'],
+      '1987': ['csp','es'],
       '1988': ['es','stu','csp','str'],
       '1989': ['es','stu','csp','str'],
     },
     'MR2 non-supercharged': {
-      'all': ['es'],
       '1985': ['es','sts','csp'],
       '1986': ['es','sts','csp'],
       '1987': ['es','sts','csp'],
       '1988': ['es','sts','csp'],
       '1989': ['es','sts','csp'],
-      '1991': ['asp'],
-      '1992': ['asp'],
-      '1993': ['asp'],
-      '1994': ['asp'],
-      '1995': ['asp'],
+      '1991': ['asp','es'],
+      '1992': ['asp','es'],
+      '1993': ['asp','es'],
+      '1994': ['asp','es'],
+      '1995': ['asp','es'],
     },
     'Supra': {
       '1979': ['dsp'],
@@ -1937,7 +1929,6 @@ const allSoloCars = {
       'all': ['hs','fsp'],
     },
     'Tacoma': {
-      'all': ['hs'],
       '1995': ['hs','stx'],
       '1996': ['hs','stx'],
       '1997': ['hs','stx'],
@@ -1964,7 +1955,6 @@ const allSoloCars = {
       '2018': ['hs','stx'],
       '2019': ['hs','stx'],
       '2020': ['hs','stx'],
-      
     },
      'Tercel': {
       'all': ['hs','fsp'],
