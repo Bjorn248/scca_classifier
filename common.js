@@ -4433,9 +4433,6 @@ const allSoloCars = {
       }
   },
   'Chrysler': {
-    'Prowler': {
-      'all': ['cs']
-    },
     '300 (V6)': {
       '2004': ['gs'],
       '2005': ['gs'],
@@ -4579,12 +4576,6 @@ const allSoloCars = {
     'Acclaim (V6 & Turbo)': {
       'all': ['dsp']
     },
-    'Charger GLH-S': {
-      'all': ['dsp']
-    },
-    'Conquest & Starion (non-turbo)': {
-      'all': ['dsp']
-    },
     'Daytona Turbo': {
       'all': ['dsp']
     },
@@ -4606,13 +4597,6 @@ const allSoloCars = {
     'Sundance Turbo': {
       'all': ['dsp']
     },
-    'Barracuda': {
-      '1965': ['cp', 'esp'],
-      '1966': ['cp', 'esp'],
-      '1967': ['cp', 'esp'],
-      '1968': ['cp', 'esp'],
-      '1969': ['cp', 'esp']
-    },
     'Valiant (A-body)': {
       '1963': ['esp'],
       '1964': ['esp'],
@@ -4628,13 +4612,6 @@ const allSoloCars = {
       '1974': ['esp'],
       '1975': ['esp'],
       '1976': ['esp']
-    },
-    'Barracuda & Challenger (E-body)': {
-      '1970': ['esp'],
-      '1971': ['esp'],
-      '1972': ['esp'],
-      '1973': ['esp'],
-      '1974': ['esp']
     },
     'Laser (FWD)': {
       'all': ['esp']
@@ -4671,20 +4648,6 @@ const allSoloCars = {
       '1965': ['cp'],
       '1966': ['cp'],
       '1967': ['cp']
-    },
-    'Charger (non-supercharged)': {
-      '2006': ['cp'],
-      '2007': ['cp'],
-      '2008': ['cp'],
-      '2009': ['cp'],
-      '2010': ['cp'],
-      '2011': ['cp'],
-      '2012': ['cp'],
-      '2013': ['cp'],
-      '2014': ['cp'],
-      '2015': ['cp'],
-      '2016': ['cp'],
-      '2017': ['cp']
     },
     'Laser (2.2 L non-turbo)': {
       '1984': ['ep'],
@@ -4734,14 +4697,6 @@ const allSoloCars = {
       '1993': ['ep'],
       '1994': ['ep']
     },
-    'Shelby Charger': {
-      '1979': ['ep'],
-      '1983': ['ep'],
-      '1984': ['ep'],
-      '1985': ['ep'],
-      '1986': ['ep'],
-      '1987': ['ep']
-    },
     'Spirit & Acclaim (4-cyl)': {
       '1989': ['ep'],
       '1990': ['ep'],
@@ -4754,9 +4709,6 @@ const allSoloCars = {
     'Sedans (N/A, FWD, NOC)': {
       'all': ['ep']
     },
-    'Colt Turbo': {
-      'all': ['fp']
-    },
     'Daytona & Laser (Turbo)': {
       '1984': ['fp'],
       '1985': ['fp'],
@@ -4765,20 +4717,9 @@ const allSoloCars = {
       '1988': ['fp'],
       '1989': ['fp']
     },
-    'Omni Turbo': {
-      'all': ['fp']
-    },
     'Shadow & Sundance (Turbo)': {
       '1987': ['fp'],
       '1988': ['fp'],
-      '1989': ['fp'],
-      '1990': ['fp'],
-      '1991': ['fp'],
-      '1992': ['fp'],
-      '1993': ['fp'],
-      '1994': ['fp']
-    },
-    'Talon & Laser (Turbo, FWD & AWD)': {
       '1989': ['fp'],
       '1990': ['fp'],
       '1991': ['fp'],
