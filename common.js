@@ -4041,8 +4041,46 @@ const allSoloCars = {
     },
     'Mustang S281E & Mustang (NOC)': {
       'all': ['bsp'],
-    },
+    }
   },
+    'Shelby': {
+        'Corba': {
+            'all': ['bs']
+            '1963': ['bs', 'xp'],
+            '1964': ['bs', 'xp'],
+            '1965': ['bs', 'xp'],
+            '1966': ['bs', 'xp'],
+            '1967': ['bs', 'xp']
+        },
+        'Charger GLH-S': {
+            '1987': ['es']
+        },
+        'Charger (non-turbo)': {
+            'all': ['hs']
+        },
+        'Charger turbo': {
+            'all': ['dsp']
+        },
+        'GT350': {
+            '1965': ['fs', 'esp', 'cp'],
+            '1966': ['fs', 'esp', 'cp'],
+            '1967': ['fs', 'esp', 'cp'],
+            '1968': ['fs', 'esp', 'cp'],
+            '1969': ['fs', 'esp', 'cp'],
+            '1970': ['fs', 'esp', 'cp']
+        },
+        'GT500': {
+            '1965': ['cp'],
+            '1966': ['cp'],
+            '1967': ['fs', 'esp', 'cp'],
+            '1968': ['fs', 'esp', 'cp'],
+            '1969': ['fs', 'esp', 'cp'],
+            '1970': ['fs', 'esp', 'cp']
+        },
+        'Cobra 289': {
+            'all': ['asp']
+        }
+  }
 };
 
 /**
