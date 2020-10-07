@@ -3279,6 +3279,66 @@ const allSoloCars = {
       '2004': ['ep'],
     },
   },
+  'Scion': {
+    'FR-S (with TRD suspension; incl. Release Series 1.0 and 2.0)': {
+      '2013': ['cs','ssc','stx','csp'],
+      '2014': ['cs','ssc','stx','csp'],
+      '2015': ['cs','ssc','stx','csp'],
+      '2016': ['cs','ssc','stx','csp'],
+    },
+    'FR-S (without TRD suspension components)': {
+      '2013': ['ds','ssc','stx','csp'],
+      '2014': ['ds','ssc','stx','csp'],
+      '2015': ['ds','ssc','stx','csp'],
+      '2016': ['ds','ssc','stx','csp'],
+    },
+    'iA': {
+      '2016': ['hs','sts'],
+    },
+    'iM': {
+      '2016': ['hs','sts'],
+    },
+    'iQ CVT': {
+      'all': ['sts'],
+    },
+    'tC': {
+      '2005': ['sts','fsp','hs'],
+      '2006': ['sts','fsp','hs'],
+      '2007': ['sts','fsp','hs'],
+      '2008': ['sts','fsp','hs'],
+      '2009': ['sts','fsp','hs'],
+      '2010': ['sts','fsp','hs'],
+      '2011': ['sts','fsp','hs'],
+      '2012': ['sts','fsp','hs'],
+      '2013': ['sts','fsp','hs'],
+      '2014': ['sts','fsp','hs'],
+      '2015': ['sts','fsp','hs'],
+      '2016': ['sts','fsp','hs'],
+    },
+    'xA': {
+      '2004': ['hs','sts'],
+      '2005': ['hs','sts'],
+      '2006': ['hs','sts'],
+    },
+    'xB': {
+      '2008': ['hs','sts'],
+      '2009': ['hs','sts'],
+      '2010': ['hs','sts'],
+      '2011': ['hs','sts'],
+      '2012': ['hs','sts'],
+      '2013': ['hs','sts'],
+      '2014': ['hs','sts'],
+      '2015': ['hs','sts'],
+    },
+    'xD': {
+      '2008': ['sts'],
+      '2009': ['sts'],
+      '2010': ['sts'],
+      '2011': ['sts'],
+      '2012': ['sts'],
+      '2013': ['sts'],
+    },
+  },
   'Subaru': {
     'BRZ (non-Performance Package)': {
       '2013': ['ds', 'stx', 'csp', 'dsp', 'ssc'],
