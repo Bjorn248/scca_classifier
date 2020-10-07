@@ -1902,10 +1902,7 @@ const allSoloCars = {
       '1983': ['hs', 'fsp']
     },
     'Scorpion': {
-      'all': ['hs', 'bsp']
-    },
-    'Scorpion (1756 cc)': {
-      '1976': ['dp']
+      'all': ['hs', 'csp', 'dp']
     },
     'Zagato': {
       '1975': ['fsp', 'ep'],
