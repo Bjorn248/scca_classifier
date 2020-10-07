@@ -1915,12 +1915,6 @@ const allSoloCars = {
       '2020': ['bs', 'stu']
     },
     '370Z (non-NISMO)': {
-      '2003': ['stu', 'fp'],
-      '2004': ['stu', 'fp'],
-      '2005': ['stu', 'fp'],
-      '2006': ['stu', 'fp'],
-      '2007': ['stu', 'fp'],
-      '2008': ['stu', 'fp'],
       '2009': ['stu', 'bsp', 'fp', 'fs'],
       '2010': ['stu', 'bsp', 'fp', 'fs'],
       '2011': ['stu', 'bsp', 'fp', 'fs'],
