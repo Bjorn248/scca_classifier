@@ -4192,6 +4192,128 @@ const allSoloCars = {
       'all': ['bsp'],
     }
   },
+  'Lotus': {
+    '7 & 7A': {
+      'all': ['cs', 'ssp']
+    },
+    '7 & 7A (948, 997, & 1098 cc)': {
+      'all': ['dp']
+    },
+    'Cortina': {
+      'all': ['csp', 'hs']
+    },
+    'Eclat': {
+      'all': ['cs', 'ssp']
+    },
+    'Elan': {
+      'all': ['cs', 'dp', 'ssp']
+    },
+    'Elise': {
+      '1996': ['fp', 'ssm'],
+      '1997': ['fp', 'ssm'],
+      '1998': ['fp', 'ssm'],
+      '1999': ['fp', 'ssm'],
+      '2000': ['fp', 'ssm'],
+      '2001': ['fp', 'ssm'],
+      '2002': ['fp', 'ssm'],
+      '2003': ['fp', 'ssm'],
+      '2004': ['fp', 'ssm'],
+      '2005': ['as', 'fp', 'ssm', 'ssp', 'ssr'],
+      '2006': ['as', 'fp', 'ssm', 'ssp', 'ssr'],
+      '2007': ['as', 'fp', 'ssm', 'ssp', 'ssr'],
+      '2008': ['as', 'fp', 'ssm', 'ssp', 'ssr'],
+      '2009': ['as', 'fp', 'ssm', 'ssp', 'ssr'],
+      '2010': ['as', 'fp', 'ssm', 'ssp', 'ssr'],
+      '2011': ['as', 'ssm', 'ssp', 'ssr']
+    },
+    'Elise SC': {
+      '2008': ['ss'],
+      '2009': ['ss'],
+      '2010': ['ss'],
+      '2011': ['ss']
+    },
+    'Elite': {
+      'all': ['cs']
+    },
+    'Elite 2+2': {
+      'all': ['ssp']
+    },
+    'Elite (1216 cc)': {
+      'all': ['csp']
+    },
+    'Esprit': {
+      'all': ['cs', 'ssm', 'ssp']
+    },
+    'Esprit Turbo': {
+      '1996': ['as', 'ssp'],
+      '1997': ['as', 'ssp'],
+      '1998': ['as', 'ssp'],
+      '1999': ['as', 'ssp'],
+      '2000': ['as', 'ssp'],
+      '2001': ['as', 'ssp'],
+      '2002': ['as', 'ssp'],
+      '2003': ['as', 'ssp'],
+      '2004': ['as', 'ssp']
+    },
+    'Europa': {
+      'all': ['cs', 'dp', 'ssp']
+    },
+    'Evora 400': {
+      'all': ['ss', 'ssp']
+    },
+    'Evora 410 Sport': {
+      '2018': ['ss']
+    },
+    'Evora GT': {
+      '2020': ['as']
+    },
+    'Evora S': {
+      '2010': ['ssp'],
+      '2011': ['as', 'ssp', 'ssr'],
+      '2012': ['as', 'ssp', 'ssr'],
+      '2013': ['as', 'ssp', 'ssr'],
+      '2014': ['as', 'ssp', 'ssr'],
+      '2015': ['as', 'ssr']
+    },
+    'Evora': {
+      '2010': ['bs', 'ssm', 'ssp'],
+      '2011': ['bs', 'ssm', 'ssp'],
+      '2012': ['bs', 'ssm', 'ssp'],
+      '2013': ['bs', 'ssm', 'ssp'],
+      '2014': ['bs', 'ssm', 'ssp'],
+      '2015': ['bs', 'ssm']
+    },
+    'Exige': {
+      '1996': ['fp', 'ssm'],
+      '1997': ['fp', 'ssm'],
+      '1998': ['fp', 'ssm'],
+      '1999': ['fp', 'ssm'],
+      '2000': ['fp', 'ssm'],
+      '2001': ['fp', 'ssm'],
+      '2002': ['fp', 'ssm'],
+      '2003': ['fp', 'ssm'],
+      '2004': ['fp', 'ssm'],
+      '2005': ['fp', 'ssm', 'ssp'],
+      '2006': ['as', 'fp', 'ssm', 'ssp', 'ssr'],
+      '2007': ['fp', 'ssm', 'ssp'],
+      '2008': ['fp', 'ssm', 'ssp'],
+      '2009': ['fp', 'ssm', 'ssp'],
+      '2010': ['fp', 'ssm', 'ssp'],
+      '2011': ['ssm', 'ssp']
+    },
+    'Exige S': {
+      '2005': ['ssp'],
+      '2006': ['ssp'],
+      '2007': ['ss', 'ssp'],
+      '2008': ['ss', 'ssp'],
+      '2009': ['ss', 'ssp'],
+      '2010': ['ss', 'ssp'],
+      '2011': ['ss', 'ssp']
+    },
+    'Super 7 (1340 cc & 1498 cc)': {
+      'all': ['dp']
+    },
+  },
     'Renault': {
         'NOC': {
             'all': ['hs']
