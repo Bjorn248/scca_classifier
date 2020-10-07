@@ -3968,7 +3968,37 @@ const allSoloCars = {
       'Not Otherwise Classified': {
         'all': ['hs'],
       },
-    },
+      'GT 1500': {
+          'all': ['fsp']
+      },
+      'GT 1900': {
+          'all': ['fsp', 'dp']
+      },
+      'Kadett 1100': {
+          '1964': ['fsp', 'dp'],
+          '1965': ['fsp', 'dp'],
+          '1966': ['fsp', 'dp'],
+          '1967': ['fsp', 'dp'],
+          '1968': ['fsp', 'dp'],
+          '1969': ['fsp', 'dp'],
+          '1970': ['fsp', 'dp'],
+          '1971': ['fsp', 'dp'],
+          '1972': ['fsp', 'dp']
+      },
+      'Kadett 1500': {
+          'all': ['fsp']
+      },
+      'Kadett 1900': {
+          '1964': ['fsp', 'dp'],
+          '1965': ['fsp', 'dp'],
+          '1966': ['fsp', 'dp'],
+          '1967': ['fsp', 'dp'],
+          '1968': ['fsp', 'dp'],
+          '1969': ['fsp', 'dp'],
+          '1970': ['fsp', 'dp'],
+          '1971': ['fsp', 'dp'],
+          '1972': ['fsp', 'dp']
+      }
   },
   'Kia': {
     'Stinger (V6 Turbo)': {
@@ -4043,6 +4073,44 @@ const allSoloCars = {
       'all': ['bsp'],
     },
   },
+  'Shelby': {
+      'Corba': {
+          'all': ['bs']
+          '1963': ['bs', 'xp'],
+          '1964': ['bs', 'xp'],
+          '1965': ['bs', 'xp'],
+          '1966': ['bs', 'xp'],
+          '1967': ['bs', 'xp']
+      },
+      'Charger GLH-S': {
+          '1987': ['es']
+      },
+      'Charger (non-turbo)': {
+          'all': ['hs']
+      },
+      'Charger turbo': {
+          'all': ['dsp']
+      },
+      'GT350': {
+          '1965': ['fs', 'esp', 'cp'],
+          '1966': ['fs', 'esp', 'cp'],
+          '1967': ['fs', 'esp', 'cp'],
+          '1968': ['fs', 'esp', 'cp'],
+          '1969': ['fs', 'esp', 'cp'],
+          '1970': ['fs', 'esp', 'cp']
+      },
+      'GT500': {
+          '1965': ['cp'],
+          '1966': ['cp'],
+          '1967': ['fs', 'esp', 'cp'],
+          '1968': ['fs', 'esp', 'cp'],
+          '1969': ['fs', 'esp', 'cp'],
+          '1970': ['fs', 'esp', 'cp']
+      },
+      'Cobra 289': {
+          'all': ['asp']
+      }
+  }
 };
 
 /**
