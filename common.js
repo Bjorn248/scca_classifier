@@ -4394,8 +4394,7 @@ const allSoloCars = {
         'Sedan (FWD,NOC)': {
             'all': ['ep']
         }
-    }
-  },
+    },
     'Shelby': {
       'Cobra': {
           '1963': ['bs', 'xp'],
@@ -4432,8 +4431,6 @@ const allSoloCars = {
       'Cobra 289': {
           'all': ['asp', 'bs', 'xp']
       }
-  }
-    },
   },
   'Chrysler': {
     'Prowler': {
