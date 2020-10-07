@@ -1758,7 +1758,7 @@ const allSoloCars = {
       '1989': ['dsp']
     },
     'I-Mark RS (16v & Turbo, FWD)': {
-      'all': ['fp', 'hs']
+      'all': ['dsp', 'fp', 'hs']
     },
     'I-Mark RS (16v)': {
       '1985': ['fsp'],
