@@ -1939,6 +1939,32 @@ const allSoloCars = {
       '1993': ['dsp'],
     },
   },
+  'Morgan': {
+    'Plus 8': {
+      'all': ['as', 'fp'],
+    },
+    'Roadster (V6)': {
+      'all': ['as'],
+    },
+    '4/4 & Plus 4': {
+      'all': ['es'],
+    },
+    'V8 (all)': {
+      'all': ['ssp'],
+    },
+    '4/4': {
+      'all': ['csp'],
+    },
+    '+4 (2138 cc; all)': {
+      'all': ['fsp'],
+    },
+    '4/4 MkIV (2138 cc)': {
+      'all': ['dp'],
+    },
+    '4/4 MkV (2138 cc)': {
+      'all': ['dp'],
+    },
+  },
   'Nissan': {
     '200SX': {
       '1976': ['dsp', 'hs', 'fsp'],
