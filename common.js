@@ -1939,6 +1939,23 @@ const allSoloCars = {
       '1993': ['dsp'],
     },
   },
+  'Morgan': {
+    '4/4': {
+      'all': ['es', 'csp', 'dp'],
+    },
+    'Plus 4': {
+      'all': ['es', 'fsp'],
+    },
+    'Plus 8': {
+      'all': ['as', 'fp'],
+    },
+    'Roadster (V6)': {
+      'all': ['as'],
+    },
+    'V8 (all)': {
+      'all': ['ssp'],
+    },
+  },
   'Nissan': {
     '200SX': {
       '1976': ['dsp', 'hs', 'fsp'],
