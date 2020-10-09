@@ -1712,7 +1712,7 @@ const allSoloCars = {
       '2003': ['sts'],
       '2004': ['sts'],
       '2005': ['sts'],
-  
+
     },
     'Celica GT': {
       '2000': ['gs'],
@@ -1919,7 +1919,7 @@ const allSoloCars = {
       '1996': ['fs','stx','esp'],
       '1997': ['fs','stx'],
       '1998': ['fs','stx'],
-    },
+    }
     'Paseo': {
       'all': ['hs'],
     },
