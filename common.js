@@ -5753,6 +5753,10 @@ const allSoloCars = {
       '1979': ['fsp'],
     },
     'Corolla (1600 & 1800,RWD)': {
+      '1980': ['fsp'],
+      '1981': ['fsp'],
+      '1982': ['fsp'],
+      '1983': ['fsp'],
     },
     'Corolla (AE86 chassis, all)': {
       '1984': ['fsp'],
