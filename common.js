@@ -223,7 +223,7 @@ const allSoloCars = {
     'Milano': {
       'all': ['hs', 'dsp', 'sm'],
     },
-    'Sedan (NOC)': {
+    'Sedan (Not Otherwise Classified)': {
       'all': ['hs', 'sm'],
     },
     'Sport Sedan': {
@@ -555,7 +555,7 @@ const allSoloCars = {
       '2019': ['gs', 'sth', 'sm'],
       '2020': ['gs', 'sth', 'sm'],
     },
-    'A6 (V6 NOC & 4-cyl)': {
+    'A6 (V6 Not Otherwise Classified & 4-cyl)': {
       'all': ['gs', 'sm'],
     },
     'A8 & V8 quattro (AWD)': {
@@ -652,7 +652,7 @@ const allSoloCars = {
     '3.0S & CS': {
       'all': ['esp', 'sm'],
     },
-    '320 (NOC)': {
+    '320 (Not Otherwise Classified)': {
       'all': ['hs', 'sm'],
     },
     '7 Series (6-cyl)': {
@@ -1533,7 +1533,7 @@ const allSoloCars = {
     'Aveo': {
       'all': ['hs'],
     },
-    'Beretta (NOC)': {
+    'Beretta (Not Otherwise Classified)': {
       'all': ['hs'],
     },
     'Bolt': {
@@ -1929,7 +1929,7 @@ const allSoloCars = {
     'Pulsar & Pulsar NX (non-turbo, all)': {
       'all': ['fsp'],
     },
-    'Sedan (N/A, FWD, NOC)': {
+    'Sedan (N/A, FWD, Not Otherwise Classified)': {
       'all': ['ep'],
     },
     'Sentra (1.8L)': {
@@ -2244,7 +2244,7 @@ const allSoloCars = {
     },
   },
   'Hyundai': {
-    'NOC': {
+    'Not Otherwise Classified': {
       'all': ['hs', 'fsp'],
     },
     'Accent': {
@@ -2884,7 +2884,7 @@ const allSoloCars = {
       '1989': ['ep'],
       '1990': ['ep'],
     },
-    'Sedan (N/A, FWD, NOC)': {
+    'Sedan (N/A, FWD, Not Otherwise Classified)': {
       'all': ['ep'],
     },
     'Sentra': {
@@ -4226,10 +4226,10 @@ const allSoloCars = {
     '99 Turbo': {
       'all': ['dsp', 'gs'],
     },
-    'NOC': {
+    'Not Otherwise Classified': {
       'all': ['hs'],
     },
-    'Sedan (non-turbo, FWD, NOC)': {
+    'Sedan (non-turbo, FWD, Not Otherwise Classified)': {
       'all': ['ep'],
     },
     'Sonnet': {
@@ -4247,7 +4247,7 @@ const allSoloCars = {
     'SPG (16v & Turbo)': {
       'all': ['esp'],
     },
-    'Turbo models (NOC)': {
+    'Turbo models (Not Otherwise Classified)': {
       'all': ['gs'],
     },
   },
@@ -4376,10 +4376,10 @@ const allSoloCars = {
     'Impreza 2.5 (non-turbo)': {
       'all': ['gs'],
     },
-    'Impreza (2.5L) (NOC)': {
+    'Impreza (2.5L) (Not Otherwise Classified)': {
       'all': ['dsp'],
     },
-    'Impreza (NOC)': {
+    'Impreza (Not Otherwise Classified)': {
       'all': ['hs'],
     },
     'Impreza WRX (incl. STI)': {
@@ -4445,10 +4445,10 @@ const allSoloCars = {
       '2011': ['ds', 'esp'],
       '2012': ['ds', 'esp'],
     },
-    'Legacy (NOC)': {
+    'Legacy (Not Otherwise Classified)': {
       'all': ['hs'],
     },
-    'NOC': {
+    'Not Otherwise Classified': {
       'all': ['hs'],
     },
     'Outback (6-cyl, all)': {
@@ -4469,13 +4469,13 @@ const allSoloCars = {
       '2012': ['dsp'],
       '2013': ['dsp'],
     },
-    'Sedan (N/A, FWD, NOC)': {
+    'Sedan (N/A, FWD, Not Otherwise Classified)': {
       'all': ['ep'],
     },
-    'Sedan Turbo (NOC)': {
+    'Sedan Turbo (Not Otherwise Classified)': {
       'all': ['hs'],
     },
-    'Sedan/Coupe (Turbo, NOC)': {
+    'Sedan/Coupe (Turbo, Not Otherwise Classified)': {
       'all': ['fp'],
     },
     'STI': {
@@ -4493,7 +4493,7 @@ const allSoloCars = {
       '1996': ['hs', 'fp'],
       '1997': ['hs', 'fp'],
     },
-    'Turbo 4WD (all, NOC)': {
+    'Turbo 4WD (all, Not Otherwise Classified)': {
       'all': ['fsp'],
     },
     'WRX': {
@@ -4630,7 +4630,7 @@ const allSoloCars = {
         '1992': ['bs', 'cp'],
         '1993': ['bs', 'cp'],
       },
-      'Mustang S281E & Mustang (NOC)': {
+      'Mustang S281E & Mustang (Not Otherwise Classified)': {
         'all': ['bsp'],
       },
       'Mustang 302 & 351 (non-super-charged)': {
@@ -4769,7 +4769,7 @@ const allSoloCars = {
       '1992': ['bs', 'cp'],
       '1993': ['bs', 'cp'],
     },
-    'Mustang S281E & Mustang (NOC)': {
+    'Mustang S281E & Mustang (Not Otherwise Classified)': {
       'all': ['bsp'],
     },
   },
@@ -4893,7 +4893,7 @@ const allSoloCars = {
     },
   },
   'Renault': {
-    'NOC': {
+    'Not Otherwise Classified': {
       'all': ['hs'],
     },
     'Fuego Turbo': {
@@ -4929,7 +4929,7 @@ const allSoloCars = {
     'Fuego (non-turbo)': {
       'all': ['fsp'],
     },
-    'R-5 (NOC) & LeCar': {
+    'R-5 (Not Otherwise Classified) & LeCar': {
       '1978': ['fsp', 'ep'],
       '1979': ['fsp', 'ep'],
       '1980': ['fsp', 'ep'],
@@ -4969,7 +4969,7 @@ const allSoloCars = {
       '1976': ['ep'],
       '1977': ['ep'],
     },
-    'Sedan (FWD,NOC)': {
+    'Sedan (FWD,Not Otherwise Classified)': {
       'all': ['ep'],
     },
   },
@@ -5138,7 +5138,7 @@ const allSoloCars = {
       '2004': ['fsp'],
       '2005': ['fsp'],
     },
-    'Neon (NOC)': {
+    'Neon (Not Otherwise Classified)': {
       '2000': ['sts'],
       '2001': ['sts'],
       '2002': ['sts'],
@@ -5149,7 +5149,7 @@ const allSoloCars = {
     'Acclaim (V6 & Turbo)': {
       'all': ['dsp'],
     },
-    'Laser Turbo (NOC) & K-car Turbo': {
+    'Laser Turbo (Not Otherwise Classified) & K-car Turbo': {
       'all': ['dsp'],
     },
     'Shadow (4-cyl Turbo & V6)': {
@@ -5270,7 +5270,7 @@ const allSoloCars = {
       '1994': ['ep'],
       '1995': ['ep'],
     },
-    'Sedans (N/A, FWD, NOC)': {
+    'Sedans (N/A, FWD, Not Otherwise Classified)': {
       'all': ['ep'],
     },
     'Shadow & Sundance (Turbo)': {
@@ -5284,7 +5284,7 @@ const allSoloCars = {
       '1994': ['fp'],
     },
   },
-  'MeRCedes-Benz': {
+  'Mercedes': {
     'AMG GT, GTC, GTR, GTS': {
       '2015': ['ss'],
       '2016': ['ss'],
@@ -5293,7 +5293,7 @@ const allSoloCars = {
       '2019': ['ss'],
       '2020': ['ss'],
     },
-    'AMG (NOC)': {
+    'AMG (Not Otherwise Classified)': {
       'all': ['ss', 'ssr'],
     },
     '230SL, 250SL, & 280SL (all)': {
@@ -5312,15 +5312,51 @@ const allSoloCars = {
       'all': ['esp'],
     },
     'SLK 230 Kompressor': {
-      '1996': ['str'],
-      '1997': ['str'],
-      '1998': ['str'],
-      '1999': ['str'],
-      '2000': ['str'],
-      '2001': ['str'],
-      '2002': ['str'],
-      '2003': ['str'],
-      '2004': ['str'],
+      '1996': ['cs', 'str'],
+      '1997': ['cs', 'str'],
+      '1998': ['cs', 'str'],
+      '1999': ['cs', 'str'],
+      '2000': ['cs', 'str'],
+      '2001': ['cs', 'str'],
+      '2002': ['cs', 'str'],
+      '2003': ['cs', 'str'],
+      '2004': ['cs', 'str'],
+    },
+    'SLK32 AMG': {
+      '2002': ['bs'],
+      '2003': ['bs'],
+      '2004': ['bs'],
+    },
+    'SLK350': {
+      '2005': ['bs'],
+      '2006': ['bs'],
+      '2007': ['bs'],
+      '2008': ['bs'],
+      '2009': ['bs'],
+      '2010': ['bs'],
+      '2011': ['bs'],
+      '2012': ['bs'],
+      '2013': ['bs'],
+      '2014': ['bs'],
+      '2015': ['bs'],
+      '2016': ['bs'],
+    },
+    'SLK55 AMG': {
+      '2005': ['bs', 'asp'],
+      '2006': ['bs', 'asp'],
+      '2007': ['bs', 'asp'],
+      '2008': ['bs', 'asp'],
+      '2009': ['bs', 'asp'],
+      '2010': ['bs', 'asp'],
+      '2011': ['bs', 'asp'],
+      '2012': ['as'],
+      '2013': ['as'],
+      '2014': ['as'],
+      '2015': ['as'],
+      '2016': ['as'],
+    },
+    'SLK (Not Otherwise Classified)': {
+      'all': ['cs'],
     },
     'C32 AMG': {
       '2002': ['bs'],
@@ -5345,13 +5381,13 @@ const allSoloCars = {
       '2006': ['bs'],
     },
     'E63 AMG': {
-      '2010': ['bs'],
-      '2011': ['bs'],
-      '2012': ['bs'],
-      '2013': ['bs'],
-      '2014': ['bs'],
-      '2015': ['bs'],
-      '2016': ['bs'],
+      '2010': ['bs', 'asp'],
+      '2011': ['bs', 'asp'],
+      '2012': ['bs', 'asp'],
+      '2013': ['bs', 'asp'],
+      '2014': ['bs', 'asp'],
+      '2015': ['bs', 'asp'],
+      '2016': ['bs', 'asp'],
     },
     'GLA45 AMG': {
       '2015': ['bs'],
@@ -5359,41 +5395,6 @@ const allSoloCars = {
       '2017': ['bs'],
       '2018': ['bs'],
       '2019': ['bs'],
-    },
-    'SLK32 AMG': {
-      '2002': ['bs'],
-      '2003': ['bs'],
-      '2004': ['bs'],
-    },
-    'SLK350': {
-      '2005': ['bs'],
-      '2006': ['bs'],
-      '2007': ['bs'],
-      '2008': ['bs'],
-      '2009': ['bs'],
-      '2010': ['bs'],
-      '2011': ['bs'],
-      '2012': ['bs'],
-      '2013': ['bs'],
-      '2014': ['bs'],
-      '2015': ['bs'],
-      '2016': ['bs'],
-    },
-    'SLK55 AMG': {
-      '2005': ['bs'],
-      '2006': ['bs'],
-      '2007': ['bs'],
-      '2008': ['bs'],
-      '2009': ['bs'],
-      '2010': ['bs'],
-      '2012': ['as'],
-      '2013': ['as'],
-      '2014': ['as'],
-      '2015': ['as'],
-      '2016': ['as'],
-    },
-    '190E (16v)': {
-      'all': ['csp'],
     },
     'C300': {
       '2007': ['fs'],
@@ -5461,9 +5462,6 @@ const allSoloCars = {
       '2019': ['fs'],
       '2020': ['fs'],
     },
-    'SLK (NOC)': {
-      'all': ['cs'],
-    },
     'CLK430': {
       '1999': ['stu'],
       '2000': ['stu'],
@@ -5487,25 +5485,6 @@ const allSoloCars = {
     'CLK 320 & CLK 32 AMG': {
       'all': ['asp'],
     },
-    'E63 AMG': {
-      '2010': ['asp'],
-      '2011': ['asp'],
-      '2012': ['asp'],
-      '2013': ['asp'],
-      '2014': ['asp'],
-      '2015': ['asp'],
-      '2016': ['asp'],
-    },
-    'SLK55 AMG (R171)': {
-      '2004': ['asp'],
-      '2005': ['asp'],
-      '2006': ['asp'],
-      '2007': ['asp'],
-      '2008': ['asp'],
-      '2009': ['asp'],
-      '2010': ['asp'],
-      '2011': ['asp'],
-    },
     'C-Class (6-cyl, non-AMG)': {
       '2001': ['ds'],
       '2002': ['ds'],
@@ -5527,6 +5506,9 @@ const allSoloCars = {
     'CLA250 4matic': {
       'all': ['ds'],
     },
+    'CLA250 (FWD)': {
+      'all': ['gs'],
+    },
     'CLK (V6)': {
       '1998': ['ds'],
       '1999': ['ds'],
@@ -5544,6 +5526,9 @@ const allSoloCars = {
     'GLA250 4matic': {
       'all': ['ds'],
     },
+    'GLA250 (FWD)': {
+      'all': ['gs'],
+    },
     '280': {
       '1995': ['hs'],
       '1996': ['hs'],
@@ -5552,54 +5537,44 @@ const allSoloCars = {
       '1999': ['hs'],
       '2000': ['hs'],
     },
-    'NOC': {
+    'Not Otherwise Classified': {
       'all': ['hs'],
     },
-    '190E': {
-      '1983': ['dp'],
-      '1984': ['dp'],
-      '1985': ['dp'],
-      '1986': ['dp'],
-      '1987': ['dp'],
-      '1988': ['dp'],
-      '1989': ['dp'],
-      '1990': ['dp'],
-      '1991': ['dp'],
-      '1992': ['dp'],
-      '1993': ['dp'],
+    '190E (16v)': {
+      '1983': ['gs', 'csp', 'dp'],
+      '1984': ['gs', 'csp', 'dp'],
+      '1985': ['gs', 'csp', 'dp'],
+      '1986': ['gs', 'csp', 'dp'],
+      '1987': ['gs', 'csp', 'dp'],
+      '1988': ['gs', 'csp', 'dp'],
+      '1989': ['gs', 'csp', 'dp'],
+      '1990': ['gs', 'csp', 'dp'],
+      '1991': ['gs', 'csp', 'dp'],
+      '1992': ['gs', 'csp', 'dp'],
+      '1993': ['gs', 'csp', 'dp'],
     },
-    '190 (all)': {
-      '1984': ['dsp'],
-      '1985': ['dsp'],
-      '1986': ['dsp'],
-      '1987': ['dsp'],
-      '1988': ['dsp'],
-      '1989': ['dsp'],
-      '1990': ['dsp'],
-      '1991': ['dsp'],
-      '1992': ['dsp'],
-      '1993': ['dsp'],
+    '190 (all, non-16v)': {
+      '1984': ['gs', 'dsp', 'dp'],
+      '1985': ['gs', 'dsp', 'dp'],
+      '1986': ['gs', 'dsp', 'dp'],
+      '1987': ['gs', 'dsp', 'dp'],
+      '1988': ['gs', 'dsp', 'dp'],
+      '1989': ['gs', 'dsp', 'dp'],
+      '1990': ['gs', 'dsp', 'dp'],
+      '1991': ['gs', 'dsp', 'dp'],
+      '1992': ['gs', 'dsp', 'dp'],
+      '1993': ['gs', 'dsp', 'dp'],
     },
     'C230': {
-      'all': ['dsp'],
-      '1999': ['gs'],
-      '2000': ['gs'],
-      '2001': ['gs'],
-      '2002': ['gs'],
-      '2003': ['gs'],
-      '2004': ['gs'],
-      '2005': ['gs'],
-      '2006': ['gs'],
-      '2007': ['gs'],
-    },
-    '190E (6-cyl 2.6L & 4-cyl 16v)': {
-      'all': ['gs'],
-    },
-    'CLA250 (FWD)': {
-      'all': ['gs'],
-    },
-    'GLA250 (FWD)': {
-      'all': ['gs'],
+      '1999': ['gs', 'dsp'],
+      '2000': ['gs', 'dsp'],
+      '2001': ['gs', 'dsp'],
+      '2002': ['gs', 'dsp'],
+      '2003': ['gs', 'dsp'],
+      '2004': ['gs', 'dsp'],
+      '2005': ['gs', 'dsp'],
+      '2006': ['gs', 'dsp'],
+      '2007': ['gs', 'dsp'],
     },
   },
   'Toyota': {
@@ -5624,7 +5599,7 @@ const allSoloCars = {
     'Camry (4-cyl)': {
       'all': ['fsp'],
     },
-    'Celica FWD; NOC': {
+    'Celica FWD; Not Otherwise Classified': {
       '1986': ['gs', 'fsp'],
       '1987': ['gs', 'fsp'],
       '1988': ['gs', 'fsp'],
