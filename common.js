@@ -2802,6 +2802,11 @@ const allSoloCars = {
       '2006': ['fs'],
     },
   },
+  'Jensen': {
+    'Jensen-Healey' : {
+      'all': ['cs', 'fsp', 'dp'] 
+    }
+  },
   'Kia': {
     'Stinger (V6 Turbo)': {
       '2018': ['fs'],
