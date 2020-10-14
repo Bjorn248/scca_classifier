@@ -1,88 +1,25 @@
-const carFlags = {
-  'StreetCar': [
-    'streetBodywork',
-    'fendersUnmodified',
-    'tires200Treadwear',
-    'wheelsStockWidth',
-    'wheelOffsetPlusMinus7Inches',
-    'wheelDiameterPlusMinus1Inch',
-    'stockNumberOfWheelBoltsOrStuds',
-    'shocksAtMost2Way',
-    'suspensionGeometryAltered',
-    'hasStandardBrakeLinesUnless1992OrOlder',
-    'hasSingleAntiRollBar',
-    'hasStockSprings',
-    'hasStockBushings',
-    'stockECUProgramming',
-    'stockExhaust',
-  ],
-  'StreetTouringCar': [
-    'streetTouringBodywork',
-    'stTiresLegal',
-    'tires200Treadwear',
-    'wheelsStockWidth',
-    'wheelOffsetPlusMinus7Inches',
-    'wheelDiameterPlusMinus1Inch',
-    'stockNumberOfWheelBoltsOrStuds',
-    'shocksAtMost2Way',
-    'suspensionGeometryAltered',
-    'hasStandardBrakeLinesUnless1992OrOlder',
-    'hasSingleAntiRollBar',
-    'hasStockSprings',
-    'hasStockBushings',
-    'stockECUProgramming',
-    'stockExhaust',
-  ],
-};
+const naturalSort = require('javascript-natural-sort');
 
-/*
- * this maps the friendly subclass names
- * to the html id tag names
+/**
+ * This takes an object as input and recursively sorts the keys of all objects
+ * @param {Object} object is an object to be sorted
+ * @return {Object} sortedObject is the sorted object
  */
-const subclassMap = {
-  'ss': 'Super Street (SS)',
-  'as': 'A Street (AS)',
-  'bs': 'B Street (BS)',
-  'cs': 'C Street (CS)',
-  'ds': 'D Street (DS)',
-  'es': 'E Street (ES)',
-  'fs': 'F Street (FS)',
-  'gs': 'G Street (GS)',
-  'hs': 'H Street (HS)',
-  'ssr': 'Super Street R (SSR)',
-  'ssc': 'Solo Spec Coupe (SSC)',
-  'stu': 'Street Touring Ultra (STU)',
-  'str': 'Street Touring Roadster (STR)',
-  'stx': 'Street Touring Xtreme (STX)',
-  'sts': 'Street Touring Sport (STS)',
-  'sth': 'Street Touring Hatchback (STH)',
-  'camc': 'Classic American Muscle Contemporary (CAM C)',
-  'camt': 'Classic American Muscle Traditional (CAM T)',
-  'cams': 'Classic American Muscle Sports (CAM S)',
-  'xsa': 'Xtreme Street A (XSA)',
-  'xsb': 'Xtreme Street B (XSB)',
-  'ssp': 'Super Street Prepared (SSP)',
-  'asp': 'A Street Prepared (ASP)',
-  'bsp': 'B Street Prepared (BSP)',
-  'csp': 'C Street Prepared (CSP)',
-  'dsp': 'D Street Prepared (DSP)',
-  'esp': 'E Street Prepared (ESP)',
-  'fsp': 'F Street Prepared (FSP)',
-  'ssm': 'Super Street Modified (SSM)',
-  'sm': 'Street Modified (SM)',
-  'smf': 'Street Modified Front-Wheel-Drive (SMF)',
-  'xp': 'X Prepared (XP)',
-  'cp': 'C Prepared (CP)',
-  'dp': 'D Prepared (DP)',
-  'ep': 'E Prepared (EP)',
-  'fp': 'F Prepared (FP)',
-  'am': 'A Modified (AM)',
-  'bm': 'B Modified (BM)',
-  'cm': 'C Modified (CM)',
-  'dm': 'D Modified (DM)',
-  'em': 'E Modified (EM)',
-  'fm': 'F Modified (FM)',
-};
+function sortObject(object) {
+  let sortedObject = {};
+  let sortedKeys = [];
+  let keys = [];
+  keys = Object.keys(object);
+  sortedKeys = keys.sort(naturalSort);
+  for (let index = 0; index < sortedKeys.length; index++) {
+    if (typeof object[sortedKeys[index]] === 'object' && object[sortedKeys[index]] instanceof Array == false) {
+      sortedObject[sortedKeys[index]] = sortObject(object[sortedKeys[index]]);
+    } else {
+      sortedObject[sortedKeys[index]] = object[sortedKeys[index]];
+    }
+  }
+  return sortedObject;
+}
 
 const allSoloCars = {
   'AMC': {
@@ -5515,19 +5452,19 @@ const allSoloCars = {
     'GT-6': {
       'all': ['hs', 'fsp', 'dp'],
     },
-    'Herald (all) ': {
+    'Herald (all)': {
       'all': ['hs', 'fsp'],
     },
     'Spitfire': {
       'all': ['hs', 'fsp', 'dp'],
     },
-    'TR-2 & TR-3 ': {
+    'TR-2 & TR-3': {
       'all': ['hs', 'fsp', 'dp'],
     },
-    'TR-4 & TR-4A ': {
+    'TR-4 & TR-4A': {
       'all': ['hs', 'fsp', 'dp'],
     },
-    'TR-250 & TR-6 ': {
+    'TR-250 & TR-6': {
       'all': ['hs', 'fsp'],
     },
     'TR-7': {
@@ -5536,230 +5473,5 @@ const allSoloCars = {
   },
 };
 
-/**
- * handles navbar opening
- */
-function openNav() {
-  document.getElementById('mySidebar').style.width = '250px';
-  document.getElementById('main').style.marginLeft = '250px';
-}
-
-/**
- * handles navbar closing
- */
-function closeNav() {
-  document.getElementById('mySidebar').style.width = '0';
-  document.getElementById('main').style.marginLeft= '0';
-}
-
-/**
- * populates the subclass table
- */
-function populateSubclasses() {
-  for (let classAcronym in subclassMap) {
-    let id = classAcronym.concat('-a');
-    aSelect = document.getElementById(id);
-    aSelect.text = subclassMap[classAcronym];
-  }
-}
-
-/**
- * populates the make, model, and year drop-down lists
- */
-function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
-
-  const makeSelect = document.getElementById('make');
-  const makeLength = makeSelect.options.length;
-  for (i = makeLength-1; i >= 0; i--) {
-    makeSelect.remove(i);
-  }
-  for (const make of Object.keys(allSoloCars)) {
-    const newMake = document.createElement('option');
-    newMake.text = make;
-    makeSelect.add(newMake);
-  }
-  if (sessionStorage.getItem('make') in allSoloCars) {
-    let providedMake = sessionStorage.getItem('make');
-    makeSelect.value = providedMake;
-  } else {
-    sessionStorage.setItem('make', makeSelect.value);
-  }
-
-  const modelSelect = document.getElementById('model');
-  const modelLength = modelSelect.options.length;
-  for (i = modelLength-1; i >= 0; i--) {
-    modelSelect.remove(i);
-  }
-  for (const model of Object.keys(allSoloCars[makeSelect.value])) {
-    const newModel = document.createElement('option');
-    newModel.text = model;
-    modelSelect.add(newModel);
-  }
-  if (sessionStorage.getItem('model') in allSoloCars[makeSelect.value]) {
-    let providedModel = sessionStorage.getItem('model');
-    modelSelect.value = providedModel;
-  } else {
-    sessionStorage.setItem('model', modelSelect.value);
-  }
-
-  const yearSelect = document.getElementById('year');
-  const yearLength = yearSelect.options.length;
-  for (i = yearLength-1; i >= 0; i--) {
-    yearSelect.remove(i);
-  }
-  for (var year of Object.keys(allSoloCars[makeSelect.value][modelSelect.value])) { // eslint-disable-line no-var
-    const newYear = document.createElement('option');
-    if (year == 0) {
-      year = 'all';
-    }
-    newYear.text = year;
-    yearSelect.add(newYear);
-  }
-  if (sessionStorage.getItem('year') in allSoloCars[makeSelect.value][modelSelect.value]) {
-    let providedYear = sessionStorage.getItem('year');
-    yearSelect.value = providedYear;
-  } else {
-    sessionStorage.setItem('year', yearSelect.value);
-  }
-
-  if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
-    let providedMake = sessionStorage.getItem('make');
-    let providedModel = sessionStorage.getItem('model');
-    let providedYear = sessionStorage.getItem('year');
-
-    let table = document.getElementById('classesTable');
-    for (var i = 0, row; row = table.rows[i]; i++) {
-      for (var j = 0, col; col = row.cells[j]; j++) {
-        col.classList.remove('highlighted');
-      }
-    }
-
-    subClasses = allSoloCars[providedMake][providedModel][providedYear];
-    for (let i = 0; i < subClasses.length; i++) {
-      let tableElement = document.getElementById(subClasses[i]);
-      tableElement.classList.add('highlighted');
-    }
-  }
-}
-
-/**
- * Adds one or more session storage keys to store the answer to a question
- * The index of each array is used to match the key to the value
- * @param {Array} keyArray is an array of key names
- * @param {Array} valueArray is an array of values
- */
-function setState(keyArray, valueArray) { // eslint-disable-line no-unused-vars
-  for (let i = 0; i < keyArray.length; i++) {
-    sessionStorage.setItem(keyArray[i], valueArray[i]);
-  }
-};
-
-/**
- * Hides an item by setting its display to 'none'
- * @param {String} id is the id of the html element to hide
- */
-function hideItem(id) {
-  let e = document.getElementById(id);
-  e.style.display = 'none';
-}
-
-/**
- * Removes the answer to a question from sessionStorage
- * @param {String} question is the sessionState key to remove
- */
-function resetQuestion(question) {
-  sessionStorage.removeItem(question);
-}
-
-/**
- * clears session storage
- */
-function resetState() { // eslint-disable-line no-unused-vars
-  sessionStorage.clear();
-}
-
-/**
- * parses session storage to determine which questions
- * should be displayed
- * @param {string} className the name of the class being evaluated
- */
-
-function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
-  let remainingQuestions = []; // eslint-disable-line prefer-const
-  for (let i = 0; i < carFlags[className].length; i++) {
-    hideItem(carFlags[className][i]);
-    if (!sessionStorage.getItem(carFlags[className][i])) {
-      remainingQuestions.push(carFlags[className][i]);
-    }
-  }
-  if (sessionStorage.getItem('answeredIndex')) {
-    const menuElement = document.getElementById(carFlags[className][sessionStorage.getItem('answeredIndex')].concat('Menu'));
-    menuElement.style.color = '#000000';
-    if (sessionStorage.getItem(carFlags[className][sessionStorage.getItem('answeredIndex')]) == 'true') {
-      menuElement.style.backgroundColor = '#4caf50';
-    } else {
-      menuElement.style.backgroundColor = '#f44336';
-    }
-  }
-  if (remainingQuestions.length != 0) {
-    const e = document.getElementById(remainingQuestions[0]);
-    e.style.display = 'block';
-    const menuElement = document.getElementById(remainingQuestions[0].concat('Menu'));
-    menuElement.style.color = '#f1f1f1';
-  } else {
-    checkEligibility(className);
-  }
-};
-
-/**
- * checks to see if a car is eligible for a class
- * based on the answers to the provided questions
- * @param {string} className the class the questions are being
- * checked against
- */
-function checkEligibility(className) {
-  let isEligible = true;
-  let failedQuestions = []; // eslint-disable-line prefer-const
-  for (let i=0; i<carFlags[className].length; i++) {
-    if (sessionStorage.getItem(carFlags[className][i]) == 'false') {
-      failedQuestions.push(carFlags[className][i]);
-      isEligible = false;
-    }
-  }
-
-  if (isEligible) {
-    const notEligibleElement = document.getElementById('notEligible');
-    notEligibleElement.style.display = 'none';
-    const eligibleElement = document.getElementById('eligible');
-    eligibleElement.style.display = 'block';
-    if (!document.getElementById('possibleClassesList')) {
-      let newDiv = document.createElement('div');
-      newDiv.setAttribute('id', 'possibleClassesList');
-      let specificClass = document.getElementById('specificClass');
-      let possibleClasses = allSoloCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')];
-      let possibleClassesString = '';
-      for (let i=0; i<possibleClasses.length; i++) {
-        if (i == 0) {
-          possibleClassesString = possibleClassesString.concat('\n');
-        }
-        possibleClassesString = possibleClassesString.concat(subclassMap[possibleClasses[i]]);
-        possibleClassesString = possibleClassesString.concat('\n');
-      }
-      let newChild = document.createTextNode(possibleClassesString);
-      newDiv.appendChild(newChild);
-      specificClass.insertBefore(newDiv, null);
-    }
-  } else {
-    const notEligibleElement = document.getElementById('notEligible');
-    notEligibleElement.style.display = 'block';
-    const eligibleElement = document.getElementById('eligible');
-    eligibleElement.style.display = 'none';
-    let questionString = '';
-    for (let i=0; i<failedQuestions.length; i++) {
-      const question = document.getElementById(failedQuestions[i] + 'Question');
-      questionString = questionString + question.innerHTML;
-      questionString = questionString + '</br>';
-    }
-    document.getElementById('ineligibilityQuestions').innerHTML = questionString;
-  }
-}
+const sorted = sortObject(allSoloCars);
+console.log(JSON.stringify(sorted, null, 2));
