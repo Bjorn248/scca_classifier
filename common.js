@@ -5723,21 +5723,22 @@ const allSoloCars = {
     },
   },
   'Volvo': {
-    'S60 & V60 Polestar': {
+    'S60 Polestar': {
       '2016': ['ds'],
       '2017': ['ds'],
       '2018': ['ds'],
       '2019': ['ds'],
       '2020': ['ds']
     },
-    'S60R (except Polestar)': {
-      'all': ['gs']
-    },
-    'V70R (except Polestar)': {
-      'all': ['gs']
+    'V60 Polestar': {
+      '2016': ['ds'],
+      '2017': ['ds'],
+      '2018': ['ds'],
+      '2019': ['ds'],
+      '2020': ['ds']
     },
     'Turbo models (NOC)': {
-      'all': ['gs', 'gt']
+      'all': ['gs']
     },
     'C30': {
       '2006': ['hs', 'dsp'],
@@ -5747,9 +5748,6 @@ const allSoloCars = {
     },
     'NOC': {
       'all': ['hs']
-    },
-    'S60R': {
-      'all': ['stu']
     },
     '240 Turbo': {
       '1981': ['gs', 'sts', 'sth', 'dsp'],
@@ -5831,11 +5829,17 @@ const allSoloCars = {
       '1973': ['dp'],
       '1974': ['dp']
     },
-    'S60R & V70R': {
-      '2004': ['asp'],
-      '2005': ['asp'],
-      '2006': ['asp'],
-      '2007': ['asp']
+    'S60R': {
+      '2004': ['asp', 'stu', 'gs'],
+      '2005': ['asp', 'stu', 'gs'],
+      '2006': ['asp', 'stu', 'gs'],
+      '2007': ['asp', 'stu', 'gs']
+    },
+    'V70R': {
+      '2004': ['asp', 'gs'],
+      '2005': ['asp', 'gs'],
+      '2006': ['asp', 'gs'],
+      '2007': ['asp', 'gs']
     }
   },
 };
