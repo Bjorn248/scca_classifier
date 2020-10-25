@@ -3410,9 +3410,6 @@ const allSoloCars = {
       },
       'Capri (4-cyl non-turbo)': {
         'all': ['fsp']
-      },
-      '': {
-
       }
     }
   },
