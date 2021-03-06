@@ -3198,32 +3198,32 @@ const allSoloCars = {
       'all': ['dp'],
     },
   },
-  'Maserati' : {
-    'BiTurbo' : {
-      'all': ['cs', 'dsp']
+  'Maserati': {
+    'BiTurbo': {
+      'all': ['cs', 'dsp'],
     },
-    'Coupe' : {
+    'Coupe': {
       '2002': ['bs'],
       '2003': ['bs'],
       '2004': ['bs'],
       '2005': ['bs'],
       '2006': ['bs'],
-      '2007': ['bs']
+      '2007': ['bs'],
     },
-    'GranSport: {
+    'GranSport': {
       '2004': ['bs'],
       '2005': ['bs'],
       '2006': ['bs'],
-      '2007': ['bs']
+      '2007': ['bs'],
     },
-    'Spyder' : {
+    'Spyder': {
       '2002': ['bs'],
       '2003': ['bs'],
       '2004': ['bs'],
       '2005': ['bs'],
       '2006': ['bs'],
-      '2007': ['bs']
-    }
+      '2007': ['bs'],
+    },
   },
   'Mercury': {
     'Comet (6-cyl & 8cyl)': {
@@ -3717,7 +3717,7 @@ const allSoloCars = {
       '2017': ['gs'],
       '2018': ['gs'],
       '2019': ['gs'],
-      '2020': ['gs']
+      '2020': ['gs'],
     },
     'Cooper Hardtop (non-S, non-JCW)': {
       '2002': ['hs'],
@@ -3738,10 +3738,10 @@ const allSoloCars = {
       '2017': ['gs'],
       '2018': ['gs'],
       '2019': ['gs'],
-      '2020': ['gs']
+      '2020': ['gs'],
     },
     'Cooper SE': {
-      '2020': ['gs']
+      '2020': ['gs'],
     },
     'Cooper S & Cooper S JCW': {
       '2001': ['stx'],
@@ -3762,7 +3762,7 @@ const allSoloCars = {
       '2016': ['stu'],
       '2017': ['stu'],
       '2018': ['stu'],
-      '2019': ['stu']
+      '2019': ['stu'],
     },
     'Clubman (non-S, non-JCW)': {
       '2008': ['hs'],
@@ -3771,28 +3771,28 @@ const allSoloCars = {
       '2011': ['hs'],
       '2012': ['hs'],
       '2013': ['hs'],
-      '2014': ['hs']
+      '2014': ['hs'],
     },
     'Cooper Coupe (non-S, non-JCW)': {
       '2012': ['hs'],
       '2013': ['hs'],
       '2014': ['hs'],
-      '2015': ['hs']
+      '2015': ['hs'],
     },
     'Cooper Roadster (non-S, non-JCW)': {
       '2012': ['hs'],
       '2013': ['hs'],
       '2014': ['hs'],
-      '2015': ['hs']
+      '2015': ['hs'],
     },
     'Cooper S (including JCW & JCWGP except Countryman)': {
-      'all': ['dsp']
+      'all': ['dsp'],
     },
     'Clubman John Cooper WorksAll4': {
       '2017': ['ds'],
       '2018': ['ds'],
       '2019': ['ds'],
-      '2020': ['ds']
+      '2020': ['ds'],
     },
     'Cooper Clubman JCW': {
       '2009': ['ds'],
@@ -3800,7 +3800,7 @@ const allSoloCars = {
       '2011': ['ds'],
       '2012': ['ds'],
       '2013': ['ds'],
-      '2014': ['ds']
+      '2014': ['ds'],
     },
     'Cooper Clubman S': {
       '2008': ['ds'],
@@ -3814,17 +3814,17 @@ const allSoloCars = {
       '2017': ['ds'],
       '2018': ['ds'],
       '2019': ['ds'],
-      '2020': ['ds']
+      '2020': ['ds'],
     },
     'Cooper Coupe JCW': {
       '2013': ['ds'],
       '2014': ['ds'],
-      '2015': ['ds']
+      '2015': ['ds'],
     },
     'Cooper Coupe S': {
       '2013': ['ds'],
       '2014': ['ds'],
-      '2015': ['ds']
+      '2015': ['ds'],
     },
     'Cooper Hardtop JCW': {
       '2006': ['ds'],
@@ -3841,7 +3841,7 @@ const allSoloCars = {
       '2017': ['ds'],
       '2018': ['ds'],
       '2019': ['ds'],
-      '2020': ['ds']
+      '2020': ['ds'],
     },
     'Cooper Hardtop S': {
       '2002': ['ds'],
@@ -3862,19 +3862,19 @@ const allSoloCars = {
       '2017': ['ds'],
       '2018': ['ds'],
       '2019': ['ds'],
-      '2020': ['ds']
+      '2020': ['ds'],
     },
     'Cooper Roadster JCW': {
       '2012': ['ds'],
       '2013': ['ds'],
       '2014': ['ds'],
-      '2015': ['ds']
+      '2015': ['ds'],
     },
     'Cooper Roadster S': {
       '2012': ['ds'],
       '2013': ['ds'],
       '2014': ['ds'],
-      '2015': ['ds']
+      '2015': ['ds'],
     },
     'Cooper (non-S)': {
       '2000': ['sts'],
@@ -3896,8 +3896,8 @@ const allSoloCars = {
       '2016': ['stu'],
       '2017': ['stu'],
       '2018': ['stu'],
-      '2019': ['stu']
-    }
+      '2019': ['stu'],
+    },
   },
   'Morgan': {
     '4/4': {
@@ -5911,33 +5911,33 @@ const allSoloCars = {
       '2017': ['ds'],
       '2018': ['ds'],
       '2019': ['ds'],
-      '2020': ['ds']
+      '2020': ['ds'],
     },
     'V60 Polestar': {
       '2016': ['ds'],
       '2017': ['ds'],
       '2018': ['ds'],
       '2019': ['ds'],
-      '2020': ['ds']
+      '2020': ['ds'],
     },
     'Turbo models (NOC)': {
-      'all': ['gs']
+      'all': ['gs'],
     },
     'C30': {
       '2006': ['hs', 'dsp'],
       '2007': ['hs', 'dsp'],
       '2008': ['hs', 'dsp'],
-      '2009': ['hs', 'dsp']
+      '2009': ['hs', 'dsp'],
     },
     'NOC': {
-      'all': ['hs']
+      'all': ['hs'],
     },
     '240 Turbo': {
       '1981': ['gs', 'sts', 'sth', 'dsp'],
       '1982': ['gs', 'sts', 'sth', 'dsp'],
       '1983': ['gs', 'sts', 'sth', 'dsp'],
       '1984': ['gs', 'sts', 'sth', 'dsp'],
-      '1985': ['gs', 'sts', 'sth', 'dsp']
+      '1985': ['gs', 'sts', 'sth', 'dsp'],
     },
     'S40': {
       '1995': ['dsp'],
@@ -5956,34 +5956,34 @@ const allSoloCars = {
       '2008': ['dsp'],
       '2009': ['dsp'],
       '2010': ['dsp'],
-      '2011': ['dsp']
+      '2011': ['dsp'],
     },
     'S40 (non-T5)': {
-      'all': ['sts']
+      'all': ['sts'],
     },
     'V40': {
-      'all': ['sts']
+      'all': ['sts'],
     },
     'C30': {
-      'all': ['sth']
+      'all': ['sth'],
     },
     '700 Series': {
-      'all': ['esp']
+      'all': ['esp'],
     },
     '800 Series': {
-      'all': ['esp']
+      'all': ['esp'],
     },
     'S60 & V70': {
-      'all': ['esp']
+      'all': ['esp'],
     },
     'P-1800 (1780 cc)': {
-      'all': ['dp']
+      'all': ['dp'],
     },
     'P-1800 (1982 cc)': {
-      'all': ['dp']
+      'all': ['dp'],
     },
     'Sedans (N/A, RWD, NOC)': {
-      'all': ['dp']
+      'all': ['dp'],
     },
     '122S': {
       '1956': ['dp'],
@@ -6000,7 +6000,7 @@ const allSoloCars = {
       '1967': ['dp'],
       '1968': ['dp'],
       '1969': ['dp'],
-      '1970': ['dp']
+      '1970': ['dp'],
     },
     '142S & 142E': {
       '1967': ['dp'],
@@ -6010,20 +6010,20 @@ const allSoloCars = {
       '1971': ['dp'],
       '1972': ['dp'],
       '1973': ['dp'],
-      '1974': ['dp']
+      '1974': ['dp'],
     },
     'S60R': {
       '2004': ['asp', 'stu', 'gs'],
       '2005': ['asp', 'stu', 'gs'],
       '2006': ['asp', 'stu', 'gs'],
-      '2007': ['asp', 'stu', 'gs']
+      '2007': ['asp', 'stu', 'gs'],
     },
     'V70R': {
       '2004': ['asp', 'gs'],
       '2005': ['asp', 'gs'],
       '2006': ['asp', 'gs'],
-      '2007': ['asp', 'gs']
-    }
+      '2007': ['asp', 'gs'],
+    },
   },
 };
 
