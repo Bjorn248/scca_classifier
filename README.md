@@ -19,7 +19,7 @@ python -m http.server
 ```
 
 ## Rules Breakdown (Just a rough list for v0.1 of this app)
-Current iteration of rules: https://www.scca.com/downloads/49336-2020-solo-rules-complete-reduced-2020-03-16/download
+Current iteration of rules: https://www.scca.com/downloads/53335-2021-scca-solo-rule-book/download
 
 ### Street Touring
 #### Body Work
