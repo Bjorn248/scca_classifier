@@ -3499,6 +3499,155 @@ const allSoloCars = {
       '2007': ['bs'],
     },
   },
+  'Mazda': {
+    '323 (non-turbo)': {
+      'all': ['hs', 'stx', 'fsp', 'ep'],
+    },
+    '323 GT Turbo': {
+      'all': ['gs', 'sth', 'dsp'],
+    },
+    '323 GTX Turbo': {
+      'all': ['gs', 'sth', 'dsp'],
+    },
+    '626': {
+      'all': ['hs', 'fsp', 'dp'],
+    },
+    '808': {
+      'all': ['hs'],
+    },
+    '929': {
+      'all': ['hs', 'esp'],
+    },
+    'Cosmo': {
+      'all': ['hs', 'fsp', 'dp'],
+    },
+    'Mazda2': {
+      '2011': ['hs', 'sts', 'fsp', 'ep'],
+      '2012': ['hs', 'sts', 'fsp', 'ep'],
+      '2013': ['hs', 'sts', 'fsp', 'ep'],
+      '2014': ['hs', 'sts', 'fsp', 'ep'],
+    },
+    'Mazda3': {
+      '2004': ['hs', 'sts', 'fsp'],
+      '2005': ['hs', 'sts', 'fsp'],
+      '2006': ['hs', 'sts', 'fsp'],
+      '2007': ['hs', 'sts', 'fsp'],
+      '2008': ['hs', 'sts', 'fsp'],
+      '2009': ['hs', 'sts', 'fsp'],
+      '2010': ['hs', 'sts', 'fsp'],
+      '2011': ['hs', 'sts', 'fsp'],
+      '2012': ['hs', 'sts', 'fsp'],
+      '2013': ['hs', 'sts', 'fsp'],
+      '2014': ['hs', 'sts', 'fsp'],
+      '2015': ['hs', 'sts', 'fsp'],
+      '2016': ['hs', 'sts', 'fsp'],
+      '2017': ['hs', 'sts', 'fsp'],
+      '2018': ['hs', 'sts', 'fsp'],
+      '2019': ['hs', 'sts', 'fsp'],
+      '2020': ['hs', 'sts', 'fsp'],
+      '2021': ['hs', 'sts', 'fsp'],
+    },
+    'Mazda6': {
+      'all': ['hs', 'sts', 'dsp'],
+    },
+    'Mazdaspeed3': {
+      'all': ['gs', 'sth', 'dsp'],
+    },
+    'Mazdaspeed6': {
+      'all': ['ds', 'sth', 'esp'],
+    },
+    'Mazdaspeed Miata': {
+      '2004': ['es', 'stu', 'bsp', 'fp'],
+      '2005': ['es', 'stu', 'bsp', 'fp'],
+    },
+    'Mazdaspeed Protégé': {
+      'all': ['gs', 'sth', 'dsp', 'fp'],
+    },
+    'Miata Club Sport': {
+      '2003': ['bs'],
+    },
+    'Millenia': {
+      'all': ['hs'],
+    },
+    'MX-3': {
+      'all': ['hs'],
+    },
+    'MX-5 Miata': {
+      '1990': ['es', 'sts', 'csp', 'dp'],
+      '1991': ['es', 'sts', 'csp', 'dp'],
+      '1992': ['es', 'sts', 'csp', 'dp'],
+      '1993': ['es', 'sts', 'csp', 'dp'],
+      '1994': ['es', 'str', 'csp', 'dp'],
+      '1995': ['es', 'str', 'csp', 'dp'],
+      '1996': ['es', 'str', 'csp', 'dp'],
+      '1997': ['es', 'str', 'csp', 'dp'],
+      '1998': ['es', 'str', 'csp', 'dp'],
+      '1999': ['es', 'str', 'csp', 'dp'],
+      '2000': ['es', 'str', 'csp', 'dp'],
+      '2001': ['es', 'str', 'csp', 'dp'],
+      '2002': ['es', 'str', 'csp', 'dp'],
+      '2003': ['es', 'str', 'csp', 'dp'],
+      '2004': ['es', 'str', 'csp', 'dp'],
+      '2005': ['es', 'str', 'csp', 'dp'],
+      '2006': ['cs', 'str', 'csp', 'dp'],
+      '2007': ['cs', 'str', 'csp', 'dp'],
+      '2008': ['cs', 'str', 'csp', 'dp'],
+      '2009': ['cs', 'str', 'csp', 'dp'],
+      '2010': ['cs', 'str', 'csp', 'dp'],
+      '2011': ['cs', 'str', 'csp', 'dp'],
+      '2012': ['cs', 'str', 'csp', 'dp'],
+      '2013': ['cs', 'str', 'csp', 'dp'],
+      '2014': ['cs', 'str', 'csp', 'dp'],
+      '2015': ['cs', 'str', 'csp', 'dp'],
+      '2016': ['cs', 'str', 'bsp', 'dp'],
+      '2017': ['cs', 'str', 'bsp', 'dp'],
+      '2018': ['cs', 'str', 'bsp', 'dp'],
+      '2019': ['cs', 'str', 'bsp', 'dp'],
+      '2020': ['cs', 'str', 'dp'],
+      '2021': ['cs', 'str', 'dp'],
+    },
+    'MX-5 Miata MS-R': {
+      '2007': ['bs'],
+    },
+    'MX-6': {
+      'all': ['hs', 'dsp', 'ep'],
+    },
+    'Protégé': {
+      'all': ['hs', 'sts', 'fsp'],
+    },
+    'R100': {
+      'all': ['hs', 'fsp'],
+    },
+    'RX-2': {
+      'all': ['hs', 'csp'],
+    },
+    'RX-3': {
+      'all': ['hs', 'csp'],
+    },
+    'RX-4': {
+      'all': ['hs', 'fsp'],
+    },
+    'RX-7 Non-Turbo': {
+      'all': ['es', 'sts', 'csp'],
+    },
+    'RX-7 Turbo': {
+      '1987': ['cs', 'str', 'bsp'],
+      '1988': ['cs', 'str', 'bsp'],
+      '1989': ['cs', 'str', 'bsp'],
+      '1990': ['cs', 'str', 'bsp'],
+      '1991': ['cs', 'str', 'bsp'],
+      '1992': ['cs', 'str', 'bsp'],
+      '1993': ['as', 'str', 'asp'],
+      '1994': ['as', 'str', 'asp'],
+      '1995': ['as', 'str', 'asp'],
+    },
+    'RX-8': {
+      'all': ['cs', 'stx', 'dsp'],
+    },
+    'Spec Miata': {
+      'all': ['dsp'],
+    },
+  },
   'Mercury': {
     'Comet (6-cyl & 8cyl)': {
       '1970': ['cp'],
