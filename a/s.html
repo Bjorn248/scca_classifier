@@ -26,6 +26,7 @@
       <a id='hasStockSpringsMenu' href="#" onclick="resetQuestion('hasStockSprings'); evalSessionStorage('StreetCar');">Springs</a>
       <a id='hasStockBushingsMenu' href="#" onclick="resetQuestion('hasStockBushings'); evalSessionStorage('StreetCar');">Bushings</a>
       <a id='stockECUProgrammingMenu' href="#" onclick="resetQuestion('stockECUProgramming'); evalSessionStorage('StreetCar');">ECU</a>
+      <a id='stockIntakeMenu' href="#" onclick="resetQuestion('stockIntake'); evalSessionStorage('StreetCar');">Intake</a>
       <a id='stockExhaustMenu' href="#" onclick="resetQuestion('stockExhaust'); evalSessionStorage('StreetCar');">Exhaust</a>
     </div>
 
@@ -228,6 +229,19 @@
       <button class="button noButton" onclick="setState(['stockECUProgramming', 'answeredIndex'], [false, 13]); hideItem('stockECUProgramming'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
+    <div id="stockIntake" class="center question">
+      <h2 id="stockIntakeQuestion" class="sansserif">
+        Does your intake meet the requirements below?
+      </h2>
+      <h3 class="sansserif">
+         The engine air filter element may be removed or replaced provided the air flow path remains
+         as originally designed (i.e. no additional openings).  No  other  components  of  the
+         air  induction  system  may  be  removed, replaced, or modified.
+      </h3>
+      <button class="button yesButton" onclick="setState(['stockIntake', 'answeredIndex'], [true, 14]); hideItem('stockIntake'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stockIntake', 'answeredIndex'], [false, 14]); hideItem('stockIntake'); evalSessionStorage('StreetCar');">No</button>
+    </div>
+
     <div id="stockExhaust" class="center question">
       <h2 id="stockExhaustQuestion" class="sansserif">
         Does your exhaust meet the requirements below?
@@ -248,8 +262,8 @@
         which are bolted or welded on the car are considered part of the body and may not be
         changed or removed.
       </h3>
-      <button class="button yesButton" onclick="setState(['stockExhaust', 'answeredIndex'], [true, 14]); hideItem('stockExhaust'); evalSessionStorage('StreetCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stockExhaust', 'answeredIndex'], [false, 14]); hideItem('stockExhaust'); evalSessionStorage('StreetCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stockExhaust', 'answeredIndex'], [true, 15]); hideItem('stockExhaust'); evalSessionStorage('StreetCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stockExhaust', 'answeredIndex'], [false, 15]); hideItem('stockExhaust'); evalSessionStorage('StreetCar');">No</button>
     </div>
 
     <div id="eligible" class="center eligible">
