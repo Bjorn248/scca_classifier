@@ -14,6 +14,7 @@ const carFlags = {
     'hasStockSprings',
     'hasStockBushings',
     'stockECUProgramming',
+    'stockIntake',
     'stockExhaust',
   ],
   'StreetTouringCar': [
