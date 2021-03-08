@@ -6585,6 +6585,46 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
 }
 
 /**
+ * Informs a user which street touring class they are eligible for
+ * based on their make, model, and year selection
+ */
+// TODO Finish this function to properly display their class on the tire and wheel size
+// question page
+function getStreetTouringClass() {
+  if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
+    let providedMake = sessionStorage.getItem('make');
+    let providedModel = sessionStorage.getItem('model');
+    let providedYear = sessionStorage.getItem('year');
+
+    let subClasses = allSoloCars[providedMake][providedModel][providedYear];
+    let subClass = '';
+    for (let i = 0; i < subClasses.length; i++) {
+      if (subClasses[i] == 'sts') {
+        subClass = 'sts';
+        break;
+      }
+      if (subClasses[i] == 'str') {
+        subClass = 'str';
+        break;
+      }
+      if (subClasses[i] == 'stx') {
+        subClass = 'stx';
+        break;
+      }
+      if (subClasses[i] == 'stu') {
+        subClass = 'stu';
+        break;
+      }
+      if (subClasses[i] == 'sth') {
+        subClass = 'sth';
+        break;
+      }
+    }
+    console.log(subClass);
+  }
+}
+
+/**
  * Adds one or more session storage keys to store the answer to a question
  * The index of each array is used to match the key to the value
  * @param {Array} keyArray is an array of key names
