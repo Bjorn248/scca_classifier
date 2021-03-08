@@ -2490,6 +2490,50 @@ const allSoloCars = {
       'all': ['ssp'],
     },
   },
+  'Fiat': {
+    '124, 124 Spider (incl. Abarth)': {
+      '1966': ['hs', 'fsp', 'dp', 'sm'],
+      '1967': ['hs', 'fsp', 'dp', 'sm'],
+      '1968': ['hs', 'fsp', 'dp', 'sm'],
+      '1969': ['hs', 'fsp', 'dp', 'sm'],
+      '1970': ['hs', 'fsp', 'dp', 'sm'],
+      '1971': ['hs', 'fsp', 'dp', 'sm'],
+      '1972': ['hs', 'fsp', 'dp', 'sm'],
+      '1973': ['hs', 'fsp', 'dp', 'sm'],
+      '1974': ['hs', 'fsp', 'dp', 'sm'],
+      '1975': ['hs', 'csp', 'dp', 'sm'],
+      '1976': ['hs', 'csp', 'dp', 'sm'],
+      '1977': ['hs', 'csp', 'dp', 'sm'],
+      '1978': ['hs', 'csp', 'dp', 'sm'],
+      '2016': ['cs', 'stu', 'bsp', 'fp', 'sm'],
+      '2017': ['cs', 'stu', 'bsp', 'fp', 'sm'],
+      '2018': ['cs', 'stu', 'bsp', 'fp', 'sm'],
+      '2019': ['cs', 'stu', 'bsp', 'fp', 'sm'],
+      '2020': ['cs', 'stu', 'bsp', 'fp', 'sm'],
+    },
+    '128': {
+      'all': ['hs', 'fsp', 'sm'],
+    },
+    '500 Abarth': {
+      '2012': ['hs', 'sth', 'dsp', 'sm'],
+      '2013': ['hs', 'sth', 'dsp', 'sm'],
+      '2014': ['hs', 'sth', 'sm'],
+      '2015': ['hs', 'sth', 'sm'],
+      '2016': ['hs', 'sth', 'sm'],
+      '2017': ['hs', 'sth', 'sm'],
+      '2018': ['hs', 'sth', 'sm'],
+      '2019': ['hs', 'sth', 'sm'],
+    },
+    '2000 Spider': {
+      'all': ['hs', 'csp'],
+    },
+    'NOC': {
+      'all': ['hs'],
+    },
+    'X1/9': {
+      'all': ['es', 'fsp', 'dp'],
+    },
+  },
   'GMC': {
     'Syclone': {
       'all': ['fs'],
