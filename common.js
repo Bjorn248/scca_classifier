@@ -6482,7 +6482,7 @@ const allSoloCars = {
 /**
  * handles navbar opening
  */
-function openNav() {
+function openNav() { // eslint-disable-line no-unused-vars
   document.getElementById('mySidebar').style.width = '250px';
   document.getElementById('main').style.marginLeft = '250px';
 }
@@ -6490,7 +6490,7 @@ function openNav() {
 /**
  * handles navbar closing
  */
-function closeNav() {
+function closeNav() { // eslint-disable-line no-unused-vars
   document.getElementById('mySidebar').style.width = '0';
   document.getElementById('main').style.marginLeft= '0';
 }
@@ -6510,7 +6510,6 @@ function populateSubclasses() {
  * populates the make, model, and year drop-down lists
  */
 function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
-
   const makeSelect = document.getElementById('make');
   const makeLength = makeSelect.options.length;
   for (i = makeLength-1; i >= 0; i--) {
