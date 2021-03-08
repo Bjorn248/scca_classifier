@@ -20,19 +20,6 @@ const carFlags = {
   'StreetTouringCar': [
     'streetTouringBodywork',
     'stTiresLegal',
-    'tires200Treadwear',
-    'wheelsStockWidth',
-    'wheelOffsetPlusMinus7Inches',
-    'wheelDiameterPlusMinus1Inch',
-    'stockNumberOfWheelBoltsOrStuds',
-    'shocksAtMost2Way',
-    'suspensionGeometryAltered',
-    'hasStandardBrakeLinesUnless1992OrOlder',
-    'hasSingleAntiRollBar',
-    'hasStockSprings',
-    'hasStockBushings',
-    'stockECUProgramming',
-    'stockExhaust',
   ],
 };
 
@@ -6639,7 +6626,6 @@ function resetState() { // eslint-disable-line no-unused-vars
  * should be displayed
  * @param {string} className the name of the class being evaluated
  */
-
 function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
   let remainingQuestions = []; // eslint-disable-line prefer-const
   for (let i = 0; i < carFlags[className].length; i++) {
