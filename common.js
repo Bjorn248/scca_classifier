@@ -4929,7 +4929,7 @@ const allSoloCars = {
       '1991': ['hs', 'dsp'],
     },
   },
-    'Pontiac': {
+  'Pontiac': {
     'Fiero (V6)': {
       'all': ['cs', 'str', 'bsp', 'fp'],
     },
