@@ -4929,6 +4929,86 @@ const allSoloCars = {
       '1991': ['hs', 'dsp'],
     },
   },
+    'Pontiac': {
+    'Fiero (V6)': {
+      'all': ['cs', 'str', 'bsp', 'fp'],
+    },
+    'Fiero (4-cyl)': {
+      'all': ['hs', 'sts', 'fsp', 'dp'],
+    },
+    'Firebird (V8, NOC)': {
+      'all': ['fs', 'stu', 'cp'],
+    },
+    'Firebird (4-cyl & 6-cyl)': {
+      'all': ['hs', 'stu', 'fsp', 'cp'],
+    },
+    'Firebird Trans Am & Formula (WS6, base car only, including GM-installed 1LE)': {
+      '1998': ['fs', 'stu', 'cp'],
+      '1999': ['fs', 'stu', 'cp'],
+      '2000': ['fs', 'stu', 'cp'],
+      '2001': ['fs', 'stu', 'cp'],
+      '2002': ['fs', 'stu', 'cp'],
+    },
+    'G5 (2.2L)': {
+      'all': ['hs', 'sts'],
+    },
+    'G5 (2.0L Turbo)': {
+      'all': ['hs', 'sth'],
+    },
+    'G8 (V6)': {
+      '2008': ['hs', 'esp'],
+      '2009': ['hs', 'esp'],
+    },
+    'G8 (V8 & NOC)': {
+      '2008': ['fs', 'esp'],
+      '2009': ['fs', 'esp'],
+    },
+    'GTO': {
+      '2004': ['fs', 'stu', 'esp', 'cp'],
+      '2005': ['fs', 'stu', 'esp', 'cp'],
+      '2006': ['fs', 'stu', 'esp', 'cp'],
+    },
+    'LeMans (FWD)': {
+      '1988': ['hs'],
+      '1989': ['hs'],
+      '1990': ['hs'],
+      '1991': ['hs'],
+      '1992': ['hs'],
+      '1993': ['hs'],
+    },
+    'T-1000': {
+      'all': ['hs'],
+    },
+    'Trans Am Turbo (V6)': {
+      '1989': ['fs', 'esp', 'cp'],
+    },
+    'Solstice GXP (Turbo)': {
+      '2007': ['as', 'asp', 'fp'],
+      '2008': ['as', 'asp', 'fp'],
+      '2009': ['as', 'asp', 'fp'],
+      '2009': ['as', 'asp', 'fp'],
+    },
+    'Solstice (non-turbo; w/ ZOK ClubSport package)': {
+      '2007': ['bs', 'str', 'csp'],
+      '2008': ['bs', 'str', 'csp'],
+      '2009': ['bs', 'str', 'csp'],
+      '2009': ['bs', 'str', 'csp'],
+      '2010': ['bs', 'str', 'csp'],
+    },
+    'Solstice (non-turbo; non-ZOK)': {
+      '2007': ['cs', 'str', 'csp', 'dp'],
+      '2008': ['cs', 'str', 'csp', 'dp'],
+      '2009': ['cs', 'str', 'csp', 'dp'],
+      '2009': ['cs', 'str', 'csp', 'dp'],
+      '2010': ['cs', 'str', 'csp', 'dp'],
+    },
+    'Sunfire': {
+      'all': ['hs'],
+    },
+    'Vibe': {
+      'all': ['hs', 'sts', 'dsp'],
+    },
+  },
   'Porsche': {
     'all': {
       'all': ['ssm'],
