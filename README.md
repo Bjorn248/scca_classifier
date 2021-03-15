@@ -33,13 +33,14 @@ Current iteration of rules: https://www.scca.com/downloads/53335-2021-scca-solo-
 * subframe connectors are bolted in place not welded
 
 #### Tires
-* Must meet all street class requirements
-* Max section width up to and including (mm)
-* STR (AWD), STS - 225
-* STX (AWD), STH - 245
-* STR (2WD) - 255
-* STU (AWD & 2WD mid-or-rear-engine) - 265
-* STU (2WD front-engine) - 285
+Tires must meet the eligibility requirements of the Street category with the following additional restrictions:
+Tires shall have a section width up to and including the following (mm):
+STR (AWD), STS - 225
+STX (AWD), STH (AWD) - 245
+STR (2WD) - 255
+STX (2WD), STH (2WD) - 265
+STU (AWD, RWD mid-engine, & RWD forced induction) - 295
+STU (RWD N/A & FWD) - 315
 
 #### Wheels
 * Any wheels permitted with widths up to the following (in.)
@@ -49,21 +50,24 @@ Current iteration of rules: https://www.scca.com/downloads/53335-2021-scca-solo-
 * STU - 11.0
 
 #### Shocks
-* Any shocks permitted
-* Attachment points to the body/frame/subframe/chassis/suspension member may not be altered
-* The attachment system may be changed
-* The number of shock absorbers must be the same as standard
-* Shock absorbers cannot be adjustable while the car is in motion, unless fitted as OE
+* Any shock absorber may be used
+* Bump Stops may be altered or removed
+* Shock absorber mounting brackers may be altered, added, or replaced as long as the attachment
+point on the body/frame/subframe/chassis/suspension member are not altered
+* The number of shock absorbers shall be the same as standard
+* The position of the lower ball joint or spindle shall remain unchanged
 
 #### Brakes
-* non-standard brake rotors are permitted
-* must be made of ferrous material
-* brake ducting is permitted
-* ABS may be electrically disabled but not removed or altered in any other way
-* an emergency brake of the same type, operation, and actuation as standard must be present
-* calipers may be replaced as long as they bolt to the standard locations and the number of pistons
-is equal to or greater than standard
-* drum brakes may be replaced with disk brakes, but only bolted conversions, not welded ones
+* Non-Standard Brake Rotors may be used as long as they are of equal or larger dimensions and made
+of ferrous material
+* Brake lines may be substituted with DOT-approved flexible lines
+* Air ducts may be fitted provided the air comes forward of the wheel well as long as no new holes
+are made in the bumper cover
+* ABS Systems may be electrically disabled but not be removed or altered in any other way
+* Disc brake calipers and mounting brackets may be replaced provided they bolt to the standard locations
+and the number of pistons is equal to or greater than standard.
+* If your car came with an emergency brake it must be retained
+* A single brake master cylinder brace may be added provided it is bolt-on and serves no other purpose.
 
 #### Anti-Roll (Sway) Bars
 * Any anti-roll bar or bushing material is permitted
