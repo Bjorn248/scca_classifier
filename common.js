@@ -5782,48 +5782,6 @@ const allSoloCars = {
       '1993': ['esp'],
     },
   },
-  'Saturn': {
-    'Sky Redline (Turbo)': {
-      '2007': ['as', 'asp', 'fp'],
-      '2008': ['as', 'asp', 'fp'],
-      '2009': ['as', 'asp', 'fp'],
-      '2010': ['as', 'asp', 'fp'],
-    },
-    'Sky (non-turbo)': {
-      '2007': ['cs', 'stx', 'csp', 'dp'],
-      '2008': ['cs', 'stx', 'csp', 'dp'],
-      '2009': ['cs', 'stx', 'csp', 'dp'],
-      '2010': ['cs', 'stx', 'csp', 'dp'],
-    },
-    'ION Redline (Supercharged)': {
-      'all': ['gs', 'sts'],
-    },
-    '8v engine': {
-      'all': ['hs'],
-    },
-    'Astra': {
-      '2008': ['hs', 'sts'],
-      '2009': ['hs', 'sts'],
-    },
-    'DOHC model (Not Otherwise Classified)': {
-      'all': ['hs'],
-    },
-    'ION (non-supercharged)': {
-      'all': ['hs', 'dsp', 'ep', 'sts'],
-    },
-    'L series (all)': {
-      'all': ['hs', 'ep'],
-    },
-    'SL': {
-      'all': ['sts', 'fsp', 'ep'],
-    },
-    'SW': {
-      'all': ['sts', 'fsp', 'ep'],
-    },
-    'SC': {
-      'all': ['sts', 'fsp', 'ep'],
-    },
-  },
   'Scion': {
     'FR-S (with TRD suspension; incl. Release Series 1.0 and 2.0)': {
       '2013': ['cs', 'ssc', 'stx', 'csp'],
