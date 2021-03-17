@@ -6706,12 +6706,12 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
   }
 }
 
+// TODO Finish this function to properly display their class on the tire and wheel size
+// question page
 /**
  * Informs a user which street touring class they are eligible for
  * based on their make, model, and year selection
  */
-// TODO Finish this function to properly display their class on the tire and wheel size
-// question page
 function getStreetTouringClass() {
   if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
     let providedMake = sessionStorage.getItem('make');
