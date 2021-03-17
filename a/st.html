@@ -30,7 +30,7 @@
     </div>
   </head>
 
-  <body onload="evalSessionStorage('StreetTouringCar');">
+  <body onload="evalSessionStorage('StreetTouringCar'); highlightStreetTouringSubclass();">
     <div id="streetTouringBodywork" class="center question">
       <h2 id="streetTouringBodyworkQuestion" class="sansserif">
         Is your car body mostly stock and does it meet the requirements below?
@@ -125,7 +125,29 @@
 
     <div id="stTiresLegal" class="center question">
       <h2 id="stTiresLegalQuestion" class="sansserif">
-        Are your tires 200 treadwear and DOT legal?
+        Tires must meet the eligibility requirements of the Street category with the following
+        additional restrictions:</br>
+        Tires shall have a section width up to and including the following (mm):</br>
+        The subclass corresponding to your car should be highlighted
+        <div id="strTires" class="stTires">
+            STR (AWD) - 225</br>
+            STR (2WD) - 255
+        </div>
+        <div id="stsTires" class="stTires">
+            STS - 225
+        </div>
+        <div id="stxTires" class="stTires">
+            STX (AWD) - 245</br>
+            STX (2WD) - 265
+        </div>
+        <div id="stuTires" class="stTires">
+            STU (AWD, RWD mid-engine, & RWD forced induction) - 295</br>
+            STU (RWD N/A & FWD) - 315
+        </div>
+        <div id="sthTires" class="stTires">
+            STH (AWD) - 245</br>
+            STH (2WD) - 265
+        </div>
       </h2>
       <button class="button yesButton" onclick="setState(['stTiresLegal', 'answeredIndex'], [true, 1]); hideItem('stTiresLegal'); evalSessionStorage('StreetTouringCar');">Yes</button>
       <button class="button noButton" onclick="setState(['stTiresLegal', 'answeredIndex'], [false, 1]); hideItem('stTiresLegal'); evalSessionStorage('StreetTouringCar');">No</button>
