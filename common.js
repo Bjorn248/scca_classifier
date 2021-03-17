@@ -6712,7 +6712,7 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
  * Informs a user which street touring class they are eligible for
  * based on their make, model, and year selection
  */
-function getStreetTouringClass() {
+function highlightStreetTouringSubclass() {
   if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
     let providedMake = sessionStorage.getItem('make');
     let providedModel = sessionStorage.getItem('model');
@@ -6742,7 +6742,8 @@ function getStreetTouringClass() {
         break;
       }
     }
-    console.log(subClass);
+    let tireElement = document.getElementById(subClass + 'Tires')
+    tireElement.classList.add('highlighted');
   }
 }
 
