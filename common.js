@@ -19,7 +19,12 @@ const carFlags = {
   ],
   'StreetTouringCar': [
     'streetTouringBodywork',
-    'stTiresLegal',
+    'stTires',
+    'stWheels',
+    'stShocks',
+    'stBrakes',
+    'stSwayBar',
+    'stSuspension',
   ],
 };
 
@@ -6742,6 +6747,8 @@ function highlightStreetTouringSubclass() {
     }
     let tireElement = document.getElementById(subClass + 'Tires')
     tireElement.classList.add('highlighted');
+    let wheelElement = document.getElementById(subClass + 'Wheels')
+    wheelElement.classList.add('highlighted');
   }
 }
 
@@ -6772,6 +6779,10 @@ function hideItem(id) {
  */
 function resetQuestion(question) {
   sessionStorage.removeItem(question);
+  const eligibleElement = document.getElementById('eligible');
+  eligibleElement.style.display = 'none';
+  const notEligibleElement = document.getElementById('notEligible');
+  notEligibleElement.style.display = 'none';
 }
 
 /**

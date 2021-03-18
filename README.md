@@ -74,25 +74,12 @@ and the number of pistons is equal to or greater than standard.
 * No holes may be cut to route new bars or links
 
 #### Suspension
-* Ride Height Changes are permitted
-* The springs must of the same type as the original (coil, leaf, torsion bar, bellows)
-* Springs must use the original mount locations
-* Bushings may be replaced with any material except metal
-* Bushings may not contain more metal than the standard bushing
-* Bushings may not be changed from their original type (e.g. ball and socket replacing a cylindrical bushing),
-or the use of an angled hole whose direction differs from the original bushing
-* Camber plates are allowed
-* Differential mount bushings may be replace but must attach in the standard locations
+* Ride height may be altered only by suspension adjustments
+* Suspension bushings may be replaced with bushings of any material except metal
+* Suspension bushings must be mounted in the original location
+* Adjustable camber plates may be installed at the top of the strut in strut-type suspensions
+* Steering rack bushings may be replaced with bushings of any material except metal
 * The steering rack may not be relocated
-* On double/unequal arm (e.g., wishbone, multi-link) suspensions, only the upper arms OR lower
-arms may be modified or replaced, but not both. Non-integral longitudinal arms that primarily control
-fore/aft wheel movement (e.g., trailing arm(s) or link(s) of a multilink suspension) may not be
-replaced, changed, or modified.
-* On swing or trailing arm suspensions, the main arms may not be
-modified or replaced, but lateral locating links/arms may be modified or replaced.
-* Changes in suspension geometry are not allowed except as incidental
-to the effective arm length change
-* Subframe position may not be changed
 
 #### Electrical
 * The voltage of the battery may not be changed

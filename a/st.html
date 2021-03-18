@@ -13,7 +13,12 @@
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a id='streetTouringBodyworkMenu' href="#" onclick="resetQuestion('streetTouringBodywork'); evalSessionStorage('StreetTouringCar');">Bodywork</a>
-      <a id='stTiresLegalMenu' href="#" onclick="resetQuestion('stTiresLegal'); evalSessionStorage('StreetTouringCar');">Tires</a>
+      <a id='stTiresMenu' href="#" onclick="resetQuestion('stTires'); evalSessionStorage('StreetTouringCar');">Tires</a>
+      <a id='stWheelsMenu' href="#" onclick="resetQuestion('stWheels'); evalSessionStorage('StreetTouringCar');">Wheels</a>
+      <a id='stShocksMenu' href="#" onclick="resetQuestion('stShocks'); evalSessionStorage('StreetTouringCar');">Shocks</a>
+      <a id='stBrakesMenu' href="#" onclick="resetQuestion('stBrakes'); evalSessionStorage('StreetTouringCar');">Brakes</a>
+      <a id='stSwayBarMenu' href="#" onclick="resetQuestion('stSwayBar'); evalSessionStorage('StreetTouringCar');">Sway Bar</a>
+      <a id='stSuspensionMenu' href="#" onclick="resetQuestion('stSuspension'); evalSessionStorage('StreetTouringCar');">Sway Bar</a>
     </div>
 
     <div id="main">
@@ -123,8 +128,8 @@
       <button class="button noButton" onclick="setState(['streetTouringBodywork', 'answeredIndex'], [false, 0]); hideItem('streetTouringBodywork'); evalSessionStorage('StreetTouringCar');">No</button>
     </div>
 
-    <div id="stTiresLegal" class="center question">
-      <h2 id="stTiresLegalQuestion" class="sansserif">
+    <div id="stTires" class="center question">
+      <h2 id="stTiresQuestion" class="sansserif">
         Tires must meet the eligibility requirements of the Street category with the following
         additional restrictions:</br>
         Tires shall have a section width up to and including the following (mm):</br>
@@ -149,8 +154,144 @@
             STH (2WD) - 265
         </div>
       </h2>
-      <button class="button yesButton" onclick="setState(['stTiresLegal', 'answeredIndex'], [true, 1]); hideItem('stTiresLegal'); evalSessionStorage('StreetTouringCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stTiresLegal', 'answeredIndex'], [false, 1]); hideItem('stTiresLegal'); evalSessionStorage('StreetTouringCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stTires', 'answeredIndex'], [true, 1]); hideItem('stTires'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stTires', 'answeredIndex'], [false, 1]); hideItem('stTires'); evalSessionStorage('StreetTouringCar');">No</button>
+    </div>
+
+    <div id="stWheels" class="center question">
+      <h2 id="stWheelsQuestion" class="sansserif">
+        Any wheels permitted with widths up to the following (in.)
+        <div id="strWheels" class="stWheels">
+          STR (AWD) - 7.5</br>
+          STR (2WD) - 9.0
+        </div>
+        <div id="stsWheels" class="stWheels">
+            STS - 7.5
+        </div>
+        <div id="stxWheels" class="stWheels">
+            STX (AWD) - 8.0</br>
+            STX (2WD) - 9.0
+        </div>
+        <div id="stuWheels" class="stWheels">
+            STU - 11.0
+        </div>
+        <div id="sthWheels" class="stWheels">
+            STH - 9.0
+        </div>
+      </h2>
+      <button class="button yesButton" onclick="setState(['stWheels', 'answeredIndex'], [true, 1]); hideItem('stWheels'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stWheels', 'answeredIndex'], [false, 1]); hideItem('stWheels'); evalSessionStorage('StreetTouringCar');">No</button>
+    </div>
+
+    <div id="stShocks" class="center question">
+      <h2 id="stShocksQuestion" class="sansserif">
+        Do your shocks meet the following restrictions?
+        <ul>
+          <li>
+            Any shock absorber may be used
+          </li>
+          <li>
+            Bump Stops may be altered or removed
+          </li>
+          <li>
+            Shock absorber mounting brackers may be altered, added, or replaced as long as the attachment
+            point on the body/frame/subframe/chassis/suspension member are not altered
+          </li>
+          <li>
+            The number of shock absorbers shall be the same as standard
+          </li>
+          <li>
+            The position of the lower ball joint or spindle shall remain unchanged
+          </li>
+        </ul>
+      </h2>
+      <button class="button yesButton" onclick="setState(['stShocks', 'answeredIndex'], [true, 1]); hideItem('stShocks'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stShocks', 'answeredIndex'], [false, 1]); hideItem('stShocks'); evalSessionStorage('StreetTouringCar');">No</button>
+    </div>
+
+    <div id="stBrakes" class="center question">
+      <h2 id="stBrakesQuestion" class="sansserif">
+        Do your brakes meet the following restrictions?
+        <ul>
+          <li>
+            Non-Standard Brake Rotors may be used as long as they are of equal or larger dimensions and made
+            of ferrous material
+          </li>
+          <li>
+            Brake lines may be substituted with DOT-approved flexible lines
+          </li>
+          <li>
+            Air ducts may be fitted provided the air comes forward of the wheel well as long as no new holes
+            are made in the bumper cover
+          </li>
+          <li>
+            ABS Systems may be electrically disabled but not be removed or altered in any other way
+          </li>
+          <li>
+            Disc brake calipers and mounting brackets may be replaced provided they bolt to the standard locations
+            and the number of pistons is equal to or greater than standard.
+          </li>
+          <li>
+            If your car came with an emergency brake it must be retained
+          </li>
+          <li>
+            A single brake master cylinder brace may be added provided it is bolt-on and serves no other purpose.
+          </li>
+        </ul>
+      </h2>
+      <button class="button yesButton" onclick="setState(['stBrakes', 'answeredIndex'], [true, 1]); hideItem('stBrakes'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stBrakes', 'answeredIndex'], [false, 1]); hideItem('stBrakes'); evalSessionStorage('StreetTouringCar');">No</button>
+    </div>
+
+    <div id="stSwayBar" class="center question">
+      <h2 id="stSwayBarQuestion" class="sansserif">
+        Does your sway bar meet the following restrictions?
+        <ul>
+          <li>
+            Any anti-roll bar or bushing material is permitted
+          </li>
+          <li>
+            No holes may be cut to route new bars or links
+          </li>
+        </ul>
+      </h2>
+      <button class="button yesButton" onclick="setState(['stSwayBar', 'answeredIndex'], [true, 1]); hideItem('stSwayBar'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stSwayBar', 'answeredIndex'], [false, 1]); hideItem('stSwayBar'); evalSessionStorage('StreetTouringCar');">No</button>
+    </div>
+
+    <div id="stSuspension" class="center question">
+      <h2 id="stSuspensionQuestion" class="sansserif">
+        Does your suspension meet the following requirements?</br>
+        For more detailed requirements see section 14.9 of the SCCA Solo Rules
+        </br>
+        </br>
+        <li>
+          Ride height may be altered only by suspension adjustments
+        </li>
+        <li>
+          Suspension bushings may be replaced with bushings of any material except metal
+        </li>
+        <li>
+          Suspension bushings must be mounted in the original location
+        </li>
+        <li>
+          Adjustable camber plates may be installed at the top of the strut in strut-type suspensions
+        </li>
+        <li>
+          Steering rack bushings may be replaced with bushings of any material except metal
+        </li>
+        <li>
+          The steering rack may not be relocated
+        </li>
+        <li>
+          Subframe bushings may be replaced with bushings of any material except metal
+        </li>
+        <li>
+          The position of the subframe may not be changed
+        </li>
+      </h2>
+      <button class="button yesButton" onclick="setState(['stSuspension', 'answeredIndex'], [true, 1]); hideItem('stSuspension'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stSuspension', 'answeredIndex'], [false, 1]); hideItem('stSuspension'); evalSessionStorage('StreetTouringCar');">No</button>
     </div>
 
     <div id="eligible" class="center eligible">
