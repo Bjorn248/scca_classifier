@@ -287,6 +287,19 @@
   display: none;
 }
 
+.subclasses {
+  color: #000000;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.subclass {
+  color: #000000;
+  font-weight: bold;
+  white-space: pre;
+  text-align: center;
+}
+
 .eligible {
   display: none;
   color: #4CAF50;

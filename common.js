@@ -6769,6 +6769,15 @@ function filterStreetTouringInfo() { // eslint-disable-line no-unused-vars
       const nineteenNinetyFiveECUElement = document.getElementById('1995orOlderECU');
       nineteenNinetyFiveECUElement.style.display = 'block';
     }
+
+    if (!document.getElementById('subClass')) {
+      const newDiv = document.createElement('div');
+      newDiv.setAttribute('id', 'subClass');
+      const specificClass = document.getElementById('streetTouringSubclass');
+      const newChild = document.createTextNode(subClass);
+      newDiv.appendChild(newChild);
+      specificClass.insertBefore(newDiv, null);
+    }
   }
 }
 
