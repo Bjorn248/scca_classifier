@@ -25,6 +25,8 @@ const carFlags = {
     'stBrakes',
     'stSwayBar',
     'stSuspension',
+    'stElectrical',
+    'stEngine',
   ],
 };
 
@@ -6625,11 +6627,13 @@ function closeNav() { // eslint-disable-line no-unused-vars
 /**
  * populates the subclass table
  */
-function populateSubclasses() {
-  for (let classAcronym in subclassMap) {
-    let id = classAcronym.concat('-a');
-    aSelect = document.getElementById(id);
-    aSelect.text = subclassMap[classAcronym];
+function populateSubclasses() { // eslint-disable-line no-unused-vars
+  for (const classAcronym in subclassMap) {
+    if (Object.prototype.hasOwnProperty.call(subclassMap, classAcronym)) {
+      const id = classAcronym.concat('-a');
+      aSelect = document.getElementById(id);
+      aSelect.text = subclassMap[classAcronym];
+    }
   }
 }
 
@@ -6648,7 +6652,7 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     makeSelect.add(newMake);
   }
   if (sessionStorage.getItem('make') in allSoloCars) {
-    let providedMake = sessionStorage.getItem('make');
+    const providedMake = sessionStorage.getItem('make');
     makeSelect.value = providedMake;
   } else {
     sessionStorage.setItem('make', makeSelect.value);
@@ -6665,7 +6669,7 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     modelSelect.add(newModel);
   }
   if (sessionStorage.getItem('model') in allSoloCars[makeSelect.value]) {
-    let providedModel = sessionStorage.getItem('model');
+    const providedModel = sessionStorage.getItem('model');
     modelSelect.value = providedModel;
   } else {
     sessionStorage.setItem('model', modelSelect.value);
@@ -6685,27 +6689,27 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     yearSelect.add(newYear);
   }
   if (sessionStorage.getItem('year') in allSoloCars[makeSelect.value][modelSelect.value]) {
-    let providedYear = sessionStorage.getItem('year');
+    const providedYear = sessionStorage.getItem('year');
     yearSelect.value = providedYear;
   } else {
     sessionStorage.setItem('year', yearSelect.value);
   }
 
   if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
-    let providedMake = sessionStorage.getItem('make');
-    let providedModel = sessionStorage.getItem('model');
-    let providedYear = sessionStorage.getItem('year');
+    const providedMake = sessionStorage.getItem('make');
+    const providedModel = sessionStorage.getItem('model');
+    const providedYear = sessionStorage.getItem('year');
 
-    let table = document.getElementById('classesTable');
-    for (var i = 0, row; row = table.rows[i]; i++) {
-      for (var j = 0, col; col = row.cells[j]; j++) {
+    const table = document.getElementById('classesTable');
+    for (let i = 0, row; row = table.rows[i]; i++) {
+      for (let j = 0, col; col = row.cells[j]; j++) {
         col.classList.remove('highlighted');
       }
     }
 
     subClasses = allSoloCars[providedMake][providedModel][providedYear];
     for (let i = 0; i < subClasses.length; i++) {
-      let tableElement = document.getElementById(subClasses[i]);
+      const tableElement = document.getElementById(subClasses[i]);
       tableElement.classList.add('highlighted');
     }
   }
@@ -6713,15 +6717,17 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
 
 /**
  * Informs a user which street touring class they are eligible for
- * based on their make, model, and year selection
+ * based on their make, model, and year selection on certain questions
+ * It either highlights a subclass or it hides/shows certain information based on subclass
+ * or model year
  */
-function highlightStreetTouringSubclass() {
+function filterStreetTouringInfo() { // eslint-disable-line no-unused-vars
   if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
-    let providedMake = sessionStorage.getItem('make');
-    let providedModel = sessionStorage.getItem('model');
-    let providedYear = sessionStorage.getItem('year');
+    const providedMake = sessionStorage.getItem('make');
+    const providedModel = sessionStorage.getItem('model');
+    const providedYear = sessionStorage.getItem('year');
 
-    let subClasses = allSoloCars[providedMake][providedModel][providedYear];
+    const subClasses = allSoloCars[providedMake][providedModel][providedYear];
     let subClass = '';
     for (let i = 0; i < subClasses.length; i++) {
       if (subClasses[i] == 'sts') {
@@ -6738,17 +6744,31 @@ function highlightStreetTouringSubclass() {
       }
       if (subClasses[i] == 'stu') {
         subClass = 'stu';
+        const engineElement = document.getElementById('stusthEngine');
+        engineElement.style.display = 'block';
         break;
       }
       if (subClasses[i] == 'sth') {
         subClass = 'sth';
+        const engineElement = document.getElementById('stusthEngine');
+        engineElement.style.display = 'block';
         break;
       }
     }
-    let tireElement = document.getElementById(subClass + 'Tires')
+    const tireElement = document.getElementById(subClass + 'Tires');
     tireElement.classList.add('highlighted');
-    let wheelElement = document.getElementById(subClass + 'Wheels')
+    const wheelElement = document.getElementById(subClass + 'Wheels');
     wheelElement.classList.add('highlighted');
+
+    if (Number(providedYear) < 2005) {
+      const twoThousandFiveECUElement = document.getElementById('2005orOlderECU');
+      twoThousandFiveECUElement.style.display = 'block';
+    }
+
+    if (Number(providedYear) < 1995) {
+      const nineteenNinetyFiveECUElement = document.getElementById('1995orOlderECU');
+      nineteenNinetyFiveECUElement.style.display = 'block';
+    }
   }
 }
 
@@ -6769,7 +6789,7 @@ function setState(keyArray, valueArray) { // eslint-disable-line no-unused-vars
  * @param {String} id is the id of the html element to hide
  */
 function hideItem(id) {
-  let e = document.getElementById(id);
+  const e = document.getElementById(id);
   e.style.display = 'none';
 }
 
@@ -6777,7 +6797,7 @@ function hideItem(id) {
  * Removes the answer to a question from sessionStorage
  * @param {String} question is the sessionState key to remove
  */
-function resetQuestion(question) {
+function resetQuestion(question) { // eslint-disable-line no-unused-vars
   sessionStorage.removeItem(question);
   const eligibleElement = document.getElementById('eligible');
   eligibleElement.style.display = 'none';
@@ -6806,7 +6826,10 @@ function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
     }
   }
   if (sessionStorage.getItem('answeredIndex')) {
-    const menuElement = document.getElementById(carFlags[className][sessionStorage.getItem('answeredIndex')].concat('Menu'));
+    const menuElement = document.getElementById(
+        carFlags[className][sessionStorage.getItem('answeredIndex')]
+            .concat('Menu'));
+
     menuElement.style.color = '#000000';
     if (sessionStorage.getItem(carFlags[className][sessionStorage.getItem('answeredIndex')]) == 'true') {
       menuElement.style.backgroundColor = '#4caf50';
@@ -6846,10 +6869,10 @@ function checkEligibility(className) {
     const eligibleElement = document.getElementById('eligible');
     eligibleElement.style.display = 'block';
     if (!document.getElementById('possibleClassesList')) {
-      let newDiv = document.createElement('div');
+      const newDiv = document.createElement('div');
       newDiv.setAttribute('id', 'possibleClassesList');
-      let specificClass = document.getElementById('specificClass');
-      let possibleClasses = allSoloCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')];
+      const specificClass = document.getElementById('specificClass');
+      const possibleClasses = allSoloCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')]; // eslint-disable-line max-len
       let possibleClassesString = '';
       for (let i=0; i<possibleClasses.length; i++) {
         if (i == 0) {
@@ -6858,7 +6881,7 @@ function checkEligibility(className) {
         possibleClassesString = possibleClassesString.concat(subclassMap[possibleClasses[i]]);
         possibleClassesString = possibleClassesString.concat('\n');
       }
-      let newChild = document.createTextNode(possibleClassesString);
+      const newChild = document.createTextNode(possibleClassesString);
       newDiv.appendChild(newChild);
       specificClass.insertBefore(newDiv, null);
     }

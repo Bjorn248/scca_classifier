@@ -475,3 +475,15 @@ td:hover {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
 }
+
+.stusthEngine {
+  display: none;
+}
+
+.TwoThousandFiveorOlderECU {
+  display: none;
+}
+
+.NineteenNinetyFiveorOlderECU {
+  display: none;
+}
