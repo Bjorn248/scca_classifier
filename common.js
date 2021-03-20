@@ -6110,29 +6110,26 @@ const allSoloCars = {
     'Turbo 4WD (all, Not Otherwise Classified)': {
       'all': ['fsp'],
     },
-    'WRX': {
-      'all': 'fp',
-    },
     'WRX (non-STI)': {
-      '2002': ['gs', 'sth'],
-      '2003': ['gs', 'sth'],
-      '2004': ['gs', 'sth'],
-      '2005': ['gs', 'sth'],
-      '2006': ['gs', 'sth'],
-      '2007': ['gs', 'sth'],
-      '2008': ['gs', 'sth'],
-      '2009': ['ds', 'sth'],
-      '2010': ['ds', 'sth'],
-      '2011': ['ds', 'sth'],
-      '2012': ['ds', 'sth'],
-      '2013': ['ds', 'sth'],
-      '2014': ['ds', 'sth'],
-      '2015': ['ds', 'sth'],
-      '2016': ['ds', 'sth'],
-      '2017': ['ds', 'sth'],
-      '2018': ['ds', 'sth'],
-      '2019': ['ds', 'sth'],
-      '2020': ['ds', 'sth'],
+      '2002': ['gs', 'sth', 'fp'],
+      '2003': ['gs', 'sth', 'fp'],
+      '2004': ['gs', 'sth', 'fp'],
+      '2005': ['gs', 'sth', 'fp'],
+      '2006': ['gs', 'sth', 'fp'],
+      '2007': ['gs', 'sth', 'fp'],
+      '2008': ['gs', 'sth', 'fp'],
+      '2009': ['ds', 'sth', 'fp'],
+      '2010': ['ds', 'sth', 'fp'],
+      '2011': ['ds', 'sth', 'fp'],
+      '2012': ['ds', 'sth', 'fp'],
+      '2013': ['ds', 'sth', 'fp'],
+      '2014': ['ds', 'sth', 'fp'],
+      '2015': ['ds', 'sth', 'fp'],
+      '2016': ['ds', 'sth', 'fp'],
+      '2017': ['ds', 'sth', 'fp'],
+      '2018': ['ds', 'sth', 'fp'],
+      '2019': ['ds', 'sth', 'fp'],
+      '2020': ['ds', 'sth', 'fp'],
     },
     'WRX STI (including Special Edition)': {
       '2004': ['ds'],
@@ -6732,26 +6729,36 @@ function filterStreetTouringInfo() { // eslint-disable-line no-unused-vars
     for (let i = 0; i < subClasses.length; i++) {
       if (subClasses[i] == 'sts') {
         subClass = 'sts';
+        const lsdElement = document.getElementById('stsLSD');
+        lsdElement.classList.add('highlighted');
         break;
       }
       if (subClasses[i] == 'str') {
         subClass = 'str';
+        const lsdElement = document.getElementById('stustrstxLSD');
+        lsdElement.classList.add('highlighted');
         break;
       }
       if (subClasses[i] == 'stx') {
         subClass = 'stx';
+        const lsdElement = document.getElementById('stustrstxLSD');
+        lsdElement.classList.add('highlighted');
         break;
       }
       if (subClasses[i] == 'stu') {
         subClass = 'stu';
         const engineElement = document.getElementById('stusthEngine');
         engineElement.style.display = 'block';
+        const lsdElement = document.getElementById('stustrstxLSD');
+        lsdElement.classList.add('highlighted');
         break;
       }
       if (subClasses[i] == 'sth') {
         subClass = 'sth';
         const engineElement = document.getElementById('stusthEngine');
         engineElement.style.display = 'block';
+        const lsdElement = document.getElementById('sthLSD');
+        lsdElement.classList.add('highlighted');
         break;
       }
     }
