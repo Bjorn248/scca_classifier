@@ -1,5 +1,6 @@
 const carFlags = {
   'StreetCar': [
+    'streetLandingPage',
     'streetBodywork',
     'fendersUnmodified',
     'tires200Treadwear',
@@ -6713,12 +6714,12 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
 }
 
 /**
- * Informs a user which street touring class they are eligible for
+ * Informs a user which subclass they are eligible for
  * based on their make, model, and year selection on certain questions
  * It either highlights a subclass or it hides/shows certain information based on subclass
  * or model year
  */
-function filterStreetTouringInfo() { // eslint-disable-line no-unused-vars
+function smartHighlightAndFilter() { // eslint-disable-line no-unused-vars
   if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
     const providedMake = sessionStorage.getItem('make');
     const providedModel = sessionStorage.getItem('model');
@@ -6727,6 +6728,7 @@ function filterStreetTouringInfo() { // eslint-disable-line no-unused-vars
     const subClasses = allSoloCars[providedMake][providedModel][providedYear];
     let subClass = '';
     for (let i = 0; i < subClasses.length; i++) {
+      // Street Touring Subclasses
       if (subClasses[i] == 'sts') {
         subClass = 'sts';
         const lsdElement = document.getElementById('stsLSD');
@@ -6761,29 +6763,86 @@ function filterStreetTouringInfo() { // eslint-disable-line no-unused-vars
         lsdElement.classList.add('highlighted');
         break;
       }
+
+      // Street Subclasses
+      if (subClasses[i] == 'ssr') {
+        subClass = 'ssr';
+        break;
+      }
+      if (subClasses[i] == 'ss') {
+        subClass = 'ss';
+        break;
+      }
+      if (subClasses[i] == 'as') {
+        subClass = 'as';
+        break;
+      }
+      if (subClasses[i] == 'bs') {
+        subClass = 'bs';
+        break;
+      }
+      if (subClasses[i] == 'cs') {
+        subClass = 'cs';
+        break;
+      }
+      if (subClasses[i] == 'ds') {
+        subClass = 'ds';
+        break;
+      }
+      if (subClasses[i] == 'es') {
+        subClass = 'es';
+        break;
+      }
+      if (subClasses[i] == 'fs') {
+        subClass = 'fs';
+        break;
+      }
+      if (subClasses[i] == 'gs') {
+        subClass = 'gs';
+        break;
+      }
+      if (subClasses[i] == 'hs') {
+        subClass = 'hs';
+        break;
+      }
     }
     const tireElement = document.getElementById(subClass + 'Tires');
-    tireElement.classList.add('highlighted');
+    if (tireElement != null) {
+      tireElement.classList.add('highlighted');
+    }
     const wheelElement = document.getElementById(subClass + 'Wheels');
-    wheelElement.classList.add('highlighted');
+    if (wheelElement != null) {
+      wheelElement.classList.add('highlighted');
+    }
+
+    const streetOverviewSubclass = document.getElementById(subClass + 'StreetOverview');
+    if (streetOverviewSubclass != null) {
+      streetOverviewSubclass.classList.add('highlighted');
+    }
 
     if (Number(providedYear) < 2005) {
       const twoThousandFiveECUElement = document.getElementById('2005orOlderECU');
-      twoThousandFiveECUElement.style.display = 'block';
+      if (twoThousandFiveECUElement != null) {
+        twoThousandFiveECUElement.style.display = 'block';
+      }
     }
 
     if (Number(providedYear) < 1995) {
       const nineteenNinetyFiveECUElement = document.getElementById('1995orOlderECU');
-      nineteenNinetyFiveECUElement.style.display = 'block';
+      if (nineteenNinetyFiveECUElement != null) {
+        nineteenNinetyFiveECUElement.style.display = 'block';
+      }
     }
 
     if (!document.getElementById('subClass')) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('id', 'subClass');
       const specificClass = document.getElementById('streetTouringSubclass');
-      const newChild = document.createTextNode(subClass);
-      newDiv.appendChild(newChild);
-      specificClass.insertBefore(newDiv, null);
+      if (specificClass != null) {
+        const newChild = document.createTextNode(subClass);
+        newDiv.appendChild(newChild);
+        specificClass.insertBefore(newDiv, null);
+      }
     }
   }
 }
