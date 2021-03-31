@@ -27,7 +27,7 @@ const carFlags = {
     'stSwayBar',
     'stSuspension',
     'stElectrical',
-    'stEngine',
+    'stEngine'
   ],
 };
 
