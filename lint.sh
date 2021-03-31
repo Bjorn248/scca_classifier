@@ -23,7 +23,7 @@ esac
 function lint {
   file_full_path=$1
   echo "linting $file_full_path with eslint"
-  ./node_modules/eslint/bin/eslint.js $file_full_path
+  ./node_modules/eslint/bin/eslint.js "$file_full_path"
 }
 
 export -f lint
