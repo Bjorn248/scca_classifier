@@ -31,21 +31,21 @@ function minify_html {
   file_full_path=$1
   src_stripped=${file_full_path#./src}
   echo "minifying HTML for $file_full_path"
-  ./node_modules/html-minifier/cli.js --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype $file_full_path -o build/$src_stripped
+  ./node_modules/html-minifier/cli.js --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype "$file_full_path" -o "build/$src_stripped"
 }
 
 function minify_css {
   file_full_path=$1
   src_stripped=${file_full_path#./src}
   echo "minifying CSS for $file_full_path"
-  ./node_modules/postcss-cli/bin/postcss $file_full_path -o build/$src_stripped
+  ./node_modules/postcss-cli/bin/postcss "$file_full_path" -o "build/$src_stripped"
 }
 
 function minify_js {
   file_full_path=$1
   src_stripped=${file_full_path#./src}
   echo "minifying JS for $file_full_path"
-  ./node_modules/uglify-js/bin/uglifyjs --compress --mangle -o build/$src_stripped -- $file_full_path
+  ./node_modules/uglify-js/bin/uglifyjs --compress --mangle -o "build/$src_stripped" -- "$file_full_path"
 }
 
 export -f minify_html
