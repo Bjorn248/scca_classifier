@@ -5,7 +5,8 @@
   "main": "what_do.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./build.sh"
+    "build": "./build.sh",
+    "lint": "./lint.sh"
   },
   "repository": {
     "type": "git",
