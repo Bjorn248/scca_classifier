@@ -6718,8 +6718,74 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
  * based on their make, model, and year selection on certain questions
  * It either highlights a subclass or it hides/shows certain information based on subclass
  * or model year
+ * This function is specific to street pages
  */
-function smartHighlightAndFilter() { // eslint-disable-line no-unused-vars
+function highlightAndFilterStreet() { // eslint-disable-line no-unused-vars
+  if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
+    const providedMake = sessionStorage.getItem('make');
+    const providedModel = sessionStorage.getItem('model');
+    const providedYear = sessionStorage.getItem('year');
+
+    const subClasses = allSoloCars[providedMake][providedModel][providedYear];
+    let subClass = '';
+    for (let i = 0; i < subClasses.length; i++) {
+      if (subClasses[i] == 'ssr') {
+        subClass = 'ssr';
+        break;
+      }
+      if (subClasses[i] == 'ss') {
+        subClass = 'ss';
+        break;
+      }
+      if (subClasses[i] == 'as') {
+        subClass = 'as';
+        break;
+      }
+      if (subClasses[i] == 'bs') {
+        subClass = 'bs';
+        break;
+      }
+      if (subClasses[i] == 'cs') {
+        subClass = 'cs';
+        break;
+      }
+      if (subClasses[i] == 'ds') {
+        subClass = 'ds';
+        break;
+      }
+      if (subClasses[i] == 'es') {
+        subClass = 'es';
+        break;
+      }
+      if (subClasses[i] == 'fs') {
+        subClass = 'fs';
+        break;
+      }
+      if (subClasses[i] == 'gs') {
+        subClass = 'gs';
+        break;
+      }
+      if (subClasses[i] == 'hs') {
+        subClass = 'hs';
+        break;
+      }
+    }
+
+    const streetOverviewSubclass = document.getElementById(subClass + 'StreetOverview');
+    if (streetOverviewSubclass != null) {
+      streetOverviewSubclass.classList.add('highlighted');
+    }
+  }
+}
+
+/**
+ * Informs a user which subclass they are eligible for
+ * based on their make, model, and year selection on certain questions
+ * It either highlights a subclass or it hides/shows certain information based on subclass
+ * or model year.
+ * This function is specific to street touring pages
+ */
+function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-vars
   if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
     const providedMake = sessionStorage.getItem('make');
     const providedModel = sessionStorage.getItem('model');
@@ -6763,48 +6829,6 @@ function smartHighlightAndFilter() { // eslint-disable-line no-unused-vars
         lsdElement.classList.add('highlighted');
         break;
       }
-
-      // Street Subclasses
-      if (subClasses[i] == 'ssr') {
-        subClass = 'ssr';
-        break;
-      }
-      if (subClasses[i] == 'ss') {
-        subClass = 'ss';
-        break;
-      }
-      if (subClasses[i] == 'as') {
-        subClass = 'as';
-        break;
-      }
-      if (subClasses[i] == 'bs') {
-        subClass = 'bs';
-        break;
-      }
-      if (subClasses[i] == 'cs') {
-        subClass = 'cs';
-        break;
-      }
-      if (subClasses[i] == 'ds') {
-        subClass = 'ds';
-        break;
-      }
-      if (subClasses[i] == 'es') {
-        subClass = 'es';
-        break;
-      }
-      if (subClasses[i] == 'fs') {
-        subClass = 'fs';
-        break;
-      }
-      if (subClasses[i] == 'gs') {
-        subClass = 'gs';
-        break;
-      }
-      if (subClasses[i] == 'hs') {
-        subClass = 'hs';
-        break;
-      }
     }
     const tireElement = document.getElementById(subClass + 'Tires');
     if (tireElement != null) {
@@ -6813,11 +6837,6 @@ function smartHighlightAndFilter() { // eslint-disable-line no-unused-vars
     const wheelElement = document.getElementById(subClass + 'Wheels');
     if (wheelElement != null) {
       wheelElement.classList.add('highlighted');
-    }
-
-    const streetOverviewSubclass = document.getElementById(subClass + 'StreetOverview');
-    if (streetOverviewSubclass != null) {
-      streetOverviewSubclass.classList.add('highlighted');
     }
 
     if (Number(providedYear) < 2005) {
@@ -6894,19 +6913,23 @@ function resetState() { // eslint-disable-line no-unused-vars
  */
 function evalSessionStorage(className) { // eslint-disable-line no-unused-vars
   let remainingQuestions = []; // eslint-disable-line prefer-const
+
+  // This will be StreetTouringCarAnsweredIndex for street touring
+  // and StreetCarAnsweredIndex for street
+  const indexName = className + 'AnsweredIndex';
   for (let i = 0; i < carFlags[className].length; i++) {
     hideItem(carFlags[className][i]);
     if (!sessionStorage.getItem(carFlags[className][i])) {
       remainingQuestions.push(carFlags[className][i]);
     }
   }
-  if (sessionStorage.getItem('answeredIndex')) {
+  if (sessionStorage.getItem(indexName)) {
     const menuElement = document.getElementById(
-        carFlags[className][sessionStorage.getItem('answeredIndex')]
+        carFlags[className][sessionStorage.getItem(indexName)]
             .concat('Menu'));
 
     menuElement.style.color = '#000000';
-    if (sessionStorage.getItem(carFlags[className][sessionStorage.getItem('answeredIndex')]) == 'true') {
+    if (sessionStorage.getItem(carFlags[className][sessionStorage.getItem(indexName)]) == 'true') {
       menuElement.style.backgroundColor = '#4caf50';
     } else {
       menuElement.style.backgroundColor = '#f44336';
