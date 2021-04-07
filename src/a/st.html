@@ -37,7 +37,7 @@
     </div>
   </head>
 
-  <body onload="evalSessionStorage('StreetTouringCar'); smartHighlightAndFilter();">
+  <body onload="evalSessionStorage('StreetTouringCar'); highlightAndFilterStreetTouring();">
     <div id="streetTouringBodywork" class="center question">
       <h2 id="streetTouringBodyworkQuestion" class="sansserif">
         Is your car body mostly stock and does it meet the requirements below?
@@ -126,8 +126,8 @@
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetTouringBodywork', 'answeredIndex'], [true, 0]); hideItem('streetTouringBodywork'); evalSessionStorage('StreetTouringCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['streetTouringBodywork', 'answeredIndex'], [false, 0]); hideItem('streetTouringBodywork'); evalSessionStorage('StreetTouringCar');">No</button>
+      <button class="button yesButton" onclick="setState(['streetTouringBodywork', 'StreetTouringCarAnsweredIndex'], [true, 0]); hideItem('streetTouringBodywork'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['streetTouringBodywork', 'StreetTouringCarAnsweredIndex'], [false, 0]); hideItem('streetTouringBodywork'); evalSessionStorage('StreetTouringCar');">No</button>
     </div>
 
     <div id="stTires" class="center question">
@@ -156,8 +156,8 @@
             STH (2WD) - 265
         </div>
       </h2>
-      <button class="button yesButton" onclick="setState(['stTires', 'answeredIndex'], [true, 1]); hideItem('stTires'); evalSessionStorage('StreetTouringCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stTires', 'answeredIndex'], [false, 1]); hideItem('stTires'); evalSessionStorage('StreetTouringCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stTires', 'StreetTouringCarAnsweredIndex'], [true, 1]); hideItem('stTires'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stTires', 'StreetTouringCarAnsweredIndex'], [false, 1]); hideItem('stTires'); evalSessionStorage('StreetTouringCar');">No</button>
     </div>
 
     <div id="stWheels" class="center question">
@@ -181,8 +181,8 @@
             STH - 9.0
         </div>
       </h2>
-      <button class="button yesButton" onclick="setState(['stWheels', 'answeredIndex'], [true, 2]); hideItem('stWheels'); evalSessionStorage('StreetTouringCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stWheels', 'answeredIndex'], [false, 2]); hideItem('stWheels'); evalSessionStorage('StreetTouringCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stWheels', 'StreetTouringCarAnsweredIndex'], [true, 2]); hideItem('stWheels'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stWheels', 'StreetTouringCarAnsweredIndex'], [false, 2]); hideItem('stWheels'); evalSessionStorage('StreetTouringCar');">No</button>
     </div>
 
     <div id="stShocks" class="center question">
@@ -209,8 +209,8 @@
           </ul>
         </div>
       </h2>
-      <button class="button yesButton" onclick="setState(['stShocks', 'answeredIndex'], [true, 3]); hideItem('stShocks'); evalSessionStorage('StreetTouringCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stShocks', 'answeredIndex'], [false, 3]); hideItem('stShocks'); evalSessionStorage('StreetTouringCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stShocks', 'StreetTouringCarAnsweredIndex'], [true, 3]); hideItem('stShocks'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stShocks', 'StreetTouringCarAnsweredIndex'], [false, 3]); hideItem('stShocks'); evalSessionStorage('StreetTouringCar');">No</button>
     </div>
 
     <div id="stBrakes" class="center question">
@@ -245,8 +245,8 @@
           </ul>
         </div>
       </h2>
-      <button class="button yesButton" onclick="setState(['stBrakes', 'answeredIndex'], [true, 4]); hideItem('stBrakes'); evalSessionStorage('StreetTouringCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stBrakes', 'answeredIndex'], [false, 4]); hideItem('stBrakes'); evalSessionStorage('StreetTouringCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stBrakes', 'StreetTouringCarAnsweredIndex'], [true, 4]); hideItem('stBrakes'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stBrakes', 'StreetTouringCarAnsweredIndex'], [false, 4]); hideItem('stBrakes'); evalSessionStorage('StreetTouringCar');">No</button>
     </div>
 
     <div id="stSwayBar" class="center question">
@@ -263,8 +263,8 @@
           </ul>
         </div>
       </h2>
-      <button class="button yesButton" onclick="setState(['stSwayBar', 'answeredIndex'], [true, 5]); hideItem('stSwayBar'); evalSessionStorage('StreetTouringCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stSwayBar', 'answeredIndex'], [false, 5]); hideItem('stSwayBar'); evalSessionStorage('StreetTouringCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stSwayBar', 'StreetTouringCarAnsweredIndex'], [true, 5]); hideItem('stSwayBar'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stSwayBar', 'StreetTouringCarAnsweredIndex'], [false, 5]); hideItem('stSwayBar'); evalSessionStorage('StreetTouringCar');">No</button>
     </div>
 
     <div id="stSuspension" class="center question">
@@ -302,8 +302,8 @@
           </ul>
         </div>
       </h2>
-      <button class="button yesButton" onclick="setState(['stSuspension', 'answeredIndex'], [true, 6]); hideItem('stSuspension'); evalSessionStorage('StreetTouringCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stSuspension', 'answeredIndex'], [false, 6]); hideItem('stSuspension'); evalSessionStorage('StreetTouringCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stSuspension', 'StreetTouringCarAnsweredIndex'], [true, 6]); hideItem('stSuspension'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stSuspension', 'StreetTouringCarAnsweredIndex'], [false, 6]); hideItem('stSuspension'); evalSessionStorage('StreetTouringCar');">No</button>
     </div>
 
     <div id="stElectrical" class="center question">
@@ -329,8 +329,8 @@
         This does not permit the use of electrical enhancement components
         such as condensers, voltage controllers, etc.
       </h2>
-      <button class="button yesButton" onclick="setState(['stElectrical', 'answeredIndex'], [true, 7]); hideItem('stElectrical'); evalSessionStorage('StreetTouringCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stElectrical', 'answeredIndex'], [false, 7]); hideItem('stElectrical'); evalSessionStorage('StreetTouringCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stElectrical', 'StreetTouringCarAnsweredIndex'], [true, 7]); hideItem('stElectrical'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stElectrical', 'StreetTouringCarAnsweredIndex'], [false, 7]); hideItem('stElectrical'); evalSessionStorage('StreetTouringCar');">No</button>
     </div>
 
     <div id="stEngine" class="center question">
@@ -551,8 +551,8 @@
           </ul>
         </div>
       </h2>
-      <button class="button yesButton" onclick="setState(['stEngine', 'answeredIndex'], [true, 8]); hideItem('stEngine'); evalSessionStorage('StreetTouringCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['stEngine', 'answeredIndex'], [false, 8]); hideItem('stEngine'); evalSessionStorage('StreetTouringCar');">No</button>
+      <button class="button yesButton" onclick="setState(['stEngine', 'StreetTouringCarAnsweredIndex'], [true, 8]); hideItem('stEngine'); evalSessionStorage('StreetTouringCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['stEngine', 'StreetTouringCarAnsweredIndex'], [false, 8]); hideItem('stEngine'); evalSessionStorage('StreetTouringCar');">No</button>
     </div>
 
     <div id="eligible" class="center eligible">
