@@ -1818,9 +1818,6 @@ const allSoloCars = {
     'Acclaim (V6 & Turbo)': {
       'all': ['dsp'],
     },
-    'Laser Turbo (Not Otherwise Classified) & K-car Turbo': {
-      'all': ['dsp'],
-    },
     'Shadow (4-cyl Turbo & V6)': {
       'all': ['dsp'],
     },
@@ -1830,43 +1827,8 @@ const allSoloCars = {
     'Sundance Turbo': {
       'all': ['dsp'],
     },
-    'Valiant (A-body)': {
-      '1963': ['esp'],
-      '1964': ['esp'],
-      '1965': ['esp'],
-      '1966': ['esp'],
-      '1967': ['esp'],
-      '1968': ['esp'],
-      '1969': ['esp'],
-      '1970': ['esp'],
-      '1971': ['esp'],
-      '1972': ['esp'],
-      '1973': ['esp'],
-      '1974': ['esp'],
-      '1975': ['esp'],
-      '1976': ['esp'],
-    },
-    'Laser (FWD)': {
-      'all': ['esp'],
-    },
     'Arrow 1600, 2000, & 2600': {
       'all': ['fsp'],
-    },
-    'Horizon, TC3, & Turismo (1.7L,1.8L,& 2.2L)': {
-      'all': ['fsp'],
-    },
-    'Laser (non-turbo)': {
-      '1989': ['fsp'],
-      '1990': ['fsp'],
-      '1991': ['fsp'],
-      '1992': ['fsp'],
-      '1993': ['fsp'],
-      '1994': ['fsp'],
-      '1995': ['fsp'],
-      '1996': ['fsp'],
-      '1997': ['fsp'],
-      '1998': ['fsp'],
-      '1999': ['fsp'],
     },
     'Rampage (2.2L)': {
       'all': ['fsp'],
@@ -1874,13 +1836,6 @@ const allSoloCars = {
     'Shelby (2.2L non-turbo)': {
       '1983': ['fsp'],
       '1984': ['fsp'],
-    },
-    'A-body Valiant': {
-      '1963': ['cp'],
-      '1964': ['cp'],
-      '1965': ['cp'],
-      '1966': ['cp'],
-      '1967': ['cp'],
     },
     'Laser (2.2 L non-turbo)': {
       '1984': ['ep'],
@@ -1904,7 +1859,7 @@ const allSoloCars = {
       '2004': ['ep'],
       '2005': ['ep'],
     },
-    'Omni, Horizon, 024, & TC3': {
+    'Omni, 024': {
       '1978': ['ep'],
       '1979': ['ep'],
       '1980': ['ep'],
@@ -5379,6 +5334,76 @@ const allSoloCars = {
       '1989': ['hs', 'dsp'],
       '1990': ['hs', 'dsp'],
       '1991': ['hs', 'dsp'],
+    },
+  },
+  'Plymouth': {
+    'Acclaim': {
+      'all': ['hs', 'dsp', 'ep'],
+    },
+    'Arrow': {
+      'all': ['hs'],
+    },
+    'Champ': {
+      'all': ['hs', 'dp'],
+    },
+    'Colt': {
+      'all': ['hs', 'dp'],
+    },
+    'Horizon': {
+      'all': ['hs', 'fsp'],
+    },
+    'Laser (non-turbo) AWD': {
+      'all': ['hs', 'dsp', 'ep'],
+    },
+    'Laser (non-turbo) FWD': {
+      'all': ['hs', 'esp', 'ep'],
+    },
+    'Neon': {
+      '1995': ['gs', 'sts', 'ep'],
+      '1996': ['gs', 'sts', 'ep'],
+      '1997': ['gs', 'sts', 'ep'],
+      '1998': ['gs', 'sts', 'ep'],
+      '1999': ['gs', 'sts', 'ep'],
+      '2000': ['hs', 'sts', 'ep'],
+      '2001': ['hs', 'sts', 'ep'],
+      '2002': ['hs', 'sts', 'ep'],
+      '2003': ['hs', 'sts', 'ep'],
+      '2004': ['hs', 'sts', 'ep'],
+      '2005': ['hs', 'sts', 'ep'],
+    },
+    'Sapporo': {
+      'all': ['hs', 'fsp'],
+    },
+    'Scamp': {
+      'all': ['hs'],
+    },
+    'Sundance': {
+      'all': ['hs'],
+    },
+    'Prowler': {
+      'all': ['cs'],
+    },
+    'TC3': {
+      'all': ['hs', 'fsp'],
+    },
+    'Turismo': {
+      'all': ['hs', 'fsp'],
+    },
+    'Valiant': {
+      '1963': ['hs', 'esp', 'cp'],
+      '1964': ['hs', 'esp', 'cp'],
+      '1965': ['hs', 'esp', 'cp'],
+      '1966': ['hs', 'esp', 'cp'],
+      '1967': ['hs', 'esp', 'cp'],
+      '1968': ['hs', 'esp', 'cp'],
+      '1969': ['hs', 'esp', 'cp'],
+      '1970': ['hs', 'esp', 'cp'],
+      '1971': ['hs', 'esp', 'cp'],
+      '1972': ['hs', 'esp', 'cp'],
+      '1973': ['hs', 'esp', 'cp'],
+      '1974': ['hs', 'esp', 'cp'],
+      '1975': ['hs', 'esp', 'cp'],
+      '1976': ['hs', 'esp', 'cp'],
     },
   },
   'Pontiac': {
