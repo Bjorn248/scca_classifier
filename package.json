@@ -24,8 +24,8 @@
     "eslint-config-google": "^0.14.0",
     "html-minifier": "^4.0.0",
     "javascript-natural-sort": "^0.7.1",
-    "postcss": "^8.3.4",
+    "postcss": "^8.3.5",
     "postcss-cli": "^8.3.1",
-    "uglify-js": "^3.13.9"
+    "uglify-js": "^3.13.10"
   }
 }
