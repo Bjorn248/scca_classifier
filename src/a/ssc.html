@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - Solo Spec Coupe Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='sscLandingPageMenu' href="#" onclick="resetQuestion('sscLandingPage'); evalSessionStorage('sscCar');">Overview</a>
+      <a id='sscBodyworkMenu' href="#" onclick="resetQuestion('sscBodywork'); evalSessionStorage('sscCar');">Bodywork</a>
+      <a id='sscSuspensionMenu' href="#" onclick="resetQuestion('sscSuspension'); evalSessionStorage('sscCar');">Suspension</a>
+      <a id='sscBrakesMenu' href="#" onclick="resetQuestion('sscBrakes'); evalSessionStorage('sscCar');">Brakes</a>
+      <a id='sscWheelsMenu' href="#" onclick="resetQuestion('sscWheels'); evalSessionStorage('sscCar');">Wheels</a>
+      <a id='sscTiresMenu' href="#" onclick="resetQuestion('sscTires'); evalSessionStorage('sscCar');">Tires</a>
+      <a id='sscElectricalMenu' href="#" onclick="resetQuestion('sscElectrical'); evalSessionStorage('sscCar');">Electrical</a>
+      <a id='sscEngineAndDrivetrainMenu' href="#" onclick="resetQuestion('sscEngineAndDrivetrain'); evalSessionStorage('sscCar');">Engine and Drivetrain</a>
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Solo Spec Coupe Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right">
+      <button class="button noButton" onclick="resetState()">Reset</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('sscCar');">
+    <div id="sscLandingPage" class="center question sansserif">
+      <h2 id="sscLandingPageQuestion" class="sansserif">
+        Solo Spec Coupe Class Overview
+      </h2>
+      <div id="explanation" class="explanation">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+        To provide an affordable autocross package that combines a streetable car and a capable
+        autocross car using specified parts
+        </p>
+        <h3>
+          Mandatory Parts
+        </h3>
+        <p>
+        The parts specified (tires, wheels, and suspension) must be used.
+        All components and parts (e.g., hardware) are required to be installed.
+        Original equipment (OE) or equivalent components are not allowed.
+        Required bump stops are provided in the Eibach® PRO-PLUS Performance Handling Package.
+        </p>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['sscLandingPage', 'sscCarAnsweredIndex'], [true, 0]); hideItem('sscLandingPage'); evalSessionStorage('sscCar');">Continue</button>
+    </div>
+
+    <div id="sscBodywork" class="center question">
+      <h2 id="sscBodyworkQuestion" class="sansserif">
+        Does your car meet the bodywork requirements below?
+      </h2>
+      <div id="explanation" class="explanation">
+        <h3 class="sansserif">
+          See the SSC Rules for clarification, but unless modifications are explicitly
+          permitted, they are not allowed.
+          Things that are allowed:
+          <ul class="sansserif list explanation">
+            <li>
+              Accessories, gauges, indicators, lights and other appearance, comfort and convenience
+              modifications which have no effect on performance and/ or handling and do not
+              materially reduce the weight of the car are permitted. This does not allow driver's
+              seat substitutions, or the removal of "tow hooks" or "tiedown loops."
+              Data acquisition systems (including video cameras) and the accompanying sensors are
+              allowed but may serve no other purpose during a run than real-time display and data recording.
+            </li>
+            <li>
+              Alternate shift knobs are allowed.
+            </li>
+            <li>
+              Spare tires, tools, and jacks may be removed. Any fastening hardware and/or other pieces that can no longer
+              be firmly secured in the absence of the spare tire may be removed if necessary to ensure compliance with
+              Solo® Rules section 3.3.3.B.1, Safety Inspections, Inspection Requirements
+            </li>
+            <li>
+              Driver restraints as outlined in Solo® Rules section 3.3.1, Driver Restraints, are allowed. Seats may not be cut to
+              allow for the installation of alternate seat belts or harnesses. A horizontal "harness bar" may be used as part of
+              the installation hardware for allowed driver restraints provided it has no more than two (2) attachment points
+              to the chassis and is bolted at those locations. A C-type harness bar may also be used; it may have four (4)
+              bolted attachment points to the chassis (2 primary and 2 supporting connections to resist rotation). Truss-type
+              harness bars with more than two (2) attachment points are not allowed.
+            </li>
+            <li>
+              Cars may add one (1) rear trailer hitch. Factory tie downs and cosmetic pieces (e.g., diffusers) may be modified
+              or removed to facilitate hitch installation. Complete or partial removal of the hitch is allowed for competition,
+              provided it does not result in a reduction in weight compared to the unmodified standard configuration.
+            </li>
+            <li>
+              Tow bar brackets may be installed and may serve no other purpose.
+            </li>
+            <li>
+              Any item not permanently in place by manufacturer-installed fasteners may be removed (i.e., emergency tool kits).
+            </li>
+          </ul>
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['sscBodywork', 'sscCarAnsweredIndex'], [true, 1]); hideItem('sscBodywork'); evalSessionStorage('sscCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['sscBodywork', 'sscCarAnsweredIndex'], [false, 1]); hideItem('sscBodywork'); evalSessionStorage('sscCar');">No</button>
+    </div>
+
+    <div id="sscSuspension" class="center question">
+      <h2 id="sscSuspensionQuestion" class="sansserif">
+        Does your suspension meet the requirements defined below?
+      </h2>
+      <p class="sansserif">
+        Your suspension must use the following parts, exclusively available from Tire Rack® - <a href="https://www.tirerack.com" target="_blank" rel="noopener noreferrer">www.tirerack.com</a>
+      </p>
+      <ul class="sansserif list explanation">
+        <li>
+        <b>Eibach® PRO-PLUS Performance Handling Package</b>, part # TR82105.880, including:
+        </li>
+        <ul class="sansserif list">
+          <li>
+          82105.001 spring f (2)
+          </li>
+          <li>
+          UB0346 front bushing (2)
+          </li>
+          <li>
+          82105.002 spring r (2)
+          </li>
+          <li>
+          82105.320R rear anti-roll bar (1)
+          </li>
+          <li>
+          1J0412303(770343) bump stop f (2), ~53mm height
+          </li>
+          <li>
+          UB0347 rear bushing (1)
+          </li>
+          <li>
+          BS770143 bump stop r (2), ~33mm height
+          </li>
+          <li>
+          1J0412303
+          </li>
+          <li>
+          82105.320F front anti-roll bar (1)
+          </li>
+          <li>
+          82105.310HK hardware kit (1)
+          </li>
+        </ul>
+        <li>
+          <b>SPC Performance® Adjustable Alignment Kit</b>, part # 60620T, including:
+        </li>
+        <ul class="sansserif list">
+          <li>
+          81305 [(2) EZCam® XR bolts,14mm]
+          </li>
+          <li>
+          67660 [(2) rear adjustable lower control arm]
+          </li>
+          <li>
+          67655 [(2) rear adjustable toe arm]
+          </li>
+        </ul>
+        <li>
+          <b>Koni® Sport</b> (Yellow) struts/shocks with tamper proof seal
+        </li>
+        <ul class="sansserif list">
+          <li>
+          8741-1560LSSC [(1) left front]
+          </li>
+          <li>
+          8741-1560RSSC [(1) right front]
+          </li>
+          <li>
+          8041-1416SSC [(2) rear]
+          </li>
+        </ul>
+      </ul>
+
+      <h2 class="sansserif">
+        The following suspension modifications are allowed
+      </h2>
+      <p class="sansserif">
+        <b>Alignment</b>
+        </br>
+        </br>
+        Both the front and rear suspension may be adjusted through their designed range of adjustment by use
+        of the specified parts. No suspension part may be modified for the purpose of adjustment unless such
+        modification is specifically authorized by the manufacturer service documentation.
+        </br>
+        </br>
+        <b>Bushings</b>
+        </br>
+        </br>
+        Suspension bushings as supplied in the kits are mandatory.
+        Those not included in the supplied kits may <b>NOT</b> be replaced with bushings of a different material
+        or dimension.
+      </p>
+      <button class="button yesButton" onclick="setState(['sscSuspension', 'sscCarAnsweredIndex'], [true, 2]); hideItem('sscSuspension'); evalSessionStorage('sscCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['sscSuspension', 'sscCarAnsweredIndex'], [false, 2]); hideItem('sscSuspension'); evalSessionStorage('sscCar');">No</button>
+    </div>
+
+    <div id="sscBrakes" class="center question">
+      <h2 id="sscBrakesQuestion" class="sansserif">
+        Do your brakes meet the following requirements?
+        </br>
+        </br>
+        The make and material of brake linings (pads) may be changed.
+      </h2>
+      <button class="button yesButton" onclick="setState(['sscBrakes', 'sscCarAnsweredIndex'], [true, 3]); hideItem('sscBrakes'); evalSessionStorage('sscCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['sscBrakes', 'sscCarAnsweredIndex'], [false, 3]); hideItem('sscBrakes'); evalSessionStorage('sscCar');">No</button>
+    </div>
+
+    <div id="sscWheels" class="center question">
+      <h2 id="sscWheelsQuestion" class="sansserif">
+        Do your wheels meet the following requirements?
+        </br>
+      </h2>
+      <ul class="sansserif list explanation">
+        <li>
+          Diameter and width (in.): 17x8 (OE 17x7 may be used only as a full set of 4 wheels.)
+        </li>
+        <li>
+          Offset, including wheel spacer (mm): +40 (40ET or ET40) or greater
+        </li>
+        <li>
+          Weight, minimum without spacer if used (lbs.): 17, including:
+          <ul class="sansserif list">
+            <li>
+              Wheel weights
+            </li>
+            <li>
+              TPMS sensor if installed
+            </li>
+            <li>
+              Tire valve stem (type unrestricted)
+            </li>
+          </ul>
+        </li>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['sscWheels', 'sscCarAnsweredIndex'], [true, 4]); hideItem('sscWheels'); evalSessionStorage('sscCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['sscWheels', 'sscCarAnsweredIndex'], [false, 4]); hideItem('sscWheels'); evalSessionStorage('sscCar');">No</button>
+    </div>
+
+    <div id="sscTires" class="center question">
+      <h2 id="sscTiresQuestion" class="sansserif">
+        Are you using one of the allowed tires and sizes?
+      </h2>
+      <p class="sansserif">
+      </br>
+      <ul class="sansserif list explanation">
+        <li>
+          Tire
+          <ul>
+            <li>
+              Falken Azenis RT660
+            </li>
+            <li>
+              Falken Azenis RT615K+
+            </li>
+          </ul>
+        </li>
+        <li>
+          Size
+          <ul>
+            <li>
+              225/45-17
+            </li>
+          </ul>
+        </li>
+      </p>
+      <button class="button yesButton" onclick="setState(['sscTires', 'sscCarAnsweredIndex'], [true, 5]); hideItem('sscTires'); evalSessionStorage('sscCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['sscTires', 'sscCarAnsweredIndex'], [false, 5]); hideItem('sscTires'); evalSessionStorage('sscCar');">No</button>
+    </div>
+
+    <div id="sscElectrical" class="center question">
+      <h2 id="sscElectricalQuestion" class="sansserif">
+        Does your electrical system fall within the following restrictions?
+      </h2>
+      <ul class="sansserif list explanation">
+        <li>
+          The make of spark plugs is unrestricted
+        </li>
+        <li>
+          No changes are permitted to electronic engine management systems or their programming
+        </li>
+        <li>
+          Tire Pressure Monitoring Systems (TPMS) may be disabled. Altering the signal to the TPMS module
+          is allowed
+        </li>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['sscElectrical', 'sscCarAnsweredIndex'], [true, 6]); hideItem('sscElectrical'); evalSessionStorage('sscCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['sscElectrical', 'sscCarAnsweredIndex'], [false, 6]); hideItem('sscElectrical'); evalSessionStorage('sscCar');">No</button>
+    </div>
+
+    <div id="sscEngineAndDrivetrain" class="center question">
+      <h2 id="sscEngineAndDrivetrainQuestion" class="sansserif">
+        Does your engine and drivetrain fall within the following restrictions?
+      </h2>
+      <ul class="sansserif list explanation">
+        <li>
+          The engine air filter element may be removed or replaced provided the air flow path remains as originally
+          designed (i.e., no additional openings). No other components of the air induction system may be removed,
+          replaced, or modified
+        </li>
+        <li>
+          The muffler and midpipe may be substituted provided the system exits the car in one or
+          both original locations.
+          <ul>
+            <li>
+              Weight – minimum, both muffler and midpipe (lbs.): 18
+            </li>
+          </ul>
+        </li>
+        <li>
+          Oil filters are unrestricted
+        </li>
+        <li>
+          The installation of oil catch tanks or oil separators is allowed provided the
+          function of the PCV system remains functional.
+        </li>
+        <li>
+          An oil cooler is allowed provided no unauthorized modifications are made to perform the installation
+        </li>
+        <li>
+          Silicone replacement hoses are allowed as alternate components provided they meet the
+          requirements of Solo ® Rules section 13, Street Category, with regard to size, shape, location, and
+          performance equivalence. Replacement induction system air intake hoses must also match the
+          standard part in stiffness, contour, and internal wall texture.
+        </li>
+        <li>
+          Lubricants and fluids are unrestricted
+        </li>
+        <li>
+          Fuel must be Federally-approved for use on public highways and must not exceed an octane rating
+          of 93 [(R+M)/2], with an allowed variance of up to +0.9. Ethanol content may not exceed 15%
+        </li>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['sscEngineAndDrivetrain', 'sscCarAnsweredIndex'], [true, 7]); hideItem('sscEngineAndDrivetrain'); evalSessionStorage('sscCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['sscEngineAndDrivetrain', 'sscCarAnsweredIndex'], [false, 7]); hideItem('sscEngineAndDrivetrain'); evalSessionStorage('sscCar');">No</button>
+    </div>
+
+    <div id="eligible" class="center eligible">
+      <h1 class="sansserif">
+        Your car is eligible for Solo Spec Coupe class!
+        </br>
+      </h1>
+    </div>
+
+    <div id="notEligible" class="center notEligible">
+      <h1 class="sansserif">
+        Your car is NOT eligible for Solo Spec Coupe class.
+      </h1>
+      <div class="notEligibleExplanation sansserif">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>
