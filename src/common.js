@@ -39,6 +39,16 @@ const carFlags = {
     'sscElectrical',
     'sscEngineAndDrivetrain',
   ],
+  'xsCar': [
+    'xsLandingPage',
+    'xsBodywork',
+    'xsSuspension',
+    'xsBrakes',
+    'xsWheels',
+    'xsTires',
+    'xsWeight',
+    'xsEngineAndDrivetrain',
+  ],
 };
 
 /*
@@ -7984,6 +7994,44 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
         newDiv.appendChild(newChild);
         specificClass.insertBefore(newDiv, null);
       }
+    }
+  }
+}
+
+/**
+ * Informs a user which subclass they are eligible for
+ * based on their make, model, and year selection on certain questions
+ * It either highlights a subclass or it hides/shows certain information based on subclass
+ * or model year
+ * This function is specific to xtreme street pages
+ */
+function highlightAndFilterXtremeStreet() { // eslint-disable-line no-unused-vars
+  if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
+    const providedMake = sessionStorage.getItem('make');
+    const providedModel = sessionStorage.getItem('model');
+    const providedYear = sessionStorage.getItem('year');
+
+    const subClasses = allSoloCars[providedMake][providedModel][providedYear];
+    let subClass = '';
+    for (let i = 0; i < subClasses.length; i++) {
+      if (subClasses[i] == 'xsa') {
+        subClass = 'xsa';
+        break;
+      }
+      if (subClasses[i] == 'xsb') {
+        subClass = 'xsb';
+        break;
+      }
+    }
+
+    const xtremeStreetOverviewSubclass = document.getElementById(subClass + 'Overview');
+    if (xtremeStreetOverviewSubclass != null) {
+      xtremeStreetOverviewSubclass.classList.add('highlighted');
+    }
+
+    const xtremeStreetWeightSubclass = document.getElementById(subClass + 'Weight');
+    if (xtremeStreetWeightSubclass != null) {
+      xtremeStreetWeightSubclass.classList.add('highlighted');
     }
   }
 }
