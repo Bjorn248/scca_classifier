@@ -1,6 +1,10 @@
 {
   "name": "scca_classifier",
   "version": "0.0.1",
+  "engines": {
+    "node": ">= 12.22.0",
+    "npm": ">= 6.14.0"
+  },
   "description": "Assistant to help with SCCA Solo Classification",
   "main": "what_do.js",
   "scripts": {
