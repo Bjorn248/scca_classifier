@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - Xtreme Street Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='xsLandingPageMenu' href="#" onclick="resetQuestion('xsLandingPage'); evalSessionStorage('xsCar');">Overview</a>
+      <a id='xsBodyworkMenu' href="#" onclick="resetQuestion('xsBodywork'); evalSessionStorage('xsCar');">Bodywork</a>
+      <a id='xsSuspensionMenu' href="#" onclick="resetQuestion('xsSuspension'); evalSessionStorage('xsCar');">Suspension</a>
+      <a id='xsBrakesMenu' href="#" onclick="resetQuestion('xsBrakes'); evalSessionStorage('xsCar');">Brakes</a>
+      <a id='xsWheelsMenu' href="#" onclick="resetQuestion('xsWheels'); evalSessionStorage('xsCar');">Wheels</a>
+      <a id='xsTiresMenu' href="#" onclick="resetQuestion('xsTires'); evalSessionStorage('xsCar');">Tires</a>
+      <a id='xsWeightMenu' href="#" onclick="resetQuestion('xsWeight'); evalSessionStorage('xsCar');">Weight</a>
+      <a id='xsEngineAndDrivetrainMenu' href="#" onclick="resetQuestion('xsEngineAndDrivetrain'); evalSessionStorage('xsCar');">Engine and Drivetrain</a>
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Xtreme Street Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right">
+      <button class="button noButton" onclick="resetState()">Reset</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('xsCar'); highlightAndFilterXtremeStreet();">
+    <div id="xsLandingPage" class="center question sansserif">
+      <h2 id="xsLandingPageQuestion" class="sansserif">
+        Xtreme Street (XS) Category Class Overview
+      </h2>
+      <div id="explanation" class="explanation">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+          The purpose of the Xtreme Street (XS) Category is to attract automobile enthusiasts
+          interested in autocross events with street vehicles using minimal rules that allow for
+          creative modifications with limited restrictions. This category is intended to appeal to
+          regional/local competitors who would like to compete with a modified car on street
+          tires but would otherwise be classed in high-prep race tire categories.
+
+          </br>
+          </br>
+
+          This class, unlike many other classes, is relatively unrestricted. Any modification is
+          typically allowed unless specifically stated otherwise in the rules. This is unlike other
+          classes that disallow any modification unless otherwise specified in the rules.
+        </p>
+        <h3>
+          Eligible Vehicles
+        </h3>
+        <ul class="sansserif list explanation">
+          <li>
+            Must be an automobile or truck (e.g., pickup, SUV) manufactured for road use and legal to
+            drive on US roads. Non-US models are allowed and right-hand-drive steering is permitted.
+          </li>
+          <li>
+            Must be licensed & insured
+          </li>
+          <li>
+            Must include all road-going components such as lights, wipers, interior, heater, etc
+          </li>
+          <li>
+            Must comply with these sections of the SCCA® National Solo® Rules
+            <ul>
+              <li>
+                Section 3, Vehicles
+              </li>
+              <li>
+                Appendix I, Sound Measurement Procedures
+              </li>
+            </ul>
+          </li>
+          <li>
+            <b>EXCLUDED</b>: Acura NSX; Audi R8; Ferrari (all); Ford GT; Lamborghini (all);
+            Lotus 7 (all including clones); McLaren (all); Porsche 911 (all w/liquid-cooled engines)
+          </li>
+        </ul>
+        <h3>
+          Subclasses
+        </h3>
+        <p>
+        Your subclass should be highlighted
+        </p>
+        <ul>
+          <li>
+            <div id="xsaOverview">
+            Xtreme Street A - Heavier Weight
+            </div>
+          </li>
+          <li>
+            <div id="xsbOverview">
+            Xtreme Street B - Lighter Weight
+            </div>
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['xsLandingPage', 'xsCarAnsweredIndex'], [true, 0]); hideItem('xsLandingPage'); evalSessionStorage('xsCar');">Continue</button>
+    </div>
+
+    <div id="xsBodywork" class="center question">
+      <h2 id="xsBodyworkQuestion" class="sansserif">
+        Does your car meet the bodywork requirements below?
+      </h2>
+      <div id="explanation" class="explanation">
+        <h3 class="sansserif">
+          <ul class="sansserif list explanation">
+            <li>
+              Interior and exterior must have a "finished" look (e.g., carpeted,
+              upholstered, painted, coated)
+            </li>
+            <li>
+              Must have OE or OE-equivalent windshield. Side glass must be present if original for the
+              vehicle and may be replaced with polycarbonate (e.g., Lexan®), minimum thickness 1/8"
+              (0.125 in.; 3.2 mm)
+            </li>
+            <li>
+              Dashboard may be replaced or modified but must be "finished" and cover the original area
+            </li>
+            <li>
+              Headliner may be replaced.
+            </li>
+            <li>
+              Interior panels (e.g., door panels, kick panels) forward of the B pillar (driver and front
+              passenger area) may be replaced, not removed, with an upholstered or "finished" panel of
+              any material
+            </li>
+            <li>
+              The area behind the B pillar may have panels and carpet removed. Exposed metal interior
+              surfaces must be painted or "finished." (No "race car" interiors, please.)
+            </li>
+            <li>
+              Front seat(s) may be replaced or modified. Rear seat(s) may be replaced, modified, or
+              removed. The driver's seating area must not cross the geometric centerline and must not
+              intrude into the original rear seat area
+            </li>
+            <li>
+              Exterior body panels may be replaced or modified in the original locations. Non-metallic
+              fender liners may be removed
+            </li>
+            <li>
+              Frame/chassis may be modified including suspension attachment points. Alternate
+              subframes (K-members) are allowed. Vehicle perimeter and wheelbase must be full-scale to
+              the original model. Incidental wheelbase changes resulting from suspension changes are
+              permitted. This is not an allowance to shorten or lengthen the chassis/body (e.g., change the
+              scale from the original)
+            </li>
+            <li>
+              Fuel tank/cell may be replaced, modified, and/or relocated
+            </li>
+            <li>
+              A front splitter, air dam, spoiler, canards, and vertical members (e.g., fences, endplates) may
+              be added below the top of the bumper (measured at the highest front most point of the
+              bodywork). Components may extend 6.0" (152.4 mm) maximum forward of the perimeter of
+              the original body (excluding non-integral bumpers) but may not extend rearward past the
+              centerline of the front axle. No portion may be wider than the front bodywork (ahead of the
+              doors including flaring).
+            </li>
+            <li>
+              A rear spoiler or a rear wing may be added, removed, or modified but must not extend past
+              the perimeter of the original body (excluding non-integral bumpers). Endplates are allowed;
+              size is not restricted. A rear spoiler may extend 10.0" (254 mm) maximum from the original
+              body. A rear wing, components, and attachment points must be behind the centerline of the
+              rear axle and may extend 6.0" maximum above the topmost portion of the roofline (or
+              windshield frame for a convertible). The wing may not be mounted behind the rearmost
+              portion of the original body (excluding non-integral bumpers). Components, such as
+              mounting struts, may be behind the body. The maximum number of non-OE wing elements is
+              two (2). The total surface area of all wing elements is 8.0 sq. ft. maximum. Changes in wing
+              position are allowed in grid. Non-OE wings that are adjustable-in-motion must be disabled
+              and "locked" in position.
+            </li>
+            <li>
+              Body electrical system components are not restricted
+            </li>
+          </ul>
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['xsBodywork', 'xsCarAnsweredIndex'], [true, 1]); hideItem('xsBodywork'); evalSessionStorage('xsCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['xsBodywork', 'xsCarAnsweredIndex'], [false, 1]); hideItem('xsBodywork'); evalSessionStorage('xsCar');">No</button>
+    </div>
+
+    <div id="xsSuspension" class="center question">
+      <h2 id="xsSuspensionQuestion" class="sansserif">
+        Does your suspension meet the requirements defined below?
+      </h2>
+      <ul class="sansserif list explanation">
+        <li>
+          Components and method of attachment are <b>NOT</b> restricted
+        </li>
+        <li>
+          Material may be added and/or removed from strut towers<Paste>
+        </li>
+      </ul>
+
+      </br>
+
+      <button class="button yesButton" onclick="setState(['xsSuspension', 'xsCarAnsweredIndex'], [true, 2]); hideItem('xsSuspension'); evalSessionStorage('xsCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['xsSuspension', 'xsCarAnsweredIndex'], [false, 2]); hideItem('xsSuspension'); evalSessionStorage('xsCar');">No</button>
+    </div>
+
+    <div id="xsBrakes" class="center question">
+      <h2 id="xsBrakesQuestion" class="sansserif">
+        Do your brakes meet the following requirements?
+      </h2>
+      <ul class="sansserif list explanation">
+        <li>
+          Brake rotor/drum friction surfaces must be of ferrous metal
+          <ul>
+            <li>
+              <b>EXCEPTION</b>: OE non-ferrous rotors may be retained
+            </li>
+          </ul>
+        </li>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['xsBrakes', 'xsCarAnsweredIndex'], [true, 3]); hideItem('xsBrakes'); evalSessionStorage('xsCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['xsBrakes', 'xsCarAnsweredIndex'], [false, 3]); hideItem('xsBrakes'); evalSessionStorage('xsCar');">No</button>
+    </div>
+
+    <div id="xsWheels" class="center question">
+      <h2 id="xsWheelsQuestion" class="sansserif">
+        Do your wheels meet the following requirements?
+        </br>
+      </h2>
+      <p class="sansserif">
+        Any wheels are allowed. Non-metallic wheels must be certified/approved from an
+        appropriate, recognized standards organization (e.g., FIA, SFI, SAE, TUV, etc.)
+      </p>
+      <button class="button yesButton" onclick="setState(['xsWheels', 'xsCarAnsweredIndex'], [true, 4]); hideItem('xsWheels'); evalSessionStorage('xsCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['xsWheels', 'xsCarAnsweredIndex'], [false, 4]); hideItem('xsWheels'); evalSessionStorage('xsCar');">No</button>
+    </div>
+
+    <div id="xsTires" class="center question">
+      <h2 id="xsTiresQuestion" class="sansserif">
+        Do your tires meet the following requirements?
+      </h2>
+      </br>
+      <ul class="sansserif list explanation">
+        <li>
+          DOT tires with a UTQG Treadwear Grade of 200 or higher
+          <ul>
+            <li>
+              <b>EXCLUDED</b>: Kumho Ecsta V720 ACR; Michelin Pilot Sport Cup 2 and Pilot Sport Cup 2 ZP
+            </li>
+          </ul>
+        </li>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['xsTires', 'xsCarAnsweredIndex'], [true, 5]); hideItem('xsTires'); evalSessionStorage('xsCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['xsTires', 'xsCarAnsweredIndex'], [false, 5]); hideItem('xsTires'); evalSessionStorage('xsCar');">No</button>
+    </div>
+
+    <div id="xsWeight" class="center question">
+      <h2 id="xsWeightQuestion" class="sansserif">
+        Do you meet the minimum weight requirements outlined below?
+        </br>
+        </br>
+        Weights are without driver, in lbs.
+      </h2>
+      <p class="sansserif">
+        Your subclass should be highlighted
+      </p>
+      <ul class="sansserif list explanation">
+        <div id="xsaWeight">
+          <li>
+            XSA
+            <ul>
+              <li>
+                AWD: 3000
+              </li>
+              <li>
+                RWD: 2750
+              </li>
+              <li>
+                FWD: 2500
+              </li>
+            </ul>
+          </li>
+        </div>
+        <div id="xsbWeight">
+          <li>
+            XSB
+            <ul>
+              <li>
+                RWD: 2150
+              </li>
+              <li>
+                FWD: 2000
+              </li>
+            </ul>
+          </li>
+        </div>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['xsWeight', 'xsCarAnsweredIndex'], [true, 6]); hideItem('xsWeight'); evalSessionStorage('xsCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['xsWeight', 'xsCarAnsweredIndex'], [false, 6]); hideItem('xsWeight'); evalSessionStorage('xsCar');">No</button>
+    </div>
+
+    <div id="xsEngineAndDrivetrain" class="center question">
+      <h2 id="xsEngineAndDrivetrainQuestion" class="sansserif">
+        Does your engine and drivetrain fall within the following restrictions?
+      </h2>
+      <ul class="sansserif list explanation">
+        <li>
+          Engine cylinder block or rotor housing must be from a production automobile or a copy (e.g.,
+          Dart, BMP, Ford Performance); non-US blocks are permitted. Motorcycle or industrial-based
+          cylinder blocks are not allowed
+        </li>
+        <li>
+          All other engine and powertrain components and attachments are not restricted
+        </li>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['xsEngineAndDrivetrain', 'xsCarAnsweredIndex'], [true, 7]); hideItem('xsEngineAndDrivetrain'); evalSessionStorage('xsCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['xsEngineAndDrivetrain', 'xsCarAnsweredIndex'], [false, 7]); hideItem('xsEngineAndDrivetrain'); evalSessionStorage('xsCar');">No</button>
+    </div>
+
+    <div id="eligible" class="center eligible">
+      <h1 class="sansserif">
+        Your car is eligible for Xtreme Street class!
+        </br>
+      </h1>
+    </div>
+
+    <div id="notEligible" class="center notEligible">
+      <h1 class="sansserif">
+        Your car is NOT eligible for Xtreme Street class.
+      </h1>
+      <div class="notEligibleExplanation sansserif">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>
