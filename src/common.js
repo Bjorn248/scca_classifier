@@ -29,6 +29,16 @@ const carFlags = {
     'stElectrical',
     'stEngine',
   ],
+  'sscCar': [
+    'sscLandingPage',
+    'sscBodywork',
+    'sscSuspension',
+    'sscBrakes',
+    'sscWheels',
+    'sscTires',
+    'sscElectrical',
+    'sscEngineAndDrivetrain',
+  ],
 };
 
 /*
