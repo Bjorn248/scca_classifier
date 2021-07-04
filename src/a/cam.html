@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - Classic American Muscle (CAM) Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='camLandingPageMenu' href="#" onclick="resetQuestion('camLandingPage'); evalSessionStorage('camCar');">Overview</a>
+      <a id='camBodyworkMenu' href="#" onclick="resetQuestion('camBodywork'); evalSessionStorage('camCar');">Bodywork</a>
+      <a id='camSuspensionMenu' href="#" onclick="resetQuestion('camSuspension'); evalSessionStorage('camCar');">Suspension</a>
+      <a id='camBrakesMenu' href="#" onclick="resetQuestion('camBrakes'); evalSessionStorage('camCar');">Brakes</a>
+      <a id='camWheelsMenu' href="#" onclick="resetQuestion('camWheels'); evalSessionStorage('camCar');">Wheels</a>
+      <a id='camTiresMenu' href="#" onclick="resetQuestion('camTires'); evalSessionStorage('camCar');">Tires</a>
+      <a id='camWeightMenu' href="#" onclick="resetQuestion('camWeight'); evalSessionStorage('camCar');">Weight</a>
+      <a id='camEngineAndDrivetrainMenu' href="#" onclick="resetQuestion('camEngineAndDrivetrain'); evalSessionStorage('camCar');">Engine and Drivetrain</a>
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Classic American Muscle (CAM) Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right">
+      <button class="button noButton" onclick="resetState()">Reset</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('camCar'); highlightAndFilterCAM();">
+    <div id="camLandingPage" class="center question sansserif">
+      <h2 id="camLandingPageQuestion" class="sansserif">
+        Classic American Muscle (CAM) Class Overview
+      </h2>
+      <div id="explanation" class="explanation">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+          The purpose of CAM is to attract automobile enthusiasts who are currently interested
+          and/or participating in autocross events for muscle cars and vintage vehicles
+          manufactured in North America by GM, Ford, Chrysler, and AMC.
+
+          </br>
+          </br>
+
+          This class, unlike many other classes, is relatively unrestricted. Any modification is
+          typically allowed unless specifically stated otherwise in the rules. This is unlike other
+          classes that disallow any modification unless otherwise specified in the rules.
+        </p>
+        <h3>
+          Eligible Vehicles
+        </h3>
+        <ul class="sansserif list explanation">
+          <li>
+            Must be either a domestic automobile or truck (pick-up or SUV) of front-engine,
+            rear-wheel-drive (FE/RWD) configuration (no electric-powered vehicles)
+          </li>
+          <li>
+            Must be licensed and insured, as well as fully "street legal" (working lights, etc.)
+          </li>
+          <li>
+            Must have "full-size" windshield similar to the original from the manufacturer.
+            Side and rear glass must be present if original for the vehicle. Lexan® or equivalent may be used
+          </li>
+          <li>
+            Must pass the mandatory safety inspection (tech) of Section 3, Vehicles, and
+            must be comply with Appendix I, Sound Measurement Procedures, of the 2021
+            SCCA® National Solo® Rules
+          </li>
+          <li>
+            <b>EXCLUDED</b>: Chevrolet Corvette ZR1 (2019); Dodge/SRT Viper (2013-17); Jeep
+            military/CJ/Wrangler models
+          </li>
+        </ul>
+        <h3>
+          Subclasses
+        </h3>
+        <p>
+        Your subclass(es) should be highlighted
+        </p>
+        <ul>
+          <li>
+            <div id="camcOverview">
+              CAM C (Contemporary) - car and truck body styles from 2001-2021
+              <ul>
+                <li>
+                  Sedans/coupes with seating originally for 4 or more adults and trucks
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div id="camtOverview">
+              CAM T (Traditional) - car and truck body styles originating from 1948-2000
+              <ul>
+                <li>
+                  Sedans/coupes with seating originally for 4 or more adults and trucks
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div id="camsOverview">
+              CAM S (Sports) - all eligible vehicles
+              <ul>
+                <li>
+                  Sports cars, sedans/coupes, trucks, and 1965-67 Cobra roadster replica "kit cars"
+                  with seating for 2 or more adults
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['camLandingPage', 'camCarAnsweredIndex'], [true, 0]); hideItem('camLandingPage'); evalSessionStorage('camCar');">Continue</button>
+    </div>
+
+    <div id="camBodywork" class="center question">
+      <h2 id="camBodyworkQuestion" class="sansserif">
+        Does your car meet the bodywork requirements below?
+      </h2>
+      <div id="explanation" class="explanation">
+        <h3 class="sansserif">
+          <ul class="sansserif list explanation">
+            <li>
+              Body panels may be modified or replaced in the original standard locations.
+              Frame may be modified or replaced. Vehicle perimeter and wheelbase must be
+              full-scale to the original model. Incidental wheelbase changes resulting from
+              the allowed replacement of suspension components or modification of suspension
+              design are allowed. This is not an allowance to shorten or lengthen the
+              chassis/body (e.g., change the scale from the original). Lower rear body panels
+              may incorporate the "look" of a rear diffuser but may not extend forward more
+              than 6.0" past the exterior OE body panel(s).
+            </li>
+            <li>
+              Front splitter, air dam, and/or spoiler may be added below the bumper and
+              may extend a maximun of 6.0" forward from the integral bumper as viewed
+              from above or the original body excluding non-integral bumpers
+            </li>
+            <li>
+              Rear spoiler may be added, but may extend no more than 10.0" from the original
+              body nor past the perimeter of the body. No rear wings may be added except
+              OE or equivalent
+            </li>
+            <li>
+              Interior and exterior must have a "finished" look
+            </li>
+            <li>
+              Front seating may be replaced or modified. Rear seating may be removed or
+              modified. If removed, the rear seat bottom area must be finished (e.g., carpeted, metal).
+              The driver's seating area must not cross the vehicle longitudinal
+              centerline and not intrude into the OE rear seat bottom cushion area
+            </li>
+            <li>
+              Upholstered interior panels (door panels, kick panels, etc.) may be replaced
+              with another upholstered or finished panel. Non-upholstered interior panels
+              may be replaced with a panel of any material. Alternate panels must cover any
+              opening(s) the OE panel(s) concealed
+            </li>
+            <li>
+              The dashboard may be modified, but must be finished and cover the original area
+            </li>
+            <li>
+              Headliner may be replaced or removed
+            </li>
+            <li>
+              Exposed metal interior surfaces must be covered, painted, and/or coated. (No
+              "race car" interiors, please.)
+            </li>
+            <li>
+              Fuel tank/cell may be modified or replaced and must be separated from the
+              driver/passenger(s) as originally manufactured or by a metal panel/bulkhead
+              if the OE structure is modified. Fuel must not vent into the driver/passenger
+              compartment directly or indirectly
+            </li>
+            <li>
+              Body electrical system components and wiring are unrestricted
+            </li>
+          </ul>
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['camBodywork', 'camCarAnsweredIndex'], [true, 1]); hideItem('camBodywork'); evalSessionStorage('camCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['camBodywork', 'camCarAnsweredIndex'], [false, 1]); hideItem('camBodywork'); evalSessionStorage('camCar');">No</button>
+    </div>
+
+    <div id="camSuspension" class="center question">
+      <h2 id="camSuspensionQuestion" class="sansserif">
+        Does your suspension meet the requirements defined below?
+      </h2>
+      <p class="sansserif">
+      Components and method of attachment are <b>NOT</b> restricted
+      </p>
+
+      </br>
+
+      <button class="button yesButton" onclick="setState(['camSuspension', 'camCarAnsweredIndex'], [true, 2]); hideItem('camSuspension'); evalSessionStorage('camCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['camSuspension', 'camCarAnsweredIndex'], [false, 2]); hideItem('camSuspension'); evalSessionStorage('camCar');">No</button>
+    </div>
+
+    <div id="camBrakes" class="center question">
+      <h2 id="camBrakesQuestion" class="sansserif">
+        Do your brakes meet the following requirements?
+      </h2>
+      <p class="sansserif">
+      Components and method of attachment are <b>NOT</b> restricted
+      </p>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['camBrakes', 'camCarAnsweredIndex'], [true, 3]); hideItem('camBrakes'); evalSessionStorage('camCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['camBrakes', 'camCarAnsweredIndex'], [false, 3]); hideItem('camBrakes'); evalSessionStorage('camCar');">No</button>
+    </div>
+
+    <div id="camWheels" class="center question">
+      <h2 id="camWheelsQuestion" class="sansserif">
+        Do your wheels meet the following requirements?
+        </br>
+      </h2>
+      <p class="sansserif">
+      Any wheels are allowed. Non-metallic wheels must be certified/approved from an
+      appropriate, recognized standards organization (e.g., FIA, SFI, SAE, TUV, etc.)
+      </p>
+      <button class="button yesButton" onclick="setState(['camWheels', 'camCarAnsweredIndex'], [true, 4]); hideItem('camWheels'); evalSessionStorage('camCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['camWheels', 'camCarAnsweredIndex'], [false, 4]); hideItem('camWheels'); evalSessionStorage('camCar');">No</button>
+    </div>
+
+    <div id="camTires" class="center question">
+      <h2 id="camTiresQuestion" class="sansserif">
+        Do your tires meet the following requirements?
+      </h2>
+      </br>
+      <ul class="sansserif list explanation">
+        <li>
+          DOT tires with a UTQG Treadwear Grade of 200 or higher
+          <ul>
+            <li>
+              <b>EXCLUDED</b>: Kumho Ecsta V720 ACR; Michelin Pilot Sport Cup 2 and Pilot Sport Cup 2 ZP
+            </li>
+          </ul>
+        </li>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['camTires', 'camCarAnsweredIndex'], [true, 5]); hideItem('camTires'); evalSessionStorage('camCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['camTires', 'camCarAnsweredIndex'], [false, 5]); hideItem('camTires'); evalSessionStorage('camCar');">No</button>
+    </div>
+
+    <div id="camWeight" class="center question">
+      <h2 id="camWeightQuestion" class="sansserif">
+        Do you meet the minimum weight and floor covering requirements outlined below?
+        </br>
+        </br>
+        Weights are without driver, in lbs.
+      </h2>
+      <p class="sansserif">
+      Your subclass should be highlighted
+      </p>
+      <ul class="sansserif list explanation">
+        <div id="camcWeight">
+          <li>
+            CAM C
+            <ul>
+              <li>
+                All: 3300
+              </li>
+              <li>
+                Additional weight for Lexan® windshield: 150
+              </li>
+              <li>
+                Interior floor covering(s) may be replaced, but not removed
+              </li>
+            </ul>
+          </li>
+        </div>
+        <div id="camtWeight">
+          <li>
+            CAM T
+            <ul>
+              <li>
+                All: 3000
+              </li>
+              <li>
+                Additional weight for Lexan® windshield: 150
+              </li>
+              <li>
+                Interior floor covering(s) may be replaced, but not removed
+              </li>
+            </ul>
+          </li>
+        </div>
+        <div id="camsWeight">
+          <li>
+            CAM S
+            <ul>
+              <li>
+                Corvette (1984-2019); Viper (-2012): 2900
+              </li>
+              <li>
+                All other cars: 2500
+              </li>
+              <li>
+                Additional weight for Lexan® windshield: 150
+              </li>
+              <li>
+                Interior floor covering may be removed
+              </li>
+            </ul>
+          </li>
+        </div>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['camWeight', 'camCarAnsweredIndex'], [true, 6]); hideItem('camWeight'); evalSessionStorage('camCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['camWeight', 'camCarAnsweredIndex'], [false, 6]); hideItem('camWeight'); evalSessionStorage('camCar');">No</button>
+    </div>
+
+    <div id="camEngineAndDrivetrain" class="center question">
+      <h2 id="camEngineAndDrivetrainQuestion" class="sansserif">
+        Does your engine and drivetrain fall within the following restrictions?
+      </h2>
+      <p class="sansserif">
+      Components (internal and external) are unrestricted
+      </p>
+      <button class="button yesButton" onclick="setState(['camEngineAndDrivetrain', 'camCarAnsweredIndex'], [true, 7]); hideItem('camEngineAndDrivetrain'); evalSessionStorage('camCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['camEngineAndDrivetrain', 'camCarAnsweredIndex'], [false, 7]); hideItem('camEngineAndDrivetrain'); evalSessionStorage('camCar');">No</button>
+    </div>
+
+    <div id="eligible" class="center eligible">
+      <h1 class="sansserif">
+        Your car is eligible for CAM class!
+        </br>
+      </h1>
+    </div>
+
+    <div id="notEligible" class="center notEligible">
+      <h1 class="sansserif">
+        Your car is NOT eligible for CAM class.
+      </h1>
+      <div class="notEligibleExplanation sansserif">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>
