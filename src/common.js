@@ -19,6 +19,7 @@ const carFlags = {
     'stockExhaust',
   ],
   'StreetTouringCar': [
+    'stLandingPage',
     'streetTouringBodywork',
     'stTires',
     'stWheels',
@@ -7980,6 +7981,10 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
     const wheelElement = document.getElementById(subClass + 'Wheels');
     if (wheelElement != null) {
       wheelElement.classList.add('highlighted');
+    }
+    const stOverviewSubclass = document.getElementById(subClass + 'Overview');
+    if (stOverviewSubclass != null) {
+      stOverviewSubclass.classList.add('highlighted');
     }
 
     if (Number(providedYear) < 2005) {
