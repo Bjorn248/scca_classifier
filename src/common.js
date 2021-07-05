@@ -7750,6 +7750,8 @@ const allSoloCars = {
   },
 };
 
+module.exports = {allSoloCars};
+
 /**
  * handles navbar opening
  */
