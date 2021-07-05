@@ -60,6 +60,17 @@ const carFlags = {
     'camWeight',
     'camEngineAndDrivetrain',
   ],
+  'smCar': [
+    'smLandingPage',
+    'smBodywork',
+    'smSuspension',
+    'smBrakes',
+    'smWheels',
+    'smTires',
+    'Weight',
+    'smEngineAndDrivetrain',
+    'smSteering',
+  ],
 };
 
 /*
@@ -5526,7 +5537,7 @@ const allSoloCars = {
       '1985': ['ep'],
       '1986': ['ep'],
     },
-    'Pulsar (N13 chassis; 16v)- Alternate cylinder head: 11041-15M00 Alternate engine: A14': {
+    'Pulsar (N13 chassis; 16v) - Alternate cylinder head: 11041-15M00 Alternate engine: A14': {
       '1987': ['ep'],
       '1988': ['ep'],
       '1989': ['ep'],
@@ -7750,7 +7761,8 @@ const allSoloCars = {
   },
 };
 
-module.exports = {allSoloCars};
+// Uncomment this to run sort.js in the project's home directory
+// module.exports = {allSoloCars};
 
 /**
  * handles navbar opening
@@ -8092,6 +8104,59 @@ function highlightAndFilterCAM() { // eslint-disable-line no-unused-vars
     const camWeightSubclass = document.getElementById(subClass + 'Weight');
     if (camWeightSubclass != null) {
       camWeightSubclass.classList.add('highlighted');
+    }
+  }
+}
+
+/**
+ * Informs a user which subclass they are eligible for
+ * based on their make, model, and year selection on certain questions
+ * It either highlights a subclass or it hides/shows certain information based on subclass
+ * or model year
+ * This function is specific to SM pages
+ */
+function highlightAndFilterSM() { // eslint-disable-line no-unused-vars
+  if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
+    const providedMake = sessionStorage.getItem('make');
+    const providedModel = sessionStorage.getItem('model');
+    const providedYear = sessionStorage.getItem('year');
+
+    const subClasses = allSoloCars[providedMake][providedModel][providedYear];
+    let subClass = '';
+    for (let i = 0; i < subClasses.length; i++) {
+      if (subClasses[i] == 'ssm') {
+        subClass = 'ssm';
+        break;
+      }
+      if (subClasses[i] == 'sm') {
+        subClass = 'sm';
+        break;
+      }
+      if (subClasses[i] == 'smf') {
+        subClass = 'smf';
+        break;
+      }
+    }
+
+    const smOverviewSubclass = document.getElementById(subClass + 'Overview');
+    if (smOverviewSubclass != null) {
+      smOverviewSubclass.classList.add('highlighted');
+    }
+
+    const smWeightSubclass = document.getElementById(subClass + 'Weight');
+    if (smWeightSubclass != null) {
+      smWeightSubclass.classList.add('highlighted');
+    }
+
+    if (!document.getElementById('subClass')) {
+      const newDiv = document.createElement('div');
+      newDiv.setAttribute('id', 'subClass');
+      const specificClass = document.getElementById('smSubclass');
+      if (specificClass != null) {
+        const newChild = document.createTextNode(subClass);
+        newDiv.appendChild(newChild);
+        specificClass.insertBefore(newDiv, null);
+      }
     }
   }
 }
