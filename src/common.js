@@ -71,6 +71,16 @@ const carFlags = {
     'smEngineAndDrivetrain',
     'smSteering',
   ],
+  'spCar': [
+    'spLandingPage',
+    'spBodywork',
+    'spSuspension',
+    'spBrakes',
+    'spWheels',
+    'spTires',
+    'spElectrical',
+    'spEngineAndDrivetrain',
+  ],
 };
 
 /*
@@ -8152,6 +8162,75 @@ function highlightAndFilterSM() { // eslint-disable-line no-unused-vars
       const newDiv = document.createElement('div');
       newDiv.setAttribute('id', 'subClass');
       const specificClass = document.getElementById('smSubclass');
+      if (specificClass != null) {
+        const newChild = document.createTextNode(subClass);
+        newDiv.appendChild(newChild);
+        specificClass.insertBefore(newDiv, null);
+      }
+    }
+  }
+}
+
+/**
+ * Informs a user which subclass they are eligible for
+ * based on their make, model, and year selection on certain questions
+ * It either highlights a subclass or it hides/shows certain information based on subclass
+ * or model year
+ * This function is specific to SP pages
+ */
+function highlightAndFilterSP() { // eslint-disable-line no-unused-vars
+  if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
+    const providedMake = sessionStorage.getItem('make');
+    const providedModel = sessionStorage.getItem('model');
+    const providedYear = sessionStorage.getItem('year');
+
+    const subClasses = allSoloCars[providedMake][providedModel][providedYear];
+    let subClass = '';
+    for (let i = 0; i < subClasses.length; i++) {
+      if (subClasses[i] == 'ssp') {
+        subClass = 'ssp';
+        break;
+      }
+      if (subClasses[i] == 'asp') {
+        subClass = 'asp';
+        break;
+      }
+      if (subClasses[i] == 'bsp') {
+        subClass = 'bsp';
+        break;
+      }
+      if (subClasses[i] == 'csp') {
+        subClass = 'csp';
+        break;
+      }
+      if (subClasses[i] == 'dsp') {
+        subClass = 'dsp';
+        break;
+      }
+      if (subClasses[i] == 'esp') {
+        subClass = 'esp';
+        break;
+      }
+      if (subClasses[i] == 'fsp') {
+        subClass = 'fsp';
+        break;
+      }
+    }
+
+    const spOverviewSubclass = document.getElementById(subClass + 'Overview');
+    if (spOverviewSubclass != null) {
+      spOverviewSubclass.classList.add('highlighted');
+    }
+
+    const spWeightSubclass = document.getElementById(subClass + 'Weight');
+    if (spWeightSubclass != null) {
+      spWeightSubclass.classList.add('highlighted');
+    }
+
+    if (!document.getElementById('subClass')) {
+      const newDiv = document.createElement('div');
+      newDiv.setAttribute('id', 'subClass');
+      const specificClass = document.getElementById('spSubclass');
       if (specificClass != null) {
         const newChild = document.createTextNode(subClass);
         newDiv.appendChild(newChild);
