@@ -81,6 +81,16 @@ const carFlags = {
     'spElectrical',
     'spEngineAndDrivetrain',
   ],
+  'pCar': [
+    'pLandingPage',
+    'pBodywork',
+    'pSuspension',
+    'pBrakes',
+    'pWheels',
+    'pTires',
+    'pElectrical',
+    'pEngineAndDrivetrain',
+  ],
 };
 
 /*
@@ -8231,6 +8241,77 @@ function highlightAndFilterSP() { // eslint-disable-line no-unused-vars
       const newDiv = document.createElement('div');
       newDiv.setAttribute('id', 'subClass');
       const specificClass = document.getElementById('spSubclass');
+      if (specificClass != null) {
+        const newChild = document.createTextNode(subClass);
+        newDiv.appendChild(newChild);
+        specificClass.insertBefore(newDiv, null);
+      }
+    }
+  }
+}
+
+/**
+ * Informs a user which subclass they are eligible for
+ * based on their make, model, and year selection on certain questions
+ * It either highlights a subclass or it hides/shows certain information based on subclass
+ * or model year
+ * This function is specific to P pages
+ */
+function highlightAndFilterP() { // eslint-disable-line no-unused-vars
+  if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
+    const providedMake = sessionStorage.getItem('make');
+    const providedModel = sessionStorage.getItem('model');
+    const providedYear = sessionStorage.getItem('year');
+
+    const subClasses = allSoloCars[providedMake][providedModel][providedYear];
+    let subClass = '';
+    for (let i = 0; i < subClasses.length; i++) {
+      if (subClasses[i] == 'xp') {
+        subClass = 'xp';
+        break;
+      }
+      if (subClasses[i] == 'cp') {
+        subClass = 'cp';
+        break;
+      }
+      if (subClasses[i] == 'dp') {
+        subClass = 'dp';
+        break;
+      }
+      if (subClasses[i] == 'ep') {
+        subClass = 'ep';
+        break;
+      }
+      if (subClasses[i] == 'fp') {
+        subClass = 'fp';
+        break;
+      }
+    }
+
+    const pOverviewSubclass = document.getElementById(subClass + 'Overview');
+    if (pOverviewSubclass != null) {
+      pOverviewSubclass.classList.add('highlighted');
+    }
+
+    const pWeightSubclass = document.getElementById(subClass + 'Weight');
+    if (pWeightSubclass != null) {
+      pWeightSubclass.classList.add('highlighted');
+    }
+
+    const wheelElement = document.getElementById(subClass + 'Wheels');
+    if (wheelElement != null) {
+      wheelElement.classList.add('highlighted');
+    }
+
+    const restrictorElement = document.getElementById(subClass + 'Restrictor');
+    if (restrictorElement != null) {
+      restrictorElement.classList.add('highlighted');
+    }
+
+    if (!document.getElementById('subClass')) {
+      const newDiv = document.createElement('div');
+      newDiv.setAttribute('id', 'subClass');
+      const specificClass = document.getElementById('pSubclass');
       if (specificClass != null) {
         const newChild = document.createTextNode(subClass);
         newDiv.appendChild(newChild);
