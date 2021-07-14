@@ -88,6 +88,7 @@ const carFlags = {
     'pBrakes',
     'pWheels',
     'pTires',
+    'pWeight',
     'pElectrical',
     'pEngineAndDrivetrain',
   ],
