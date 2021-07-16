@@ -1,0 +1,521 @@
+<!-- TODO Fix the entire modified section, speak with a rules expert -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - Modified Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='mLandingPageMenu' href="#" onclick="resetQuestion('mLandingPage'); evalSessionStorage('mCar');">Overview</a>
+      <a id='mBodyworkMenu' href="#" onclick="resetQuestion('mBodywork'); evalSessionStorage('mCar');">Bodywork</a>
+      <a id='mSuspensionMenu' href="#" onclick="resetQuestion('mSuspension'); evalSessionStorage('mCar');">Suspension</a>
+      <a id='mBrakesMenu' href="#" onclick="resetQuestion('mBrakes'); evalSessionStorage('mCar');">Brakes</a>
+      <a id='mWheelsMenu' href="#" onclick="resetQuestion('mWheels'); evalSessionStorage('mCar');">Wheels</a>
+      <a id='mTiresMenu' href="#" onclick="resetQuestion('mTires'); evalSessionStorage('mCar');">Tires</a>
+      <a id='mWeightMenu' href="#" onclick="resetQuestion('mWeight'); evalSessionStorage('mCar');">Weight</a>
+      <a id='mEngineAndDrivetrainMenu' href="#" onclick="resetQuestion('mEngineAndDrivetrain'); evalSessionStorage('mCar');">Engine and Drivetrain</a>
+      <a id='mSteeringMenu' href="#" onclick="resetQuestion('mSteering'); evalSessionStorage('mCar');">Steering</a>
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Modified Class Questionnaire</h1>
+
+    <h1 class="center sansserif">Note: This section is just a placeholder for now. Need to speak
+    with a modified class expert to complete this section. Currently just a copy of street modified.
+    </h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right">
+      <button class="button noButton" onclick="resetState()">Reset</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('mCar'); highlightAndFilterM();">
+    <div id="mLandingPage" class="center question sansserif">
+      <h2 id="mLandingPageQuestion" class="sansserif">
+        Modified Class Overview
+      </h2>
+      <div id="explanation" class="explanation">
+        <h3>
+          Category Objective
+        </h3>
+        <p class="sansserif">
+        Provide a competitive outlet for the highest level of allowed modifications.
+        </p>
+        <p class="sansserif">
+        Accommodate competitors with purpose built competition vehicles, with allowances for a
+        wide variety of designs and origins.
+        </p>
+        <h3>
+          Category Values
+        </h3>
+        <p class="sansserif">
+        Maximum speed and handling for given car parameters.
+        </p>
+        <p class="sansserif">
+        Rules stability to protect member investment and encourage commitment.
+        </p>
+        <p class="sansserif">
+        Highest levels of drivetrain and suspension development (varies among the individual
+        classes).
+        </p>
+        <p class="sansserif">
+        Custom design and fabrication.
+        </p>
+        <p class="sansserif">
+        Maximum tire adhesion with minimum constraint (varies among the individual classes).
+        </p>
+        <h3>
+          Core Modifications
+        </h3>
+        <ul class="sansserif list explanation">
+          <li>
+            Chassis and suspension customization.
+          </li>
+          <li>
+            Unconstrained automotive-based powertrain (varies among the individual classes).
+          </li>
+          <li>
+            Minimum weights generally based on displacement.
+          </li>
+        </ul>
+        <h3>
+          Subclasses
+        </h3>
+        <ul>
+          <li>
+            <div id="amOverview">
+              A Modified (AM) – Least restricted class with significant aero allowances and
+              unlimited drivetrain.
+            </div>
+          </li>
+          <li>
+            <div id="bmOverview">
+              B Modified (BM) – GCR-based formula cars and sports racers with a high power/weight
+              and aero allowances.
+            </div>
+          </li>
+          <li>
+            <div id="cmOverview">
+              C Modified (CM) – GCR-based formula cars and sports racers with medium power/weight
+              and restricted aero allowances.
+            </div>
+          </li>
+          <li>
+            <div id="dmOverview">
+              D Modified (DM) – Highly modified very lightweight production-based or approved kit
+              cars with a maximum equivalent displacement of 2 liters and lower weights than EM.
+            </div>
+          </li>
+          <li>
+            <div id="emOverview">
+              E Modified (EM) – Highly modified lightweight production-based or approved kit cars
+              with no limit on displacement and higher weights than DM.
+            </div>
+          </li>
+          <li>
+            <div id="fmOverview">
+              F Modified (FM) – Small, very agile, GCR-based formula cars.
+            </div>
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['mLandingPage', 'mCarAnsweredIndex'], [true, 0]); hideItem('mLandingPage'); evalSessionStorage('mCar');">Continue</button>
+    </div>
+
+    <div id="mBodywork" class="center question">
+      <h2 id="mBodyworkQuestion" class="sansserif">
+        Does your car meet the bodywork requirements below?
+      </h2>
+      <div id="explanation" class="explanation">
+        <h3 class="sansserif">
+          <ul class="sansserif list explanation">
+            <li>
+              Front hoods (engine covers), engine covers, trunk lids and hatches not containing
+              glass, front fenders, rear fenders not part of chassis structure (unibody), front &
+              rear bodywork, and side skirts may be modified or replaced, and may be attached with
+              removable fasteners. Associated hardware including latches, hinges, window washer
+              system, and hood liners may be modified, removed, or replaced. Non-metallic fender
+              liners may be modified, replaced, or removed
+            </li>
+            <li>
+              Aerodynamic Aids
+              <ul>
+                <!-- TODO Add Wing Area calculator to this page -->
+                <li>
+                  Wings may be added, removed, or modified. Non-OE wings may only be attached to
+                  the rear deck/hatch area behind the centerline of the rear axle. The total
+                  combined surface area of all wings shall not exceed 8 sq. ft. (0.7432 m 2 ) as
+                  calculated per the Wing Area 2021 SCCA® National Solo® Rules— 12116. Street
+                  Modified Computation in Section 12. The number of wing elements is limited to
+                  two (2).
+                </li>
+                <li>
+                  Wings, and any component thereof, may not extend beyond the vehicle width, as
+                  defined by the outermost portion of the vehicle doors, less mirrors, door
+                  handles, rub strips, and trim. In addition, no portion of the wing or its
+                  components may be more than 6.0" forward of the rear axle, more than 0.0" beyond
+                  the rear most portion of the bodywork, or more than 6.0" above the roofline of
+                  the vehicle, regardless of body style. For convertibles and roadsters, the
+                  highest portion of the windshield frame will be considered the highest portion
+                  of the roof; however, a convertible or roadster utilizing a hardtop will use the
+                  highest portion of the hardtop as the roofline.
+                </li>
+                <li>
+                  Reinforcements to the wing mounting area may be used, but may serve no other
+                  purpose. Body panels to which a wing mounts must remain functional (e.g., trunk
+                  lids and rear hatches must open). Wing endplate surface area is limited to 200
+                  sq. in. (1290.3 cm 2 ) each and limited to a maximum of two (2).
+                </li>
+                <li>
+                  Except for standard parts, wings designed to be adjustable while the car is in
+                  motion must be locked in a single position.
+                </li>
+                <li>
+                  Canards are allowed and may extend a maximum of 6.0" (152.4 mm) from the front
+                  bodywork as viewed from above. No portion of the canard may extend past the
+                  widest part of the front bodywork/fascia as viewed from above. Canard area will
+                  be measured in the same manner as wings using Section 12. Canard area may not
+                  exceed 15% of total wing allowance. The sum of canard area and rear wing area
+                  may not exceed the total wing allowance. Fore and aft variance in curvature and
+                  angle is open. Canards may have endplates. Canard endplate total surface area is
+                  limited to 30 sq. in. (193.5 cm2 ) for each side.
+                </li>
+                <li>
+                  Diffusers that come as a standard OE part are allowed but may not be modified.
+                  They may be removed in their entirety to facilitate other allowed
+                  modifications. Aftermarket diffusers or other items acting as diffusers are
+                  not allowed.
+                </li>
+                <li>
+                  Front splitters are allowed and shall be installed parallel to the ground
+                  (within ±3° fore to aft) and may extend a maximum of 6.0" (152.4 mm) from the
+                  front bodywork as viewed from above. Splitters may not extend rearward past
+                  the centerline of the front wheels. No portion of the splitter may extend beyond
+                  the widest part of the front bodywork as viewed from above. Aerodynamically
+                  functional vertical members, such as splitter fences or endplates, are not allowed
+                </li>
+              </ul>
+            </li>
+            <li>
+              Removable OE hardtops, T-tops, targa tops, sunroofs, moonroofs, and similar
+              roof-mounted panels may be removed/replaced with alternate panels provided that
+              the area of interface is limited to the original perimeter of the t-top,
+              sunroof, etc. or utilizes the OE panel mount points, and that the contour of any
+              replacement panel surface does not vary 122 — 2021 SCCA® National Solo®
+              RulesSection 16 from the contour of the part being replaced by more than 1.0"
+              (25.4 mm) in any direction. The material used to construct the alternate panel
+              and the method used to attach it to the interface is unrestricted. Any
+              actuation mechanism and the associated wiring, if any, may be removed.
+              Vehicles utilizing alternate (non-OE) hardtops will be considered as open cars
+              in regard to Section 3.3.1
+            </li>
+            <li>
+              Ballast may be added. Ballast must be a maximum of 50 lbs. per segment. It must
+              be securely mounted within the bodywork
+            </li>
+            <li>
+              OE side mirrors may be replaced by aftermarket units, provided they mount in the
+              same location, perform the same function as the OE mirrors, and have a
+              reflective surface area greater than 15 sq. in. (96.8 cm 2 ) per mirror
+            </li>
+            <li>
+              OE "pop-up" headlights may be replaced with static headlights, provided the
+              replacement units are intended for automobile use on public roads as a primary
+              means of illumination, and retain high and low beams as originally provided by
+              the manufacturer. Minor repositioning of the headlights is allowed to
+              accommodate the alternate headlight, but the unit may not be relocated and the
+              repositioning may servce no other purpose. All associated hardware may be
+              removed, replaced or modified
+            </li>
+            <li>
+              Alternate subframes are allowed to facilitate engine mounting only. Suspension
+              pick-up points on the subframe must retain standard geometry. Weight of the
+              subframe must be equal or greater than the standard unit
+            </li>
+            <li>
+              Bolt-on tow hooks and tie downs may be modified, removed, or replaced.
+              Addition of tow hooks and tie downs are permitted and location is unrestricted.
+              Non-standard tow hooks shall serve no other function.
+            </li>
+          </ul>
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['mBodywork', 'mCarAnsweredIndex'], [true, 1]); hideItem('mBodywork'); evalSessionStorage('mCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['mBodywork', 'mCarAnsweredIndex'], [false, 1]); hideItem('mBodywork'); evalSessionStorage('mCar');">No</button>
+    </div>
+
+    <div id="mSuspension" class="center question">
+      <h2 id="mSuspensionQuestion" class="sansserif">
+        Does your suspension meet the requirements defined below?
+      </h2>
+      <ul class="sansserif list explanation">
+        <li>
+          Suspension components are unrestricted as long as they use the original attachment points.
+          Cars equipped with MacPherson strut suspension may add or remove material from the top of
+          the strut tower to facilitate installation of adjuster plate. The sides of the strut tower
+          may not be modified
+        </li>
+        <li>
+          Subframe connectors are allowed as per Street Prepared Section 15.2.E
+        </li>
+        <li>
+          Alternate subframes are allowed to facilitate engine mounting only. Suspension pick-up
+          points on the subframe must retain standard geometry. Weight of the subframe must be equal
+          or greater than the standard unit
+        </li>
+      </ul>
+      </br>
+
+      <button class="button yesButton" onclick="setState(['mSuspension', 'mCarAnsweredIndex'], [true, 2]); hideItem('mSuspension'); evalSessionStorage('mCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['mSuspension', 'mCarAnsweredIndex'], [false, 2]); hideItem('mSuspension'); evalSessionStorage('mCar');">No</button>
+    </div>
+
+    <div id="mBrakes" class="center question">
+      <h2 id="mBrakesQuestion" class="sansserif">
+        Do your brakes meet the following requirements?
+      </h2>
+      <p class="sansserif">
+      <!-- TODO Either link to Section 12 or explain what it means -->
+      Brakes, including calipers, caliper mounts, discs, drums, lines, backing plates, pedals,
+      boosters, master cylinders, handles, ABS, proportioning valves, etc., are unrestricted.
+      Brake rotor/drum friction surfaces must be 100% ferrous metallic. Carbon or ceramic
+      composite brake components (except pads) are expressly prohibited. Standard parts, as
+      defined per Section 12, are exempt from this restriction. A functional, redundant
+      emergency (parking) brake must be present
+      </p>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['mBrakes', 'mCarAnsweredIndex'], [true, 3]); hideItem('mBrakes'); evalSessionStorage('mCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['mBrakes', 'mCarAnsweredIndex'], [false, 3]); hideItem('mBrakes'); evalSessionStorage('mCar');">No</button>
+    </div>
+
+    <div id="mWheels" class="center question">
+      <h2 id="mWheelsQuestion" class="sansserif">
+        Do your wheels meet the following requirements?
+        </br>
+      </h2>
+      <ul class="sansserif list explanation">
+        <li>
+          Wheels of any diameter, width, or offset may be used. Aftermarket wheels may be modified to
+          install OE tire pressure sensors
+        </li>
+        <li>
+          Wheel spacers are permitted. Wheel studs and knock-off wheel drive pegs may be changed
+          in length and diameter. Wheel bolts may be replaced with studs and nuts
+        </li>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['mWheels', 'mCarAnsweredIndex'], [true, 4]); hideItem('mWheels'); evalSessionStorage('mCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['mWheels', 'mCarAnsweredIndex'], [false, 4]); hideItem('mWheels'); evalSessionStorage('mCar');">No</button>
+    </div>
+
+    <div id="mTires" class="center question">
+      <h2 id="mTiresQuestion" class="sansserif">
+        Do your tires meet the following requirements?
+      </h2>
+      </br>
+      <p class="sansserif">
+      Tires compliant in Street, Street Touring®, or Street Prepared categories are permitted
+      </p>
+      <p class="sansserif">
+      This means UTQG Treadwear Grade of 200 or higher, or DOT R-Compound Tires
+      </p>
+      </br>
+      <button class="button yesButton" onclick="setState(['mTires', 'mCarAnsweredIndex'], [true, 5]); hideItem('mTires'); evalSessionStorage('mCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['mTires', 'mCarAnsweredIndex'], [false, 5]); hideItem('mTires'); evalSessionStorage('mCar');">No</button>
+    </div>
+
+    <div id="mWeight" class="center question">
+      <!-- TODO Add weight calculator to this page or create it separately and link to it from here -->
+      <h2 id="mWeightQuestion" class="sansserif">
+        Do you meet the minimum weight and floor covering requirements outlined below?
+        </br>
+        </br>
+        Weights are without driver, in lbs.
+      </h2>
+      <p class="sansserif">
+      Your subclass should be highlighted
+      </p>
+      <ul class="sansserif list explanation">
+        <div id="amWeight">
+          <li>
+            A Modified (AM)
+          </li>
+        </div>
+        <div id="bmWeight">
+          <li>
+            B Modified (BM)
+          </li>
+        </div>
+        <div id="cmWeight">
+          <li>
+            C Modified (CM)
+          </li>
+        </div>
+        <div id="dmWeight">
+          <li>
+            D Modified (DM)
+          </li>
+        </div>
+        <div id="emWeight">
+          <li>
+            E Modified (EM)
+          </li>
+        </div>
+        <div id="fmWeight">
+          <li>
+            F Modified (FM)
+          </li>
+        </div>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['mWeight', 'mCarAnsweredIndex'], [true, 6]); hideItem('mWeight'); evalSessionStorage('mCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['mWeight', 'mCarAnsweredIndex'], [false, 6]); hideItem('mWeight'); evalSessionStorage('mCar');">No</button>
+    </div>
+
+    <div id="mEngineAndDrivetrain" class="center question">
+      <h2 id="mEngineAndDrivetrainQuestion" class="sansserif">
+        Does your engine and drivetrain fall within the following restrictions?
+      </h2>
+      <ul class="sansserif list explanation">
+        <li>
+          Drivetrain and related components (e.g., induction, ignition, fuel systems) are
+          unrestricted except for the following limitations
+          <ul>
+            <li>
+              Engine block (or housings of rotary engines) must be a production unit that can be
+              sourced from a production automobile
+            </li>
+            <li>
+              Fuel System
+              <ul>
+                <li>
+                  Any fuel line(s) may be used. All non-standard fuel line(s) passing through
+                  the passenger compartment shall be made of metal, metal braided hose, or
+                  equivalent (e.g., Nomex, Kevlar, or nylon braided hose) with AN Series threaded
+                  couplings, or entirely covered and protected with a metal cover
+                </li>
+                <li>
+                  Any fuel pump(s), filter(s), and pressure regulator(s) may be used. Such
+                  components may not be located in the passenger compartment but their location
+                  within the bodywork of the car is otherwise unrestricted. If a mechanical pump
+                  is replaced, a blanking plate may be used to cover the original mounting point
+                </li>
+                <li>
+                  A cool-can, not exceeding one gallon in volume, may be used. The cool-can may
+                  not be installed in the passenger compartment
+                </li>
+                <li>
+                  The fuel tank may be modified or replaced. If the fuel tank is modified or
+                  replaced, the following restrictions apply
+                  <ul>
+                    <li>
+                      The fuel tank/cell may be located within the same area as the OE tank.
+                    </li>
+                    <!-- TODO Clarify what this means -->
+                    <li>
+                      If the fuel tank/cell does not fit within the same area as the OE tank, the
+                      requirements of Section 3.3.3.B.27 must be met
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <!-- TODO Clarify this. Referencing other sections not clearly present or reachable from
+        the website is confusing -->
+        <li>
+          Engine and drivetrain mounts are considered part of these allowances and any material is
+          permitted. The allowances of Section 16.1.O may be used to affix brackets, but these
+          brackets shall serve no purpose other than engine and drivetrain mounting (e.g., they
+          may not provide chassis stiffening)
+        </li>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['mEngineAndDrivetrain', 'mCarAnsweredIndex'], [true, 7]); hideItem('mEngineAndDrivetrain'); evalSessionStorage('mCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['mEngineAndDrivetrain', 'mCarAnsweredIndex'], [false, 7]); hideItem('mEngineAndDrivetrain'); evalSessionStorage('mCar');">No</button>
+    </div>
+
+    <div id="mSteering" class="center question">
+      <h2 id="mSteeringQuestion" class="sansserif">
+        Does your steering system fall within the following restrictions?
+      </h2>
+
+      <h3 class="sansserif">
+          Steering modifications are permitted as follows
+      </h3>
+      <ul class="sansserif list explanation">
+        <li>
+          Steering components, including the steering rack and/or box, tie rods, idler arms,
+          power assist devices, and related components may be replaced, added, moved, or
+          removed. The steering column within the passenger compartment is specifically
+          excluded from this allowance. This does not permit removal or modification of
+          column-mounted accessories. Wheel-mounted electrical switches such as those for the
+          horn, radio, cruise control, or shifter may be relocated and/or replaced, or eliminated
+        </li>
+        <li>
+          Rear-steer devices may be replaced with solid links
+        </li>
+        <!-- TODO Clarify this, makes unclear references -->
+        <li>
+          Supplemental steering gear boxes or steering quickeners are allowed as long as they
+          are mounted in accordance with Section 16.1.F.1
+        </li>
+        <li>
+          Steering wheels and associated mounting hardware may be replaced. This does not
+          permit removal or modification of the steering column or column-mounted
+          accessories. OE wheel-mounted electrical switches such as those for the horn, radio,
+          cruise control, or shifter may be relocated and/or replaced, or eliminated
+        </li>
+      </ul>
+      </br>
+      <button class="button yesButton" onclick="setState(['mSteering', 'mCarAnsweredIndex'], [true, 7]); hideItem('mSteering'); evalSessionStorage('mCar');">Yes</button>
+      <button class="button noButton" onclick="setState(['mSteering', 'mCarAnsweredIndex'], [false, 7]); hideItem('mSteering'); evalSessionStorage('mCar');">No</button>
+    </div>
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1 class="sansserif">
+        Your car is eligible for Modified class!
+        </br>
+      </h1>
+      <div id="mSubclasses" class="subclasses">
+        <h2 id="mSubclass" class="subclass">
+Modified Subclass:
+        </h2>
+      </div>
+      <div id="possibleClasses" class="possibleClasses">
+        <h2 id="specificClass" class="specificClass">
+All Possible Classes:
+        </h2>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible">
+      <h1 class="sansserif">
+        Your car is NOT eligible for Modified class.
+      </h1>
+      <div class="notEligibleExplanation sansserif">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>

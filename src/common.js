@@ -92,6 +92,17 @@ const carFlags = {
     'pElectrical',
     'pEngineAndDrivetrain',
   ],
+  'mCar': [
+    'mLandingPage',
+    'mBodywork',
+    'mSuspension',
+    'mBrakes',
+    'mWheels',
+    'mTires',
+    'mWeight',
+    'mEngineAndDrivetrain',
+    'mSteering',
+  ],
 };
 
 /*
@@ -8155,6 +8166,71 @@ function highlightAndFilterSM() { // eslint-disable-line no-unused-vars
       }
       if (subClasses[i] == 'smf') {
         subClass = 'smf';
+        break;
+      }
+    }
+
+    const smOverviewSubclass = document.getElementById(subClass + 'Overview');
+    if (smOverviewSubclass != null) {
+      smOverviewSubclass.classList.add('highlighted');
+    }
+
+    const smWeightSubclass = document.getElementById(subClass + 'Weight');
+    if (smWeightSubclass != null) {
+      smWeightSubclass.classList.add('highlighted');
+    }
+
+    if (!document.getElementById('subClass')) {
+      const newDiv = document.createElement('div');
+      newDiv.setAttribute('id', 'subClass');
+      const specificClass = document.getElementById('smSubclass');
+      if (specificClass != null) {
+        const newChild = document.createTextNode(subClass);
+        newDiv.appendChild(newChild);
+        specificClass.insertBefore(newDiv, null);
+      }
+    }
+  }
+}
+
+/**
+ * Informs a user which subclass they are eligible for
+ * based on their make, model, and year selection on certain questions
+ * It either highlights a subclass or it hides/shows certain information based on subclass
+ * or model year
+ * This function is specific to SM pages
+ */
+function highlightAndFilterM() { // eslint-disable-line no-unused-vars
+  if (sessionStorage.getItem('make') && sessionStorage.getItem('model') && sessionStorage.getItem('year')) {
+    const providedMake = sessionStorage.getItem('make');
+    const providedModel = sessionStorage.getItem('model');
+    const providedYear = sessionStorage.getItem('year');
+
+    const subClasses = allSoloCars[providedMake][providedModel][providedYear];
+    let subClass = '';
+    for (let i = 0; i < subClasses.length; i++) {
+      if (subClasses[i] == 'am') {
+        subClass = 'am';
+        break;
+      }
+      if (subClasses[i] == 'bm') {
+        subClass = 'bm';
+        break;
+      }
+      if (subClasses[i] == 'cm') {
+        subClass = 'cm';
+        break;
+      }
+      if (subClasses[i] == 'dm') {
+        subClass = 'dm';
+        break;
+      }
+      if (subClasses[i] == 'em') {
+        subClass = 'em';
+        break;
+      }
+      if (subClasses[i] == 'fm') {
+        subClass = 'fm';
         break;
       }
     }
