@@ -66,5 +66,8 @@ elif [ $platform = 'mac' ]; then
   find ./src -type f -name \*.js -print0 | gxargs -0 -P "$number_of_cores" -n1 bash -c 'minify_js "$@"' _
 fi
 
+# Copy favicon from src to build directory
+cp src/favicon.ico build/
+
 echo
 echo "Build Complete! Check the build directory for output"
