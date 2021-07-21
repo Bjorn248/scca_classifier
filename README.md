@@ -1,6 +1,8 @@
 # scca_classifier
 SCCA Rules Visual Aid and Classifier
 
+Hosted at [https://www.scca-classifier.com](https://www.scca-classifier.com)
+
 ## Build Status
 ![Build Status](https://github.com/Bjorn248/scca_classifier/actions/workflows/build.js.yml/badge.svg)
 
