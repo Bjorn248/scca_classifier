@@ -23,3 +23,13 @@ module "s3-static-site" {
     project = "scca-classifier"
   }
 }
+
+module "s3-website-deployment-iam" {
+  source = "github.com/Bjorn248/s3-website-deployment-iam"
+
+  s3-bucket-name = module.s3-static-site.s3_bucket_name
+
+  global-tags = {
+    project = "scca-classifier"
+  }
+}
