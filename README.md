@@ -1,6 +1,9 @@
 # scca_classifier
 SCCA Rules Visual Aid and Classifier
 
+## Build Status
+![Build Status](https://github.com/Bjorn248/scca_classifier/actions/workflows/build.js.yml/badge.svg)
+
 The idea behind this project is to make it easy to understand the SCCA Classifications rules.
 Focusing mainly on Solo (Autocross) classifications in the beginning. Initial thought is a
 turbo tax-esque interface that asks a series of questions and tries to determine your class based
