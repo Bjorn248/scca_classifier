@@ -4349,6 +4349,16 @@ const allSoloCars = {
       '2020': ['cs', 'str', 'dp', 'xsb'],
       '2021': ['cs', 'str', 'dp', 'xsb'],
     },
+    'MX-5 Miata First Generation (NA) non-Torsen differential': {
+      '1990': ['es', 'sts', 'csp', 'dp', 'xsb'],
+      '1991': ['es', 'sts', 'csp', 'dp', 'xsb'],
+      '1992': ['es', 'sts', 'csp', 'dp', 'xsb'],
+      '1993': ['es', 'sts', 'csp', 'dp', 'xsb'],
+      '1994': ['es', 'sts', 'csp', 'dp', 'xsb'],
+      '1995': ['es', 'sts', 'csp', 'dp', 'xsb'],
+      '1996': ['es', 'sts', 'csp', 'dp', 'xsb'],
+      '1997': ['es', 'sts', 'csp', 'dp', 'xsb'],
+    },
     'MX-5 Miata MS-R': {
       '2007': ['bs', 'xsb'],
     },
