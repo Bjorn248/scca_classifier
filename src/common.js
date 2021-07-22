@@ -7109,6 +7109,9 @@ const allSoloCars = {
     'Aerio': {
       'all': ['fsp'],
     },
+    'Cappuccino': {
+      'all': ['xsb', 'dm'],
+    },
     'Esteem GL': {
       'all': ['hs'],
     },
