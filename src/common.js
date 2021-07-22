@@ -7040,9 +7040,10 @@ const allSoloCars = {
     'Sedan/Coupe (Turbo, Not Otherwise Classified)': {
       'all': ['fp'],
     },
-    'STI': {
-      '2019': ['bs'],
-      '2020': ['bs'],
+    'STI (excl. S209)': {
+      '2019': ['ds'],
+      '2020': ['ds'],
+      '2021': ['ds'],
     },
     'STI Type RA': {
       '2018': ['bs'],
