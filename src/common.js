@@ -1521,7 +1521,7 @@ const allSoloCars = {
       '1976': ['esp', 'camt'],
     },
     'Chevette': {
-      'all': ['hs', 'fsp'],
+      'all': ['hs', 'fsp', 'camt'],
     },
     'Cobalt (all, non-turbo, STS: 2.2L)': {
       '2005': ['hs', 'stx', 'sts', 'dsp'],
