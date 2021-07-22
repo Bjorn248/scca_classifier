@@ -1544,9 +1544,9 @@ const allSoloCars = {
       '2015': ['ds', 'stu', 'camc'],
     },
     'Cobalt SS (2.0L Turbo)': {
-      '2008': ['ds', 'sth', 'dsp', 'camc'],
-      '2009': ['ds', 'sth', 'dsp', 'camc'],
-      '2010': ['ds', 'sth', 'dsp', 'camc'],
+      '2008': ['ds', 'sth', 'dsp'],
+      '2009': ['ds', 'sth', 'dsp'],
+      '2010': ['ds', 'sth', 'dsp'],
     },
     'Camaro (V8 non-supercharged, not otherwise classified)': {
       'all': ['fs', 'stu', 'camc'],
@@ -1572,9 +1572,9 @@ const allSoloCars = {
       '2017': ['fs', 'esp', 'camc'],
     },
     'Cobalt SS (2.0L SC)': {
-      '2005': ['gs', 'stx', 'dsp', 'camc'],
-      '2006': ['gs', 'stx', 'dsp', 'camc'],
-      '2007': ['gs', 'stx', 'dsp', 'camc'],
+      '2005': ['gs', 'stx', 'dsp'],
+      '2006': ['gs', 'stx', 'dsp'],
+      '2007': ['gs', 'stx', 'dsp'],
     },
     'HHR': {
       '2008': ['sth', 'dsp'],
