@@ -4,7 +4,7 @@ SCCA Rules Visual Aid and Classifier
 Hosted at [https://www.scca-classifier.com](https://www.scca-classifier.com)
 
 ## Build Status
-![Build Status](https://github.com/Bjorn248/scca_classifier/actions/workflows/build.js.yml/badge.svg)
+[![Build Status](https://github.com/Bjorn248/scca_classifier/actions/workflows/build.js.yml/badge.svg)](https://github.com/Bjorn248/scca_classifier/actions/workflows/build.js.yml)
 
 The idea behind this project is to make it easy to understand the SCCA Classifications rules.
 Focusing mainly on Solo (Autocross) classifications in the beginning. Initial thought is a
