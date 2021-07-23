@@ -6867,7 +6867,7 @@ const allSoloCars = {
     },
   },
   'Subaru': {
-    'BRZ (non-Performance Package)': {
+    'BRZ': {
       '2013': ['ds', 'stx', 'csp', 'dsp', 'ssc'],
       '2014': ['ds', 'stx', 'csp', 'dsp', 'ssc'],
       '2015': ['ds', 'ssc', 'stx', 'dsp'],
@@ -6877,11 +6877,8 @@ const allSoloCars = {
       '2019': ['ds', 'stx'],
       '2020': ['ds', 'stx'],
     },
-    'BRZ (with Performance Package)': {
-      '2017': ['cs', 'stx', 'dsp'],
+    'BRZ tS': {
       '2018': ['cs', 'stx', 'dsp'],
-      '2019': ['cs', 'stx'],
-      '2020': ['cs', 'stx'],
     },
     'Forester (non-turbo)': {
       'all': ['fsp'],
