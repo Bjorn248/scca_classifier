@@ -174,7 +174,7 @@
         </ul>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['pLandingPage', 'pCarAnsweredIndex'], [true, 0]); hideItem('pLandingPage'); evalSessionStorage('pCar');">Continue</button>
+      <button class="button yesButton" onclick="setState(['pLandingPage', 'pCarAnsweredIndex'], [true, 0]); hideItem('pLandingPage'); evalSessionStorage('pCar'); window.scroll(0,0);">Continue</button>
     </div>
 
     <!-- TODO Separate the bodywork requirements into multiple pages/questions
@@ -481,8 +481,8 @@
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['pBodywork', 'pCarAnsweredIndex'], [true, 1]); hideItem('pBodywork'); evalSessionStorage('pCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['pBodywork', 'pCarAnsweredIndex'], [false, 1]); hideItem('pBodywork'); evalSessionStorage('pCar');">No</button>
+      <button class="button yesButton" onclick="setState(['pBodywork', 'pCarAnsweredIndex'], [true, 1]); hideItem('pBodywork'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['pBodywork', 'pCarAnsweredIndex'], [false, 1]); hideItem('pBodywork'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <!-- TODO Break up the suspension question into multiple questions...right now this is just
@@ -648,8 +648,8 @@
       </ul>
       </br>
 
-      <button class="button yesButton" onclick="setState(['pSuspension', 'pCarAnsweredIndex'], [true, 2]); hideItem('pSuspension'); evalSessionStorage('pCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['pSuspension', 'pCarAnsweredIndex'], [false, 2]); hideItem('pSuspension'); evalSessionStorage('pCar');">No</button>
+      <button class="button yesButton" onclick="setState(['pSuspension', 'pCarAnsweredIndex'], [true, 2]); hideItem('pSuspension'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['pSuspension', 'pCarAnsweredIndex'], [false, 2]); hideItem('pSuspension'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="pBrakes" class="center question">
@@ -675,8 +675,8 @@
         </li>
       </ul>
       </br>
-      <button class="button yesButton" onclick="setState(['pBrakes', 'pCarAnsweredIndex'], [true, 3]); hideItem('pBrakes'); evalSessionStorage('pCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['pBrakes', 'pCarAnsweredIndex'], [false, 3]); hideItem('pBrakes'); evalSessionStorage('pCar');">No</button>
+      <button class="button yesButton" onclick="setState(['pBrakes', 'pCarAnsweredIndex'], [true, 3]); hideItem('pBrakes'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['pBrakes', 'pCarAnsweredIndex'], [false, 3]); hideItem('pBrakes'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="pWheels" class="center question">
@@ -721,8 +721,8 @@
         </li>
       </ul>
       </br>
-      <button class="button yesButton" onclick="setState(['pWheels', 'pCarAnsweredIndex'], [true, 4]); hideItem('pWheels'); evalSessionStorage('pCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['pWheels', 'pCarAnsweredIndex'], [false, 4]); hideItem('pWheels'); evalSessionStorage('pCar');">No</button>
+      <button class="button yesButton" onclick="setState(['pWheels', 'pCarAnsweredIndex'], [true, 4]); hideItem('pWheels'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['pWheels', 'pCarAnsweredIndex'], [false, 4]); hideItem('pWheels'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="pTires" class="center question">
@@ -736,8 +736,8 @@
       portions of 3.3 is allowed.
       </p>
       </br>
-      <button class="button yesButton" onclick="setState(['pTires', 'pCarAnsweredIndex'], [true, 5]); hideItem('pTires'); evalSessionStorage('pCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['pTires', 'pCarAnsweredIndex'], [false, 5]); hideItem('pTires'); evalSessionStorage('pCar');">No</button>
+      <button class="button yesButton" onclick="setState(['pTires', 'pCarAnsweredIndex'], [true, 5]); hideItem('pTires'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['pTires', 'pCarAnsweredIndex'], [false, 5]); hideItem('pTires'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="pWeight" class="center question">
@@ -1131,8 +1131,8 @@
         </div>
       </ul>
       </br>
-      <button class="button yesButton" onclick="setState(['pWeight', 'pCarAnsweredIndex'], [true, 6]); hideItem('pWeight'); evalSessionStorage('pCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['pWeight', 'pCarAnsweredIndex'], [false, 6]); hideItem('pWeight'); evalSessionStorage('pCar');">No</button>
+      <button class="button yesButton" onclick="setState(['pWeight', 'pCarAnsweredIndex'], [true, 6]); hideItem('pWeight'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['pWeight', 'pCarAnsweredIndex'], [false, 6]); hideItem('pWeight'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="pElectrical" class="center question">
@@ -1164,8 +1164,8 @@
         </li>
       </ul>
       </br>
-      <button class="button yesButton" onclick="setState(['pElectrical', 'pCarAnsweredIndex'], [true, 7]); hideItem('pElectrical'); evalSessionStorage('pCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['pElectrical', 'pCarAnsweredIndex'], [false, 7]); hideItem('pElectrical'); evalSessionStorage('pCar');">No</button>
+      <button class="button yesButton" onclick="setState(['pElectrical', 'pCarAnsweredIndex'], [true, 7]); hideItem('pElectrical'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['pElectrical', 'pCarAnsweredIndex'], [false, 7]); hideItem('pElectrical'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <!-- TODO Split this "wall of text" into smaller, more digestible questions -->
@@ -1865,8 +1865,8 @@
         </li>
       </ul>
       </br>
-      <button class="button yesButton" onclick="setState(['pEngineAndDrivetrain', 'pCarAnsweredIndex'], [true, 8]); hideItem('pEngineAndDrivetrain'); evalSessionStorage('pCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['pEngineAndDrivetrain', 'pCarAnsweredIndex'], [false, 8]); hideItem('pEngineAndDrivetrain'); evalSessionStorage('pCar');">No</button>
+      <button class="button yesButton" onclick="setState(['pEngineAndDrivetrain', 'pCarAnsweredIndex'], [true, 8]); hideItem('pEngineAndDrivetrain'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['pEngineAndDrivetrain', 'pCarAnsweredIndex'], [false, 8]); hideItem('pEngineAndDrivetrain'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="eligible" class="center eligible sansserif">

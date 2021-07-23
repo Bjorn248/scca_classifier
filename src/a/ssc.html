@@ -60,7 +60,7 @@
         </p>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['sscLandingPage', 'sscCarAnsweredIndex'], [true, 0]); hideItem('sscLandingPage'); evalSessionStorage('sscCar');">Continue</button>
+      <button class="button yesButton" onclick="setState(['sscLandingPage', 'sscCarAnsweredIndex'], [true, 0]); hideItem('sscLandingPage'); evalSessionStorage('sscCar'); window.scroll(0,0);">Continue</button>
     </div>
 
     <div id="sscBodywork" class="center question">
@@ -112,8 +112,8 @@
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['sscBodywork', 'sscCarAnsweredIndex'], [true, 1]); hideItem('sscBodywork'); evalSessionStorage('sscCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['sscBodywork', 'sscCarAnsweredIndex'], [false, 1]); hideItem('sscBodywork'); evalSessionStorage('sscCar');">No</button>
+      <button class="button yesButton" onclick="setState(['sscBodywork', 'sscCarAnsweredIndex'], [true, 1]); hideItem('sscBodywork'); evalSessionStorage('sscCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['sscBodywork', 'sscCarAnsweredIndex'], [false, 1]); hideItem('sscBodywork'); evalSessionStorage('sscCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="sscSuspension" class="center question">
@@ -208,8 +208,8 @@
         Those not included in the supplied kits may <b>NOT</b> be replaced with bushings of a different material
         or dimension.
       </p>
-      <button class="button yesButton" onclick="setState(['sscSuspension', 'sscCarAnsweredIndex'], [true, 2]); hideItem('sscSuspension'); evalSessionStorage('sscCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['sscSuspension', 'sscCarAnsweredIndex'], [false, 2]); hideItem('sscSuspension'); evalSessionStorage('sscCar');">No</button>
+      <button class="button yesButton" onclick="setState(['sscSuspension', 'sscCarAnsweredIndex'], [true, 2]); hideItem('sscSuspension'); evalSessionStorage('sscCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['sscSuspension', 'sscCarAnsweredIndex'], [false, 2]); hideItem('sscSuspension'); evalSessionStorage('sscCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="sscBrakes" class="center question">
@@ -219,8 +219,8 @@
         </br>
         The make and material of brake linings (pads) may be changed.
       </h2>
-      <button class="button yesButton" onclick="setState(['sscBrakes', 'sscCarAnsweredIndex'], [true, 3]); hideItem('sscBrakes'); evalSessionStorage('sscCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['sscBrakes', 'sscCarAnsweredIndex'], [false, 3]); hideItem('sscBrakes'); evalSessionStorage('sscCar');">No</button>
+      <button class="button yesButton" onclick="setState(['sscBrakes', 'sscCarAnsweredIndex'], [true, 3]); hideItem('sscBrakes'); evalSessionStorage('sscCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['sscBrakes', 'sscCarAnsweredIndex'], [false, 3]); hideItem('sscBrakes'); evalSessionStorage('sscCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="sscWheels" class="center question">
@@ -251,8 +251,8 @@
         </li>
       </ul>
       </br>
-      <button class="button yesButton" onclick="setState(['sscWheels', 'sscCarAnsweredIndex'], [true, 4]); hideItem('sscWheels'); evalSessionStorage('sscCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['sscWheels', 'sscCarAnsweredIndex'], [false, 4]); hideItem('sscWheels'); evalSessionStorage('sscCar');">No</button>
+      <button class="button yesButton" onclick="setState(['sscWheels', 'sscCarAnsweredIndex'], [true, 4]); hideItem('sscWheels'); evalSessionStorage('sscCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['sscWheels', 'sscCarAnsweredIndex'], [false, 4]); hideItem('sscWheels'); evalSessionStorage('sscCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="sscTires" class="center question">
@@ -260,7 +260,6 @@
         Are you using one of the allowed tires and sizes?
       </h2>
       <p class="sansserif">
-      </br>
       <ul class="sansserif list explanation">
         <li>
           Tire
@@ -282,8 +281,8 @@
           </ul>
         </li>
       </p>
-      <button class="button yesButton" onclick="setState(['sscTires', 'sscCarAnsweredIndex'], [true, 5]); hideItem('sscTires'); evalSessionStorage('sscCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['sscTires', 'sscCarAnsweredIndex'], [false, 5]); hideItem('sscTires'); evalSessionStorage('sscCar');">No</button>
+      <button class="button yesButton" onclick="setState(['sscTires', 'sscCarAnsweredIndex'], [true, 5]); hideItem('sscTires'); evalSessionStorage('sscCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['sscTires', 'sscCarAnsweredIndex'], [false, 5]); hideItem('sscTires'); evalSessionStorage('sscCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="sscElectrical" class="center question">
@@ -303,8 +302,8 @@
         </li>
       </ul>
       </br>
-      <button class="button yesButton" onclick="setState(['sscElectrical', 'sscCarAnsweredIndex'], [true, 6]); hideItem('sscElectrical'); evalSessionStorage('sscCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['sscElectrical', 'sscCarAnsweredIndex'], [false, 6]); hideItem('sscElectrical'); evalSessionStorage('sscCar');">No</button>
+      <button class="button yesButton" onclick="setState(['sscElectrical', 'sscCarAnsweredIndex'], [true, 6]); hideItem('sscElectrical'); evalSessionStorage('sscCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['sscElectrical', 'sscCarAnsweredIndex'], [false, 6]); hideItem('sscElectrical'); evalSessionStorage('sscCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="sscEngineAndDrivetrain" class="center question">
@@ -351,8 +350,8 @@
         </li>
       </ul>
       </br>
-      <button class="button yesButton" onclick="setState(['sscEngineAndDrivetrain', 'sscCarAnsweredIndex'], [true, 7]); hideItem('sscEngineAndDrivetrain'); evalSessionStorage('sscCar');">Yes</button>
-      <button class="button noButton" onclick="setState(['sscEngineAndDrivetrain', 'sscCarAnsweredIndex'], [false, 7]); hideItem('sscEngineAndDrivetrain'); evalSessionStorage('sscCar');">No</button>
+      <button class="button yesButton" onclick="setState(['sscEngineAndDrivetrain', 'sscCarAnsweredIndex'], [true, 7]); hideItem('sscEngineAndDrivetrain'); evalSessionStorage('sscCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['sscEngineAndDrivetrain', 'sscCarAnsweredIndex'], [false, 7]); hideItem('sscEngineAndDrivetrain'); evalSessionStorage('sscCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="eligible" class="center eligible sansserif">
