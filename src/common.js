@@ -7224,15 +7224,15 @@ const allSoloCars = {
   },
   'Toyota': {
     '86 (with TRD Lowering Springs, TRD Sway Bar Kit, and TRD 17-in. Forged Wheel': {
-      '2017': ['cs', 'dsp'],
-      '2018': ['cs', 'dsp'],
-      '2019': ['cs'],
+      '2017': ['cs', 'stx', 'dsp'],
+      '2018': ['cs', 'stx', 'dsp'],
+      '2019': ['cs', 'stx'],
       '2020': ['cs', 'stx'],
     },
     '86 (without TRD suspension and wheels': {
-      '2017': ['ds', 'dsp'],
-      '2018': ['ds', 'dsp'],
-      '2019': ['ds'],
+      '2017': ['ds', 'stx', 'dsp'],
+      '2018': ['ds', 'stx', 'dsp'],
+      '2019': ['ds', 'stx'],
       '2020': ['ds', 'stx'],
     },
     'Camry (4-cyl)': {
