@@ -47,10 +47,10 @@
 
   <body onload="evalSessionStorage('StreetCar'); highlightAndFilterStreet();">
     <div id="streetLandingPage" class="center question sansserif">
-      <h2 id="streetLandingPageQuestion" class="sansserif">
+      <h2 id="streetLandingPageQuestion">
         Street Class Overview
       </h2>
-      <div id="explanation" class="explanation">
+      <div id="overviewBody" class="questionBody">
         <h3>
           Category Objective
         </h3>
@@ -139,16 +139,16 @@
       <button class="button yesButton" onclick="setState(['streetLandingPage', 'StreetCarAnsweredIndex'], [true, 0]); hideItem('streetLandingPage'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Continue</button>
     </div>
 
-    <div id="streetBodywork" class="center question">
-      <h2 id="streetBodyworkQuestion" class="sansserif">
+    <div id="streetBodywork" class="center question sansserif">
+      <h2 id="streetBodyworkQuestion">
         Is your car body mostly stock and does it meet the requirements below?
       </h2>
-      <div id="explanation" class="explanation">
-        <h3 class="sansserif">
+      <div id="bodyworkBody" class="questionBody">
+        <h3>
           Rule: See section 13.1 of the rules for clarification, but unless modifications are explicitly
           permitted, they are not allowed.
           Things that are allowed:
-          <ul class="sansserif list">
+          <ul class="list">
             <li>
               Alternate shift knobs or paddles are allowed.
             </li>
@@ -214,154 +214,199 @@
       <button class="button noButton" onclick="setState(['streetBodywork', 'StreetCarAnsweredIndex'], [false, 1]); hideItem('streetBodywork'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="fendersUnmodified" class="center question">
-      <h2 id="fendersUnmodifiedQuestion" class="sansserif">
-        Are your fenders unmodified?
-      </h2>
+    <div id="fendersUnmodified" class="center question sansserif">
+      <div id="fendersBody" class="questionBody">
+        <h2 id="fendersUnmodifiedQuestion">
+          Are your fenders unmodified?
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['fendersUnmodified', 'StreetCarAnsweredIndex'], [true, 2]); hideItem('fendersUnmodified'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['fendersUnmodified', 'StreetCarAnsweredIndex'], [false, 2]); hideItem('fendersUnmodified'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="tires200Treadwear" class="center question">
-      <h2 id="tires200TreadwearQuestion" class="sansserif">
-        Are your tires 200 treadwear and DOT legal?
-      </h2>
+    <div id="tires200Treadwear" class="center question sansserif">
+      <div id="tiresBody" class="questionBody">
+        <h2 id="tires200TreadwearQuestion">
+          Are your tires 200 treadwear and DOT legal?
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['tires200Treadwear', 'StreetCarAnsweredIndex'], [true, 3]); hideItem('tires200Treadwear'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['tires200Treadwear', 'StreetCarAnsweredIndex'], [false, 3]); hideItem('tires200Treadwear'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="wheelsStockWidth" class="center question">
-      <h2 id="wheelsStockWidthQuestion" class="sansserif">
-        Are your wheels stock width?
-      </h2>
+    <div id="wheelsStockWidth" class="center question sansserif">
+      <div id="wheelsBody" class="questionBody">
+        <h2 id="wheelsStockWidthQuestion">
+          Are your wheels stock width?
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['wheelsStockWidth', 'StreetCarAnsweredIndex'], [true, 4]); hideItem('wheelsStockWidth'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['wheelsStockWidth', 'StreetCarAnsweredIndex'], [false, 4]); hideItem('wheelsStockWidth'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="wheelOffsetPlusMinus7Inches" class="center question">
-      <h2 id="wheelOffsetPlusMinus7InchesQuestion" class="sansserif">
-        Is your wheel offset ±7mm (±0.275 in) from a standard wheel for the car?
-      </h2>
+    <div id="wheelOffsetPlusMinus7Inches" class="center question sansserif">
+      <div id="wheelOffsetBody" class="questionBody">
+        <h2 id="wheelOffsetPlusMinus7InchesQuestion">
+          Is your wheel offset ±7mm (±0.275 in) from a standard wheel for the car?
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['wheelOffsetPlusMinus7Inches', 'StreetCarAnsweredIndex'], [true, 5]); hideItem('wheelOffsetPlusMinus7Inches'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['wheelOffsetPlusMinus7Inches', 'StreetCarAnsweredIndex'], [false, 5]); hideItem('wheelOffsetPlusMinus7Inches'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="wheelDiameterPlusMinus1Inch" class="center question">
-      <h2 id="wheelDiameterPlusMinus1InchQuestion" class="sansserif">
-        Is your wheel diameter ±1 inch from the standard wheel for the car?
-      </h2>
+    <div id="wheelDiameterPlusMinus1Inch" class="center question sansserif">
+      <div id="wheelDiameterBody" class="questionBody">
+        <h2 id="wheelDiameterPlusMinus1InchQuestion">
+          Is your wheel diameter ±1 inch from the standard wheel for the car?
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['wheelDiameterPlusMinus1Inch', 'StreetCarAnsweredIndex'], [true, 6]); hideItem('wheelDiameterPlusMinus1Inch'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['wheelDiameterPlusMinus1Inch', 'StreetCarAnsweredIndex'], [false, 6]); hideItem('wheelDiameterPlusMinus1Inch'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stockNumberOfWheelBoltsOrStuds" class="center question">
-      <h2 id="stockNumberOfWheelBoltsOrStudsQuestion" class="sansserif">
-        Do you have the stock number of wheel bolts or studs?
-      </h2>
+    <div id="stockNumberOfWheelBoltsOrStuds" class="center question sansserif">
+      <div id="boltsBody" class="questionBody">
+        <h2 id="stockNumberOfWheelBoltsOrStudsQuestion">
+          Do you have the stock number of wheel bolts or studs?
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['stockNumberOfWheelBoltsOrStuds', 'StreetCarAnsweredIndex'], [true, 7]); hideItem('stockNumberOfWheelBoltsOrStuds'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['stockNumberOfWheelBoltsOrStuds', 'StreetCarAnsweredIndex'], [false, 7]); hideItem('stockNumberOfWheelBoltsOrStuds'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="shocksAtMost2Way" class="center question">
-      <h2 id="shocksAtMost2WayQuestion" class="sansserif">
-        Are your shocks at most adjustable in two ways? Cars that have shocks that are more
-        adjustable from the factory are permitted.
-      </h2>
+    <div id="shocksAtMost2Way" class="center question sansserif">
+      <div id="shocksBody" class="questionBody">
+        <h2 id="shocksAtMost2WayQuestion">
+          Are your shocks at most adjustable in two ways? Cars that have shocks that are more
+          adjustable from the factory are permitted.
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['shocksAtMost2Way', 'StreetCarAnsweredIndex'], [true, 8]); hideItem('shocksAtMost2Way'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['shocksAtMost2Way', 'StreetCarAnsweredIndex'], [false, 8]); hideItem('shocksAtMost2Way'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="suspensionGeometryAltered" class="center question">
-      <h2 id="suspensionGeometryAlteredQuestion" class="sansserif">
-        Is your suspension geometry unmodified?
-      </h2>
+    <div id="suspensionGeometryAltered" class="center question sansserif">
+      <div id="suspensionBody" class="questionBody">
+        <h2 id="suspensionGeometryAlteredQuestion">
+          Is your suspension geometry unmodified?
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['suspensionGeometryAltered', 'StreetCarAnsweredIndex'], [true, 9]); hideItem('suspensionGeometryAltered'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['suspensionGeometryAltered', 'StreetCarAnsweredIndex'], [false, 9]); hideItem('suspensionGeometryAltered'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="hasStandardBrakeLinesUnless1992OrOlder" class="center question">
-      <h2 id="hasStandardBrakeLinesUnless1992OrOlderQuestion" class="sansserif">
-        Are your brake lines stock? If your car is 1992 or older you can have solid/braided lines.
-      </h2>
+    <div id="hasStandardBrakeLinesUnless1992OrOlder" class="center question sansserif">
+      <div id="brakeLinesBody" class="questionBody">
+        <h2 id="hasStandardBrakeLinesUnless1992OrOlderQuestion">
+          Are your brake lines stock? If your car is 1992 or older you can have solid/braided lines.
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['hasStandardBrakeLinesUnless1992OrOlder', 'StreetCarAnsweredIndex'], [true, 10]); hideItem('hasStandardBrakeLinesUnless1992OrOlder'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['hasStandardBrakeLinesUnless1992OrOlder', 'StreetCarAnsweredIndex'], [false, 10]); hideItem('hasStandardBrakeLinesUnless1993OrOlder'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="hasSingleAntiRollBar" class="center question">
-      <h2 id="hasSingleAntiRollBarQuestion" class="sansserif">
+    <div id="hasSingleAntiRollBar" class="center question sansserif">
+      <h2 id="hasSingleAntiRollBarQuestion">
         Does your car meet the anti-roll bar restrictions?
       </h2>
-      <h3 class="sansserif">
-        Rule: Substitution, addition, or removal of a single anti-roll bar and supporting
-        hardware (brackets, endlinks, bushings, etc.) is permitted. The use of any bushing
-        material is permitted. A bushing may be implemented as a bearing.
-      </h3>
+      <div id="antiRollBarBody" class="questionBody">
+        <h3>
+          Rule: Substitution, addition, or removal of a single anti-roll bar and supporting
+          hardware (brackets, endlinks, bushings, etc.) is permitted. The use of any bushing
+          material is permitted. A bushing may be implemented as a bearing.
+        </h3>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['hasSingleAntiRollBar', 'StreetCarAnsweredIndex'], [true, 11]); hideItem('hasSingleAntiRollBar'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['hasSingleAntiRollBar', 'StreetCarAnsweredIndex'], [false, 11]); hideItem('hasSingleAntiRollBar'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
-    <div id="hasStockSprings" class="center question">
-      <h2 id="hasStockSpringsQuestion" class="sansserif">
-        Does your car have stock springs?
-      </h2>
+    <div id="hasStockSprings" class="center question sansserif">
+      <div id="springsBody" class="questionBody">
+        <h2 id="hasStockSpringsQuestion">
+          Does your car have stock springs?
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['hasStockSprings', 'StreetCarAnsweredIndex'], [true, 12]); hideItem('hasStockSprings'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['hasStockSprings', 'StreetCarAnsweredIndex'], [false, 12]); hideItem('hasStockSprings'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="hasStockBushings" class="center question">
-      <h2 id="hasStockBushingsQuestion" class="sansserif">
-        Does your car have stock bushings?
-      </h2>
+    <div id="hasStockBushings" class="center question sansserif">
+      <div id="bushingsBody" class="questionBody">
+        <h2 id="hasStockBushingsQuestion">
+          Does your car have stock bushings?
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['hasStockBushings', 'StreetCarAnsweredIndex'], [true, 13]); hideItem('hasStockBushings'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['hasStockBushings', 'StreetCarAnsweredIndex'], [false, 13]); hideItem('hasStockBushings'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stockECUProgramming" class="center question">
-      <h2 id="stockECUProgrammingQuestion" class="sansserif">
-        Does your car have an unmodified electronic engine management system?
-      </h2>
+    <div id="stockECUProgramming" class="center question sansserif">
+      <div id="ECUBody" class="questionBody">
+        <h2 id="stockECUProgrammingQuestion">
+          Does your car have an unmodified electronic engine management system?
+        </h2>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['stockECUProgramming', 'StreetCarAnsweredIndex'], [true, 14]); hideItem('stockECUProgramming'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['stockECUProgramming', 'StreetCarAnsweredIndex'], [false, 14]); hideItem('stockECUProgramming'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stockIntake" class="center question">
-      <h2 id="stockIntakeQuestion" class="sansserif">
+    <div id="stockIntake" class="center question sansserif">
+      <h2 id="stockIntakeQuestion">
         Does your intake meet the requirements below?
       </h2>
-      <h3 class="sansserif">
-         The engine air filter element may be removed or replaced provided the air flow path remains
-         as originally designed (i.e. no additional openings). No other components of the
-         air induction system may be removed, replaced, or modified.
-      </h3>
+      <div id="intakeBody" class="questionBody">
+        <h3>
+          The engine air filter element may be removed or replaced provided the air flow path remains
+          as originally designed (i.e. no additional openings). No other components of the
+          air induction system may be removed, replaced, or modified.
+        </h3>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['stockIntake', 'StreetCarAnsweredIndex'], [true, 15]); hideItem('stockIntake'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['stockIntake', 'StreetCarAnsweredIndex'], [false, 15]); hideItem('stockIntake'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stockExhaust" class="center question">
-      <h2 id="stockExhaustQuestion" class="sansserif">
+    <div id="stockExhaust" class="center question sansserif">
+      <h2 id="stockExhaustQuestion">
         Does your exhaust meet the requirements below?
       </h2>
-      <h3 class="sansserif">
-        Any part of the exhaust system beyond (downstream from) the last catalytic converter,
-        if so equipped, may be substituted or removed provided the system exits the car in the
-        original location. Vehicles equipped with exhausts that exit in multiple locations may
-        change to a single outlet in any of the original locations. Stainless steel heat
-        exchangers are permitted only if the physical dimensions and configuration remain unchanged.
-        Modifications of any type, including additions to or removal of, the catalytic converters,
-        thermal reactors, or any other pollution control devices in the exhaust system are not
-        allowed and the system must be operable. Replacement catalytic converters must be OE if
-        the vehicle has not exceeded the warranty period as mandated by the EPA. Converters must
-        be of the same type and size and used in the same location as the original equipment
-        converter(s). This does not allow for a high performance unit. If the vehicle has exceeded
-        the warranty period, replacement catalytic converters must be OE-type. Exhaust hangers
-        which are bolted or welded on the car are considered part of the body and may not be
-        changed or removed.
-      </h3>
+      <div id="exhaustBody" class="questionBody">
+        <h3>
+          Any part of the exhaust system beyond (downstream from) the last catalytic converter,
+          if so equipped, may be substituted or removed provided the system exits the car in the
+          original location. Vehicles equipped with exhausts that exit in multiple locations may
+          change to a single outlet in any of the original locations. Stainless steel heat
+          exchangers are permitted only if the physical dimensions and configuration remain unchanged.
+          Modifications of any type, including additions to or removal of, the catalytic converters,
+          thermal reactors, or any other pollution control devices in the exhaust system are not
+          allowed and the system must be operable. Replacement catalytic converters must be OE if
+          the vehicle has not exceeded the warranty period as mandated by the EPA. Converters must
+          be of the same type and size and used in the same location as the original equipment
+          converter(s). This does not allow for a high performance unit. If the vehicle has exceeded
+          the warranty period, replacement catalytic converters must be OE-type. Exhaust hangers
+          which are bolted or welded on the car are considered part of the body and may not be
+          changed or removed.
+        </h3>
+      </div>
+      </br>
       <button class="button yesButton" onclick="setState(['stockExhaust', 'StreetCarAnsweredIndex'], [true, 16]); hideItem('stockExhaust'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['stockExhaust', 'StreetCarAnsweredIndex'], [false, 16]); hideItem('stockExhaust'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="eligible" class="center eligible sansserif">
-      <h1 class="sansserif">
+      <h1>
         Your car is eligible for Street class!
         </br>
       </h1>
@@ -372,11 +417,11 @@ Possible Classes:
       </div>
     </div>
 
-    <div id="notEligible" class="center notEligible">
-      <h1 class="sansserif">
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
         Your car is NOT eligible for street class.
       </h1>
-      <div class="notEligibleExplanation sansserif">
+      <div class="notEligibleExplanation">
         <h2>
           You answered "No" to the following questions, which resulted in your ineligibility:
         </h2>

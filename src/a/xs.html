@@ -38,10 +38,10 @@
 
   <body onload="evalSessionStorage('xsCar'); highlightAndFilterXtremeStreet();">
     <div id="xsLandingPage" class="center question sansserif">
-      <h2 id="xsLandingPageQuestion" class="sansserif">
+      <h2 id="xsLandingPageQuestion">
         Xtreme Street (XS) Class Overview
       </h2>
-      <div id="explanation" class="explanation">
+      <div id="overviewBody" class="questionBody">
         <h3>
           Category Objective
         </h3>
@@ -62,7 +62,7 @@
         <h3>
           Eligible Vehicles
         </h3>
-        <ul class="sansserif list explanation">
+        <ul class="list">
           <li>
             Must be an automobile or truck (e.g., pickup, SUV) manufactured for road use and legal to
             drive on US roads. Non-US models are allowed and right-hand-drive steering is permitted.
@@ -112,13 +112,13 @@
       <button class="button yesButton" onclick="setState(['xsLandingPage', 'xsCarAnsweredIndex'], [true, 0]); hideItem('xsLandingPage'); evalSessionStorage('xsCar'); window.scroll(0,0);">Continue</button>
     </div>
 
-    <div id="xsBodywork" class="center question">
-      <h2 id="xsBodyworkQuestion" class="sansserif">
+    <div id="xsBodywork" class="center question sansserif">
+      <h2 id="xsBodyworkQuestion">
         Does your car meet the bodywork requirements below?
       </h2>
-      <div id="explanation" class="explanation">
-        <h3 class="sansserif">
-          <ul class="sansserif list explanation">
+      <div id="bodyworkBody" class="questionBody">
+        <h3>
+          <ul class="list">
             <li>
               Interior and exterior must have a "finished" look (e.g., carpeted,
               upholstered, painted, coated)
@@ -194,50 +194,52 @@
       <button class="button noButton" onclick="setState(['xsBodywork', 'xsCarAnsweredIndex'], [false, 1]); hideItem('xsBodywork'); evalSessionStorage('xsCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="xsSuspension" class="center question">
-      <h2 id="xsSuspensionQuestion" class="sansserif">
+    <div id="xsSuspension" class="center question sansserif">
+      <h2 id="xsSuspensionQuestion">
         Does your suspension meet the requirements defined below?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Components and method of attachment are <b>NOT</b> restricted
-        </li>
-        <li>
-          Material may be added and/or removed from strut towers<Paste>
-        </li>
-      </ul>
-
+      <div id="suspensionBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Components and method of attachment are <b>NOT</b> restricted
+          </li>
+          <li>
+            Material may be added and/or removed from strut towers<Paste>
+          </li>
+        </ul>
+      </div>
       </br>
-
       <button class="button yesButton" onclick="setState(['xsSuspension', 'xsCarAnsweredIndex'], [true, 2]); hideItem('xsSuspension'); evalSessionStorage('xsCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['xsSuspension', 'xsCarAnsweredIndex'], [false, 2]); hideItem('xsSuspension'); evalSessionStorage('xsCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="xsBrakes" class="center question">
-      <h2 id="xsBrakesQuestion" class="sansserif">
+    <div id="xsBrakes" class="center question sansserif">
+      <h2 id="xsBrakesQuestion">
         Do your brakes meet the following requirements?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Brake rotor/drum friction surfaces must be of ferrous metal
-          <ul>
-            <li>
-              <b>EXCEPTION</b>: OE non-ferrous rotors may be retained
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <div id="brakesBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Brake rotor/drum friction surfaces must be of ferrous metal
+            <ul>
+              <li>
+                <b>EXCEPTION</b>: OE non-ferrous rotors may be retained
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['xsBrakes', 'xsCarAnsweredIndex'], [true, 3]); hideItem('xsBrakes'); evalSessionStorage('xsCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['xsBrakes', 'xsCarAnsweredIndex'], [false, 3]); hideItem('xsBrakes'); evalSessionStorage('xsCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="xsWheels" class="center question">
-      <h2 id="xsWheelsQuestion" class="sansserif">
+    <div id="xsWheels" class="center question sansserif">
+      <h2 id="xsWheelsQuestion">
         Do your wheels meet the following requirements?
         </br>
       </h2>
-      <p class="sansserif">
+      <p>
         Any wheels are allowed. Non-metallic wheels must be certified/approved from an
         appropriate, recognized standards organization (e.g., FIA, SFI, SAE, TUV, etc.)
       </p>
@@ -245,86 +247,92 @@
       <button class="button noButton" onclick="setState(['xsWheels', 'xsCarAnsweredIndex'], [false, 4]); hideItem('xsWheels'); evalSessionStorage('xsCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="xsTires" class="center question">
-      <h2 id="xsTiresQuestion" class="sansserif">
+    <div id="xsTires" class="center question sansserif">
+      <h2 id="xsTiresQuestion">
         Do your tires meet the following requirements?
       </h2>
       </br>
-      <ul class="sansserif list explanation">
-        <li>
-          DOT tires with a UTQG Treadwear Grade of 200 or higher
-          <ul>
-            <li>
-              <b>EXCLUDED</b>: Kumho Ecsta V720 ACR; Michelin Pilot Sport Cup 2 and Pilot Sport Cup 2 ZP
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <div id="tiresBody" class="questionBody">
+        <ul class="list">
+          <li>
+            DOT tires with a UTQG Treadwear Grade of 200 or higher
+            <ul>
+              <li>
+                <b>EXCLUDED</b>: Kumho Ecsta V720 ACR; Michelin Pilot Sport Cup 2 and Pilot Sport Cup 2 ZP
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['xsTires', 'xsCarAnsweredIndex'], [true, 5]); hideItem('xsTires'); evalSessionStorage('xsCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['xsTires', 'xsCarAnsweredIndex'], [false, 5]); hideItem('xsTires'); evalSessionStorage('xsCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="xsWeight" class="center question">
-      <h2 id="xsWeightQuestion" class="sansserif">
+    <div id="xsWeight" class="center question sansserif">
+      <h2 id="xsWeightQuestion">
         Do you meet the minimum weight requirements outlined below?
         </br>
         </br>
         Weights are without driver, in lbs.
       </h2>
-      <p class="sansserif">
+      <p>
         Your subclass should be highlighted
       </p>
-      <ul class="sansserif list explanation">
-        <div id="xsaWeight">
-          <li>
-            XSA
-            <ul>
-              <li>
-                AWD: 3000
-              </li>
-              <li>
-                RWD: 2750
-              </li>
-              <li>
-                FWD: 2500
-              </li>
-            </ul>
-          </li>
-        </div>
-        <div id="xsbWeight">
-          <li>
-            XSB
-            <ul>
-              <li>
-                RWD: 2150
-              </li>
-              <li>
-                FWD: 2000
-              </li>
-            </ul>
-          </li>
-        </div>
-      </ul>
+      <div id="weightBody" class="questionBody">
+        <ul class="list">
+          <div id="xsaWeight">
+            <li>
+              XSA
+              <ul>
+                <li>
+                  AWD: 3000
+                </li>
+                <li>
+                  RWD: 2750
+                </li>
+                <li>
+                  FWD: 2500
+                </li>
+              </ul>
+            </li>
+          </div>
+          <div id="xsbWeight">
+            <li>
+              XSB
+              <ul>
+                <li>
+                  RWD: 2150
+                </li>
+                <li>
+                  FWD: 2000
+                </li>
+              </ul>
+            </li>
+          </div>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['xsWeight', 'xsCarAnsweredIndex'], [true, 6]); hideItem('xsWeight'); evalSessionStorage('xsCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['xsWeight', 'xsCarAnsweredIndex'], [false, 6]); hideItem('xsWeight'); evalSessionStorage('xsCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="xsEngineAndDrivetrain" class="center question">
-      <h2 id="xsEngineAndDrivetrainQuestion" class="sansserif">
+    <div id="xsEngineAndDrivetrain" class="center question sansserif">
+      <h2 id="xsEngineAndDrivetrainQuestion">
         Does your engine and drivetrain fall within the following restrictions?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Engine cylinder block or rotor housing must be from a production automobile or a copy (e.g.,
-          Dart, BMP, Ford Performance); non-US blocks are permitted. Motorcycle or industrial-based
-          cylinder blocks are not allowed
-        </li>
-        <li>
-          All other engine and powertrain components and attachments are not restricted
-        </li>
-      </ul>
+      <div id="engineBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Engine cylinder block or rotor housing must be from a production automobile or a copy (e.g.,
+            Dart, BMP, Ford Performance); non-US blocks are permitted. Motorcycle or industrial-based
+            cylinder blocks are not allowed
+          </li>
+          <li>
+            All other engine and powertrain components and attachments are not restricted
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['xsEngineAndDrivetrain', 'xsCarAnsweredIndex'], [true, 7]); hideItem('xsEngineAndDrivetrain'); evalSessionStorage('xsCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['xsEngineAndDrivetrain', 'xsCarAnsweredIndex'], [false, 7]); hideItem('xsEngineAndDrivetrain'); evalSessionStorage('xsCar'); window.scroll(0,0);">No</button>
@@ -337,11 +345,11 @@
       </h1>
     </div>
 
-    <div id="notEligible" class="center notEligible">
-      <h1 class="sansserif">
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
         Your car is NOT eligible for Xtreme Street class.
       </h1>
-      <div class="notEligibleExplanation sansserif">
+      <div class="notEligibleExplanation">
         <h2>
           You answered "No" to the following questions, which resulted in your ineligibility:
         </h2>

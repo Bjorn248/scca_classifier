@@ -1,6 +1,13 @@
-.explanation {
+.questionBody {
   display: inline-block;
   text-align: left;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.paragraph {
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .button {

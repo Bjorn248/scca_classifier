@@ -39,10 +39,10 @@
 
   <body onload="evalSessionStorage('smCar'); highlightAndFilterSM();">
     <div id="smLandingPage" class="center question sansserif">
-      <h2 id="smLandingPageQuestion" class="sansserif">
+      <h2 id="smLandingPageQuestion">
         Street Modified (SM) Class Overview
       </h2>
-      <div id="explanation" class="explanation">
+      <div id="overviewBody" class="questionBody">
         <h3>
           Category Objective
         </h3>
@@ -70,7 +70,7 @@
         <h3>
           Core Modifications
         </h3>
-        <ul class="sansserif list explanation">
+        <ul class="list">
           <li>
             Powertrain swaps
           </li>
@@ -110,7 +110,7 @@
         <h3>
           Inherited Modifications
         </h3>
-        <ul class="sansserif list explanation">
+        <ul class="list">
           <li>
             All Street, Street Touring®, and Street Prepared category modifications are authorized.
             Except as noted by these rules and the referenced rules, vehicles must be as originally
@@ -153,13 +153,13 @@
       <button class="button yesButton" onclick="setState(['smLandingPage', 'smCarAnsweredIndex'], [true, 0]); hideItem('smLandingPage'); evalSessionStorage('smCar'); window.scroll(0,0);">Continue</button>
     </div>
 
-    <div id="smBodywork" class="center question">
-      <h2 id="smBodyworkQuestion" class="sansserif">
+    <div id="smBodywork" class="center question sansserif">
+      <h2 id="smBodyworkQuestion">
         Does your car meet the bodywork requirements below?
       </h2>
-      <div id="explanation" class="explanation">
-        <h3 class="sansserif">
-          <ul class="sansserif list explanation">
+      <div id="bodyworkBody" class="questionBody">
+        <h3>
+          <ul class="list">
             <li>
               Front hoods (engine covers), engine covers, trunk lids and hatches not containing
               glass, front fenders, rear fenders not part of chassis structure (unibody), front &
@@ -276,37 +276,38 @@
       <button class="button noButton" onclick="setState(['smBodywork', 'smCarAnsweredIndex'], [false, 1]); hideItem('smBodywork'); evalSessionStorage('smCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="smSuspension" class="center question">
-      <h2 id="smSuspensionQuestion" class="sansserif">
+    <div id="smSuspension" class="center question sansserif">
+      <h2 id="smSuspensionQuestion">
         Does your suspension meet the requirements defined below?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Suspension components are unrestricted as long as they use the original attachment points.
-          Cars equipped with MacPherson strut suspension may add or remove material from the top of
-          the strut tower to facilitate installation of adjuster plate. The sides of the strut tower
-          may not be modified
-        </li>
-        <li>
-          Subframe connectors are allowed as per Street Prepared Section 15.2.E
-        </li>
-        <li>
-          Alternate subframes are allowed to facilitate engine mounting only. Suspension pick-up
-          points on the subframe must retain standard geometry. Weight of the subframe must be equal
-          or greater than the standard unit
-        </li>
-      </ul>
+      <div id="suspensionBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Suspension components are unrestricted as long as they use the original attachment points.
+            Cars equipped with MacPherson strut suspension may add or remove material from the top of
+            the strut tower to facilitate installation of adjuster plate. The sides of the strut tower
+            may not be modified
+          </li>
+          <li>
+            Subframe connectors are allowed as per Street Prepared Section 15.2.E
+          </li>
+          <li>
+            Alternate subframes are allowed to facilitate engine mounting only. Suspension pick-up
+            points on the subframe must retain standard geometry. Weight of the subframe must be equal
+            or greater than the standard unit
+          </li>
+        </ul>
+      </div>
       </br>
-
       <button class="button yesButton" onclick="setState(['smSuspension', 'smCarAnsweredIndex'], [true, 2]); hideItem('smSuspension'); evalSessionStorage('smCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['smSuspension', 'smCarAnsweredIndex'], [false, 2]); hideItem('smSuspension'); evalSessionStorage('smCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="smBrakes" class="center question">
-      <h2 id="smBrakesQuestion" class="sansserif">
+    <div id="smBrakes" class="center question sansserif">
+      <h2 id="smBrakesQuestion">
         Do your brakes meet the following requirements?
       </h2>
-      <p class="sansserif">
+      <p class="paragraph">
       <!-- TODO Either link to Section 12 or explain what it means -->
       Brakes, including calipers, caliper mounts, discs, drums, lines, backing plates, pedals,
       boosters, master cylinders, handles, ABS, proportioning valves, etc., are unrestricted.
@@ -321,35 +322,37 @@
       <button class="button noButton" onclick="setState(['smBrakes', 'smCarAnsweredIndex'], [false, 3]); hideItem('smBrakes'); evalSessionStorage('smCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="smWheels" class="center question">
-      <h2 id="smWheelsQuestion" class="sansserif">
+    <div id="smWheels" class="center question sansserif">
+      <h2 id="smWheelsQuestion">
         Do your wheels meet the following requirements?
         </br>
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Wheels of any diameter, width, or offset may be used. Aftermarket wheels may be modified to
-          install OE tire pressure sensors
-        </li>
-        <li>
-          Wheel spacers are permitted. Wheel studs and knock-off wheel drive pegs may be changed
-          in length and diameter. Wheel bolts may be replaced with studs and nuts
-        </li>
-      </ul>
+      <div id="wheelsBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Wheels of any diameter, width, or offset may be used. Aftermarket wheels may be modified to
+            install OE tire pressure sensors
+          </li>
+          <li>
+            Wheel spacers are permitted. Wheel studs and knock-off wheel drive pegs may be changed
+            in length and diameter. Wheel bolts may be replaced with studs and nuts
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['smWheels', 'smCarAnsweredIndex'], [true, 4]); hideItem('smWheels'); evalSessionStorage('smCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['smWheels', 'smCarAnsweredIndex'], [false, 4]); hideItem('smWheels'); evalSessionStorage('smCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="smTires" class="center question">
-      <h2 id="smTiresQuestion" class="sansserif">
+    <div id="smTires" class="center question sansserif">
+      <h2 id="smTiresQuestion">
         Do your tires meet the following requirements?
       </h2>
       </br>
-      <p class="sansserif">
+      <p class="paragraph">
       Tires compliant in Street, Street Touring®, or Street Prepared categories are permitted
       </p>
-      <p class="sansserif">
+      <p class="paragraph">
       This means UTQG Treadwear Grade of 200 or higher, or DOT R-Compound Tires
       </p>
       </br>
@@ -357,208 +360,214 @@
       <button class="button noButton" onclick="setState(['smTires', 'smCarAnsweredIndex'], [false, 5]); hideItem('smTires'); evalSessionStorage('smCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="Weight" class="center question">
+    <div id="Weight" class="center question sansserif">
       <!-- TODO Add weight calculator to this page or create it separately and link to it from here -->
-      <h2 id="smWeightQuestion" class="sansserif">
+      <h2 id="smWeightQuestion">
         Do you meet the minimum weight and floor covering requirements outlined below?
         </br>
         </br>
         Weights are without driver, in lbs.
       </h2>
-      <p class="sansserif">
+      <p>
       Your subclass should be highlighted
       </p>
-      <ul class="sansserif list explanation">
-        <div id="ssmWeight">
-          <li>
-            Super Street Modified (SSM)
-            <ul>
-              <li>
-                FWD: 1350 + 125 per liter
-              </li>
-              <li>
-                RWD: 1600 + 200 per liter
-              </li>
-              <li>
-                AWD: 1600 + 300 per liter
-              </li>
-              <li>
-                Turbo/Supercharged Engines: +1.4L to the actual displacement
-              </li>
-              <li>
-                Rear wheel weight greater than 51%: +25 per liter
-              </li>
-              <li>
-                Tire width 275 mm or less: -200
-              </li>
-              <li>
-                Regardless of the weight formulas above, no car will be required to weigh more than 2900
-              </li>
-            </ul>
-          </li>
-        </div>
-        <div id="smWeight">
-          <li>
-            Street Modified (SM)
-            <ul>
-              <li>
-                FWD: 1550 + 125 per liter
-              </li>
-              <li>
-                RWD: 1800 + 200 per liter
-              </li>
-              <li>
-                AWD: 1800 + 300 per liter
-              </li>
-              <li>
-                Turbo/Supercharged Engines: +1.4L to the actual displacement
-              </li>
-              <li>
-                Rear wheel weight greater than 51%: +25 per liter
-              </li>
-              <li>
-                Solid axle RWD: -25 per liter
-              </li>
-              <li>
-                Tire width 275 mm or less: -200
-              </li>
-              <li>
-                Regardless of the weight formulas above, no car will be required to weigh more than 3100
-              </li>
-            </ul>
-          </li>
-        </div>
-        <div id="smfWeight">
-          <li>
-            Street Modified Front-Wheel Drive (SMF)
-            <ul>
-              <li>
-                All: 1750 + 125 per liter
-              </li>
-              <li>
-                RWD: 1800 + 200 per liter
-              </li>
-              <li>
-                AWD: 1800 + 300 per liter
-              </li>
-              <li>
-                Turbo/Supercharged Engines: +1.0L to the actual displacement
-              </li>
-              <li>
-                Regardless of the weight formulas above, no car will be required to weigh more than 3100
-              </li>
-            </ul>
-          </li>
-        </div>
-      </ul>
+      <div id="weightBody" class="questionBody">
+        <ul class="list">
+          <div id="ssmWeight">
+            <li>
+              Super Street Modified (SSM)
+              <ul>
+                <li>
+                  FWD: 1350 + 125 per liter
+                </li>
+                <li>
+                  RWD: 1600 + 200 per liter
+                </li>
+                <li>
+                  AWD: 1600 + 300 per liter
+                </li>
+                <li>
+                  Turbo/Supercharged Engines: +1.4L to the actual displacement
+                </li>
+                <li>
+                  Rear wheel weight greater than 51%: +25 per liter
+                </li>
+                <li>
+                  Tire width 275 mm or less: -200
+                </li>
+                <li>
+                  Regardless of the weight formulas above, no car will be required to weigh more than 2900
+                </li>
+              </ul>
+            </li>
+          </div>
+          <div id="smWeight">
+            <li>
+              Street Modified (SM)
+              <ul>
+                <li>
+                  FWD: 1550 + 125 per liter
+                </li>
+                <li>
+                  RWD: 1800 + 200 per liter
+                </li>
+                <li>
+                  AWD: 1800 + 300 per liter
+                </li>
+                <li>
+                  Turbo/Supercharged Engines: +1.4L to the actual displacement
+                </li>
+                <li>
+                  Rear wheel weight greater than 51%: +25 per liter
+                </li>
+                <li>
+                  Solid axle RWD: -25 per liter
+                </li>
+                <li>
+                  Tire width 275 mm or less: -200
+                </li>
+                <li>
+                  Regardless of the weight formulas above, no car will be required to weigh more than 3100
+                </li>
+              </ul>
+            </li>
+          </div>
+          <div id="smfWeight">
+            <li>
+              Street Modified Front-Wheel Drive (SMF)
+              <ul>
+                <li>
+                  All: 1750 + 125 per liter
+                </li>
+                <li>
+                  RWD: 1800 + 200 per liter
+                </li>
+                <li>
+                  AWD: 1800 + 300 per liter
+                </li>
+                <li>
+                  Turbo/Supercharged Engines: +1.0L to the actual displacement
+                </li>
+                <li>
+                  Regardless of the weight formulas above, no car will be required to weigh more than 3100
+                </li>
+              </ul>
+            </li>
+          </div>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['Weight', 'smCarAnsweredIndex'], [true, 6]); hideItem('Weight'); evalSessionStorage('smCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['Weight', 'smCarAnsweredIndex'], [false, 6]); hideItem('Weight'); evalSessionStorage('smCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="smEngineAndDrivetrain" class="center question">
-      <h2 id="smEngineAndDrivetrainQuestion" class="sansserif">
+    <div id="smEngineAndDrivetrain" class="center question sansserif">
+      <h2 id="smEngineAndDrivetrainQuestion">
         Does your engine and drivetrain fall within the following restrictions?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Drivetrain and related components (e.g., induction, ignition, fuel systems) are
-          unrestricted except for the following limitations
-          <ul>
+      <div id="engineBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Drivetrain and related components (e.g., induction, ignition, fuel systems) are
+            unrestricted except for the following limitations
+            <ul>
+              <li>
+                Engine block (or housings of rotary engines) must be a production unit that can be
+                sourced from a production automobile
+              </li>
+              <li>
+                Fuel System
+                <ul>
+                  <li>
+                    Any fuel line(s) may be used. All non-standard fuel line(s) passing through
+                    the passenger compartment shall be made of metal, metal braided hose, or
+                    equivalent (e.g., Nomex, Kevlar, or nylon braided hose) with AN Series threaded
+                    couplings, or entirely covered and protected with a metal cover
+                  </li>
+                  <li>
+                    Any fuel pump(s), filter(s), and pressure regulator(s) may be used. Such
+                    components may not be located in the passenger compartment but their location
+                    within the bodywork of the car is otherwise unrestricted. If a mechanical pump
+                    is replaced, a blanking plate may be used to cover the original mounting point
+                  </li>
+                  <li>
+                    A cool-can, not exceeding one gallon in volume, may be used. The cool-can may
+                    not be installed in the passenger compartment
+                  </li>
+                  <li>
+                    The fuel tank may be modified or replaced. If the fuel tank is modified or
+                    replaced, the following restrictions apply
+                    <ul>
+                      <li>
+                        The fuel tank/cell may be located within the same area as the OE tank.
+                      </li>
+                      <!-- TODO Clarify what this means -->
+                      <li>
+                        If the fuel tank/cell does not fit within the same area as the OE tank, the
+                        requirements of Section 3.3.3.B.27 must be met
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <!-- TODO Clarify this. Referencing other sections not clearly present or reachable from
+            the website is confusing -->
             <li>
-              Engine block (or housings of rotary engines) must be a production unit that can be
-              sourced from a production automobile
+              Engine and drivetrain mounts are considered part of these allowances and any material is
+              permitted. The allowances of Section 16.1.O may be used to affix brackets, but these
+              brackets shall serve no purpose other than engine and drivetrain mounting (e.g., they
+              may not provide chassis stiffening)
             </li>
-            <li>
-              Fuel System
-              <ul>
-                <li>
-                  Any fuel line(s) may be used. All non-standard fuel line(s) passing through
-                  the passenger compartment shall be made of metal, metal braided hose, or
-                  equivalent (e.g., Nomex, Kevlar, or nylon braided hose) with AN Series threaded
-                  couplings, or entirely covered and protected with a metal cover
-                </li>
-                <li>
-                  Any fuel pump(s), filter(s), and pressure regulator(s) may be used. Such
-                  components may not be located in the passenger compartment but their location
-                  within the bodywork of the car is otherwise unrestricted. If a mechanical pump
-                  is replaced, a blanking plate may be used to cover the original mounting point
-                </li>
-                <li>
-                  A cool-can, not exceeding one gallon in volume, may be used. The cool-can may
-                  not be installed in the passenger compartment
-                </li>
-                <li>
-                  The fuel tank may be modified or replaced. If the fuel tank is modified or
-                  replaced, the following restrictions apply
-                  <ul>
-                    <li>
-                      The fuel tank/cell may be located within the same area as the OE tank.
-                    </li>
-                    <!-- TODO Clarify what this means -->
-                    <li>
-                      If the fuel tank/cell does not fit within the same area as the OE tank, the
-                      requirements of Section 3.3.3.B.27 must be met
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <!-- TODO Clarify this. Referencing other sections not clearly present or reachable from
-        the website is confusing -->
-        <li>
-          Engine and drivetrain mounts are considered part of these allowances and any material is
-          permitted. The allowances of Section 16.1.O may be used to affix brackets, but these
-          brackets shall serve no purpose other than engine and drivetrain mounting (e.g., they
-          may not provide chassis stiffening)
-        </li>
-      </ul>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['smEngineAndDrivetrain', 'smCarAnsweredIndex'], [true, 7]); hideItem('smEngineAndDrivetrain'); evalSessionStorage('smCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['smEngineAndDrivetrain', 'smCarAnsweredIndex'], [false, 7]); hideItem('smEngineAndDrivetrain'); evalSessionStorage('smCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="smSteering" class="center question">
-      <h2 id="smSteeringQuestion" class="sansserif">
+    <div id="smSteering" class="center question sansserif">
+      <h2 id="smSteeringQuestion">
         Does your steering system fall within the following restrictions?
       </h2>
 
-      <h3 class="sansserif">
+      <h3>
           Steering modifications are permitted as follows
       </h3>
-      <ul class="sansserif list explanation">
-        <li>
-          Steering components, including the steering rack and/or box, tie rods, idler arms,
-          power assist devices, and related components may be replaced, added, moved, or
-          removed. The steering column within the passenger compartment is specifically
-          excluded from this allowance. This does not permit removal or modification of
-          column-mounted accessories. Wheel-mounted electrical switches such as those for the
-          horn, radio, cruise control, or shifter may be relocated and/or replaced, or eliminated
-        </li>
-        <li>
-          Rear-steer devices may be replaced with solid links
-        </li>
-        <!-- TODO Clarify this, makes unclear references -->
-        <li>
-          Supplemental steering gear boxes or steering quickeners are allowed as long as they
-          are mounted in accordance with Section 16.1.F.1
-        </li>
-        <li>
-          Steering wheels and associated mounting hardware may be replaced. This does not
-          permit removal or modification of the steering column or column-mounted
-          accessories. OE wheel-mounted electrical switches such as those for the horn, radio,
-          cruise control, or shifter may be relocated and/or replaced, or eliminated
-        </li>
-      </ul>
+      <div id="steeringBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Steering components, including the steering rack and/or box, tie rods, idler arms,
+            power assist devices, and related components may be replaced, added, moved, or
+            removed. The steering column within the passenger compartment is specifically
+            excluded from this allowance. This does not permit removal or modification of
+            column-mounted accessories. Wheel-mounted electrical switches such as those for the
+            horn, radio, cruise control, or shifter may be relocated and/or replaced, or eliminated
+          </li>
+          <li>
+            Rear-steer devices may be replaced with solid links
+          </li>
+          <!-- TODO Clarify this, makes unclear references -->
+          <li>
+            Supplemental steering gear boxes or steering quickeners are allowed as long as they
+            are mounted in accordance with Section 16.1.F.1
+          </li>
+          <li>
+            Steering wheels and associated mounting hardware may be replaced. This does not
+            permit removal or modification of the steering column or column-mounted
+            accessories. OE wheel-mounted electrical switches such as those for the horn, radio,
+            cruise control, or shifter may be relocated and/or replaced, or eliminated
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['smSteering', 'smCarAnsweredIndex'], [true, 7]); hideItem('smSteering'); evalSessionStorage('smCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['smSteering', 'smCarAnsweredIndex'], [false, 7]); hideItem('smSteering'); evalSessionStorage('smCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="eligible" class="center eligible sansserif">
-      <h1 class="sansserif">
+      <h1>
         Your car is eligible for SM class!
         </br>
       </h1>
@@ -574,11 +583,11 @@ All Possible Classes:
       </div>
     </div>
 
-    <div id="notEligible" class="center notEligible">
-      <h1 class="sansserif">
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
         Your car is NOT eligible for SM class.
       </h1>
-      <div class="notEligibleExplanation sansserif">
+      <div class="notEligibleExplanation">
         <h2>
           You answered "No" to the following questions, which resulted in your ineligibility:
         </h2>
