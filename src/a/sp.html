@@ -38,10 +38,10 @@
 
   <body onload="evalSessionStorage('spCar'); highlightAndFilterSP();">
     <div id="spLandingPage" class="center question sansserif">
-      <h2 id="spLandingPageQuestion" class="sansserif">
+      <h2 id="spLandingPageQuestion">
         Street Prepared (SP) Class Overview
       </h2>
-      <div id="explanation" class="explanation">
+      <div id="overviewBody" class="questionBody">
         <h3>
           Category Objective
         </h3>
@@ -59,7 +59,7 @@
         <h3>
           Core Modifications
         </h3>
-        <ul class="sansserif list explanation">
+        <ul class="list">
           <li>
             DOT R-compound tires
           </li>
@@ -146,7 +146,7 @@
         <h3>
           Authorized Modifications
         </h3>
-        <ul class="sansserif list explanation">
+        <ul class="list">
           <li>
             All Allowable modifications permitted in Section 13, Street Category are allowed
           </li>
@@ -204,13 +204,13 @@
 
     <!-- TODO Separate the bodywork requirements into multiple pages/questions
       This is way too much information on a single page -->
-    <div id="spBodywork" class="center question">
-      <h2 id="spBodyworkQuestion" class="sansserif">
+    <div id="spBodywork" class="center question sansserif">
+      <h2 id="spBodyworkQuestion">
         Does your car meet the bodywork requirements below?
       </h2>
-      <div id="explanation" class="explanation">
-        <h3 class="sansserif">
-          <ul class="sansserif list explanation">
+      <div id="bodyworkBody" class="questionBody">
+        <h3>
+          <ul class="list">
             <li>
               Full Prep: Fenders and bumpers may be modified for tire clearance. This includes
               the portion of a hood which serves as a fender/wheel well, where applicable. This
@@ -515,338 +515,344 @@
 
     <!-- TODO Break up the suspension question into multiple questions...right now this is just
       a wall of text -->
-    <div id="spSuspension" class="center question">
-      <h2 id="spSuspensionQuestion" class="sansserif">
+    <div id="spSuspension" class="center question sansserif">
+      <h2 id="spSuspensionQuestion">
         Does your suspension meet the requirements defined below?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Shock absorber bump stops may be altered or removed
-        </li>
-        <li>
-          On cars with lever-type shock absorbers, a tube-type shock absorber may be added. If the
-          lever-type shock serves no other purpose, it must be removed. If the lever-type shock
-          serves any other purpose, it must be retained
-        </li>
-        <li>
-          Any shock absorbers may be used. Shock absorber mounting brackets which serve no other
-          purpose may be altered, added or replaced provided that the attachment points on the
-          body/frame/subframe/chassis/ suspension member are not altered. The installation may
-          incorporate an alternate upper spring perch/seat and/or mounting block (bearing mount).
-          The system of attachment may be changed. The number of shock absorbers shall be the same
-          as standard. No shock absorber may be capable of adjustment while the car is in motion
-          unless fitted as original equipment. MacPherson strut equipped cars may substitute
-          struts and/or may use any insert. This does not allow unauthorized changes in suspension
-          geometry or changes in attachment points (e.g., affecting the position of the lower ball
-          joint or spindle). It is intended to allow the strut length changes needed to
-          accommodate permitted modifications which affect ride height and suspension travel.
-        </li>
-        <li>
-          On strut suspensions using a non-standard lower control arm (as defined by Section
-          15.8.H.2), an alternate upper spring perch/seat and/or mounting block (bearing mount) as
-          described in Section 15.5.C may be used provided it offers no camber/caster adjustment
-          beyond standard
-        </li>
-        <li>
-          Substitution, addition, or removal of any anti-roll bar(s) is permitted. Bushing
-          material, method of attachment, and locating points are unrestricted. This does not
-          authorize removal of a welded-on part of a subframe to accommodate the installation,
-          or the cutting of holes to route the bar or links. Non-standard lateral members which
-          connect between the brackets for the bar, including allowed strut bars per Section
-          15.2.C, are permitted.
-        </li>
-        <li>
-          The bar may serve no other purpose which is not explicitly permitted elsewhere herein.
-          Components such as anti-roll bars and strut housings which serve dual purposes by also
-          functioning as suspension locators may not be modified or substituted in ways which
-          change the suspension geometry or steering geometry, and may not be installed in
-          positions (e.g., upside down) other than that of the original configuration.
-        </li>
-        <li>
-          Ride height may only be altered by suspension adjustments, the use of spacing blocks,
-          leaf spring shackles, torsion bar levers, or change or modification of springs or coil
-          spring perches. This does not allow the use of spacers which alter suspension geometry
-          such as those between the hub carrier and lower suspension arm. Springs must be of the
-          same type as the original (coil, leaf, torsion bar, etc.) and except as noted herein,
-          must use the original spring attachment points. This permits multiple springs as long as
-          they use the original mount locations. Coil spring perches originally attached to struts
-          or shock absorber bodies may be changed or altered and their position may be adjustable.
-          Spacers are allowed above or below the spring.
-        </li>
-        <li>
-          Suspension bump stops may be altered or removed
-        </li>
-        <li>
-          Suspension bushings may be replaced with bushings of any materials as long as they fit
-          in the original location. Offset bushings may be used. Bushing type may be changed to
-          alternate types (e.g. spherical bearing). Pins or keys may be used to prevent the
-          rotation of alternate bushings but may serve no other purpose than that of retaining
-          the bushing in the desired position. Differential mount bushings are not considered to
-          be suspension bushings and are not covered by this allowance.
-        </li>
-        <li>
-          Differential mount bushings may be replaced but must attach in the factory location(s)
-          without additional modification or changes. Differential position may not be changed.
-        </li>
-        <li>
-          Steering rack bushings may be replaced but must attach in the factory location(s)
-          without additional modification or changes. Steering rack position may not be changed.
-          Solid metal bushings are specifically prohibited. This does NOT allow shimming or
-          otherwise relocating the steering rack.
-        </li>
-        <li>
-          The following allowances apply to strut-type suspensions: Adjustable camber plates may
-          be installed at the top of the strut and the original upper mounting holes may be
-          slotted. The drilling of holes in order to perform the installation is permitted but the
-          center clearance hole may not be modified. Any type of bearing or bushing may be used in
-          the adjustable camber plate attachment to the strut. The installation may in-
-          corporate an alternate upper spring perch/seat and/or mounting block (bearing mount).
-          Any ride height change resulting from installation of camber plates is allowed. Caster
-          changes resulting from the use of camber plates are permitted.
-        </li>
-        <li>
-          Camber bolts may be installed providing these parts use the original, unmodified
-          mounting points. Caster changes resulting from the use of camber bolts are permitted.
-        </li>
-        <li>
-          Camber kits, also known as camber compensators, may be installed. These kits consist of
-          either adjustable length arms, arm mounts, or ball joints that provide a lateral
-          adjustment to the effective length of a control arm. Alignment outside the factory
-          specifications is allowed. Caster changes resulting from the use of camber kits are
-          permitted. The following restrictions apply:
-          <ul>
-            <li>
-              On double/unequal arm (e.g., wishbone, multi-link) suspensions, only the upper arms
-              OR lower arms may be modified or replaced, but not both. Non-integral longitudinal
-              arms that primarily control fore/aft wheel movement (e.g., trailing arm(s) or
-              link(s) of a multi-link suspension) may not be replaced, changed, or modified.
-            </li>
-            <li>
-              On arm-and-strut (MacPherson/Chapman) suspensions, the lower arms may be
-              modified/replaced OR other methods of camber adjustment as allowed by Sections
-              15.8.C, F, or G may be used, but NOT both.
-            </li>
-            <li>
-              On swing or trailing arm suspensions, the main arms may not be modified or replaced
-              but lateral locating links/arms may be modified or replaced.
-            </li>
-            <li>
-              The replacement arms or mounts must attach to the original standard mounting
-              points. All bushings must meet the requirements of Section 15.8.C. Intermediate
-              mounting points (e.g., shock/spring mounts) may not be moved or relocated on the
-              arm, except as incidental to the camber adjustment. The knuckle/bearing housing/
-              spindle assembly cannot be modified or replaced.
-            </li>
-            <li>
-              Changes in suspension geometry are not allowed except as incidental to the effective
-              arm length change.
-            </li>
-          </ul>
-        </li>
-        <li>
-          Solid axle suspension allowances:
-          <ul>
-            <li>
-              Addition or replacement of suspension stabilizers (linkage connecting the axle
-              housing or De Dion to the chassis, which controls lateral suspension location) is
-              permitted.
-            </li>
-            <li>
-              Traction bars or torque arms may be added or replaced.
-            </li>
-            <li>
-              A panhard rod may be added or replaced.
-            </li>
-            <li>
-              The upper arm(s) may be removed, replaced, or modified and the upper pickup points
-              on the rear axle housing may be relocated.
-            </li>
-            <li>
-              The lower arms may be replaced or modified and the lower pickup points on the rear
-              axle housing may be relocated.
-            </li>
-            <li>
-              Differential covers and attaching hardware may be replaced.
-            </li>
-            <li>
-              Methods of attachment and attachment points are unrestricted, but may serve no other
-              purpose (e.g., chassis stiffening). This does not authorize removal of a welded-on
-              part of a subframe or bodywork to accommodate the installation.
-            </li>
-          </ul>
-        </li>
-        <li>
-          On strut-equipped cars, the strut's lower integral mounting bracket, for attachment to
-          the upright or spindle, is unrestricted provided it attaches to the standard location.
-          Any resulting change to the position of the strut centerline is allowed. Such brackets
-          shall serve no other purpose. This does not allow for changes to the integral steering
-          arm on cars that have the steering arm integrated with the strut body.
-        </li>
-        <li>
-          Changes in alignment parameters which result directly from the use of allowed components
-          are permitted. For example, the dimensional changes resulting from the use of a
-          cylindrical offset bushing which meets the restrictions of Section 15.8.C are allowed,
-          including those resulting from a change in the pivoting action to:
-          <ul>
-            <li>
-              About the mounting bolt, or
-            </li>
-            <li>
-              About the bushing itself
-            </li>
-          </ul>
-        </li>
-        <li>
-          Eccentric bolts are permitted for suspension adjustment only if they are as specified by
-          the factory
-        </li>
-        <li>
-          Suspension components may be replaced with aftermarket components in order to improve
-          durability and reliability. Any replaced components are subject to the following
-          restrictions:
-          <ul>
-            <li>
-              Replacement components may not be lighter than the original component.
-            </li>
-            <li>
-              Replacement components must install without modification to the mating part.
-            </li>
-            <li>
-              Replacement components may not differ from the original beyond improved strength,
-              alternate manufacturing techniques, or replacement with larger components.
-            </li>
-            <li>
-              Components around or connected to the replaced component may not be relocated or
-              modified unless permitted elsewhere in section 15.
-            </li>
-            <li>
-              Heat treatment may be used to increase the durability of an original part and the
-              resulting part will be considered a replaced component.
-            </li>
-            <li>
-              Metal components may not be replaced with non-metal components. However a non-metal
-              component may be replaced with a metal component so long as this does not violate
-              other rules. For example the bushing metal content rule still applies.
-            </li>
-            <li>
-              Replaced components may not alter the suspension geometry unless otherwise permitted
-              in section 15. Replacement hubs may relocate the wheel mating surface to widen the
-              track width but may not relocate the wheel mating surface to narrow the track width.
-            </li>
-            <li>
-              Replaced components may serve no purpose other than to increase durability and
-              reliability. This allowance is intended to improve durability without improving
-              performance. Components are not to be replaced to allow for increased power or
-              larger tires but to replace common component failures. For example, hubs often
-              become wear items that require frequent replacement to avoid failure. Hubs may be
-              replaced with larger, stronger hubs to reduce the chance of failure and increase the
-              life of the component.
-            </li>
-          </ul>
-        </li>
-        <li>
-          For cars originally equipped with transverse leaf springs, spring type may be changed to
-          a coil spring. Spring perches may be added to shock absorbers for mounting coil springs
-          in a "coilover" configuration.
-        </li>
-      </ul>
+      <div id="suspensionBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Shock absorber bump stops may be altered or removed
+          </li>
+          <li>
+            On cars with lever-type shock absorbers, a tube-type shock absorber may be added. If the
+            lever-type shock serves no other purpose, it must be removed. If the lever-type shock
+            serves any other purpose, it must be retained
+          </li>
+          <li>
+            Any shock absorbers may be used. Shock absorber mounting brackets which serve no other
+            purpose may be altered, added or replaced provided that the attachment points on the
+            body/frame/subframe/chassis/ suspension member are not altered. The installation may
+            incorporate an alternate upper spring perch/seat and/or mounting block (bearing mount).
+            The system of attachment may be changed. The number of shock absorbers shall be the same
+            as standard. No shock absorber may be capable of adjustment while the car is in motion
+            unless fitted as original equipment. MacPherson strut equipped cars may substitute
+            struts and/or may use any insert. This does not allow unauthorized changes in suspension
+            geometry or changes in attachment points (e.g., affecting the position of the lower ball
+            joint or spindle). It is intended to allow the strut length changes needed to
+            accommodate permitted modifications which affect ride height and suspension travel.
+          </li>
+          <li>
+            On strut suspensions using a non-standard lower control arm (as defined by Section
+            15.8.H.2), an alternate upper spring perch/seat and/or mounting block (bearing mount) as
+            described in Section 15.5.C may be used provided it offers no camber/caster adjustment
+            beyond standard
+          </li>
+          <li>
+            Substitution, addition, or removal of any anti-roll bar(s) is permitted. Bushing
+            material, method of attachment, and locating points are unrestricted. This does not
+            authorize removal of a welded-on part of a subframe to accommodate the installation,
+            or the cutting of holes to route the bar or links. Non-standard lateral members which
+            connect between the brackets for the bar, including allowed strut bars per Section
+            15.2.C, are permitted.
+          </li>
+          <li>
+            The bar may serve no other purpose which is not explicitly permitted elsewhere herein.
+            Components such as anti-roll bars and strut housings which serve dual purposes by also
+            functioning as suspension locators may not be modified or substituted in ways which
+            change the suspension geometry or steering geometry, and may not be installed in
+            positions (e.g., upside down) other than that of the original configuration.
+          </li>
+          <li>
+            Ride height may only be altered by suspension adjustments, the use of spacing blocks,
+            leaf spring shackles, torsion bar levers, or change or modification of springs or coil
+            spring perches. This does not allow the use of spacers which alter suspension geometry
+            such as those between the hub carrier and lower suspension arm. Springs must be of the
+            same type as the original (coil, leaf, torsion bar, etc.) and except as noted herein,
+            must use the original spring attachment points. This permits multiple springs as long as
+            they use the original mount locations. Coil spring perches originally attached to struts
+            or shock absorber bodies may be changed or altered and their position may be adjustable.
+            Spacers are allowed above or below the spring.
+          </li>
+          <li>
+            Suspension bump stops may be altered or removed
+          </li>
+          <li>
+            Suspension bushings may be replaced with bushings of any materials as long as they fit
+            in the original location. Offset bushings may be used. Bushing type may be changed to
+            alternate types (e.g. spherical bearing). Pins or keys may be used to prevent the
+            rotation of alternate bushings but may serve no other purpose than that of retaining
+            the bushing in the desired position. Differential mount bushings are not considered to
+            be suspension bushings and are not covered by this allowance.
+          </li>
+          <li>
+            Differential mount bushings may be replaced but must attach in the factory location(s)
+            without additional modification or changes. Differential position may not be changed.
+          </li>
+          <li>
+            Steering rack bushings may be replaced but must attach in the factory location(s)
+            without additional modification or changes. Steering rack position may not be changed.
+            Solid metal bushings are specifically prohibited. This does NOT allow shimming or
+            otherwise relocating the steering rack.
+          </li>
+          <li>
+            The following allowances apply to strut-type suspensions: Adjustable camber plates may
+            be installed at the top of the strut and the original upper mounting holes may be
+            slotted. The drilling of holes in order to perform the installation is permitted but the
+            center clearance hole may not be modified. Any type of bearing or bushing may be used in
+            the adjustable camber plate attachment to the strut. The installation may in-
+            corporate an alternate upper spring perch/seat and/or mounting block (bearing mount).
+            Any ride height change resulting from installation of camber plates is allowed. Caster
+            changes resulting from the use of camber plates are permitted.
+          </li>
+          <li>
+            Camber bolts may be installed providing these parts use the original, unmodified
+            mounting points. Caster changes resulting from the use of camber bolts are permitted.
+          </li>
+          <li>
+            Camber kits, also known as camber compensators, may be installed. These kits consist of
+            either adjustable length arms, arm mounts, or ball joints that provide a lateral
+            adjustment to the effective length of a control arm. Alignment outside the factory
+            specifications is allowed. Caster changes resulting from the use of camber kits are
+            permitted. The following restrictions apply:
+            <ul>
+              <li>
+                On double/unequal arm (e.g., wishbone, multi-link) suspensions, only the upper arms
+                OR lower arms may be modified or replaced, but not both. Non-integral longitudinal
+                arms that primarily control fore/aft wheel movement (e.g., trailing arm(s) or
+                link(s) of a multi-link suspension) may not be replaced, changed, or modified.
+              </li>
+              <li>
+                On arm-and-strut (MacPherson/Chapman) suspensions, the lower arms may be
+                modified/replaced OR other methods of camber adjustment as allowed by Sections
+                15.8.C, F, or G may be used, but NOT both.
+              </li>
+              <li>
+                On swing or trailing arm suspensions, the main arms may not be modified or replaced
+                but lateral locating links/arms may be modified or replaced.
+              </li>
+              <li>
+                The replacement arms or mounts must attach to the original standard mounting
+                points. All bushings must meet the requirements of Section 15.8.C. Intermediate
+                mounting points (e.g., shock/spring mounts) may not be moved or relocated on the
+                arm, except as incidental to the camber adjustment. The knuckle/bearing housing/
+                spindle assembly cannot be modified or replaced.
+              </li>
+              <li>
+                Changes in suspension geometry are not allowed except as incidental to the effective
+                arm length change.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Solid axle suspension allowances:
+            <ul>
+              <li>
+                Addition or replacement of suspension stabilizers (linkage connecting the axle
+                housing or De Dion to the chassis, which controls lateral suspension location) is
+                permitted.
+              </li>
+              <li>
+                Traction bars or torque arms may be added or replaced.
+              </li>
+              <li>
+                A panhard rod may be added or replaced.
+              </li>
+              <li>
+                The upper arm(s) may be removed, replaced, or modified and the upper pickup points
+                on the rear axle housing may be relocated.
+              </li>
+              <li>
+                The lower arms may be replaced or modified and the lower pickup points on the rear
+                axle housing may be relocated.
+              </li>
+              <li>
+                Differential covers and attaching hardware may be replaced.
+              </li>
+              <li>
+                Methods of attachment and attachment points are unrestricted, but may serve no other
+                purpose (e.g., chassis stiffening). This does not authorize removal of a welded-on
+                part of a subframe or bodywork to accommodate the installation.
+              </li>
+            </ul>
+          </li>
+          <li>
+            On strut-equipped cars, the strut's lower integral mounting bracket, for attachment to
+            the upright or spindle, is unrestricted provided it attaches to the standard location.
+            Any resulting change to the position of the strut centerline is allowed. Such brackets
+            shall serve no other purpose. This does not allow for changes to the integral steering
+            arm on cars that have the steering arm integrated with the strut body.
+          </li>
+          <li>
+            Changes in alignment parameters which result directly from the use of allowed components
+            are permitted. For example, the dimensional changes resulting from the use of a
+            cylindrical offset bushing which meets the restrictions of Section 15.8.C are allowed,
+            including those resulting from a change in the pivoting action to:
+            <ul>
+              <li>
+                About the mounting bolt, or
+              </li>
+              <li>
+                About the bushing itself
+              </li>
+            </ul>
+          </li>
+          <li>
+            Eccentric bolts are permitted for suspension adjustment only if they are as specified by
+            the factory
+          </li>
+          <li>
+            Suspension components may be replaced with aftermarket components in order to improve
+            durability and reliability. Any replaced components are subject to the following
+            restrictions:
+            <ul>
+              <li>
+                Replacement components may not be lighter than the original component.
+              </li>
+              <li>
+                Replacement components must install without modification to the mating part.
+              </li>
+              <li>
+                Replacement components may not differ from the original beyond improved strength,
+                alternate manufacturing techniques, or replacement with larger components.
+              </li>
+              <li>
+                Components around or connected to the replaced component may not be relocated or
+                modified unless permitted elsewhere in section 15.
+              </li>
+              <li>
+                Heat treatment may be used to increase the durability of an original part and the
+                resulting part will be considered a replaced component.
+              </li>
+              <li>
+                Metal components may not be replaced with non-metal components. However a non-metal
+                component may be replaced with a metal component so long as this does not violate
+                other rules. For example the bushing metal content rule still applies.
+              </li>
+              <li>
+                Replaced components may not alter the suspension geometry unless otherwise permitted
+                in section 15. Replacement hubs may relocate the wheel mating surface to widen the
+                track width but may not relocate the wheel mating surface to narrow the track width.
+              </li>
+              <li>
+                Replaced components may serve no purpose other than to increase durability and
+                reliability. This allowance is intended to improve durability without improving
+                performance. Components are not to be replaced to allow for increased power or
+                larger tires but to replace common component failures. For example, hubs often
+                become wear items that require frequent replacement to avoid failure. Hubs may be
+                replaced with larger, stronger hubs to reduce the chance of failure and increase the
+                life of the component.
+              </li>
+            </ul>
+          </li>
+          <li>
+            For cars originally equipped with transverse leaf springs, spring type may be changed to
+            a coil spring. Spring perches may be added to shock absorbers for mounting coil springs
+            in a "coilover" configuration.
+          </li>
+        </ul>
+      </div>
       </br>
 
       <button class="button yesButton" onclick="setState(['spSuspension', 'spCarAnsweredIndex'], [true, 2]); hideItem('spSuspension'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['spSuspension', 'spCarAnsweredIndex'], [false, 2]); hideItem('spSuspension'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="spBrakes" class="center question">
-      <h2 id="spBrakesQuestion" class="sansserif">
+    <div id="spBrakes" class="center question sansserif">
+      <h2 id="spBrakesQuestion">
         Do your brakes meet the following requirements?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Full Prep: Any brake line, master cylinder, vacuum brake booster, or brake proportioning
-          valve that meets the requirements of Section 3.3.3.B.13 may be used. This does not allow
-          multiple separate cylinders. A single master cylinder brace may be added provided it is
-          bolt-on and serves no other purpose. One additional hole may be drilled in brake pedal
-          arm for relocation of the master cylinder pushrod
-        </li>
-        <li>
-          "Safety brakers" and units such as the "Brake Guard System" are permitted
-        </li>
-        <li>
-          Full Prep: ABS braking systems may be disabled, but not removed; brake boosters may be
-          removed, modified, substituted, or added
-        </li>
-        <li>
-          Limited Prep: Any brake line may be used
-        </li>
-        <li>
-          Alternate brake rotors are permitted subject to the following restrictions:
-          <ul>
-            <li>
-              Rotors must be ferrous metal except for standard parts. Aluminum rotor hats are
-              allowed. Rotor dimensions (diameter and thickness) must be equal to or greater than
-              standard parts. Cars originally equipped with solid (non-vented) rotors may utilize
-              vented rotors.
-            </li>
-            <li>
-              Cross-drilled and/or slotted brake rotors may be used. Slots/holes are permitted
-              only in the braking area of the rotor. Rotors featuring a drum-type parking brake in
-              the hat area of the rotor may not be drilled or slotted in the parking brake area.
-            </li>
-          </ul>
-        </li>
-        <li>
-          Drum brakes may be replaced with disc brakes. Disc brake rotors for such a conversion
-          must be equal to or greater in diameter than the inside diameter of the standard brake
-          drum. Changes to backing plates/ mounting brackets/brake lines to accommodate this
-          change are permitted but may serve no other purpose. Drum-to-disc brake conversions
-          must be bolted, not welded, to the axle/control arm/upright.
-        </li>
-        <li>
-          Air ducts may be fitted to the brakes provided that no changes are made in the
-          body/structure for their use. They may serve no other purpose. Backing plates and dirt
-          shields may be modified or removed.
-        </li>
-        <li>
-          A functional, redundant emergency (parking) brake must be present.
-        </li>
-        <li>
-          Brake calipers may be replaced, provided the number of pistons is equal to or greater
-          than the original number of pistons. Caliper mounting brackets may be replaced to
-          accommodate this change, but may serve no other purpose. Alternate caliper brackets must
-          bolt to the original caliper bracket mounting location(s).
-        </li>
-      </ul>
+      <div id="brakesBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Full Prep: Any brake line, master cylinder, vacuum brake booster, or brake proportioning
+            valve that meets the requirements of Section 3.3.3.B.13 may be used. This does not allow
+            multiple separate cylinders. A single master cylinder brace may be added provided it is
+            bolt-on and serves no other purpose. One additional hole may be drilled in brake pedal
+            arm for relocation of the master cylinder pushrod
+          </li>
+          <li>
+            "Safety brakers" and units such as the "Brake Guard System" are permitted
+          </li>
+          <li>
+            Full Prep: ABS braking systems may be disabled, but not removed; brake boosters may be
+            removed, modified, substituted, or added
+          </li>
+          <li>
+            Limited Prep: Any brake line may be used
+          </li>
+          <li>
+            Alternate brake rotors are permitted subject to the following restrictions:
+            <ul>
+              <li>
+                Rotors must be ferrous metal except for standard parts. Aluminum rotor hats are
+                allowed. Rotor dimensions (diameter and thickness) must be equal to or greater than
+                standard parts. Cars originally equipped with solid (non-vented) rotors may utilize
+                vented rotors.
+              </li>
+              <li>
+                Cross-drilled and/or slotted brake rotors may be used. Slots/holes are permitted
+                only in the braking area of the rotor. Rotors featuring a drum-type parking brake in
+                the hat area of the rotor may not be drilled or slotted in the parking brake area.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Drum brakes may be replaced with disc brakes. Disc brake rotors for such a conversion
+            must be equal to or greater in diameter than the inside diameter of the standard brake
+            drum. Changes to backing plates/ mounting brackets/brake lines to accommodate this
+            change are permitted but may serve no other purpose. Drum-to-disc brake conversions
+            must be bolted, not welded, to the axle/control arm/upright.
+          </li>
+          <li>
+            Air ducts may be fitted to the brakes provided that no changes are made in the
+            body/structure for their use. They may serve no other purpose. Backing plates and dirt
+            shields may be modified or removed.
+          </li>
+          <li>
+            A functional, redundant emergency (parking) brake must be present.
+          </li>
+          <li>
+            Brake calipers may be replaced, provided the number of pistons is equal to or greater
+            than the original number of pistons. Caliper mounting brackets may be replaced to
+            accommodate this change, but may serve no other purpose. Alternate caliper brackets must
+            bolt to the original caliper bracket mounting location(s).
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['spBrakes', 'spCarAnsweredIndex'], [true, 3]); hideItem('spBrakes'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['spBrakes', 'spCarAnsweredIndex'], [false, 3]); hideItem('spBrakes'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="spWheels" class="center question">
-      <h2 id="spWheelsQuestion" class="sansserif">
+    <div id="spWheels" class="center question sansserif">
+      <h2 id="spWheelsQuestion">
         Do your wheels meet the following requirements?
         </br>
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Wheels of any diameter, width, or offset may be used. Aftermarket wheels may be modified
-          to install OE tire pressure sensors
-        </li>
-        <li>
-          Wheel spacers are permitted. Wheel studs and knock-off wheel drive pegs may be changed
-          in length and diameter. Wheel bolts may be replaced with studs and nuts
-        </li>
-      </ul>
+      <div id="wheelsBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Wheels of any diameter, width, or offset may be used. Aftermarket wheels may be modified
+            to install OE tire pressure sensors
+          </li>
+          <li>
+            Wheel spacers are permitted. Wheel studs and knock-off wheel drive pegs may be changed
+            in length and diameter. Wheel bolts may be replaced with studs and nuts
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['spWheels', 'spCarAnsweredIndex'], [true, 4]); hideItem('spWheels'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['spWheels', 'spCarAnsweredIndex'], [false, 4]); hideItem('spWheels'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="spTires" class="center question">
-      <h2 id="spTiresQuestion" class="sansserif">
+    <div id="spTires" class="center question sansserif">
+      <h2 id="spTiresQuestion">
         Do your tires meet the following requirements?
       </h2>
       </br>
-      <p class="sansserif">
+      <p>
       UTQG Treadwear Grade of 200 or higher, or DOT R-Compound Tires
       </p>
       </br>
@@ -854,366 +860,370 @@
       <button class="button noButton" onclick="setState(['spTires', 'spCarAnsweredIndex'], [false, 5]); hideItem('spTires'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="spElectrical" class="center question">
-      <h2 id="spElectricalQuestion" class="sansserif">
+    <div id="spElectrical" class="center question sansserif">
+      <h2 id="spElectricalQuestion">
         Does your electrical system meet the requirements below?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Any ignition setting, adjustment, or system may be used subject to the requirements of
-          Section 15.10.D. This does not prohibit the use of "two-step" rev limiters used when
-          the car is stationary.
-        </li>
-        <li>
-          The make, model number, and size of the battery may be changed but not its voltage.
-        </li>
-        <li>
-          Relocation of the battery or batteries is permitted but not into the passenger
-          compartment. If the battery is relocated and the original battery tray can be removed by
-          simply unbolting it, the tray may be removed or relocated with the battery. Holes may be
-          drilled for mounting or passage of cables. Longer or shorter cables may be substituted
-          to permit relocation. The number of battery or batteries may not be changed from
-          standard. The area behind the rearmost seat is not considered to be within the passenger
-          compartment. The area under the rearmost seat is considered to be within the passenger
-          compartment.
-        </li>
-        <li>
-          Full Prep: Any starter, generator, or alternator may be used in the original position.
-          An alternator or generator must have an electrical output (including amperage) equal
-          to or greater than the original equipment unit. Any generator or alternator pulley and
-          belt of the same type as standard may be used (see Section 15.10.Y)
-        </li>
-        <li>
-          Wiring harnesses may not be removed in whole or in part. Wiring connectors for
-          emissions control devices are considered part of the harness, not part of the
-          emissions control system, and may not be removed. Connectors may be changed for
-          compatibility with allowed aftermarket components such as ignition coils. Pigtails may
-          be used
-        </li>
-        <li>
-          A hole may be drilled in the firewall to permit passage of electrical wiring. It
-          should be no larger than necessary and shall serve no other purpose.
-        </li>
-      </ul>
+      <div id="electricalBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Any ignition setting, adjustment, or system may be used subject to the requirements of
+            Section 15.10.D. This does not prohibit the use of "two-step" rev limiters used when
+            the car is stationary.
+          </li>
+          <li>
+            The make, model number, and size of the battery may be changed but not its voltage.
+          </li>
+          <li>
+            Relocation of the battery or batteries is permitted but not into the passenger
+            compartment. If the battery is relocated and the original battery tray can be removed by
+            simply unbolting it, the tray may be removed or relocated with the battery. Holes may be
+            drilled for mounting or passage of cables. Longer or shorter cables may be substituted
+            to permit relocation. The number of battery or batteries may not be changed from
+            standard. The area behind the rearmost seat is not considered to be within the passenger
+            compartment. The area under the rearmost seat is considered to be within the passenger
+            compartment.
+          </li>
+          <li>
+            Full Prep: Any starter, generator, or alternator may be used in the original position.
+            An alternator or generator must have an electrical output (including amperage) equal
+            to or greater than the original equipment unit. Any generator or alternator pulley and
+            belt of the same type as standard may be used (see Section 15.10.Y)
+          </li>
+          <li>
+            Wiring harnesses may not be removed in whole or in part. Wiring connectors for
+            emissions control devices are considered part of the harness, not part of the
+            emissions control system, and may not be removed. Connectors may be changed for
+            compatibility with allowed aftermarket components such as ignition coils. Pigtails may
+            be used
+          </li>
+          <li>
+            A hole may be drilled in the firewall to permit passage of electrical wiring. It
+            should be no larger than necessary and shall serve no other purpose.
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['spElectrical', 'spCarAnsweredIndex'], [true, 6]); hideItem('spElectrical'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['spElectrical', 'spCarAnsweredIndex'], [false, 6]); hideItem('spElectrical'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="spEngineAndDrivetrain" class="center question">
-      <h2 id="spEngineAndDrivetrainQuestion" class="sansserif">
+    <div id="spEngineAndDrivetrain" class="center question sansserif">
+      <h2 id="spEngineAndDrivetrainQuestion">
         Does your engine and drivetrain fall within the following restrictions?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Engines must retain standard type lubricating system, but may have any oil pan
-          (Accusump®-type systems allowed), oil pump and pickup, oil cooler(s), or oil or fuel
-          filters. Fuel filters must be of automotive type and may serve no other purpose; a
-          substituted fuel filter may not be used as a reservoir. Substituted fuel filters may not
-          exceed one quart total capacity. A permitted oil cooler may be positioned in an opening
-          in an allowed spoiler, provided no unauthorized modifications are made in order to
-          perform the installation. Any power steering fluid cooler may be added.
-        </li>
-        <li>
-          Heat shields may be added
-        </li>
-        <li>
-          Induction allowances are as follows:
-          <ul>
-            <li>
-              Fuel injection systems and carburetors are unrestricted, including throttle bodies,
-              manifolds, and plumbing/piping between the inlet port at the cylinder head and the
-              atmosphere, subject to 15.10.C.4. Alternate throttle linkage and connections to
-              facilitate installation of allowed induction systems are permitted but may serve no
-              other purpose. If an induction system item is allowed to be removed and its original
-              mounting bracket can be removed by simply unbolting it, the bracket may be removed
-              as well.
-            </li>
-            <li>
-              Except for standard parts as defined in these rules, the external use while on
-              course of liquids, ice, dry ice, refrigeration systems, vaporized compressed
-              gases, etc. to reduce the temperature of the intake air charge is prohibited.
-              Wrapping of intakes with liquid-soaked fabric is not permitted.
-            </li>
-            <li>
-              As utilized only on engines originally equipped with forced induction, induction
-              charge heat exchangers (also known as "intercoolers" or "charge air coolers" [CACs])
-              are unrestricted in size and configuration. Air-to-air CACs and radiators for
-              air-to-liquid CACs must be cooled only by the atmosphere except for standard parts.
-              Body panels, fascias, or structural members may not be cut or altered to facilitate
-              CAC installation.
-            </li>
-            <li>
-              Turbochargers and/or superchargers (forced induction) may not be added, changed, or
-              modified (this does not allow ceramic coating of turbochargers). On vehicles
-              originally equipped with forced induction:
-              <ul>
-                <li>
-                  No hardware changes or alterations to turbocharger(s) or supercharger(s), in
-                  size or number, are permitted. Turbochargers or superchargers may be
-                  updated/backdated only in conjunction with the accompanying complete engine unit.
-                </li>
-                <li>
-                  No changes are allowed to waste gate(s) size, number, or location. No changes
-                  are allowed to variable-geometry turbine (VGT) hardware.
-                </li>
-                <li>
-                  Supercharger pulleys and belts of the same type as standard may be replaced with
-                  alternate pulleys allowing drive ratio changes. Belt tensioners may be
-                  added/changed to reduce belt slip.
-                </li>
-                <li>
-                  Compressor bypass valves (CBVs), blow-off valves, and pop-off valves are
-                  considered part of the air intake system and may be added, replaced, or
-                  updated/backdated independently of the other components of a forced induction
-                  system.
-                </li>
-                <li>
-                  Boost regulation systems, either electronic or mechanical, and electronic fuel
-                  cuts referencing boost pressure may be altered or modified except as prohibited
-                  herein. Boost pressure changes resulting from authorized changes are permitted.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          Traction and/or stability control systems, as defined in Section 12.12, must be standard
-          parts at standard settings or electronically disabled.
-        </li>
-        <li>
-          Air cleaner(s) may be changed or removed; velocity stacks may be added.
-        </li>
-        <li>
-          Emission control devices may be modified or removed. This permits the oil filler cap to
-          be modified or substituted but does not allow valve covers or cam covers to be altered
-          to install a breather or for any other purpose.
-        </li>
-        <li>
-          Intake water injection systems are allowed
-        </li>
-        <li>
-          Fuel lines and pumps are unrestricted except as specified herein, as long as they do not
-          pose a safety hazard. Fuel lines may be no larger than 1⁄2" (12.7 mm) i.d. (inside
-          diameter) and may only connect to the original fuel tank or allowed fuel cell. They may
-          be no longer than necessary for reasonable and safe installation, and may serve no other
-          purpose. A single fuel feed line may be used. A single fuel return line may be used and
-          a fitting for connecting it may be added at or near the top of the fuel tank. This does
-          not authorize "cool-cans."
-        </li>
-        <li>
-          Exhaust manifolds and muffler systems are free, except that they must be quiet and
-          terminate behind the driver (Section 3.3.3.B.16). Exhaust heat shields may be removed.
-          Rear and mid-engine cars without exhaust headers/manifold systems may use any exhaust
-          syste" that meets the requirements of Section 3.5. This permits the removal of "heater
-          boxes" in order to install headers on such cars.
-        </li>
-        <li>
-          Engine and transmission mounts may be replaced but must attach in the factory
-          location(s) without additional modification or changes. Engine position may not be
-          changed. Hydraulic shock type rear engine locators, or bobble struts, may be replaced by
-          manufacturer's performance part or aftermarket replacement part. This part must retain
-          factory dimensions and attachment points, including factory design. (Example: If
-          factory locator/bobble strut is gas or hydraulic piston type, replacement part must be
-          gas or hydraulic piston type.) If one or more non-OE engine or transmission mounts are
-          used, Section 15.10.K does not apply and a torque suppression device may not be used.
-        </li>
-        <li>
-          One bolt-on torque suppression device may be used. A torque suppres-
-sion device attaches from the engine to the body, frame, or subframe
-in one location and controls engine movement at that location along a
-single axis only. It may serve no other purpose.
-Examples of permitted devices:
-          <ul>
-            <li>
-              A chain
-            </li>
-            <li>
-              A rod with spherical bearings at each end
-            </li>
-          </ul>
-        </li>
-        <li>
-          Engine cooling radiators may be replaced with alternate parts subject to the following
-          restrictions:
-          <ul>
-            <li>
-              Radiator dimensions (width, height, thickness, etc.) must be no smaller than the
-              standard part.
-            </li>
-            <li>
-              Radiator must mount to OE radiator mounts.
-            </li>
-            <li>
-              Fluid capacity and dry weight of the radiator must be no less than that of the
-              standard part. Installation of an alternate radiator may serve no other purpose
-              (e.g., to allow a cold air intake passage).
-            </li>
-          </ul>
-        </li>
-        <li>
-          The engine fan and fan shroud (unless it serves another purpose, e.g., as an
-          alternator/generator mount) may be removed, modified or replaced. Electrically driven
-          fans are allowed. Flex fans are not allowed.
-        </li>
-        <li>
-          On two-cycle engines, the ports must be of standard heights, size and configuration;
-          crankcase volume and reed plates must not be altered.
-        </li>
-        <li>
-          Full Prep: Any metal clutch assembly, metal flywheel, or metal torque converter that
-          uses the standard attachment to the crankshaft may be used. Non-metallic friction
-          surfaces (e.g., clutch discs) are permitted. Dowel pins may be added. Any hydraulic
-          clutch line may be used. Replacement or substitution of the clutch master cylinder and
-          clutch slave cylinder is permitted.
-        </li>
-        <li>
-          Limited Prep: Any metal clutch assembly, metal flywheel, or metal torque converter that
-          uses the standard attachment to the crankshaft may be used. Non-metallic friction
-          surfaces (e.g., clutch disks) are permitted. Dowel pins may be added. Any hydraulic
-          clutch line may be used. Replacement or substitution of the clutch slave cylinder is
-          permitted. Clutch/Flywheel friction surface diameter must be the same as original
-          equipment.
-        </li>
-        <li>
-          Any mechanical shift linkage may be used
-        </li>
-        <li>
-          Limited slip differentials are permitted. This permits locked differentials either by
-          design, welding, or mechanical means. Differential cases, internal differential parts,
-          and axle stubs may be machined as required for clearance and installation to the extent
-          that material may only be removed, not added, and the exterior of the case may not be
-          altered in any way. This machining may serve no other purpose.
-        </li>
-        <li>
-          Full Prep: Cylinders may be rebored to no more than 0.0472" (1.20 mm) over standard bore
-          and the appropriate standard oversize piston may be substituted. This overbore dimension
-          is an absolute limit; no additional tolerance is permitted to accommodate wear. Cast or
-          forged, non-standard pistons of the same dimensions and configuration as original
-          equipment pistons may be used. Additionally the replacement pistons must be of the same
-          weight or greater as the original equipment pistons. Replacement pistons must match OE
-          piston configuration exactly including quench area. The allowance for the use of
-          aftermarket forgings vs. OE castings does not permit alternate piston dome designs.
-          This allowance does not permit alternative ring configurations.
-        </li>
-        <li>
-          Full Prep: Rotating and reciprocating parts may be balanced but not lightened.
-        </li>
-        <li>
-          Full Prep: Intake and exhaust ports and manifold openings may be matched provided no
-          change is made more than one inch from the port/ manifold interface. Material may be
-          removed to facilitate port matching, but no material may be added.
-        </li>
-        <li>
-          Any transmission and/or differential oil coolers may be used. Differential covers may
-          be modified or substituted for cooling.
-        </li>
-        <li>
-          The engine cylinder head(s) may be milled only to that amount specified in the
-          manufacturer's workshop manual. If no amount is specified then a maximum of 0.010"
-          (0.254 mm) may be milled.
-        </li>
-        <li>
-          Axle/halfshaft and driveshaft retention/location devices may be installed for safety
-          reasons to control the motion of attached shafts upon the failure of a coupling or
-          universal joint. They may serve no other purpose. This allowance does not include
-          "C-clip eliminators."
-        </li>
-        <li>
-          Any crankshaft damper or pulley may be used. SFI-rated dampers are recommended.
-        </li>
-        <li>
-          Any accessory pulleys and belts of the same type (e.g., V-belt, serpentine) as
-          standard may be used. This allowance applies to accessory pulleys only (e.g.,
-          alternator, water pump, power steering pump, and crankshaft drive pulleys). Alternate
-          pulley materials may be used. Idler pulleys may be used for belt routing in place of
-          items which the rules specifically allow to be removed such as smog pumps and air
-          conditioning compressors. They may serve no other purpose.
-        </li>
-        <li>
-          Camshafts and related parts must remain standard except that alternate cam drive
-          pulleys or gears may be used to adjust cam timing if no variable cam and/or valve timing
-          system exists as standard. Timing covers or valve covers may be altered for pulley
-          clearance or access to adjustment. Type of cam drive (chain, belt, gear) must remain
-          as standard. Alternate parts of the same general type (e.g., roller chain in place of
-          "silent" chain) may be substituted. Mating parts (block, heads, covers, retainers, etc.)
-          may not be altered except as mentioned above. Vehicles equipped with a variable cam
-          and/or valve timing system as standard may use alternate computer calibration to adjust
-          cam and/or valve timing but may not change or substitute cam drive components (hardware).
-        </li>
-        <li>
-          Upper engine shields made of plastic material, the purpose of which is to hide
-          mechanical components in the engine compartment, may be removed if they have a solely
-          aesthetic and/or acoustic function.
-        </li>
-        <li>
-          Cruise control systems may be removed in whole or part
-        </li>
-        <li>
-          Engine oil tanks for dry sump lubrication systems may be replaced with alternate parts
-          subject to the following restrictions:
-          <ul>
-            <li>
-              Fluid capacity and dry weight of the oil tank must be no less than that of the
-              standard part.
-            </li>
-            <li>
-              Oil tank must mount in the OE location
-            </li>
-          </ul>
-        </li>
-        <li>
-          Drivetrain components may be replaced with aftermarket components in order to improve
-          durability and reliability. Any replaced components are subject to the following
-          restrictions:
-          <ul>
-            <li>
-              Replacement components may not be lighter than the original component.
-            </li>
-            <li>
-              Replacement components must install without modification to the mating part.
-            </li>
-            <li>
-              Replacement components may not differ from the original beyond improved strength,
-              alternate manufacturing techniques, or replacement with larger components.
-            </li>
-            <li>
-              Internal engine components such as pistons, connecting rods, or valve train
-              components may not be replaced under this rule.
-            </li>
-            <li>
-              Heat treatment may be used to increase the durability of an original part and the
-              resulting part will be considered a replaced component.
-            </li>
-            <li>
-              Metal components may not be replaced with non-metal components. However a non-metal
-              component may be replaced with a metal component.
-            </li>
-            <li>
-              Replaced components may serve no purpose other than to increase durability and
-              reliability. This allowance is intended to improve durability without improving
-              performance. Components are not to be replaced to allow for increased power or
-              larger tires but to replace common component failures. For example, axle shafts or
-              CV joints are often broken on launch. Under this rule these may be replaced with
-              larger components or components made of stronger materials to avoid these breakages.
-              Alternatively a vehicle may not replace a turbocharger with a larger or stronger
-              part as this would increase the performance potential of the vehicle.
-            </li>
-          </ul>
-        </li>
-        <li>
-          Cars with combustion chamber oil injection systems (such as those in rotary engines) may
-          supplement the standard engine lubrication system with additional oil supplied through
-          the standard fuel delivery system.
-        </li>
-      </ul>
+      <div id="engineBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Engines must retain standard type lubricating system, but may have any oil pan
+            (Accusump®-type systems allowed), oil pump and pickup, oil cooler(s), or oil or fuel
+            filters. Fuel filters must be of automotive type and may serve no other purpose; a
+            substituted fuel filter may not be used as a reservoir. Substituted fuel filters may not
+            exceed one quart total capacity. A permitted oil cooler may be positioned in an opening
+            in an allowed spoiler, provided no unauthorized modifications are made in order to
+            perform the installation. Any power steering fluid cooler may be added.
+          </li>
+          <li>
+            Heat shields may be added
+          </li>
+          <li>
+            Induction allowances are as follows:
+            <ul>
+              <li>
+                Fuel injection systems and carburetors are unrestricted, including throttle bodies,
+                manifolds, and plumbing/piping between the inlet port at the cylinder head and the
+                atmosphere, subject to 15.10.C.4. Alternate throttle linkage and connections to
+                facilitate installation of allowed induction systems are permitted but may serve no
+                other purpose. If an induction system item is allowed to be removed and its original
+                mounting bracket can be removed by simply unbolting it, the bracket may be removed
+                as well.
+              </li>
+              <li>
+                Except for standard parts as defined in these rules, the external use while on
+                course of liquids, ice, dry ice, refrigeration systems, vaporized compressed
+                gases, etc. to reduce the temperature of the intake air charge is prohibited.
+                Wrapping of intakes with liquid-soaked fabric is not permitted.
+              </li>
+              <li>
+                As utilized only on engines originally equipped with forced induction, induction
+                charge heat exchangers (also known as "intercoolers" or "charge air coolers" [CACs])
+                are unrestricted in size and configuration. Air-to-air CACs and radiators for
+                air-to-liquid CACs must be cooled only by the atmosphere except for standard parts.
+                Body panels, fascias, or structural members may not be cut or altered to facilitate
+                CAC installation.
+              </li>
+              <li>
+                Turbochargers and/or superchargers (forced induction) may not be added, changed, or
+                modified (this does not allow ceramic coating of turbochargers). On vehicles
+                originally equipped with forced induction:
+                <ul>
+                  <li>
+                    No hardware changes or alterations to turbocharger(s) or supercharger(s), in
+                    size or number, are permitted. Turbochargers or superchargers may be
+                    updated/backdated only in conjunction with the accompanying complete engine unit.
+                  </li>
+                  <li>
+                    No changes are allowed to waste gate(s) size, number, or location. No changes
+                    are allowed to variable-geometry turbine (VGT) hardware.
+                  </li>
+                  <li>
+                    Supercharger pulleys and belts of the same type as standard may be replaced with
+                    alternate pulleys allowing drive ratio changes. Belt tensioners may be
+                    added/changed to reduce belt slip.
+                  </li>
+                  <li>
+                    Compressor bypass valves (CBVs), blow-off valves, and pop-off valves are
+                    considered part of the air intake system and may be added, replaced, or
+                    updated/backdated independently of the other components of a forced induction
+                    system.
+                  </li>
+                  <li>
+                    Boost regulation systems, either electronic or mechanical, and electronic fuel
+                    cuts referencing boost pressure may be altered or modified except as prohibited
+                    herein. Boost pressure changes resulting from authorized changes are permitted.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Traction and/or stability control systems, as defined in Section 12.12, must be standard
+            parts at standard settings or electronically disabled.
+          </li>
+          <li>
+            Air cleaner(s) may be changed or removed; velocity stacks may be added.
+          </li>
+          <li>
+            Emission control devices may be modified or removed. This permits the oil filler cap to
+            be modified or substituted but does not allow valve covers or cam covers to be altered
+            to install a breather or for any other purpose.
+          </li>
+          <li>
+            Intake water injection systems are allowed
+          </li>
+          <li>
+            Fuel lines and pumps are unrestricted except as specified herein, as long as they do not
+            pose a safety hazard. Fuel lines may be no larger than 1⁄2" (12.7 mm) i.d. (inside
+            diameter) and may only connect to the original fuel tank or allowed fuel cell. They may
+            be no longer than necessary for reasonable and safe installation, and may serve no other
+            purpose. A single fuel feed line may be used. A single fuel return line may be used and
+            a fitting for connecting it may be added at or near the top of the fuel tank. This does
+            not authorize "cool-cans."
+          </li>
+          <li>
+            Exhaust manifolds and muffler systems are free, except that they must be quiet and
+            terminate behind the driver (Section 3.3.3.B.16). Exhaust heat shields may be removed.
+            Rear and mid-engine cars without exhaust headers/manifold systems may use any exhaust
+            syste" that meets the requirements of Section 3.5. This permits the removal of "heater
+            boxes" in order to install headers on such cars.
+          </li>
+          <li>
+            Engine and transmission mounts may be replaced but must attach in the factory
+            location(s) without additional modification or changes. Engine position may not be
+            changed. Hydraulic shock type rear engine locators, or bobble struts, may be replaced by
+            manufacturer's performance part or aftermarket replacement part. This part must retain
+            factory dimensions and attachment points, including factory design. (Example: If
+            factory locator/bobble strut is gas or hydraulic piston type, replacement part must be
+            gas or hydraulic piston type.) If one or more non-OE engine or transmission mounts are
+            used, Section 15.10.K does not apply and a torque suppression device may not be used.
+          </li>
+          <li>
+            One bolt-on torque suppression device may be used. A torque suppres-
+            sion device attaches from the engine to the body, frame, or subframe
+            in one location and controls engine movement at that location along a
+            single axis only. It may serve no other purpose.
+            Examples of permitted devices:
+            <ul>
+              <li>
+                A chain
+              </li>
+              <li>
+                A rod with spherical bearings at each end
+              </li>
+            </ul>
+          </li>
+          <li>
+            Engine cooling radiators may be replaced with alternate parts subject to the following
+            restrictions:
+            <ul>
+              <li>
+                Radiator dimensions (width, height, thickness, etc.) must be no smaller than the
+                standard part.
+              </li>
+              <li>
+                Radiator must mount to OE radiator mounts.
+              </li>
+              <li>
+                Fluid capacity and dry weight of the radiator must be no less than that of the
+                standard part. Installation of an alternate radiator may serve no other purpose
+                (e.g., to allow a cold air intake passage).
+              </li>
+            </ul>
+          </li>
+          <li>
+            The engine fan and fan shroud (unless it serves another purpose, e.g., as an
+            alternator/generator mount) may be removed, modified or replaced. Electrically driven
+            fans are allowed. Flex fans are not allowed.
+          </li>
+          <li>
+            On two-cycle engines, the ports must be of standard heights, size and configuration;
+            crankcase volume and reed plates must not be altered.
+          </li>
+          <li>
+            Full Prep: Any metal clutch assembly, metal flywheel, or metal torque converter that
+            uses the standard attachment to the crankshaft may be used. Non-metallic friction
+            surfaces (e.g., clutch discs) are permitted. Dowel pins may be added. Any hydraulic
+            clutch line may be used. Replacement or substitution of the clutch master cylinder and
+            clutch slave cylinder is permitted.
+          </li>
+          <li>
+            Limited Prep: Any metal clutch assembly, metal flywheel, or metal torque converter that
+            uses the standard attachment to the crankshaft may be used. Non-metallic friction
+            surfaces (e.g., clutch disks) are permitted. Dowel pins may be added. Any hydraulic
+            clutch line may be used. Replacement or substitution of the clutch slave cylinder is
+            permitted. Clutch/Flywheel friction surface diameter must be the same as original
+            equipment.
+          </li>
+          <li>
+            Any mechanical shift linkage may be used
+          </li>
+          <li>
+            Limited slip differentials are permitted. This permits locked differentials either by
+            design, welding, or mechanical means. Differential cases, internal differential parts,
+            and axle stubs may be machined as required for clearance and installation to the extent
+            that material may only be removed, not added, and the exterior of the case may not be
+            altered in any way. This machining may serve no other purpose.
+          </li>
+          <li>
+            Full Prep: Cylinders may be rebored to no more than 0.0472" (1.20 mm) over standard bore
+            and the appropriate standard oversize piston may be substituted. This overbore dimension
+            is an absolute limit; no additional tolerance is permitted to accommodate wear. Cast or
+            forged, non-standard pistons of the same dimensions and configuration as original
+            equipment pistons may be used. Additionally the replacement pistons must be of the same
+            weight or greater as the original equipment pistons. Replacement pistons must match OE
+            piston configuration exactly including quench area. The allowance for the use of
+            aftermarket forgings vs. OE castings does not permit alternate piston dome designs.
+            This allowance does not permit alternative ring configurations.
+          </li>
+          <li>
+            Full Prep: Rotating and reciprocating parts may be balanced but not lightened.
+          </li>
+          <li>
+            Full Prep: Intake and exhaust ports and manifold openings may be matched provided no
+            change is made more than one inch from the port/ manifold interface. Material may be
+            removed to facilitate port matching, but no material may be added.
+          </li>
+          <li>
+            Any transmission and/or differential oil coolers may be used. Differential covers may
+            be modified or substituted for cooling.
+          </li>
+          <li>
+            The engine cylinder head(s) may be milled only to that amount specified in the
+            manufacturer's workshop manual. If no amount is specified then a maximum of 0.010"
+            (0.254 mm) may be milled.
+          </li>
+          <li>
+            Axle/halfshaft and driveshaft retention/location devices may be installed for safety
+            reasons to control the motion of attached shafts upon the failure of a coupling or
+            universal joint. They may serve no other purpose. This allowance does not include
+            "C-clip eliminators."
+          </li>
+          <li>
+            Any crankshaft damper or pulley may be used. SFI-rated dampers are recommended.
+          </li>
+          <li>
+            Any accessory pulleys and belts of the same type (e.g., V-belt, serpentine) as
+            standard may be used. This allowance applies to accessory pulleys only (e.g.,
+            alternator, water pump, power steering pump, and crankshaft drive pulleys). Alternate
+            pulley materials may be used. Idler pulleys may be used for belt routing in place of
+            items which the rules specifically allow to be removed such as smog pumps and air
+            conditioning compressors. They may serve no other purpose.
+          </li>
+          <li>
+            Camshafts and related parts must remain standard except that alternate cam drive
+            pulleys or gears may be used to adjust cam timing if no variable cam and/or valve timing
+            system exists as standard. Timing covers or valve covers may be altered for pulley
+            clearance or access to adjustment. Type of cam drive (chain, belt, gear) must remain
+            as standard. Alternate parts of the same general type (e.g., roller chain in place of
+            "silent" chain) may be substituted. Mating parts (block, heads, covers, retainers, etc.)
+            may not be altered except as mentioned above. Vehicles equipped with a variable cam
+            and/or valve timing system as standard may use alternate computer calibration to adjust
+            cam and/or valve timing but may not change or substitute cam drive components (hardware).
+          </li>
+          <li>
+            Upper engine shields made of plastic material, the purpose of which is to hide
+            mechanical components in the engine compartment, may be removed if they have a solely
+            aesthetic and/or acoustic function.
+          </li>
+          <li>
+            Cruise control systems may be removed in whole or part
+          </li>
+          <li>
+            Engine oil tanks for dry sump lubrication systems may be replaced with alternate parts
+            subject to the following restrictions:
+            <ul>
+              <li>
+                Fluid capacity and dry weight of the oil tank must be no less than that of the
+                standard part.
+              </li>
+              <li>
+                Oil tank must mount in the OE location
+              </li>
+            </ul>
+          </li>
+          <li>
+            Drivetrain components may be replaced with aftermarket components in order to improve
+            durability and reliability. Any replaced components are subject to the following
+            restrictions:
+            <ul>
+              <li>
+                Replacement components may not be lighter than the original component.
+              </li>
+              <li>
+                Replacement components must install without modification to the mating part.
+              </li>
+              <li>
+                Replacement components may not differ from the original beyond improved strength,
+                alternate manufacturing techniques, or replacement with larger components.
+              </li>
+              <li>
+                Internal engine components such as pistons, connecting rods, or valve train
+                components may not be replaced under this rule.
+              </li>
+              <li>
+                Heat treatment may be used to increase the durability of an original part and the
+                resulting part will be considered a replaced component.
+              </li>
+              <li>
+                Metal components may not be replaced with non-metal components. However a non-metal
+                component may be replaced with a metal component.
+              </li>
+              <li>
+                Replaced components may serve no purpose other than to increase durability and
+                reliability. This allowance is intended to improve durability without improving
+                performance. Components are not to be replaced to allow for increased power or
+                larger tires but to replace common component failures. For example, axle shafts or
+                CV joints are often broken on launch. Under this rule these may be replaced with
+                larger components or components made of stronger materials to avoid these breakages.
+                Alternatively a vehicle may not replace a turbocharger with a larger or stronger
+                part as this would increase the performance potential of the vehicle.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Cars with combustion chamber oil injection systems (such as those in rotary engines) may
+            supplement the standard engine lubrication system with additional oil supplied through
+            the standard fuel delivery system.
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['spEngineAndDrivetrain', 'spCarAnsweredIndex'], [true, 7]); hideItem('spEngineAndDrivetrain'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['spEngineAndDrivetrain', 'spCarAnsweredIndex'], [false, 7]); hideItem('spEngineAndDrivetrain'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="eligible" class="center eligible sansserif">
-      <h1 class="sansserif">
+      <h1>
         Your car is eligible for SP class!
         </br>
       </h1>
@@ -1229,11 +1239,11 @@ All Possible Classes:
       </div>
     </div>
 
-    <div id="notEligible" class="center notEligible">
-      <h1 class="sansserif">
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
         Your car is NOT eligible for SP class.
       </h1>
-      <div class="notEligibleExplanation sansserif">
+      <div class="notEligibleExplanation">
         <h2>
           You answered "No" to the following questions, which resulted in your ineligibility:
         </h2>

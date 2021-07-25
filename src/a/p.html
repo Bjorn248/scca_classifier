@@ -39,10 +39,10 @@
 
   <body onload="evalSessionStorage('pCar'); highlightAndFilterP();">
     <div id="pLandingPage" class="center question sansserif">
-      <h2 id="pLandingPageQuestion" class="sansserif">
+      <h2 id="pLandingPageQuestion">
         Prepared Class Overview
       </h2>
-      <div id="explanation" class="explanation">
+      <div id="overviewBody" class="questionBody">
         <h3>
           Category Objective
         </h3>
@@ -62,7 +62,7 @@
         <h3>
           Core Modifications
         </h3>
-        <ul class="sansserif list explanation">
+        <ul class="list">
           <li>
             Non-DOT racing tires.
           </li>
@@ -145,7 +145,7 @@
         <h3>
           Authorized Modifications
         </h3>
-        <ul class="sansserif list explanation">
+        <ul class="list">
           <li>
             The modifications defined here in the Prepared Category are the only allowed
             modifications. The rules in this Section stand on their own; they do not build upon
@@ -179,13 +179,13 @@
 
     <!-- TODO Separate the bodywork requirements into multiple pages/questions
       This is way too much information on a single page -->
-    <div id="pBodywork" class="center question">
-      <h2 id="pBodyworkQuestion" class="sansserif">
+    <div id="pBodywork" class="center question sansserif">
+      <h2 id="pBodyworkQuestion">
         Does your car meet the bodywork requirements below?
       </h2>
-      <div id="explanation" class="explanation">
-        <h3 class="sansserif">
-          <ul class="sansserif list explanation">
+      <div id="bodyworkBody" class="questionBody">
+        <h3>
+          <ul class="list">
             <li>
               The external shape of the body may only be changed where specifically authorized.
               Standard window openings, rain gutters, or approved facsimiles shall be retained.
@@ -487,203 +487,207 @@
 
     <!-- TODO Break up the suspension question into multiple questions...right now this is just
       a wall of text -->
-    <div id="pSuspension" class="center question">
-      <h2 id="pSuspensionQuestion" class="sansserif">
+    <div id="pSuspension" class="center question sansserif">
+      <h2 id="pSuspensionQuestion">
         Does your suspension meet the requirements defined below?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Bump stop rubbers and bracketry may be removed or replaced with others of unrestricted
-          origin.
-        </li>
-        <li>
-          Electrically controlled active shocks are prohibited.
-        </li>
-        <li>
-          <!-- TODO Explain what "Full Prep vs Limited Prep means -->
-          Level 1 Preparation (Full Prep) Vehicles
-          <ul>
-            <li>
-              Any springs or torsion bars may be used. Spring seats and points of attachment may
-              be replaced or altered. Adjustable spring perches are permitted.
-            </li>
-            <li>
-              Alternately, all cars may fit “coil-over” type springs with tubular, load bearing
-              shock absorbers or struts. The shock absorber or MacPherson/Chapman strut shall be
-              installed inside the spring. Such items shall not exceed one shock/strut per wheel.
-              When load bearing shocks are used, the original springs may be removed.
-            </li>
-            <li>
-              Any shock absorbers may be used. The total number of shock absorbers installed
-              shall not exceed the number originally installed by the manufacturer.
-            </li>
-            <li>
-              Attachment points for the shock absorbers may be changed. There shall be a metal
-              panel, covering, or bulkhead separating non-standard rear attachment points from
-              the driver.
-            </li>
-            <li>
-              Lever shock absorbers may be modified or entirely eliminated. When lever shocks are
-              replaced with tubular shocks, the entire shock assembly may be removed and
-              replaced with a control link and bracket that approximates the control function of
-              the original lever shock.
-            </li>
-          </ul>
-        </li>
-        <li>
-          Level 2 Preparation (Limited Prep) Vehicles
-          <ul>
-            <li>
-              Any springs or torsion bars can be used provided the type of these items remains as
-              standard. Springs and torsion bars must be installed in the standard location
-              using the standard system of attachment.
-            </li>
-            <li>
-              Shock absorbers are unrestricted provided the quantity and type (i.e., tube, lever)
-              of these items remains as fitted standard. Shock absorbers must be installed in the
-              standard location using the standard system of attachment. The mounting of the
-              remote reservoir of a remote reservoir shock absorber is unrestricted. No shock
-              absorber can be capable of adjustment by the driver while the car is in motion,
-              unless fitted as standard.
-            </li>
-          </ul>
-        </li>
-        <li>
-          Spindles, hubs, bearings, bearing carriers, stub axles, etc. may be modified or replaced.
-        </li>
-        <li>
-          Suspension Control
-          <ul>
-            <li>
-              Original suspension control arms may be reinforced, modified, or replaced with
-              components of unrestricted origin.
-            </li>
-            <li>
-              The manufacturer’s original basic type of rear suspension (e.g., independent, live
-              axle, swing axle, MacPherson strut, A-arm, etc.) shall be retained unless otherwise
-              stated in Appendix A.
-            </li>
-            <li>
-              Suspension bushings are unrestricted. Adjustable spherical bearings or rod ends are
-              permitted on all suspension components.
-            </li>
-            <li>
-              The wheelbase of the vehicle shall not be changed or relocated in a fore/aft
-              direction by more than ±1.0” (±25.4 mm).
-            </li>
-            <li>
-              The minimum track for all prepared cars is the OE track dimension.  Note: This
-              minimum also applies to cars utilizing Section 17.11.A to compete in Prepared.
-            </li>
-            <li>
-              Level 1 Preparation (Full Prep) Vehicles
-              <ul>
-                <li>
-                  Suspension pick-up points on the chassis or structure may be relocated. If such
-                  points are relocated, there shall be a metal panel, covering, or bulkhead
-                  separating the driver/passenger area from the suspension components.
-                </li>
-                <li>
-                  Front – Vehicles originally equipped with MacPherson strut front suspension may
-                  convert to double A-arm. Other vehicles must retain the manufacturer’s system
-                  of front suspension. A-arm front suspension shall have the shocks attached
-                  outboard of the inner pickup point on the upper or lower control arm. Rocker
-                  arms, push-pull rods, etc., are prohibited unless otherwise stated in Appendix A.
-                </li>
-                <li>
-                  Rear – Rocker arms and push-pull rods may be used to augment the rear suspension
-                  members.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Level 2 Preparation (Limited Prep) Vehicles
-              <ul>
-                <li>
-                  Suspension pick-up points on the chassis or subframe structure may not be
-                  relocated. Allowed alternate bushings/bearings must contain the pivot point
-                  within the space occupied by the OE bushing.
-                </li>
-                <li>
-                  Vehicles equipped with MacPherson/Chapman struts may slot the mounting holes or
-                  add additional adjustment plates provided that the center hole is not enlarged
-                  or relocated. The strut shaft must pass through the center hole. Mounting of
-                  adjustment plates is unrestricted.
-                </li>
-                <li>
-                  Camber and caster may be adjusted by modification or replacement of existing
-                  brackets which locate control pivots and bolt to the chassis or subframe
-                  structure. Any resulting change in the vertical position of the pivot points
-                  must remain within 1.0” (25.4 mm) of the original location.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          Steering
-          <ul>
-            <li>
-              Steering arms, pitman arms, steering racks/gears, and steering linkage component
-              parts may be modified, reinforced, or substituted.  Power-assist steering components
-              may be added, removed, or modified. The steering system may be relocated or changed.
-            </li>
-            <li>
-              The steering column is unrestricted. A collapsible-type steering column having a
-              layout and design and/or a column structure with impact and energy absorbing
-              characteristics is strongly recommended.
-            </li>
-            <li>
-              Any steering wheel and wheel quick-release mechanism may be used. Steering wheel
-              rake and steering column length may be altered. Steering quickeners may be added
-              to the steering column.
-            </li>
-          </ul>
-        </li>
-        <li>
-          All spherical rod ends used on major suspension and steering components shall be
-          retained either by the design of the mounting brackets, a larger area captive washer, or
-          the inherent mechanical design of the unit (circlip or Messerschmitt joints).
-        </li>
-      </ul>
+      <div id="suspensionBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Bump stop rubbers and bracketry may be removed or replaced with others of unrestricted
+            origin.
+          </li>
+          <li>
+            Electrically controlled active shocks are prohibited.
+          </li>
+          <li>
+            <!-- TODO Explain what "Full Prep vs Limited Prep means -->
+            Level 1 Preparation (Full Prep) Vehicles
+            <ul>
+              <li>
+                Any springs or torsion bars may be used. Spring seats and points of attachment may
+                be replaced or altered. Adjustable spring perches are permitted.
+              </li>
+              <li>
+                Alternately, all cars may fit “coil-over” type springs with tubular, load bearing
+                shock absorbers or struts. The shock absorber or MacPherson/Chapman strut shall be
+                installed inside the spring. Such items shall not exceed one shock/strut per wheel.
+                When load bearing shocks are used, the original springs may be removed.
+              </li>
+              <li>
+                Any shock absorbers may be used. The total number of shock absorbers installed
+                shall not exceed the number originally installed by the manufacturer.
+              </li>
+              <li>
+                Attachment points for the shock absorbers may be changed. There shall be a metal
+                panel, covering, or bulkhead separating non-standard rear attachment points from
+                the driver.
+              </li>
+              <li>
+                Lever shock absorbers may be modified or entirely eliminated. When lever shocks are
+                replaced with tubular shocks, the entire shock assembly may be removed and
+                replaced with a control link and bracket that approximates the control function of
+                the original lever shock.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Level 2 Preparation (Limited Prep) Vehicles
+            <ul>
+              <li>
+                Any springs or torsion bars can be used provided the type of these items remains as
+                standard. Springs and torsion bars must be installed in the standard location
+                using the standard system of attachment.
+              </li>
+              <li>
+                Shock absorbers are unrestricted provided the quantity and type (i.e., tube, lever)
+                of these items remains as fitted standard. Shock absorbers must be installed in the
+                standard location using the standard system of attachment. The mounting of the
+                remote reservoir of a remote reservoir shock absorber is unrestricted. No shock
+                absorber can be capable of adjustment by the driver while the car is in motion,
+                unless fitted as standard.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Spindles, hubs, bearings, bearing carriers, stub axles, etc. may be modified or replaced.
+          </li>
+          <li>
+            Suspension Control
+            <ul>
+              <li>
+                Original suspension control arms may be reinforced, modified, or replaced with
+                components of unrestricted origin.
+              </li>
+              <li>
+                The manufacturer’s original basic type of rear suspension (e.g., independent, live
+                axle, swing axle, MacPherson strut, A-arm, etc.) shall be retained unless otherwise
+                stated in Appendix A.
+              </li>
+              <li>
+                Suspension bushings are unrestricted. Adjustable spherical bearings or rod ends are
+                permitted on all suspension components.
+              </li>
+              <li>
+                The wheelbase of the vehicle shall not be changed or relocated in a fore/aft
+                direction by more than ±1.0” (±25.4 mm).
+              </li>
+              <li>
+                The minimum track for all prepared cars is the OE track dimension.  Note: This
+                minimum also applies to cars utilizing Section 17.11.A to compete in Prepared.
+              </li>
+              <li>
+                Level 1 Preparation (Full Prep) Vehicles
+                <ul>
+                  <li>
+                    Suspension pick-up points on the chassis or structure may be relocated. If such
+                    points are relocated, there shall be a metal panel, covering, or bulkhead
+                    separating the driver/passenger area from the suspension components.
+                  </li>
+                  <li>
+                    Front – Vehicles originally equipped with MacPherson strut front suspension may
+                    convert to double A-arm. Other vehicles must retain the manufacturer’s system
+                    of front suspension. A-arm front suspension shall have the shocks attached
+                    outboard of the inner pickup point on the upper or lower control arm. Rocker
+                    arms, push-pull rods, etc., are prohibited unless otherwise stated in Appendix A.
+                  </li>
+                  <li>
+                    Rear – Rocker arms and push-pull rods may be used to augment the rear suspension
+                    members.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Level 2 Preparation (Limited Prep) Vehicles
+                <ul>
+                  <li>
+                    Suspension pick-up points on the chassis or subframe structure may not be
+                    relocated. Allowed alternate bushings/bearings must contain the pivot point
+                    within the space occupied by the OE bushing.
+                  </li>
+                  <li>
+                    Vehicles equipped with MacPherson/Chapman struts may slot the mounting holes or
+                    add additional adjustment plates provided that the center hole is not enlarged
+                    or relocated. The strut shaft must pass through the center hole. Mounting of
+                    adjustment plates is unrestricted.
+                  </li>
+                  <li>
+                    Camber and caster may be adjusted by modification or replacement of existing
+                    brackets which locate control pivots and bolt to the chassis or subframe
+                    structure. Any resulting change in the vertical position of the pivot points
+                    must remain within 1.0” (25.4 mm) of the original location.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Steering
+            <ul>
+              <li>
+                Steering arms, pitman arms, steering racks/gears, and steering linkage component
+                parts may be modified, reinforced, or substituted.  Power-assist steering components
+                may be added, removed, or modified. The steering system may be relocated or changed.
+              </li>
+              <li>
+                The steering column is unrestricted. A collapsible-type steering column having a
+                layout and design and/or a column structure with impact and energy absorbing
+                characteristics is strongly recommended.
+              </li>
+              <li>
+                Any steering wheel and wheel quick-release mechanism may be used. Steering wheel
+                rake and steering column length may be altered. Steering quickeners may be added
+                to the steering column.
+              </li>
+            </ul>
+          </li>
+          <li>
+            All spherical rod ends used on major suspension and steering components shall be
+            retained either by the design of the mounting brackets, a larger area captive washer, or
+            the inherent mechanical design of the unit (circlip or Messerschmitt joints).
+          </li>
+        </ul>
+      </div>
       </br>
 
       <button class="button yesButton" onclick="setState(['pSuspension', 'pCarAnsweredIndex'], [true, 2]); hideItem('pSuspension'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['pSuspension', 'pCarAnsweredIndex'], [false, 2]); hideItem('pSuspension'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="pBrakes" class="center question">
-      <h2 id="pBrakesQuestion" class="sansserif">
+    <div id="pBrakes" class="center question sansserif">
+      <h2 id="pBrakesQuestion">
         Do your brakes meet the following requirements?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Brake systems, including calipers, caliper mounts, discs, drums, lines, backing plates,
-          pedals, boosters, master cylinders, handles, proportioning devices, pads, linings, ABS
-          (Anti-lock Braking Systems), etc. are unrestricted except for Section 3.3.3
-          requirements and as follows:
-          <ul>
-            <li>
-              Brake rotors/drums shall be located in the original position (i.e., inboard vs.
-              outboard).
-            </li>
-            <li>
-              Brake rotor/drum friction surfaces must be ferrous metal. Carbon or ceramic
-              composite brake rotors/drums are expressly prohibited.
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <div id="brakesBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Brake systems, including calipers, caliper mounts, discs, drums, lines, backing plates,
+            pedals, boosters, master cylinders, handles, proportioning devices, pads, linings, ABS
+            (Anti-lock Braking Systems), etc. are unrestricted except for Section 3.3.3
+            requirements and as follows:
+            <ul>
+              <li>
+                Brake rotors/drums shall be located in the original position (i.e., inboard vs.
+                outboard).
+              </li>
+              <li>
+                Brake rotor/drum friction surfaces must be ferrous metal. Carbon or ceramic
+                composite brake rotors/drums are expressly prohibited.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['pBrakes', 'pCarAnsweredIndex'], [true, 3]); hideItem('pBrakes'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['pBrakes', 'pCarAnsweredIndex'], [false, 3]); hideItem('pBrakes'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="pWheels" class="center question">
-      <h2 id="pWheelsQuestion" class="sansserif">
+    <div id="pWheels" class="center question sansserif">
+      <h2 id="pWheelsQuestion">
         Do your wheels meet the following requirements?
       </h2>
-      <p class="sansserif">
+      <p>
       Your class-specific requirements should be highlighted
       </p>
       <div id="xpWheels" class="pWheels">
@@ -704,34 +708,36 @@
         FP - Wheels up to 10” wide are allowed with no weight increase; a maximum width of 12” is
         permitted.
       </div>
-      <ul class="sansserif list explanation">
-        <li>
-          Wheel spacers may be used.
-        </li>
-        <li>
-          Any wheel mounting stud or bolt may be used.
-        </li>
-        <li>
-          The use of center lock wheels and hubs is permitted.
-        </li>
-        <li>
-          A manufacturer’s standard wheel size exceeding the listing in Appendix A may be used,
-          and must remain axle-specific relative to standard-size wheels with no additional
-          weight. Track dimensions must comply with the listings in Appendix A.
-        </li>
-      </ul>
+      <div id="wheelsBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Wheel spacers may be used.
+          </li>
+          <li>
+            Any wheel mounting stud or bolt may be used.
+          </li>
+          <li>
+            The use of center lock wheels and hubs is permitted.
+          </li>
+          <li>
+            A manufacturer’s standard wheel size exceeding the listing in Appendix A may be used,
+            and must remain axle-specific relative to standard-size wheels with no additional
+            weight. Track dimensions must comply with the listings in Appendix A.
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['pWheels', 'pCarAnsweredIndex'], [true, 4]); hideItem('pWheels'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['pWheels', 'pCarAnsweredIndex'], [false, 4]); hideItem('pWheels'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="pTires" class="center question">
-      <h2 id="pTiresQuestion" class="sansserif">
+    <div id="pTires" class="center question sansserif">
+      <h2 id="pTiresQuestion">
         Do your tires meet the following requirements?
       </h2>
       </br>
       <!-- Clarify what this means. What are the safety requirements? -->
-      <p class="sansserif">
+      <p>
       Any tire (including recaps) meeting the Solo® safety requirements and the applicable
       portions of 3.3 is allowed.
       </p>
@@ -740,1137 +746,1143 @@
       <button class="button noButton" onclick="setState(['pTires', 'pCarAnsweredIndex'], [false, 5]); hideItem('pTires'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="pWeight" class="center question">
-      <h2 id="pWeightQuestion" class="sansserif">
+    <div id="pWeight" class="center question sansserif">
+      <h2 id="pWeightQuestion">
         Do you meet the minimum weight requirements outlined below?
         </br>
         </br>
         Weights are without driver, in lbs.
       </h2>
-      <p class="sansserif">
+      <p>
       Your subclass should be highlighted
       </p>
-      <ul class="sansserif list explanation">
-        <div id="xpWeight">
-          <li>
-            XP
-            <ul>
-              <li>
-                Engine Classifications
-                <ul>
-                  <li>
-                    4-stroke cycle and 2-stroke cycle, naturally aspirated, internal combustion engines
-                    will be classified on the basis of actual piston displacement.
-                  </li>
-                  <li>
-                    Turbocharged or supercharged versions of all engines will be classified on a basis
-                    of 1.6 times the actual displacement.
-                  </li>
-                  <li>
-                    Rotary Engines (Wankel): These units will be classified on the basis of a piston
-                    displacement equivalent to twice the volume determined by the difference between
-                    the maximum and minimum capacity of the working chamber, times the number of rotors.
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Minimum Weight Calculations
-                <ul>
-                  <li>
-                    Forced Induction Engine
-                    <ul>
-                      <li>
-                        FWD: 1350 + 150 per liter
-                      </li>
-                      <li>
-                        RWD: 1350 + 200 per liter
-                      </li>
-                      <li>
-                        AWD: 1350 + 250 per liter
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    Normally Aspirated Engine Displacement less than 4.0L
-                    <ul>
-                      <li>
-                        FWD: 1250 + 150 per liter
-                      </li>
-                      <li>
-                        RWD: 1250 + 200 per liter
-                      </li>
-                      <li>
-                        AWD: 1250 + 250 per liter
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    Engine displacement of 4.0L or greater
-                    <ul>
-                      <li>
-                        FWD: 1650 + 50 per liter
-                      </li>
-                      <li>
-                        RWD: 1650 + 100 per liter
-                      </li>
-                      <li>
-                        AWD: 1650 + 150 per liter
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    Regardless of the weight formulas above, no car shall be required to weigh
-                    more than 2300 lbs. before applicable weight adjustments.
-                  </li>
-                  <li>
-                    Weight Adjustments
-                    <ul>
-                      <li>
-                        Active/reactive suspension: +100
-                      </li>
-                      <li>
-                        Greater than 51% of weight on rear axle: +20 per liter
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    Regardless of the Minimum Weight Calculations above (b), no car with a
-                    supercharged or turbocharged engine shall weigh less than the following
-                    minimum weights:
-                    <ul>
-                      <li>
-                        FWD
-                        <ul>
-                          <li>
-                            normally-aspirated: 1425
-                          </li>
-                          <li>
-                            forced-induction: 1625
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        RWD
-                        <ul>
-                          <li>
-                            normally-aspirated: 1550
-                          </li>
-                          <li>
-                            forced-induction: 1900
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        AWD
-                        <ul>
-                          <li>
-                            normally-aspirated: 1675
-                          </li>
-                          <li>
-                            forced-induction: 1925
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </div>
-        <div id="cpWeight">
-          <li>
-            CP
-            <ul>
-              <li>
-                Engine Classifications
-                <ul>
-                  <li>
-                    Minimum weight is based on actual engine displacement. The block may be bored
-                    and/or sleeved to achieve allowed displacement.
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Minimum Weight
-                <ul>
-                  <li>
-                    V8 engines greater than 5100 cc: 3000
-                  </li>
-                  <li>
-                    V8 engines equal to or less than 5100 cc: 2700
-                  </li>
-                  <li>
-                    6-cyl engines, maximum 4500 cc: 2450
-                  </li>
-                  <li>
-                    Turbocharged 6-cyl engines, maximum 4500 cc: 2550
-                  </li>
-                  <li>
-                    4-cyl engines (all): 2450
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Weight Adjustments
-                <ul>
-                  <li>
-                    Wheels greater than 10” wide up to 11” wide: +50
-                  </li>
-                  <li>
-                    Wheels greater than 11” wide up to 12” wide: +100
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Maximum weight on the rear axle of the car shall be 51% of the total weight of the
-                car. Exceptions: Corvair, Yenko Stinger
-              </li>
-            </ul>
-          </li>
-        </div>
-        <div id="dpWeight">
-          <li>
-            DP
-            <ul>
-              <li>
-                Engine Classifications
-                <ul>
-                  <li>
-                    Minimum weight is based on actual engine displacement. The block may be bored
-                    and/or sleeved to achieve allowed displacement.
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Minimum Weight
-                <ul>
-                  <li>
-                    Engines with 3 or 4 valves per cylinder and displacement less than or
-                    equal to 1667 cc: 1.06 x displacement (cc)
-                  </li>
-                  <li>
-                    Engines with 3 or 4 valves per cylinder and displacement greater than 1667 cc:
-                    0.91 x displacement (cc) + 250
-                  </li>
-                  <li>
-                    Engines with 2-valves per cylinder: 1.00 x displacement (cc)
-                    <ul>
-                      <li>
-                        Engines with 2v/cyl are permitted a displacement change of +10% via bore
-                        and/or stroke changes only and with the weight formula accounting for the
-                        increased displacement
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Weight Adjustments
-                <ul>
-                  <li>
-                    Wheels greater than 10” wide up to 11” wide: +50
-                  </li>
-                  <li>
-                    Wheels greater than 11” wide up to 12” wide: +100
-                  </li>
-                  <li>
-                    51% or more of weight on the rear axle: +0.015 x displacement (cc)
-                  </li>
-                  <li>
-                    Solid Axle: -50
-                  </li>
-                  <li>
-                    Alternate Engine Allowance: +0.10 x displacement (cc)
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Regardless of the weight formulas above no car may weigh less than 1350 lbs. or be
-                required to weigh more than 2600 lbs. prior to addition of weight adjustments
-              </li>
-            </ul>
-          </li>
-        </div>
-        <div id="epWeight">
-          <li>
-            EP
-            <ul>
-              <li>
-                Engine Classifications
-                <ul>
-                  <li>
-                    Minimum weight is based on actual engine displacement. The block may be bored
-                    and/or sleeved to achieve allowed displacement.
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Minimum Weight
-                <ul>
-                  <li>
-                    Engines with 3 or more valves per cylinder and displacement less than
-                    or equal to 1667cc: 1.06 x displacement (cc)
-                  </li>
-                  <li>
-                    Engines with 3 or more valves per cylinder and displacement greater than 1667cc:
-                    0.91 x displacement (cc) + 250
-                  </li>
-                  <li>
-                    Engines with 2-valves per cylinder: 1.00 x displacement (cc)
-                  </li>
-                  <li>
-                    Level 2 (Limited Prep) vehicles: 1.00 x displacement (cc)
-                  </li>
-                  <li>
-                    Forced induction: 1.40 × displacement (cc)
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Weight Adjustments
-                <ul>
-                  <li>
-                    Wheels greater than 10” wide up to 11” wide: +50
-                  </li>
-                  <li>
-                    Wheels greater than 11” wide up to 12” wide: +100
-                  </li>
-                  <li>
-                    51% or more of weight on the rear axle: +0.015 x displacement (cc)
-                  </li>
-                  <li>
-                    Solid Axle: -50
-                  </li>
-                  <li>
-                    Alternate Engine Allowance: +0.10 x displacement (cc)
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Regardless of the weight formulas above no car may weigh less than 1350 lbs. or be
-                required to weigh more than 2600 lbs. prior to addition of weight adjustments
-              </li>
-            </ul>
-          </li>
-        </div>
-        <div id="fpWeight">
-          <li>
-            FP
-            <ul>
-              <li>
-                Minimum Weight Formulas
-                <ul>
-                  <li>
-                    Piston Engines: 0.750 x displacement (cc)
-                  </li>
-                  <li>
-                    Rotary Engines: 0.700 x specified displacement (cc)
-                  </li>
-                  <li>
-                    Forced Induction: +0.450 x displacement (cc)
-                  </li>
-                  <li>
-                    Peripheral Port Rotary: +0.050 x displacement (cc)
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Weight Adjustments
-                <ul>
-                  <li>
-                    Wheels greater than 10” wide up to 11” wide: +50
-                  </li>
-                  <li>
-                    Wheels greater than 11” wide up to 12” wide: +100
-                  </li>
-                  <li>
-                    51% or more of weight on the rear axle: +0.040 x displacement (cc)
-                  </li>
-                  <li>
-                    Solid Axle: -0.050 x displacement (cc)
-                  </li>
-                  <li>
-                    Alternate Engine Allowance: +0.10 x displacement (cc)
-                  </li>
-                  <li>
-                    AWD: +0.100 x displacement (cc)
-                  </li>
-                  <li>
-                    FWD: -0.100 x displacement (cc)
-                  </li>
-                </ul>
-              </li>
-              <li>
-                Regardless of the weight formulas above no car may weigh less than 1900 lbs.
-                (except that cars using section 17.10.R, Engine Swap Allowance, must not weigh
-                less than 2100 lbs.) or be required to weigh more than 2700 lbs.  prior to
-                addition of weight adjustments
-              </li>
-              <li>
-                Weight Calculation Example:
-                <p class="sansserif">
-                Subaru WRX STI (2.5L) with 11” wheel width
-                </br>
-                Actual displacement (before overbore): 2457 cc.
-                </br>
-                The formula would be: 0.750 (piston engine) + 0.450 (forced induction) + 0.100 (AWD) = 1.3 (total weight factor).
-                </br>
-                Calculated weight: 1.3 x 2457 = 3195 lbs. (exceeds maximum limit).
-                </br>
-                2700 lbs. (maximum allowed weight)
-                </br>
-                + 50 lbs. (wheel width over 10” up to 11”)
-                </br>
-                = 2750 lbs. (total weight minimum).
-                </br>
-                </p>
-              </li>
-            </ul>
-          </li>
-        </div>
-      </ul>
+      <div id="weightBody" class="questionBody">
+        <ul class="list">
+          <div id="xpWeight">
+            <li>
+              XP
+              <ul>
+                <li>
+                  Engine Classifications
+                  <ul>
+                    <li>
+                      4-stroke cycle and 2-stroke cycle, naturally aspirated, internal combustion engines
+                      will be classified on the basis of actual piston displacement.
+                    </li>
+                    <li>
+                      Turbocharged or supercharged versions of all engines will be classified on a basis
+                      of 1.6 times the actual displacement.
+                    </li>
+                    <li>
+                      Rotary Engines (Wankel): These units will be classified on the basis of a piston
+                      displacement equivalent to twice the volume determined by the difference between
+                      the maximum and minimum capacity of the working chamber, times the number of rotors.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Minimum Weight Calculations
+                  <ul>
+                    <li>
+                      Forced Induction Engine
+                      <ul>
+                        <li>
+                          FWD: 1350 + 150 per liter
+                        </li>
+                        <li>
+                          RWD: 1350 + 200 per liter
+                        </li>
+                        <li>
+                          AWD: 1350 + 250 per liter
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      Normally Aspirated Engine Displacement less than 4.0L
+                      <ul>
+                        <li>
+                          FWD: 1250 + 150 per liter
+                        </li>
+                        <li>
+                          RWD: 1250 + 200 per liter
+                        </li>
+                        <li>
+                          AWD: 1250 + 250 per liter
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      Engine displacement of 4.0L or greater
+                      <ul>
+                        <li>
+                          FWD: 1650 + 50 per liter
+                        </li>
+                        <li>
+                          RWD: 1650 + 100 per liter
+                        </li>
+                        <li>
+                          AWD: 1650 + 150 per liter
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      Regardless of the weight formulas above, no car shall be required to weigh
+                      more than 2300 lbs. before applicable weight adjustments.
+                    </li>
+                    <li>
+                      Weight Adjustments
+                      <ul>
+                        <li>
+                          Active/reactive suspension: +100
+                        </li>
+                        <li>
+                          Greater than 51% of weight on rear axle: +20 per liter
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      Regardless of the Minimum Weight Calculations above (b), no car with a
+                      supercharged or turbocharged engine shall weigh less than the following
+                      minimum weights:
+                      <ul>
+                        <li>
+                          FWD
+                          <ul>
+                            <li>
+                              normally-aspirated: 1425
+                            </li>
+                            <li>
+                              forced-induction: 1625
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          RWD
+                          <ul>
+                            <li>
+                              normally-aspirated: 1550
+                            </li>
+                            <li>
+                              forced-induction: 1900
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          AWD
+                          <ul>
+                            <li>
+                              normally-aspirated: 1675
+                            </li>
+                            <li>
+                              forced-induction: 1925
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </div>
+          <div id="cpWeight">
+            <li>
+              CP
+              <ul>
+                <li>
+                  Engine Classifications
+                  <ul>
+                    <li>
+                      Minimum weight is based on actual engine displacement. The block may be bored
+                      and/or sleeved to achieve allowed displacement.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Minimum Weight
+                  <ul>
+                    <li>
+                      V8 engines greater than 5100 cc: 3000
+                    </li>
+                    <li>
+                      V8 engines equal to or less than 5100 cc: 2700
+                    </li>
+                    <li>
+                      6-cyl engines, maximum 4500 cc: 2450
+                    </li>
+                    <li>
+                      Turbocharged 6-cyl engines, maximum 4500 cc: 2550
+                    </li>
+                    <li>
+                      4-cyl engines (all): 2450
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Weight Adjustments
+                  <ul>
+                    <li>
+                      Wheels greater than 10” wide up to 11” wide: +50
+                    </li>
+                    <li>
+                      Wheels greater than 11” wide up to 12” wide: +100
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Maximum weight on the rear axle of the car shall be 51% of the total weight of the
+                  car. Exceptions: Corvair, Yenko Stinger
+                </li>
+              </ul>
+            </li>
+          </div>
+          <div id="dpWeight">
+            <li>
+              DP
+              <ul>
+                <li>
+                  Engine Classifications
+                  <ul>
+                    <li>
+                      Minimum weight is based on actual engine displacement. The block may be bored
+                      and/or sleeved to achieve allowed displacement.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Minimum Weight
+                  <ul>
+                    <li>
+                      Engines with 3 or 4 valves per cylinder and displacement less than or
+                      equal to 1667 cc: 1.06 x displacement (cc)
+                    </li>
+                    <li>
+                      Engines with 3 or 4 valves per cylinder and displacement greater than 1667 cc:
+                      0.91 x displacement (cc) + 250
+                    </li>
+                    <li>
+                      Engines with 2-valves per cylinder: 1.00 x displacement (cc)
+                      <ul>
+                        <li>
+                          Engines with 2v/cyl are permitted a displacement change of +10% via bore
+                          and/or stroke changes only and with the weight formula accounting for the
+                          increased displacement
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Weight Adjustments
+                  <ul>
+                    <li>
+                      Wheels greater than 10” wide up to 11” wide: +50
+                    </li>
+                    <li>
+                      Wheels greater than 11” wide up to 12” wide: +100
+                    </li>
+                    <li>
+                      51% or more of weight on the rear axle: +0.015 x displacement (cc)
+                    </li>
+                    <li>
+                      Solid Axle: -50
+                    </li>
+                    <li>
+                      Alternate Engine Allowance: +0.10 x displacement (cc)
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Regardless of the weight formulas above no car may weigh less than 1350 lbs. or be
+                  required to weigh more than 2600 lbs. prior to addition of weight adjustments
+                </li>
+              </ul>
+            </li>
+          </div>
+          <div id="epWeight">
+            <li>
+              EP
+              <ul>
+                <li>
+                  Engine Classifications
+                  <ul>
+                    <li>
+                      Minimum weight is based on actual engine displacement. The block may be bored
+                      and/or sleeved to achieve allowed displacement.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Minimum Weight
+                  <ul>
+                    <li>
+                      Engines with 3 or more valves per cylinder and displacement less than
+                      or equal to 1667cc: 1.06 x displacement (cc)
+                    </li>
+                    <li>
+                      Engines with 3 or more valves per cylinder and displacement greater than 1667cc:
+                      0.91 x displacement (cc) + 250
+                    </li>
+                    <li>
+                      Engines with 2-valves per cylinder: 1.00 x displacement (cc)
+                    </li>
+                    <li>
+                      Level 2 (Limited Prep) vehicles: 1.00 x displacement (cc)
+                    </li>
+                    <li>
+                      Forced induction: 1.40 × displacement (cc)
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Weight Adjustments
+                  <ul>
+                    <li>
+                      Wheels greater than 10” wide up to 11” wide: +50
+                    </li>
+                    <li>
+                      Wheels greater than 11” wide up to 12” wide: +100
+                    </li>
+                    <li>
+                      51% or more of weight on the rear axle: +0.015 x displacement (cc)
+                    </li>
+                    <li>
+                      Solid Axle: -50
+                    </li>
+                    <li>
+                      Alternate Engine Allowance: +0.10 x displacement (cc)
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Regardless of the weight formulas above no car may weigh less than 1350 lbs. or be
+                  required to weigh more than 2600 lbs. prior to addition of weight adjustments
+                </li>
+              </ul>
+            </li>
+          </div>
+          <div id="fpWeight">
+            <li>
+              FP
+              <ul>
+                <li>
+                  Minimum Weight Formulas
+                  <ul>
+                    <li>
+                      Piston Engines: 0.750 x displacement (cc)
+                    </li>
+                    <li>
+                      Rotary Engines: 0.700 x specified displacement (cc)
+                    </li>
+                    <li>
+                      Forced Induction: +0.450 x displacement (cc)
+                    </li>
+                    <li>
+                      Peripheral Port Rotary: +0.050 x displacement (cc)
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Weight Adjustments
+                  <ul>
+                    <li>
+                      Wheels greater than 10” wide up to 11” wide: +50
+                    </li>
+                    <li>
+                      Wheels greater than 11” wide up to 12” wide: +100
+                    </li>
+                    <li>
+                      51% or more of weight on the rear axle: +0.040 x displacement (cc)
+                    </li>
+                    <li>
+                      Solid Axle: -0.050 x displacement (cc)
+                    </li>
+                    <li>
+                      Alternate Engine Allowance: +0.10 x displacement (cc)
+                    </li>
+                    <li>
+                      AWD: +0.100 x displacement (cc)
+                    </li>
+                    <li>
+                      FWD: -0.100 x displacement (cc)
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Regardless of the weight formulas above no car may weigh less than 1900 lbs.
+                  (except that cars using section 17.10.R, Engine Swap Allowance, must not weigh
+                  less than 2100 lbs.) or be required to weigh more than 2700 lbs.  prior to
+                  addition of weight adjustments
+                </li>
+                <li>
+                  Weight Calculation Example:
+                  <p>
+                  Subaru WRX STI (2.5L) with 11” wheel width
+                  </br>
+                  Actual displacement (before overbore): 2457 cc.
+                  </br>
+                  The formula would be: 0.750 (piston engine) + 0.450 (forced induction) + 0.100 (AWD) = 1.3 (total weight factor).
+                  </br>
+                  Calculated weight: 1.3 x 2457 = 3195 lbs. (exceeds maximum limit).
+                  </br>
+                  2700 lbs. (maximum allowed weight)
+                  </br>
+                  + 50 lbs. (wheel width over 10” up to 11”)
+                  </br>
+                  = 2750 lbs. (total weight minimum).
+                  </br>
+                  </p>
+                </li>
+              </ul>
+            </li>
+          </div>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['pWeight', 'pCarAnsweredIndex'], [true, 6]); hideItem('pWeight'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['pWeight', 'pCarAnsweredIndex'], [false, 6]); hideItem('pWeight'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="pElectrical" class="center question">
-      <h2 id="pElectricalQuestion" class="sansserif">
+    <div id="pElectrical" class="center question sansserif">
+      <h2 id="pElectricalQuestion">
         Does your electrical system meet the requirements below?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          The use of any driver operated electric starter is permitted.
-        </li>
-        <li>
-          The use of any ignition system (except magneto ignition) is permitted provided the
-          number of spark plugs remains the same as that of the standard production engine. If a
-          distributor is removed, a blanking plate or breather may be fitted in its place.
-        </li>
-        <li>
-          The original generator or alternator may be completely removed or replaced. Mounting
-          location and drive system for the generator or alternator is unrestricted.
-        </li>
-        <li>
-          The remaining components of the electrical system are unrestricted.
-        </li>
-        <li>
-          It is recommended that all vehicles be equipped with an electrical system master
-          cutoff switch.
-        </li>
-        <li>
-          Any traction or stability control systems are permitted.
-        </li>
-      </ul>
+      <div id="electricalBody" class="questionBody">
+        <ul class="list">
+          <li>
+            The use of any driver operated electric starter is permitted.
+          </li>
+          <li>
+            The use of any ignition system (except magneto ignition) is permitted provided the
+            number of spark plugs remains the same as that of the standard production engine. If a
+            distributor is removed, a blanking plate or breather may be fitted in its place.
+          </li>
+          <li>
+            The original generator or alternator may be completely removed or replaced. Mounting
+            location and drive system for the generator or alternator is unrestricted.
+          </li>
+          <li>
+            The remaining components of the electrical system are unrestricted.
+          </li>
+          <li>
+            It is recommended that all vehicles be equipped with an electrical system master
+            cutoff switch.
+          </li>
+          <li>
+            Any traction or stability control systems are permitted.
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['pElectrical', 'pCarAnsweredIndex'], [true, 7]); hideItem('pElectrical'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['pElectrical', 'pCarAnsweredIndex'], [false, 7]); hideItem('pElectrical'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <!-- TODO Split this "wall of text" into smaller, more digestible questions -->
-    <div id="pEngineAndDrivetrain" class="center question">
-      <h2 id="pEngineAndDrivetrainQuestion" class="sansserif">
+    <div id="pEngineAndDrivetrain" class="center question sansserif">
+      <h2 id="pEngineAndDrivetrainQuestion">
         Does your engine and drivetrain fall within the following restrictions?
       </h2>
-      <ul class="sansserif list explanation">
-        <li>
-          Component Modification
-          <ul>
-            <li>
-              Where allowed, original and alternate components of the engine may be lightened,
-              balanced, and modified by any mechanical or chemical means, provided that it is
-              always possible to identify required components as original. Such means include,
-              but are not limited to, shot peening, glass beading, heat treatment or hardening,
-              plating, and milling.
-            </li>
-            <li>
-              No material or mechanical extension may be added to any required original component
-              unless specifically authorized by these rules.  Any repair performed to a required
-              original component shall clearly serve no other prohibited function. Compression
-              ratio may not be increased via welding of combustion chambers.
-            </li>
-          </ul>
-        </li>
-        <li>
-          Induction System
-          <ul>
-            <li>
-              Any air filter(s), velocity stack(s) and or air box(es) may be fitted. Air may be
-              ducted to the carburetor or fuel injection provided that the ducting is contained
-              within the engine compartment and that the air to be ducted is supplied through
-              normal or specifically authorized openings in the bodywork. Headlight, front parking
-              light, front signal light, and similar standard openings in the front of the car
-              may be used for ducting air to the engine and ducts may pass through interior panels
-              for this purpose. “Standard openings in the front of the car” includes ventilation
-              system intake grilles.
-            </li>
-            <li>
-              Any throttle linkage may be used. All throttle linkages shall be equipped with more
-              than one system of positive throttle closure. Any throttle pedal may be used.
-            </li>
-            <li>
-              All inducted air, with the exception of idle air, shall pass through the throttle
-              venturi(s).
-            </li>
-            <li>
-              Level 1 Preparation (Full Prep) Vehicles
-              <ul>
-                <li>
-                  Unless specifically listed in Appendix A, carburetors and fuel injection systems
-                  are unrestricted.
-                </li>
-                <li>
-                  Intake manifolds are unrestricted except that no portion of any intake manifold may
-                  extend into the intake ports of the cylinder head or rotary engine end plate.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Level 2 Preparation (Limited Prep) Vehicles
-              <ul>
-                <li>
-                  All inducted air must pass through the throttle body and be subject to control by
-                  the throttle butterfly. All single-carbureted cars may fit a permitted optional
-                  carburetor per Appendix A. The standard or permitted alternate carburetor must not
-                  be modified. Carburetor jets needles, metering rods and needle valves are
-                  unrestricted.  Choke mechanisms, plates, rods, and actuating cables, wires, or hoses
-                  can be removed. The number of carburetors must not be changed from OE.
-                </li>
-                <li>
-                  Standard or permitted alternate carburetor(s) can use an adaptor plate and/or a
-                  spacer in addition to any standard spacer between the carburetor(s) and the intake
-                  manifold. Material for the adaptor plate and spacer is unrestricted. No adaptor
-                  plate or spacer can serve any purpose other than to space out and/or mate the
-                  carburetor(s) to the permitted intake manifold. The adapter or spacer cannot create
-                  a plenum or change the carburetor orientation. The maximum thickness for the
-                  adapter, spacer, standard spacer, or combination of all is 11⁄4 inches (1.250”,
-                  31.75 mm). For the purpose of these rules an isolator is a spacer.
-                </li>
-                <li>
-                  Fuel Injection – The standard throttle body must be retained and may not be
-                  modified. The number of injectors must remain standard. The mounting position and
-                  injection point must be standard. In all other respects the fuel injection system
-                  is unrestricted.
-                </li>
-                <li>
-                  The intake manifold may be port matched on the port mating surface to a depth of
-                  no more than 1.0” (25.4 mm). Balance pipes or tubes on all intake manifolds can be
-                  plugged or restricted. The intake manifold cannot otherwise be modified.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          Induction System – Turbocharged/Supercharged Engines
-          <ul>
-            <li>
-              Turbocharging and supercharging is prohibited except for specific vehicles as listed
-              in Appendix A.
-            </li>
-            <li>
-              Induction systems must have a restrictor on the inlet side. This restrictor
-              orifice must not be more than 4.0” (10.2 cm) from the compressor inlet and must
-              maintain the specified diameter for at least 1⁄2 inch (0.50”, 12.7 mm). Induction
-              system restrictors may be located within or be integral to the compressor housing,
-              provided that all dimensional requirements of 17.10.C.2 are maintained. All inducted
-              air must pass through this restrictor. The diameter for the restrictor shall be as
-              follows (unless specified otherwise in Appendix A):
-              <ul>
-                <div id="xpRestrictor" class="pRestrictor">
+      <div id="engineBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Component Modification
+            <ul>
+              <li>
+                Where allowed, original and alternate components of the engine may be lightened,
+                balanced, and modified by any mechanical or chemical means, provided that it is
+                always possible to identify required components as original. Such means include,
+                but are not limited to, shot peening, glass beading, heat treatment or hardening,
+                plating, and milling.
+              </li>
+              <li>
+                No material or mechanical extension may be added to any required original component
+                unless specifically authorized by these rules.  Any repair performed to a required
+                original component shall clearly serve no other prohibited function. Compression
+                ratio may not be increased via welding of combustion chambers.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Induction System
+            <ul>
+              <li>
+                Any air filter(s), velocity stack(s) and or air box(es) may be fitted. Air may be
+                ducted to the carburetor or fuel injection provided that the ducting is contained
+                within the engine compartment and that the air to be ducted is supplied through
+                normal or specifically authorized openings in the bodywork. Headlight, front parking
+                light, front signal light, and similar standard openings in the front of the car
+                may be used for ducting air to the engine and ducts may pass through interior panels
+                for this purpose. “Standard openings in the front of the car” includes ventilation
+                system intake grilles.
+              </li>
+              <li>
+                Any throttle linkage may be used. All throttle linkages shall be equipped with more
+                than one system of positive throttle closure. Any throttle pedal may be used.
+              </li>
+              <li>
+                All inducted air, with the exception of idle air, shall pass through the throttle
+                venturi(s).
+              </li>
+              <li>
+                Level 1 Preparation (Full Prep) Vehicles
+                <ul>
                   <li>
-                    XP – No restrictor required
-                  </li>
-                </div>
-                <div id="cpRestrictor" class="pRestrictor">
-                  <li>
-                    CP – 52 mm (2.047”) restrictor
-                  </li>
-                </div>
-                <div id="fpRestrictor" class="pRestrictor">
-                  <li>
-                    FP – 46 mm (1.811”) restrictor
-                  </li>
-                </div>
-                <div id="epRestrictor" class="pRestrictor">
-                  <li>
-                    EP – 33 mm (1.299”) restrictor
-                  </li>
-                </div>
-              </ul>
-            </li>
-            <li>
-              Only air-to-air intercoolers may be used. They must fit completely within the
-              bodywork. They must be cooled only by the atmosphere.  The use of coolants such as
-              water, dry ice, ice, etc. is prohibited. Air may be ducted as long as it is supplied
-              through normal or specifically authorized openings in the bodywork. Standard
-              openings in the front of the car includes ventilation system intake grilles.
-            </li>
-            <li>
-              All turbocharged/supercharged cars are restricted to a single turbo-
-              charger/supercharger. The type size and model of turbocharger/supercharger is
-              unrestricted.
-            </li>
-          </ul>
-        </li>
-        <li>
-          Fuel System
-          <ul>
-            <li>
-              Any fuel line(s) may be used. All non-standard fuel line(s) passing through the
-              passenger compartment shall be made of metal or metal-braided hose or equivalent
-              (e.g., Nomex, Kevlar, or nylon-braided hose) with AN Series threaded couplings or
-              entirely covered and protected with a metal cover.
-            </li>
-            <li>
-              Any fuel pump(s), filter(s), and pressure regulator(s) may be used.  Such components
-              may not be located in the passenger compartment but their location within the
-              bodywork of the car is otherwise unrestricted. If a mechanical pump is replaced, a
-              blanking plate may be used to cover the original mounting point.
-            </li>
-            <li>
-              A cool-can, not exceeding one gallon in volume, may be used. The cool-can may not be
-              installed in the passenger compartment.
-            </li>
-            <li>
-              No fuel shall be added after the exhaust valve on a piston engine or after the
-              beginning of the exhaust port of a rotary engine.
-            </li>
-          </ul>
-        </li>
-        <li>
-          All emission equipment may be removed, in part or in whole. Removal is the only
-          permitted modification to emission control equipment.  When EGR air nozzles are removed
-          from a cylinder head, the resultant holes shall be completely plugged.
-        </li>
-        <li>
-          Cylinder Head
-          <ul>
-            <li>
-              The original or a specified alternate cylinder head shall be used.
-            </li>
-            <li>
-              Compression ratio may be altered by machining, using any head gasket(s), or
-              elimination of head gasket(s).
-            </li>
-            <li>
-              Level 1 Preparation (Full Prep) Vehicles
-              <ul>
-                <li>
-                  Any valve guides and valve seats may be used.
-                </li>
-                <li>
-                  <!-- TODO Clarify what this means -->
-                  Heads may be modified per Section 17.10.A.1.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Level 2 Preparation (Limited Prep) Vehicles
-              <ul>
-                <li>
-                  Heads may be ported within 1.0” (25.4mm) of the manifold mounting surface.
-                  <li>
-                    Fuel injector ports must be plugged if carburetors are used.
+                    Unless specifically listed in Appendix A, carburetors and fuel injection systems
+                    are unrestricted.
                   </li>
                   <li>
-                    Machining is allowed to accommodate the installation of O-rings to replace or
-                    supplement a cylinder head gasket.
+                    Intake manifolds are unrestricted except that no portion of any intake manifold may
+                    extend into the intake ports of the cylinder head or rotary engine end plate.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Level 2 Preparation (Limited Prep) Vehicles
+                <ul>
+                  <li>
+                    All inducted air must pass through the throttle body and be subject to control by
+                    the throttle butterfly. All single-carbureted cars may fit a permitted optional
+                    carburetor per Appendix A. The standard or permitted alternate carburetor must not
+                    be modified. Carburetor jets needles, metering rods and needle valves are
+                    unrestricted.  Choke mechanisms, plates, rods, and actuating cables, wires, or hoses
+                    can be removed. The number of carburetors must not be changed from OE.
                   </li>
                   <li>
-                    Valve seats are unrestricted. Valve seat angles are unrestricted.  The valve
-                    seat insert can be no taller than 1⁄2 inch (0.50”, 12.7 mm).
+                    Standard or permitted alternate carburetor(s) can use an adaptor plate and/or a
+                    spacer in addition to any standard spacer between the carburetor(s) and the intake
+                    manifold. Material for the adaptor plate and spacer is unrestricted. No adaptor
+                    plate or spacer can serve any purpose other than to space out and/or mate the
+                    carburetor(s) to the permitted intake manifold. The adapter or spacer cannot create
+                    a plenum or change the carburetor orientation. The maximum thickness for the
+                    adapter, spacer, standard spacer, or combination of all is 11⁄4 inches (1.250”,
+                    31.75 mm). For the purpose of these rules an isolator is a spacer.
                   </li>
                   <li>
-                    Valve guide material is unrestricted, but must have standard external dimensions.
+                    Fuel Injection – The standard throttle body must be retained and may not be
+                    modified. The number of injectors must remain standard. The mounting position and
+                    injection point must be standard. In all other respects the fuel injection system
+                    is unrestricted.
                   </li>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          Camshaft and Valve Gear
-          <ul>
-            <li>
-              Cam timing chains, gears, belts, sprockets, and associated covers are unrestricted.
-            </li>
-            <li>
-              A timing chain/belt tensioner may be added to those engines not originally so
-              equipped, provided that it acts upon that portion of the chain/belt that travels
-              from the crank drive to the first cam sprocket/ gear. The timing chain cover may be
-              modified to facilitate its use.  Adjustable cam timing sprockets are permitted.
-            </li>
-            <li>
-              Any metal valves may be used. Valve springs, valve retainers, keepers, seals, and
-              adjusting shims are unrestricted.
-            </li>
-            <li>
-              Pushrods are unrestricted except they must be made of metal.
-            </li>
-            <li>
-              Any cam followers may be used.
-            </li>
-            <li>
-              Any valve covers may be used.
-            </li>
-            <li>
-              Level 1 Preparation (Full Prep) Vehicles
-              <ul>
-                <li>
-                  Any camshaft(s) may be used
-                </li>
-                <li>
-                  Valve sizes are unrestricted
-                </li>
-                <li>
-                  Valve train rocker arms, shafts, and attendant assemblies (such as rocker stud
-                  girdles) are unrestricted.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Level 2 Preparation (Limited Prep) Vehicles
-              <ul>
-                <li>
-                  Camshafts are unrestricted except for limits as described in Appendix A. Where
-                  maximum valve lift is specified, valve lift is measured at the valve with zero
-                  lash or clearance.
-                </li>
-                <li>
-                  Valve sizes are to remain standard unless specifically allowed in Appendix A.
-                </li>
-                <li>
-                  Rocker shafts, when utilized in the same standard system, can be replaced by an
-                  alternate shafts and are unrestricted. Valve train rocker arms, cam followers,
-                  rocker ratios, and rocker/follower ratios must be standard.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          Block
-          <ul>
-            <li>
-              The block may be rebored no more than 0.0472” (1.20 mm) over standard unless
-              otherwise specified in Appendix A. US-produced six-cylinder and eight-cylinder
-              engines may be rebored no more than 0.060” (1.52 mm) over standard. Alternate blocks
-              which are of the same material and nominal dimensions as standard are allowed.
-              Critical dimensions for piston engines are deck height, cylinder bore, cylinder
-              spacing, vee angle, and distance from crank centerline to cam centerline. Critical
-              dimensions for rotary engines are epitrochoidal curve, working chamber volume, and
-              eccentric shaft location.
-            </li>
-            <li>
-              Cylinder sleeves may be fitted to the block for repair purposes if they serve no
-              other prohibited function. Sleeving may not be used to create a new engine
-              configuration (one which exhibits the same displacement as an allowed engine, but
-              which has differing bore and stroke), unless authorized in Appendix A. Oil passages
-              may be enlarged, restricted, or plugged.
-            </li>
-            <li>
-              Any crankshaft main bearing caps and any additional main bearing cap bolts may be
-              used provided that no material is added to the block for their use. Any crankshaft
-              main bearing stud girdle may be used.
-            </li>
-            <li>
-              The compression ratio may be increased by means of milling the block and the block
-              may be machined to utilize O-rings to replace or supplement a cylinder head gasket.
-            </li>
-            <li>
-              The block may be machined for the purpose of adding or substituting crankshaft oil
-              seal(s) and related attachment devices.
-            </li>
-            <li>
-              Balance shafts may be removed.
-            </li>
-          </ul>
-        </li>
-        <li>
-          Pistons and Rods
-          <ul>
-            <li>
-              Pistons, pins, clips and/or pin retainers, and piston rings are unrestricted.
-              Pistons shall be constructed of metal.
-            </li>
-            <li>
-              Level 1 Preparation (Full Prep) Vehicles
-              <ul>
-                <li>
-                  Alternate connecting rods made of ferrous material are permitted.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Level 2 Preparation (Limited Prep) Vehicles
-              <ul>
-                <li>
-                  Standard connecting rods are required but can be lightened and balanced.
-                </li>
-                <li>
-                  Connecting rod fasteners (bolts and nuts) are unrestricted.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          Crank and Flywheel
-          <ul>
-            <li>
-              The original direction of crankshaft rotation and firing order shall be maintained.
-            </li>
-            <li>
-              The use of any external crankshaft vibration dampener is permitted.
-            </li>
-            <li>
-              The linkage between the clutch pedal and the clutch housing/clutch actuating
-              mechanism is unrestricted, but may serve no other purpose. A mechanical linkage
-              may be replaced with a hydraulic system.  Any clutch pedal may be used.
-            </li>
-            <li>
-              Level 1 Preparation (Full Prep) Vehicles
-              <ul>
-                <li>
-                  The crankshaft may be replaced with another of the same basic material provided
-                  the angles of the crank throws remain the same. No change in stroke is permitted
-                  unless authorized in Appendix A.
-                </li>
-                <li>
-                  Any clutch is permitted.
-                </li>
-                <li>
-                  Any steel or aluminum flywheel is permitted.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Level 2 Preparation (Limited Prep) Vehicles
-              <ul>
-                <li>
-                  Standard crankshafts are required. The crankshaft may be lightened and
-                  balanced. Journal diameters can be a maximum undersize of 0.045” (1.14 mm)
-                  from standard diameter.
-                </li>
-                <li>
-                  Any flywheel of standard diameter or larger may be used provided it attaches to
-                  the standard or permitted alternate crankshaft at the standard location.
-                  Additional fasteners may be used. The diameter of the flywheel includes the
-                  diameter of the starter ring gear. Cars that are permitted a specific alternate
-                  transmission on the specification line may use a flywheel of standard diameter
-                  or larger for that alternate transmission.
-                </li>
-                <li>
-                  Clutch assemblies, clutch linkages, and release bearings are unrestricted.
-                  Carbon clutch components are prohibited.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          Oiling System
-          <ul>
-            <li>
-              The use of any oil pan/sump, scrapers, baffles, windage trays, oil pickup(s),
-              pressure accumulator (Accusump®), and oil filter(s) is permitted. Filter and
-              accumulator location is unrestricted but they shall be securely mounted within the
-              bodywork.
-            </li>
-            <!-- TODO Explain what the requirements of section 3.3.3 are -->
-            <li>
-              So long as it meets the requirements in Section 3.3.3, the installation of any type
-              of vent or breather on the engine is permitted.
-            </li>
-            <li>
-              Level 1 Preparation (Full Prep) Vehicles
-              <ul>
-                <li>
-                  Any engine driven oil pump may be used including a dry sump system. The dry
-                  sump tank shall be mounted within the bodywork. If said tank is mounted in the
-                  driver/passenger compartment, it shall be isolated from the driver by means of a
-                  metal bulkhead or additional container that retains any spillage or leakage.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Level 2 Preparation (Limited Prep) Vehicles
-              <ul>
-                <li>
-                  Any mechanically driven oil pump can be used. Chassis components may be modified
-                  to allow installation of the oil pump. Dry sump systems are prohibited.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          The components of the exhaust system are unrestricted. Exhaust must be compliant with
-          Section 3.3.3.B.16 and may exit through the bodywork. Rocker panels may be modified
-          for exhaust routing.
-        </li>
-        <li>
-          Other Engine Components
-          <ul>
-            <li>
-              The use of alternate engine components which are normally expendable and
-              considered replacement parts, such as seals, bearings, water pumps, etc., is
-              permitted. Fasteners may be substituted.
-            </li>
-            <li>
-              Bushings may be installed where none are fitted as standard provided they are
-              concentric and that the centerline of the bushed part is not changed. The addition
-              of alignment dowels is permitted. Bushings are required to be concentric so that
-              unintended relocations and realignments are not permitted.
-            </li>
-            <li>
-              Gaskets may be replaced with others of unrestricted origin.
-            </li>
-            <li>
-              Alternator/generator, crankshaft, and water pump pulleys may be altered or replaced
-              by others of unrestricted origin.
-            </li>
-            <li>
-              One or more engine torque suppressors may be fitted. Original torque suppressors may
-              be altered, replaced, or removed.
-            </li>
-            <li>
-              Motor mounts of alternate design and/or material may be used.
-            </li>
-            <li>
-              The engine may be relocated within the following constraints:
-              <ul>
-                <li>
-                  Longitudinally mounted engines must locate the bell housing to block mounting
-                  surface no closer to the fore-aft center of the vehicle than the standard part.
-                  Vertical position of the longitudinal axis of the centerline of the crankshaft
-                  must be within ±1 inch (25.4 mm) of the standard part. Transverse mounted
-                  engines must locate the centerline of the crankshaft ±1 inch than the standard
-                  part , and no closer to the fore-aft center of the vehicle than the standard
-                  part ±1 inch (25.4 mm).
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          Engine, Rotary Piston (only) Modifications
-          <ul>
-            <li>
-              No changes in the epitrochoidal curve of the motor are permitted.
-            </li>
-            <li>
-              The capacity of the working chambers shall not be changed.
-            </li>
-            <li>
-              The eccentric shaft may be replaced with another of the same basic material, but no
-              changes in the eccentricity or bearing journal dimensions are permitted.
-            </li>
-            <li>
-              Rotors are unrestricted provided the material and number of lobes remains unchanged.
-            </li>
-          </ul>
-        </li>
-        <li>
-          Cooling System
-          <ul>
-            <li>
-              Cooling fan(s) may be modified, substituted, or removed. Electrically operated
-              cooling fan(s) may be installed provided it (they) serve no other purpose. The use
-              of any engine, transmission, and/or differential oil cooler(s) is/are permitted
-              provided it/they is/are mounted completely within or under the bodywork, but not in
-              the driver/passenger compartment. Associated oil cooler pumps and lines are per-
-              mitted for the transmission and differential. Air ducts may be fitted to the oil
-              cooler(s) as specifically authorized herein.
-            </li>
-            <li>
-              Any water radiator is allowed, provided there are no changes in the exterior
-              bodywork to accommodate its use. It shall not be located in the driver/ passenger
-              compartment. Separate expansion or header tank(s) are permitted provided they are
-              not mounted in the driver/ passenger compartment. The heater core may be removed
-              entirely but not modified or replaced. Water radiators may be filled with water,
-              antifreeze, and/or nonflammable liquids the purpose of which is to transfer heat
-              and/or inhibit freezing, boiling, and/or corrosion.  A radiator may be relocated so
-              long as the other applicable items in Section 17 are not violated (e.g., the
-              exterior bodywork is not altered) to accommodate the change. OE radiator
-              support/mounts can be modified to accommodate an alternate radiator configuration.
-            </li>
-            <li>
-              Sealing or shrouding the airflow area between the normal grill opening and the
-              water radiator is permitted.
-            </li>
-            <li>
-              On water-cooled cars, thermostats may be removed, modified, or replaced with
-              blanking sleeves or restrictors.
-            </li>
-            <li>
-              The direction of water flow through the engine shall not be changed from that which
-              was original for the engine unless authorized in Appendix A.
-            </li>
-            <li>
-              Electrically driven water pumps are allowed. Alternate mechanical water pumps are
-              not required to be of the same configuration as the original. Electric water pumps
-              may be relocated.
-            </li>
-          </ul>
-        </li>
-        <li>
-          Transmission
-          <ul>
-            <li>
-              The standard transmission without modification may be used.
-            </li>
-            <li>
-              Any mechanical shift linkage or mechanism for changing gears may be used including
-              use of lockout mechanisms. The shift lever opening in the body of the car may be
-              altered to allow the installation of an alternate shift linkage.
-            </li>
-            <li>
-              Level 1 Preparation (Full Prep) Vehicles
-              <ul>
-                <li>
-                  Any non-sequential manual transmission is allowed. Any automatic sequential
-                  transmission employing a torque converter is allowed.
-                </li>
-                <li>
-                  Hydraulic/electric shifting mechanisms may be modified in automatic sequential
-                  transmissions employing a torque converter.
-                </li>
-                <li>
-                  Pneumatic, hydraulic, or electronically-controlled shifting is not allowed for
-                  manual transmissions, except for electronically-controlled overdrive manual
-                  transmissions in cars which were originally equipped with them.
-                </li>
-                <li>
-                  Gear ratios may be modified.
-                </li>
-                <li>
-                  A functional reverse gear is not required.
-                </li>
-                <li>
-                  The transmission tunnel/cover may be altered to allow the installation of an
-                  alternate transmission and/or driveshaft. Cars originally equipped with a
-                  removable transmission tunnel/cover may substitute a tunnel/cover of an
-                  alternate material.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Level 2 Preparation (Limited Prep) Vehicles
-              <ul>
-                <li>
-                  There is no weight increase for the use of a standard transmission utilizing
-                  standard case, gear ratios, and synchromesh style gear engagement.
-                </li>
-                <li>
-                  An alternate transmission that uses standard-type, circular, beveled
-                  synchronizers, imposes a 2.5% weight increase.
-                </li>
-                <li>
-                  An alternate transmission that uses a gear engagement mechanism different than
-                  standard-type, circular, beveled synchronizers imposes a 5% weight increase.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          Final Drive
-          <ul>
-            <li>
-              Alternate driveshaft(s) may be used. Any driveshaft assembly may be modified to
-              permit the use of an alternate transmission.
-            </li>
-            <li>
-              Any gear ratio and/or differential (limited slip or locked) is permitted. Final
-              drive units which permit gear ratio changes while the car is in motion are prohibited.
-            </li>
-            <li>
-              Any drive axle shafts, bearings, bearing carriers, hubs, and universal/CV joints
-              may be used.
-            </li>
-            <li>
-              “Loops” may be installed to prevent the driveshaft from contacting the ground in the
-              event of driveshaft and/or U-joint failure.
-            </li>
-            <li>
-              Level 1 Preparation (Full Prep) Vehicles
-              <ul>
-                <li>
-                  Any axle tube or final drive housing is permitted.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Level 2 Preparation (Limited Prep) Vehicles
-              <ul>
-                <li>
-                  Substitution of the differential housing is only permitted on
-                  front-engine/front-drive or rear-engine/rear-drive cars through the use of an
-                  alternate transaxle.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          Alternate Engine Allowance:
-          <ul>
-            <li>
-              Prepared vehicles may make use of alternate engines from the engine originally
-              delivered, with the following rules. Excluded from use of alternate engines are
-              forced-induction engines, rotary engines, hybrid engine and drivetrains, and
-              Prepared Limited Preparation Vehicles.
-            </li>
-            <li>
-              Alternate engines are to be from the same make as the make of the vehicle. Engine
-              must be available in production automotive model(s) sold in the US. No alternate
-              engines or parts of the engine are allowed that were offered in other markets than
-              the US unless listed in Appendix A. Motorcycle, snowmobile, marine, or other engines
-              of non-automotive design are not permitted.
-            </li>
-            <li>
-              Vehicle manufacturers that no longer exist may use any motor available in the use
-              from corporate brands or via the following listings:
-              <ul>
-                <li>
-                  British makes may use Ford motors including Mazda.
-                </li>
-                <li>
-                  Italian makes may use Fiat Chrysler motors.
-                </li>
-              </ul>
-            </li>
-            <li>
-              Alternate engines are to retain the same piston count or less as the vehicle’s
-              engine was originally configured. Models classed with multiple piston counts on
-              the same line may use any piston count that matches classed models.
-            </li>
-            <li>
-              Alternate engines must keep same cooling type as before. For example, water must
-              stay water, air must stay air.
-            </li>
-            <li>
-              Alternate engine weights will be calculated using listed engine displacement of
-              swapped engine.
-            </li>
-            <li>
-              The engine orientation (transverse stays transverse and longitudinal stays
-              longitudinal) and the engine bay location must not be changed (front-engine stays
-              front-engine, mid-engine stays mid-engine, and rear-engine stays rear-engine).
-            </li>
-          </ul>
-        </li>
-      </ul>
+                  <li>
+                    The intake manifold may be port matched on the port mating surface to a depth of
+                    no more than 1.0” (25.4 mm). Balance pipes or tubes on all intake manifolds can be
+                    plugged or restricted. The intake manifold cannot otherwise be modified.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Induction System – Turbocharged/Supercharged Engines
+            <ul>
+              <li>
+                Turbocharging and supercharging is prohibited except for specific vehicles as listed
+                in Appendix A.
+              </li>
+              <li>
+                Induction systems must have a restrictor on the inlet side. This restrictor
+                orifice must not be more than 4.0” (10.2 cm) from the compressor inlet and must
+                maintain the specified diameter for at least 1⁄2 inch (0.50”, 12.7 mm). Induction
+                system restrictors may be located within or be integral to the compressor housing,
+                provided that all dimensional requirements of 17.10.C.2 are maintained. All inducted
+                air must pass through this restrictor. The diameter for the restrictor shall be as
+                follows (unless specified otherwise in Appendix A):
+                <ul>
+                  <div id="xpRestrictor" class="pRestrictor">
+                    <li>
+                      XP – No restrictor required
+                    </li>
+                  </div>
+                  <div id="cpRestrictor" class="pRestrictor">
+                    <li>
+                      CP – 52 mm (2.047”) restrictor
+                    </li>
+                  </div>
+                  <div id="fpRestrictor" class="pRestrictor">
+                    <li>
+                      FP – 46 mm (1.811”) restrictor
+                    </li>
+                  </div>
+                  <div id="epRestrictor" class="pRestrictor">
+                    <li>
+                      EP – 33 mm (1.299”) restrictor
+                    </li>
+                  </div>
+                </ul>
+              </li>
+              <li>
+                Only air-to-air intercoolers may be used. They must fit completely within the
+                bodywork. They must be cooled only by the atmosphere.  The use of coolants such as
+                water, dry ice, ice, etc. is prohibited. Air may be ducted as long as it is supplied
+                through normal or specifically authorized openings in the bodywork. Standard
+                openings in the front of the car includes ventilation system intake grilles.
+              </li>
+              <li>
+                All turbocharged/supercharged cars are restricted to a single turbo-
+                charger/supercharger. The type size and model of turbocharger/supercharger is
+                unrestricted.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Fuel System
+            <ul>
+              <li>
+                Any fuel line(s) may be used. All non-standard fuel line(s) passing through the
+                passenger compartment shall be made of metal or metal-braided hose or equivalent
+                (e.g., Nomex, Kevlar, or nylon-braided hose) with AN Series threaded couplings or
+                entirely covered and protected with a metal cover.
+              </li>
+              <li>
+                Any fuel pump(s), filter(s), and pressure regulator(s) may be used.  Such components
+                may not be located in the passenger compartment but their location within the
+                bodywork of the car is otherwise unrestricted. If a mechanical pump is replaced, a
+                blanking plate may be used to cover the original mounting point.
+              </li>
+              <li>
+                A cool-can, not exceeding one gallon in volume, may be used. The cool-can may not be
+                installed in the passenger compartment.
+              </li>
+              <li>
+                No fuel shall be added after the exhaust valve on a piston engine or after the
+                beginning of the exhaust port of a rotary engine.
+              </li>
+            </ul>
+          </li>
+          <li>
+            All emission equipment may be removed, in part or in whole. Removal is the only
+            permitted modification to emission control equipment.  When EGR air nozzles are removed
+            from a cylinder head, the resultant holes shall be completely plugged.
+          </li>
+          <li>
+            Cylinder Head
+            <ul>
+              <li>
+                The original or a specified alternate cylinder head shall be used.
+              </li>
+              <li>
+                Compression ratio may be altered by machining, using any head gasket(s), or
+                elimination of head gasket(s).
+              </li>
+              <li>
+                Level 1 Preparation (Full Prep) Vehicles
+                <ul>
+                  <li>
+                    Any valve guides and valve seats may be used.
+                  </li>
+                  <li>
+                    <!-- TODO Clarify what this means -->
+                    Heads may be modified per Section 17.10.A.1.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Level 2 Preparation (Limited Prep) Vehicles
+                <ul>
+                  <li>
+                    Heads may be ported within 1.0” (25.4mm) of the manifold mounting surface.
+                    <li>
+                      Fuel injector ports must be plugged if carburetors are used.
+                    </li>
+                    <li>
+                      Machining is allowed to accommodate the installation of O-rings to replace or
+                      supplement a cylinder head gasket.
+                    </li>
+                    <li>
+                      Valve seats are unrestricted. Valve seat angles are unrestricted.  The valve
+                      seat insert can be no taller than 1⁄2 inch (0.50”, 12.7 mm).
+                    </li>
+                    <li>
+                      Valve guide material is unrestricted, but must have standard external dimensions.
+                    </li>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Camshaft and Valve Gear
+            <ul>
+              <li>
+                Cam timing chains, gears, belts, sprockets, and associated covers are unrestricted.
+              </li>
+              <li>
+                A timing chain/belt tensioner may be added to those engines not originally so
+                equipped, provided that it acts upon that portion of the chain/belt that travels
+                from the crank drive to the first cam sprocket/ gear. The timing chain cover may be
+                modified to facilitate its use.  Adjustable cam timing sprockets are permitted.
+              </li>
+              <li>
+                Any metal valves may be used. Valve springs, valve retainers, keepers, seals, and
+                adjusting shims are unrestricted.
+              </li>
+              <li>
+                Pushrods are unrestricted except they must be made of metal.
+              </li>
+              <li>
+                Any cam followers may be used.
+              </li>
+              <li>
+                Any valve covers may be used.
+              </li>
+              <li>
+                Level 1 Preparation (Full Prep) Vehicles
+                <ul>
+                  <li>
+                    Any camshaft(s) may be used
+                  </li>
+                  <li>
+                    Valve sizes are unrestricted
+                  </li>
+                  <li>
+                    Valve train rocker arms, shafts, and attendant assemblies (such as rocker stud
+                    girdles) are unrestricted.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Level 2 Preparation (Limited Prep) Vehicles
+                <ul>
+                  <li>
+                    Camshafts are unrestricted except for limits as described in Appendix A. Where
+                    maximum valve lift is specified, valve lift is measured at the valve with zero
+                    lash or clearance.
+                  </li>
+                  <li>
+                    Valve sizes are to remain standard unless specifically allowed in Appendix A.
+                  </li>
+                  <li>
+                    Rocker shafts, when utilized in the same standard system, can be replaced by an
+                    alternate shafts and are unrestricted. Valve train rocker arms, cam followers,
+                    rocker ratios, and rocker/follower ratios must be standard.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Block
+            <ul>
+              <li>
+                The block may be rebored no more than 0.0472” (1.20 mm) over standard unless
+                otherwise specified in Appendix A. US-produced six-cylinder and eight-cylinder
+                engines may be rebored no more than 0.060” (1.52 mm) over standard. Alternate blocks
+                which are of the same material and nominal dimensions as standard are allowed.
+                Critical dimensions for piston engines are deck height, cylinder bore, cylinder
+                spacing, vee angle, and distance from crank centerline to cam centerline. Critical
+                dimensions for rotary engines are epitrochoidal curve, working chamber volume, and
+                eccentric shaft location.
+              </li>
+              <li>
+                Cylinder sleeves may be fitted to the block for repair purposes if they serve no
+                other prohibited function. Sleeving may not be used to create a new engine
+                configuration (one which exhibits the same displacement as an allowed engine, but
+                which has differing bore and stroke), unless authorized in Appendix A. Oil passages
+                may be enlarged, restricted, or plugged.
+              </li>
+              <li>
+                Any crankshaft main bearing caps and any additional main bearing cap bolts may be
+                used provided that no material is added to the block for their use. Any crankshaft
+                main bearing stud girdle may be used.
+              </li>
+              <li>
+                The compression ratio may be increased by means of milling the block and the block
+                may be machined to utilize O-rings to replace or supplement a cylinder head gasket.
+              </li>
+              <li>
+                The block may be machined for the purpose of adding or substituting crankshaft oil
+                seal(s) and related attachment devices.
+              </li>
+              <li>
+                Balance shafts may be removed.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Pistons and Rods
+            <ul>
+              <li>
+                Pistons, pins, clips and/or pin retainers, and piston rings are unrestricted.
+                Pistons shall be constructed of metal.
+              </li>
+              <li>
+                Level 1 Preparation (Full Prep) Vehicles
+                <ul>
+                  <li>
+                    Alternate connecting rods made of ferrous material are permitted.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Level 2 Preparation (Limited Prep) Vehicles
+                <ul>
+                  <li>
+                    Standard connecting rods are required but can be lightened and balanced.
+                  </li>
+                  <li>
+                    Connecting rod fasteners (bolts and nuts) are unrestricted.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Crank and Flywheel
+            <ul>
+              <li>
+                The original direction of crankshaft rotation and firing order shall be maintained.
+              </li>
+              <li>
+                The use of any external crankshaft vibration dampener is permitted.
+              </li>
+              <li>
+                The linkage between the clutch pedal and the clutch housing/clutch actuating
+                mechanism is unrestricted, but may serve no other purpose. A mechanical linkage
+                may be replaced with a hydraulic system.  Any clutch pedal may be used.
+              </li>
+              <li>
+                Level 1 Preparation (Full Prep) Vehicles
+                <ul>
+                  <li>
+                    The crankshaft may be replaced with another of the same basic material provided
+                    the angles of the crank throws remain the same. No change in stroke is permitted
+                    unless authorized in Appendix A.
+                  </li>
+                  <li>
+                    Any clutch is permitted.
+                  </li>
+                  <li>
+                    Any steel or aluminum flywheel is permitted.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Level 2 Preparation (Limited Prep) Vehicles
+                <ul>
+                  <li>
+                    Standard crankshafts are required. The crankshaft may be lightened and
+                    balanced. Journal diameters can be a maximum undersize of 0.045” (1.14 mm)
+                    from standard diameter.
+                  </li>
+                  <li>
+                    Any flywheel of standard diameter or larger may be used provided it attaches to
+                    the standard or permitted alternate crankshaft at the standard location.
+                    Additional fasteners may be used. The diameter of the flywheel includes the
+                    diameter of the starter ring gear. Cars that are permitted a specific alternate
+                    transmission on the specification line may use a flywheel of standard diameter
+                    or larger for that alternate transmission.
+                  </li>
+                  <li>
+                    Clutch assemblies, clutch linkages, and release bearings are unrestricted.
+                    Carbon clutch components are prohibited.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Oiling System
+            <ul>
+              <li>
+                The use of any oil pan/sump, scrapers, baffles, windage trays, oil pickup(s),
+                pressure accumulator (Accusump®), and oil filter(s) is permitted. Filter and
+                accumulator location is unrestricted but they shall be securely mounted within the
+                bodywork.
+              </li>
+              <!-- TODO Explain what the requirements of section 3.3.3 are -->
+              <li>
+                So long as it meets the requirements in Section 3.3.3, the installation of any type
+                of vent or breather on the engine is permitted.
+              </li>
+              <li>
+                Level 1 Preparation (Full Prep) Vehicles
+                <ul>
+                  <li>
+                    Any engine driven oil pump may be used including a dry sump system. The dry
+                    sump tank shall be mounted within the bodywork. If said tank is mounted in the
+                    driver/passenger compartment, it shall be isolated from the driver by means of a
+                    metal bulkhead or additional container that retains any spillage or leakage.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Level 2 Preparation (Limited Prep) Vehicles
+                <ul>
+                  <li>
+                    Any mechanically driven oil pump can be used. Chassis components may be modified
+                    to allow installation of the oil pump. Dry sump systems are prohibited.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            The components of the exhaust system are unrestricted. Exhaust must be compliant with
+            Section 3.3.3.B.16 and may exit through the bodywork. Rocker panels may be modified
+            for exhaust routing.
+          </li>
+          <li>
+            Other Engine Components
+            <ul>
+              <li>
+                The use of alternate engine components which are normally expendable and
+                considered replacement parts, such as seals, bearings, water pumps, etc., is
+                permitted. Fasteners may be substituted.
+              </li>
+              <li>
+                Bushings may be installed where none are fitted as standard provided they are
+                concentric and that the centerline of the bushed part is not changed. The addition
+                of alignment dowels is permitted. Bushings are required to be concentric so that
+                unintended relocations and realignments are not permitted.
+              </li>
+              <li>
+                Gaskets may be replaced with others of unrestricted origin.
+              </li>
+              <li>
+                Alternator/generator, crankshaft, and water pump pulleys may be altered or replaced
+                by others of unrestricted origin.
+              </li>
+              <li>
+                One or more engine torque suppressors may be fitted. Original torque suppressors may
+                be altered, replaced, or removed.
+              </li>
+              <li>
+                Motor mounts of alternate design and/or material may be used.
+              </li>
+              <li>
+                The engine may be relocated within the following constraints:
+                <ul>
+                  <li>
+                    Longitudinally mounted engines must locate the bell housing to block mounting
+                    surface no closer to the fore-aft center of the vehicle than the standard part.
+                    Vertical position of the longitudinal axis of the centerline of the crankshaft
+                    must be within ±1 inch (25.4 mm) of the standard part. Transverse mounted
+                    engines must locate the centerline of the crankshaft ±1 inch than the standard
+                    part , and no closer to the fore-aft center of the vehicle than the standard
+                    part ±1 inch (25.4 mm).
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Engine, Rotary Piston (only) Modifications
+            <ul>
+              <li>
+                No changes in the epitrochoidal curve of the motor are permitted.
+              </li>
+              <li>
+                The capacity of the working chambers shall not be changed.
+              </li>
+              <li>
+                The eccentric shaft may be replaced with another of the same basic material, but no
+                changes in the eccentricity or bearing journal dimensions are permitted.
+              </li>
+              <li>
+                Rotors are unrestricted provided the material and number of lobes remains unchanged.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Cooling System
+            <ul>
+              <li>
+                Cooling fan(s) may be modified, substituted, or removed. Electrically operated
+                cooling fan(s) may be installed provided it (they) serve no other purpose. The use
+                of any engine, transmission, and/or differential oil cooler(s) is/are permitted
+                provided it/they is/are mounted completely within or under the bodywork, but not in
+                the driver/passenger compartment. Associated oil cooler pumps and lines are per-
+                mitted for the transmission and differential. Air ducts may be fitted to the oil
+                cooler(s) as specifically authorized herein.
+              </li>
+              <li>
+                Any water radiator is allowed, provided there are no changes in the exterior
+                bodywork to accommodate its use. It shall not be located in the driver/ passenger
+                compartment. Separate expansion or header tank(s) are permitted provided they are
+                not mounted in the driver/ passenger compartment. The heater core may be removed
+                entirely but not modified or replaced. Water radiators may be filled with water,
+                antifreeze, and/or nonflammable liquids the purpose of which is to transfer heat
+                and/or inhibit freezing, boiling, and/or corrosion.  A radiator may be relocated so
+                long as the other applicable items in Section 17 are not violated (e.g., the
+                exterior bodywork is not altered) to accommodate the change. OE radiator
+                support/mounts can be modified to accommodate an alternate radiator configuration.
+              </li>
+              <li>
+                Sealing or shrouding the airflow area between the normal grill opening and the
+                water radiator is permitted.
+              </li>
+              <li>
+                On water-cooled cars, thermostats may be removed, modified, or replaced with
+                blanking sleeves or restrictors.
+              </li>
+              <li>
+                The direction of water flow through the engine shall not be changed from that which
+                was original for the engine unless authorized in Appendix A.
+              </li>
+              <li>
+                Electrically driven water pumps are allowed. Alternate mechanical water pumps are
+                not required to be of the same configuration as the original. Electric water pumps
+                may be relocated.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Transmission
+            <ul>
+              <li>
+                The standard transmission without modification may be used.
+              </li>
+              <li>
+                Any mechanical shift linkage or mechanism for changing gears may be used including
+                use of lockout mechanisms. The shift lever opening in the body of the car may be
+                altered to allow the installation of an alternate shift linkage.
+              </li>
+              <li>
+                Level 1 Preparation (Full Prep) Vehicles
+                <ul>
+                  <li>
+                    Any non-sequential manual transmission is allowed. Any automatic sequential
+                    transmission employing a torque converter is allowed.
+                  </li>
+                  <li>
+                    Hydraulic/electric shifting mechanisms may be modified in automatic sequential
+                    transmissions employing a torque converter.
+                  </li>
+                  <li>
+                    Pneumatic, hydraulic, or electronically-controlled shifting is not allowed for
+                    manual transmissions, except for electronically-controlled overdrive manual
+                    transmissions in cars which were originally equipped with them.
+                  </li>
+                  <li>
+                    Gear ratios may be modified.
+                  </li>
+                  <li>
+                    A functional reverse gear is not required.
+                  </li>
+                  <li>
+                    The transmission tunnel/cover may be altered to allow the installation of an
+                    alternate transmission and/or driveshaft. Cars originally equipped with a
+                    removable transmission tunnel/cover may substitute a tunnel/cover of an
+                    alternate material.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Level 2 Preparation (Limited Prep) Vehicles
+                <ul>
+                  <li>
+                    There is no weight increase for the use of a standard transmission utilizing
+                    standard case, gear ratios, and synchromesh style gear engagement.
+                  </li>
+                  <li>
+                    An alternate transmission that uses standard-type, circular, beveled
+                    synchronizers, imposes a 2.5% weight increase.
+                  </li>
+                  <li>
+                    An alternate transmission that uses a gear engagement mechanism different than
+                    standard-type, circular, beveled synchronizers imposes a 5% weight increase.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Final Drive
+            <ul>
+              <li>
+                Alternate driveshaft(s) may be used. Any driveshaft assembly may be modified to
+                permit the use of an alternate transmission.
+              </li>
+              <li>
+                Any gear ratio and/or differential (limited slip or locked) is permitted. Final
+                drive units which permit gear ratio changes while the car is in motion are prohibited.
+              </li>
+              <li>
+                Any drive axle shafts, bearings, bearing carriers, hubs, and universal/CV joints
+                may be used.
+              </li>
+              <li>
+                “Loops” may be installed to prevent the driveshaft from contacting the ground in the
+                event of driveshaft and/or U-joint failure.
+              </li>
+              <li>
+                Level 1 Preparation (Full Prep) Vehicles
+                <ul>
+                  <li>
+                    Any axle tube or final drive housing is permitted.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Level 2 Preparation (Limited Prep) Vehicles
+                <ul>
+                  <li>
+                    Substitution of the differential housing is only permitted on
+                    front-engine/front-drive or rear-engine/rear-drive cars through the use of an
+                    alternate transaxle.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Alternate Engine Allowance:
+            <ul>
+              <li>
+                Prepared vehicles may make use of alternate engines from the engine originally
+                delivered, with the following rules. Excluded from use of alternate engines are
+                forced-induction engines, rotary engines, hybrid engine and drivetrains, and
+                Prepared Limited Preparation Vehicles.
+              </li>
+              <li>
+                Alternate engines are to be from the same make as the make of the vehicle. Engine
+                must be available in production automotive model(s) sold in the US. No alternate
+                engines or parts of the engine are allowed that were offered in other markets than
+                the US unless listed in Appendix A. Motorcycle, snowmobile, marine, or other engines
+                of non-automotive design are not permitted.
+              </li>
+              <li>
+                Vehicle manufacturers that no longer exist may use any motor available in the use
+                from corporate brands or via the following listings:
+                <ul>
+                  <li>
+                    British makes may use Ford motors including Mazda.
+                  </li>
+                  <li>
+                    Italian makes may use Fiat Chrysler motors.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Alternate engines are to retain the same piston count or less as the vehicle’s
+                engine was originally configured. Models classed with multiple piston counts on
+                the same line may use any piston count that matches classed models.
+              </li>
+              <li>
+                Alternate engines must keep same cooling type as before. For example, water must
+                stay water, air must stay air.
+              </li>
+              <li>
+                Alternate engine weights will be calculated using listed engine displacement of
+                swapped engine.
+              </li>
+              <li>
+                The engine orientation (transverse stays transverse and longitudinal stays
+                longitudinal) and the engine bay location must not be changed (front-engine stays
+                front-engine, mid-engine stays mid-engine, and rear-engine stays rear-engine).
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['pEngineAndDrivetrain', 'pCarAnsweredIndex'], [true, 8]); hideItem('pEngineAndDrivetrain'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['pEngineAndDrivetrain', 'pCarAnsweredIndex'], [false, 8]); hideItem('pEngineAndDrivetrain'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="eligible" class="center eligible sansserif">
-      <h1 class="sansserif">
+      <h1>
         Your car is eligible for Prepared class!
         </br>
       </h1>
@@ -1886,11 +1898,11 @@ All Possible Classes:
       </div>
     </div>
 
-    <div id="notEligible" class="center notEligible">
-      <h1 class="sansserif">
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
         Your car is NOT eligible for Prepared class.
       </h1>
-      <div class="notEligibleExplanation sansserif">
+      <div class="notEligibleExplanation">
         <h2>
           You answered "No" to the following questions, which resulted in your ineligibility:
         </h2>

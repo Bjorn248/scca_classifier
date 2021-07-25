@@ -38,10 +38,10 @@
 
   <body onload="evalSessionStorage('camCar'); highlightAndFilterCAM();">
     <div id="camLandingPage" class="center question sansserif">
-      <h2 id="camLandingPageQuestion" class="sansserif">
+      <h2 id="camLandingPageQuestion">
         Classic American Muscle (CAM) Class Overview
       </h2>
-      <div id="explanation" class="explanation">
+      <div id="overviewBody" class="questionBody">
         <h3>
           Category Objective
         </h3>
@@ -60,7 +60,7 @@
         <h3>
           Eligible Vehicles
         </h3>
-        <ul class="sansserif list explanation">
+        <ul class="list">
           <li>
             Must be either a domestic automobile or truck (pick-up or SUV) of front-engine,
             rear-wheel-drive (FE/RWD) configuration (no electric-powered vehicles)
@@ -126,13 +126,13 @@
       <button class="button yesButton" onclick="setState(['camLandingPage', 'camCarAnsweredIndex'], [true, 0]); hideItem('camLandingPage'); evalSessionStorage('camCar'); window.scroll(0,0);">Continue</button>
     </div>
 
-    <div id="camBodywork" class="center question">
-      <h2 id="camBodyworkQuestion" class="sansserif">
+    <div id="camBodywork" class="center question sansserif">
+      <h2 id="camBodyworkQuestion">
         Does your car meet the bodywork requirements below?
       </h2>
-      <div id="explanation" class="explanation">
-        <h3 class="sansserif">
-          <ul class="sansserif list explanation">
+      <div id="bodyworkBody" class="questionBody">
+        <h3>
+          <ul class="list">
             <li>
               Body panels may be modified or replaced in the original standard locations.
               Frame may be modified or replaced. Vehicle perimeter and wheelbase must be
@@ -195,25 +195,23 @@
       <button class="button noButton" onclick="setState(['camBodywork', 'camCarAnsweredIndex'], [false, 1]); hideItem('camBodywork'); evalSessionStorage('camCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="camSuspension" class="center question">
-      <h2 id="camSuspensionQuestion" class="sansserif">
+    <div id="camSuspension" class="center question sansserif">
+      <h2 id="camSuspensionQuestion">
         Does your suspension meet the requirements defined below?
       </h2>
-      <p class="sansserif">
+      <p>
       Components and method of attachment are <b>NOT</b> restricted
       </p>
-
       </br>
-
       <button class="button yesButton" onclick="setState(['camSuspension', 'camCarAnsweredIndex'], [true, 2]); hideItem('camSuspension'); evalSessionStorage('camCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['camSuspension', 'camCarAnsweredIndex'], [false, 2]); hideItem('camSuspension'); evalSessionStorage('camCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="camBrakes" class="center question">
-      <h2 id="camBrakesQuestion" class="sansserif">
+    <div id="camBrakes" class="center question sansserif">
+      <h2 id="camBrakesQuestion">
         Do your brakes meet the following requirements?
       </h2>
-      <p class="sansserif">
+      <p>
       Components and method of attachment are <b>NOT</b> restricted
       </p>
       </ul>
@@ -222,12 +220,12 @@
       <button class="button noButton" onclick="setState(['camBrakes', 'camCarAnsweredIndex'], [false, 3]); hideItem('camBrakes'); evalSessionStorage('camCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="camWheels" class="center question">
-      <h2 id="camWheelsQuestion" class="sansserif">
+    <div id="camWheels" class="center question sansserif">
+      <h2 id="camWheelsQuestion">
         Do your wheels meet the following requirements?
         </br>
       </h2>
-      <p class="sansserif">
+      <p>
       Any wheels are allowed. Non-metallic wheels must be certified/approved from an
       appropriate, recognized standards organization (e.g., FIA, SFI, SAE, TUV, etc.)
       </p>
@@ -235,99 +233,103 @@
       <button class="button noButton" onclick="setState(['camWheels', 'camCarAnsweredIndex'], [false, 4]); hideItem('camWheels'); evalSessionStorage('camCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="camTires" class="center question">
-      <h2 id="camTiresQuestion" class="sansserif">
+    <div id="camTires" class="center question sansserif">
+      <h2 id="camTiresQuestion">
         Do your tires meet the following requirements?
       </h2>
       </br>
-      <ul class="sansserif list explanation">
-        <li>
-          DOT tires with a UTQG Treadwear Grade of 200 or higher
-          <ul>
-            <li>
-              <b>EXCLUDED</b>: Kumho Ecsta V720 ACR; Michelin Pilot Sport Cup 2 and Pilot Sport Cup 2 ZP
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <div id="tiresBody" class="questionBody">
+        <ul class="list">
+          <li>
+            DOT tires with a UTQG Treadwear Grade of 200 or higher
+            <ul>
+              <li>
+                <b>EXCLUDED</b>: Kumho Ecsta V720 ACR; Michelin Pilot Sport Cup 2 and Pilot Sport Cup 2 ZP
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['camTires', 'camCarAnsweredIndex'], [true, 5]); hideItem('camTires'); evalSessionStorage('camCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['camTires', 'camCarAnsweredIndex'], [false, 5]); hideItem('camTires'); evalSessionStorage('camCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="camWeight" class="center question">
-      <h2 id="camWeightQuestion" class="sansserif">
+    <div id="camWeight" class="center question sansserif">
+      <h2 id="camWeightQuestion">
         Do you meet the minimum weight and floor covering requirements outlined below?
         </br>
         </br>
         Weights are without driver, in lbs.
       </h2>
-      <p class="sansserif">
+      <p>
       Your subclass should be highlighted
       </p>
-      <ul class="sansserif list explanation">
-        <div id="camcWeight">
-          <li>
-            CAM C
-            <ul>
-              <li>
-                All: 3300
-              </li>
-              <li>
-                Additional weight for Lexan® windshield: 150
-              </li>
-              <li>
-                Interior floor covering(s) may be replaced, but not removed
-              </li>
-            </ul>
-          </li>
-        </div>
-        <div id="camtWeight">
-          <li>
-            CAM T
-            <ul>
-              <li>
-                All: 3000
-              </li>
-              <li>
-                Additional weight for Lexan® windshield: 150
-              </li>
-              <li>
-                Interior floor covering(s) may be replaced, but not removed
-              </li>
-            </ul>
-          </li>
-        </div>
-        <div id="camsWeight">
-          <li>
-            CAM S
-            <ul>
-              <li>
-                Corvette (1984-2019); Viper (-2012): 2900
-              </li>
-              <li>
-                All other cars: 2500
-              </li>
-              <li>
-                Additional weight for Lexan® windshield: 150
-              </li>
-              <li>
-                Interior floor covering may be removed
-              </li>
-            </ul>
-          </li>
-        </div>
-      </ul>
+      <div id="weightBody" class="questionBody">
+        <ul class="list">
+          <div id="camcWeight">
+            <li>
+              CAM C
+              <ul>
+                <li>
+                  All: 3300
+                </li>
+                <li>
+                  Additional weight for Lexan® windshield: 150
+                </li>
+                <li>
+                  Interior floor covering(s) may be replaced, but not removed
+                </li>
+              </ul>
+            </li>
+          </div>
+          <div id="camtWeight">
+            <li>
+              CAM T
+              <ul>
+                <li>
+                  All: 3000
+                </li>
+                <li>
+                  Additional weight for Lexan® windshield: 150
+                </li>
+                <li>
+                  Interior floor covering(s) may be replaced, but not removed
+                </li>
+              </ul>
+            </li>
+          </div>
+          <div id="camsWeight">
+            <li>
+              CAM S
+              <ul>
+                <li>
+                  Corvette (1984-2019); Viper (-2012): 2900
+                </li>
+                <li>
+                  All other cars: 2500
+                </li>
+                <li>
+                  Additional weight for Lexan® windshield: 150
+                </li>
+                <li>
+                  Interior floor covering may be removed
+                </li>
+              </ul>
+            </li>
+          </div>
+        </ul>
+      </div>
       </br>
       <button class="button yesButton" onclick="setState(['camWeight', 'camCarAnsweredIndex'], [true, 6]); hideItem('camWeight'); evalSessionStorage('camCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['camWeight', 'camCarAnsweredIndex'], [false, 6]); hideItem('camWeight'); evalSessionStorage('camCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="camEngineAndDrivetrain" class="center question">
-      <h2 id="camEngineAndDrivetrainQuestion" class="sansserif">
+    <div id="camEngineAndDrivetrain" class="center question sansserif">
+      <h2 id="camEngineAndDrivetrainQuestion">
         Does your engine and drivetrain fall within the following restrictions?
       </h2>
-      <p class="sansserif">
+      <p>
       Components (internal and external) are unrestricted
       </p>
       <button class="button yesButton" onclick="setState(['camEngineAndDrivetrain', 'camCarAnsweredIndex'], [true, 7]); hideItem('camEngineAndDrivetrain'); evalSessionStorage('camCar'); window.scroll(0,0);">Yes</button>
@@ -335,17 +337,17 @@
     </div>
 
     <div id="eligible" class="center eligible sansserif">
-      <h1 class="sansserif">
+      <h1>
         Your car is eligible for CAM class!
         </br>
       </h1>
     </div>
 
-    <div id="notEligible" class="center notEligible">
-      <h1 class="sansserif">
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
         Your car is NOT eligible for CAM class.
       </h1>
-      <div class="notEligibleExplanation sansserif">
+      <div class="notEligibleExplanation">
         <h2>
           You answered "No" to the following questions, which resulted in your ineligibility:
         </h2>
