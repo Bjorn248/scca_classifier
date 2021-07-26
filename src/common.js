@@ -1904,7 +1904,9 @@ const allSoloCars = {
     },
   },
   'Daewoo': {
-    'all': ['hs', 'sm', 'xp', 'xsa'],
+    'all': {
+      'all': ['hs', 'sm', 'xp', 'xsa'],
+    },
   },
   'Datsun': {
     '210': {
