@@ -278,14 +278,14 @@
 
 .left {
   position: absolute;
-  left: 0px;
+  left: 10px;
   width: 128px;
   padding: 10px;
 }
 
 .right {
   position: absolute;
-  right: 0px;
+  right: 10px;
   width: 128px;
   padding: 10px;
 }
