@@ -5510,6 +5510,62 @@ const allSoloCars = {
       '2020': ['hs', 'xp', 'xsa', 'sm'],
     },
   },
+  'NOC (Not Otherwise Classified)': {
+    '6-cyl (normally aspirated) or 4-cyl (mechanically forced induction) 2WD sedan under 3.0L': {
+      'all': ['dsp'],
+    },
+    'All eligible unclassified cars not covered by another catch-all listing': {
+      'all': ['ss'],
+    },
+    'American 6-cyl & V8 sedan or pick-up': {
+      'all': ['esp'],
+    },
+    'Any (4-cyl N/A, FWD)': {
+      'all': ['ep'],
+    },
+    'Any (4-cyl N/A, RWD)': {
+      'all': ['dp'],
+    },
+    'Other sedan over 3.0L': {
+      'all': ['esp'],
+    },
+    'RWD pickup trucks': {
+      'all': ['hs'],
+    },
+    'Sedan over 1.7L & under 3.0L': {
+      'all': ['csp'],
+    },
+    'Sedan under 1.7L': {
+      'all': ['fsp'],
+    },
+    'Sedans & Coupes (3.1L to 5.1L NA)': {
+      'all': ['stx'],
+    },
+    'Sedans & Coupes (over 5.1L normally aspirated or 2.5L to 3.1L forced induction)': {
+      'all': ['stu'],
+    },
+    'Sedans & Coupes (up to 2.5L forced-induction)': {
+      'all': ['sth'],
+    },
+    'Sedans & Coupes (up to 3.1L normally-aspirated)': {
+      'all': ['sts'],
+    },
+    'Sports car over 2.0L': {
+      'all': ['ssp'],
+    },
+    'Sports car under 2.0L': {
+      'all': ['csp'],
+    },
+    'US Sedan (6-cyl or 8-cyl)': {
+      'all': ['cp'],
+    },
+    'V8 sedans, pick-ups, and sedan-derived convertibles (3.1L to 5.1L NA)': {
+      'all': ['fs', 'stx'],
+    },
+    'V8 sedans, pick-ups, and sedan-derived convertibles (over 5.1L NA)': {
+      'all': ['fs', 'stu'],
+    },
+  },
   'Oldsmobile': {
     'Calais W41': {
       'all': ['hs', 'xp', 'xsa', 'sm'],
