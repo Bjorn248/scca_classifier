@@ -5725,7 +5725,7 @@ const allSoloCars = {
       'all': ['hs', 'sts', 'fsp', 'dp', 'xp', 'xsa', 'ssm'],
     },
     'Fiero (V6)': {
-      'all': ['cs', 'str', 'bsp', 'fp', 'xp', 'xsa', 'ssm'],
+      'all': ['es', 'str', 'bsp', 'fp', 'xp', 'xsa', 'ssm'],
     },
     'Firebird (4-cyl & 6-cyl)': {
       'all': ['hs', 'stu', 'fsp', 'cp', 'camt', 'xp', 'xsa', 'sm'],
