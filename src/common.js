@@ -139,6 +139,7 @@ const subclassMap = {
   'esp': 'E Street Prepared (ESP)',
   'fsp': 'F Street Prepared (FSP)',
   'ssm': 'Super Street Modified (SSM)',
+  'sst': 'Super Street Touring (SST)',
   'sm': 'Street Modified (SM)',
   'smf': 'Street Modified Front-Wheel-Drive (SMF)',
   'xp': 'X Prepared (XP)',
@@ -267,12 +268,12 @@ const allSoloCars = {
       'all': ['hs', 'fsp', 'sm', 'dp', 'xp', 'xsb'],
     },
     '4C (incl. Spider)': {
-      '2015': ['ss', 'ssr', 'ssm', 'xp', 'xsa'],
-      '2016': ['ss', 'ssr', 'ssm', 'xp', 'xsa'],
-      '2017': ['ss', 'ssr', 'ssm', 'xp', 'xsa'],
-      '2018': ['ss', 'ssr', 'ssm', 'xp', 'xsa'],
-      '2019': ['ss', 'ssr', 'ssm', 'xp', 'xsa'],
-      '2020': ['ss', 'ssr', 'ssm', 'xp', 'xsa'],
+      '2015': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xsa'],
+      '2016': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xsa'],
+      '2017': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xsa'],
+      '2018': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xsa'],
+      '2019': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xsa'],
+      '2020': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xsa'],
     },
     '164 (non-S)': {
       '1991': ['hs', 'sm', 'xp', 'xsa'],
@@ -338,10 +339,12 @@ const allSoloCars = {
       '2020': ['ds', 'stu', 'sm', 'xp', 'xsa'],
     },
     'Giulia Quadrifoglio': {
-      '2017': ['as', 'sm', 'xp', 'xsa'],
-      '2018': ['as', 'sm', 'xp', 'xsa'],
-      '2019': ['as', 'sm', 'xp', 'xsa'],
-      '2020': ['as', 'sm', 'xp', 'xsa'],
+      '2017': ['as', 'sst', 'sm', 'xp', 'xsa'],
+      '2018': ['as', 'sst', 'sm', 'xp', 'xsa'],
+      '2019': ['as', 'sst', 'sm', 'xp', 'xsa'],
+      '2020': ['as', 'sst', 'sm', 'xp', 'xsa'],
+      '2021': ['as', 'sst', 'sm', 'xp', 'xsa'],
+      '2022': ['as', 'sst', 'sm', 'xp', 'xsa'],
     },
     'Junior Z': {
       'all': ['dp', 'sm', 'xp', 'xsb'],
@@ -646,11 +649,13 @@ const allSoloCars = {
       '2009': ['ds', 'sth', 'sm', 'smf', 'xp', 'xsa'],
     },
     'TT RS': {
-      '2012': ['ss', 'ssr', 'ssp', 'ssm', 'xp', 'xsa'],
-      '2013': ['ss', 'ssr', 'ssp', 'ssm', 'xp', 'xsa'],
-      '2018': ['ss', 'asp', 'ssm', 'xsa', 'xp'],
-      '2019': ['ss', 'asp', 'ssm', 'xsa', 'xp'],
-      '2020': ['ss', 'ssm', 'xsa', 'xp'],
+      '2012': ['ss', 'sst', 'ssr', 'ssp', 'ssm', 'xp', 'xsa'],
+      '2013': ['ss', 'sst', 'ssr', 'ssp', 'ssm', 'xp', 'xsa'],
+      '2018': ['ss', 'sst', 'asp', 'ssm', 'xsa', 'xp'],
+      '2019': ['ss', 'sst', 'asp', 'ssm', 'xsa', 'xp'],
+      '2020': ['ss', 'sst', 'ssm', 'xsa', 'xp'],
+      '2021': ['ss', 'sst', 'ssm', 'xsa', 'xp'],
+      '2022': ['ss', 'sst', 'ssm', 'xsa', 'xp'],
     },
     'TT quattro (AWD)': {
       '2000': ['ds', 'sth', 'bsp', 'sm', 'xp', 'xsa'],
@@ -2677,6 +2682,7 @@ const allSoloCars = {
     'Mustang GT500': {
       '2020': ['ss', 'asp', 'sm', 'camc', 'xp', 'xsa'],
       '2021': ['ss', 'sm', 'camc', 'xp', 'xsa'],
+      '2022': ['ss', 'sm', 'camc', 'xp', 'xsa'],
     },
     'Mustang GT (non-Performance Package)': {
       '2010': ['fs', 'camc', 'sm', 'xp', 'xsa'],
@@ -2700,6 +2706,10 @@ const allSoloCars = {
       '2003': ['fs', 'stu', 'camt', 'sm', 'xp', 'xsa'],
       '2004': ['fs', 'stu', 'camt', 'sm', 'xp', 'xsa'],
       '2021': ['bs', 'camc', 'sm', 'xp', 'xsa'],
+    },
+    'Mustang Mach-E': {
+      '2021': ['ss'],
+      '2022': ['ss'],
     },
     'Mustang SVO': {
       'all': ['gs', 'stu', 'esp', 'sm', 'cp', 'camt', 'camc', 'xp', 'xsa'],
@@ -4083,6 +4093,8 @@ const allSoloCars = {
     },
     'Evora GT': {
       '2020': ['as', 'xp', 'xsa', 'ssm'],
+      '2021': ['as', 'xp', 'xsa', 'ssm'],
+      '2022': ['as', 'xp', 'xsa', 'ssm'],
     },
     'Evora S': {
       '2010': ['ssp', 'xp', 'xsa', 'ssm'],
@@ -5720,6 +5732,12 @@ const allSoloCars = {
       '1976': ['hs', 'esp', 'cp', 'xp', 'xsa', 'sm'],
     },
   },
+  'Polestar': {
+    'Polestar 2': {
+      '2021': ['ss'],
+      '2022': ['ss'],
+    },
+  },
   'Pontiac': {
     'Fiero (4-cyl)': {
       'all': ['hs', 'sts', 'fsp', 'dp', 'xp', 'xsa', 'ssm'],
@@ -6191,9 +6209,11 @@ const allSoloCars = {
       '2020': ['as', 'xp', 'xsa', 'ssm'],
       '2021': ['as', 'xp', 'xsa', 'ssm'],
     },
-    'Cayman GT4': {
+    'Cayman GT4 (Excluding RS & Clubsport)': {
       '2016': ['ss', 'ssp', 'asp', 'xp', 'xsa', 'ssm'],
       '2020': ['ss', 'xp', 'xsa', 'ssm'],
+      '2021': ['ss', 'xp', 'xsa', 'ssm'],
+      '2022': ['ss', 'xp', 'xsa', 'ssm'],
     },
     'Cayman GTS & GTS 4.0': {
       '2015': ['as', 'asp', 'xp', 'xsa', 'ssm'],
@@ -6240,6 +6260,11 @@ const allSoloCars = {
       '2018': ['fs', 'xp', 'xsa', 'sm'],
       '2019': ['fs', 'xp', 'xsa', 'sm'],
       '2020': ['fs', 'xp', 'xsa', 'sm'],
+    },
+    'Taycan': {
+      '2020': ['ss'],
+      '2021': ['ss'],
+      '2022': ['ss'],
     },
     'all': {
       'all': ['ssm', 'xp', 'xsa', 'sm'],
@@ -7045,10 +7070,12 @@ const allSoloCars = {
       '2019': ['ss', 'xp', 'xsa', 'sm'],
       '2020': ['ss', 'xp', 'xsa', 'sm'],
       '2021': ['ss', 'xp', 'xsa', 'sm'],
+      '2022': ['ss', 'xp', 'xsa', 'sm'],
     },
     'Model Y': {
       '2020': ['ss', 'xp', 'xsa', 'sm'],
       '2021': ['ss', 'xp', 'xsa', 'sm'],
+      '2022': ['ss', 'xp', 'xsa', 'sm'],
     },
     'Roadster': {
       '2008': ['ss', 'ssr', 'ssp', 'xp', 'xsa', 'sm'],
@@ -7902,13 +7929,13 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
       }
       if (subClasses[i] == 'str') {
         subClass = 'str';
-        const lsdElement = document.getElementById('stustrstxLSD');
+        const lsdElement = document.getElementById('sststustrstxLSD');
         lsdElement.classList.add('highlighted');
         break;
       }
       if (subClasses[i] == 'stx') {
         subClass = 'stx';
-        const lsdElement = document.getElementById('stustrstxLSD');
+        const lsdElement = document.getElementById('sststustrstxLSD');
         lsdElement.classList.add('highlighted');
         break;
       }
@@ -7916,7 +7943,7 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
         subClass = 'stu';
         const engineElement = document.getElementById('stusthEngine');
         engineElement.style.display = 'block';
-        const lsdElement = document.getElementById('stustrstxLSD');
+        const lsdElement = document.getElementById('sststustrstxLSD');
         lsdElement.classList.add('highlighted');
         break;
       }
@@ -7925,6 +7952,12 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
         const engineElement = document.getElementById('stusthEngine');
         engineElement.style.display = 'block';
         const lsdElement = document.getElementById('sthLSD');
+        lsdElement.classList.add('highlighted');
+        break;
+      }
+      if (subClasses[i] == 'sst') {
+        subClass = 'sst';
+        const lsdElement = document.getElementById('sststustrstxLSD');
         lsdElement.classList.add('highlighted');
         break;
       }

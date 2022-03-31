@@ -155,6 +155,11 @@
               Street Touring Hatchback (STH) – Turbo hatchbacks and sedans
             </div>
           </li>
+          <li>
+            <div id="sstOverview">
+              Super Street Touring (SST) – Highest performance sports cars and coupes.
+            </div>
+          </li>
         </ul>
       </div>
       </br>
@@ -278,6 +283,9 @@
             STH (AWD) - 245</br>
             STH (2WD) - 265
         </div>
+        <div id="sstTires" class="stTires">
+            SST - Unlimited
+        </div>
       </h2>
       <button class="button yesButton" onclick="setState(['stTires', 'StreetTouringCarAnsweredIndex'], [true, 2]); hideItem('stTires'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['stTires', 'StreetTouringCarAnsweredIndex'], [false, 2]); hideItem('stTires'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
@@ -302,6 +310,9 @@
         </div>
         <div id="sthWheels" class="stWheels">
             STH - 9.0
+        </div>
+        <div id="sstWheels" class="stWheels">
+            SST - Unlimited
         </div>
       </h2>
       <button class="button yesButton" onclick="setState(['stWheels', 'StreetTouringCarAnsweredIndex'], [true, 3]); hideItem('stWheels'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
@@ -613,9 +624,9 @@
                 STS class: No limited slip differentials are permitted except for factory standard
                 viscous coupler-type units.
               </div>
-              <div id="stustrstxLSD">
-                STU, STR, and STX classes: 2WD vehicles may use any mechanical LSD unit. AWD
-                vehicles may substitute one differential 9front, rear, or center) with an
+              <div id="sststustrstxLSD">
+                SST, STU, STR, and STX classes: 2WD vehicles may use any mechanical LSD unit. AWD
+                vehicles may substitute one differential (front, rear, or center) with an
                 aftermarket mechanical LSD.
               </div>
               <div id="sthLSD">
