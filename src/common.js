@@ -126,6 +126,7 @@ const subclassMap = {
   'stx': 'Street Touring Xtreme (STX)',
   'sts': 'Street Touring Sport (STS)',
   'sth': 'Street Touring Hatchback (STH)',
+  'evx': 'Electric Vehicle Experimental (EVX)',
   'camc': 'Classic American Muscle Contemporary (CAM C)',
   'camt': 'Classic American Muscle Traditional (CAM T)',
   'cams': 'Classic American Muscle Sports (CAM S)',
@@ -429,8 +430,8 @@ const allSoloCars = {
       '2013': ['hs', 'sth', 'dsp', 'sm', 'smf', 'xp', 'xsa'],
     },
     'A3 Sportback e-tron': {
-      '2017': ['gs', 'sth', 'sm', 'xp', 'xsa'],
-      '2018': ['gs', 'sth', 'sm', 'xp', 'xsa'],
+      '2017': ['gs', 'sth', 'sm', 'xp', 'xsa', 'evx'],
+      '2018': ['gs', 'sth', 'sm', 'xp', 'xsa', 'evx'],
     },
     'A3 quattro (3.2L V6, AWD)': {
       '2006': ['ds', 'sth', 'sm', 'xp', 'xsa'],
@@ -531,6 +532,11 @@ const allSoloCars = {
     },
     'Coupe quattro (non-turbo)': {
       'all': ['hs', 'dsp', 'sm', 'xp', 'xsa'],
+    },
+    'E-tron (incl Sportback)': {
+      '2019': ['evx'],
+      '2020': ['evx'],
+      '2021': ['evx'],
     },
     'Quattro (Coupe Turbo)': {
       'all': ['gs', 'bsp', 'sm', 'xp', 'xsa'],
@@ -1315,7 +1321,7 @@ const allSoloCars = {
       'all': ['ss', 'asp', 'ssm', 'xp', 'xsa'],
     },
     'i3 (incl. i3s)': {
-      'all': ['hs', 'sm', 'xp', 'xsa'],
+      'all': ['hs', 'sm', 'xp', 'xsa', 'evx'],
     },
     'i8': {
       '2014': ['ss', 'ssm', 'xp', 'xsa'],
@@ -1465,7 +1471,7 @@ const allSoloCars = {
       'all': ['hs', 'xp', 'xsa', 'sm'],
     },
     'Bolt': {
-      'all': ['hs', 'sth', 'xp', 'xsa', 'sm'],
+      'all': ['hs', 'sth', 'xp', 'xsa', 'sm', 'evx'],
     },
     'Camaro (4-cyl & 6-cyl)': {
       '1967': ['hs', 'stu', 'esp', 'camt', 'xp', 'xsa', 'sm'],
@@ -2552,6 +2558,12 @@ const allSoloCars = {
       'all': ['es', 'fsp', 'dp', 'ssm', 'xp', 'xsb'],
     },
   },
+  'Fisker': {
+    'Karma': {
+      '2011': ['evx'],
+      '2012': ['evx'],
+    },
+  },
   'Ford': {
     'Aspire': {
       'all': ['hs', 'sm', 'smf', 'xp', 'xsa'],
@@ -2795,8 +2807,8 @@ const allSoloCars = {
       '2022': ['fs', 'camc', 'sm', 'xp', 'xsa'],
     },
     'Mustang Mach-E': {
-      '2021': ['ss'],
-      '2022': ['ss'],
+      '2021': ['ss', 'evx'],
+      '2022': ['ss', 'evx'],
     },
     'Mustang SVO': {
       'all': ['gs', 'stu', 'esp', 'sm', 'cp', 'camt', 'camc', 'xp', 'xsa'],
@@ -3415,6 +3427,16 @@ const allSoloCars = {
       '2021': ['fs', 'sm', 'xp', 'xsa'],
       '2022': ['fs', 'sm', 'xp', 'xsa'],
     },
+    'IONIQ EV': {
+      '2020': ['evx'],
+      '2021': ['evx'],
+      '2022': ['evx'],
+    },
+    'Kona EV': {
+      '2020': ['evx'],
+      '2021': ['evx'],
+      '2022': ['evx'],
+    },
     'Not Otherwise Classified': {
       'all': ['hs', 'fsp', 'sm', 'xp', 'xsa'],
     },
@@ -3703,6 +3725,10 @@ const allSoloCars = {
       '2021': ['ss', 'xp', 'xsa', 'sm'],
       '2022': ['ss', 'xp', 'xsa', 'sm'],
     },
+    'I-Pace': {
+      '2019': ['evx'],
+      '2020': ['evx'],
+    },
     'S-Type (6-cyl)': {
       '2002': ['gs', 'xp', 'xsa', 'sm'],
       '2003': ['gs', 'xp', 'xsa', 'sm'],
@@ -3867,7 +3893,7 @@ const allSoloCars = {
     },
     'Niro EV': {
       '2019': ['hs', 'xp', 'xsa', 'sm'],
-      '2020': ['hs', 'xp', 'xsa', 'sm'],
+      '2020': ['hs', 'xp', 'xsa', 'sm', 'evx'],
       '2021': ['hs', 'xp', 'xsa', 'sm'],
       '2022': ['hs', 'xp', 'xsa', 'sm'],
     },
@@ -5122,9 +5148,9 @@ const allSoloCars = {
       'all': ['bs', 'dsp', 'xp', 'xsb', 'sm', 'smf'],
     },
     'Cooper SE': {
-      '2020': ['gs', 'xp', 'xsb', 'sm', 'smf'],
-      '2021': ['gs', 'xp', 'xsb', 'sm', 'smf'],
-      '2022': ['gs', 'xp', 'xsb', 'sm', 'smf'],
+      '2020': ['gs', 'xp', 'xsb', 'sm', 'smf', 'evx'],
+      '2021': ['gs', 'xp', 'xsb', 'sm', 'smf', 'evx'],
+      '2022': ['gs', 'xp', 'xsb', 'sm', 'smf', 'evx'],
     },
   },
   'Mitsubishi': {
@@ -5476,18 +5502,18 @@ const allSoloCars = {
       '2016': ['sth', 'xp', 'xsa', 'sm'],
     },
     'Leaf': {
-      '2011': ['hs', 'xp', 'xsa', 'sm'],
-      '2012': ['hs', 'xp', 'xsa', 'sm'],
-      '2013': ['hs', 'xp', 'xsa', 'sm'],
-      '2014': ['hs', 'xp', 'xsa', 'sm'],
-      '2015': ['hs', 'xp', 'xsa', 'sm'],
-      '2016': ['hs', 'xp', 'xsa', 'sm'],
-      '2017': ['hs', 'xp', 'xsa', 'sm'],
-      '2018': ['hs', 'xp', 'xsa', 'sm'],
-      '2019': ['hs', 'xp', 'xsa', 'sm'],
-      '2020': ['hs', 'xp', 'xsa', 'sm'],
-      '2021': ['hs', 'xp', 'xsa', 'sm'],
-      '2022': ['hs', 'xp', 'xsa', 'sm'],
+      '2011': ['hs', 'xp', 'xsa', 'sm', 'evx'],
+      '2012': ['hs', 'xp', 'xsa', 'sm', 'evx'],
+      '2013': ['hs', 'xp', 'xsa', 'sm', 'evx'],
+      '2014': ['hs', 'xp', 'xsa', 'sm', 'evx'],
+      '2015': ['hs', 'xp', 'xsa', 'sm', 'evx'],
+      '2016': ['hs', 'xp', 'xsa', 'sm', 'evx'],
+      '2017': ['hs', 'xp', 'xsa', 'sm', 'evx'],
+      '2018': ['hs', 'xp', 'xsa', 'sm', 'evx'],
+      '2019': ['hs', 'xp', 'xsa', 'sm', 'evx'],
+      '2020': ['hs', 'xp', 'xsa', 'sm', 'evx'],
+      '2021': ['hs', 'xp', 'xsa', 'sm', 'evx'],
+      '2022': ['hs', 'xp', 'xsa', 'sm', 'evx'],
     },
     'Maxima': {
       'all': ['hs', 'xp', 'xsa', 'sm'],
@@ -5874,8 +5900,8 @@ const allSoloCars = {
   },
   'Polestar': {
     'Polestar 2': {
-      '2021': ['ss'],
-      '2022': ['ss'],
+      '2021': ['ss', 'evx'],
+      '2022': ['ss', 'evx'],
     },
   },
   'Pontiac': {
@@ -6427,9 +6453,9 @@ const allSoloCars = {
       '2022': ['fs', 'xp', 'xsa', 'sm'],
     },
     'Taycan': {
-      '2020': ['ss'],
-      '2021': ['ss'],
-      '2022': ['ss'],
+      '2020': ['ss', 'evx'],
+      '2021': ['ss', 'evx'],
+      '2022': ['ss', 'evx'],
     },
     'all': {
       'all': ['ssm', 'xp', 'xsa', 'sm'],
@@ -7218,39 +7244,48 @@ const allSoloCars = {
   },
   'Tesla': {
     'Model 3': {
-      '2018': ['ss', 'asp', 'xp', 'xsa', 'sm'],
-      '2019': ['ss', 'asp', 'xp', 'xsa', 'sm'],
-      '2020': ['ss', 'asp', 'xp', 'xsa', 'sm'],
-      '2021': ['ss', 'asp', 'xp', 'xsa', 'sm'],
+      '2018': ['ss', 'asp', 'xp', 'xsa', 'sm', 'evx'],
+      '2019': ['ss', 'asp', 'xp', 'xsa', 'sm', 'evx'],
+      '2020': ['ss', 'asp', 'xp', 'xsa', 'sm', 'evx'],
+      '2021': ['ss', 'asp', 'xp', 'xsa', 'sm', 'evx'],
     },
     'Model S': {
-      '2012': ['fs', 'xp', 'xsa', 'sm'],
-      '2013': ['fs', 'xp', 'xsa', 'sm'],
-      '2014': ['fs', 'xp', 'xsa', 'sm'],
+      '2012': ['fs', 'xp', 'xsa', 'sm', 'evx'],
+      '2013': ['fs', 'xp', 'xsa', 'sm', 'evx'],
+      '2014': ['fs', 'xp', 'xsa', 'sm', 'evx'],
     },
     'Model S AWD': {
-      '2014': ['ss', 'xp', 'xsa', 'sm'],
-      '2015': ['ss', 'xp', 'xsa', 'sm'],
-      '2016': ['ss', 'xp', 'xsa', 'sm'],
-      '2017': ['ss', 'xp', 'xsa', 'sm'],
-      '2018': ['ss', 'xp', 'xsa', 'sm'],
-      '2019': ['ss', 'xp', 'xsa', 'sm'],
-      '2020': ['ss', 'xp', 'xsa', 'sm'],
-      '2021': ['ss', 'xp', 'xsa', 'sm'],
-      '2022': ['ss', 'xp', 'xsa', 'sm'],
+      '2014': ['ss', 'xp', 'xsa', 'sm', 'evx'],
+      '2015': ['ss', 'xp', 'xsa', 'sm', 'evx'],
+      '2016': ['ss', 'xp', 'xsa', 'sm', 'evx'],
+      '2017': ['ss', 'xp', 'xsa', 'sm', 'evx'],
+      '2018': ['ss', 'xp', 'xsa', 'sm', 'evx'],
+      '2019': ['ss', 'xp', 'xsa', 'sm', 'evx'],
+      '2020': ['ss', 'xp', 'xsa', 'sm', 'evx'],
+      '2021': ['ss', 'xp', 'xsa', 'sm', 'evx'],
+      '2022': ['ss', 'xp', 'xsa', 'sm', 'evx'],
+    },
+    'Model X': {
+      '2016': ['evx'],
+      '2017': ['evx'],
+      '2018': ['evx'],
+      '2019': ['evx'],
+      '2020': ['evx'],
+      '2021': ['evx'],
+      '2022': ['evx'],
     },
     'Model Y': {
-      '2020': ['ss', 'xp', 'xsa', 'sm'],
-      '2021': ['ss', 'xp', 'xsa', 'sm'],
-      '2022': ['ss', 'xp', 'xsa', 'sm'],
+      '2020': ['ss', 'xp', 'xsa', 'sm', 'evx'],
+      '2021': ['ss', 'xp', 'xsa', 'sm', 'evx'],
+      '2022': ['ss', 'xp', 'xsa', 'sm', 'evx'],
     },
     'Roadster': {
-      '2008': ['ss', 'ssr', 'ssp', 'xp', 'xsa', 'sm'],
-      '2009': ['ss', 'ssr', 'ssp', 'xp', 'xsa', 'sm'],
-      '2010': ['ss', 'ssr', 'ssp', 'xp', 'xsa', 'sm'],
-      '2011': ['ss', 'ssr', 'ssp', 'xp', 'xsa', 'sm'],
-      '2012': ['ss', 'ssr', 'ssp', 'xp', 'xsa', 'sm'],
-      '2013': ['ss', 'ssr', 'xp', 'xsa', 'sm'],
+      '2008': ['ss', 'ssr', 'ssp', 'xp', 'xsa', 'sm', 'evx'],
+      '2009': ['ss', 'ssr', 'ssp', 'xp', 'xsa', 'sm', 'evx'],
+      '2010': ['ss', 'ssr', 'ssp', 'xp', 'xsa', 'sm', 'evx'],
+      '2011': ['ss', 'ssr', 'ssp', 'xp', 'xsa', 'sm', 'evx'],
+      '2012': ['ss', 'ssr', 'ssp', 'xp', 'xsa', 'sm', 'evx'],
+      '2013': ['ss', 'ssr', 'xp', 'xsa', 'sm', 'evx'],
     },
   },
   'Toyota': {
@@ -7780,10 +7815,13 @@ const allSoloCars = {
       'all': ['hs', 'fsp', 'xp', 'xsa', 'sm', 'smf'],
     },
     'e-Golf': {
-      '2015': ['hs', 'xp', 'xsa', 'sm', 'smf'],
-      '2016': ['hs', 'xp', 'xsa', 'sm', 'smf'],
-      '2017': ['hs', 'xp', 'xsa', 'sm', 'smf'],
-      '2018': ['hs', 'xp', 'xsa', 'sm', 'smf'],
+      '2015': ['hs', 'xp', 'xsa', 'sm', 'smf', 'evx'],
+      '2016': ['hs', 'xp', 'xsa', 'sm', 'smf', 'evx'],
+      '2017': ['hs', 'xp', 'xsa', 'sm', 'smf', 'evx'],
+      '2018': ['hs', 'xp', 'xsa', 'sm', 'smf', 'evx'],
+    },
+    'ID.4': {
+      '2021': ['evx'],
     },
   },
   'Volvo': {
@@ -7900,6 +7938,9 @@ const allSoloCars = {
       '2005': ['asp', 'gs', 'xp', 'xsa', 'sm'],
       '2006': ['asp', 'gs', 'xp', 'xsa', 'sm'],
       '2007': ['asp', 'gs', 'xp', 'xsa', 'sm'],
+    },
+    'XC40 Recharge': {
+      '2021': ['evx'],
     },
   },
 };
