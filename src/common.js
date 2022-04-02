@@ -1841,10 +1841,10 @@ const allSoloCars = {
       'all': ['gs', 'esp', 'xp', 'xsa', 'sm'],
     },
     'Crossfire (non-SRT-6)': {
-      'all': ['ds', 'dsp', 'camc', 'xp', 'xsa', 'ssm'],
+      'all': ['ds', 'dsp', 'cams', 'xp', 'xsa', 'ssm'],
     },
     'Crossfire SRT6': {
-      'all': ['fs', 'bsp', 'camc', 'xp', 'xsa', 'ssm'],
+      'all': ['fs', 'bsp', 'cams', 'xp', 'xsa', 'ssm'],
     },
     'Laser': {
       '1982': ['hs', 'ep', 'xp', 'xsa', 'sm', 'smf'],
