@@ -1415,6 +1415,16 @@ const allSoloCars = {
       '2018': ['bs', 'sst', 'camc', 'xp', 'xsa', 'sm'],
       '2019': ['bs', 'sst', 'camc', 'xp', 'xsa', 'sm'],
     },
+    'CT4V (incl. Blackwing)': {
+      '2020': ['bs', 'camc', 'xp', 'xsa', 'sm'],
+      '2021': ['bs', 'camc', 'xp', 'xsa', 'sm'],
+      '2022': ['bs', 'camc', 'xp', 'xsa', 'sm'],
+    },
+    'CT5V (incl. Blackwing)': {
+      '2020': ['as', 'camc', 'xp', 'xsa', 'sm'],
+      '2021': ['as', 'camc', 'xp', 'xsa', 'sm'],
+      '2022': ['as', 'camc', 'xp', 'xsa', 'sm'],
+    },
     'CTS (non-V, non-Vsport)': {
       '2003': ['ds', 'cp', 'camc', 'xp', 'xsa', 'sm'],
       '2004': ['ds', 'cp', 'camc', 'xp', 'xsa', 'sm'],
@@ -1451,16 +1461,6 @@ const allSoloCars = {
       '2017': ['fs', 'camc', 'xp', 'xsa', 'sm'],
       '2018': ['fs', 'camc', 'xp', 'xsa', 'sm'],
       '2019': ['fs', 'camc', 'xp', 'xsa', 'sm'],
-    },
-    'CT4V (incl. Blackwing)': {
-      '2020': ['bs', 'camc', 'xp', 'xsa', 'sm'],
-      '2021': ['bs', 'camc', 'xp', 'xsa', 'sm'],
-      '2022': ['bs', 'camc', 'xp', 'xsa', 'sm'],
-    },
-    'CT5V (incl. Blackwing)': {
-      '2020': ['as', 'camc', 'xp', 'xsa', 'sm'],
-      '2021': ['as', 'camc', 'xp', 'xsa', 'sm'],
-      '2022': ['as', 'camc', 'xp', 'xsa', 'sm'],
     },
     'Catera': {
       'all': ['hs', 'camt', 'xp', 'xsa', 'sm'],
@@ -3899,14 +3899,14 @@ const allSoloCars = {
     'Forte Turbo': {
       'all': ['hs', 'sth', 'fsp', 'xp', 'xsa', 'sm'],
     },
-    'Optima': {
-      'all': ['hs', 'xp', 'xsa', 'sm'],
-    },
     'Niro EV': {
       '2019': ['hs', 'xp', 'xsa', 'sm'],
       '2020': ['hs', 'xp', 'xsa', 'sm', 'evx'],
       '2021': ['hs', 'xp', 'xsa', 'sm'],
       '2022': ['hs', 'xp', 'xsa', 'sm'],
+    },
+    'Optima': {
+      'all': ['hs', 'xp', 'xsa', 'sm'],
     },
     'Rio': {
       '2012': ['hs', 'sts', 'xp', 'xsa', 'sm'],
@@ -5344,6 +5344,65 @@ const allSoloCars = {
       'all': ['ssp', 'xp', 'xsa', 'sm'],
     },
   },
+  'NOC (Not Otherwise Classified)': {
+    '6-cyl (normally aspirated) or 4-cyl (mechanically forced induction) 2WD sedan under 3.0L': {
+      'all': ['dsp'],
+    },
+    'All eligible unclassified cars not covered by another catch-all listing': {
+      'all': ['ss'],
+    },
+    'American 6-cyl & V8 sedan or pick-up': {
+      'all': ['esp'],
+    },
+    'Any (4-cyl N/A, FWD)': {
+      'all': ['ep'],
+    },
+    'Any (4-cyl N/A, RWD)': {
+      'all': ['dp'],
+    },
+    'Other sedan over 3.0L': {
+      'all': ['esp'],
+    },
+    'RWD pickup trucks': {
+      'all': ['hs'],
+    },
+    'Sedan (4-cyl forced induction or 6-cyl engine, NOC)': {
+      'all': ['fp'],
+    },
+    'Sedan over 1.7L & under 3.0L': {
+      'all': ['csp'],
+    },
+    'Sedan under 1.7L': {
+      'all': ['fsp'],
+    },
+    'Sedans & Coupes (3.1L to 5.1L NA)': {
+      'all': ['stx'],
+    },
+    'Sedans & Coupes (over 5.1L normally aspirated or 2.5L to 3.1L forced induction)': {
+      'all': ['stu'],
+    },
+    'Sedans & Coupes NOC (non-sports-car-based; 4-seat mini-mum; less than 2.5L (2500cc) forced-induction)': {
+      'all': ['sth'],
+    },
+    'Sedans & Coupes NOC (non-sports-car-based; 4-seat mini-mum; less than 3.1L (3100cc) normally-aspirated)': {
+      'all': ['sts'],
+    },
+    'Sports car over 2.0L': {
+      'all': ['ssp'],
+    },
+    'Sports car under 2.0L': {
+      'all': ['csp'],
+    },
+    'US Sedan (6-cyl or 8-cyl)': {
+      'all': ['cp'],
+    },
+    'V8 sedans, pick-ups, and sedan-derived convertibles (3.1L to 5.1L NA)': {
+      'all': ['fs', 'stx'],
+    },
+    'V8 sedans, pick-ups, and sedan-derived convertibles (over 5.1L NA)': {
+      'all': ['fs', 'stu'],
+    },
+  },
   'Nissan': {
     '200SX': {
       '1987': ['dsp', 'hs', 'dp', 'fsp', 'xp', 'xsa', 'sm'],
@@ -5696,65 +5755,6 @@ const allSoloCars = {
       '2022': ['hs', 'xp', 'xsa', 'sm'],
     },
   },
-  'NOC (Not Otherwise Classified)': {
-    '6-cyl (normally aspirated) or 4-cyl (mechanically forced induction) 2WD sedan under 3.0L': {
-      'all': ['dsp'],
-    },
-    'All eligible unclassified cars not covered by another catch-all listing': {
-      'all': ['ss'],
-    },
-    'American 6-cyl & V8 sedan or pick-up': {
-      'all': ['esp'],
-    },
-    'Any (4-cyl N/A, FWD)': {
-      'all': ['ep'],
-    },
-    'Any (4-cyl N/A, RWD)': {
-      'all': ['dp'],
-    },
-    'Other sedan over 3.0L': {
-      'all': ['esp'],
-    },
-    'RWD pickup trucks': {
-      'all': ['hs'],
-    },
-    'Sedan over 1.7L & under 3.0L': {
-      'all': ['csp'],
-    },
-    'Sedan under 1.7L': {
-      'all': ['fsp'],
-    },
-    'Sedans & Coupes (3.1L to 5.1L NA)': {
-      'all': ['stx'],
-    },
-    'Sedans & Coupes (over 5.1L normally aspirated or 2.5L to 3.1L forced induction)': {
-      'all': ['stu'],
-    },
-    'Sedans & Coupes NOC (non-sports-car-based; 4-seat mini-mum; less than 2.5L (2500cc) forced-induction)': {
-      'all': ['sth'],
-    },
-    'Sedans & Coupes NOC (non-sports-car-based; 4-seat mini-mum; less than 3.1L (3100cc) normally-aspirated)': {
-      'all': ['sts'],
-    },
-    'Sedan (4-cyl forced induction or 6-cyl engine, NOC)': {
-      'all': ['fp'],
-    },
-    'Sports car over 2.0L': {
-      'all': ['ssp'],
-    },
-    'Sports car under 2.0L': {
-      'all': ['csp'],
-    },
-    'US Sedan (6-cyl or 8-cyl)': {
-      'all': ['cp'],
-    },
-    'V8 sedans, pick-ups, and sedan-derived convertibles (3.1L to 5.1L NA)': {
-      'all': ['fs', 'stx'],
-    },
-    'V8 sedans, pick-ups, and sedan-derived convertibles (over 5.1L NA)': {
-      'all': ['fs', 'stu'],
-    },
-  },
   'Oldsmobile': {
     'Calais W41': {
       'all': ['hs', 'xp', 'xsa', 'sm'],
@@ -6086,6 +6086,11 @@ const allSoloCars = {
       '2021': ['ss', 'bsp', 'xp', 'xsa', 'ssm'],
       '2022': ['ss', 'bsp', 'xp', 'xsa', 'ssm'],
     },
+    '911 Carrera (992 Chassis excl. Turbo, Turbo S, GTS, & GT3)': {
+      '2020': ['ss', 'xp', 'xsa', 'ssm'],
+      '2021': ['ss', 'xp', 'xsa', 'ssm'],
+      '2022': ['ss', 'xp', 'xsa', 'ssm'],
+    },
     '911 Club Sport': {
       '1987': ['cs', 'xp', 'xsa', 'ssm'],
       '1988': ['cs', 'xp', 'xsa', 'ssm'],
@@ -6367,11 +6372,6 @@ const allSoloCars = {
       '2012': ['ss', 'ssr', 'xp', 'xsa', 'ssm'],
       '2013': ['ss', 'ssr', 'xp', 'xsa', 'ssm'],
       '2016': ['ss', 'ssr', 'xp', 'xsa', 'ssm'],
-    },
-    '911 Carrera (992 Chassis excl. Turbo, Turbo S, GTS, & GT3)': {
-      '2020': ['ss', 'xp', 'xsa', 'ssm'],
-      '2021': ['ss', 'xp', 'xsa', 'ssm'],
-      '2022': ['ss', 'xp', 'xsa', 'ssm'],
     },
     'Carrera 2 & Carrera 4 (964)': {
       '1989': ['cs', 'xp', 'xsa', 'ssm'],
@@ -7769,6 +7769,9 @@ const allSoloCars = {
       '2018': ['ds', 'stu', 'asp', 'sm', 'ep', 'xp', 'xsa', 'sm'],
       '2019': ['ds', 'stu', 'asp', 'sm', 'ep', 'xp', 'xsa', 'sm'],
     },
+    'ID.4': {
+      '2021': ['evx'],
+    },
     'Jetta 1.8L Turbo': {
       'all': ['hs', 'dsp', 'ep', 'xp', 'xsa', 'sm', 'smf'],
     },
@@ -7830,9 +7833,6 @@ const allSoloCars = {
       '2016': ['hs', 'xp', 'xsa', 'sm', 'smf', 'evx'],
       '2017': ['hs', 'xp', 'xsa', 'sm', 'smf', 'evx'],
       '2018': ['hs', 'xp', 'xsa', 'sm', 'smf', 'evx'],
-    },
-    'ID.4': {
-      '2021': ['evx'],
     },
   },
   'Volvo': {
