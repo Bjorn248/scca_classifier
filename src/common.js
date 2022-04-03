@@ -8168,7 +8168,7 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
       }
       if (subClasses[i] == 'stu') {
         subClass = 'stu';
-        const engineElement = document.getElementById('stusthEngine');
+        const engineElement = document.getElementById('sststusthEngine');
         engineElement.style.display = 'block';
         const lsdElement = document.getElementById('sststustrstxLSD');
         lsdElement.classList.add('highlighted');
@@ -8176,7 +8176,7 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
       }
       if (subClasses[i] == 'sth') {
         subClass = 'sth';
-        const engineElement = document.getElementById('stusthEngine');
+        const engineElement = document.getElementById('sststusthEngine');
         engineElement.style.display = 'block';
         const lsdElement = document.getElementById('sthLSD');
         lsdElement.classList.add('highlighted');
@@ -8184,6 +8184,8 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
       }
       if (subClasses[i] == 'sst') {
         subClass = 'sst';
+        const engineElement = document.getElementById('sststusthEngine');
+        engineElement.style.display = 'block';
         const lsdElement = document.getElementById('sststustrstxLSD');
         lsdElement.classList.add('highlighted');
         break;
