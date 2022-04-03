@@ -7,3 +7,10 @@ This project has an `.eslintrc.yml` file that defines the style standards for th
 eslint when editing to ensure that there are no style issues.
 One item of note is dangling commas. We want dangling commas. This cleans up git diffs and makes
 copy/pasting within the code much easier.
+
+### Basic How to
+
+### Changing where cars go: 
+Edit the file here and add the different years for the cars: 
+scca_classifier/blob/master/src/common.js
+
