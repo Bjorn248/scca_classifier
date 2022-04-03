@@ -50,6 +50,17 @@ const carFlags = {
     'xsWeight',
     'xsEngineAndDrivetrain',
   ],
+  'evCar': [
+    'evLandingPage',
+    'evBodywork',
+    'evBrakes',
+    'evTires',
+    'evWheels',
+    'evShocks',
+    'evARB',
+    'evSuspension',
+    'evElectricalAndDrivetrain',
+  ],
   'camCar': [
     'camLandingPage',
     'camBodywork',
