@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - Electric Vehicle Experimental">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='evLandingPageMenu' href="#" onclick="resetQuestion('evLandingPage'); evalSessionStorage('evCar');">Overview</a>
+      <a id='evBodyworkMenu' href="#" onclick="resetQuestion('evBodywork'); evalSessionStorage('evCar');">Bodywork</a>
+      <a id='evBrakesMenu' href="#" onclick="resetQuestion('evBrakes'); evalSessionStorage('evCar');">Brakes</a>
+      <a id='evShocksMenu' href="#" onclick="resetQuestion('evShocks'); evalSessionStorage('evCar');">Shocks</a>
+      <a id='evARBMenu' href="#" onclick="resetQuestion('evARB'); evalSessionStorage('evCar');">Anti-Roll Bars</a>
+      <a id='evSuspensionMenu' href="#" onclick="resetQuestion('evSuspension'); evalSessionStorage('evCar');">Suspension</a>
+      <a id='evWheelsMenu' href="#" onclick="resetQuestion('evWheels'); evalSessionStorage('evCar');">Wheels</a>
+      <a id='evTiresMenu' href="#" onclick="resetQuestion('evTires'); evalSessionStorage('evCar');">Tires</a>
+      <a id='evElectricalAndDrivetrainMenu' href="#" onclick="resetQuestion('evElectricalAndDrivetrain'); evalSessionStorage('evCar');">Electrical System and Drivetrain</a>
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Electric Vehicle Experimental Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
+      <button class="button noButton" onclick="resetState()">Clear Selections</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('evCar'); highlightAndFilterXtremeStreet();">
+    <div id="evLandingPage" class="center question sansserif">
+      <h2 id="evLandingPageQuestion">
+        Electric Vehicle Experimental (EVX) Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+        The purpose of EVX is to provide an alternative class specifically targeted towards
+        production electric powered vehicles. This ruleset draws from Street and Street Touring
+        with the intention of choosing commonsense allowances to balance streetability and autocross
+        preparation. Example: In many cases cars come from the factory with narrow wheels to
+        improve real-world range. Wider wheels/tires will diminish range slightly, but still work
+        well for street use while improving autocross performance.
+        </p>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['evLandingPage', 'evCarAnsweredIndex'], [true, 0]); hideItem('evLandingPage'); evalSessionStorage('evCar'); window.scroll(0,0);">Continue</button>
+    </div>
+
+    <div id="evBodywork" class="center question sansserif">
+      <h2 id="evBodyworkQuestion">
+        Does your car meet the bodywork requirements below?
+      </h2>
+      <div id="bodyworkBody" class="questionBody">
+        <h3>
+          <ul class="list">
+            <li>
+              Accessories, gauges, indicators, lights and other appearance, comfort
+              and convenience modifications which have no effect on performance
+              and/or handling and do not materially reduce the weight of the car are
+              permitted.
+            </li>
+            <li>
+              Data acquisition systems (including video cameras) and the accompanying sensors
+              are allowed but may serve no other purpose during a run other than real-time
+              display and data recording.
+            </li>
+            <li>
+              Spare tires, tools, and jacks may be removed. Any fastening hardware
+              and/or other pieces that can no longer be firmly secured in the absence
+              of the spare tire may be removed if necessary.
+            </li>
+            <li>
+              Roll Bars and Roll Cages
+              <ul>
+                <li>
+                  Roll bars may be added. Roll bars may be welded in. Standard rollover hoops and
+                  covers may be removed if the resulting installation meets Appendix C.A,
+                  Basic Design Considerations. The total weight of components added must not be
+                  less than that of components removed.
+                </li>
+                <li>
+                  Roll cages may be added. It is strongly recommended that roll cages be constructed
+                  according to the Club Racing GCR, though they must be bolted (not welded) into
+                  the automobile and be contained within the driver/passenger compartment. A roll
+                  cage has more than four attachment points to the body or frame or has bracing
+                  both fore and aft of the main hoop.
+                </li>
+              </ul>
+            </li>
+            <li>
+              Driver restraints as outlined in Section 3.3.1 are allowed. Seats may not
+              be cut to allow for the installation of alternate seat belts or harnesses.
+              Passive restraint systems may disabled but may not be removed. Removable seat
+              headrests may be repositioned using the original mounting hardware only if the OE
+              components permit it with no modifications. This includes removing a headrest and
+              reinstalling it backwards. A horizontal "harness bar" may be used as part of the
+              installation hardware for allowed driver restraints provided it has no more than 2
+              attachment points to the chassis and is bolted at those locations. A C-type
+              harness bar may also be used. It may have 4 bolted attachment points to
+              the chassis (2 primary and 2 supporting connections to resist rotation).
+              Truss-type harness bars with more than two (2) attachment points are
+              not allowed.
+            </li>
+            <li>
+              Cars may add one rear trailer hitch. The resulting weight addition is allowed.
+              The hitch may serve no other purpose. Factory tie downs and cosmetic pieces
+              (e.g. diffusers) may be modified or removed to facilitate hitch installation.
+              Complete or partial removal of the hitch is allowed for competition, provided it
+              does not result in a reduction in weight compared to the unmodified standard
+              configuration.
+            </li>
+            <li>
+              Tow bar brackets may be installed but may serve no other purpose.
+            </li>
+            <li>
+              Any item that cannot be held permanently in place by factory-installed fasteners
+              may be removed.
+            </li>
+            <li>
+              Factory rub strips, emblems, mud flaps, bolt-on front valance lips/spoilers, and
+              fog lights (except those integral to a headlight or turn signal) may be removed.
+              Rear wings may be removed so long as the vehicle retains any federally-mandated third brake light.
+            </li>
+            <li>
+              Fenders may not be cut or flared but the inside lip may be rolled to gain additional
+              tire clearance. (The outer fender contour may not be changed.) Plastic and rubber
+              wheel well splash shields may be modified for tire clearance and to accommodate a
+              rolled inside fender lip. The modifications may serve no other purpose
+              (e.g., air intake, brake ducts, etc). No other changes to the standard fenders or wheel
+              wells are permitted.
+            </li>
+            <li>
+              Strut bars are permitted with all types of suspension, subject to the
+              following constraints:
+              <ul>
+                <li>
+                  A 2-point strut bar may be added, removed, modified, or substituted, but only
+                  with another 2-point strut bar.
+                </li>
+                <li>
+                  A triangulated (3-point) strut bar may be removed, modified, or substituted;
+                  substitution may be with either a triangulated or a 2-point strut
+                  bar. The connection to the chassis (e.g., firewall, bulkhead) must be in
+                  the standard location.
+                </li>
+                <li>
+                  Lower suspension braces must be attached to the lower suspension pickup point
+                  locations on the chassis within 2" (50.8mm) in any direction of the actual
+                  suspension attachment to the chassis.
+                </li>
+                <li>
+                  Except for standard parts, no connections to other components are permitted.
+                  Additional holes may be drilled for mounting bolts. Only "bolt-on" attachment is
+                  permitted. Interior trim panels may be modified to allow installation of strut
+                  bars. Holes or slots may be no larger thannecessary and may serve no other purpose.
+                  This does not permit any modifications to the frame or unibody beyond the allowed mounting
+                  holes.
+                </li>
+              </ul>
+            </li>
+            </li>
+          </ul>
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['evBodywork', 'evCarAnsweredIndex'], [true, 1]); hideItem('evBodywork'); evalSessionStorage('evCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['evBodywork', 'evCarAnsweredIndex'], [false, 1]); hideItem('evBodywork'); evalSessionStorage('evCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="evBrakes" class="center question sansserif">
+      <h2 id="evBrakesQuestion">
+        Do your brakes meet the following requirements?
+      </h2>
+      <div id="brakesBody" class="questionBody">
+        <ul class="list">
+          <li>
+            The make and material of brake linings may be changed.
+          </li>
+          <li>
+            Non-standard brake rotors may be used provided they are of equal or larger dimensions
+            (diameter and overall thickness) and made of ferrous material (e.g., iron).
+            The diameter for replacement rotors is measured at the minimum outside dimension.
+            Aluminum rotor hats are allowed. Cars originally equipped with solid (non-vented)
+            rotors may utilize vented rotors. Cross-drilled and/or slotted brake rotors may be fitted
+            provided all such voids are within the disc area and comprise no more than 10% of that area.
+          </li>
+          <li>
+            Brake lines may be substituted with alternate DOT-approved flexible brake lines.
+          </li>
+          <li>
+             Alternate brake bleeder fittings (e.g., Speedbleeders®) are permitted. They may serve
+             no other purpose.
+          </li>
+          <li>
+            Air ducts may be fitted to the brakes provided the air directed to the brake rotor
+            originates forward of the wheel well. Modifications to fender liners, undertrays, and
+            splash guards for routing of ducts is permitted. No new holes may be made in the bumper
+            cover. Backing plates and dust shields may be substituted, modified, or removed.
+            Deflectors that mount to components within the wheel well and serve to direct air
+            towards the rotors are permitted. Modifications for brake ducting may serve no other purpose.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['evBrakes', 'evCarAnsweredIndex'], [true, 3]); hideItem('evBrakes'); evalSessionStorage('evCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['evBrakes', 'evCarAnsweredIndex'], [false, 3]); hideItem('evBrakes'); evalSessionStorage('evCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="evTires" class="center question sansserif">
+      <h2 id="evTiresQuestion">
+        Do your tires meet the following requirements?
+      </h2>
+      </br>
+      <div id="tiresBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Minimum UTQG Treadwear Grade of 200.
+          </li>
+          <li>
+            Minimum molded tread depth of 7 / 32" as specified by the manufacturer.
+          </li>
+          <li>
+            Listed in a current year or prior 2 years of the "Tire Guide®" and/or
+            the "Tread Design Guide®" (www.tireguides.com).
+          </li>
+          <li>
+            US Department of Transportation (DOT) approval.
+            Tires must be designed for highway use on passenger cars.
+          </li>
+          <li>
+            Any tire size may be used, provided it doesn’t require exterior and/or mechanical
+            modifications outside of what is allowed elsewhere in these rules.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['evTires', 'evCarAnsweredIndex'], [true, 5]); hideItem('evTires'); evalSessionStorage('evCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['evTires', 'evCarAnsweredIndex'], [false, 5]); hideItem('evTires'); evalSessionStorage('evCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="evWheels" class="center question sansserif">
+      <h2 id="evWheelsQuestion">
+        Do your wheels meet the following requirements?
+        </br>
+      </h2>
+      <p>
+      Wheels may be replaced with wheels of any diameter and width. Replacement wheel material must
+      be metal.
+      </p>
+      <button class="button yesButton" onclick="setState(['evWheels', 'evCarAnsweredIndex'], [true, 4]); hideItem('evWheels'); evalSessionStorage('evCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['evWheels', 'evCarAnsweredIndex'], [false, 4]); hideItem('evWheels'); evalSessionStorage('evCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="evShocks" class="center question sansserif">
+      <h2 id="evShocksQuestion">
+        Do your shocks/struts meet the requirements below?
+      </h2>
+      <div id="shocksBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Shock absorbers may be modified or replaced. Shock absorber mounting brackets and
+            bushings may be modified or replaced provided they attach to the original locations on
+            the chassis, subframe, or suspension component.
+          </li>
+          <li>
+            Struts may be replaced. Replacement struts may only utilize the same mounting points
+            on the chassis, subframe, or suspension component as the factory struts. Strut mounting
+            brackets and bushings may be modified or replaced provided they attach to the original
+            locations on the chassis, subframe, or suspension component. This includes upper strut
+            mounts which may also function as an upper spring perch. On struts with an attached
+            steering arm the position of the steering arm on an aftermarket strut must remain the same
+            as stock.
+          </li>
+          <li>
+            Upper and lower spring perches may be modified or replaced provided they attach to the
+            original locations on the chassis, subframe, or suspension component. This allowance
+            does not permit relocation of a spring (e.g. moving from a divorced shock/spring to a coilover).
+          </li>
+          <li>
+            Shock absorber and strut bumpstops are unrestricted
+          </li>
+          <li>
+            When replacing factory electronically controlled shocks or struts, devices may be
+            added to satisfy the ECU that the OEM shocks or struts are still installed; such
+            devices shall perform no other function.
+          </li>
+          <li>
+            Vehicles equipped with an adaptive ride control system (MSRC, MRC, PASM, etc.) may
+            alter the calibration using an OEM-provided reflash or replace the entire controller.
+            When utilizing this allowance the OEM shocks/struts must be utilized without modification.
+          </li>
+          <li>
+            A hole may be added through bodywork and strut bars to permit access to the adjustment
+            mechanism on a shock absorber or strut. The hole may serve no other purpose and may
+            not be added through the exterior body panels.
+          </li>
+          <li>
+            For remote reservoir shocks a hole may be added through bodywork to route the reservoir
+            to a remote mounting location. Such holes may serve no other purpose.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['evShocks', 'evCarAnsweredIndex'], [true, 2]); hideItem('evShocks'); evalSessionStorage('evCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['evShocks', 'evCarAnsweredIndex'], [false, 2]); hideItem('evShocks'); evalSessionStorage('evCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="evARB" class="center question sansserif">
+      <h2 id="evARBQuestion">
+        Do your anti-roll (sway) bars meet the following requirements?
+      </h2>
+      <div id="ARBBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Substitution, addition, or removal of front and rear anti-roll bar(s) is permitted.
+            Bushing material, method of attachment, and locating points are unrestricted. This
+            does not authorize the cutting of holes to route the bar(s) or links. Components
+            such as anti-roll bars and strut housings that serve dual purposes by also functioning
+            as suspension locators may not be modified in ways that change the suspension geometry
+            or steering geometry.
+          </li>
+          <li>
+            No modification to the body, frame, or other components to accommodate anti-roll bar
+            addition or substitution is allowed except for the drilling of holes for mounting bolts.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['evARB', 'evCarAnsweredIndex'], [true, 2]); hideItem('evARB'); evalSessionStorage('evCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['evARB', 'evCarAnsweredIndex'], [false, 2]); hideItem('evARB'); evalSessionStorage('evCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="evSuspension" class="center question sansserif">
+      <h2 id="evSuspensionQuestion">
+        Does your suspension meet the requirements defined below?
+      </h2>
+      <div id="suspensionBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Ride height may only be altered by suspension adjustments, the use of spacing blocks,
+            leaf spring shackles, torsion bar levers, or change or modification of springs or
+            coil spring perches. This does not allow the use of spacers that alter suspension
+            geometry, such as those between the hub carrier and lower suspension arm. Springs must
+            be of the same type as the original (e.g., coil, leaf, torsion bar, bellows) and
+            except as noted herein, must use the original spring attachment points.
+            This permits multiple springs, as long as they use the original mount locations. Coil
+            spring perches may be changed or altered and their position may be adjustable. Spacers
+            are allowed above or below the spring. Coil springs may incorporate spring rubbers.
+          </li>
+          <li>
+            Alternate suspension springs are permitted but must remain the same type as the
+            factory springs (e.g. coil, leaf, torsion bar).
+          </li>
+          <li>
+            Suspension bushings may be replaced with bushings of any materials
+          </li>
+          <li>
+            If ordered by the manufacturer for a particular model and year, the use of shims,
+            special bolts, removal of material to enlarge mounting holes, and similar methods are
+            allowed and the resulting alignment settings are permitted even if outside the normal
+            specification or range of specifications recommended by the manufacturer. If
+            enlarging mounting holes is specifically authorized but no material removal limits
+            are specified, material removal is restricted to the amount necessary to achieve the
+            maximum factory alignment specifications.
+          </li>
+          <li>
+            Camber bolts may be installed providing these parts use the original, unmodified
+            mounting points. Caster changes resulting from the use of camber bolts are permitted.
+          </li>
+          <li>
+            Camber kits (also known as camber compensators) may be installed. These kits consist
+            of either adjustable length arms or arm mounts (including ball joints) that provide a
+            lateral adjustment to the effective length of a control arm. Alignment outside the
+            factory specifications is allowed. The following restrictions apply:
+            <ul>
+              <li>
+                On double/unequal arm (e.g., wishbone, multi-link) suspensions, only the upper
+                arms OR lower arms may be modified or replaced, but not both. Non-integral
+                longitudinal arms that primarily control fore/aft wheel movement (e.g., trailing
+                arm(s) or link(s) of a multi-link suspension) may not be replaced, changed, or
+                modified.
+              </li>
+              <li>
+                On arm-and-strut (MacPherson/Chapman) suspensions, the lower arms may be
+                modified/replaced OR other methods of camber adjustment allowed by the EV rules
+                can be utilized, but NOT both.
+              </li>
+              <li>
+                The replacement arms or mounts must attach to the original standard mounting
+                points. Intermediate mounting points (e.g., shock/spring mounts) may not be moved
+                or relocated on the arm, except as incidental to the camber adjustment. The
+                knuckle/bearing housing/spindle assembly cannot be modified or replaced.
+              </li>
+              <li>
+                Changes in suspension geometry are not allowed except as incidental to the
+                effective arm length change.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Changes in alignment parameters that result directly from the use of the allowed
+            components are permitted.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['evSuspension', 'evCarAnsweredIndex'], [true, 2]); hideItem('evSuspension'); evalSessionStorage('evCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['evSuspension', 'evCarAnsweredIndex'], [false, 2]); hideItem('evSuspension'); evalSessionStorage('evCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="evElectricalAndDrivetrain" class="center question sansserif">
+      <h2 id="evElectricalAndDrivetrainQuestion">
+        Does your electrical system and drivetrain meet the requirements below?
+      </h2>
+      <div id="electricalBody" class="questionBody">
+        <p class="center">
+          No changes are permitted to electronic management systems or their programming.
+          Batteries, the computers and/or hardware controlling battery systems, and all
+          mechanical drivetrain components must remain stock. Including but not limited to
+          electric motors, transmissions, differentials, battery packs, powertrain control
+          modules/computers and sensors, etc.
+        </p>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['evElectricalAndDrivetrain', 'evCarAnsweredIndex'], [true, 7]); hideItem('evElectricalAndDrivetrain'); evalSessionStorage('evCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['evElectricalAndDrivetrain', 'evCarAnsweredIndex'], [false, 7]); hideItem('evElectricalAndDrivetrain'); evalSessionStorage('evCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1 class="sansserif">
+        Your car is eligible for Electric Vehicle Experimental class!
+        </br>
+      </h1>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for Electric Vehicle Experimental class.
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>

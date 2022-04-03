@@ -155,6 +155,11 @@
               Street Touring Hatchback (STH) – Turbo hatchbacks and sedans
             </div>
           </li>
+          <li>
+            <div id="sstOverview">
+              Super Street Touring (SST) – Highest performance sports cars and coupes.
+            </div>
+          </li>
         </ul>
       </div>
       </br>
@@ -278,6 +283,9 @@
             STH (AWD) - 245</br>
             STH (2WD) - 265
         </div>
+        <div id="sstTires" class="stTires">
+            SST - Unlimited
+        </div>
       </h2>
       <button class="button yesButton" onclick="setState(['stTires', 'StreetTouringCarAnsweredIndex'], [true, 2]); hideItem('stTires'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['stTires', 'StreetTouringCarAnsweredIndex'], [false, 2]); hideItem('stTires'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
@@ -302,6 +310,9 @@
         </div>
         <div id="sthWheels" class="stWheels">
             STH - 9.0
+        </div>
+        <div id="sstWheels" class="stWheels">
+            SST - Unlimited
         </div>
       </h2>
       <button class="button yesButton" onclick="setState(['stWheels', 'StreetTouringCarAnsweredIndex'], [true, 3]); hideItem('stWheels'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
@@ -404,10 +415,10 @@
               Ride height may be altered only by suspension adjustments
             </li>
             <li>
-              Suspension bushings may be replaced with bushings of any material except metal
+              Suspension/Differential bushings may be replaced with bushings of any material except metal
             </li>
             <li>
-              Suspension bushings must be mounted in the original location
+              Suspension/Differential bushings must be mounted in the original location
             </li>
             <li>
               Adjustable camber plates may be installed at the top of the strut in strut-type suspensions
@@ -495,24 +506,22 @@
               path.
             </li>
             </br>
-            <div id="stusthEngine" class="stusthEngine">
+            <div id="sststusthEngine" class="sststusthEngine">
             <li>
-              STU and STH only (this should only show up if you have a STU or STH eligible car): As
-              utilized only on engines originally equipped with forced
-              induction, induction charge heat exchangers (also known as "intercoolers" or "charge
-              air coolers" [CACs]) are unrestricted in size and shape. Air-to-air CACs and radiators
-              for air-to-liquid CACs must be cooled only by the atmosphere except for standard
-              parts. Body panels, fascias, or structural members may not be cut or altered to
-              facilitate CAC installation. Removal of vehicle components to facilitate installation
-              is not allowed. Holes may be drilled for mounting.
+              SST, STU, and STH only: As utilized only on engines originally equipped with
+              forced induction, induction charge heat exchangers (also known as "intercoolers" or
+              "charge air coolers" [CACs]) are unrestricted in size and shape. Air-to-air CACs and
+              radiators for air-to-liquid CACs must be cooled only by the atmosphere except for
+              standard parts. Body panels, fascias, or structural members may not be cut or
+              altered to facilitate CAC installation. Removal of vehicle components to facilitate
+              installation is not allowed. Holes may be drilled for mounting.
             </li>
             </br>
             <li>
-              STU and STH only (this should only show up if you have a STU or STH eligible car):
-              Charge pipes may be modified or replaced. Replacement charge pipes may delete or block
-              off factory pipes designed to enhance intake sounds ("noisemakers"). Modification or
-              deletion of vehicle components (e.g. plastic shrouds, wheel well liners) to permit
-              routing of alternate charge pipes is not allowed.
+              SST, STU, and STH only: Charge pipes may be modified or replaced. Replacement charge
+              pipes may delete or block off factory pipes designed to enhance intake sounds
+              ("noisemakers"). Modification or deletion of vehicle components (e.g. plastic
+              shrouds, wheel well liners) to permit routing of alternate charge pipes is not allowed.
             </li>
             </br>
             </div>
@@ -613,9 +622,9 @@
                 STS class: No limited slip differentials are permitted except for factory standard
                 viscous coupler-type units.
               </div>
-              <div id="stustrstxLSD">
-                STU, STR, and STX classes: 2WD vehicles may use any mechanical LSD unit. AWD
-                vehicles may substitute one differential 9front, rear, or center) with an
+              <div id="sststustrstxLSD">
+                SST, STU, STR, and STX classes: 2WD vehicles may use any mechanical LSD unit. AWD
+                vehicles may substitute one differential (front, rear, or center) with an
                 aftermarket mechanical LSD.
               </div>
               <div id="sthLSD">
