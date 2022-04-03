@@ -5449,7 +5449,7 @@ const allSoloCars = {
       '1988': ['fp', 'xp', 'xsa', 'sm'],
       '1989': ['fp', 'xp', 'xsa', 'sm'],
     },
-    '300ZX (Z32 chassis; non-turbo) - Alternate part: rear facing hood scoop (3.5' max height)': {
+    '300ZX (Z32 chassis; non-turbo) - Alternate part: rear facing hood scoop (3.5\' max height)': {
       '1990': ['fp', 'xp', 'xsa', 'sm'],
       '1991': ['fp', 'xp', 'xsa', 'sm'],
       '1992': ['fp', 'xp', 'xsa', 'sm'],
