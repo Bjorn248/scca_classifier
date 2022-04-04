@@ -28,4 +28,7 @@ python -m http.server
 ```
 
 ## Rules
-Current iteration of rules: https://www.scca.com/downloads/53335-2021-scca-solo-rule-book/download
+This has been updated for the 2022 Solo (autocross) rules.
+
+The download URL for the set of rules used to build the current version of the website can be found
+here: https://www.scca.com/downloads/60877-2022-solo-rule-book-1/download
