@@ -55,7 +55,7 @@ The website displays the makes, models, years, etc of the cars in allSoloCars in
 appear. This means that we currently need to "offline sort" this. I have used the `sort.js` file in
 the repo root in the past to do this. You also need to ucomment the line with
 
-```
+```javascript
 module.exports = {allSoloCars};
 ```
 
