@@ -4719,6 +4719,11 @@ const allSoloCars = {
       '2014': ['bs', 'asp', 'xp', 'xsa', 'sm'],
       '2015': ['bs', 'asp', 'xp', 'xsa', 'sm'],
       '2016': ['bs', 'asp', 'xp', 'xsa', 'sm'],
+      '2017': ['bs', 'asp', 'xp', 'xsa', 'sm'],
+      '2018': ['bs', 'asp', 'xp', 'xsa', 'sm'],
+      '2019': ['bs', 'asp', 'xp', 'xsa', 'sm'],
+      '2020': ['bs', 'asp', 'xp', 'xsa', 'sm'],
+      '2021': ['bs', 'asp', 'xp', 'xsa', 'sm'],
     },
     'E550 (non-AMG)': {
       '2014': ['stu', 'xp', 'xsa', 'sm'],
