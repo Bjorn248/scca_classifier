@@ -7336,7 +7336,7 @@ const allSoloCars = {
     },
   },
   'Toyota': {
-    '86 (with TRD Lowering Springs, TRD Sway Bar Kit, and TRD 17-in. Forged Wheel': {
+    '86 (with TRD Lowering Springs, TRD Sway Bar Kit, and TRD 17-in. Forged Wheels)': {
       '2017': ['cs', 'stx', 'dsp', 'dp', 'xsa', 'sm'],
       '2018': ['cs', 'stx', 'dsp', 'dp', 'xsa', 'sm'],
       '2019': ['cs', 'stx', 'dp', 'xsa', 'sm'],
