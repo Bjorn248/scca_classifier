@@ -60,6 +60,38 @@ module.exports = {allSoloCars};
 ```
 
 so that sort.js can load the `allSoloCars` object. After running it through sort.js, I've used a
-combination of vim and python + jsbeautify to wrangle the js into something nice with a minimal diff
-to the current `common.js`. Probably you won't have to worry about sorting, but in case you were
-curious, or had suggestions for how to improve this, I thought I'd share my current process.
+combination of vim and the python version of [jsbeautify](https://github.com/beautify-web/js-beautify)
+to wrangle the js into something nice with a minimal diff
+to the current `common.js`. You probably won't have to worry about sorting, but in case you were
+curious, or had suggestions for how to improve this, I thought I'd share my current process. This
+isn't something that happens often, so the fact that it's a bit tedious currently isn't _too_ bad.
+
+### Generate the file
+```
+node sort.js > sorted.js
+```
+
+### Make it valid js
+Add `const allSoloCars =` to the beginning and `;` to the end to make it 'valid' js.
+
+### Use single quotes
+```
+:%s/"/'/g
+```
+
+### Restore trailing commas
+```
+:%s/\]\n/],\r/g
+:%s/\}\n/},\r/g
+```
+
+### Beautify
+```
+js-beautify -d -j -s 2 sorted.js > pretty_sorted.js
+```
+
+Then you can copy the contents of pretty_sorted.js into src/common.js, replacing the allSoloCars constant.
+
+### Clean Up
+Delete the extra js files you made along the way and check the git diff to make sure the changes are
+as you expect.
