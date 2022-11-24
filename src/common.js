@@ -1140,15 +1140,15 @@ const allSoloCars = {
       '2019': ['bs', 'sst', 'asp', 'sm', 'xsa', 'xp'],
       '2020': ['bs', 'asp', 'sm', 'xsa', 'xp'],
     },
+    'M2 CS': {
+      '2020': ['as', 'sst', 'ssr', 'sm', 'xp', 'xsa'],
+      '2021': ['as', 'sst', 'ssr', 'sm', 'xp', 'xsa'],
+    },
     'M2 Competition': {
       '2019': ['bs', 'sst', 'ssr', 'sm', 'xp', 'xsa'],
       '2020': ['bs', 'sst', 'ssr', 'sm', 'xp', 'xsa'],
       '2021': ['bs', 'sst', 'ssr', 'sm', 'xp', 'xsa'],
       '2022': ['bs', 'ssr', 'sm', 'xp', 'xsa'],
-    },
-    'M2 CS': {
-      '2020': ['as', 'sst', 'ssr', 'sm', 'xp', 'xsa'],
-      '2021': ['as', 'sst', 'ssr', 'sm', 'xp', 'xsa'],
     },
     'M2 Performance Edition (ZL9)': {
       'all': ['as', 'sm', 'xp', 'xsa'],
@@ -1533,7 +1533,7 @@ const allSoloCars = {
       '2001': ['hs', 'stu', 'camc', 'xp', 'xsa', 'sm'],
       '2002': ['hs', 'stu', 'camc', 'xp', 'xsa', 'sm'],
     },
-    'Camaro (V6 & V8; excl. SS 1LE, ZL1, Suspension Lowering Kit, and Brembo\u00ae 6-piston Front Brake Kit)': {
+    'Camaro (V6 & V8; excl. SS 1LE, ZL1, Suspension Lowering Kit, and Brembo® 6-piston Front Brake Kit)': {
       '2016': ['fs', 'stu', 'camc', 'xp', 'xsa', 'sm'],
       '2017': ['fs', 'stu', 'camc', 'xp', 'xsa', 'sm'],
       '2018': ['fs', 'stu', 'camc', 'xp', 'xsa', 'sm'],
@@ -4467,7 +4467,7 @@ const allSoloCars = {
       '2004': ['es', 'stu', 'bsp', 'ssm', 'fp', 'xsb'],
       '2005': ['es', 'stu', 'bsp', 'ssm', 'fp', 'xsb'],
     },
-    'Mazdaspeed Prot\u00e9g\u00e9': {
+    'Mazdaspeed Protégé': {
       'all': ['gs', 'sth', 'dsp', 'fp', 'xp', 'xsa', 'sm', 'smf'],
     },
     'Miata Club Sport': {
@@ -4476,7 +4476,7 @@ const allSoloCars = {
     'Millenia': {
       'all': ['hs', 'xp', 'xsa', 'sm'],
     },
-    'Prot\u00e9g\u00e9': {
+    'Protégé': {
       'all': ['hs', 'sts', 'fsp', 'xp', 'xsa', 'sm', 'smf'],
     },
     'R100': {
@@ -7349,9 +7349,6 @@ const allSoloCars = {
       '2019': ['ds', 'stx', 'dp', 'xsa', 'sm'],
       '2020': ['ds', 'stx', 'dp', 'xsa', 'sm'],
     },
-    'GR86 (without TRD equipment)': {
-      '2022': ['ds', 'str', 'xp', 'xsa', 'sm'],
-    },
     'Camry (4-cyl)': {
       'all': ['hs', 'fsp', 'xp', 'xsa', 'sm', 'smf'],
     },
@@ -7460,6 +7457,9 @@ const allSoloCars = {
       '2003': ['sts', 'hs', 'xp', 'xsb', 'sm', 'smf'],
       '2004': ['sts', 'hs', 'xp', 'xsb', 'sm', 'smf'],
       '2005': ['sts', 'hs', 'xp', 'xsb', 'sm', 'smf'],
+    },
+    'GR86 (without TRD equipment)': {
+      '2022': ['ds', 'str', 'xp', 'xsa', 'sm'],
     },
     'MR2 (non-turbo, non-supercharged)': {
       '1985': ['es', 'sts', 'csp', 'xp', 'xsb', 'ssm'],
