@@ -18,10 +18,10 @@ jobs:
         lfs: true
     - name: Checkout LFS Objects
       run: git lfs fetch --all
-    - name: Use Node.js '16.x'
+    - name: Use Node.js '18.x'
       uses: actions/setup-node@v3
       with:
-        node-version: 16
+        node-version: 18
     - run: npm ci
     - run: npm run build --if-present
 
