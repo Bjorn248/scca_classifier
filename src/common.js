@@ -1726,6 +1726,10 @@ const allSoloCars = {
       '2013': ['bs', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'xa', 'ssm'],
     },
     'Corvette Grand Sport': {
+      '2010': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2011': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2012': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2013': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
       '2017': ['ss', 'ssr', 'ssp', 'cams', 'xp', 'xa', 'ssm'],
       '2018': ['ss', 'ssr', 'ssp', 'cams', 'xp', 'xa', 'ssm'],
       '2019': ['ss', 'ssr', 'ssp', 'cams', 'xp', 'xa', 'ssm'],
