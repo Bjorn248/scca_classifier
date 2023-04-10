@@ -149,6 +149,10 @@ func addOne(i int) int {
 }
 
 func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
+	// TODO make this function "prettify" the output so that it's not just a giant blob of text
+	// e.g. find "A." and "1." add HTML line breaks
+	// also add a line break after the subchapter name
+	// remove any adds/copyright stuff
 	var result string
 	resultBytes, err := io.ReadAll(r)
 	if err != nil {
