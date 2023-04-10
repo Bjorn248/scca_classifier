@@ -1,3 +1,5 @@
+{{ $name := .Name }}
+{{ $chapterfillertext := .ChapterFillerText }}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,24 +14,8 @@
 
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a id='streetLandingPageMenu' href="#" onclick="resetQuestion('streetLandingPage'); evalSessionStorage('StreetCar');">Overview</a>
-      {{ TODO iterate over subchapters below replacing menu items via template}}
-      <a id='streetBodyworkMenu' href="#" onclick="resetQuestion('streetBodywork'); evalSessionStorage('StreetCar');">Bodywork</a>
-      <a id='fendersUnmodifiedMenu' href="#" onclick="resetQuestion('fendersUnmodified'); evalSessionStorage('StreetCar');">Fenders</a>
-      <a id='tires200TreadwearMenu' href="#" onclick="resetQuestion('tires200Treadwear'); evalSessionStorage('StreetCar');">Tires</a>
-      <a id='wheelsStockWidthMenu' href="#" onclick="resetQuestion('wheelsStockWidth'); evalSessionStorage('StreetCar');">WheelWidth</a>
-      <a id='wheelOffsetPlusMinus7InchesMenu' href="#" onclick="resetQuestion('wheelOffsetPlusMinus7Inches'); evalSessionStorage('StreetCar');">WheelOffset</a>
-      <a id='wheelDiameterPlusMinus1InchMenu' href="#" onclick="resetQuestion('wheelDiameterPlusMinus1Inch'); evalSessionStorage('StreetCar');">WheelDiameter</a>
-      <a id='stockNumberOfWheelBoltsOrStudsMenu' href="#" onclick="resetQuestion('stockNumberOfWheelBoltsOrStuds'); evalSessionStorage('StreetCar');">WheelBolts</a>
-      <a id='shocksAtMost2WayMenu' href="#" onclick="resetQuestion('shocksAtMost2Way'); evalSessionStorage('StreetCar');">Shocks</a>
-      <a id='suspensionGeometryAlteredMenu' href="#" onclick="resetQuestion('suspensionGeometryAltered'); evalSessionStorage('StreetCar');">Geometry</a>
-      <a id='hasStandardBrakeLinesUnless1992OrOlderMenu' href="#" onclick="resetQuestion('hasStandardBrakeLinesUnless1992OrOlder'); evalSessionStorage('StreetCar');">BrakeLines</a>
-      <a id='hasSingleAntiRollBarMenu' href="#" onclick="resetQuestion('hasSingleAntiRollBar'); evalSessionStorage('StreetCar');">AntiRollBar</a>
-      <a id='hasStockSpringsMenu' href="#" onclick="resetQuestion('hasStockSprings'); evalSessionStorage('StreetCar');">Springs</a>
-      <a id='hasStockBushingsMenu' href="#" onclick="resetQuestion('hasStockBushings'); evalSessionStorage('StreetCar');">Bushings</a>
-      <a id='stockECUProgrammingMenu' href="#" onclick="resetQuestion('stockECUProgramming'); evalSessionStorage('StreetCar');">ECU</a>
-      <a id='stockIntakeMenu' href="#" onclick="resetQuestion('stockIntake'); evalSessionStorage('StreetCar');">Intake</a>
-      <a id='stockExhaustMenu' href="#" onclick="resetQuestion('stockExhaust'); evalSessionStorage('StreetCar');">Exhaust</a>
+      <a id='streetLandingPageMenu' href="#" onclick="resetQuestion('streetLandingPage'); evalSessionStorage('StreetCar');">Overview</a>{{ range .SubChapters }}
+      <a id='{{ toLower $name}}{{ varName .Name}}Menu' href="#" onclick="resetQuestion('{{ toLower $name}}{{ varName .Name }}'); evalSessionStorage('StreetCar');">{{ varName .Name }}</a>{{ end }}
     </div>
 
     <div id="main">
@@ -139,273 +125,21 @@
       </br>
       <button class="button yesButton" onclick="setState(['streetLandingPage', 'StreetCarAnsweredIndex'], [true, 0]); hideItem('streetLandingPage'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Continue</button>
     </div>
-
-    {{ TODO replace below divs with a div template for each subchapter }}
-    <div id="streetBodywork" class="center question sansserif">
-      <h2 id="streetBodyworkQuestion">
-        Is your car body mostly stock and does it meet the requirements below?
+    {{ range $index, $subchapter := .SubChapters }}
+    <div id="{{ toLower $name}}{{ varName $subchapter.Name }}" class="center question sansserif">
+      <h2 id="{{ toLower $name}}{{ varName $subchapter.Name }}Question">
+        Does your car meet the requirements below?
       </h2>
       <div id="bodyworkBody" class="questionBody">
         <h3>
-          Rule: See section 13.1 of the rules for clarification, but unless modifications are explicitly
-          permitted, they are not allowed.
-          Things that are allowed:
-          <ul class="list">
-            <li>
-              Alternate shift knobs or paddles are allowed.
-            </li>
-            <li>
-              Steering wheel may be replaced if it did not come with an airbag and is within 1"
-              of the original size
-            </li>
-            <li>
-              Accessories, gauges, indicators, lights and other appearance, comfort
-              and convenience modifications which have no effect on performance and/or handling and
-              do not materially reduce the weight of the car are permitted. This does not allow driver's
-              seat substitutions, or the removal of "tow hooks" or "tie-down loops." Delayed shutdown devices such
-              as the "Turbo Timer," which perform no function while the car is in motion, are permitted.
-              This does permit the installation of an additional mirror (e.g., Wink®), but does not allow
-              the removal of the original mirror
-            </li>
-            <li>
-              Spare tires, tools, and jacks may be removed. Any fastening hardware
-              and/or other pieces that can no longer be firmly secured in the absence
-              of the spare tire may be removed if necessary.
-            </li>
-            <li>
-              Any item that cannot be held permanently in place by factory-installed
-              fasteners may be removed.
-            </li>
-            <li>
-              Hood straps or fasteners may be added.
-            </li>
-            <li>
-              Roll bars, roll cages, harness bars, and harnesses are permitted, as long as seats are
-              not cut to accommodate their installation.
-            </li>
-            <li>
-              Driver restraints as outlined in Section 3.3.1 are allowed. Seats may not
-              be cut to allow for the installation of alternate seat belts or harnesses.
-              Passive restraint systems may disabled but may not be removed. Removeable
-              seat headrests may be repositioned using the original mounting hardware only
-              if the OE components permit it with no modifications. This includes removing a headrest
-              and reinstalling it backwards. A horizontal "harness bar" may be used as part of the
-              installation hardware for allowed driver restraints provided it has no more than 2
-              attachment points to the chassis and is bolted at those locations. A C-type
-              harness bar may also be used. It may have 4 bolted attachment points to
-              the chassis (2 primary and 2 supporting connections to resist rotation).
-              Truss-type harness bars with more than two (2) attachment points are
-              not allowed.
-            </li>
-            <li>
-              Cars may add one rear trailer hitch. The resulting weight addition is
-              allowed. The hitch may serve no other purpose. Factory tie downs and
-              cosmetic pieces (e.g., diffusers) may be modified or removed to facilitate
-              hitch installation. Complete or partial removal of the hitch is
-              allowed for competition, provided it does not result in a reduction in
-              weight compared to the unmodified standard configuration.
-            </li>
-            <li>
-              Tow bar brackets may be installed but may serve no other purpose.
-            </li>
-          </ul>
+          {{ subChapterText $subchapter.Reader $chapterfillertext }}
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetBodywork', 'StreetCarAnsweredIndex'], [true, 1]); hideItem('streetBodywork'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetBodywork', 'StreetCarAnsweredIndex'], [false, 1]); hideItem('streetBodywork'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['{{ toLower $name}}{{ varName $subchapter.Name }}', 'StreetCarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toLower $name}}{{ varName $subchapter.Name }}'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['{{ toLower $name}}{{ varName $subchapter.Name }}', 'StreetCarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toLower $name}}{{ varName $subchapter.Name }}'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
-
-    <div id="fendersUnmodified" class="center question sansserif">
-      <div id="fendersBody" class="questionBody">
-        <h2 id="fendersUnmodifiedQuestion">
-          Are your fenders unmodified?
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['fendersUnmodified', 'StreetCarAnsweredIndex'], [true, 2]); hideItem('fendersUnmodified'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['fendersUnmodified', 'StreetCarAnsweredIndex'], [false, 2]); hideItem('fendersUnmodified'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="tires200Treadwear" class="center question sansserif">
-      <div id="tiresBody" class="questionBody">
-        <h2 id="tires200TreadwearQuestion">
-          Are your tires 200 treadwear and DOT legal?
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['tires200Treadwear', 'StreetCarAnsweredIndex'], [true, 3]); hideItem('tires200Treadwear'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['tires200Treadwear', 'StreetCarAnsweredIndex'], [false, 3]); hideItem('tires200Treadwear'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="wheelsStockWidth" class="center question sansserif">
-      <div id="wheelsBody" class="questionBody">
-        <h2 id="wheelsStockWidthQuestion">
-          Are your wheels stock width?
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['wheelsStockWidth', 'StreetCarAnsweredIndex'], [true, 4]); hideItem('wheelsStockWidth'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['wheelsStockWidth', 'StreetCarAnsweredIndex'], [false, 4]); hideItem('wheelsStockWidth'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="wheelOffsetPlusMinus7Inches" class="center question sansserif">
-      <div id="wheelOffsetBody" class="questionBody">
-        <h2 id="wheelOffsetPlusMinus7InchesQuestion">
-          Is your wheel offset ±7mm (±0.275 in) from a standard wheel for the car?
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['wheelOffsetPlusMinus7Inches', 'StreetCarAnsweredIndex'], [true, 5]); hideItem('wheelOffsetPlusMinus7Inches'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['wheelOffsetPlusMinus7Inches', 'StreetCarAnsweredIndex'], [false, 5]); hideItem('wheelOffsetPlusMinus7Inches'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="wheelDiameterPlusMinus1Inch" class="center question sansserif">
-      <div id="wheelDiameterBody" class="questionBody">
-        <h2 id="wheelDiameterPlusMinus1InchQuestion">
-          Is your wheel diameter ±1 inch from the standard wheel for the car?
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['wheelDiameterPlusMinus1Inch', 'StreetCarAnsweredIndex'], [true, 6]); hideItem('wheelDiameterPlusMinus1Inch'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['wheelDiameterPlusMinus1Inch', 'StreetCarAnsweredIndex'], [false, 6]); hideItem('wheelDiameterPlusMinus1Inch'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="stockNumberOfWheelBoltsOrStuds" class="center question sansserif">
-      <div id="boltsBody" class="questionBody">
-        <h2 id="stockNumberOfWheelBoltsOrStudsQuestion">
-          Do you have the stock number of wheel bolts or studs?
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['stockNumberOfWheelBoltsOrStuds', 'StreetCarAnsweredIndex'], [true, 7]); hideItem('stockNumberOfWheelBoltsOrStuds'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stockNumberOfWheelBoltsOrStuds', 'StreetCarAnsweredIndex'], [false, 7]); hideItem('stockNumberOfWheelBoltsOrStuds'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="shocksAtMost2Way" class="center question sansserif">
-      <div id="shocksBody" class="questionBody">
-        <h2 id="shocksAtMost2WayQuestion">
-          Are your shocks at most adjustable in two ways? Cars that have shocks that are more
-          adjustable from the factory are permitted.
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['shocksAtMost2Way', 'StreetCarAnsweredIndex'], [true, 8]); hideItem('shocksAtMost2Way'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['shocksAtMost2Way', 'StreetCarAnsweredIndex'], [false, 8]); hideItem('shocksAtMost2Way'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="suspensionGeometryAltered" class="center question sansserif">
-      <div id="suspensionBody" class="questionBody">
-        <h2 id="suspensionGeometryAlteredQuestion">
-          Is your suspension geometry unmodified?
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['suspensionGeometryAltered', 'StreetCarAnsweredIndex'], [true, 9]); hideItem('suspensionGeometryAltered'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['suspensionGeometryAltered', 'StreetCarAnsweredIndex'], [false, 9]); hideItem('suspensionGeometryAltered'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="hasStandardBrakeLinesUnless1992OrOlder" class="center question sansserif">
-      <div id="brakeLinesBody" class="questionBody">
-        <h2 id="hasStandardBrakeLinesUnless1992OrOlderQuestion">
-          Are your brake lines stock? If your car is 1992 or older you can have solid/braided lines.
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['hasStandardBrakeLinesUnless1992OrOlder', 'StreetCarAnsweredIndex'], [true, 10]); hideItem('hasStandardBrakeLinesUnless1992OrOlder'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['hasStandardBrakeLinesUnless1992OrOlder', 'StreetCarAnsweredIndex'], [false, 10]); hideItem('hasStandardBrakeLinesUnless1993OrOlder'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="hasSingleAntiRollBar" class="center question sansserif">
-      <h2 id="hasSingleAntiRollBarQuestion">
-        Does your car meet the anti-roll bar restrictions?
-      </h2>
-      <div id="antiRollBarBody" class="questionBody">
-        <h3>
-          Rule: Substitution, addition, or removal of a single anti-roll bar and supporting
-          hardware (brackets, endlinks, bushings, etc.) is permitted. The use of any bushing
-          material is permitted. A bushing may be implemented as a bearing.
-        </h3>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['hasSingleAntiRollBar', 'StreetCarAnsweredIndex'], [true, 11]); hideItem('hasSingleAntiRollBar'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['hasSingleAntiRollBar', 'StreetCarAnsweredIndex'], [false, 11]); hideItem('hasSingleAntiRollBar'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-    <div id="hasStockSprings" class="center question sansserif">
-      <div id="springsBody" class="questionBody">
-        <h2 id="hasStockSpringsQuestion">
-          Does your car have stock springs?
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['hasStockSprings', 'StreetCarAnsweredIndex'], [true, 12]); hideItem('hasStockSprings'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['hasStockSprings', 'StreetCarAnsweredIndex'], [false, 12]); hideItem('hasStockSprings'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="hasStockBushings" class="center question sansserif">
-      <div id="bushingsBody" class="questionBody">
-        <h2 id="hasStockBushingsQuestion">
-          Does your car have stock bushings?
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['hasStockBushings', 'StreetCarAnsweredIndex'], [true, 13]); hideItem('hasStockBushings'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['hasStockBushings', 'StreetCarAnsweredIndex'], [false, 13]); hideItem('hasStockBushings'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="stockECUProgramming" class="center question sansserif">
-      <div id="ECUBody" class="questionBody">
-        <h2 id="stockECUProgrammingQuestion">
-          Does your car have an unmodified electronic engine management system?
-        </h2>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['stockECUProgramming', 'StreetCarAnsweredIndex'], [true, 14]); hideItem('stockECUProgramming'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stockECUProgramming', 'StreetCarAnsweredIndex'], [false, 14]); hideItem('stockECUProgramming'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="stockIntake" class="center question sansserif">
-      <h2 id="stockIntakeQuestion">
-        Does your intake meet the requirements below?
-      </h2>
-      <div id="intakeBody" class="questionBody">
-        <h3>
-          The engine air filter element may be removed or replaced provided the air flow path remains
-          as originally designed (i.e. no additional openings). No other components of the
-          air induction system may be removed, replaced, or modified.
-        </h3>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['stockIntake', 'StreetCarAnsweredIndex'], [true, 15]); hideItem('stockIntake'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stockIntake', 'StreetCarAnsweredIndex'], [false, 15]); hideItem('stockIntake'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="stockExhaust" class="center question sansserif">
-      <h2 id="stockExhaustQuestion">
-        Does your exhaust meet the requirements below?
-      </h2>
-      <div id="exhaustBody" class="questionBody">
-        <h3>
-          Any part of the exhaust system beyond (downstream from) the last catalytic converter,
-          if so equipped, may be substituted or removed provided the system exits the car in the
-          original location. Vehicles equipped with exhausts that exit in multiple locations may
-          change to a single outlet in any of the original locations. Stainless steel heat
-          exchangers are permitted only if the physical dimensions and configuration remain unchanged.
-          Modifications of any type, including additions to or removal of, the catalytic converters,
-          thermal reactors, or any other pollution control devices in the exhaust system are not
-          allowed and the system must be operable. Replacement catalytic converters must be OE if
-          the vehicle has not exceeded the warranty period as mandated by the EPA. Converters must
-          be of the same type and size and used in the same location as the original equipment
-          converter(s). This does not allow for a high performance unit. If the vehicle has exceeded
-          the warranty period, replacement catalytic converters must be OE-type. Exhaust hangers
-          which are bolted or welded on the car are considered part of the body and may not be
-          changed or removed.
-        </h3>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['stockExhaust', 'StreetCarAnsweredIndex'], [true, 16]); hideItem('stockExhaust'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stockExhaust', 'StreetCarAnsweredIndex'], [false, 16]); hideItem('stockExhaust'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
-    </div>
+    {{ end }}
 
     <div id="eligible" class="center eligible sansserif">
       <h1>

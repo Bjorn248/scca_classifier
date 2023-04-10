@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"path"
 	"regexp"
 	"strings"
 	"text/template"
@@ -13,13 +14,15 @@ import (
 // Chapter defines the regex expressions to search for that denote the start and end of a
 // chapter (e.g. Street, Street Touring) of the rulebook.
 type Chapter struct {
-	Name         string
-	Number       string
-	SubChapters  []SubChapter
-	Reader       *io.SectionReader
-	start        *regexp.Regexp
-	end          *regexp.Regexp
-	templateFile string
+	Name              string
+	Number            string
+	SubChapters       []SubChapter
+	Reader            *io.SectionReader
+	start             *regexp.Regexp
+	end               *regexp.Regexp
+	ChapterFillerText *regexp.Regexp
+	templateFile      string
+	outputFile        string
 }
 
 // SubChapter holds the name, number, and body of a subchapter of the rules (e.g. 13.2 Bodywork)
@@ -107,12 +110,14 @@ func findSubChapterBody(chapter Chapter, chapterText []byte) []SubChapter {
 			sectionReader := io.NewSectionReader(reader, int64(startMatch[0]), int64(length))
 			SubChapters[i].Reader = sectionReader
 			// uncomment to print for troubleshooting
-			subchapter, err := io.ReadAll(sectionReader)
-			if err != nil {
-				log.Fatal(err)
-			}
-			fmt.Println(subChapter.Number + " " + subChapter.Name)
-			fmt.Println(string(subchapter))
+			// warning: it will put the section reader in a "Read" state and you'll
+			// have to seek to the beginning to be able to read from it again
+			// subchapter, err := io.ReadAll(sectionReader)
+			// if err != nil {
+			// 	log.Fatal(err)
+			// }
+			// fmt.Println(subChapter.Number + " " + subChapter.Name)
+			// fmt.Println(string(subchapter))
 		}
 	}
 	return SubChapters
@@ -139,6 +144,21 @@ func stringEqual(a, b string) bool {
 	return a == b
 }
 
+func addOne(i int) int {
+	return i + 1
+}
+
+func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
+	var result string
+	resultBytes, err := io.ReadAll(r)
+	if err != nil {
+		return ""
+	}
+	resultBytes = chapterText.ReplaceAll(resultBytes, []byte{})
+	result = template.HTMLEscapeString(string(resultBytes))
+	return result
+}
+
 func main() {
 	rules := readFile()
 
@@ -150,11 +170,13 @@ func main() {
 	rules.Seek(0, 0)
 	allChapters := []Chapter{
 		{
-			Name:         "Street",
-			Number:       "13",
-			start:        regexp.MustCompile(`\n13\. STREET CATEGORY\n`),
-			end:          regexp.MustCompile(`\n14\. STREET TOURING® CATEGORY\n`),
-			templateFile: "./templates/a/s.html.tmpl",
+			Name:              "Street",
+			Number:            "13",
+			start:             regexp.MustCompile(`\n13\. STREET CATEGORY\n`),
+			end:               regexp.MustCompile(`\n14\. STREET TOURING® CATEGORY\n`),
+			ChapterFillerText: regexp.MustCompile(`13\. Street Category`),
+			templateFile:      "./templates/a/s.html.tmpl",
+			outputFile:        "./src/a/s.html",
 		},
 		{
 			Name:   "Street Touring",
@@ -207,9 +229,11 @@ func main() {
 	}
 
 	funcMap := template.FuncMap{
-		"readAll":     io.ReadAll,
-		"varName":     ToVariableName,
-		"stringEqual": stringEqual,
+		"subChapterText": subChapterText,
+		"varName":        ToVariableName,
+		"stringEqual":    stringEqual,
+		"addOne":         addOne,
+		"toLower":        strings.ToLower,
 	}
 
 	for i := range allChapters {
@@ -241,16 +265,15 @@ func main() {
 			allChapters[i].SubChapters = findSubChapterBody(allChapters[i], chapterText)
 		}
 
-		/* TODO actually parse individual HTML template
 		if allChapters[i].templateFile != "" {
 			fmt.Println("Generating class specific page...")
-			commonJS := template.New("common.js.tmpl").Funcs(funcMap)
-			tpl, err := commonJS.ParseFiles("templates/common.js.tmpl")
+			commonJS := template.New(path.Base(allChapters[i].templateFile)).Funcs(funcMap)
+			tpl, err := commonJS.ParseFiles(allChapters[i].templateFile)
 			if err != nil {
 				log.Fatal("Could not parse template", err)
 			}
 
-			outFile, err := os.Create("src/common.js")
+			outFile, err := os.Create(allChapters[i].outputFile)
 			if err != nil {
 				log.Fatal("Could not create file", err)
 			}
@@ -262,7 +285,6 @@ func main() {
 
 			outFile.Close()
 		}
-		*/
 	}
 
 	fmt.Printf("%+v\n", allChapters)
