@@ -130,7 +130,7 @@
       <h2 id="{{ toLower $name}}{{ varName $subchapter.Name }}Question">
         Does your car meet the requirements below?
       </h2>
-      <div id="bodyworkBody" class="questionBody">
+      <div id="{{ toLower $name}}Body" class="questionBody">
         <h3>
           {{ subChapterText $subchapter.Reader $chapterfillertext }}
         </h3>

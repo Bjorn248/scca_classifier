@@ -9,6 +9,10 @@ import (
 	"regexp"
 	"strings"
 	"text/template"
+
+	// I am using lookaheads in a regex so I need PCRE
+	// go regexp doesn't support any lookaround
+	"go.arsenm.dev/pcre"
 )
 
 // Chapter defines the regex expressions to search for that denote the start and end of a
@@ -148,6 +152,15 @@ func addOne(i int) int {
 	return i + 1
 }
 
+func formatChapterBody(in string) string {
+	var result string
+	result = regexp.MustCompile(`\n([A-Z]\.)`).ReplaceAllString(in, "</br></br>$1")
+	result = regexp.MustCompile(`\n([0-9]\.)`).ReplaceAllString(result, "</br>$1")
+	fmt.Println(result)
+	result = pcre.MustCompile(`(?s)(<\/br>[0-9]\..+?)(?=<\/br>)`).ReplaceAllString(result, "<div class=\"indent\">$1</div>")
+	return result
+}
+
 func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
 	// TODO make this function "prettify" the output so that it's not just a giant blob of text
 	// e.g. find "A." and "1." add HTML line breaks
@@ -160,6 +173,7 @@ func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
 	}
 	resultBytes = chapterText.ReplaceAll(resultBytes, []byte{})
 	result = template.HTMLEscapeString(string(resultBytes))
+	result = formatChapterBody(result)
 	return result
 }
 
