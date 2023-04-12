@@ -1,19 +1,11 @@
 const carFlags = {
   'StreetCar': [
-    'streetLandingPage',{{ range . }}{{if stringEqual .Name "Street"}}{{ range .SubChapters }}
-    'street{{ varName .Name }}',{{ end }}{{ end }}{{ end }}
+    'streetLandingPage',{{ range . }}{{if stringEqual .Name "Street"}}{{ $className := .Name }}{{ range .SubChapters }}
+    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
   'StreetTouringCar': [
-    'stLandingPage',
-    'streetTouringBodywork',
-    'stTires',
-    'stWheels',
-    'stShocks',
-    'stBrakes',
-    'stSwayBar',
-    'stSuspension',
-    'stElectrical',
-    'stEngine',
+    'stLandingPage',{{ range . }}{{if stringEqual .Name "Street Touring"}}{{ $className := .Name }}{{ range .SubChapters }}
+    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
   'sscCar': [
     'sscLandingPage',

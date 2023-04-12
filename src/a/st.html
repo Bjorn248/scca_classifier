@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,15 +15,17 @@
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a id='stLandingPageMenu' href="#" onclick="resetQuestion('stLandingPage'); evalSessionStorage('StreetTouringCar');">Overview</a>
-      <a id='streetTouringBodyworkMenu' href="#" onclick="resetQuestion('streetTouringBodywork'); evalSessionStorage('StreetTouringCar');">Bodywork</a>
-      <a id='stTiresMenu' href="#" onclick="resetQuestion('stTires'); evalSessionStorage('StreetTouringCar');">Tires</a>
-      <a id='stWheelsMenu' href="#" onclick="resetQuestion('stWheels'); evalSessionStorage('StreetTouringCar');">Wheels</a>
-      <a id='stShocksMenu' href="#" onclick="resetQuestion('stShocks'); evalSessionStorage('StreetTouringCar');">Shocks</a>
-      <a id='stBrakesMenu' href="#" onclick="resetQuestion('stBrakes'); evalSessionStorage('StreetTouringCar');">Brakes</a>
-      <a id='stSwayBarMenu' href="#" onclick="resetQuestion('stSwayBar'); evalSessionStorage('StreetTouringCar');">Sway Bar</a>
-      <a id='stSuspensionMenu' href="#" onclick="resetQuestion('stSuspension'); evalSessionStorage('StreetTouringCar');">Suspension</a>
-      <a id='stElectricalMenu' href="#" onclick="resetQuestion('stElectrical'); evalSessionStorage('StreetTouringCar');">Electrical</a>
-      <a id='stEngineMenu' href="#" onclick="resetQuestion('stEngine'); evalSessionStorage('StreetTouringCar');">Engine</a>
+      <a id='streettouringAuthorizedMenu' href="#" onclick="resetQuestion('streettouringAuthorized'); evalSessionStorage('StreetTouringCar');">Authorized</a>
+      <a id='streettouringBodyworkMenu' href="#" onclick="resetQuestion('streettouringBodywork'); evalSessionStorage('StreetTouringCar');">Bodywork</a>
+      <a id='streettouringTiresMenu' href="#" onclick="resetQuestion('streettouringTires'); evalSessionStorage('StreetTouringCar');">Tires</a>
+      <a id='streettouringWheelsMenu' href="#" onclick="resetQuestion('streettouringWheels'); evalSessionStorage('StreetTouringCar');">Wheels</a>
+      <a id='streettouringShockMenu' href="#" onclick="resetQuestion('streettouringShock'); evalSessionStorage('StreetTouringCar');">Shock</a>
+      <a id='streettouringBrakesMenu' href="#" onclick="resetQuestion('streettouringBrakes'); evalSessionStorage('StreetTouringCar');">Brakes</a>
+      <a id='streettouringAntiRollMenu' href="#" onclick="resetQuestion('streettouringAntiRoll'); evalSessionStorage('StreetTouringCar');">AntiRoll</a>
+      <a id='streettouringSuspensionMenu' href="#" onclick="resetQuestion('streettouringSuspension'); evalSessionStorage('StreetTouringCar');">Suspension</a>
+      <a id='streettouringElectricalMenu' href="#" onclick="resetQuestion('streettouringElectrical'); evalSessionStorage('StreetTouringCar');">Electrical</a>
+      <a id='streettouringEngineMenu' href="#" onclick="resetQuestion('streettouringEngine'); evalSessionStorage('StreetTouringCar');">Engine</a>
+      <a id='streettouringOutofProductionMenu' href="#" onclick="resetQuestion('streettouringOutofProduction'); evalSessionStorage('StreetTouringCar');">OutofProduction</a>
     </div>
 
     <div id="main">
@@ -38,7 +42,7 @@
     </div>
   </head>
 
-  <body onload="evalSessionStorage('StreetTouringCar'); highlightAndFilterStreetTouring();">
+  <body onload="evalSessionStorage('StreetTouringCar');">
     <div id="stLandingPage" class="center question sansserif">
       <h2 id="stLandingPageQuestion">
         Street Touring Class Overview
@@ -123,7 +127,6 @@
           Subclasses
         </h3>
         <p>
-        Your subclass should be highlighted
         <ul>
           <li>
             <div id="stsOverview">
@@ -166,533 +169,503 @@
       <button class="button yesButton" onclick="setState(['stLandingPage', 'StreetTouringCarAnsweredIndex'], [true, 0]); hideItem('stLandingPage'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Continue</button>
     </div>
 
-    <div id="streetTouringBodywork" class="center question sansserif">
-      <h2 id="streetTouringBodyworkQuestion">
-        Is your car body mostly stock and does it meet the requirements below?
+    <div id="streettouringAuthorized" class="center question sansserif">
+      <h2 id="streettouringAuthorizedQuestion">
+        Does your car meet the requirements below?
       </h2>
-      <div id="bodyworkBody" class="questionBody">
+      <div id="streettouringBody" class="questionBody">
         <h3>
-          Rule: See section 14.1 of the rules for clarification, but unless modifications are explicitly
-          permitted, they are not allowed. This is in addition to everything allowed in Street Class.
-          Things that are allowed:
-          <ul class="list">
-            <li>
-              Pedal cover kits and other interior cosmetic accessories may be added. "Dress-up"
-              items such as chrome dipsticks and non-standard filler caps are permitted, provided
-              they serve no other purpose.
-            </li>
-            <li>
-              The driver and front passenger seats may be replaced with the following restrictions.
-              The seating surface must be fully upholstered. The top of the seat, or an attached
-              headrest, may not be below the center of the driver's head. The seat, including
-              mounting hardware, must weigh at least 25 pounds and must be attached using the OE body
-              mounting holes/studs. Additional mounting points may be added.
-            </li>
-            <li>
-              Factory rub strips, emblems, mud flaps, bolt-on front valance lips/spoilers,
-              and fog lights (except those integral to a headlight or turn signal) may be removed.
-              Rear wings may be removed so long as the vehicle retains any federally-mandated third
-              brake light.
-            </li>
-            <li>
-              Any steering wheel may be used. An alternate steering wheel assembly,
-              including all mounting hardware which replaces an airbag-equipped wheel,
-              is not required to have an airbag but must weigh at least as much as the standard
-              assembly. An alternate steering wheel is not required to have a horn button.
-            </li>
-            <li>
-              Fenders may not be cut or flared but the inside lip may be rolled to gain
-              additional tire clearance. (The outer fender contour may not be changed.)
-              Plastic and rubber wheel well splash shields may be modified for tire clearance
-              and to accommodate a rolled inside fender lip. The modifications may serve no other purpose
-              (e.g., air intake, etc). No other changes to the standard fenders or wheel wells are permitted.
-            </li>
-            <li>
-              Addition of spoilers, splitters, rear wings, bumper covers, valances, side skirts,
-              and non-functional scoops/vents is allowed provided that either:
-              1. It is a production part which is standard or optional equipment of a
-              US model of the vehicle. ("Model" is defined in Section 12.)
-              2. It is listed in the vehicle manufacturer's US accessory catalog for that vehicle
-              for normal highway use. This does not allow for parts sold through a
-              manufacturer's performance catalog (e.g., Ford Racing, HPD, Mazdaspeed,
-              Mopar Performance, Mugen, NISMO, SPT, TRD, etc).Parts must be installed as directed
-              by the manufacturer. Exact replicas, including weight, from alternate sources are
-              also permitted.
-            </li>
-            <li>
-              Strut bars per Section 12 are permitted with all types of suspension,
-              subject to the following constraints:
-              1. A 2-point strut bar may be added, removed, modified, or substituted,
-              but only with another 2-point strut bar.
-              2. A triangulated (3-point) strut bar may be removed, modified, or substituted;
-              substitution may be with either a triangulated or a 2-point strut bar.
-              The connection to the chassis (e.g., firewall, bulkhead) must be in the standard
-              location. 3. Lower suspension braces must be attached to the lower suspension pickup
-              point locations on the chassis within 2" (50.8mm) in any direction of the actual
-              suspension attachment to the chassis. 4. Except for standard parts, no connections
-              to other components are permitted.Additional holes may be drilled for mounting bolts.
-              Only "bolt-on" attachment is permitted. Interior trim panels may be modified to allow
-              installation of strut bars. Holes or slots may be no larger than necessary and may
-              serve no other purpose. This does not permit any modifications to the frame or
-              unibody beyond the allowed mounting holes.
-            </li>
-            <li>
-              Longitudinal (fore-aft) subframe connectors ("SFCs") are permitted with the
-              following restrictions: 1. They must only connect previously unconnected boxed frame
-              rails on unibody vehicles. 2. Each SFC must attach at no more than 3 points on the
-              unibody (e.g., front, rear, and one point in between such as a seat mount brace or
-              rocker box brace). 3. SFCs must be bolted in place and not welded. 4. No cutting of
-              OE subframes or floorpan stampings is permitted. Drilling is permitted for mounting
-              bolts only. 5. No cross-car/lateral/triangulated connections directly between the
-              driver's side and passenger's side SFCs are permitted. Connections to OE components
-              such as tunnel braces or closure panels via bolts are allowed and count as the third
-              point of attachment. No alteration to the OE components is permitted. 6. SFCs may
-              not be used to attach other components (including but not limited to torque arm
-              front mounts or driveshaft loops) and may serve no other purpose.
-            </li>
-          </ul>
+          14.1 AUTHORIZED MODIFICATIONS
+All Street Category section 13 allowances, plus all allowances contained in
+Section 14 are permitted.
+
+
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetTouringBodywork', 'StreetTouringCarAnsweredIndex'], [true, 1]); hideItem('streetTouringBodywork'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetTouringBodywork', 'StreetTouringCarAnsweredIndex'], [false, 1]); hideItem('streetTouringBodywork'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streettouringAuthorized', 'StreetTouringCarAnsweredIndex'], [true, 1]); hideItem('streettouringAuthorized'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringAuthorized', 'StreetTouringCarAnsweredIndex'], [false, 1]); hideItem('streettouringAuthorized'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stTires" class="center question sansserif">
-      <h2 id="stTiresQuestion">
-        Tires must meet the eligibility requirements of the Street category (DOT 200 Treadwear) with the following
-        additional restrictions:</br>
-        Tires shall have a section width up to and including the following (mm):</br>
-        The subclass corresponding to your car should be highlighted
-        <div id="strTires" class="stTires">
-            STR (AWD) - 225</br>
-            STR (2WD) - 255
-        </div>
-        <div id="stsTires" class="stTires">
-            STS - 225
-        </div>
-        <div id="stxTires" class="stTires">
-            STX (AWD) - 245</br>
-            STX (2WD) - 265
-        </div>
-        <div id="stuTires" class="stTires">
-            STU (AWD, RWD mid-engine, & RWD forced induction) - 295</br>
-            STU (RWD N/A & FWD) - 315
-        </div>
-        <div id="sthTires" class="stTires">
-            STH (AWD) - 245</br>
-            STH (2WD) - 265
-        </div>
-        <div id="sstTires" class="stTires">
-            SST - Unlimited
-        </div>
+    <div id="streettouringBodywork" class="center question sansserif">
+      <h2 id="streettouringBodyworkQuestion">
+        Does your car meet the requirements below?
       </h2>
-      <button class="button yesButton" onclick="setState(['stTires', 'StreetTouringCarAnsweredIndex'], [true, 2]); hideItem('stTires'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stTires', 'StreetTouringCarAnsweredIndex'], [false, 2]); hideItem('stTires'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.2 BODYWORK</br></br>A. Pedal cover kits and other interior cosmetic accessories may be added.
+&#34;Dress-up&#34; items such as chrome dipsticks and non-standard filler caps
+are permitted, provided they serve no other purpose.</br></br>B. The driver and front passenger seats may be replaced with the following restrictions. The seating surface must be fully upholstered. The top
+of the seat, or an attached headrest, may not be below the center of
+the driver’s head. The seat, including mounting hardware, must weigh
+at least 25 pounds and must be attached using the OE body mounting
+holes/studs. Additional mounting points may be added.</br></br>C. Factory rub strips, emblems, mud flaps, bolt-on front valance lips/
+spoilers, and fog lights (except those integral to a headlight or turn signal) may be removed. Rear wings may be removed so long as the vehicle
+retains a third brake light.</br></br>D. Any steering wheel may be used. An alternate steering wheel assembly,
+including all mounting hardware which replaces an airbag-equipped
+wheel, is not required to have an airbag but must weigh at least as much
+as the standard assembly. An alternate steering wheel is not required to
+have a horn button.</br></br>E. Fenders may not be cut or flared but the inside lip may be rolled to
+gain additional tire clearance. (The outer fender contour may not be
+changed.) Plastic and rubber wheel well splash shields may be modified for tire clearance and to accommodate a rolled inside fender lip.
+The modifications may serve no other purpose (e.g., air intake, etc). No
+other changes to the standard fenders or wheel wells are permitted.
+
+
+Section 14
+</br></br>F. Addition or substitution of spoilers, splitters, rear wings, bumper covers, valances, side skirts, and non-functional scoops/vents is allowed
+provided that either:<div class="indent"></br>1. It is a standard or optional production part which could be ordered
+on the US model vehicle as part of the base package or part of a higher trim package. The trim package must be classed in any of the current Street Touring classes.</div><div class="indent"></br>2. It is listed in the vehicle manufacturer’s US accessory catalog for that
+vehicle for normal highway use. This does not allow for parts sold
+through a manufacturer’s performance catalog (e.g., Ford Racing,
+HPD, Mazdaspeed, Mopar Performance, Mugen, NISMO, SPT, TRD,
+etc).
+Parts must be installed as directed by the manufacturer. Exact replicas,
+including weight, from alternate sources are also permitted.</div></br></br>G. Strut bars per Section 12 are permitted with all types of suspension,
+subject to the following constraints:<div class="indent"></br>1. A 2-point strut bar may be added, removed, modified, or substituted,
+but only with another 2-point strut bar.</div><div class="indent"></br>2. A triangulated (3-point) strut bar may be removed, modified, or substituted; substitution may be with either a triangulated or a 2-point
+strut bar. The connection to the chassis (e.g., firewall, bulkhead)
+must be in the standard location.</div><div class="indent"></br>3. Lower suspension braces must be attached to the lower suspension
+pickup point locations on the chassis within 2&#34; (50.8mm) in any direction of the actual suspension attachment to the chassis.</div><div class="indent"></br>4. Except for standard parts, no connections to other components are
+permitted.
+Additional holes may be drilled for mounting bolts. Only &#34;bolt-on&#34; attachment is permitted. Interior trim panels may be modified to allow
+installation of strut bars. Holes or slots may be no larger than necessary
+and may serve no other purpose. This does not permit any modifications to the frame or unibody beyond the allowed mounting holes.</div></br></br>H. Longitudinal (fore-aft) subframe connectors (&#34;SFCs&#34;) are permitted
+with the following restrictions:<div class="indent"></br>1. They must only connect previously unconnected boxed frame rails
+on unibody vehicles.</div><div class="indent"></br>2. Each SFC must attach at no more than 3 points on the unibody (e.g.,
+front, rear, and one point in between such as a seat mount brace or
+rocker box brace).</div><div class="indent"></br>3. SFCs must be bolted in place and not welded.</div><div class="indent"></br>4. No cutting of OE subframes or floorpan stampings is permitted.
+Drilling is permitted for mounting bolts only.
+
+
+</div><div class="indent"></br>5. No cross-car/lateral/triangulated connections directly between the
+driver’s side and passenger’s side SFCs are permitted. Connections
+to OE components such as tunnel braces or closure panels via bolts
+are allowed and count as the third point of attachment. No alteration
+to the OE components is permitted.</div></br>6. SFCs may not be used to attach other components (including but
+not limited to torque arm front mounts or driveshaft loops) and may
+serve no other purpose.
+
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringBodywork', 'StreetTouringCarAnsweredIndex'], [true, 2]); hideItem('streettouringBodywork'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringBodywork', 'StreetTouringCarAnsweredIndex'], [false, 2]); hideItem('streettouringBodywork'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stWheels" class="center question sansserif">
-      <h2 id="stWheelsQuestion">
-        Any wheels permitted with widths up to the following (in.)
-        <div id="strWheels" class="stWheels">
-          STR (AWD) - 7.5</br>
-          STR (2WD) - 9.0
-        </div>
-        <div id="stsWheels" class="stWheels">
-            STS - 7.5
-        </div>
-        <div id="stxWheels" class="stWheels">
-            STX (AWD) - 8.0</br>
-            STX (2WD) - 9.0
-        </div>
-        <div id="stuWheels" class="stWheels">
-            STU - 11.0
-        </div>
-        <div id="sthWheels" class="stWheels">
-            STH - 9.0
-        </div>
-        <div id="sstWheels" class="stWheels">
-            SST - Unlimited
-        </div>
+    <div id="streettouringTires" class="center question sansserif">
+      <h2 id="streettouringTiresQuestion">
+        Does your car meet the requirements below?
       </h2>
-      <button class="button yesButton" onclick="setState(['stWheels', 'StreetTouringCarAnsweredIndex'], [true, 3]); hideItem('stWheels'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stWheels', 'StreetTouringCarAnsweredIndex'], [false, 3]); hideItem('stWheels'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.3 TIRES
+Tires must meet the eligibility requirements of the Street category with the
+following additional restrictions:
+Tires shall have a section width up to and including the following (mm):
+STR (AWD), STS..................................................................................225
+STX (AWD), STH (AWD).....................................................................245
+STR (2WD)...........................................................................................255
+STX (2WD), STH (2WD).......................................................................265
+STU (AWD, RWD mid-engine, &amp; RWD forced induction).................295
+STU (RWD N/A &amp; FWD)..................................................................... 315
+SST..............................................................................................unlimited
+
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringTires', 'StreetTouringCarAnsweredIndex'], [true, 3]); hideItem('streettouringTires'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringTires', 'StreetTouringCarAnsweredIndex'], [false, 3]); hideItem('streettouringTires'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stShocks" class="center question sansserif">
-      <h2 id="stShocksQuestion">
-        Do your shocks meet the following restrictions?
-        <div id="shocksBody" class="questionBody">
-          <ul class="list">
-            <li>
-              Any shock absorber may be used
-            </li>
-            <li>
-              Bump Stops may be altered or removed
-            </li>
-            <li>
-              Shock absorber mounting brackets may be altered, added, or replaced as long as the
-              attachment point on the body, frame, subframe, chassis, or suspension member are
-              not altered
-            </li>
-            <li>
-              The number of shock absorbers shall be the same as standard
-            </li>
-            <li>
-              The position of the lower ball joint or spindle shall remain unchanged
-            </li>
-          </ul>
-        </div>
+    <div id="streettouringWheels" class="center question sansserif">
+      <h2 id="streettouringWheelsQuestion">
+        Does your car meet the requirements below?
       </h2>
-      <button class="button yesButton" onclick="setState(['stShocks', 'StreetTouringCarAnsweredIndex'], [true, 4]); hideItem('stShocks'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stShocks', 'StreetTouringCarAnsweredIndex'], [false, 4]); hideItem('stShocks'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.4 WHEELS
+Any wheels are allowed with widths up to the following (OE wheels exceeding these maximums are not permitted) (in.):
+STR (AWD), STS...................................................................................7.5
+STX (AWD).......................................................................................... 8.0
+STR (2WD), STX, STH......................................................................... 9.0
+STU...................................................................................................... 11.0
+SST..............................................................................................unlimited
+
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringWheels', 'StreetTouringCarAnsweredIndex'], [true, 4]); hideItem('streettouringWheels'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringWheels', 'StreetTouringCarAnsweredIndex'], [false, 4]); hideItem('streettouringWheels'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stBrakes" class="center question sansserif">
-      <h2 id="stBrakesQuestion">
-        Do your brakes meet the following restrictions?
-        <div id="brakesBody" class="questionBody">
-          <ul class="list">
-            <li>
-              Non-Standard Brake Rotors may be used as long as they are of equal or larger
-              dimensions and made of ferrous material
-            </li>
-            <li>
-              Brake lines may be substituted with DOT-approved flexible lines
-            </li>
-            <li>
-              Air ducts may be fitted provided the air comes forward of the wheel well as long as no new holes
-              are made in the bumper cover
-            </li>
-            <li>
-              ABS Systems may be electrically disabled but not be removed or altered in any other way
-            </li>
-            <li>
-              Disc brake calipers and mounting brackets may be replaced provided they bolt to the
-              standard locations and the number of pistons is equal to or greater than standard.
-            </li>
-            <li>
-              If your car came with an emergency brake it must be retained
-            </li>
-            <li>
-              A single brake master cylinder brace may be added provided it is bolt-on and serves no other purpose.
-            </li>
-          </ul>
-        </div>
+    <div id="streettouringShock" class="center question sansserif">
+      <h2 id="streettouringShockQuestion">
+        Does your car meet the requirements below?
       </h2>
-      <button class="button yesButton" onclick="setState(['stBrakes', 'StreetTouringCarAnsweredIndex'], [true, 5]); hideItem('stBrakes'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stBrakes', 'StreetTouringCarAnsweredIndex'], [false, 5]); hideItem('stBrakes'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.5 SHOCK ABSORBERS/STRUTS</br></br>A. Shock absorber bump stops may be altered or removed.</br></br>B. Any shock absorbers may be used. Shock absorber mounting brackets
+which serve no other purpose may be altered, added, or replaced, provided that the attachment points on the body/frame/subframe/chassis/
+suspension member are not altered. This installation may incorporate
+an alternate upper spring perch/seat and/or mounting block (bearing
+mount). The system of attachment may be changed. The number of
+shock absorbers shall be the same as standard. No shock absorber may
+be capable of adjustment while the car is in motion, unless fitted as original equipment. MacPherson strut equipped cars may substitute struts
+and/or may use any insert. This does not allow unauthorized changes
+in suspension geometry or changes in attachment points (e.g., affecting
+the position of the lower ball joint or spindle). It is intended to allow the
+
+Section 14
+
+strut length changes needed to accommodate permitted modifications
+which affect ride height and suspension travel.
+
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringShock', 'StreetTouringCarAnsweredIndex'], [true, 5]); hideItem('streettouringShock'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringShock', 'StreetTouringCarAnsweredIndex'], [false, 5]); hideItem('streettouringShock'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stSwayBar" class="center question sansserif">
-      <h2 id="stSwayBarQuestion">
-        Does your sway bar meet the following restrictions?
-        </br>
-        <div id="swayBarBody" class="questionBody">
-          <ul class="list">
-            <li>
-              Any anti-roll bar or bushing material is permitted
-            </li>
-            <li>
-              No holes may be cut to route new bars or links
-            </li>
-          </ul>
-        </div>
+    <div id="streettouringBrakes" class="center question sansserif">
+      <h2 id="streettouringBrakesQuestion">
+        Does your car meet the requirements below?
       </h2>
-      <button class="button yesButton" onclick="setState(['stSwayBar', 'StreetTouringCarAnsweredIndex'], [true, 6]); hideItem('stSwayBar'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stSwayBar', 'StreetTouringCarAnsweredIndex'], [false, 6]); hideItem('stSwayBar'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.6 BRAKES</br></br>A. Non-standard brake rotors may be used provided they are of equal or
+larger dimensions (diameter and overall thickness) and made of ferrous
+material (e.g., iron). The diameter for replacement rotors is measured
+at the minimum outside dimension. Aluminum rotor hats are allowed.
+Cars originally equipped with solid (non-vented) rotors may utilize
+vented rotors. Cross-drilled and/or slotted brake rotors may be fitted
+provided all such voids are within the disc area and comprise no more
+than 10% of that area.</br></br>B. Brake lines may be substituted with alternate DOT-approved flexible
+brake lines.</br></br>C. Air ducts may be fitted to the brakes provided the air directed to the
+brake rotor originates forward of the wheel well. Modifications to fender liners, undertrays, and splash guards for routing of ducts is permitted. No new holes may be made in the bumper cover. Backing plates
+and dust shields may be substituted, modified, or removed. Deflectors
+that mount to components within the wheel well and serve to direct air
+towards the rotors are permitted. Modifications for brake ducting may
+serve no other purpose.</br></br>D. Original equipment ABS braking systems may be electrically disabled
+but may not be removed or altered in any other way.</br></br>E. Disc brake calipers and mounting brackets may be replaced provided
+they bolt to the standard locations and the number of pistons is equal
+to or greater than standard. A functioning emergency brake of the same
+type, operation, and actuation as OE must be present.</br></br>F. Drum brakes may be replaced with disc brakes of a diameter equal to
+or greater than the inside diameter of the standard drum. Such conversions must be bolted, not welded, to the axle/trailing arm/upright and
+must include an integral, redundant emergency brake. The emergency
+brake must utilize the OE actuation method (e.g. pedal vs handle) and
+components. The emergency brake must be integral to the new caliper, a drum brake style assembly within the new rotor, or a separate
+emergency brake caliper must be used. Changes to backing plates/dust
+shields/brake lines/emergency brake cables to accommodate these
+changes are permitted but may serve no other purpose.</br></br>G. A single brake master cylinder brace may be added provided it is bolton and serves no other purpose.
+
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringBrakes', 'StreetTouringCarAnsweredIndex'], [true, 6]); hideItem('streettouringBrakes'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringBrakes', 'StreetTouringCarAnsweredIndex'], [false, 6]); hideItem('streettouringBrakes'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stSuspension" class="center question sansserif">
-      <h2 id="stSuspensionQuestion">
-        Does your suspension meet the following requirements?</br>
-        For more detailed requirements see section 14.9 of the SCCA Solo Rules
-        </br>
-        </br>
-        <div id="suspensionBody" class="questionBody">
-          <ul class="list">
-            <li>
-              Ride height may be altered only by suspension adjustments
-            </li>
-            <li>
-              Suspension/Differential bushings may be replaced with bushings of any material except metal
-            </li>
-            <li>
-              Suspension/Differential bushings must be mounted in the original location
-            </li>
-            <li>
-              Adjustable camber plates may be installed at the top of the strut in strut-type suspensions
-            </li>
-            <li>
-              Steering rack bushings may be replaced with bushings of any material except metal
-            </li>
-            <li>
-              The steering rack may not be relocated
-            </li>
-            <li>
-              Subframe bushings may be replaced with bushings of any material except metal
-            </li>
-            <li>
-              The position of the subframe may not be changed
-            </li>
-          </ul>
-        </div>
+    <div id="streettouringAntiRoll" class="center question sansserif">
+      <h2 id="streettouringAntiRollQuestion">
+        Does your car meet the requirements below?
       </h2>
-      <button class="button yesButton" onclick="setState(['stSuspension', 'StreetTouringCarAnsweredIndex'], [true, 7]); hideItem('stSuspension'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stSuspension', 'StreetTouringCarAnsweredIndex'], [false, 7]); hideItem('stSuspension'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.7 ANTI-ROLL (SWAY) BARS
+Substitution, addition, or removal of any anti-roll bar(s) is permitted.
+Bushing material, method of attachment, and locating points are unrestricted. This does not authorize the cutting of holes to route the bar(s) or
+
+
+
+links. Components such as anti-roll bars and strut housings that serve dual
+purposes by also functioning as suspension locators may not be modified
+in ways that change the suspension geometry or steering geometry. Nonstandard lateral members which connect between the brackets for the bar,
+including allowed strut bars per Section 14.2.G, are permitted.
+
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringAntiRoll', 'StreetTouringCarAnsweredIndex'], [true, 7]); hideItem('streettouringAntiRoll'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringAntiRoll', 'StreetTouringCarAnsweredIndex'], [false, 7]); hideItem('streettouringAntiRoll'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stElectrical" class="center question sansserif">
-      <h2 id="stElectricalQuestion">
-        Does your electrical system meet the requirements below?
-        </br>
-        <div id="electricalBody" class="questionBody">
-          <ul class="list">
-            <li>
-        The make, model number, and size of the battery may be changed but
-        not its voltage. Relocation of the battery or batteries is permitted but
-        not into the passenger compartment. If the battery is relocated and the
-        original battery tray can be removed by simply unbolting it, the tray
-        may be removed or relocated with the battery. Holes may be drilled for
-        mounting or passage of cables. Longer cables may be substituted to permit
-        relocation. The number of battery or batteries may not be changed
-        from standard. The area behind the rearmost seat is not considered to
-        be within the passenger compartment. The area under the rearmost
-        seat is considered to be within the passenger compartment. Battery allowances
-        do not apply to electric and hybrid-electric vehicles.
-            </li>
-            <li>
-        The addition of electrical grounding cables and associated distribution
-        blocks/terminals is permitted. Holes may be drilled for mounting only.
-        This does not permit the use of electrical enhancement components
-        such as condensers, voltage controllers, etc.
-            </li>
-          </ul>
-        </div>
+    <div id="streettouringSuspension" class="center question sansserif">
+      <h2 id="streettouringSuspensionQuestion">
+        Does your car meet the requirements below?
       </h2>
-      <button class="button yesButton" onclick="setState(['stElectrical', 'StreetTouringCarAnsweredIndex'], [true, 8]); hideItem('stElectrical'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stElectrical', 'StreetTouringCarAnsweredIndex'], [false, 8]); hideItem('stElectrical'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.8 SUSPENSION</br></br>A. Ride height may only be altered by suspension adjustments, the use
+of spacing blocks, leaf spring shackles, torsion bar levers, or change
+or modification of springs or coil spring perches. This does not allow
+the use of spacers that alter suspension geometry, such as those between the hub carrier and lower suspension arm. Springs must be of
+the same type as the original (e.g., coil, leaf, torsion bar, bellows) unless
+noted below and except as noted herein, must use the original spring
+attachment points. This permits multiple springs, as long as they use
+the original mount locations. Coil spring perches may be changed or
+altered and their position may be adjustable. Spacers are allowed above
+or below the spring. Coil springs may incorporate spring rubbers. Suspension bump stops may be altered or removed. For cars originally
+equipped with transverse leaf springs, spring type may be changed to a
+coil spring. Spring perches may be added to shock absorbers for mounting coil springs in a &#34;coilover&#34; configuration.</br></br>B. Suspension bushings may be replaced with bushings of any materials as long as they fit in the original location. Offset bushings may be
+used. This does not authorize a change in type of bushing (e.g., ball
+and socket replacing a cylindrical bushing) or use of a bushing with an
+angled hole whose direction differs from that of the original bushing.
+If the standard bushing accommodated multi-axis motion via compliance of the component material(s), the replacement bushing may not
+be changed to accommodate such motion via a change in bushing type,
+for example to a spherical bearing or similar component involving internal moving parts. Pins or keys may be used to prevent the rotation of
+alternate bushings but may serve no other purpose than that of retaining the bushing in the desired position.</br></br>C. The following allowances apply to strut-type suspensions. Adjustable
+camber plates may be installed at the top of the strut and the original
+upper mounting holes may be slotted. The drilling of holes in order to
+perform the installation is permitted. The center clearance hole may
+not be modified. Any type of bearing or bushing may be used in the adjustable camber plate attachment to the strut. The installation may incorporate an alternate upper spring perch/seat and/or mounting block
+(bearing mount). Any ride height change resulting from installation of
+camber plates is allowed. Caster changes resulting from the use of camber plates are permitted.
+
+Section 14
+</br></br>D. Differential mount bushings may be replaced but must attach in the
+standard location(s) without additional modification or changes. Differential position may not be changed. Solid metal bushings are specifically prohibited.</br></br>E. Steering rack bushings may be replaced but must attach in the factory
+location(s) without additional modification or changes. Steering rack
+position may not be changed. The amount of metal in a replacement
+bushing may not be increased relative to the amount of metal found in
+a standard bushing for the particular application. Solid metal bushings
+are specifically prohibited. This does NOT allow shimming or otherwise
+relocating the steering rack.</br></br>F. Camber bolts may be installed providing these parts use the original,
+unmodified mounting points and meet the restrictions specified in Section 14.5.B. Caster changes resulting from the use of camber bolts are
+permitted.</br></br>G. Solid axle rear wheel drive (RWD) suspension allowances:<div class="indent"></br>1. Addition or replacement of suspension stabilizers (linkage connecting the axle housing or DeDion to the chassis, which controls lateral
+suspension location) is permitted.</div><div class="indent"></br>2. Traction bars or torque arms may be added or replaced.</div><div class="indent"></br>3. A Panhard rod may be added or replaced.</div><div class="indent"></br>4. The upper arm(s) may be removed, replaced, or modified and the
+upper pickup points on the rear axle housing may be relocated.</div><div class="indent"></br>5. The lower arms may be replaced or modified and the lower pickup
+points on the rear axle housing may be relocated.</div><div class="indent"></br>6. Differential covers and attaching hardware may be replaced.</div><div class="indent"></br>7. Methods of attachment and attachment points are unrestricted but
+may serve no other purpose (e.g., chassis stiffening). This does not
+authorize removal of a welded on part of a subframe to accommodate
+the installation.</div></br></br>H. Camber kits (also known as camber compensators) may be installed.
+These kits consist of either adjustable length arms or arm mounts (including ball joints) that provide a lateral adjustment to the effective
+length of a control arm. Alignment outside the factory specifications is
+allowed. The following restrictions apply:<div class="indent"></br>1. On double/unequal arm (e.g., wishbone, a-arm) suspensions, only
+the upper arms OR lower arms may be modified or replaced, but not
+both.</div><div class="indent"></br>2. On arm-and-strut (MacPherson/Chapman) suspensions, the lower
+arms may be modified/replaced OR other methods of camber adjustment as allowed by Sections 14.8.B, C, or F may be used, but NOT
+both.</div><div class="indent"></br>3. On swing or trailing arm suspensions, the main arms may not be
+
+
+
+modified or replaced, but lateral locating links/arms may be modified or replaced.</div><div class="indent"></br>4. Front wheel drive (FWD) cars with rear beam axles may use shims
+between the rear axle and hubs.</div><div class="indent"></br>5. The replacement arms or mounts must attach to the original standard mounting points. All bushings must meet the requirements of
+Section 14.8.B. Intermediate mounting points (e.g., shock/spring
+mounts) may not be moved or relocated on the arm, except as incidental to the camber adjustment. The knuckle/bearing housing/
+spindle assembly cannot be modified or replaced.</div><div class="indent"></br>6. Changes in suspension geometry are not allowed except as incidental
+to the effective arm length change.</div><div class="indent"></br>7. On multi-link suspensions only one lateral link or arm per corner
+may be modified or replaced. Non-integral longitudinal arms that
+primarily control fore/aft wheel movement (e.g., trailing arm(s) or
+link(s)) may not be replaced, changed, or modified.&#34;
+Note: Many modern suspension designs known by other names, actually function as double A-arm designs. These include the rear suspensions on 1988-on Honda Civic/Integra, Chrysler/Plymouth/Dodge
+Neon, BMW E36, and most &#34;multi-link&#34; and are covered by Section
+14.8.H.1.</div></br></br>I. On strut-equipped cars, the strut’s lower integral mounting bracket, for
+attachment to the upright or spindle, is unrestricted provided it attaches to the standard location. Any resulting change to the position of the
+strut centerline is allowed. Such brackets shall serve no other purpose.
+This does not allow for changes to the integral steering arm on cars that
+have the steering arm integrated with the strut body.</br></br>J. Changes in alignment parameters that result directly from the use of
+the allowed components are permitted. For example, the dimensional
+changes resulting from the use of a cylindrical offset bushing that meets
+the restrictions of Section 14.8.B are allowed, including those resulting
+from a change in the pivoting action to:
+- About the mounting bolt, or
+- About the bushing itself.</br></br>K. Subframe mount bushings may be replaced, but must attach in the
+standard location(s) without additional modification or changes. Subframe position may not be changed. Solid metal bushings are specifically prohibited.
+
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringSuspension', 'StreetTouringCarAnsweredIndex'], [true, 8]); hideItem('streettouringSuspension'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringSuspension', 'StreetTouringCarAnsweredIndex'], [false, 8]); hideItem('streettouringSuspension'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="stEngine" class="center question sansserif">
-      <h2 id="stEngineQuestion">
-        Does your engine meet the following requirements?</br>
-        For more detailed requirements see section 14.10 of the SCCA Solo Rules
-        </br>
-        <div id="engineBody" class="questionBody">
-          </br>
-          <ul class="list">
-            <li>
-              Oil pans, oil pickups, and differential covers may be modified or substituted.
-              Addition or modification of windage trays or crankshaft scrapers is not allowed.
-              Engine oil, transmission fluid, differential fluid, and power steering fluid coolers
-              may be added or substituted (including oil to coolant heat exchangers) but may not
-              serve any additional purpose.
-            </li>
-            </br>
-            <li>
-              Original equipment traction control systems may be electrically disabled, but not
-              removed or altered in any other way.
-            </li>
-            </br>
-            <li>
-              The air intake system up to, but not including, the engine inlet maybe modified or
-              replaced. The engine inlet is the throttle body, carburetor, compressor inlet, or
-              intake manifold, whichever comes first. The existing structure of the car may not be
-              modified for the passage of ducting from the air cleaner to the engine inlet. Holes
-              may be drilled for mounting. Emissions or engine management components in the air
-              intake system, such as a PCV valve or mass airflow sensor, may not be removed,
-              modified, or replaced, and must retain their original function along the flow
-              path.
-            </li>
-            </br>
-            <div id="sststusthEngine" class="sststusthEngine">
-            <li>
-              SST, STU, and STH only: As utilized only on engines originally equipped with
-              forced induction, induction charge heat exchangers (also known as "intercoolers" or
-              "charge air coolers" [CACs]) are unrestricted in size and shape. Air-to-air CACs and
-              radiators for air-to-liquid CACs must be cooled only by the atmosphere except for
-              standard parts. Body panels, fascias, or structural members may not be cut or
-              altered to facilitate CAC installation. Removal of vehicle components to facilitate
-              installation is not allowed. Holes may be drilled for mounting.
-            </li>
-            </br>
-            <li>
-              SST, STU, and STH only: Charge pipes may be modified or replaced. Replacement charge
-              pipes may delete or block off factory pipes designed to enhance intake sounds
-              ("noisemakers"). Modification or deletion of vehicle components (e.g. plastic
-              shrouds, wheel well liners) to permit routing of alternate charge pipes is not allowed.
-            </li>
-            </br>
-            </div>
-            <li>
-              Exhaust manifolds, headers, downpipes, and associated EGR tubes may be replaced with
-              alternate units. Relocation of the oxygen sensor on the header is permitted,
-              including lengthening or shortening oxygen sensor wiring. Exhaust heat shields which
-              cover only, and attach solely to, these parts may also be replaced, removed, or
-              modified. All other exhaust heat shields may be modified the minimum amount necessary
-              to accommodate allowed alternate exhaust components. Mounting brackets/hardware which
-              serve no other purpose are considered part of the exhaust components.
-            </li>
-            </br>
-            <li>
-              Any catalytic converters are allowed with the following constraints. Multiple
-              catalytic converters may be replaced by a single unit. The inlet(s) of the replacement
-              converter(s) must be located between the cylinder head and a point 6" (152.4 mm)
-              further along the exhaust flow path from the original exit of the final OE converter.
-              The extents of an OE converter are defined by the expansion chamber in which the
-              catalyst is contained, regardless of placement within larger exhaust sections.
-              Replacement converters must have a minimum catalyst density of 100 cells per inch and
-              minimum substrate length of 3" (76.2 mm).
-            </li>
-            </br>
-            <li>
-              The engine management system parameters and operation of internal combustion engines
-              may be modified only via the methods listed below. Any OE OBD2 or newer communications
-              port functionally must remain. The Check Engine Light (CEL) or Malfunction Indicator
-              Light (MIL) may be disabled via software. Only sensors equipped from the manufacturer
-              may be used for engine management.
-              </br>
-
-              a. The standard PCM/ECU may be re-programmed without restriction.
-              </br>
-              b. Fuel pressure regulator(s) may be replaced in lieu of electronic hardware or
-              software alterations. It is not permitted to mechanically alter the fuel pressure
-              regulation AND make other hardware or software changes to engine operation.
-              </br>
-              c. Ignition timing may be set at any point on factory-adjustable distributor ignition
-              systems.
-
-              <div id="2005orOlderECU" class="TwoThousandFiveorOlderECU">
-                </br>
-                2005 or older
-                </br>
-                a. A supplementary ("piggyback") ECU is permitted. It must be plug-compatable with
-                the standard PCM/ECU (no splices) and must connect only between the standard
-                PCM/ECU and its wiring harness.
-                </br>
-                b. Electronic components may be installed in-line between the engine sensors and
-                PCM/ECU. These components may alter the signal from the sensor in order to affect
-                the PCM/ECU operation. Example: Fuel controllers that modify the signal from an
-                airflow sensor.
-                </br>
-                c. VTEC controllers and other devices may be used which alter the timing of
-                manufacturer electronic variable-valve systems.
-                </br>
-              </div>
-              <div id="1995orOlderECU" class="NineteenNinetyFiveorOlderECU">
-                </br>
-                1995 and older vehicles may implement a replacement "stand-alone" PCM/ECU.
-              </div>
-            </li>
-            </br>
-            <li>
-              Any mechanical shift linkage may be used.
-            </li>
-            </br>
-            <li>
-              Any accessory pulleys and belts of the same type (e.g., V-belt, serpentine) as
-              standard may be used. This allowance applies to accessory pulleys only (e.g.,
-              alternator, water pump, power steering pump, and crankshaft drive pulleys). It does
-              not allow replacement, modification, or substitution of pulleys, cogs, gears, or
-              belts which are part of cam, layshaft, or ignition drive or timing systems, etc. Any
-              crankshaft damper or pulley may be used. SFI-rated dampers are recommended.
-              Supercharged cars may not change the effective diameter of any pulley which drives
-              the supercharger.
-            </li>
-            </br>
-            <li>
-              Upper engine shields made of plastic material, the purpose of which is to hide
-              mechanical components in the engine compartment, may be removed if they have a
-              solely aesthetic and/or acoustic function.
-            </li>
-            </br>
-            <li>
-              Any engine or transmission mount is allowed provided it attaches only to the
-              original mounting points, does not relocate the engine/transmission (other than
-              incidental to changes in compliance material), and weighs no less than the OE mount.
-              All components between the engine/transmission and the mounting structure are
-              considered to be part of the mount assembly.
-            </li>
-            </br>
-            <li>
-              Limited Slip Differentials (Subclass should be highlighted)
-              </br>
-              <div id="stsLSD">
-                STS class: No limited slip differentials are permitted except for factory standard
-                viscous coupler-type units.
-              </div>
-              <div id="sststustrstxLSD">
-                SST, STU, STR, and STX classes: 2WD vehicles may use any mechanical LSD unit. AWD
-                vehicles may substitute one differential (front, rear, or center) with an
-                aftermarket mechanical LSD.
-              </div>
-              <div id="sthLSD">
-                STH: 2WD vehicles may use any mechanical LSD unit.
-              </div>
-            </li>
-            </br>
-            <li>
-              Engine cooling radiators may be replaced with alternate parts subject to the
-              following restrictions:
-              </br>
-              </br>
-              1. Radiator core dimensions (width, height, thickness) cannot be smaller than the
-              standard part.
-              </br>
-              </br>
-              2. Radiator must mount to OE radiator mounts.
-              </br>
-              </br>
-              3. Fluid capacity and dry weight of the radiator must be no less than that
-              of the standard part. Installation of an alternate radiator may serve no other
-              purpose (e.g., to allow a cold air intake passage).
-              </br>
-              </br>
-              4. A replacement radiator may
-              contain an integrated oil cooler provided the portion of the radiator
-              that is utilized for coolant conforms to the remainer of 14.10.L.
-              </br>
-              </br>
-              5. Installation of an alternate radiator may serve no other purpose (e.g. to allow a
-              cold air intake passage).
-            </li>
-            </br>
-            <li>
-              Cars with combustion chamber oil injection systems (such as those in rotary engines)
-              may supplement the standard engine lubrication with additional oil supplied through
-              the standard fuel delivery system and/ or an oil-metering-pump (OMP) adaptor plate.
-              An oil storage tank may be added to provide oil to the OMP. Holes may be drilled for
-              mounting.
-            </li>
-            </br>
-            <li>
-              A single clutch master cylinder brace may be added provided it is bolt-on and serves
-              no other purpose.
-            </li>
-            </br>
-            <li>
-              The clutch disk and pressure plate may be modified or replaced.
-            </li>
-            </br>
-            <li>
-              The Transmission Control Unit (TCU) may be re-programmed. This allowance only
-              applies to modification of transmission behaviors and does not extend to
-              re-programming any other components.
-            </li>
-            </br>
-            <li>
-              Except for AWD cars in STH, electronic differentials may be re-programmed. This
-              allowance only applies to changing differential behaviors and does not extend to
-              re-programming any other components.
-            </li>
-            </br>
-          </ul>
-        </div>
+    <div id="streettouringElectrical" class="center question sansserif">
+      <h2 id="streettouringElectricalQuestion">
+        Does your car meet the requirements below?
       </h2>
-      <button class="button yesButton" onclick="setState(['stEngine', 'StreetTouringCarAnsweredIndex'], [true, 9]); hideItem('stEngine'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['stEngine', 'StreetTouringCarAnsweredIndex'], [false, 9]); hideItem('stEngine'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.9 ELECTRICAL SYSTEM</br></br>A. The make, model number, and size of the battery may be changed but
+not its voltage. Relocation of the battery or batteries is permitted but
+not into the passenger compartment. If the battery is relocated and the
+original battery tray can be removed by simply unbolting it, the tray
+
+Section 14
+
+may be removed or relocated with the battery. Holes may be drilled for
+mounting or passage of cables. Longer cables may be substituted to permit relocation. The number of battery or batteries may not be changed
+from standard. The area behind the rearmost seat is not considered to
+be within the passenger compartment. The area under the rearmost
+seat is considered to be within the passenger compartment. Battery allowances do not apply to electric and hybrid-electric vehicles.</br></br>B. The addition of electrical grounding cables and associated distribution
+blocks/terminals is permitted. Holes may be drilled for mounting only.
+This does not permit the use of electrical enhancement components
+such as condensers, voltage controllers, etc.
+
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringElectrical', 'StreetTouringCarAnsweredIndex'], [true, 9]); hideItem('streettouringElectrical'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringElectrical', 'StreetTouringCarAnsweredIndex'], [false, 9]); hideItem('streettouringElectrical'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
     </div>
+
+    <div id="streettouringEngine" class="center question sansserif">
+      <h2 id="streettouringEngineQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.10 ENGINE AND DRIVETRAIN</br></br>A. Oil pans, oil pickups, and differential covers may be modified or substituted. Addition or modification of windage trays or crankshaft scrapers is not allowed. Engine oil, transmission fluid, differential fluid, and
+power steering fluid coolers may be added or substituted (including oil
+to coolant heat exchangers) but may not serve any additional purpose.
+Modifications necessary to route fluids to an appropriate heat exchanger (modification of oil and coolant lines, addition of oil cooler sandwich
+adapters, addition of fluid pumps, etc.) is allowed provided they serve
+no other purpose.</br></br>B. Original equipment traction and stability control systems may be electrically disabled, but not removed or altered in any other way.</br></br>C. The air intake system up to, but not including, the engine inlet may be
+modified or replaced. The engine inlet is the throttle body, carburetor,
+compressor inlet, or intake manifold, whichever comes first. The existing structure of the car may not be modified for the passage of ducting from the air cleaner to the engine inlet. Holes may be drilled for
+mounting. PCV valves and or engine management components in the
+air intake system mass airflow sensors, may not be removed, modified,
+or replaced, and must retain their original function along the flow path.
+		1. SST, STU and STH only: As utilized only on engines originally
+equipped with forced induction, induction charge heat exchangers (also
+known as &#34;intercoolers&#34; or &#34;charge air coolers&#34; [CACs]) are unrestricted
+in size and shape. Air-to-air CACs and radiators for air-to-liquid CACs
+must be cooled only by the atmosphere except for standard parts. Body
+panels, fascias, or structural members may not be cut or altered to facilitate CAC installation. Removal of vehicle components to facilitate
+installation is not allowed. Holes may be drilled for mounting.
+		 2. SST, STU and STH only: Charge pipes may be modified or replaced.
+Replacement charge pipes may delete or block off factory pipes designed
+to enhance intake sounds (&#34;noisemakers&#34;). Modification or deletion of
+vehicle components (e.g. plastic shrouds, wheel well liners) to permit
+routing of alternate charge pipes is not allowed.
+
+
+
+		 3. Compressor Bypass Valves (CBVs), blow-off valves, and pop-off
+valves may be replaced or modified.
+		 4. Boost regulation systems, either electronic or mechanical, and electronic fuel cuts referencing boost pressure may be modified, replaced,
+or removed. This does not allow for changes to the turbocharger or wastegate (including wastegate spring).</br></br>D. Exhaust manifolds, headers, downpipes, and associated EGR tubes
+may be replaced with alternate units. Exhaust exit may be relocated
+provided it meets Section 3.3.3.B.16. Relocation of the oxygen sensor
+on the header is permitted, including lengthening or shortening oxygen
+sensor wiring. Exhaust heat shields which cover only, and attach solely
+to, these parts may also be replaced, removed, or modified. All other exhaust heat shields may be modified the minimum amount necessary to
+accommodate allowed alternate exhaust components. Mounting brackets/hardware which serve no other purpose are considered part of the
+exhaust components.</br></br>E. Any catalytic converters are allowed with the following constraints.
+Multiple catalytic converters may be replaced by a single unit. The
+inlet(s) of the replacement converter(s) must be located between the
+cylinder head and a point 6&#34; (152.4 mm) further along the exhaust flow
+path from the original exit of the final OE converter.
+For vehicles that were delivered with multiple exhaust configurations
+(i.e. California vs 49-state legal cars) any of the OE exhaust configurations may be used for the purpose of determining the location of the
+aftermarket catalytic converter.
+The extents of an OE converter are defined by the expansion chamber
+in which the catalyst is contained, regardless of placement within larger
+exhaust sections. Replacement converters must have a minimum catalyst density of 100 cells per inch and minimum substrate length of 3&#34;
+(76.2 mm).</br></br>F. The engine management system parameters and operation of internal
+combustion engines may be modified only via the methods listed below. Any OE OBD2 or newer communications port functionally must
+remain. The Check Engine Light (CEL) or Malfunction Indicator Light
+(MIL) may be disabled via software. Only sensors equipped from the
+manufacturer may be used for engine management.<div class="indent"></br>1. For all model years, the following allowances apply:
+a. The standard PCM/ECU may be re-programmed without restriction.
+b. Fuel pressure regulator(s) may be replaced in lieu of electronic
+hardware or software alterations. It is not permitted to mechanically alter the fuel pressure regulation AND make other hardware
+or software changes to engine operation.
+
+Section 14
+
+c. Ignition timing may be set at any point on factory-adjustable distributor ignition systems.
+d. Electronic components may be installed in-line between the engine sensors and PCM/ECU. These components may only alter
+the signal from the sensor in order to affect the PCM/ECU operation. Example: Fuel controllers that modify the signal from an
+airflow sensor.</div><div class="indent"></br>2. For 2005 and older model year vehicles:
+a. A supplementary (&#34;piggyback&#34;) ECU is permitted. It must be plugcompatible with the standard PCM/ECU (no splices) and must
+connect only between the standard PCM/ECU and its wiring harness.
+b. VTEC controllers and other devices may be used which alter the
+timing of manufacturer electronic variable-valve systems.</div><div class="indent"></br>3. 1995 and older vehicles may implement a replacement &#34;stand-alone&#34;
+PCM/ECU.</div></br></br>G. Any mechanical shift linkage may be used.</br></br>H. Any accessory pulleys and belts of the same type (e.g., V-belt, serpentine) as standard may be used. This allowance applies to accessory
+pulleys only (e.g., alternator, water pump, power steering pump, and
+crankshaft drive pulleys). It does not allow replacement, modification,
+or substitution of pulleys, cogs, gears, or belts which are part of cam,
+layshaft, or ignition drive or timing systems, etc. Any crankshaft damper or pulley may be used. SFI-rated dampers are recommended. Supercharged cars may not change the effective diameter of any pulley which
+drives the supercharger.</br></br>I. Upper engine shields made of plastic material, the purpose of which
+is to hide mechanical components in the engine compartment, may be
+removed if they have a solely aesthetic and/or acoustic function.</br></br>J. Any engine or transmission mount is allowed provided it attaches only
+to the original mounting points, does not relocate the engine/transmission (other than incidental to changes in compliance material), and
+weighs no less than the OE mount. All components between the engine/
+transmission and the mounting structure are considered to be part of
+the mount assembly.</br></br>K. Limited Slip Differentials<div class="indent"></br>1. STS class: No limited slip differentials are permitted except for factory standard viscous coupler-type units.</div><div class="indent"></br>2. SST, STU, STR, and STX classes: 2WD vehicles may use any mechanical LSD unit. AWD vehicles may substitute one differential
+(front, rear, or center) with an aftermarket mechanical LSD.</div><div class="indent"></br>3. STH: 2WD vehicles may use any mechanical LSD unit.
+</div></br></br>L. Engine cooling radiators may be replaced with alternate parts subject to
+the following restrictions:<div class="indent"></br>1. Radiator core dimensions (width, height, thickness) cannot be smaller than the standard part.</div><div class="indent"></br>2. Radiator must mount to OE radiator mounts.</div><div class="indent"></br>3. Fluid capacity and dry weight of the radiator must be no less than
+that of the standard part. Installation of an alternate radiator may
+serve no other purpose (e.g., to allow a cold air intake passage).</div><div class="indent"></br>4. A replacement radiator may contain an integrated oil cooler provided
+the portion of the radiator that is utilized for coolant conforms to the
+remainder of 14.10.L.</div><div class="indent"></br>5. Installation of an alternate radiator may serve no other purpose (e.g.
+to allow a cold air intake passage).</div></br></br>M.Cars with combustion chamber oil injection systems (such as those in
+rotary engines) may supplement the standard engine lubrication with
+additional oil supplied through the standard fuel delivery system and/
+or an oil-metering-pump (OMP) adaptor plate. An oil storage tank may
+be added to provide oil to the OMP. Holes may be drilled for mounting.</br></br>N. A single clutch master cylinder brace may be added provided it is bolton and serves no other purpose.</br></br>O. The clutch disk and pressure plate of traditional, pedal operated manual transmissions may be modified or replaced.</br></br>P. The Transmission Control Unit (TCU) may be re-programmed. This
+allowance only applies to modification of transmission behaviors and
+does not extend to re-programming any other components.</br></br>Q. Except for AWD cars in STH, electronic differentials may be re-programmed. This allowance only applies to changing differential behaviors and does not extend to re-programming any other components.
+
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringEngine', 'StreetTouringCarAnsweredIndex'], [true, 10]); hideItem('streettouringEngine'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringEngine', 'StreetTouringCarAnsweredIndex'], [false, 10]); hideItem('streettouringEngine'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="streettouringOutofProduction" class="center question sansserif">
+      <h2 id="streettouringOutofProductionQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.11 OUT-OF-PRODUCTION CARS
+Where a car is out of production and the manufacturer is either out of
+business, stocks no parts or no longer has a required part, a part of any
+origin but as similar as possible to the original may be substituted. The
+entrant must be prepared to show documentary evidence that one of the
+three circumstances above applies and that the substituted part is as similar as possible under the circumstances. Substitute parts which provide
+improvements in performance (e.g., superior gearing, lighter weight, better camshaft profile, etc.) are not permitted under this allowance.
+orders over $50
+tirerack.com/freeshipping
+FAST FREE SHIPPING On
+
+LOWERING SPRINGS &amp; ANTI-ROLL BARS
+
+COIL-OVERS
+
+®
+
+®
+
+www.tirerack.com/storage
+©2023
+Tire Rack
+
+888-380-8473
+15. Street Prepared
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringOutofProduction', 'StreetTouringCarAnsweredIndex'], [true, 11]); hideItem('streettouringOutofProduction'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringOutofProduction', 'StreetTouringCarAnsweredIndex'], [false, 11]); hideItem('streettouringOutofProduction'); evalSessionStorage('StreetTouringCar'); window.scroll(0,0);">No</button>
+    </div>
+
+
 
     <div id="eligible" class="center eligible sansserif">
       <h1>

@@ -15,7 +15,7 @@
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a id='streetLandingPageMenu' href="#" onclick="resetQuestion('streetLandingPage'); evalSessionStorage('StreetCar');">Overview</a>{{ range .SubChapters }}
-      <a id='{{ toLower $name}}{{ varName .Name}}Menu' href="#" onclick="resetQuestion('{{ toLower $name}}{{ varName .Name }}'); evalSessionStorage('StreetCar');">{{ varName .Name }}</a>{{ end }}
+      <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('StreetCar');">{{ menuName .Name }}</a>{{ end }}
     </div>
 
     <div id="main">
@@ -126,18 +126,18 @@
       <button class="button yesButton" onclick="setState(['streetLandingPage', 'StreetCarAnsweredIndex'], [true, 0]); hideItem('streetLandingPage'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Continue</button>
     </div>
 {{ range $index, $subchapter := .SubChapters }}
-    <div id="{{ toLower $name}}{{ varName $subchapter.Name }}" class="center question sansserif">
-      <h2 id="{{ toLower $name}}{{ varName $subchapter.Name }}Question">
+    <div id="{{ toVarName $name}}{{ menuName $subchapter.Name }}" class="center question sansserif">
+      <h2 id="{{ toVarName $name}}{{ menuName $subchapter.Name }}Question">
         Does your car meet the requirements below?
       </h2>
-      <div id="{{ toLower $name}}Body" class="questionBody">
+      <div id="{{ toVarName $name}}Body" class="questionBody">
         <h3>
           {{ subChapterText $subchapter.Reader $chapterfillertext }}
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['{{ toLower $name}}{{ varName $subchapter.Name }}', 'StreetCarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toLower $name}}{{ varName $subchapter.Name }}'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['{{ toLower $name}}{{ varName $subchapter.Name }}', 'StreetCarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toLower $name}}{{ varName $subchapter.Name }}'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'StreetCarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'StreetCarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
     </div>
 {{ end }}
 

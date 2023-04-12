@@ -137,11 +137,17 @@ func getChapterReader(rules *strings.Reader, chapter Chapter) *io.SectionReader 
 	return io.NewSectionReader(rules, int64(startMatch[0]), int64(length))
 }
 
-func ToVariableName(in string) string {
+func ToMenuName(in string) string {
 	var result string
 	result = strings.Split(in, " ")[0]
 	result = regexp.MustCompile(`[^a-zA-Z0-9 ]+`).ReplaceAllString(result, "")
 	return result
+}
+
+func ToVarName(in string) string {
+	var result string
+	result = regexp.MustCompile(`[^a-zA-Z0-9]+`).ReplaceAllString(in, "")
+	return strings.ToLower(result)
 }
 
 func stringEqual(a, b string) bool {
@@ -160,6 +166,9 @@ func formatChapterBody(in string) string {
 	result = pcre.MustCompile(`(?s)(<\/br>[0-9]\..+?)(?=<\/br>)`).ReplaceAllString(result, "<div class=\"indent\">$1</div>")
 	return result
 }
+
+// TODO write func to remove tirerack ads
+// TODO write func to prettify tire/wheel selection for street touring, maybe add highlighting divs back?
 
 func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
 	// TODO make this function "prettify" the output so that it's not just a giant blob of text
@@ -197,10 +206,13 @@ func main() {
 			outputFile:        "./src/a/s.html",
 		},
 		{
-			Name:   "Street Touring",
-			Number: "14",
-			start:  regexp.MustCompile(`\n14\. STREET TOURING® CATEGORY\n`),
-			end:    regexp.MustCompile(`\n15\. STREET PREPARED CATEGORY\n`),
+			Name:              "Street Touring",
+			Number:            "14",
+			start:             regexp.MustCompile(`\n14\. STREET TOURING® CATEGORY\n`),
+			end:               regexp.MustCompile(`\n15\. STREET PREPARED CATEGORY\n`),
+			ChapterFillerText: regexp.MustCompile(`14\. Street Touring®`),
+			templateFile:      "./templates/a/st.html.tmpl",
+			outputFile:        "./src/a/st.html",
 		},
 		{
 			Name:   "Street Prepared",
@@ -248,10 +260,10 @@ func main() {
 
 	funcMap := template.FuncMap{
 		"subChapterText": subChapterText,
-		"varName":        ToVariableName,
+		"menuName":       ToMenuName,
 		"stringEqual":    stringEqual,
 		"addOne":         addOne,
-		"toLower":        strings.ToLower,
+		"toVarName":      ToVarName,
 	}
 
 	for i := range allChapters {
