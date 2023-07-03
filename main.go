@@ -27,6 +27,7 @@ type Chapter struct {
 	ChapterFillerText *regexp.Regexp
 	templateFile      string
 	outputFile        string
+	WeightInformation string
 }
 
 // SubChapter holds the name, number, and body of a subchapter of the rules (e.g. 13.2 Bodywork)
@@ -218,10 +219,13 @@ func main() {
 			outputFile:        "./src/a/sp.html",
 		},
 		{
-			Name:   "Street Modified",
-			Number: "16",
-			start:  regexp.MustCompile(`\n16\. STREET MODIFIED CATEGORY\n`),
-			end:    regexp.MustCompile(`\n17\. PREPARED CATEGORY\n`),
+			Name:              "Street Modified",
+			Number:            "16",
+			start:             regexp.MustCompile(`\n16\. STREET MODIFIED CATEGORY\n`),
+			end:               regexp.MustCompile(`\n17\. PREPARED CATEGORY\n`),
+			ChapterFillerText: regexp.MustCompile(`16\. Street Modified`),
+			templateFile:      "./templates/a/sm.html.tmpl",
+			outputFile:        "./src/a/sm.html",
 		},
 		{
 			Name:   "Prepared",
@@ -259,7 +263,23 @@ func main() {
 		pcre.MustCompile(`(?s)20-40% MORE.+Section 14`),
 		pcre.MustCompile(`(?s)orders over .+15\. Street Prepared`),
 		pcre.MustCompile(`(?s)Own a vehicle.+Section 16`),
+		pcre.MustCompile(`\nSection 14\n`),
 		pcre.MustCompile(`\nSection 15\n`),
+		pcre.MustCompile(`\nSection 16\n`),
+		pcre.MustCompile(`\n17. Prepared\n`),
+	}
+
+	SMWeights := []*pcre.Regexp{
+		pcre.MustCompile(`(?s)Super Street Modified class \(SSM\)\n.+(Minimum Weight Calculations without driver.+?)\nStreet Modified class \(SM\)\n`),
+		pcre.MustCompile(`(?s)Street Modified class \(SM\)\n.+(Minimum Weight Calculations without driver.+?)\nStreet Modified Front-Wheel-Drive class \(SMF\)\n`),
+		pcre.MustCompile(`(?s)Street Modified Front-Wheel-Drive class \(SMF\)\n.+(Minimum Weight Calculations without driver.+?)Prepared \(XP\) - Appendix A`),
+	}
+
+	// using two arrays here for SMWeights and SMClasses sinces maps aren't walked deterministically
+	SMClasses := []string{
+		"Super Street Modified (SSM)",
+		"Street Modified (SM)",
+		"Street Modified FWD (SMF)",
 	}
 
 	funcMap := template.FuncMap{
@@ -304,10 +324,25 @@ func main() {
 			allChapters[i].SubChapters = findSubChapterBody(allChapters[i], chapterText)
 		}
 
+		// grab minmum weights from appendix for SM
+		if allChapters[i].Name == "Street Modified" {
+			var weightInfo string
+			for i, regex := range SMWeights {
+				weightInfo = weightInfo + "</br></br>" + SMClasses[i] + ":</br>"
+				match := regex.FindAllStringSubmatch(string(rulesBytes), 1)
+				if len(match) > 0 {
+					weightInfo = weightInfo + match[0][1] + "\n"
+				}
+			}
+			weightInfo = remove.ReplaceAllString(weightInfo, "")
+			weightInfo = regexp.MustCompile(`(•)`).ReplaceAllString(weightInfo, "</br>$1")
+			allChapters[i].WeightInformation = weightInfo
+		}
+
 		if allChapters[i].templateFile != "" {
 			fmt.Println("Generating class specific page...")
-			commonJS := template.New(path.Base(allChapters[i].templateFile)).Funcs(funcMap)
-			tpl, err := commonJS.ParseFiles(allChapters[i].templateFile)
+			classTemplate := template.New(path.Base(allChapters[i].templateFile)).Funcs(funcMap)
+			tpl, err := classTemplate.ParseFiles(allChapters[i].templateFile)
 			if err != nil {
 				log.Fatal("Could not parse template", err)
 			}

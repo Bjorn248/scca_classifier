@@ -70,14 +70,8 @@ const carFlags = {
   ],
   'smCar': [
     'smLandingPage',
-    'smBodywork',
-    'smSuspension',
-    'smBrakes',
-    'smWheels',
-    'smTires',
-    'Weight',
-    'smEngineAndDrivetrain',
-    'smSteering',
+    'streetmodifiedAllowed',
+    'streetmodifiedMinimum',
   ],
   'spCar': [
     'spLandingPage',

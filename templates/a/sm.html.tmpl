@@ -1,0 +1,196 @@
+{{ $name := .Name }}{{ $chapterfillertext := .ChapterFillerText }}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - Street Modified Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='smLandingPageMenu' href="#" onclick="resetQuestion('smLandingPage'); evalSessionStorage('smCar');">Overview</a>{{ range .SubChapters }}
+      <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('smCar');">{{ menuName .Name }}</a>{{ end }}
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Street Modified (SM) Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
+      <button class="button noButton" onclick="resetState()">Clear Selections</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('smCar'); highlightAndFilterSM();">
+    <div id="smLandingPage" class="center question sansserif">
+      <h2 id="smLandingPageQuestion">
+        Street Modified (SM) Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+        Street Modified allows competitors to modify vehicles using advanced fabrication and
+        tuning with specific limitations. Street Modified provides the allowances of the
+        lower-prep categories with the addition of major modifications to the drivetrain,
+        suspension, and body as well as sophisticated aerodynamic components
+        </p>
+        <p>
+        The purpose of this category is to serve as a membership recruitment and retention tool
+        by providing a natural competition outlet for auto enthusiasts using streetable sport
+        sedans equipped with drivetrain and suspension modifications that are beyond those
+        allowed in the Street Prepared category. Cars identical to the US-market counterpart
+        except for comfort and convenience modifications as allowed per Section 13.2.A.
+        See Sections 3.8 and 8.3.1 for documentation requirements
+        </p>
+        <h3>
+          Category Values
+        </h3>
+        <p>
+        Freedom to improve vehicles using a variety of methods including suspension geometry
+        changes, extensive powertrain conversions and/or modifications
+        </p>
+        <h3>
+          Core Modifications
+        </h3>
+        <ul class="list">
+          <li>
+            Powertrain swaps
+          </li>
+          <li>
+            Open Engine Tuning
+          </li>
+          <li>
+            Open Driver aid tuning (Traction control, ABS, Stability, Differential, etc.)
+          </li>
+          <li>
+            Minimum weights based on displacement
+          </li>
+          <li>
+            Limited interior removal
+          </li>
+          <li>
+            SRS system removal
+          </li>
+          <li>
+            Modifications may require cutting, drilling, or permanent alteration to the body,
+            such as cutting fenders for tire clearance, and drilling trunks/hatches for
+            spoiler/wing mounting
+          </li>
+          <li>
+            DOT R-compound tires
+          </li>
+          <li>
+            Front splitters and rear wings
+          </li>
+          <li>
+            Custom suspension components
+          </li>
+          <li>
+            Weight reduction (A/C removal, steering wheel airbag removal, lightweight body panels, etc.)
+          </li>
+        </ul>
+        <h3>
+          Inherited Modifications
+        </h3>
+        <ul class="list">
+          <li>
+            All Street, Street Touring®, and Street Prepared category modifications are authorized.
+            Except as noted by these rules and the referenced rules, vehicles must be as originally
+            delivered including all road-going components such as lights, wipers, interior, heater, etc
+          </li>
+          <li>
+            Competitors may pick and choose between all Street, Street Touring®, Street Prepared,
+            and Street Modified category allowances when preparing a Street Modified category car.
+            Apparent conflicts between inherited rule sets from Section 16.1.A shall not prohibit
+            any specific inherited allowance. Allowances inherited from Section 16.1.A may not
+            incorporate Street Modified-specific allowances. Foreign spec parts may not be used to
+            substitute for parts which are required to remain standard
+          </li>
+        </ul>
+        <h3>
+          Subclasses
+        </h3>
+        <p>
+        Your subclass(es) should be highlighted
+        </p>
+        <ul>
+          <li>
+            <div id="ssmOverview">
+              Super Street Modified (SSM) - 2-seat vehicles, FWD, RWD, and AWD
+            </div>
+          </li>
+          <li>
+            <div id="smOverview">
+              Street Modified (SM) - 4-seat vehicles, FWD, RWD and AWD
+            </div>
+          </li>
+          <li>
+            <div id="smfOverview">
+              Street Modified Front-Wheel Drive (SMF) - FWD vehicles only
+            </div>
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['smLandingPage', 'smCarAnsweredIndex'], [true, 0]); hideItem('smLandingPage'); evalSessionStorage('smCar'); window.scroll(0,0);">Continue</button>
+    </div>
+
+{{ $weightinfo := .WeightInformation }}{{ range $index, $subchapter := .SubChapters }}
+    <div id="{{ toVarName $name}}{{ menuName $subchapter.Name }}" class="center question sansserif">
+      <h2 id="{{ toVarName $name}}{{ menuName $subchapter.Name }}Question">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="{{ toVarName $name}}Body" class="questionBody">
+        <h3>
+          {{ subChapterText $subchapter.Reader $chapterfillertext }}
+          {{if stringEqual $subchapter.Name "Minimum Weights"}}</br>{{$weightinfo}}{{ end }}
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'smCarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('smCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'smCarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('smCar'); window.scroll(0,0);">No</button>
+    </div>
+{{ end }}
+
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1>
+        Your car is eligible for Street Modified class!
+        </br>
+      </h1>
+      <div id="smSubclasses" class="subclasses">
+        <h2 id="smSubclass" class="subclass">
+Street Modified Subclass:
+        </h2>
+      </div>
+      <div id="possibleClasses" class="possibleClasses">
+        <h2 id="specificClass" class="specificClass">
+Possible Classes:
+        </h2>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for Street Modified class.
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>

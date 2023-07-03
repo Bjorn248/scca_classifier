@@ -50,15 +50,8 @@ const carFlags = {
     'camEngineAndDrivetrain',
   ],
   'smCar': [
-    'smLandingPage',
-    'smBodywork',
-    'smSuspension',
-    'smBrakes',
-    'smWheels',
-    'smTires',
-    'Weight',
-    'smEngineAndDrivetrain',
-    'smSteering',
+    'smLandingPage',{{ range . }}{{if stringEqual .Name "Street Modified"}}{{ $className := .Name }}{{ range .SubChapters }}
+    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
   'spCar': [
     'spLandingPage',{{ range . }}{{if stringEqual .Name "Street Prepared"}}{{ $className := .Name }}{{ range .SubChapters }}
