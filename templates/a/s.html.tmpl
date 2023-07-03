@@ -1,6 +1,4 @@
-{{ $name := .Name }}
-{{ $chapterfillertext := .ChapterFillerText }}
-<!DOCTYPE html>
+{{ $name := .Name }}{{ $chapterfillertext := .ChapterFillerText }}<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -146,6 +144,11 @@
         Your car is eligible for Street class!
         </br>
       </h1>
+      <div id="streetSubclasses" class="subclasses">
+        <h2 id="streetSubclass" class="subclass">
+Street Subclass:
+        </h2>
+      </div>
       <div id="possibleClasses" class="possibleClasses">
         <h2 id="specificClass" class="specificClass">
 Possible Classes:

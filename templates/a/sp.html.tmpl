@@ -1,0 +1,237 @@
+{{ $name := .Name }}{{ $chapterfillertext := .ChapterFillerText }}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - Street Prepared Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='spLandingPageMenu' href="#" onclick="resetQuestion('spLandingPage'); evalSessionStorage('spCar');">Overview</a>{{ range .SubChapters }}
+      <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('spCar');">{{ menuName .Name }}</a>{{ end }}
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Street Prepared Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
+      <button class="button noButton" onclick="resetState()">Clear Selections</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('spCar'); highlightAndFilterSP();">
+    <div id="spLandingPage" class="center question sansserif">
+      <h2 id="spLandingPageQuestion">
+        Street Prepared (SP) Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+        Street Prepared builds on the Street allowances to provide opportunities for vehicles with
+        more extensive modifications that may not be suitable for public highway use
+        </p>
+        <h3>
+          Category Values
+        </h3>
+        <p>
+        Provide a level of modification which encompasses lower-prep category allowances plus a
+        moderate level of fabrication and a greater range of bolt-on alternatives
+        </p>
+        <h3>
+          Core Modifications
+        </h3>
+        <ul class="list">
+          <li>
+            DOT R-compound tires
+          </li>
+          <li>
+            Permanent alteration to the body, such as modification of fenders via cutting and/or
+            flaring for tire clearance
+          </li>
+          <li>
+            Drilling trunks/hatches for spoiler mounting
+          </li>
+          <li>
+            Front splitters and rear spoilers
+          </li>
+          <li>
+            Update/Backdate allowances to interchange of parts among selected models
+          </li>
+          <li>
+            Engine tuning with stock internals
+            <ul>
+              <li>
+                Aftermarket ECU
+              </li>
+              <li>
+                Unrestricted Induction
+              </li>
+              <li>
+                Emissions system removal
+              </li>
+              <li>
+                Unrestricted exhaust systems
+              </li>
+            </ul>
+          </li>
+          <li>
+            Weight reduction (A/C removal, steering wheel airbag removal, etc.)
+          </li>
+          <li>
+            Suspension Updates
+          </li>
+        </ul>
+        <h3>
+          Subclasses
+        </h3>
+        <p>
+        Your subclass should be highlighted
+        </p>
+        <ul>
+          <li>
+            <div id="sspOverview">
+              Super Street Prepared (SSP) - High Performance sports cars, AWD turbo sedans, highest
+              performance muscle cars and foreign grand touring cars
+            </div>
+          </li>
+          <li>
+            <div id="cspOverview">
+              C Street Prepared (CSP) – Lower and medium powered 2 seat and 2+2 sports cars and FWD cars
+            </div>
+          </li>
+          <li>
+            <div id="dspOverview">
+              D Street Prepared (DSP) – Heavier RWD sports sedans/coupes and FWD cars, medium
+              perfromance 2-seater and 2+2 sports cars
+            </div>
+          </li>
+          <li>
+            <div id="espOverview">
+              E Street Prepared (ESP) – Muscle cars and foreign grand touring cars
+            </div>
+          </li>
+          <li>
+            <div id="fspOverview">
+              F Street Prepared (FSP) – FWD cars with some lower power RWD and AWD cars
+            </div>
+          </li>
+        </ul>
+        <h3>
+          Authorized Modifications
+        </h3>
+        <ul class="list">
+          <li>
+            All Allowable modifications permitted in Section 13, Street Category are allowed
+          </li>
+          <li>
+            Street Prepared vehicles may only be modified in excess of Street Category rules in
+            the following ways. Any modification not specifically authorized by the Street
+            Category or Street Prepared rules is prohibited. No unauthorized modifications are
+            permitted in order to accommodate authorized modifications (e.g., non-standard hood
+            scoops or holes necessary for carburetor clearance). Structural modifications, such
+            as the addition of members known as "jacking rails," are not permitted unless
+            specifically authorized herein
+          </li>
+          <li>
+            Full Prep: Equipment and/or specifications may be exchanged between different years
+            and models of a vehicle if:
+            <ul>
+              <li>
+                The item is standard on the year/model from which it was taken, and
+              </li>
+              <li>
+                The years/models are listed on the same line of Appendix A, Street Prepared Classes
+              </li>
+            </ul>
+            The updated/backdated part or the part to which it is to be attached may not be
+            altered, modified, machined, welded, or otherwise changed to facilitate the
+            updating/backdating allowance. Standard factory installation methods, locations, and
+            configurations are allowed. The updating and/or backdating of engines,
+            transmissions, transaxles, and/or unibodies must be done as a unit; component parts
+            and specifications of these units may not be interchanged. Cars not listed in the
+            Street Prepared Sections of Appendix A may not be updated/backdated until approved by
+            the SEB and published in the official SCCA® publication.
+          </li>
+          <li>
+            Alternate computer control modules may be used whenever an equivalent change to the
+            conventional system is allowed. For example, alternate computer module control of
+            ignition settings or fuel injection is allowed.
+          </li>
+          <li>
+            Air conditioning systems may be removed in whole or in part. This rule should not be
+            interpreted to allow modification of the heater system.
+          </li>
+          <li>
+            On all forms of suspension, camber/caster adjustment within factory specifications may
+            be achieved by the use of shims or eccentric bushings. The intent of this allowance
+            is to permit cars to be restored to within factory-allowed specification ranges, not
+            to provide an additional method beyond those permitted in Section 15.8, Suspension,
+            to obtain alignment settings beyond the factory specifications. Refer to Appendix F
+            for past clarifications of these rules
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['spLandingPage', 'spCarAnsweredIndex'], [true, 0]); hideItem('spLandingPage'); evalSessionStorage('spCar'); window.scroll(0,0);">Continue</button>
+    </div>
+
+{{ range $index, $subchapter := .SubChapters }}
+    <div id="{{ toVarName $name}}{{ menuName $subchapter.Name }}" class="center question sansserif">
+      <h2 id="{{ toVarName $name}}{{ menuName $subchapter.Name }}Question">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="{{ toVarName $name}}Body" class="questionBody">
+        <h3>
+          {{ subChapterText $subchapter.Reader $chapterfillertext }}
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'spCarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'spCarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
+    </div>
+{{ end }}
+
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1>
+        Your car is eligible for Street Prepared class!
+        </br>
+      </h1>
+      <div id="spSubclasses" class="subclasses">
+        <h2 id="spSubclass" class="subclass">
+Street Prepared Subclass:
+        </h2>
+      </div>
+      <div id="possibleClasses" class="possibleClasses">
+        <h2 id="specificClass" class="specificClass">
+Possible Classes:
+        </h2>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for Street Prepared class.
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>

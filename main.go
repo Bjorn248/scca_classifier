@@ -209,10 +209,13 @@ func main() {
 			outputFile:        "./src/a/st.html",
 		},
 		{
-			Name:   "Street Prepared",
-			Number: "15",
-			start:  regexp.MustCompile(`\n15\. STREET PREPARED CATEGORY\n`),
-			end:    regexp.MustCompile(`\n16\. STREET MODIFIED CATEGORY\n`),
+			Name:              "Street Prepared",
+			Number:            "15",
+			start:             regexp.MustCompile(`\n15\. STREET PREPARED CATEGORY\n`),
+			end:               regexp.MustCompile(`\n16\. STREET MODIFIED CATEGORY\n`),
+			ChapterFillerText: regexp.MustCompile(`15\. Street Prepared`),
+			templateFile:      "./templates/a/sp.html.tmpl",
+			outputFile:        "./src/a/sp.html",
 		},
 		{
 			Name:   "Street Modified",
@@ -252,41 +255,12 @@ func main() {
 		},
 	}
 
-	advertisementText := []string{
-		`
-
-
-20-40% MORE
-STOPPING
-POWER FEELS
-DIFFERENT.
-
-BETTER.
-LEGENDARY.
-
-That’s what Race Proven, Street Legal technology is all
-about. High performance brake products for your track car,
-daily driver, 4x4, truck and SUV. Turns out, 30 years of
-channeling our obsession with performance pays off.
-Section 14`,
-		`orders over $50
-tirerack.com/freeshipping
-FAST FREE SHIPPING On
-
-LOWERING SPRINGS & ANTI-ROLL BARS
-
-COIL-OVERS
-
-®
-
-®
-
-www.tirerack.com/storage
-©2023
-Tire Rack
-
-888-380-8473
-15. Street Prepared`}
+	advertisementText := []*pcre.Regexp{
+		pcre.MustCompile(`(?s)20-40% MORE.+Section 14`),
+		pcre.MustCompile(`(?s)orders over .+15\. Street Prepared`),
+		pcre.MustCompile(`(?s)Own a vehicle.+Section 16`),
+		pcre.MustCompile(`\nSection 15\n`),
+	}
 
 	funcMap := template.FuncMap{
 		"subChapterText": subChapterText,
@@ -323,7 +297,7 @@ Tire Rack
 
 		// remove all ad text
 		for _, adText := range advertisementText {
-			chapterText = []byte(strings.ReplaceAll(string(chapterText), adText, ""))
+			chapterText = adText.ReplaceAll(chapterText, []byte{})
 		}
 
 		if allChapters[i].Number != "n/a" && len(allChapters[i].SubChapters) > 0 {

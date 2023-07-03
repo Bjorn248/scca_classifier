@@ -1,6 +1,4 @@
-{{ $name := .Name }}
-{{ $chapterfillertext := .ChapterFillerText }}
-<!DOCTYPE html>
+{{ $name := .Name }}{{ $chapterfillertext := .ChapterFillerText }}<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -32,7 +30,7 @@
     </div>
   </head>
 
-  <body onload="evalSessionStorage('StreetTouringCar');">
+  <body onload="evalSessionStorage('StreetTouringCar'); highlightAndFilterStreetTouring();">
     <div id="stLandingPage" class="center question sansserif">
       <h2 id="stLandingPageQuestion">
         Street Touring Class Overview

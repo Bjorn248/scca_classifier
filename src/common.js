@@ -81,13 +81,17 @@ const carFlags = {
   ],
   'spCar': [
     'spLandingPage',
-    'spBodywork',
-    'spSuspension',
-    'spBrakes',
-    'spWheels',
-    'spTires',
-    'spElectrical',
-    'spEngineAndDrivetrain',
+    'streetpreparedAuthorized',
+    'streetpreparedBodywork',
+    'streetpreparedTires',
+    'streetpreparedWheels',
+    'streetpreparedShock',
+    'streetpreparedBrakes',
+    'streetpreparedAntiRoll',
+    'streetpreparedSuspension',
+    'streetpreparedElectrical',
+    'streetpreparedEngine',
+    'streetpreparedOutofProduction',
   ],
   'pCar': [
     'pLandingPage',
@@ -8308,6 +8312,17 @@ function highlightAndFilterStreet() { // eslint-disable-line no-unused-vars
     if (streetOverviewSubclass != null) {
       streetOverviewSubclass.classList.add('highlighted');
     }
+
+    if (!document.getElementById('subClass')) {
+      const newDiv = document.createElement('div');
+      newDiv.setAttribute('id', 'subClass');
+      const specificClass = document.getElementById('streetSubclass');
+      if (specificClass != null) {
+        const newChild = document.createTextNode(subClass);
+        newDiv.appendChild(newChild);
+        specificClass.insertBefore(newDiv, null);
+      }
+    }
   }
 }
 
@@ -8330,44 +8345,26 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
       // Street Touring Subclasses
       if (subClasses[i] == 'sts') {
         subClass = 'sts';
-        const lsdElement = document.getElementById('stsLSD');
-        lsdElement.classList.add('highlighted');
         break;
       }
       if (subClasses[i] == 'str') {
         subClass = 'str';
-        const lsdElement = document.getElementById('sststustrstxLSD');
-        lsdElement.classList.add('highlighted');
         break;
       }
       if (subClasses[i] == 'stx') {
         subClass = 'stx';
-        const lsdElement = document.getElementById('sststustrstxLSD');
-        lsdElement.classList.add('highlighted');
         break;
       }
       if (subClasses[i] == 'stu') {
         subClass = 'stu';
-        const engineElement = document.getElementById('sststusthEngine');
-        engineElement.style.display = 'block';
-        const lsdElement = document.getElementById('sststustrstxLSD');
-        lsdElement.classList.add('highlighted');
         break;
       }
       if (subClasses[i] == 'sth') {
         subClass = 'sth';
-        const engineElement = document.getElementById('sststusthEngine');
-        engineElement.style.display = 'block';
-        const lsdElement = document.getElementById('sthLSD');
-        lsdElement.classList.add('highlighted');
         break;
       }
       if (subClasses[i] == 'sst') {
         subClass = 'sst';
-        const engineElement = document.getElementById('sststusthEngine');
-        engineElement.style.display = 'block';
-        const lsdElement = document.getElementById('sststustrstxLSD');
-        lsdElement.classList.add('highlighted');
         break;
       }
     }
