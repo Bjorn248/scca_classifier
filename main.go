@@ -255,7 +255,7 @@ func main() {
 		},
 	}
 
-	advertisementText := []*pcre.Regexp{
+	toRemove := []*pcre.Regexp{
 		pcre.MustCompile(`(?s)20-40% MORE.+Section 14`),
 		pcre.MustCompile(`(?s)orders over .+15\. Street Prepared`),
 		pcre.MustCompile(`(?s)Own a vehicle.+Section 16`),
@@ -295,9 +295,9 @@ func main() {
 		remove := regexp.MustCompile(`(?i)([0-9]+ — )*\d{4} SCCA® NATIONAL SOLO® RULES( )*(— [0-9]+)*`)
 		chapterText = remove.ReplaceAll(chapterText, []byte{})
 
-		// remove all ad text
-		for _, adText := range advertisementText {
-			chapterText = adText.ReplaceAll(chapterText, []byte{})
+		// remove certain text (ads, section markers)
+		for _, r := range toRemove {
+			chapterText = r.ReplaceAll(chapterText, []byte{})
 		}
 
 		if allChapters[i].Number != "n/a" && len(allChapters[i].SubChapters) > 0 {
