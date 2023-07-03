@@ -162,19 +162,13 @@ func formatChapterBody(in string) string {
 	var result string
 	result = regexp.MustCompile(`\n([A-Z]\.)`).ReplaceAllString(in, "</br></br>$1")
 	result = regexp.MustCompile(`\n([0-9]\.)`).ReplaceAllString(result, "</br>$1")
-	fmt.Println(result)
 	result = pcre.MustCompile(`(?s)(<\/br>[0-9]\..+?)(?=<\/br>)`).ReplaceAllString(result, "<div class=\"indent\">$1</div>")
+	result = regexp.MustCompile(`:`).ReplaceAllString(result, ":</br>")
+	result = regexp.MustCompile(`([^.]+\.{5,}.+\n)`).ReplaceAllString(result, "$1</br>")
 	return result
 }
 
-// TODO write func to remove tirerack ads
-// TODO write func to prettify tire/wheel selection for street touring, maybe add highlighting divs back?
-
 func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
-	// TODO make this function "prettify" the output so that it's not just a giant blob of text
-	// e.g. find "A." and "1." add HTML line breaks
-	// also add a line break after the subchapter name
-	// remove any adds/copyright stuff
 	var result string
 	resultBytes, err := io.ReadAll(r)
 	if err != nil {
@@ -258,6 +252,42 @@ func main() {
 		},
 	}
 
+	advertisementText := []string{
+		`
+
+
+20-40% MORE
+STOPPING
+POWER FEELS
+DIFFERENT.
+
+BETTER.
+LEGENDARY.
+
+That’s what Race Proven, Street Legal technology is all
+about. High performance brake products for your track car,
+daily driver, 4x4, truck and SUV. Turns out, 30 years of
+channeling our obsession with performance pays off.
+Section 14`,
+		`orders over $50
+tirerack.com/freeshipping
+FAST FREE SHIPPING On
+
+LOWERING SPRINGS & ANTI-ROLL BARS
+
+COIL-OVERS
+
+®
+
+®
+
+www.tirerack.com/storage
+©2023
+Tire Rack
+
+888-380-8473
+15. Street Prepared`}
+
 	funcMap := template.FuncMap{
 		"subChapterText": subChapterText,
 		"menuName":       ToMenuName,
@@ -291,6 +321,11 @@ func main() {
 		remove := regexp.MustCompile(`(?i)([0-9]+ — )*\d{4} SCCA® NATIONAL SOLO® RULES( )*(— [0-9]+)*`)
 		chapterText = remove.ReplaceAll(chapterText, []byte{})
 
+		// remove all ad text
+		for _, adText := range advertisementText {
+			chapterText = []byte(strings.ReplaceAll(string(chapterText), adText, ""))
+		}
+
 		if allChapters[i].Number != "n/a" && len(allChapters[i].SubChapters) > 0 {
 			allChapters[i].SubChapters = findSubChapterBody(allChapters[i], chapterText)
 		}
@@ -316,8 +351,6 @@ func main() {
 			outFile.Close()
 		}
 	}
-
-	fmt.Printf("%+v\n", allChapters)
 
 	fmt.Println("Generating common.js...")
 	commonJS := template.New("common.js.tmpl").Funcs(funcMap)
