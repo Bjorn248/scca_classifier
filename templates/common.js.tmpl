@@ -8,14 +8,8 @@ const carFlags = {
     '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
   'sscCar': [
-    'sscLandingPage',
-    'sscBodywork',
-    'sscSuspension',
-    'sscBrakes',
-    'sscWheels',
-    'sscTires',
-    'sscElectrical',
-    'sscEngineAndDrivetrain',
+    'sscLandingPage',{{ range . }}{{if stringEqual .Name "Solo Spec Coupe"}}{{ $className := .Name }}{{ range .SubChapters }}
+    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
   'xsCar': [
     'xsLandingPage',

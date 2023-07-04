@@ -44,8 +44,15 @@ func getSubChapters(rules, chapterNumber string) []SubChapter {
 	regexString := chapterNumber + `\.([0-9]+[.A-Z]*) ([^\.\n]*)\.+[\. ]([0-9]+)`
 	tableOfContents := regexp.MustCompile(regexString)
 	match := tableOfContents.FindAllStringSubmatch(rules, -1)
+	// SSC does not have its subchapters listed in the table of contents
+	// so we have to do things differently
+	if chapterNumber == "20" {
+		regexString = `(?m)^` + chapterNumber + `\.([0-9]+) (.+)$`
+		r := regexp.MustCompile(regexString)
+		match = r.FindAllStringSubmatch(rules, -1)
+	}
 	// This means there probably aren't any subchapters
-	if len(match) < 2 {
+	if len(match) < 2 && chapterNumber != "20" {
 		return SubChapters
 	}
 	for i := range match {
@@ -56,6 +63,7 @@ func getSubChapters(rules, chapterNumber string) []SubChapter {
 			},
 		)
 	}
+	fmt.Printf("%+v\n", SubChapters)
 	return SubChapters
 }
 
@@ -117,12 +125,14 @@ func findSubChapterBody(chapter Chapter, chapterText []byte) []SubChapter {
 			// uncomment to print for troubleshooting
 			// warning: it will put the section reader in a "Read" state and you'll
 			// have to seek to the beginning to be able to read from it again
+			// fmt.Println("here")
 			// subchapter, err := io.ReadAll(sectionReader)
 			// if err != nil {
 			// 	log.Fatal(err)
 			// }
 			// fmt.Println(subChapter.Number + " " + subChapter.Name)
 			// fmt.Println(string(subchapter))
+			// fmt.Printf("%v\n", chapter)
 		}
 	}
 	return SubChapters
@@ -247,10 +257,13 @@ func main() {
 			outputFile:        "./src/a/m.html",
 		},
 		{
-			Name:   "Solo Spec Coupe",
-			Number: "20",
-			start:  regexp.MustCompile(`\n20\. SOLO® SPEC COUPE \(SSC\)\n`),
-			end:    regexp.MustCompile(`\n21\. PROSOLO® NATIONAL SERIES RULES\n`),
+			Name:              "Solo Spec Coupe",
+			Number:            "20",
+			start:             regexp.MustCompile(`\n20\. SOLO. SPEC COUPE \(SSC\)\n`),
+			end:               regexp.MustCompile(`\n21\. PROSOLO® NATIONAL SERIES RULES\n`),
+			ChapterFillerText: regexp.MustCompile(`20\. Solo® Spec Coupe \(SSC\)`),
+			templateFile:      "./templates/a/ssc.html.tmpl",
+			outputFile:        "./src/a/ssc.html",
 		},
 		{
 			Name:   "Xtreme Street",
@@ -277,6 +290,7 @@ func main() {
 		pcre.MustCompile(`\nSection 16\n`),
 		pcre.MustCompile(`\n17. Prepared\n`),
 		pcre.MustCompile(`\n18. Modified Category\n`),
+		pcre.MustCompile(`\n21. ProSolo® Series\n`),
 	}
 
 	SMWeights := []*pcre.Regexp{
