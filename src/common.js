@@ -104,14 +104,17 @@ const carFlags = {
   ],
   'mCar': [
     'mLandingPage',
-    'mBodywork',
-    'mSuspension',
-    'mBrakes',
-    'mWheels',
-    'mTires',
-    'mWeight',
-    'mEngineAndDrivetrain',
-    'mSteering',
+    'modifiedSound',
+    'modifiedEngine',
+    'modifiedAerodynamics',
+    'modifiedTires',
+    'modifiedSafety',
+    'modifiedModified',
+    'modifiedSports',
+    'modifiedFormula',
+    'modifiedSpecials',
+    'modifiedFormula',
+    'modifiedLegends',
   ],
 };
 
@@ -8590,15 +8593,10 @@ function highlightAndFilterM() { // eslint-disable-line no-unused-vars
       smOverviewSubclass.classList.add('highlighted');
     }
 
-    const smWeightSubclass = document.getElementById(subClass + 'Weight');
-    if (smWeightSubclass != null) {
-      smWeightSubclass.classList.add('highlighted');
-    }
-
     if (!document.getElementById('subClass')) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('id', 'subClass');
-      const specificClass = document.getElementById('smSubclass');
+      const specificClass = document.getElementById('mSubclass');
       if (specificClass != null) {
         const newChild = document.createTextNode(subClass);
         newDiv.appendChild(newChild);

@@ -62,15 +62,8 @@ const carFlags = {
     '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
   'mCar': [
-    'mLandingPage',
-    'mBodywork',
-    'mSuspension',
-    'mBrakes',
-    'mWheels',
-    'mTires',
-    'mWeight',
-    'mEngineAndDrivetrain',
-    'mSteering',
+    'mLandingPage',{{ range . }}{{if stringEqual .Name "Modified"}}{{ $className := .Name }}{{ range .SubChapters }}
+    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
 };
 
@@ -8549,15 +8542,10 @@ function highlightAndFilterM() { // eslint-disable-line no-unused-vars
       smOverviewSubclass.classList.add('highlighted');
     }
 
-    const smWeightSubclass = document.getElementById(subClass + 'Weight');
-    if (smWeightSubclass != null) {
-      smWeightSubclass.classList.add('highlighted');
-    }
-
     if (!document.getElementById('subClass')) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('id', 'subClass');
-      const specificClass = document.getElementById('smSubclass');
+      const specificClass = document.getElementById('mSubclass');
       if (specificClass != null) {
         const newChild = document.createTextNode(subClass);
         newDiv.appendChild(newChild);

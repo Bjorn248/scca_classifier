@@ -1,0 +1,173 @@
+{{ $name := .Name }}{{ $chapterfillertext := .ChapterFillerText }}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - Modified Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='mLandingPageMenu' href="#" onclick="resetQuestion('mLandingPage'); evalSessionStorage('mCar');">Overview</a>{{ range .SubChapters }}
+      <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('mCar');">{{ menuName .Name }}</a>{{ end }}
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Modified Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
+      <button class="button noButton" onclick="resetState()">Clear Selections</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('mCar'); highlightAndFilterM();">
+    <div id="mLandingPage" class="center question sansserif">
+      <h2 id="mLandingPageQuestion">
+        Modified Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+        Provide a competitive outlet for the highest level of allowed modifications.
+        </p>
+        <p>
+        Accommodate competitors with purpose built competition vehicles, with allowances for a
+        wide variety of designs and origins.
+        </p>
+        <h3>
+          Category Values
+        </h3>
+        <p>
+        Maximum speed and handling for given car parameters.
+        </p>
+        <p>
+        Rules stability to protect member investment and encourage commitment.
+        </p>
+        <p>
+        Highest levels of drivetrain and suspension development (varies among the individual
+        classes).
+        </p>
+        <p>
+        Custom design and fabrication.
+        </p>
+        <p>
+        Maximum tire adhesion with minimum constraint (varies among the individual classes).
+        </p>
+        <h3>
+          Core Modifications
+        </h3>
+        <ul class="list">
+          <li>
+            Chassis and suspension customization.
+          </li>
+          <li>
+            Unconstrained automotive-based powertrain (varies among the individual classes).
+          </li>
+          <li>
+            Minimum weights generally based on displacement.
+          </li>
+        </ul>
+        <h3>
+          Subclasses
+        </h3>
+        <ul>
+          <li>
+            <div id="amOverview">
+              A Modified (AM) – Least restricted class with significant aero allowances and
+              unlimited drivetrain.
+            </div>
+          </li>
+          <li>
+            <div id="bmOverview">
+              B Modified (BM) – GCR-based formula cars and sports racers with a high power/weight
+              and aero allowances.
+            </div>
+          </li>
+          <li>
+            <div id="cmOverview">
+              C Modified (CM) – GCR-based formula cars and sports racers with medium power/weight
+              and restricted aero allowances.
+            </div>
+          </li>
+          <li>
+            <div id="dmOverview">
+              D Modified (DM) – Highly modified very lightweight production-based or approved kit
+              cars with a maximum equivalent displacement of 2 liters and lower weights than EM.
+            </div>
+          </li>
+          <li>
+            <div id="emOverview">
+              E Modified (EM) – Highly modified lightweight production-based or approved kit cars
+              with no limit on displacement and higher weights than DM.
+            </div>
+          </li>
+          <li>
+            <div id="fmOverview">
+              F Modified (FM) – Small, very agile, GCR-based formula cars.
+            </div>
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['mLandingPage', 'mCarAnsweredIndex'], [true, 0]); hideItem('mLandingPage'); evalSessionStorage('mCar'); window.scroll(0,0);">Continue</button>
+    </div>
+
+{{ range $index, $subchapter := .SubChapters }}
+    <div id="{{ toVarName $name}}{{ menuName $subchapter.Name }}" class="center question sansserif">
+      <h2 id="{{ toVarName $name}}{{ menuName $subchapter.Name }}Question">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="{{ toVarName $name}}Body" class="questionBody">
+        <h3>
+          {{ subChapterText $subchapter.Reader $chapterfillertext }}
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'mCarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'mCarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
+    </div>
+{{ end }}
+
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1>
+        Your car is eligible for Modified class!
+        </br>
+      </h1>
+      <div id="mSubclasses" class="subclasses">
+        <h2 id="mSubclass" class="subclass">
+Modified Subclass:
+        </h2>
+      </div>
+      <div id="possibleClasses" class="possibleClasses">
+        <h2 id="specificClass" class="specificClass">
+Possible Classes:
+        </h2>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for Modified class.
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>
