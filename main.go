@@ -141,6 +141,7 @@ func getChapterReader(rules *strings.Reader, chapter Chapter) *io.SectionReader 
 func ToMenuName(in string) string {
 	var result string
 	result = strings.Split(in, " ")[0]
+	result = strings.Split(result, "/")[0]
 	result = regexp.MustCompile(`[^a-zA-Z0-9 ]+`).ReplaceAllString(result, "")
 	return result
 }
@@ -228,10 +229,13 @@ func main() {
 			outputFile:        "./src/a/sm.html",
 		},
 		{
-			Name:   "Prepared",
-			Number: "17",
-			start:  regexp.MustCompile(`\n17\. PREPARED CATEGORY\n`),
-			end:    regexp.MustCompile(`\n18\. MODIFIED CATEGORY\n`),
+			Name:              "Prepared",
+			Number:            "17",
+			start:             regexp.MustCompile(`\n17\. PREPARED CATEGORY\n`),
+			end:               regexp.MustCompile(`\n18\. MODIFIED CATEGORY\n`),
+			ChapterFillerText: regexp.MustCompile(`17\. Prepared`),
+			templateFile:      "./templates/a/p.html.tmpl",
+			outputFile:        "./src/a/p.html",
 		},
 		{
 			Name:   "Modified",
@@ -263,10 +267,12 @@ func main() {
 		pcre.MustCompile(`(?s)20-40% MORE.+Section 14`),
 		pcre.MustCompile(`(?s)orders over .+15\. Street Prepared`),
 		pcre.MustCompile(`(?s)Own a vehicle.+Section 16`),
+		pcre.MustCompile(`(?s)MAKE EVERY.+©2022 Sunmarks, LLC. All Rights Reserved\.`),
 		pcre.MustCompile(`\nSection 14\n`),
 		pcre.MustCompile(`\nSection 15\n`),
 		pcre.MustCompile(`\nSection 16\n`),
 		pcre.MustCompile(`\n17. Prepared\n`),
+		pcre.MustCompile(`\n18. Modified Category\n`),
 	}
 
 	SMWeights := []*pcre.Regexp{

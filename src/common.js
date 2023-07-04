@@ -89,14 +89,18 @@ const carFlags = {
   ],
   'pCar': [
     'pLandingPage',
-    'pBodywork',
-    'pSuspension',
-    'pBrakes',
-    'pWheels',
-    'pTires',
-    'pWeight',
-    'pElectrical',
-    'pEngineAndDrivetrain',
+    'preparedAuthorized',
+    'preparedBodywork',
+    'preparedTires',
+    'preparedWheels',
+    'preparedShock',
+    'preparedBrakes',
+    'preparedAntiRoll',
+    'preparedSuspension',
+    'preparedElectrical',
+    'preparedEngine',
+    'preparedOther',
+    'preparedSafety',
   ],
   'mCar': [
     'mLandingPage',
@@ -8706,21 +8710,6 @@ function highlightAndFilterP() { // eslint-disable-line no-unused-vars
     const pOverviewSubclass = document.getElementById(subClass + 'Overview');
     if (pOverviewSubclass != null) {
       pOverviewSubclass.classList.add('highlighted');
-    }
-
-    const pWeightSubclass = document.getElementById(subClass + 'Weight');
-    if (pWeightSubclass != null) {
-      pWeightSubclass.classList.add('highlighted');
-    }
-
-    const wheelElement = document.getElementById(subClass + 'Wheels');
-    if (wheelElement != null) {
-      wheelElement.classList.add('highlighted');
-    }
-
-    const restrictorElement = document.getElementById(subClass + 'Restrictor');
-    if (restrictorElement != null) {
-      restrictorElement.classList.add('highlighted');
     }
 
     if (!document.getElementById('subClass')) {

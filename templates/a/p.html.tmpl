@@ -1,0 +1,219 @@
+{{ $name := .Name }}{{ $chapterfillertext := .ChapterFillerText }}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - Prepared Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='pLandingPageMenu' href="#" onclick="resetQuestion('pLandingPage'); evalSessionStorage('pCar');">Overview</a>{{ range .SubChapters }}
+      <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('pCar');">{{ menuName .Name }}</a>{{ end }}
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Prepared Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
+      <button class="button noButton" onclick="resetState()">Clear Selections</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('pCar'); highlightAndFilterP();">
+    <div id="pLandingPage" class="center question sansserif">
+      <h2 id="pLandingPageQuestion">
+        Prepared Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+        Competitors in this category are permitted broad modifications and fabrication
+        opportunities in suspension, drivetrain, and engine with no expectation of public highway
+        use.
+        </p>
+        <h3>
+          Category Values
+        </h3>
+        <p>
+        Development levels for purpose-built competition vehicles based on production cars,
+        including true racing slicks, weight reduction, and extensive modifications to chassis
+        and powertrain.
+        </p>
+        <h3>
+          Core Modifications
+        </h3>
+        <ul class="list">
+          <li>
+            Non-DOT racing tires.
+          </li>
+          <li>
+            Displacement-based minimum weight formulas.
+          </li>
+          <li>
+            Purpose built competition vehicles based production chassis or other racing chassis.
+          </li>
+          <li>
+            Performance through extensive modification and custom fabrication.
+          </li>
+          <li>
+            Extensive chassis modification including:
+          <ul>
+            <li>
+              Interior removal and replacement of body panels, doors, and windows.
+            </li>
+            <li>
+              Body panel modification for large tire fitment and suspension travel.
+            </li>
+            <li>
+              Custom suspension fabrication.
+            </li>
+            <li>
+              Relocation of components for optimizing weight distribution.
+            </li>
+          </ul>
+          </li>
+          <li>
+            Engine and drivetrain allowances including:
+            <ul>
+              <li>
+                Extensive internal engine modifications.
+              </li>
+              <li>
+                Open transmission and differential allowances.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Specific aerodynamic aids
+          </li>
+        </ul>
+        <h3>
+          Subclasses
+        </h3>
+        <p>
+        Your subclass should be highlighted
+        </p>
+        <ul>
+          <li>
+            <div id="xpOverview">
+              X Prepared (XP) – Open class for sports cars and sedans with additional allowances
+              for engine swaps and increased aerodynamic modifications beyond the rest of the
+              category.
+            </div>
+          </li>
+          <li>
+            <div id="cpOverview">
+              C Prepared (CP) – American muscle cars.
+            </div>
+          </li>
+          <li>
+            <div id="dpOverview">
+              D Prepared (DP) – Lightweight, 4-cylinder RWD sports cars and coupes.
+            </div>
+          </li>
+          <li>
+            <div id="epOverview">
+              E Prepared (EP) – FWD cars.
+            </div>
+          </li>
+          <li>
+            <div id="fpOverview">
+              F Prepared (FP) – High performance sports cars and sedans.
+            </div>
+          </li>
+        </ul>
+        <h3>
+          Authorized Modifications
+        </h3>
+        <ul class="list">
+          <li>
+            The modifications defined here in the Prepared Category are the only allowed
+            modifications. The rules in this Section stand on their own; they do not build upon
+            the Street, Street Touring®, or Street Prepared category rules. Modifications shall
+            not be made unless specifically authorized herein. No permitted component/modification
+            shall additionally perform a prohibited function. If the rules do not specifically
+            authorize a modification, it is not permitted.
+          </li>
+          <li>
+            It is not permitted to make any changes, alterations, or modifications to any
+            component produced by the manufacturer unless specifically authorized by these rules.
+          </li>
+          <li>
+            Any minor modification, intended to allow or facilitate any allowed modification, is
+            permitted as long as it does not provide any intrinsic performance benefit in and of
+            itself, and is not explicitly prohibited elsewhere within these rules. This rule is
+            intended to allow minor notching, bending, clearancing, and grinding; the drilling of
+            holes; affixing, relocating, or strengthening of brackets; removal of small parts
+            and similar operations performed in order to facilitate the installation of allowed
+            parts or modifications. Competitors are strongly cautioned to make the minimum amount
+            of modification required to affix a given part and to not make tortured
+            interpretations of this rule which will invoke Section 17.11 weight adjustments (e.g.,
+            moving frame rails inboard, regardless of the reason, is considered to be a tortured
+            interpretation.)
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['pLandingPage', 'pCarAnsweredIndex'], [true, 0]); hideItem('pLandingPage'); evalSessionStorage('pCar'); window.scroll(0,0);">Continue</button>
+    </div>
+
+{{ range $index, $subchapter := .SubChapters }}
+    <div id="{{ toVarName $name}}{{ menuName $subchapter.Name }}" class="center question sansserif">
+      <h2 id="{{ toVarName $name}}{{ menuName $subchapter.Name }}Question">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="{{ toVarName $name}}Body" class="questionBody">
+        <h3>
+          {{ subChapterText $subchapter.Reader $chapterfillertext }}
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'pCarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'pCarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+    </div>
+{{ end }}
+
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1>
+        Your car is eligible for Prepared class!
+        </br>
+      </h1>
+      <div id="pSubclasses" class="subclasses">
+        <h2 id="pSubclass" class="subclass">
+Prepared Subclass:
+        </h2>
+      </div>
+      <div id="possibleClasses" class="possibleClasses">
+        <h2 id="specificClass" class="specificClass">
+Possible Classes:
+        </h2>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for Prepared class.
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>

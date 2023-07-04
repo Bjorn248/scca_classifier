@@ -58,15 +58,8 @@ const carFlags = {
     '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
   'pCar': [
-    'pLandingPage',
-    'pBodywork',
-    'pSuspension',
-    'pBrakes',
-    'pWheels',
-    'pTires',
-    'pWeight',
-    'pElectrical',
-    'pEngineAndDrivetrain',
+    'pLandingPage',{{ range . }}{{if stringEqual .Name "Prepared"}}{{ $className := .Name }}{{ range .SubChapters }}
+    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
   'mCar': [
     'mLandingPage',
@@ -8676,21 +8669,6 @@ function highlightAndFilterP() { // eslint-disable-line no-unused-vars
     const pOverviewSubclass = document.getElementById(subClass + 'Overview');
     if (pOverviewSubclass != null) {
       pOverviewSubclass.classList.add('highlighted');
-    }
-
-    const pWeightSubclass = document.getElementById(subClass + 'Weight');
-    if (pWeightSubclass != null) {
-      pWeightSubclass.classList.add('highlighted');
-    }
-
-    const wheelElement = document.getElementById(subClass + 'Wheels');
-    if (wheelElement != null) {
-      wheelElement.classList.add('highlighted');
-    }
-
-    const restrictorElement = document.getElementById(subClass + 'Restrictor');
-    if (restrictorElement != null) {
-      restrictorElement.classList.add('highlighted');
     }
 
     if (!document.getElementById('subClass')) {
