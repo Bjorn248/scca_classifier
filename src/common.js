@@ -1,5 +1,5 @@
 const carFlags = {
-  'StreetCar': [
+  'streetCar': [
     'streetLandingPage',
     'streetAuthorized',
     'streetBodywork',
@@ -12,8 +12,8 @@ const carFlags = {
     'streetElectrical',
     'streetEngine',
   ],
-  'StreetTouringCar': [
-    'stLandingPage',
+  'streettouringCar': [
+    'streettouringLandingPage',
     'streettouringAuthorized',
     'streettouringBodywork',
     'streettouringTires',
@@ -8399,7 +8399,7 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
     if (!document.getElementById('subClass')) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('id', 'subClass');
-      const specificClass = document.getElementById('streetTouringSubclass');
+      const specificClass = document.getElementById('streettouringSubclass');
       if (specificClass != null) {
         const newChild = document.createTextNode(subClass);
         newDiv.appendChild(newChild);

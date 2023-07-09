@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" content="SCCA Solo Classifier Application - Street Car Page">
+    <meta name="Description" content="SCCA Solo Classifier Application - {{ $name }} Car Page">
     <title>SCCA Solo Classification Assistant</title>
     <script src="../common.js"></script>
     <link rel="stylesheet" href="../styles.css">
@@ -12,15 +12,15 @@
 
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a id='streetLandingPageMenu' href="#" onclick="resetQuestion('streetLandingPage'); evalSessionStorage('StreetCar');">Overview</a>{{ range .SubChapters }}
-      <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('StreetCar');">{{ menuName .Name }}</a>{{ end }}
+      <a id='{{ toVarName $name}}LandingPageMenu' href="#" onclick="resetQuestion('{{ toVarName $name}}LandingPage'); evalSessionStorage('{{ toVarName $name}}Car');">Overview</a>{{ range .SubChapters }}
+      <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('{{ toVarName $name}}Car');">{{ menuName .Name }}</a>{{ end }}
     </div>
 
     <div id="main">
       <button class="openbtn" onclick="openNav()">☰</button>
     </div>
 
-    <h1 class="center sansserif">Street Class Questionnaire</h1>
+    <h1 class="center sansserif">{{ $name }} Class Questionnaire</h1>
 
     <div id="homeButton" class="left">
       <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
@@ -30,10 +30,10 @@
     </div>
   </head>
 
-  <body onload="evalSessionStorage('StreetCar'); highlightAndFilterStreet();">
-    <div id="streetLandingPage" class="center question sansserif">
-      <h2 id="streetLandingPageQuestion">
-        Street Class Overview
+  <body onload="evalSessionStorage('{{ toVarName $name}}Car'); highlightAndFilterStreet();">
+    <div id="{{ toVarName $name }}LandingPage" class="center question sansserif">
+      <h2 id="{{ toVarName $name }}LandingPageQuestion">
+        {{ $name }} Class Overview
       </h2>
       <div id="overviewBody" class="questionBody">
         <h3>
@@ -121,7 +121,7 @@
         </ul>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetLandingPage', 'StreetCarAnsweredIndex'], [true, 0]); hideItem('streetLandingPage'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Continue</button>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name }}LandingPage', '{{ toVarName $name }}CarAnsweredIndex'], [true, 0]); hideItem('{{ toVarName $name }}LandingPage'); evalSessionStorage('{{ toVarName $name }}Car'); window.scroll(0,0);">Continue</button>
     </div>
 {{ range $index, $subchapter := .SubChapters }}
     <div id="{{ toVarName $name}}{{ menuName $subchapter.Name }}" class="center question sansserif">
@@ -134,19 +134,19 @@
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'StreetCarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'StreetCarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ toVarName $name }}CarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ toVarName $name }}Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ toVarName $name }}CarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ toVarName $name }}Car'); window.scroll(0,0);">No</button>
     </div>
 {{ end }}
 
     <div id="eligible" class="center eligible sansserif">
       <h1>
-        Your car is eligible for Street class!
+        Your car is eligible for {{ $name }} class!
         </br>
       </h1>
-      <div id="streetSubclasses" class="subclasses">
-        <h2 id="streetSubclass" class="subclass">
-Street Subclass:
+      <div id="{{ toVarName $name }}Subclasses" class="subclasses">
+        <h2 id="{{ toVarName $name }}Subclass" class="subclass">
+{{ $name }} Subclass:
         </h2>
       </div>
       <div id="possibleClasses" class="possibleClasses">
@@ -158,7 +158,7 @@ Possible Classes:
 
     <div id="notEligible" class="center notEligible sansserif">
       <h1>
-        Your car is NOT eligible for street class.
+        Your car is NOT eligible for {{ $name }} class.
       </h1>
       <div class="notEligibleExplanation">
         <h2>

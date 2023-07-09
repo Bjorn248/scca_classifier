@@ -63,7 +63,6 @@ func getSubChapters(rules, chapterNumber string) []SubChapter {
 			},
 		)
 	}
-	fmt.Printf("%+v\n", SubChapters)
 	return SubChapters
 }
 

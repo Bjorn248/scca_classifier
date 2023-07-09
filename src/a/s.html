@@ -12,17 +12,17 @@
 
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a id='streetLandingPageMenu' href="#" onclick="resetQuestion('streetLandingPage'); evalSessionStorage('StreetCar');">Overview</a>
-      <a id='streetAuthorizedMenu' href="#" onclick="resetQuestion('streetAuthorized'); evalSessionStorage('StreetCar');">Authorized</a>
-      <a id='streetBodyworkMenu' href="#" onclick="resetQuestion('streetBodywork'); evalSessionStorage('StreetCar');">Bodywork</a>
-      <a id='streetTiresMenu' href="#" onclick="resetQuestion('streetTires'); evalSessionStorage('StreetCar');">Tires</a>
-      <a id='streetWheelsMenu' href="#" onclick="resetQuestion('streetWheels'); evalSessionStorage('StreetCar');">Wheels</a>
-      <a id='streetShockMenu' href="#" onclick="resetQuestion('streetShock'); evalSessionStorage('StreetCar');">Shock</a>
-      <a id='streetBrakesMenu' href="#" onclick="resetQuestion('streetBrakes'); evalSessionStorage('StreetCar');">Brakes</a>
-      <a id='streetAntiRollMenu' href="#" onclick="resetQuestion('streetAntiRoll'); evalSessionStorage('StreetCar');">AntiRoll</a>
-      <a id='streetSuspensionMenu' href="#" onclick="resetQuestion('streetSuspension'); evalSessionStorage('StreetCar');">Suspension</a>
-      <a id='streetElectricalMenu' href="#" onclick="resetQuestion('streetElectrical'); evalSessionStorage('StreetCar');">Electrical</a>
-      <a id='streetEngineMenu' href="#" onclick="resetQuestion('streetEngine'); evalSessionStorage('StreetCar');">Engine</a>
+      <a id='streetLandingPageMenu' href="#" onclick="resetQuestion('streetLandingPage'); evalSessionStorage('streetCar');">Overview</a>
+      <a id='streetAuthorizedMenu' href="#" onclick="resetQuestion('streetAuthorized'); evalSessionStorage('streetCar');">Authorized</a>
+      <a id='streetBodyworkMenu' href="#" onclick="resetQuestion('streetBodywork'); evalSessionStorage('streetCar');">Bodywork</a>
+      <a id='streetTiresMenu' href="#" onclick="resetQuestion('streetTires'); evalSessionStorage('streetCar');">Tires</a>
+      <a id='streetWheelsMenu' href="#" onclick="resetQuestion('streetWheels'); evalSessionStorage('streetCar');">Wheels</a>
+      <a id='streetShockMenu' href="#" onclick="resetQuestion('streetShock'); evalSessionStorage('streetCar');">Shock</a>
+      <a id='streetBrakesMenu' href="#" onclick="resetQuestion('streetBrakes'); evalSessionStorage('streetCar');">Brakes</a>
+      <a id='streetAntiRollMenu' href="#" onclick="resetQuestion('streetAntiRoll'); evalSessionStorage('streetCar');">AntiRoll</a>
+      <a id='streetSuspensionMenu' href="#" onclick="resetQuestion('streetSuspension'); evalSessionStorage('streetCar');">Suspension</a>
+      <a id='streetElectricalMenu' href="#" onclick="resetQuestion('streetElectrical'); evalSessionStorage('streetCar');">Electrical</a>
+      <a id='streetEngineMenu' href="#" onclick="resetQuestion('streetEngine'); evalSessionStorage('streetCar');">Engine</a>
     </div>
 
     <div id="main">
@@ -39,7 +39,7 @@
     </div>
   </head>
 
-  <body onload="evalSessionStorage('StreetCar'); highlightAndFilterStreet();">
+  <body onload="evalSessionStorage('streetCar'); highlightAndFilterStreet();">
     <div id="streetLandingPage" class="center question sansserif">
       <h2 id="streetLandingPageQuestion">
         Street Class Overview
@@ -130,7 +130,7 @@
         </ul>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetLandingPage', 'StreetCarAnsweredIndex'], [true, 0]); hideItem('streetLandingPage'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Continue</button>
+      <button class="button yesButton" onclick="setState(['streetLandingPage', 'streetCarAnsweredIndex'], [true, 0]); hideItem('streetLandingPage'); evalSessionStorage('streetCar'); window.scroll(0,0);">Continue</button>
     </div>
 
     <div id="streetAuthorized" class="center question sansserif">
@@ -163,8 +163,8 @@ Refer to Appendix F for past clarifications of these rules.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetAuthorized', 'StreetCarAnsweredIndex'], [true, 1]); hideItem('streetAuthorized'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetAuthorized', 'StreetCarAnsweredIndex'], [false, 1]); hideItem('streetAuthorized'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetAuthorized', 'streetCarAnsweredIndex'], [true, 1]); hideItem('streetAuthorized'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetAuthorized', 'streetCarAnsweredIndex'], [false, 1]); hideItem('streetAuthorized'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetBodywork" class="center question sansserif">
@@ -222,8 +222,8 @@ fasteners may be removed.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetBodywork', 'StreetCarAnsweredIndex'], [true, 2]); hideItem('streetBodywork'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetBodywork', 'StreetCarAnsweredIndex'], [false, 2]); hideItem('streetBodywork'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetBodywork', 'streetCarAnsweredIndex'], [true, 2]); hideItem('streetBodywork'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetBodywork', 'streetCarAnsweredIndex'], [false, 2]); hideItem('streetBodywork'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetTires" class="center question sansserif">
@@ -260,8 +260,8 @@ at any time by the SEB upon notification of membership.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetTires', 'StreetCarAnsweredIndex'], [true, 3]); hideItem('streetTires'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetTires', 'StreetCarAnsweredIndex'], [false, 3]); hideItem('streetTires'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetTires', 'streetCarAnsweredIndex'], [true, 3]); hideItem('streetTires'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetTires', 'streetCarAnsweredIndex'], [false, 3]); hideItem('streetTires'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetWheels" class="center question sansserif">
@@ -286,8 +286,8 @@ type hubs provided the resultant combination complies with the offset requiremen
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetWheels', 'StreetCarAnsweredIndex'], [true, 4]); hideItem('streetWheels'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetWheels', 'StreetCarAnsweredIndex'], [false, 4]); hideItem('streetWheels'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetWheels', 'streetCarAnsweredIndex'], [true, 4]); hideItem('streetWheels'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetWheels', 'streetCarAnsweredIndex'], [false, 4]); hideItem('streetWheels'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetShock" class="center question sansserif">
@@ -362,8 +362,8 @@ may not be added through the exterior body panels.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetShock', 'StreetCarAnsweredIndex'], [true, 5]); hideItem('streetShock'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetShock', 'StreetCarAnsweredIndex'], [false, 5]); hideItem('streetShock'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetShock', 'streetCarAnsweredIndex'], [true, 5]); hideItem('streetShock'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetShock', 'streetCarAnsweredIndex'], [false, 5]); hideItem('streetShock'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetBrakes" class="center question sansserif">
@@ -381,8 +381,8 @@ They may serve no other purpose.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetBrakes', 'StreetCarAnsweredIndex'], [true, 6]); hideItem('streetBrakes'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetBrakes', 'StreetCarAnsweredIndex'], [false, 6]); hideItem('streetBrakes'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetBrakes', 'streetCarAnsweredIndex'], [true, 6]); hideItem('streetBrakes'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetBrakes', 'streetCarAnsweredIndex'], [false, 6]); hideItem('streetBrakes'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetAntiRoll" class="center question sansserif">
@@ -404,8 +404,8 @@ connect between the brackets for the bar are not permitted.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetAntiRoll', 'StreetCarAnsweredIndex'], [true, 7]); hideItem('streetAntiRoll'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetAntiRoll', 'StreetCarAnsweredIndex'], [false, 7]); hideItem('streetAntiRoll'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetAntiRoll', 'streetCarAnsweredIndex'], [true, 7]); hideItem('streetAntiRoll'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetAntiRoll', 'streetCarAnsweredIndex'], [false, 7]); hideItem('streetAntiRoll'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetSuspension" class="center question sansserif">
@@ -433,8 +433,8 @@ the maximum factory alignment specification.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetSuspension', 'StreetCarAnsweredIndex'], [true, 8]); hideItem('streetSuspension'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetSuspension', 'StreetCarAnsweredIndex'], [false, 8]); hideItem('streetSuspension'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetSuspension', 'streetCarAnsweredIndex'], [true, 8]); hideItem('streetSuspension'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetSuspension', 'streetCarAnsweredIndex'], [false, 8]); hideItem('streetSuspension'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetElectrical" class="center question sansserif">
@@ -461,8 +461,8 @@ no other purpose.&#34;
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetElectrical', 'StreetCarAnsweredIndex'], [true, 9]); hideItem('streetElectrical'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetElectrical', 'StreetCarAnsweredIndex'], [false, 9]); hideItem('streetElectrical'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetElectrical', 'streetCarAnsweredIndex'], [true, 9]); hideItem('streetElectrical'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetElectrical', 'streetCarAnsweredIndex'], [false, 9]); hideItem('streetElectrical'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetEngine" class="center question sansserif">
@@ -513,8 +513,8 @@ no other function.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetEngine', 'StreetCarAnsweredIndex'], [true, 10]); hideItem('streetEngine'); evalSessionStorage('StreetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetEngine', 'StreetCarAnsweredIndex'], [false, 10]); hideItem('streetEngine'); evalSessionStorage('StreetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetEngine', 'streetCarAnsweredIndex'], [true, 10]); hideItem('streetEngine'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetEngine', 'streetCarAnsweredIndex'], [false, 10]); hideItem('streetEngine'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
 
@@ -537,7 +537,7 @@ Possible Classes:
 
     <div id="notEligible" class="center notEligible sansserif">
       <h1>
-        Your car is NOT eligible for street class.
+        Your car is NOT eligible for Street class.
       </h1>
       <div class="notEligibleExplanation">
         <h2>

@@ -1,10 +1,10 @@
 const carFlags = {
-  'StreetCar': [
-    'streetLandingPage',{{ range . }}{{if stringEqual .Name "Street"}}{{ $className := .Name }}{{ range .SubChapters }}
+  '{{ range . }}{{if stringEqual .Name "Street"}}{{ toVarName .Name }}Car{{ end }}{{ end }}': [
+    '{{ range . }}{{if stringEqual .Name "Street"}}{{ toVarName .Name }}LandingPage',{{ $className := .Name }}{{ range .SubChapters }}
     '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
-  'StreetTouringCar': [
-    'stLandingPage',{{ range . }}{{if stringEqual .Name "Street Touring"}}{{ $className := .Name }}{{ range .SubChapters }}
+  '{{ range . }}{{if stringEqual .Name "Street Touring"}}{{ toVarName .Name }}Car{{ end }}{{ end }}': [
+    {{ range . }}{{if stringEqual .Name "Street Touring"}}'{{ toVarName .Name }}LandingPage',{{ $className := .Name }}{{ range .SubChapters }}
     '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
   'sscCar': [
@@ -8260,7 +8260,7 @@ function highlightAndFilterStreet() { // eslint-disable-line no-unused-vars
     if (!document.getElementById('subClass')) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('id', 'subClass');
-      const specificClass = document.getElementById('streetSubclass');
+      const specificClass = document.getElementById('{{ range . }}{{if stringEqual .Name "Street"}}{{ toVarName .Name }}Subclass'{{ end }}{{ end }});
       if (specificClass != null) {
         const newChild = document.createTextNode(subClass);
         newDiv.appendChild(newChild);
@@ -8342,7 +8342,7 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
     if (!document.getElementById('subClass')) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('id', 'subClass');
-      const specificClass = document.getElementById('streetTouringSubclass');
+      const specificClass = document.getElementById('{{ range . }}{{if stringEqual .Name "Street Touring"}}{{ toVarName .Name }}Subclass'{{ end }}{{ end }});
       if (specificClass != null) {
         const newChild = document.createTextNode(subClass);
         newDiv.appendChild(newChild);
