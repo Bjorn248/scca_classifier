@@ -1,0 +1,171 @@
+{{ $name := .Name }}{{ $chapterfillertext := .ChapterFillerText }}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - {{ $name }} Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='{{ toVarName $name}}LandingPageMenu' href="#" onclick="resetQuestion('{{ toVarName $name}}LandingPage'); evalSessionStorage('{{ toVarName $name}}Car');">Overview</a>{{ range .SubChapters }}
+      <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('{{ toVarName $name}}Car');">{{ menuName .Name }}</a>{{ end }}
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">{{ $name }} Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
+      <button class="button noButton" onclick="resetState()">Clear Selections</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('{{ toVarName $name}}Car'); highlightAndFilterStreet();">
+    <div id="{{ toVarName $name }}LandingPage" class="center question sansserif">
+      <h2 id="{{ toVarName $name }}LandingPageQuestion">
+        {{ $name }} Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+        This category should provide the lowest barrier of entry and appeal to the largest segment
+        of potential and existing members.
+        </p>
+        <h3>
+          Category Values
+        </h3>
+        <p>
+        Preparation allowances with a minimal impact on daily public highway use of the vehicle.
+        </p>
+        <h3>
+          Core Modifications
+        </h3>
+        <p>
+        Primary allowances permit changes to shocks, anti-roll bars, and tires.
+        </p>
+        <h3>
+          Subclasses
+        </h3>
+        <p>
+        Your subclass should be highlighted
+        </br>
+        Sports cars and other high-performance vehicles classed by performance potential.
+        </p>
+        <ul>
+          <li>
+            <div id="ssrStreetOverview">
+            Super Street R-tire (SSR)
+            </div>
+          </li>
+          <li>
+            <div id="ssStreetOverview">
+            Super Street (SS)
+            </div>
+          </li>
+          <li>
+            <div id="asStreetOverview">
+            A Street (AS)
+            </div>
+          </li>
+          <li>
+            <div id="bsStreetOverview">
+            B Street (BS)
+          </li>
+          <li>
+            <div id="csStreetOverview">
+            C Street (CS)
+            </div>
+          </li>
+          <li>
+            <div id="esStreetOverview">
+            E Street (ES) – Very affordable older sports cars with an emphasis on low cost entry
+            and acceptable availability. Class stability is a priority.
+            </div>
+          </li>
+        </ul>
+        <p>
+        Sedans and Coupes classed by performance potential
+        <ul>
+          <li>
+            <div id="dsStreetOverview">
+            D Street (DS)
+            </div>
+          </li>
+          <li>
+            <div id="gsStreetOverview">
+            G Street (GS)
+            </div>
+          </li>
+          <li>
+            <div id="hsStreetOverview">
+            H Street (HS)
+            </div>
+          </li>
+          <li>
+            <div id="fsStreetOverview">
+            F Street (FS) – Heavy, high-horsepower RWD vehicles in the spirit of "V8 Pony Cars."
+            </div>
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name }}LandingPage', '{{ toVarName $name }}CarAnsweredIndex'], [true, 0]); hideItem('{{ toVarName $name }}LandingPage'); evalSessionStorage('{{ toVarName $name }}Car'); window.scroll(0,0);">Continue</button>
+    </div>
+{{ range $index, $subchapter := .SubChapters }}
+    <div id="{{ toVarName $name}}{{ menuName $subchapter.Name }}" class="center question sansserif">
+      <h2 id="{{ toVarName $name}}{{ menuName $subchapter.Name }}Question">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="{{ toVarName $name}}Body" class="questionBody">
+        <h3>
+          {{ subChapterText $subchapter.Reader $chapterfillertext }}
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ toVarName $name }}CarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ toVarName $name }}Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ toVarName $name }}CarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ toVarName $name }}Car'); window.scroll(0,0);">No</button>
+    </div>
+{{ end }}
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1>
+        Your car is eligible for {{ $name }} class!
+        </br>
+      </h1>
+      <div id="{{ toVarName $name }}Subclasses" class="subclasses">
+        <h2 id="{{ toVarName $name }}Subclass" class="subclass">
+{{ $name }} Subclass:
+        </h2>
+      </div>
+      <div id="possibleClasses" class="possibleClasses">
+        <h2 id="specificClass" class="specificClass">
+Possible Classes:
+        </h2>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for {{ $name }} class.
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,205 @@
+{{ $name := .Name }}{{ $chapterfillertext := .ChapterFillerText }}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - {{ $name }} Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='{{ toVarName $name}}LandingPageMenu' href="#" onclick="resetQuestion('{{ toVarName $name}}LandingPage'); evalSessionStorage('{{ toVarName $name}}Car');">Overview</a>{{ range .SubChapters }}
+      <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('{{ toVarName $name}}Car');">{{ menuName .Name }}</a>{{ end }}
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">{{ $name }} Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
+      <button class="button noButton" onclick="resetState()">Clear Selections</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('{{ toVarName $name}}Car'); highlightAndFilterStreetTouring();">
+    <div id="{{ toVarName $name }}LandingPage" class="center question sansserif">
+      <h2 id="{{ toVarName $name }}LandingPageQuestion">
+        {{ $name }} Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+          Street Touring allowances and modifications build upon existing Street category allowances.
+          Competitors in this class are looking to add performance to a select group of vehicles based
+          on performance potential.
+        </p>
+        <h3>
+          Category Values
+        </h3>
+        <p>
+          Vehicle modifications should not prevent daily use on public roads.
+          "Daily use" is subjective criterion; competitors will interpret this differently.
+          "Street legal" is a category goal. Some states may require more stringent requirements.
+          It is not the intention of "street legality" to be an absolute. It is intended for the
+          majority of the membership. Drivetrain configuration variances are balanced through
+          limited slip differential and wheel/tire allowances.
+        </p>
+        <h3>
+          Core Modifications
+        </h3>
+        <ul class="list">
+          <li>
+            Performance Improvements Through "Bolt-On" Modifications
+            <ul>
+              <li>
+                Modifications should not require cutting, drilling, or permanent alterations to body panels
+              </li>
+              <li>
+                Modifications that enhance the performance for Solo® and street driving
+                <ul>
+                  <li>
+                    Suspension
+                  </li>
+                  <li>
+                    Differentials
+                  </li>
+                  <li>
+                    Bolt-On Engine Parts
+                  </li>
+                  <li>
+                    Aftermarket/Larger Brake Kits
+                  </li>
+                  <li>
+                    Wheel/Tire Upgrades
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Vehicle Safety Systems
+            <ul>
+              <li>
+                ABS may be electronically disabled, but otherwise must remain unaltered
+              </li>
+            </ul>
+          </li>
+          <li>
+            Required Diagnostic Systems
+            <ul>
+              <li>
+                OBD2 systems should remain functional
+              </li>
+              <li>
+                Retention of specific emissions systems
+              </li>
+            </ul>
+          </li>
+          <li>
+            Engine Tuning
+          </li>
+        </ul>
+        </p>
+        <h3>
+          Subclasses
+        </h3>
+        <p>
+        <ul>
+          <li>
+            <div id="stsOverview">
+              Street Touring Sport (STS) – Naturally Aspirated Front-Wheel Drive sedans and coupes,
+              and similar performance light/older RWD and AWD cars. Emphasis on momentum and
+              handling over power
+            </div>
+          </li>
+          <li>
+            <div id="strOverview">
+              Street Touring Roadster (STR) – Low to medium HP Rear-Wheel Drive roadsters and coupes.
+              Generally, sports car based chassis
+            </div>
+          </li>
+          <li>
+            <div id="stxOverview">
+              Street Touring Xtreme (STX) – Medium HP coupes and sedans. Primarily RWD with some
+              performance matching AWD mixed in
+            </div>
+          </li>
+          <li>
+            <div id="stuOverview">
+              Street Touring Ultra (STU) – Higher power and performance sports cars
+              and coupes, along with similarly high performance AWD sedans
+            </div>
+          </li>
+          <li>
+            <div id="sthOverview">
+              Street Touring Hatchback (STH) – Turbo hatchbacks and sedans
+            </div>
+          </li>
+          <li>
+            <div id="sstOverview">
+              Super Street Touring (SST) – Highest performance sports cars and coupes.
+            </div>
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name }}LandingPage', '{{ toVarName $name }}CarAnsweredIndex'], [true, 0]); hideItem('{{ toVarName $name }}LandingPage'); evalSessionStorage('{{ toVarName $name }}Car'); window.scroll(0,0);">Continue</button>
+    </div>
+{{ range $index, $subchapter := .SubChapters }}
+    <div id="{{ toVarName $name}}{{ menuName $subchapter.Name }}" class="center question sansserif">
+      <h2 id="{{ toVarName $name}}{{ menuName $subchapter.Name }}Question">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="{{ toVarName $name}}Body" class="questionBody">
+        <h3>
+          {{ subChapterText $subchapter.Reader $chapterfillertext }}
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ toVarName $name }}CarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ toVarName $name }}Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ toVarName $name }}CarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ toVarName $name }}Car'); window.scroll(0,0);">No</button>
+    </div>
+{{ end }}
+
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1>
+        Your car is eligible for {{ $name }} class!
+        </br>
+      </h1>
+      <div id="{{ toVarName $name }}Subclasses" class="subclasses">
+        <h2 id="{{ toVarName $name }}Subclass" class="subclass">
+{{ $name }} Subclass:
+        </h2>
+      </div>
+      <div id="possibleClasses" class="possibleClasses">
+        <h2 id="specificClass" class="specificClass">
+Possible Classes:
+        </h2>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for {{ $name }} class.
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>

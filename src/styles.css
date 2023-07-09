@@ -22,6 +22,10 @@
   margin-right: 5%;
 }
 
+.indent {
+  margin-left: 1%;
+}
+
 .button {
   background-color: white;
   border: none;
