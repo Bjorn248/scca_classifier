@@ -223,7 +223,8 @@ const allSoloCars = {
       '1999': ['hs', 'stx', 'esp', 'sm', 'smf', 'ep', 'xp', 'xa'],
       '2000': ['hs', 'stx', 'esp', 'sm', 'smf', 'ep', 'xp', 'xa'],
       '2001': ['hs', 'stx', 'esp', 'sm', 'smf', 'ep', 'xp', 'xa'],
-      '2023': ['gs', 'sm', 'smf', 'xa', 'xp'],
+      '2022': ['gs', 'sth', 'sm', 'smf', 'xa', 'xp'],
+      '2023': ['gs', 'sth', 'sm', 'smf', 'xa', 'xp'],
     },
     'Integra Type R': {
       'all': ['ds', 'stx', 'esp', 'sm', 'smf', 'ep', 'xa'],
@@ -464,6 +465,11 @@ const allSoloCars = {
     'A3 Sportback e-tron': {
       '2017': ['gs', 'sth', 'sm', 'xp', 'xa', 'evx'],
       '2018': ['gs', 'sth', 'sm', 'xp', 'xa', 'evx'],
+      '2019': ['gs', 'sth', 'sm', 'xp', 'xa', 'evx'],
+      '2020': ['gs', 'sth', 'sm', 'xp', 'xa', 'evx'],
+      '2021': ['gs', 'sth', 'sm', 'xp', 'xa', 'evx'],
+      '2022': ['gs', 'sth', 'sm', 'xp', 'xa', 'evx'],
+      '2023': ['gs', 'sth', 'sm', 'xp', 'xa', 'evx'],
     },
     'A4': {
       '1994': ['gs', 'sth', 'sm', 'xp', 'xa'],
@@ -564,6 +570,8 @@ const allSoloCars = {
       '2019': ['evx'],
       '2020': ['evx'],
       '2021': ['evx'],
+      '2022': ['evx'],
+      '2023': ['evx'],
     },
     'Quattro (Coupe Turbo)': {
       'all': ['gs', 'esp', 'sm', 'xp', 'xa'],
@@ -1165,6 +1173,7 @@ const allSoloCars = {
       '2018': ['bs', 'sst', 'ssp', 'ssp', 'sm', 'xa', 'xp'],
       '2019': ['bs', 'sst', 'ssp', 'ssp', 'sm', 'xa', 'xp'],
       '2020': ['bs', 'ssp', 'ssp', 'sm', 'xa', 'xp'],
+      '2023': ['bs', 'ssp', 'ssp', 'sm', 'xa', 'xp'],
     },
     'M2 CS': {
       '2020': ['as', 'sst', 'ssr', 'sm', 'xp', 'xa'],
@@ -1768,6 +1777,9 @@ const allSoloCars = {
       '2012': ['bs', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
       '2013': ['bs', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
     },
+    'Corvette E-Ray': {
+      '2024': ['ss', 'ssr', 'ssp', 'cams', 'xp', 'xs', 'ssm'],
+    },
     'Corvette Grand Sport': {
       '2010': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
       '2011': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
@@ -1799,6 +1811,7 @@ const allSoloCars = {
       '2017': ['ss', 'ssp', 'cams', 'xp', 'ssm'],
       '2018': ['ss', 'ssp', 'cams', 'xp', 'ssm'],
       '2019': ['ss', 'ssp', 'cams', 'xp', 'ssm'],
+      '2023': ['ss', 'ssp', 'cams', 'xp', 'ssm'],
     },
     'Corvette ZR1': {
       '2009': ['ss', 'ssp', 'cams', 'xp', 'ssm'],
@@ -2890,6 +2903,7 @@ const allSoloCars = {
     'Mustang Mach-E': {
       '2021': ['ss', 'evx'],
       '2022': ['ss', 'evx'],
+      '2023': ['ss', 'evx'],
     },
     'Mustang SVO': {
       'all': ['gs', 'stu', 'esp', 'sm', 'cp', 'camt', 'camc', 'xp'],
@@ -3530,6 +3544,13 @@ const allSoloCars = {
       '2020': ['evx'],
       '2021': ['evx'],
       '2022': ['evx'],
+      '2023': ['evx'],
+    },
+    'Ionic 5': {
+      '2020': ['ds', 'xp', 'xa', 'sm', 'evx'],
+      '2021': ['ds', 'xp', 'xa', 'sm', 'evx'],
+      '2022': ['ds', 'xp', 'xa', 'sm', 'evx'],
+      '2023': ['ds', 'xp', 'xa', 'sm', 'evx'],
     },
     'Kona EV': {
       '2018': ['hs', 'evx'],
@@ -3838,6 +3859,9 @@ const allSoloCars = {
     'I-Pace': {
       '2019': ['evx'],
       '2020': ['evx'],
+      '2021': ['evx'],
+      '2022': ['evx'],
+      '2023': ['evx'],
     },
     'S-Type (6-cyl)': {
       '2002': ['gs', 'xp', 'xa', 'sm'],
@@ -3979,6 +4003,10 @@ const allSoloCars = {
     },
   },
   'Kia': {
+    'EV6 (non-GT)': {
+      '2022': ['ds', 'xp', 'xa', 'sm'],
+      '2023': ['ds', 'xp', 'xa', 'sm'],
+    },
     'Forte5': {
       '2014': ['hs', 'xp', 'xa', 'sm'],
       '2015': ['hs', 'xp', 'xa', 'sm'],
@@ -5712,7 +5740,7 @@ const allSoloCars = {
       '2022': ['ss', 'sst', 'xp', 'xs', 'sm'],
       '2023': ['ss', 'sst', 'xp', 'xs', 'sm'],
     },
-    'Juke * All vehicles must meet the requirements of Section 3.1': {
+    'Juke': {
       '2011': ['sth', 'xp', 'xa', 'sm'],
       '2012': ['sth', 'xp', 'xa', 'sm'],
       '2013': ['sth', 'xp', 'xa', 'sm'],
@@ -6064,6 +6092,7 @@ const allSoloCars = {
     'Polestar 2': {
       '2021': ['ss', 'evx'],
       '2022': ['ss', 'evx'],
+      '2023': ['ss', 'evx'],
     },
   },
   'Pontiac': {
@@ -7436,7 +7465,7 @@ const allSoloCars = {
       '2013': ['fs', 'xp', 'xa', 'sm', 'evx'],
       '2014': ['fs', 'xp', 'xa', 'sm', 'evx'],
     },
-    'Model S AWD': {
+    ' S AWD': {
       '2014': ['ss', 'xp', 'xs', 'sm', 'evx'],
       '2015': ['ss', 'xp', 'xs', 'sm', 'evx'],
       '2016': ['ss', 'xp', 'xs', 'sm', 'evx'],
@@ -7456,6 +7485,7 @@ const allSoloCars = {
       '2020': ['evx'],
       '2021': ['evx'],
       '2022': ['evx'],
+      '2023': ['evx'],
     },
     'Model Y': {
       '2020': ['ss', 'xp', 'xs', 'sm', 'evx'],
@@ -7596,13 +7626,19 @@ const allSoloCars = {
       '2004': ['sts', 'hs', 'xp', 'xb', 'sm', 'smf'],
       '2005': ['sts', 'hs', 'xp', 'xb', 'sm', 'smf'],
     },
-    'GR86 (without TRD equipment)': {
+    'GR86 (without TRD equipment, excl. 10th Anniv. Edition)': {
       '2022': ['ds', 'str', 'xp', 'xa', 'sm'],
       '2023': ['ds', 'str', 'xp', 'xa', 'sm'],
     },
-    'GR Corolla (excl. MORIZO Edition': {
-      '2022': ['ds', 'xp', 'xa', 'sm'],
-      '2023': ['ds', 'xp', 'xa', 'sm'],
+    'GR86 (10th Anniversary Edition)': {
+      '2023': ['bs', 'str', 'xp', 'xa', 'sm'],
+    },
+    'GR Corolla (excl. MORIZO Edition)': {
+      '2022': ['bs', 'xp', 'xa', 'sm'],
+      '2023': ['bs', 'xp', 'xa', 'sm'],
+    },
+    'GR Corolla (Monzo Edition)': {
+      '2023': ['bs', 'xp', 'xa', 'sm'],
     },
     'MR2 (non-turbo, non-supercharged)': {
       '1985': ['es', 'sts', 'csp', 'xp', 'xb', 'ssm'],
@@ -7944,6 +7980,9 @@ const allSoloCars = {
       '2022': ['gs', 'sth', 'dsp', 'ep', 'xp', 'xa', 'sm', 'smf'],
       '2023': ['gs', 'sth', 'dsp', 'ep', 'xp', 'xa', 'sm', 'smf'],
     },
+    'GTI (40th Anniv. Edition)': {
+      '2023': ['ds', 'sth', 'dsp', 'ep', 'xp', 'xa', 'sm', 'smf'],
+    },
     'Golf R': {
       '2012': ['ds', 'dsp', 'sm', 'ep', 'xp', 'xa', 'sm'],
       '2013': ['ds', 'dsp', 'sm', 'ep', 'xp', 'xa', 'sm'],
@@ -7955,7 +7994,9 @@ const allSoloCars = {
       '2022': ['ds', 'stu', 'ssp', 'sm', 'ep', 'xp', 'xa', 'sm'],
     },
     'ID.4': {
-      '2021': ['evx'],
+      '2021': ['ds', 'evx'],
+      '2022': ['ds', 'evx'],
+      '2023': ['ds', 'evx'],
     },
     'Jetta 1.8L Turbo': {
       'all': ['hs', 'dsp', 'ep', 'xp', 'xa', 'sm', 'smf'],
@@ -8137,6 +8178,8 @@ const allSoloCars = {
     },
     'XC40 Recharge': {
       '2021': ['evx'],
+      '2022': ['evx'],
+      '2023': ['evx'],
     },
   },
 };
