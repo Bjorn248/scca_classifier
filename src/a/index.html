@@ -18,21 +18,31 @@
       </h1>
       <div id="makeModelYear" class="center">
         <h2 id="makeModelYearQuestion">
-          Please choose the make, model, and year of your car. This will
-          help determine which classes you are eligible for.
+          Please choose the make, model, and year of your car. The classes you are eligible for
+          will be highlighted.
         </h2>
-        <label for="make">Make:</label>
-        <select name="make" id="make" class="select-css" onchange="setState(['make'], [this.value]); lookupMakeModelYear();">
-        </select>
-        <label for="model">Model:</label>
-        <select name="model" id="model" class="select-css" onchange="setState(['model'], [this.value]); lookupMakeModelYear();">
-        </select>
-        <label for="year">Year:</label>
-        <select name="year" id="year" class="select-css" onchange="setState(['year'], [this.value]); lookupMakeModelYear();">
-        </select>
+        <div id="dropDownMenus" class="center menus">
+          <fieldset>
+            <p>
+              <label for="make">Make:</label>
+              <select name="make" id="make" class="select-css" onchange="setState(['make'], [this.value]); lookupMakeModelYear();">
+              </select>
+            </p>
+            <p>
+              <label for="model">Model:</label>
+              <select name="model" id="model" class="select-css" onchange="setState(['model'], [this.value]); lookupMakeModelYear();">
+              </select>
+            </p>
+            <p>
+              <label for="year">Year:</label>
+              <select name="year" id="year" class="select-css" onchange="setState(['year'], [this.value]); lookupMakeModelYear();">
+              </select>
+            </p>
+          </fieldset>
+        </div>
         <h3 id="nocNotice">
           If your car not listed then you should attempt to class your car using the NOC (Not Otherwise Classified)
-          rules. This method is complicated and not fully supported on this website.
+          rules.
           </br>
           Please refer to the <a href="https://www.scca.com/pages/solo-cars-and-rules">SCCA rulebook</a>
           if this happens, or get in contact with an experienced autocrosser to help you out!
