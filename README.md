@@ -31,4 +31,4 @@ python -m http.server
 This has been updated for the 2023 Solo (autocross) rules.
 
 The download URL for the set of rules used to build the current version of the website can be found
-here: https://www.scca.com/downloads/66191-2023-solo-rule-bookv1/download
+here: https://www.scca.com/downloads/71400-2024-rulebook-april/download
