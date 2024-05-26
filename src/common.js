@@ -290,12 +290,12 @@ const allSoloCars = {
       'all': ['hs', 'fsp', 'sm', 'dp', 'xp', 'xb'],
     },
     '4C (incl. Spider)': {
-      '2015': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
-      '2016': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
-      '2017': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
-      '2018': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
-      '2019': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
-      '2020': ['ss', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
+      '2015': ['as', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
+      '2016': ['as', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
+      '2017': ['as', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
+      '2018': ['as', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
+      '2019': ['as', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
+      '2020': ['as', 'ssr', 'sst', 'ssm', 'xp', 'xu'],
     },
     '164 (non-S)': {
       '1991': ['hs', 'sm', 'xp', 'xa'],
