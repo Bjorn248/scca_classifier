@@ -25,13 +25,13 @@
   },
   "homepage": "https://github.com/Bjorn248/scca_classifier#readme",
   "devDependencies": {
-    "cssnano": "^5.0.6",
-    "eslint": "^8.9.0",
+    "cssnano": "^5.1.15",
+    "eslint": "^8.57.0",
     "eslint-config-google": "^0.14.0",
     "html-minifier": "^4.0.0",
     "javascript-natural-sort": "^0.7.1",
-    "postcss": "^8.4.31",
+    "postcss": "^8.4.39",
     "postcss-cli": "^8.3.1",
-    "uglify-js": "^3.13.10"
+    "uglify-js": "^3.18.0"
   }
 }
