@@ -22,3 +22,4 @@ go.work
 
 # rules.pdf and rules.txt from ./generate_rules_txt.sh
 rules.*
+old_rules.*
