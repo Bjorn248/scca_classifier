@@ -6711,7 +6711,7 @@ const allSoloCars = {
       '2023': ['ss', 'xp', 'xu', 'ssm'],
       '2024': ['ss', 'xp', 'xu', 'ssm'],
     },
-    'Cayman GTS & GTS 4.0 & Spyder': {
+    'Cayman GTS': {
       '2015': ['as', 'sst', 'ssp', 'xp', 'xa', 'ssm'],
       '2016': ['as', 'sst', 'ssp', 'xp', 'xa', 'ssm'],
       '2017': ['as', 'ssp', 'xp', 'xu', 'ssm'],
@@ -6722,6 +6722,13 @@ const allSoloCars = {
       '2022': ['as', 'ssp', 'xp', 'xu', 'ssm'],
       '2023': ['as', 'ssp', 'xp', 'xu', 'ssm'],
       '2024': ['as', 'ssp', 'xp', 'xu', 'ssm'],
+    },
+    'Cayman GTS 4.0': {
+      '2020': ['ss', 'ssp', 'xp', 'xu', 'ssm'],
+      '2021': ['ss', 'ssp', 'xp', 'xu', 'ssm'],
+      '2022': ['ss', 'ssp', 'xp', 'xu', 'ssm'],
+      '2023': ['ss', 'ssp', 'xp', 'xu', 'ssm'],
+      '2024': ['ss', 'ssp', 'xp', 'xu', 'ssm'],
     },
     'Cayman R': {
       '2012': ['as', 'ssp', 'fp', 'xp', 'xu', 'sm'],
