@@ -1820,7 +1820,7 @@ const allSoloCars = {
       '2013': ['bs', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
     },
     'Corvette E-Ray': {
-      '2024': ['ss', 'ssr', 'ssp', 'cams', 'xp', 'xu', 'ssm'],
+      '2024': ['ss', 'ssr', 'ssp', 'xp', 'xu', 'ssm'],
     },
     'Corvette Grand Sport': {
       '2010': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
