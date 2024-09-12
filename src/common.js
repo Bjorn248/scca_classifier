@@ -6705,8 +6705,11 @@ const allSoloCars = {
       '2021': ['ss', 'xp', 'xu', 'ssm'],
       '2022': ['ss', 'xp', 'xu', 'ssm'],
       '2023': ['ss', 'xp', 'xu', 'ssm'],
+      '2024': ['ss', 'xp', 'xu', 'ssm'],
     },
     'Cayman GT4 RS': {
+      '2020': ['ss', 'xp', 'xu', 'ssm'],
+      '2021': ['ss', 'xp', 'xu', 'ssm'],
       '2022': ['ss', 'xp', 'xu', 'ssm'],
       '2023': ['ss', 'xp', 'xu', 'ssm'],
       '2024': ['ss', 'xp', 'xu', 'ssm'],
@@ -6750,6 +6753,13 @@ const allSoloCars = {
       '2019': ['as', 'xp', 'xu', 'ssm'],
       '2020': ['as', 'xp', 'xu', 'ssm'],
       '2021': ['as', 'xp', 'xu', 'ssm'],
+    },
+    'Cayman Spyder/Spyder RS': {
+      '2020': ['ss', 'xp', 'xu', 'ssm'],
+      '2021': ['ss', 'xp', 'xu', 'ssm'],
+      '2022': ['ss', 'xp', 'xu', 'ssm'],
+      '2023': ['ss', 'xp', 'xu', 'ssm'],
+      '2024': ['ss', 'xp', 'xu', 'ssm'],
     },
     'Macan (all)': {
       '2015': ['bs', 'xp', 'xa', 'sm'],
