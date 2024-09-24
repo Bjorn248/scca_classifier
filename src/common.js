@@ -612,6 +612,7 @@ const allSoloCars = {
       '2018': ['ss', 'ssm', 'xp', 'xu'],
       '2019': ['ss', 'ssm', 'xp', 'xu'],
       '2020': ['ss', 'ssm', 'xp', 'xu'],
+      '2021': ['ss', 'ssm', 'xp', 'xu'],
     },
     'RS 3': {
       '2017': ['bs', 'sst', 'sm', 'xp', 'xa'],
@@ -741,11 +742,11 @@ const allSoloCars = {
       '2009': ['ds', 'sth', 'sm', 'smf', 'xp', 'xa'],
     },
     'TT RS': {
-      '2012': ['ss', 'sst', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
-      '2013': ['ss', 'sst', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
-      '2018': ['ss', 'sst', 'ssp', 'ssm', 'xu', 'xp'],
-      '2019': ['ss', 'sst', 'ssp', 'ssm', 'xu', 'xp'],
-      '2020': ['ss', 'sst', 'ssm', 'xu', 'xp'],
+      '2012': ['as', 'sst', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
+      '2013': ['as', 'sst', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
+      '2018': ['as', 'sst', 'ssp', 'ssm', 'xu', 'xp'],
+      '2019': ['as', 'sst', 'ssp', 'ssm', 'xu', 'xp'],
+      '2020': ['as', 'sst', 'ssm', 'xu', 'xp'],
       '2021': ['ss', 'sst', 'ssm', 'xu', 'xp'],
       '2022': ['ss', 'sst', 'ssm', 'xu', 'xp'],
     },
@@ -1193,6 +1194,15 @@ const allSoloCars = {
     'Bavaria': {
       'all': ['dsp', 'sm', 'xp', 'xa'],
     },
+    'i4': {
+      '2022': ['as', 'sm', 'xp', 'xa'],
+      '2023': ['as', 'sm', 'xp', 'xa'],
+      '2024': ['as', 'sm', 'xp', 'xa'],
+    },
+    'M2 (with MP Sports Suspension)': {
+      '2023': ['as', 'ssm', 'xp', 'xu'],
+      '2024': ['as', 'ssm', 'xp', 'xu'],
+    },
     'M2 (except Performance Edition ZL9)': {
       '2016': ['bs', 'sst', 'ssp', 'ssp', 'sm', 'xa', 'xp'],
       '2017': ['bs', 'sst', 'ssp', 'ssp', 'sm', 'xa', 'xp'],
@@ -1568,7 +1578,7 @@ const allSoloCars = {
       '2016': ['gs', 'xp', 'xa', 'sm'],
     },
     'XLR': {
-      'all': ['ssr', 'as', 'camc', 'xp', 'sm'],
+      'all': ['as', 'ssr', 'camc', 'xp', 'sm'],
     },
   },
   'Chevrolet': {
@@ -1823,13 +1833,18 @@ const allSoloCars = {
       '2024': ['ss', 'ssr', 'ssp', 'xp', 'xu', 'ssm'],
     },
     'Corvette Grand Sport': {
+      '2005': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2006': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2007': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2008': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2009': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
       '2010': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
       '2011': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
       '2012': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
       '2013': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
-      '2017': ['ss', 'ssr', 'ssp', 'cams', 'xp', 'xu', 'ssm'],
-      '2018': ['ss', 'ssr', 'ssp', 'cams', 'xp', 'xu', 'ssm'],
-      '2019': ['ss', 'ssr', 'ssp', 'cams', 'xp', 'xu', 'ssm'],
+      '2017': ['as', 'ssr', 'ssp', 'cams', 'xp', 'xu', 'ssm'],
+      '2018': ['as', 'ssr', 'ssp', 'cams', 'xp', 'xu', 'ssm'],
+      '2019': ['as', 'ssr', 'ssp', 'cams', 'xp', 'xu', 'ssm'],
     },
     'Corvette Stingray': {
       '2014': ['bs', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
@@ -1849,6 +1864,15 @@ const allSoloCars = {
       '2002': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
       '2003': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
       '2004': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2005': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2006': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2007': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2008': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2009': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2010': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2011': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2012': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
+      '2013': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
       '2015': ['ss', 'ssp', 'cams', 'xp', 'ssm'],
       '2016': ['ss', 'ssp', 'cams', 'xp', 'ssm'],
       '2017': ['ss', 'ssp', 'cams', 'xp', 'ssm'],
@@ -2521,11 +2545,11 @@ const allSoloCars = {
       '2008': ['as', 'ssr', 'cams', 'ssp', 'camc', 'ssm', 'xp'],
       '2009': ['as', 'ssr', 'cams', 'ssp', 'camc', 'ssm', 'xp'],
       '2010': ['as', 'ssr', 'cams', 'ssp', 'camc', 'ssm', 'xp'],
-      '2013': ['ss', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
-      '2014': ['ss', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
-      '2015': ['ss', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
-      '2016': ['ss', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
-      '2017': ['ss', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
+      '2013': ['as', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
+      '2014': ['as', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
+      '2015': ['as', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
+      '2016': ['as', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
+      '2017': ['as', 'ssr', 'ssp', 'ssm', 'xp', 'xu'],
     },
     'Viper ACR': {
       'all': ['ss', 'ssp', 'cams', 'ssm', 'xp'],
@@ -2898,8 +2922,8 @@ const allSoloCars = {
       '2017': ['ds', 'stu', 'esp', 'camc', 'sm', 'xp'],
     },
     'Mustang Boss 302 Laguna Seca': {
-      '2012': ['ssr', 'sst', 'as', 'esp', 'camc', 'sm', 'xp'],
-      '2013': ['ssr', 'sst', 'as', 'esp', 'camc', 'sm', 'xp'],
+      '2012': ['as', 'ssr', 'sst', 'esp', 'camc', 'sm', 'xp'],
+      '2013': ['as', 'ssr', 'sst', 'esp', 'camc', 'sm', 'xp'],
     },
     'Mustang Boss 302 non-Laguna Seca': {
       '2012': ['fs', 'sst', 'esp', 'camc', 'sm', 'xp'],
@@ -2932,9 +2956,9 @@ const allSoloCars = {
       '2024': ['ds', 'stu', 'sm', 'camc', 'xp'],
     },
     'Mustang GT500': {
-      '2020': ['ss', 'ssr', 'dsp', 'sm', 'camc', 'xp'],
-      '2021': ['ss', 'ssr', 'sm', 'camc', 'xp'],
-      '2022': ['ss', 'ssr', 'sm', 'camc', 'xp'],
+      '2020': ['as', 'ssr', 'dsp', 'sm', 'camc', 'xp'],
+      '2021': ['as', 'ssr', 'sm', 'camc', 'xp'],
+      '2022': ['as', 'ssr', 'sm', 'camc', 'xp'],
     },
     'Mustang GT (non-Performance Package)': {
       '2010': ['fs', 'camc', 'sm', 'xp'],
@@ -3625,6 +3649,9 @@ const allSoloCars = {
       '2023': ['ds', 'xp', 'xa', 'sm', 'evx'],
       '2024': ['ds', 'xp', 'xa', 'sm', 'evx'],
     },
+    'Ionic 5 N': {
+      '2025': ['ss', 'xp', 'xa', 'sm'],
+    },
     'Kona EV': {
       '2018': ['hs', 'evx'],
       '2019': ['hs', 'evx'],
@@ -3924,11 +3951,13 @@ const allSoloCars = {
       '2023': ['bs', 'ssr', 'xp', 'xa', 'sm'],
     },
     'F-Type R & SVR': {
-      '2018': ['ss', 'xp', 'xu', 'sm'],
-      '2019': ['ss', 'xp', 'xu', 'sm'],
-      '2020': ['ss', 'xp', 'xu', 'sm'],
-      '2021': ['ss', 'xp', 'xu', 'sm'],
-      '2022': ['ss', 'xp', 'xu', 'sm'],
+      '2018': ['as', 'xp', 'xu', 'sm'],
+      '2019': ['as', 'xp', 'xu', 'sm'],
+      '2020': ['as', 'xp', 'xu', 'sm'],
+      '2021': ['as', 'xp', 'xu', 'sm'],
+      '2022': ['as', 'xp', 'xu', 'sm'],
+      '2023': ['as', 'xp', 'xu', 'sm'],
+      '2024': ['as', 'xp', 'xu', 'sm'],
     },
     'I-Pace': {
       '2019': ['evx'],
@@ -4081,6 +4110,11 @@ const allSoloCars = {
       '2022': ['ds', 'xp', 'xa', 'sm'],
       '2023': ['ds', 'xp', 'xa', 'sm'],
       '2024': ['ds', 'xp', 'xa', 'sm'],
+    },
+    'EV6 GT': {
+      '2022': ['ss', 'xp', 'xa', 'sm'],
+      '2023': ['ss', 'xp', 'xa', 'sm'],
+      '2024': ['ss', 'xp', 'xa', 'sm'],
     },
     'Forte5': {
       '2014': ['hs', 'xp', 'xa', 'sm'],
@@ -4437,6 +4471,9 @@ const allSoloCars = {
     },
     'Elite (1216 cc)': {
       'all': ['csp', 'xp', 'xa', 'ssm'],
+    },
+    'Emira': {
+      'all': ['ss', 'xp', 'xa', 'ssm'],
     },
     'Esprit': {
       'all': ['cs', 'ssm', 'ssp', 'xp', 'xa'],
@@ -4804,6 +4841,7 @@ const allSoloCars = {
       '2018': ['ss', 'xp', 'xu', 'ssm'],
       '2019': ['ss', 'xp', 'xu', 'ssm'],
       '2020': ['ss', 'xp', 'xu', 'ssm'],
+      '2021': ['ss', 'xp', 'xu', 'ssm'],
     },
     'C32 AMG': {
       '2002': ['bs', 'xp', 'xa', 'sm'],
@@ -4998,6 +5036,9 @@ const allSoloCars = {
     },
     'GLA250 (FWD)': {
       'all': ['gs', 'xp', 'xa', 'sm'],
+    },
+    'GLC63 (incl. S)': {
+      'all': ['ss', 'xp', 'xa', 'sm'],
     },
     'Not Otherwise Classified': {
       'all': ['hs', 'xp', 'xa', 'sm'],
@@ -6363,7 +6404,7 @@ const allSoloCars = {
       '2021': ['ss', 'xp', 'xu', 'ssm'],
       '2022': ['ss', 'xp', 'xu', 'ssm'],
     },
-    '911 Carrera (incl. 4, S, 4S, GTS) (997 chassis)': {
+    '911 Carrera (incl. 4, S, 4S, GTS)': {
       '2005': ['as', 'xp', 'xa', 'ssm'],
       '2006': ['as', 'xp', 'xa', 'ssm'],
       '2007': ['as', 'xp', 'xa', 'ssm'],
@@ -6372,6 +6413,10 @@ const allSoloCars = {
       '2010': ['as', 'xp', 'xa', 'ssm'],
       '2011': ['as', 'xp', 'xa', 'ssm'],
       '2012': ['as', 'xp', 'xa', 'ssm'],
+      '2013': ['as', 'xp', 'xa', 'ssm'],
+      '2014': ['as', 'xp', 'xa', 'ssm'],
+      '2015': ['as', 'xp', 'xa', 'ssm'],
+      '2016': ['as', 'xp', 'xa', 'ssm'],
     },
     '911 Club Sport': {
       '1987': ['cs', 'xp', 'xa', 'ssm'],
