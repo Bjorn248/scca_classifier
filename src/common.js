@@ -7840,15 +7840,15 @@ const allSoloCars = {
       '2024': ['ds', 'str', 'xp', 'xa', 'sm'],
     },
     'GR Corolla (Morizo Edition)': {
-      '2023': ['as', 'xp', 'xa', 'csp', 'dsp', 'sm'],
-      '2024': ['as', 'xp', 'xa', 'csp', 'dsp', 'sm'],
+      '2023': ['as', 'stu', 'xp', 'xa', 'csp', 'dsp', 'sm'],
+      '2024': ['as', 'stu', 'xp', 'xa', 'csp', 'dsp', 'sm'],
     },
     'GR Corolla (excl. MORIZO Edition, excl. Performance Shocks and Springs Package)': {
-      '2022': ['bs', 'xp', 'xa', 'csp', 'dsp', 'sm'],
-      '2023': ['bs', 'xp', 'xa', 'csp', 'dsp', 'sm'],
+      '2022': ['bs', 'stu', 'xp', 'xa', 'csp', 'dsp', 'sm'],
+      '2023': ['bs', 'stu', 'xp', 'xa', 'csp', 'dsp', 'sm'],
     },
     'GR Corolla (with Performance Shocks and Springs Package)': {
-      '2024': ['as', 'xp', 'xa', 'csp', 'dsp', 'sm'],
+      '2024': ['as', 'stu', 'xp', 'xa', 'csp', 'dsp', 'sm'],
     },
     'MR2 (non-turbo, non-supercharged)': {
       '1985': ['es', 'sts', 'csp', 'xp', 'xb', 'ssm'],
