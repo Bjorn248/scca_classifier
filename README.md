@@ -27,8 +27,21 @@ I prefer this simple python server.
 python -m http.server
 ```
 
+### Generating the Site
+This project uses Go templating to generate part of the site.
+
+#### Download the rules
+```bash
+npm run generate_rules
+```
+
+#### Generate
+```bash
+npm run generate_site
+```
+
 ## Rules
-This has been updated for the 2023 Solo (autocross) rules.
+This has been updated for the 2024 Solo (autocross) rules.
 
 The download URL for the set of rules used to build the current version of the website can be found
-here: https://www.scca.com/downloads/71400-2024-rulebook-april/download
+here: https://www.scca.com/downloads/72794/download

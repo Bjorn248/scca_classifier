@@ -9,10 +9,11 @@ One item of note is dangling commas. We want dangling commas. This cleans up git
 copy/pasting within the code much easier.
 
 ## Repo Layout
-All website code is stored in `src`.
+All website code is stored in `src`. The code that is used to generate the website is stored in
+`templates`.
 
 ```
-src/
+src
 ├── a
 │   ├── cam.html
 │   ├── ev.html
@@ -24,13 +25,23 @@ src/
 │   ├── sp.html
 │   ├── ssc.html
 │   ├── st.html
-│   └── xs.html
+│   └── x.html
 ├── common.js
 ├── favicon.ico
 ├── index.html
 ├── rr
 │   └── index.html
 └── styles.css
+templates
+├── a
+│   ├── m.html.tmpl
+│   ├── p.html.tmpl
+│   ├── s.html.tmpl
+│   ├── sm.html.tmpl
+│   ├── sp.html.tmpl
+│   ├── ssc.html.tmpl
+│   └── st.html.tmpl
+└── common.js.tmpl
 ```
 
 Underneath `a` (for autocross) there a `.html` file for each class. This needs to have an entry in
@@ -42,6 +53,9 @@ of the website. I started with autocross since that's what I am more familiar wi
 
 ## Fixing a class/year issue
 All the makes, models, and years are stored in a HUGE object called `allSoloCars` in `src/common.js`.
+This file is generated from a `templates/common.js.tmpl`. You can iterate in src/common.js locally but
+PRs must include a change to both the file in `templates` and the file in `src`.
+
 Adjusting the classing for a car should be as simple as finding it and fixing the array that defines
 its classes.
 
