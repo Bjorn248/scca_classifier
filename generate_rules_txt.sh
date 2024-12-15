@@ -10,7 +10,7 @@ then
 fi
 
 echo "Downloading Rules PDF..."
-curl -L https://www.scca.com/downloads/72609-rule-book-2024-july/download -o rules.pdf
+curl -L https://www.scca.com/downloads/73830/download -o rules.pdf
 echo "Done"
 
 if ! command -v pdftotext &> /dev/null
