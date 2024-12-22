@@ -7545,6 +7545,12 @@ const allSoloCars = {
       '2020': ['ds', 'bst', 'xp', 'fp', 'xa', 'sm'],
       '2021': ['ds', 'bst', 'xp', 'fp', 'xa', 'sm'],
     },
+    'WRX TR': {
+      '2024': ['ds', 'xp', 'fp', 'xa', 'sm'],
+    },
+    'WRX tS': {
+      '2025': ['ds', 'xp', 'fp', 'xa', 'sm'],
+    },
   },
   'Sunbeam': {
     'Alpine': {
