@@ -479,13 +479,9 @@ const allSoloCars = {
       '2024': ['gs', 'gst', 'esp', 'sm', 'smf', 'xp', 'xa'],
     },
     'A3 Sportback e-tron': {
+      '2016': ['gs', 'gst', 'sm', 'xp', 'xa', 'evx'],
       '2017': ['gs', 'gst', 'sm', 'xp', 'xa', 'evx'],
       '2018': ['gs', 'gst', 'sm', 'xp', 'xa', 'evx'],
-      '2019': ['gs', 'gst', 'sm', 'xp', 'xa', 'evx'],
-      '2020': ['gs', 'gst', 'sm', 'xp', 'xa', 'evx'],
-      '2021': ['gs', 'gst', 'sm', 'xp', 'xa', 'evx'],
-      '2022': ['gs', 'gst', 'sm', 'xp', 'xa', 'evx'],
-      '2023': ['gs', 'gst', 'sm', 'xp', 'xa', 'evx'],
     },
     'A4': {
       '1994': ['gs', 'gst', 'sm', 'xp', 'xa'],
@@ -583,12 +579,22 @@ const allSoloCars = {
     'Coupe quattro (non-turbo)': {
       'all': ['hs', 'esp', 'sm', 'xp', 'xa'],
     },
-    'E-tron (incl Sportback)': {
+    'e-tron SUV (incl Sportback)': {
       '2019': ['evx'],
       '2020': ['evx'],
       '2021': ['evx'],
       '2022': ['evx'],
       '2023': ['evx'],
+    },
+    'e-tron GT (incl RS)': {
+      '2022': ['evx'],
+      '2023': ['evx'],
+      '2024': ['evx'],
+    },
+    'e-tron S (incl Sportback)': {
+      '2022': ['evx'],
+      '2023': ['evx'],
+      '2024': ['evx'],
     },
     'Quattro (Coupe Turbo)': {
       'all': ['gs', 'esp', 'sm', 'xp', 'xa'],
@@ -790,6 +796,11 @@ const allSoloCars = {
       '2021': ['bs', 'sst', 'sm', 'xp', 'xa'],
       '2022': ['bs', 'sst', 'sm', 'xp', 'xa'],
       '2023': ['bs', 'sst', 'sm', 'xp', 'xa'],
+    },
+    'Q4 e-tron (incl. Sportback)': {
+      '2022': ['evx'],
+      '2023': ['evx'],
+      '2024': ['evx'],
     },
   },
   'BMW': {
@@ -1208,9 +1219,16 @@ const allSoloCars = {
       'all': ['dsp', 'sm', 'xp', 'xa'],
     },
     'i4': {
-      '2022': ['as', 'sm', 'xp', 'xa'],
-      '2023': ['as', 'sm', 'xp', 'xa'],
-      '2024': ['as', 'sm', 'xp', 'xa'],
+      '2022': ['as', 'sm', 'xp', 'xa', 'evx'],
+      '2023': ['as', 'sm', 'xp', 'xa', 'evx'],
+      '2024': ['as', 'sm', 'xp', 'xa', 'evx'],
+    },
+    'i5': {
+      '2024': ['evx'],
+    },
+    'i7': {
+      '2023': ['evx'],
+      '2024': ['evx'],
     },
     'M2 (with MP Sports Suspension)': {
       '2023': ['as', 'ssm', 'xp', 'xu'],
@@ -1595,6 +1613,10 @@ const allSoloCars = {
       '2015': ['gs', 'xp', 'xa', 'sm'],
       '2016': ['gs', 'xp', 'xa', 'sm'],
     },
+    'LYRIQ (incl. AWD)': {
+      '2023': ['evx'],
+      '2024': ['evx'],
+    },
     'XLR': {
       'all': ['as', 'ssr', 'camc', 'xp', 'sm'],
     },
@@ -1605,6 +1627,9 @@ const allSoloCars = {
     },
     'Beretta (Not Otherwise Classified)': {
       'all': ['hs', 'xp', 'xa', 'sm'],
+    },
+    'Blazer EV': {
+      '2024': ['evx'],
     },
     'Bolt': {
       'all': ['hs', 'gst', 'xp', 'xa', 'sm', 'evx'],
@@ -2760,6 +2785,10 @@ const allSoloCars = {
       '2011': ['evx'],
       '2012': ['evx'],
     },
+    'Ocean': {
+      '2023': ['evx'],
+      '2024': ['evx'],
+    },
   },
   'Ford': {
     'Aspire': {
@@ -2809,6 +2838,15 @@ const allSoloCars = {
       '2016': ['hs', 'est', 'sm', 'xp', 'xa'],
       '2017': ['hs', 'est', 'sm', 'xp', 'xa'],
       '2018': ['hs', 'est', 'sm', 'xp', 'xa'],
+    },
+    'Focus EV': {
+      '2012': ['evx'],
+      '2013': ['evx'],
+      '2014': ['evx'],
+      '2015': ['evx'],
+      '2016': ['evx'],
+      '2017': ['evx'],
+      '2018': ['evx'],
     },
     'Focus RS': {
       '2016': ['ds', 'bst', 'dsp', 'sm', 'xp', 'xa'],
@@ -3007,7 +3045,7 @@ const allSoloCars = {
       '2022': ['fs', 'camc', 'sm', 'xp'],
       '2023': ['fs', 'camc', 'sm', 'xp'],
     },
-    'Mustang Mach-E': {
+    'Mustang Mach-E GT': {
       '2021': ['bs', 'evx'],
       '2022': ['bs', 'evx'],
       '2023': ['bs', 'evx'],
@@ -3175,40 +3213,18 @@ const allSoloCars = {
       '2003': ['gs', 'sm', 'xp', 'xa'],
     },
   },
-  'GMC': {
-    'Sonoma (4-cyl & 6-cyl, N/A)': {
-      'all': ['dst', 'sm', 'xp', 'xa'],
+  'Genesis': {
+    'Genesis Electrified GV60': {
+      '2023': ['evx'],
+      '2024': ['evx'],
     },
-    'Sonoma (6-cyl)': {
-      '1982': ['cp', 'sm', 'xp', 'xa'],
-      '1983': ['cp', 'sm', 'xp', 'xa'],
-      '1984': ['cp', 'sm', 'xp', 'xa'],
-      '1985': ['cp', 'sm', 'xp', 'xa'],
-      '1986': ['cp', 'sm', 'xp', 'xa'],
-      '1987': ['cp', 'sm', 'xp', 'xa'],
-      '1988': ['cp', 'sm', 'xp', 'xa'],
-      '1989': ['cp', 'sm', 'xp', 'xa'],
-      '1990': ['cp', 'sm', 'xp', 'xa'],
-      '1991': ['cp', 'sm', 'xp', 'xa'],
-      '1992': ['cp', 'sm', 'xp', 'xa'],
-      '1993': ['cp', 'sm', 'xp', 'xa'],
-      '1994': ['cp', 'sm', 'xp', 'xa'],
-      '1995': ['cp', 'sm', 'xp', 'xa'],
-      '1996': ['cp', 'sm', 'xp', 'xa'],
-      '1997': ['cp', 'sm', 'xp', 'xa'],
-      '1998': ['cp', 'sm', 'xp', 'xa'],
-      '1999': ['cp', 'sm', 'xp', 'xa'],
-      '2000': ['cp', 'sm', 'xp', 'xa'],
-      '2001': ['cp', 'sm', 'xp', 'xa'],
-      '2002': ['cp', 'sm', 'xp', 'xa'],
-      '2003': ['cp', 'sm', 'xp', 'xa'],
-      '2004': ['cp', 'sm', 'xp', 'xa'],
+    'Genesis Electrified GV70': {
+      '2023': ['evx'],
+      '2024': ['evx'],
     },
-    'Syclone': {
-      'all': ['fs', 'sm', 'xp', 'xa'],
-    },
-    'Typhoon': {
-      'all': ['fs', 'sm', 'xp', 'xa'],
+    'Genesis Electrified G80': {
+      '2023': ['evx'],
+      '2024': ['evx'],
     },
   },
   'Geo': {
@@ -3247,6 +3263,42 @@ const allSoloCars = {
       '1987': ['esp', 'sm', 'xp', 'xb', 'smf'],
       '1988': ['esp', 'sm', 'xp', 'xb', 'smf'],
       '1989': ['esp', 'sm', 'xp', 'xb', 'smf'],
+    },
+  },
+  'GMC': {
+    'Sonoma (4-cyl & 6-cyl, N/A)': {
+      'all': ['dst', 'sm', 'xp', 'xa'],
+    },
+    'Sonoma (6-cyl)': {
+      '1982': ['cp', 'sm', 'xp', 'xa'],
+      '1983': ['cp', 'sm', 'xp', 'xa'],
+      '1984': ['cp', 'sm', 'xp', 'xa'],
+      '1985': ['cp', 'sm', 'xp', 'xa'],
+      '1986': ['cp', 'sm', 'xp', 'xa'],
+      '1987': ['cp', 'sm', 'xp', 'xa'],
+      '1988': ['cp', 'sm', 'xp', 'xa'],
+      '1989': ['cp', 'sm', 'xp', 'xa'],
+      '1990': ['cp', 'sm', 'xp', 'xa'],
+      '1991': ['cp', 'sm', 'xp', 'xa'],
+      '1992': ['cp', 'sm', 'xp', 'xa'],
+      '1993': ['cp', 'sm', 'xp', 'xa'],
+      '1994': ['cp', 'sm', 'xp', 'xa'],
+      '1995': ['cp', 'sm', 'xp', 'xa'],
+      '1996': ['cp', 'sm', 'xp', 'xa'],
+      '1997': ['cp', 'sm', 'xp', 'xa'],
+      '1998': ['cp', 'sm', 'xp', 'xa'],
+      '1999': ['cp', 'sm', 'xp', 'xa'],
+      '2000': ['cp', 'sm', 'xp', 'xa'],
+      '2001': ['cp', 'sm', 'xp', 'xa'],
+      '2002': ['cp', 'sm', 'xp', 'xa'],
+      '2003': ['cp', 'sm', 'xp', 'xa'],
+      '2004': ['cp', 'sm', 'xp', 'xa'],
+    },
+    'Syclone': {
+      'all': ['fs', 'sm', 'xp', 'xa'],
+    },
+    'Typhoon': {
+      'all': ['fs', 'sm', 'xp', 'xa'],
     },
   },
   'Honda': {
@@ -3670,21 +3722,26 @@ const allSoloCars = {
       '2021': ['fs', 'sm', 'xp', 'xa'],
       '2022': ['fs', 'sm', 'xp', 'xa'],
     },
-    'IONIQ EV': {
+    'IONIQ Electric': {
+      '2017': ['evx'],
+      '2018': ['evx'],
+      '2019': ['evx'],
       '2020': ['evx'],
       '2021': ['evx'],
-      '2022': ['evx'],
-      '2023': ['evx'],
     },
-    'Ionic 5': {
-      '2020': ['ds', 'xp', 'xa', 'sm', 'evx'],
-      '2021': ['ds', 'xp', 'xa', 'sm', 'evx'],
+    'IONIQ 5': {
+      '2020': ['ds', 'xp', 'xa', 'sm'],
+      '2021': ['ds', 'xp', 'xa', 'sm'],
       '2022': ['ds', 'xp', 'xa', 'sm', 'evx'],
       '2023': ['ds', 'xp', 'xa', 'sm', 'evx'],
       '2024': ['ds', 'xp', 'xa', 'sm', 'evx'],
     },
-    'Ionic 5 N': {
-      '2025': ['ss', 'xp', 'xa', 'sm'],
+    'IONIQ 5 N': {
+      '2025': ['ss', 'xp', 'xa', 'sm', 'evx'],
+    },
+    'IONIQ 6': {
+      '2023': ['evx'],
+      '2024': ['evx'],
     },
     'Kona EV': {
       '2018': ['hs', 'evx'],
@@ -3693,6 +3750,7 @@ const allSoloCars = {
       '2021': ['hs', 'evx'],
       '2022': ['hs', 'evx'],
       '2023': ['hs', 'evx'],
+      '2024': ['hs', 'evx'],
     },
     'Kona N': {
       '2022': ['ds', 'sm', 'xp', 'xa', 'smf'],
@@ -4000,6 +4058,7 @@ const allSoloCars = {
       '2021': ['evx'],
       '2022': ['evx'],
       '2023': ['evx'],
+      '2024': ['evx'],
     },
     'S-Type (6-cyl)': {
       '2002': ['gs', 'xp', 'xa', 'sm'],
@@ -4142,14 +4201,14 @@ const allSoloCars = {
   },
   'Kia': {
     'EV6 (non-GT)': {
-      '2022': ['ds', 'xp', 'xa', 'sm'],
-      '2023': ['ds', 'xp', 'xa', 'sm'],
-      '2024': ['ds', 'xp', 'xa', 'sm'],
+      '2022': ['ds', 'xp', 'xa', 'sm', 'evx'],
+      '2023': ['ds', 'xp', 'xa', 'sm', 'evx'],
+      '2024': ['ds', 'xp', 'xa', 'sm', 'evx'],
     },
     'EV6 GT': {
-      '2022': ['ss', 'xp', 'xa', 'sm'],
-      '2023': ['ss', 'xp', 'xa', 'sm'],
-      '2024': ['ss', 'xp', 'xa', 'sm'],
+      '2022': ['ss', 'xp', 'xa', 'sm', 'evx'],
+      '2023': ['ss', 'xp', 'xa', 'sm', 'evx'],
+      '2024': ['ss', 'xp', 'xa', 'sm', 'evx'],
     },
     'Forte5': {
       '2014': ['hs', 'xp', 'xa', 'sm'],
@@ -4585,18 +4644,11 @@ const allSoloCars = {
       'all': ['dp', 'xp', 'xb', 'ssm'],
     },
   },
-  'MG': {
-    '1100, 1300 Sedan (all) ': {
-      'all': ['hs', 'fsp', 'xp', 'xb', 'sm'],
-    },
-    'A (all)': {
-      'all': ['hs', 'fsp', 'xp', 'xb', 'ssm'],
-    },
-    'B & B GT (all)': {
-      'all': ['hs', 'fsp', 'xp', 'xb', 'ssm'],
-    },
-    'C & C GT (all)': {
-      'all': ['hs', 'fsp', 'xp', 'xb', 'ssm'],
+  'Lucid': {
+    'Air (incl. Performance, excl. Sapphire)': {
+      '2022': ['evx'],
+      '2023': ['evx'],
+      '2024': ['evx'],
     },
   },
   'Maserati': {
@@ -5059,6 +5111,15 @@ const allSoloCars = {
       '2019': ['fs', 'xp', 'xa', 'sm'],
       '2020': ['fs', 'xp', 'xa', 'sm'],
     },
+    'EQE Sedan (incl. AMG)': {
+      '2023': ['evx'],
+      '2024': ['evx'],
+    },
+    'EQS (incl. AMG)': {
+      '2022': ['evx'],
+      '2023': ['evx'],
+      '2024': ['evx'],
+    },
     'GLA45 AMG': {
       '2015': ['bs', 'xp', 'xa', 'sm'],
       '2016': ['bs', 'xp', 'xa', 'sm'],
@@ -5493,6 +5554,7 @@ const allSoloCars = {
       '2021': ['gs', 'xp', 'xb', 'sm', 'smf', 'evx'],
       '2022': ['gs', 'xp', 'xb', 'sm', 'smf', 'evx'],
       '2023': ['gs', 'xp', 'xb', 'sm', 'smf', 'evx'],
+      '2024': ['gs', 'xp', 'xb', 'sm', 'smf', 'evx'],
     },
     'Countryman JCW All4': {
       '2018': ['ds', 'xp', 'xa', 'sm', 'smf'],
@@ -5883,6 +5945,10 @@ const allSoloCars = {
     },
     'Altima': {
       'all': ['hs', 'sm', 'xp', 'xa', 'sm'],
+    },
+    'Ariya': {
+      '2023': ['evx'],
+      '2024': ['evx'],
     },
     'GT-R (R35)': {
       'all': ['ssp', 'xp', 'xa', 'sm'],
@@ -6846,13 +6912,16 @@ const allSoloCars = {
       '2023': ['ss', 'xp', 'xu', 'ssm'],
       '2024': ['ss', 'xp', 'xu', 'ssm'],
     },
-    'Macan (all)': {
+    'Macan': {
       '2015': ['bs', 'xp', 'xa', 'sm'],
       '2016': ['bs', 'xp', 'xa', 'sm'],
       '2017': ['bs', 'xp', 'xa', 'sm'],
       '2018': ['bs', 'xp', 'xa', 'sm'],
       '2019': ['bs', 'xp', 'xa', 'sm'],
       '2020': ['bs', 'xp', 'xa', 'sm'],
+    },
+    'Macan 4 Electric (incl. Turbo)': {
+      '2024': ['bs', 'xp', 'xa', 'sm'],
     },
     'Panamera': {
       '2010': ['fs', 'xp', 'xa', 'sm'],
@@ -7497,6 +7566,10 @@ const allSoloCars = {
     'Sedan/Coupe (Turbo, Not Otherwise Classified)': {
       'all': ['fp', 'xp', 'xa', 'sm'],
     },
+    'Solterra': {
+      '2023': ['evx'],
+      '2024': ['evx'],
+    },
     'Turbo 4WD (all, Not Otherwise Classified)': {
       'all': ['fsp', 'xp', 'xa', 'sm'],
     },
@@ -7696,6 +7769,7 @@ const allSoloCars = {
       '2021': ['evx'],
       '2022': ['evx'],
       '2023': ['evx'],
+      '2024': ['evx'],
     },
     'Model Y (AWD/Performance)': {
       '2020': ['as', 'xp', 'xu', 'sm', 'evx'],
@@ -7749,6 +7823,10 @@ const allSoloCars = {
       '2020': ['hs', 'xa', 'sm'],
       '2021': ['hs', 'xa', 'sm'],
       '2022': ['hs', 'xa', 'sm'],
+    },
+    'bZ4X': {
+      '2023': ['evx'],
+      '2024': ['evx'],
     },
     'Camry (4-cyl)': {
       'all': ['hs', 'fsp', 'xp', 'xa', 'sm', 'smf'],
@@ -8251,6 +8329,7 @@ const allSoloCars = {
       '2021': ['ds', 'evx'],
       '2022': ['ds', 'evx'],
       '2023': ['ds', 'evx'],
+      '2024': ['ds', 'evx'],
     },
     'Jetta 1.8L Turbo': {
       'all': ['hs', 'dsp', 'ep', 'xp', 'xa', 'sm', 'smf'],
@@ -8313,6 +8392,7 @@ const allSoloCars = {
       '2016': ['hs', 'xp', 'xa', 'sm', 'smf', 'evx'],
       '2017': ['hs', 'xp', 'xa', 'sm', 'smf', 'evx'],
       '2018': ['hs', 'xp', 'xa', 'sm', 'smf', 'evx'],
+      '2019': ['hs', 'xp', 'xa', 'sm', 'smf', 'evx'],
     },
   },
   'Volvo': {
@@ -8433,10 +8513,10 @@ const allSoloCars = {
       '2006': ['dsp', 'gs', 'xp', 'xa', 'sm'],
       '2007': ['dsp', 'gs', 'xp', 'xa', 'sm'],
     },
-    'XC40 Recharge': {
-      '2021': ['evx'],
+    'C40 Recharge': {
       '2022': ['evx'],
       '2023': ['evx'],
+      '2024': ['evx'],
     },
   },
 };
