@@ -3453,6 +3453,9 @@ const allSoloCars = {
       '2022': ['hs', 'est', 'fsp', 'smf', 'ep', 'xa'],
       '2023': ['hs', 'est', 'fsp', 'smf', 'ep', 'xa'],
     },
+    'Civic Hybrid': {
+      '2025': ['gs'],
+    },
     'Civic Si': {
       '1984': ['hs', 'est', 'fsp', 'smf', 'ep', 'xb'],
       '1985': ['hs', 'est', 'fsp', 'smf', 'ep', 'xb'],
