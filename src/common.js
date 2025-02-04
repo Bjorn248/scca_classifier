@@ -3502,6 +3502,15 @@ const allSoloCars = {
     'Civic Si Mugen': {
       '2008': ['gs', 'est', 'fsp', 'smf', 'ep', 'xa'],
     },
+    'Civic Sport': {
+      '2017': ['hs', 'gst', 'fsp', 'smf', 'ep', 'xa'],
+      '2018': ['hs', 'gst', 'fsp', 'smf', 'ep', 'xa'],
+      '2019': ['hs', 'gst', 'fsp', 'smf', 'ep', 'xa'],
+      '2020': ['hs', 'gst', 'fsp', 'smf', 'ep', 'xa'],
+      '2021': ['hs', 'gst', 'fsp', 'smf', 'ep', 'xa'],
+      '2022': ['hs', 'gst', 'fsp', 'smf', 'ep', 'xa'],
+      '2023': ['hs', 'gst', 'fsp', 'smf', 'ep', 'xa'],
+    },
     'Civic Type R': {
       '2017': ['ds', 'bst', 'esp', 'smf', 'ep', 'xa'],
       '2018': ['ds', 'bst', 'esp', 'smf', 'ep', 'xa'],
