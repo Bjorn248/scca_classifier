@@ -134,6 +134,8 @@ const subclassMap = {
   'hs': 'H Street (HS)',
   'ssr': 'Super Street R (SSR)',
   'ssc': 'Solo Spec Coupe (SSC)',
+  'csm': 'Club Spec Mustang',
+  'csx': 'Club Spec MX-5',
   'ast': 'A Street Touring (AST)',
   'bst': 'B Street Touring (BST)',
   'cst': 'C Street Touring (CST)',
