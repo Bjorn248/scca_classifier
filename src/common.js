@@ -1397,8 +1397,8 @@ const allSoloCars = {
       '1998': ['cs', 'cst', 'csp', 'sm', 'xp', 'xa'],
       '1999': ['cs', 'cst', 'csp', 'sm', 'xp', 'xa'],
       '2000': ['cs', 'cst', 'csp', 'sm', 'xp', 'xa'],
-      '2001': ['bs', 'cst', 'csp', 'sm', 'xp', 'xa'],
-      '2002': ['bs', 'cst', 'csp', 'sm', 'xp', 'xa'],
+      '2001': ['cs', 'cst', 'csp', 'sm', 'xp', 'xa'],
+      '2002': ['cs', 'cst', 'csp', 'sm', 'xp', 'xa'],
     },
     'X1': {
       '2013': ['bst', 'sm', 'xp', 'xa'],
