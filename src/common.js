@@ -3489,7 +3489,6 @@ const allSoloCars = {
       '2013': ['hs', 'dst', 'fsp', 'smf', 'ep', 'xa'],
       '2014': ['hs', 'dst', 'fsp', 'smf', 'ep', 'xa'],
       '2015': ['hs', 'dst', 'fsp', 'smf', 'ep', 'xa'],
-      '2016': ['hs', 'est', 'fsp', 'smf', 'ep', 'xa'],
       '2017': ['gs', 'gst', 'fsp', 'smf', 'ep', 'xa'],
       '2018': ['gs', 'gst', 'fsp', 'smf', 'ep', 'xa'],
       '2019': ['gs', 'gst', 'fsp', 'smf', 'ep', 'xa'],
