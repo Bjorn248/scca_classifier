@@ -12,22 +12,22 @@
 
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a id='csLandingPageMenu' href="#" onclick="resetQuestion('csLandingPage'); evalSessionStorage('csCar');">Overview</a>
-      <a id='csBodyworkMenu' href="#" onclick="resetQuestion('csBodywork'); evalSessionStorage('csCar');">Bodywork</a>
-      <a id='csSuspensionMenu' href="#" onclick="resetQuestion('csSuspension'); evalSessionStorage('csCar');">Suspension</a>
-      <a id='csBrakesMenu' href="#" onclick="resetQuestion('csBrakes'); evalSessionStorage('csCar');">Brakes</a>
-      <a id='csWheelsMenu' href="#" onclick="resetQuestion('csWheels'); evalSessionStorage('csCar');">Wheels</a>
-      <a id='csTiresMenu' href="#" onclick="resetQuestion('csTires'); evalSessionStorage('csCar');">Tires</a>
-      <a id='csMinWeightMenu' href="#" onclick="resetQuestion('csMinWeight'); evalSessionStorage('csCar');">Weight</a>
-      <a id='csEngineAndDrivetrainMenu' href="#" onclick="resetQuestion('csEngineAndDrivetrain'); evalSessionStorage('csCar');">Engine and Drivetrain</a>
-      <a id='csAeroMenu' href="#" onclick="resetQuestion('csAero'); evalSessionStorage('csCar');">Aerodynamic Aids</a>
+      <a id='csxLandingPageMenu' href="#" onclick="resetQuestion('csxLandingPage'); evalSessionStorage('csxCar');">Overview</a>
+      <a id='csxBodyworkMenu' href="#" onclick="resetQuestion('csxBodywork'); evalSessionStorage('csxCar');">Bodywork</a>
+      <a id='csxSuspensionMenu' href="#" onclick="resetQuestion('csxSuspension'); evalSessionStorage('csxCar');">Suspension</a>
+      <a id='csxBrakesMenu' href="#" onclick="resetQuestion('csxBrakes'); evalSessionStorage('csxCar');">Brakes</a>
+      <a id='csxWheelsMenu' href="#" onclick="resetQuestion('csxWheels'); evalSessionStorage('csxCar');">Wheels</a>
+      <a id='csxTiresMenu' href="#" onclick="resetQuestion('csxTires'); evalSessionStorage('csxCar');">Tires</a>
+      <a id='csxMinWeightMenu' href="#" onclick="resetQuestion('csxMinWeight'); evalSessionStorage('csxCar');">Weight</a>
+      <a id='csxEngineAndDrivetrainMenu' href="#" onclick="resetQuestion('csxEngineAndDrivetrain'); evalSessionStorage('csxCar');">Engine and Drivetrain</a>
+      <a id='csxAeroMenu' href="#" onclick="resetQuestion('csxAero'); evalSessionStorage('csxCar');">Aerodynamic Aids</a>
     </div>
 
     <div id="main">
       <button class="openbtn" onclick="openNav()">☰</button>
     </div>
 
-    <h1 class="center sansserif">Club Spec Class Questionnaire</h1>
+    <h1 class="center sansserif">Club Spec MX-5 Class Questionnaire</h1>
 
     <div id="homeButton" class="left">
       <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
@@ -37,10 +37,10 @@
     </div>
   </head>
 
-  <body onload="evalSessionStorage('csCar'); highlightAndFilterXtremeStreet();">
-    <div id="csLandingPage" class="center question sansserif">
-      <h2 id="csLandingPageQuestion">
-        Club Spec Class Overview
+  <body onload="evalSessionStorage('csxCar'); highlightAndFilterXtremeStreet();">
+    <div id="csxLandingPage" class="center question sansserif">
+      <h2 id="csxLandingPageQuestion">
+        Club Spec MX-5 Class Overview
       </h2>
       <div id="overviewBody" class="questionBody">
         <h3>
@@ -56,61 +56,16 @@
         </h3>
         <ul class="list">
           <li>
-            Must be an automobile or truck (e.g., pickup, SUV) manufactured for road use and legal to
-            drive on US roads. Non-US models are allowed and right-hand-drive steering is permitted.
-          </li>
-          <li>
-            Must be licensed & insured
-          </li>
-          <li>
-            Must include all road-going components such as lights, wipers, interior, heater, etc
-          </li>
-          <li>
-            Must comply with these sections of the SCCA® National Solo® Rules
-            <ul>
-              <li>
-                Section 3, Vehicles
-              </li>
-              <li>
-                Appendix I, Sound Measurement Procedures
-              </li>
-            </ul>
-          </li>
-          <li>
-            <b>EXCLUDED</b>: Acura NSX; Audi R8; Ferrari (all); Ford GT; Lamborghini (all);
-            Lotus 7 (all including clones); McLaren (all); Porsche 911 (all w/liquid-cooled engines)
-          </li>
-        </ul>
-        <h3>
-          Subclasses
-        </h3>
-        <p>
-        Your subclass should be highlighted
-        </p>
-        <ul>
-          <li>
-            <div id="xaOverview">
-            Xtreme Street A - Import and domestic sports sedans and coupes
-            </div>
-          </li>
-          <li>
-            <div id="xbOverview">
-            Xtreme Street B - Lightweight import and domestic sports cars
-            </div>
-          </li>
-          <li>
-            <div id="xuOverview">
-            Xtreme Street Unlimited - High Performance vehicles with minimal restrictions
-            </div>
+            2006-2015 Mazda MX-5 (NC Chassis)
           </li>
         </ul>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['csLandingPage', 'csCarAnsweredIndex'], [true, 0]); hideItem('csLandingPage'); evalSessionStorage('csCar'); window.scroll(0,0);">Continue</button>
+      <button class="button yesButton" onclick="setState(['csxLandingPage', 'csxCarAnsweredIndex'], [true, 0]); hideItem('csxLandingPage'); evalSessionStorage('csxCar'); window.scroll(0,0);">Continue</button>
     </div>
 
-    <div id="csBodywork" class="center question sansserif">
-      <h2 id="csBodyworkQuestion">
+    <div id="csxBodywork" class="center question sansserif">
+      <h2 id="csxBodyworkQuestion">
         Does your car meet the bodywork requirements below?
       </h2>
       <div id="bodyworkBody" class="questionBody">
@@ -153,12 +108,12 @@
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['csBodywork', 'csCarAnsweredIndex'], [true, 1]); hideItem('csBodywork'); evalSessionStorage('csCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['csBodywork', 'csCarAnsweredIndex'], [false, 1]); hideItem('csBodywork'); evalSessionStorage('csCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['csxBodywork', 'csxCarAnsweredIndex'], [true, 1]); hideItem('csxBodywork'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxBodywork', 'csxCarAnsweredIndex'], [false, 1]); hideItem('csxBodywork'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="csSuspension" class="center question sansserif">
-      <h2 id="csSuspensionQuestion">
+    <div id="csxSuspension" class="center question sansserif">
+      <h2 id="csxSuspensionQuestion">
         Does your suspension meet the requirements defined below?
       </h2>
       <div id="suspensionBody" class="questionBody">
@@ -169,12 +124,12 @@
         </ul>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['csSuspension', 'csCarAnsweredIndex'], [true, 2]); hideItem('csSuspension'); evalSessionStorage('csCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['csSuspension', 'csCarAnsweredIndex'], [false, 2]); hideItem('csSuspension'); evalSessionStorage('csCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['csxSuspension', 'csxCarAnsweredIndex'], [true, 2]); hideItem('csxSuspension'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxSuspension', 'csxCarAnsweredIndex'], [false, 2]); hideItem('csxSuspension'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="csBrakes" class="center question sansserif">
-      <h2 id="csBrakesQuestion">
+    <div id="csxBrakes" class="center question sansserif">
+      <h2 id="csxBrakesQuestion">
         Do your brakes meet the following requirements?
       </h2>
       <div id="brakesBody" class="questionBody">
@@ -185,12 +140,12 @@
         </ul>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['csBrakes', 'csCarAnsweredIndex'], [true, 3]); hideItem('csBrakes'); evalSessionStorage('csCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['csBrakes', 'csCarAnsweredIndex'], [false, 3]); hideItem('csBrakes'); evalSessionStorage('csCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['csxBrakes', 'csxCarAnsweredIndex'], [true, 3]); hideItem('csxBrakes'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxBrakes', 'csxCarAnsweredIndex'], [false, 3]); hideItem('csxBrakes'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="csWheels" class="center question sansserif">
-      <h2 id="csWheelsQuestion">
+    <div id="csxWheels" class="center question sansserif">
+      <h2 id="csxWheelsQuestion">
         Do your wheels meet the following requirements?
         </br>
       </h2>
@@ -198,12 +153,12 @@
         Any wheels are allowed. Non-metallic wheels must be certified/approved from an
         appropriate, recognized standards organization (e.g., FIA, SFI, SAE, TUV, etc.)
       </p>
-      <button class="button yesButton" onclick="setState(['csWheels', 'csCarAnsweredIndex'], [true, 4]); hideItem('csWheels'); evalSessionStorage('csCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['csWheels', 'csCarAnsweredIndex'], [false, 4]); hideItem('csWheels'); evalSessionStorage('csCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['csxWheels', 'csxCarAnsweredIndex'], [true, 4]); hideItem('csxWheels'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxWheels', 'csxCarAnsweredIndex'], [false, 4]); hideItem('csxWheels'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="csTires" class="center question sansserif">
-      <h2 id="csTiresQuestion">
+    <div id="csxTires" class="center question sansserif">
+      <h2 id="csxTiresQuestion">
         Do your tires meet the following requirements?
       </h2>
       </br>
@@ -220,12 +175,12 @@
         </ul>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['csTires', 'csCarAnsweredIndex'], [true, 5]); hideItem('csTires'); evalSessionStorage('csCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['csTires', 'csCarAnsweredIndex'], [false, 5]); hideItem('csTires'); evalSessionStorage('csCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['csxTires', 'csxCarAnsweredIndex'], [true, 5]); hideItem('csxTires'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxTires', 'csxCarAnsweredIndex'], [false, 5]); hideItem('csxTires'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="csMinWeight" class="center question sansserif">
-      <h2 id="csMinWeightQuestion">
+    <div id="csxMinWeight" class="center question sansserif">
+      <h2 id="csxMinWeightQuestion">
         Do you meet the minimum weight requirements outlined below?
         </br>
         </br>
@@ -284,12 +239,12 @@
         </ul>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['csMinWeight', 'csCarAnsweredIndex'], [true, 6]); hideItem('csMinWeight'); evalSessionStorage('csCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['csMinWeight', 'csCarAnsweredIndex'], [false, 6]); hideItem('csMinWeight'); evalSessionStorage('csCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['csxMinWeight', 'csxCarAnsweredIndex'], [true, 6]); hideItem('csxMinWeight'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxMinWeight', 'csxCarAnsweredIndex'], [false, 6]); hideItem('csxMinWeight'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="csEngineAndDrivetrain" class="center question sansserif">
-      <h2 id="csEngineAndDrivetrainQuestion">
+    <div id="csxEngineAndDrivetrain" class="center question sansserif">
+      <h2 id="csxEngineAndDrivetrainQuestion">
         Does your engine and drivetrain fall within the following restrictions?
       </h2>
       <div id="engineBody" class="questionBody">
@@ -300,12 +255,12 @@
         </ul>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['csEngineAndDrivetrain', 'csCarAnsweredIndex'], [true, 7]); hideItem('csEngineAndDrivetrain'); evalSessionStorage('csCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['csEngineAndDrivetrain', 'csCarAnsweredIndex'], [false, 7]); hideItem('csEngineAndDrivetrain'); evalSessionStorage('csCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['csxEngineAndDrivetrain', 'csxCarAnsweredIndex'], [true, 7]); hideItem('csxEngineAndDrivetrain'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxEngineAndDrivetrain', 'csxCarAnsweredIndex'], [false, 7]); hideItem('csxEngineAndDrivetrain'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="csAero" class="center question sansserif">
-      <h2 id="csAeroQuestion">
+    <div id="csxAero" class="center question sansserif">
+      <h2 id="csxAeroQuestion">
         Do your aerodynamic aids meet the following restrictions?
       </h2>
       <div id="aeroBody" class="questionBody">
@@ -332,8 +287,8 @@
         </ul>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['csAero', 'csCarAnsweredIndex'], [true, 8]); hideItem('csAero'); evalSessionStorage('csCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['csAero', 'csCarAnsweredIndex'], [false, 8]); hideItem('csAero'); evalSessionStorage('csCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['csxAero', 'csxCarAnsweredIndex'], [true, 8]); hideItem('csxAero'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxAero', 'csxCarAnsweredIndex'], [false, 8]); hideItem('csxAero'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="eligible" class="center eligible sansserif">
