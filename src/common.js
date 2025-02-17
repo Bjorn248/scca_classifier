@@ -119,7 +119,9 @@ const carFlags = {
   'csxCar': [
     'csxLandingPage',
     'csxBodywork',
+    'csxSafety',
     'csxSuspension',
+    'csxElectrical',
     'csxBrakes',
     'csxWheels',
     'csxTires',
@@ -131,11 +133,12 @@ const carFlags = {
     'csmLandingPage',
     'csmBodywork',
     'csmSuspension',
+    'csmElectrical',
+    'csmEngineAndDrivetrain',
     'csmBrakes',
     'csmWheels',
     'csmTires',
     'csmMinWeight',
-    'csmEngineAndDrivetrain',
     'csmAero',
   ],
 };

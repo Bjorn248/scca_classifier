@@ -14,7 +14,9 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a id='csxLandingPageMenu' href="#" onclick="resetQuestion('csxLandingPage'); evalSessionStorage('csxCar');">Overview</a>
       <a id='csxBodyworkMenu' href="#" onclick="resetQuestion('csxBodywork'); evalSessionStorage('csxCar');">Bodywork</a>
+      <a id='csxSafetyMenu' href="#" onclick="resetQuestion('csxSafety'); evalSessionStorage('csxCar');">Safety</a>
       <a id='csxSuspensionMenu' href="#" onclick="resetQuestion('csxSuspension'); evalSessionStorage('csxCar');">Suspension</a>
+      <a id='csxElectricalMenu' href="#" onclick="resetQuestion('csxElectrical'); evalSessionStorage('csxCar');">Electrical</a>
       <a id='csxBrakesMenu' href="#" onclick="resetQuestion('csxBrakes'); evalSessionStorage('csxCar');">Brakes</a>
       <a id='csxWheelsMenu' href="#" onclick="resetQuestion('csxWheels'); evalSessionStorage('csxCar');">Wheels</a>
       <a id='csxTiresMenu' href="#" onclick="resetQuestion('csxTires'); evalSessionStorage('csxCar');">Tires</a>
@@ -59,6 +61,50 @@
             2006-2015 Mazda MX-5 (NC Chassis)
           </li>
         </ul>
+        <h3>
+          Authorized Changes/Modifications
+        </h3>
+        <ul class="list">
+          <li>
+            If a change or modification is not specifically authorized, it is not allowed. All
+            repairs must comply with factory-authorized methods and procedures, or industry
+            standard methods, as follows: If the manufacturer does not provide an appropriate
+            method of repair, industry standard methods and procedures may be used. Such repairs
+            may not result in a part or combination of parts that provides a performance advantage
+            (e.g., significant change to weight, suspension control, power, etc.) as compared to
+            the standard part(s). Competitors are strongly cautioned to use this allowance to make
+            common-sense repairs only.
+          </li>
+          <li>
+            Wheel lug studs (e.g., length) and lug nuts may be changed.
+          </li>
+          <li>
+            Components which are normally expendable and considered replacement parts may be used
+            provided they are essentially identical to the standard parts, used in the same
+            location, and provide no performance benefit. Examples are:
+            <ul>
+              <li>
+                Clutch and related components (excluding flywheel).
+              </li>
+              <li>
+                Hardware (nuts, bolts, clips, etc.)
+              </li>
+            </ul>
+          </li>
+          <li>
+            Parts superseded by the Manufacturer may be used.
+          </li>
+          <li>
+            These allowances are strictly to permit components to be replaced from alternate
+            sources other than the original manufacturer. They should not be construed as an
+            allowance to replace components with those which could be considered a
+            "higher performance" alternative.
+          </li>
+          <li>
+            It is not permitted to use non-compliant
+            parts even if they have been set to the manufacturer's specifications.
+          </li>
+        </ul>
       </div>
       </br>
       <button class="button yesButton" onclick="setState(['csxLandingPage', 'csxCarAnsweredIndex'], [true, 0]); hideItem('csxLandingPage'); evalSessionStorage('csxCar'); window.scroll(0,0);">Continue</button>
@@ -72,37 +118,25 @@
         <h3>
           <ul class="list">
             <li>
-              Must have OE or OE-equivalent windshield. Side and rear glass must be in the original location if original for the vehicle. Windshields, side, and rear glass may be replaced with polycarbonate (e.g., Lexan®). Windshields must have a minimum thickness of 3/16" (0.1875 in.). Vehicles using polycarbonate windshields must add 150lbs to their minimum weight.
+              Front bumpers, rear bumpers, body trim pieces, and attachment points may be reinforced to prevent or repair damage from hitting cones. Reinforcements that are not visible to the exterior of the car are allowed. Such repairs and/or reinforcements may serve no other purpose.
             </li>
             <li>
-              Dashboard may be modified or replaced but must be "finished" and cover the original area.
+              Accessories, gauges, indicators, lights, and other appearance, comfort, and convenience modifications which have no effect on performance and/or handling and do not materially reduce the weight of the car are permitted. This does not allow driver's seat substitutions, or the removal of "tow hooks" or "tie-down loops." Data acquisition systems (including video cameras) and the accompanying sensors are allowed but may serve no other purpose during a run than real-time display and data recording.
             </li>
             <li>
-              Headliner may be replaced or removed.
+              Alternate Shift knobs are allowed.
             </li>
             <li>
-              Interior panels (e.g., door panels, kick panels) forward of the B pillar (driver and front passenger area) may be replaced, not removed, with an upholstered or finished panel of any material.
+              Spare tires, tools, and jacks may be removed. Any fastening hardware and/or other pieces that can no longer be firmly secured in the absence of the spare tire may be removed if necessary to ensure compliance with Solo® Rules section 3.3.3.B.1, Safety Inspections, Inspection Requirements.
             </li>
             <li>
-              The area behind the B pillar may have panels and carpet removed. Exposed metal interior surfaces must be painted.
+              Cars may add one (1) rear trailer hitch. Factory tie downs and cosmetic pieces (e.g., diffusers) may be modified or removed to facilitate hitch installation. Complete or partial removal of the hitch is allowed for competition, provided it does not result in a reduction in weight compared to the unmodified standard configuration.
             </li>
             <li>
-              Front seat(s) may be modified or replaced. Rear seat(s) may be replaced, modified, or removed. Unless originally equipped as a center seat vehicle the driver’s seating area must not cross the vehicle’s longitudinal centerline and must not intrude into the original rear seat area.
+              Tow bar brackets may be installed and may serve no other purpose.
             </li>
             <li>
-              Exterior body panels may be modified or replaced in the original locations.
-            </li>
-            <li>
-              Frame and Unibody may be modified or replaced to support allowed modifications. Subframes may be modified or replaced. Vehicle wheelbase may not be changed except for small changes resulting from the allowed replacement of suspension components or modification of suspension designs.
-            </li>
-            <li>
-              Fender liners and inner fenders may be modified, replaced, or removed.
-            </li>
-            <li>
-              Fuel tank/cell may be modified or replaced and must be separated from the driver/passenger(s) as originally manufactured or by a metal panel/ bulkhead if the OE structure is modified. Fuel must not vent into the driver/passenger compartment directly or indirectly.
-            </li>
-            <li>
-              Body electrical system components and wiring are unrestricted.
+              Any item not permanently in place by manufacturer-installed fasteners may be removed (i.e., emergency tool kits).
             </li>
           </ul>
         </h3>
@@ -112,6 +146,38 @@
       <button class="button noButton" onclick="setState(['csxBodywork', 'csxCarAnsweredIndex'], [false, 1]); hideItem('csxBodywork'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
     </div>
 
+    <div id="csxSafety" class="center question sansserif">
+      <h2 id="csxSafetyQuestion">
+        Does your car meet the safety requirements below?
+      </h2>
+      <div id="safetyBody" class="questionBody">
+        <h3>
+          <ul class="list">
+            <li>
+              Provided the vehicle fully meets SCCA Safety Level 2 as defined in the Time Trials Rules, the following may be added, replaced, or modified within the guidelines stated in Safety Level 2:
+              <ul class="list">
+                <li>
+                  Compliant Rollbar (Required for Safety Level 2)
+                </li>
+                <li>
+                  Fixed back racing seats for driver and passenger side
+                </li>
+                <li>
+                  Racing harness(es)
+                </li>
+                <li>
+                  Replacement of steering wheel and/or removal of steering wheel airbag
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csxSafety', 'csxCarAnsweredIndex'], [true, 1]); hideItem('csxSafety'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxSafety', 'csxCarAnsweredIndex'], [false, 1]); hideItem('csxSafety'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
+    </div>
+
     <div id="csxSuspension" class="center question sansserif">
       <h2 id="csxSuspensionQuestion">
         Does your suspension meet the requirements defined below?
@@ -119,13 +185,97 @@
       <div id="suspensionBody" class="questionBody">
         <ul class="list">
           <li>
-            Components, lines, hoses, and method of attachment are <b>NOT</b> restricted
+            Alignment:
+            <ul class="list">
+              <li>
+                Both the front and rear suspension may be adjusted through their designed range of adjustment by use of the specified parts. No suspension part may be modified for the purpose of adjustment unless such modification is specifically authorized by the manufacturer service documentation.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Bushings:
+            <ul class="list">
+              <li>
+                Supension bushings as supplied in the kits are mandatory
+              </li>
+              <li>
+                Those not included in the supplied kits may not be replaced with bushings of a different material or dimension.
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
       </br>
       <button class="button yesButton" onclick="setState(['csxSuspension', 'csxCarAnsweredIndex'], [true, 2]); hideItem('csxSuspension'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['csxSuspension', 'csxCarAnsweredIndex'], [false, 2]); hideItem('csxSuspension'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csxElectrical" class="center question sansserif">
+      <h2 id="csxElectricalQuestion">
+        Does your car meet the electrical system requirements defined below?
+      </h2>
+      <div id="suspensionBody" class="questionBody">
+        <ul class="list">
+          <li>
+            The make of spark plugs is unrestricted.
+          </li>
+          <li>
+            Tire Pressure Monitoring Systems (TPMS) may be disabled. Altering the signal to the TPMS module is allowed.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csxElectrical', 'csxCarAnsweredIndex'], [true, 2]); hideItem('csxElectrical'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxElectrical', 'csxCarAnsweredIndex'], [false, 2]); hideItem('csxElectrical'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csxEngineAndDrivetrain" class="center question sansserif">
+      <h2 id="csxEngineAndDrivetrainQuestion">
+        Does your engine and drivetrain fall within the following restrictions?
+      </h2>
+      <div id="engineBody" class="questionBody">
+        <ul class="list">
+          <li>
+            The engine management system parameters and operation of internal combustion engines may be modified only via the methods listed below:
+            <ul class="list">
+              <li>
+                OE ECU software may be reprogramed, but no changes to the factory ECU hardware are permitted.
+              </li>
+              <li>
+                Any OE OBD2 or newer communications port functionality must remain.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Oil filters are unrestricted.
+          </li>
+          <li>
+            Lubricants and fluids are unrestricted.
+          </li>
+          <li>
+            Fuel must be Federally approved for use on public highways and widely distributed and typically sold in filling stations, commonly called "pump
+fuel" with typical octane ratings or AKI (Anti-Knock Index) (R+M/2)
+displayed on the pump between 87 and 93. The maximum octane rating
+allowed is what is typically delivered from a pump marked 93 octane*.
+Fuels comprised of more than 15% ethanol may only be used when
+specified by the manufacturer (e.g., in the owner’s manual for flex-fuel
+vehicles).
+*Octane verification: Octane levels will vary from the number listed on
+the pump. Octane testing has a "margin of error" and different testing
+procedures will produce similar but different results. For the purposes
+of testing gasoline, a result that exceeds 95.9 octane is not allowed and
+will result in a disqualification with no exceptions (hard limit). This
+limit gives competitors a 99.99+% confidence level that fuel purchased
+from a pump marked 93 octane is compliant. Warning: Competitors
+attempting to approach the 95.9 octane limit through mixing or by any
+other means may inadvertently create fuel that appears compliant but
+may test above the 95.9 hard limit.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csxEngineAndDrivetrain', 'csxCarAnsweredIndex'], [true, 7]); hideItem('csxEngineAndDrivetrain'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxEngineAndDrivetrain', 'csxCarAnsweredIndex'], [false, 7]); hideItem('csxEngineAndDrivetrain'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="csxBrakes" class="center question sansserif">
@@ -241,22 +391,6 @@
       </br>
       <button class="button yesButton" onclick="setState(['csxMinWeight', 'csxCarAnsweredIndex'], [true, 6]); hideItem('csxMinWeight'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['csxMinWeight', 'csxCarAnsweredIndex'], [false, 6]); hideItem('csxMinWeight'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="csxEngineAndDrivetrain" class="center question sansserif">
-      <h2 id="csxEngineAndDrivetrainQuestion">
-        Does your engine and drivetrain fall within the following restrictions?
-      </h2>
-      <div id="engineBody" class="questionBody">
-        <ul class="list">
-          <li>
-            Components (internal and external) are unrestricted
-          </li>
-        </ul>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['csxEngineAndDrivetrain', 'csxCarAnsweredIndex'], [true, 7]); hideItem('csxEngineAndDrivetrain'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['csxEngineAndDrivetrain', 'csxCarAnsweredIndex'], [false, 7]); hideItem('csxEngineAndDrivetrain'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="csxAero" class="center question sansserif">

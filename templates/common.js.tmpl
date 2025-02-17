@@ -59,6 +59,32 @@ const carFlags = {
     'mLandingPage',{{ range . }}{{if stringEqual .Name "Modified"}}{{ $className := .Name }}{{ range .SubChapters }}
     '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
   ],
+  'csxCar': [
+    'csxLandingPage',
+    'csxBodywork',
+    'csxSafety',
+    'csxSuspension',
+    'csxElectrical',
+    'csxEngineAndDrivetrain',
+    'csxBrakes',
+    'csxWheels',
+    'csxTires',
+    'csxMinWeight',
+    'csxAero',
+  ],
+  'csmCar': [
+    'csmLandingPage',
+    'csmBodywork',
+    'csxSafety',
+    'csmSuspension',
+    'csmElectrical',
+    'csmEngineAndDrivetrain',
+    'csmBrakes',
+    'csmWheels',
+    'csmTires',
+    'csmMinWeight',
+    'csmAero',
+  ],
 };
 
 /*
