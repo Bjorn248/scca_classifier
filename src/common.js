@@ -2869,6 +2869,13 @@ const allSoloCars = {
       '2010': ['hs', 'fsp', 'sm', 'xp', 'xa'],
       '2011': ['hs', 'fsp', 'sm', 'xp', 'xa'],
       '2012': ['hs', 'fsp', 'sm', 'xp', 'xa'],
+      '2013': ['hs', 'fsp', 'sm', 'xp', 'xa'],
+      '2014': ['hs', 'fsp', 'sm', 'xp', 'xa'],
+      '2015': ['hs', 'fsp', 'sm', 'xp', 'xa'],
+      '2016': ['hs', 'fsp', 'sm', 'xp', 'xa'],
+      '2017': ['hs', 'fsp', 'sm', 'xp', 'xa'],
+      '2018': ['hs', 'fsp', 'sm', 'xp', 'xa'],
+      '2019': ['hs', 'fsp', 'sm', 'xp', 'xa'],
     },
     'Fusion (6-cyl)': {
       'all': ['gs', 'esp', 'sm', 'xp', 'xa'],
@@ -4104,6 +4111,9 @@ const allSoloCars = {
       '2007': ['gs', 'xp', 'xa', 'sm'],
       '2008': ['gs', 'xp', 'xa', 'sm'],
     },
+    'XE': {
+      'all': ['fs', 'xp', 'xa', 'sm'],
+    },
     'XJ': {
       '1998': ['fs', 'xp', 'xa', 'sm'],
       '1999': ['fs', 'xp', 'xa', 'sm'],
@@ -4421,6 +4431,12 @@ const allSoloCars = {
       '2019': ['ds', 'xp', 'xa', 'sm'],
       '2020': ['ds', 'xp', 'xa', 'sm'],
     },
+    'IS 500 F': {
+      '2022': ['fs', 'xp', 'xa', 'sm'],
+      '2023': ['fs', 'xp', 'xa', 'sm'],
+      '2024': ['fs', 'xp', 'xa', 'sm'],
+      '2025': ['fs', 'xp', 'xa', 'sm'],
+    },
     'IS F': {
       '2008': ['esp', 'fs', 'bst', 'xp', 'xa', 'sm'],
       '2009': ['esp', 'fs', 'bst', 'xp', 'xa', 'sm'],
@@ -4578,7 +4594,7 @@ const allSoloCars = {
       'all': ['csp', 'xp', 'xa', 'ssm'],
     },
     'Emira': {
-      'all': ['ss', 'xp', 'xa', 'ssm'],
+      'all': ['ss', 'sst', 'xp', 'xa', 'ssm'],
     },
     'Esprit': {
       'all': ['cs', 'ssm', 'ssp', 'xp', 'xa'],
@@ -4797,9 +4813,11 @@ const allSoloCars = {
       '2024': ['hs', 'est', 'fsp', 'xp', 'xa', 'sm', 'smf'],
     },
     'Mazda3 Turbo': {
-      '2022': ['ds', 'xp', 'xa', 'sm'],
-      '2023': ['ds', 'xp', 'xa', 'sm'],
-      '2024': ['ds', 'xp', 'xa', 'sm'],
+      '2021': ['ds', 'gst', 'xp', 'xa', 'sm'],
+      '2022': ['ds', 'gst', 'xp', 'xa', 'sm'],
+      '2023': ['ds', 'gst', 'xp', 'xa', 'sm'],
+      '2024': ['ds', 'gst', 'xp', 'xa', 'sm'],
+      '2025': ['ds', 'gst', 'xp', 'xa', 'sm'],
     },
     'Mazda6': {
       'all': ['hs', 'est', 'dsp', 'xp', 'xa', 'sm', 'smf'],
@@ -6777,7 +6795,7 @@ const allSoloCars = {
       '2013': ['bs', 'bst', 'ssr', 'dsp', 'ssp', 'xp', 'xa', 'ssm'],
       '2014': ['bs', 'bst', 'ssr', 'dsp', 'ssp', 'xp', 'xa', 'ssm'],
       '2015': ['bs', 'bst', 'ssr', 'dsp', 'ssp', 'xp', 'xa', 'ssm'],
-      '2016': ['bs', 'ssr', 'ssp', 'dsp', 'xp', 'xa', 'ssm'],
+      '2016': ['bs', 'bst', 'ssr', 'ssp', 'dsp', 'xp', 'xa', 'ssm'],
       '2017': ['as', 'sst', 'ssr', 'xp', 'xa', 'ssm'],
       '2018': ['as', 'sst', 'ssr', 'xp', 'xa', 'ssm'],
       '2019': ['as', 'sst', 'ssr', 'xp', 'xa', 'ssm'],
@@ -6852,7 +6870,7 @@ const allSoloCars = {
       '2013': ['bs', 'ssr', 'bst', 'dsp', 'ssp', 'xp', 'xa', 'ssm'],
       '2014': ['bs', 'ssr', 'bst', 'dsp', 'ssp', 'xp', 'xa', 'ssm'],
       '2015': ['bs', 'ssr', 'bst', 'dsp', 'ssp', 'xp', 'xa', 'ssm'],
-      '2016': ['bs', 'ssr', 'ssp', 'xp', 'xa', 'ssm'],
+      '2016': ['bs', 'ssr', 'bst', 'ssp', 'xp', 'xa', 'ssm'],
       '2017': ['as', 'sst', 'ssr', 'xp', 'xa', 'ssm'],
       '2018': ['as', 'sst', 'ssr', 'xp', 'xa', 'ssm'],
       '2019': ['as', 'sst', 'ssr', 'xp', 'xa', 'ssm'],
