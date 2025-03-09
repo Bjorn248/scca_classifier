@@ -84,6 +84,9 @@ func readFile() *strings.Reader {
 	// standardize double quotes
 	rulesString = strings.ReplaceAll(rulesString, "“", `"`)
 	rulesString = strings.ReplaceAll(rulesString, "”", `"`)
+	// standardize single quotes
+	rulesString = strings.ReplaceAll(rulesString, "‘", `'`)
+	rulesString = strings.ReplaceAll(rulesString, "’", `'`)
 
 	remove := regexp.MustCompile(`\n\f`)
 	rulesString = string(remove.ReplaceAll([]byte(rulesString), []byte{}))
