@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - Club Spec Mustang Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='csmLandingPageMenu' href="#" onclick="resetQuestion('csmLandingPage'); evalSessionStorage('csmCar');">Overview</a>
+      <a id='csmBodyworkMenu' href="#" onclick="resetQuestion('csmBodywork'); evalSessionStorage('csmCar');">Bodywork</a>
+      <a id='csmSafetyMenu' href="#" onclick="resetQuestion('csmSafety'); evalSessionStorage('csmCar');">Safety</a>
+      <a id='csmSuspensionMenu' href="#" onclick="resetQuestion('csmSuspension'); evalSessionStorage('csmCar');">Suspension</a>
+      <a id='csmElectricalMenu' href="#" onclick="resetQuestion('csmElectrical'); evalSessionStorage('csmCar');">Electrical</a>
+      <a id='csmBrakesMenu' href="#" onclick="resetQuestion('csmBrakes'); evalSessionStorage('csmCar');">Brakes</a>
+      <a id='csmEngineAndDrivetrainMenu' href="#" onclick="resetQuestion('csmEngineAndDrivetrain'); evalSessionStorage('csmCar');">Engine and Drivetrain</a>
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Club Spec Mustang Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
+      <button class="button noButton" onclick="resetState()">Clear Selections</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('csmCar');">
+    <div id="csmLandingPage" class="center question sansserif">
+      <h2 id="csmLandingPageQuestion">
+        Club Spec Mustang Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+          Provide an affordable multipurpose package that combines a street-ready,
+          autocross capable and track appropriate performance in a single car using specified parts.
+        </p>
+        <h3>
+          Eligible Vehicles
+        </h3>
+        <ul class="list">
+          <li>
+            2005-2009 Ford Mustang GT (S197 Chassis)
+            Including California Special, Shelby GT*, and Bullitt* models
+          </li>
+          <li>
+            Must use engine and rear gear ratio listed below and either complete OE suspension
+            or Performance Kit suspension
+          </li>
+          <li>
+            Vehicle Requirements
+            <ul>
+              <li>
+                Engine: 4.6L, 3 Valve V8
+              </li>
+              <li>
+                Rear Axle Assembly Gear Ratio: 3.55:1
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h3>
+          Authorized Changes/Modifications
+        </h3>
+        <ul class="list">
+          <li>
+            If a change or modification is not specifically authorized, it is not allowed.
+            All repairs must comply with factory-authorized methods and
+            procedures, or industry standard methods, as follows: If the manufacturer does not
+            provide an appropriate method of repair, industry
+            standard methods and procedures may be used. Such repairs may not
+            result in a part or combination of parts that provides a performance
+            advantage (e.g., significant change to weight, suspension control, power, etc.) as
+            compared to the standard part(s). Competitors are strongly
+            cautioned to use this allowance to make common-sense repairs only.
+          </li>
+          <li>
+            Wheel lug studs (e.g., length) and lug nuts may be changed.
+          </li>
+          <li>
+            Components which are normally expendable and considered replacement parts may be
+            used provided they are essentially identical to the
+            standard parts, used in the same location, and provide no performance
+            benefit. Examples are:
+            <ul>
+              <li>
+                a. Clutch and related components (excluding flywheel).
+              </li>
+              <li>
+                b. Hardware (nuts, bolts, clips, etc.)
+              </li>
+            </ul>
+          </li>
+          <li>
+            Parts superseded by Ford® may be used.
+          </li>
+          <li>
+            These allowances are strictly to permit components to be replaced from
+            alternate sources other than the original manufacturer. They should
+            not be construed as an allowance to replace components with those
+            which could be considered a "higher performance" alternative.
+          </li>
+          <li>
+            It is not permitted to use non-compliant parts even if they have been set
+            to the manufacturer's specifications.
+          </li>
+        </ul>
+        <h3>
+          Required Performance Kit
+        </h3>
+        <ul class="list">
+          <li>
+            Parts Specified below (tires, wheels, and suspension) must be used. All
+            components and parts (e.g., hardware) are required to be installed per
+            manufacturere instructions. Original equipment (OE) or equivalent
+            components are not allowed.
+          </li>
+          <li>
+            Anti-roll (sway) bar end links may be substituted but may serve no other purpose.
+          </li>
+          <li>
+            Tires: Goodyear F1 Supercar 3 (220 Treadwear), size: 275/40R18
+          </li>
+          <li>
+            Wheels
+            <ul>
+              <li>
+                Diameter and width (in): 18x9.5
+              </li>
+              <li>
+                Offset, including wheel spacer (mm): +35 (35ET or ET35) or greater
+              </li>
+              <li>
+                Weight, without spacer if used, minimum (lbs.): 17, including:
+                <ul>
+                  <li>
+                    Wheel Weights
+                  </li>
+                  <li>
+                    TPMS sensor if installed
+                  </li>
+                  <li>
+                    Tire valve stem (type unrestricted)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Wheel spacers are allowed provided the resultant combination with the wheel complies with the offset requirments.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Suspension
+            <ul>
+              <li>
+                Sealed Koni Sport Strut, Front, Part# TBA
+              </li>
+              <li>
+                Sealed Koni Sport Strut, Rear, Part# TBA
+              </li>
+              <li>
+                Eibach Pro-Kit Lowering Springs- Part# 35101.140
+              </li>
+              <li>
+                Choice of:
+                <ul>
+                  <li>
+                    Strano Performace Parts kit Part# SpecS197-1. Includes
+                    bars, bushings, collar locks, Billet aluminum rear mounts
+                  </li>
+                  <li>
+                    Strano Performance Parts kit Part# SpecS197-2. Same as
+                    above, adding front sway bar mount reinforcements + Billet
+                    Front sway bar brackets
+                  </li>
+                  <li>
+                    Eibach Mustang Anti-Roll Bar Kit- Part# MM5CC-1
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Maximum Motorsports Caster Camber Plates- Part#MM5CC1
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csmLandingPage', 'csmCarAnsweredIndex'], [true, 0]); hideItem('csmLandingPage'); evalSessionStorage('csmCar'); window.scroll(0,0);">Continue</button>
+    </div>
+
+    <div id="csmBodywork" class="center question sansserif">
+      <h2 id="csmBodyworkQuestion">
+        Does your car meet the bodywork/interior requirements below?
+      </h2>
+      <div id="bodyworkBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Front bumpers, rear bumpers, body trim pieces, and attachment points
+            may be reinforced to prevent or repair damage from hitting cones. Reinforcements
+            that are not visible to the exterior of the car are allowed.
+            Such repairs and/or reinforcements may serve no other purpose.
+          </li>
+          <li>
+            Accessories, gauges, indicators, lights, and other appearance, comfort and convenience
+            modifications which have no effect on performance and/or handling and do not
+            materially reduce the weight of the car are permitted. This does not allow driver's
+            seat substitutions, or the removal of "tow hooks" or "tie-down loops." Data acquisition systems
+            (including video cameras) and the accompanying sensors are allowed
+            but may serve no other purpose during a run than real-time display and
+            data recording.
+          </li>
+          <li>
+            Alternate Shift knobs are allowed.
+          </li>
+          <li>
+            Spare tires, tools, and jacks may be removed. Any fastening hardware
+            and/or other pieces that can no longer be firmly secured in the absence
+            of the spare tire may be removed if necessary to ensure compliance with
+            Solo® Rules section 3.3.3.B.1, Safety Inspections, Inspection Requirements.
+          </li>
+          <li>
+            Cars may add one (1) rear trailer hitch. Factory tie downs and cosmetic
+            pieces (e.g., diffusers) may be modified or removed to facilitate hitch
+            installation. Complete or partial removal of the hitch is allowed for
+            competition, provided it does not result in a reduction in weight compared to the unmodified standard configuration.
+          </li>
+          <li>
+            Tow bar brackets may be installed and may serve no other purpose.
+          </li>
+          <li>
+            Any item not permanently in place by manufacturer-installed fasteners may be removed (i.e., emergency tool kits).
+          </li>
+          <li>
+            A commonly available short throw shifter may be utilized, examples include:
+            <ul>
+              <li>
+                Hurst Competition Plus Short Throw Shifter, Part# TR-3650
+              </li>
+              <li>
+                STEEDA Ford Mustang Tri-Ax Shifter, Part# 555-7305
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csmBodywork', 'csmCarAnsweredIndex'], [true, 1]); hideItem('csmBodywork'); evalSessionStorage('csmCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csmBodywork', 'csmCarAnsweredIndex'], [false, 1]); hideItem('csmBodywork'); evalSessionStorage('csmCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csmSafety" class="center question sansserif">
+      <h2 id="csmSafetyQuestion">
+        Does your car meet the safety requirements defined below?
+      </h2>
+      <div id="safetyBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Provided the vehicle fully meets SCCA Safety Level 2 as defined in the
+            Time Trials Rules, the following may be added, replaced, or modified
+            within the guidelines stated in Safety Level 2:
+            <ul>
+              <li>
+                Compliant Rollbar (Required for Safety Level 2)
+              </li>
+              <li>
+                Fixed back racing seats for driver and passenger side
+              </li>
+              <li>
+                Racing harness(es)
+              </li>
+              <li>
+                Replacement of steering wheel and/or removal of steering wheel airbag
+              </li>
+            </ul>
+          </li>
+          <li>
+            Vehicles that do not meet SCCA Level 2 Safety may not substitute or
+            modify seats or steering wheel, however driver restraints as outlined in
+            Solo® Rules section 3.3.1, Driver Restraints, are allowed.
+          </li>
+          <li>
+            Seats may not be cut to allow for the installation of alternate seat belts or harnesses.
+          </li>
+          <li>
+            A horizontal "harness bar" may be used as part of the installation hardware for
+            allowed driver restraints provided it has no more than two (2)
+            attachment points to the chassis and is bolted at those locations.
+          </li>
+          <li>
+            A C-type harness bar may also be used; it may have four (4) bolted attachment points to
+            the chassis (2 primary and 2 supporting connections to resist rotation).
+          </li>
+          <li>
+            Truss-type harness bars with more than two (2) attachment points are not allowed.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csmSafety', 'csmCarAnsweredIndex'], [true, 2]); hideItem('csmSafety'); evalSessionStorage('csmCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csmSafety', 'csmCarAnsweredIndex'], [false, 2]); hideItem('csmSafety'); evalSessionStorage('csmCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csmSuspension" class="center question sansserif">
+      <h2 id="csmSuspensionQuestion">
+        Does your suspension meet the requirements defined below?
+      </h2>
+      <div id="suspensionBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Alignment:
+            <ul>
+              <li>
+                Both the front and rear suspension may be adjusted through
+                their designed range of adjustment by use of the specified parts. No
+                suspension part may be modified for the purpose of adjustment unless
+                such modification is specifically authorized by the manufacturer service
+                documentation.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Bushings:
+            <ul>
+              <li>
+                Supension bushings as supplied in the kits are mandatory.
+              </li>
+              <li>
+                Those not included in the supplied kits may not be replaced with
+                bushings of a different material or dimmension.
+              </li>
+            </ul>
+          </li>
+          <li>
+            A commonly available aftermarket Panhard Bar, that mounts in the
+            OEM/Stock body and axle locations may be utilized, including those
+            adjustable for length. This does not allow for Panhard Bar relocation,
+            adjustable height Panhard Bars, or replacement of the Panhard Bar
+            Brace. Any bushing, rod-end, spherical bearing may be used. Examples include:
+            <ul>
+              <li>
+                UMI Performance On-Car Single Adjustable Panhard Bar, Part#UPI-1044-B
+              </li>
+              <li>
+                STEEDA Autosports Street Panhard Bar Kit 05-14 Mustang, Part#555-2551-A
+              </li>
+              <li>
+                Eibach Pro-Alignment Performance Kit Panhard Bar Part#5.72045K
+              </li>
+            </ul>
+          </li>
+          <li>
+            The UMI Ford Mustang GT Adjustable Front Strut Tower Brace may be utilized, Part# UMI-1005-B
+          </li>
+          <li>
+            The STEEDA Mustang Upper Third Link Spherical Differential Bearing may be utilized, Part# 555-4104
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csmSuspension', 'csmCarAnsweredIndex'], [true, 3]); hideItem('csmSuspension'); evalSessionStorage('csmCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csmSuspension', 'csmCarAnsweredIndex'], [false, 3]); hideItem('csmSuspension'); evalSessionStorage('csmCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csmElectrical" class="center question sansserif">
+      <h2 id="csmElectricalQuestion">
+        Does your electrical system meet the following requirements?
+      </h2>
+      <div id="electricalBody" class="questionBody">
+        <ul class="list">
+          <li>
+            The make of spark plugs is unrestricted.
+          </li>
+          <li>
+            Tire Pressure Monitoring Systems (TPMS) may be disabled. Altering the signal to the TPMS module is allowed.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csmElectrical', 'csmCarAnsweredIndex'], [true, 4]); hideItem('csmElectrical'); evalSessionStorage('csmCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csmElectrical', 'csmCarAnsweredIndex'], [false, 4]); hideItem('csmElectrical'); evalSessionStorage('csmCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csmBrakes" class="center question sansserif">
+      <h2 id="csmBrakesQuestion">
+        Do your brakes meet the following requirements?
+      </h2>
+      <div id="brakesBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Ford Racing 2005-2014 Mustang GT 14-inch SVT Brake Upgrade Kit, Part# M-2300-S,
+            or any Ford OEM kit utilizing 14" rotors and Brembo 4 piston calipers may be utilized.
+          </li>
+          <li>
+            No Rear brake caliper relocation kits are allowed.
+          </li>
+          <li>
+            Goodridge G-Stop Brake Line Kit is allowed, Part#12364 (these lines are included in the Ford Racing SVT Kit listed above)
+          </li>
+          <li>
+            The make and material of brake linings (pads) may be changed.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csmBrakes', 'csmCarAnsweredIndex'], [true, 5]); hideItem('csmBrakes'); evalSessionStorage('csmCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csmBrakes', 'csmCarAnsweredIndex'], [false, 5]); hideItem('csmBrakes'); evalSessionStorage('csmCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csmEngineAndDrivetrain" class="center question sansserif">
+      <h2 id="csmEngineAndDrivetrainQuestion">
+        Does your engine and drivetrain fall within the following restrictions?
+      </h2>
+      <div id="engineBody" class="questionBody">
+        <ul class="list">
+          <li>
+            The engine management system parameters and operation of internal
+            combustion engines may be modified only via the methods listed below.
+            <ul>
+              <li>
+                OE ECU software may be reprogramed, but no changes to the factory ECU hardware are permitted.
+              </li>
+              <li>
+                Any OE OBD2 or newer communications port functionality must remain.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Oil filters are unrestricted.
+          </li>
+          <li>
+            Lubricants and fluids are unrestricted.
+          </li>
+          <li>
+            Fuel must be Federally approved for use on public highways and widely
+            distributed and typically sold in filling stations, commonly called "pump
+            fuel" with typical octane ratings or AKI (Anti-Knock Index) (R+M/2)
+            displayed on the pump between 87 and 93. The maximum octane rating
+            allowed is what is typically delivered from a pump marked 93 octane*.
+            </li>
+          <li>
+            Fuels comprised of more than 15% ethanol may only be used when
+            specified by the manufacturer (e.g., in the owner's manual for flex-fuel vehicles).
+          </li>
+          <li>
+            Octane verification: Octane levels will vary from the number listed on
+            the pump. Octane testing has a "margin of error" and different testing
+            procedures will produce similar but different results. For the purposes
+            of testing gasoline, a result that exceeds 95.9 octane is not allowed and
+            will result in a disqualification with no exceptions (hard limit). This
+            limit gives competitors a 99.99+% confidence level that fuel purchased
+            from a pump marked 93 octane is compliant. Warning: Competitors
+            attempting to approach the 95.9 octane limit through mixing or by any
+            other means may inadvertently create fuel that appears compliant but
+            may test above the 95.9 hard limit.
+          </li>
+          <li>
+            A. The air intake system, upstream of the throttle body, may be replaced
+            with a CARB approved, commonly available aftermarket unit that utilizes a cone filter and
+            divider wall. Examples include:
+            <ul>
+              <li>
+                a. K&N Part# 57-2565
+              </li>
+              <li>
+                b. Airaid Part# 450-172
+              </li>
+              <li>
+                c. aFe Power Part# 51-10293
+              </li>
+              <li>
+                d. aFe Power Part# 54-10293
+              </li>
+            </ul>
+          </li>
+          <li>
+            The engine management system parameters and operation of internal combustion engines may be modified only via the methods listed below.
+            <ul>
+              <li>
+                OE ECU software may be reprogramed, but no changes to the factory ECU hardware are permitted.
+              </li>
+              <li>
+                Any OE OBD2 or newer communications port functionality must remain.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Ford Performance Traction-Lok Rebuild Kit with Carbon Fiber Clutch Pack may be utilized, Ford Performance Part# M-4700-C.
+          </li>
+          <li>
+            The installation of oil catch tanks or oil separators is allowed provided the function of the PCV system remains functional.
+          </li>
+          <li>
+            An oil cooler is allowed provided no unauthorized modifications are made to perform the installation.
+          </li>
+          <li>
+            Mufflers may be substituted, provided there are two, one in each stock location no smaller than 6 inches in diameter or 4x6 inches height and width if oval.
+          </li>
+          <li>
+            Mufflers may be substituted, provided there are two, one in each stock location no smaller than 6 inches in diameter or 4x6 inches height and width if oval.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csmEngineAndDrivetrain', 'csmCarAnsweredIndex'], [true, 6]); hideItem('csmEngineAndDrivetrain'); evalSessionStorage('csmCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csmEngineAndDrivetrain', 'csmCarAnsweredIndex'], [false, 6]); hideItem('csmEngineAndDrivetrain'); evalSessionStorage('csmCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1 class="sansserif">
+        Your car is eligible for Club Spec Mustang!
+        </br>
+      </h1>
+      <div id="possibleClasses" class="possibleClasses">
+        <h2 id="specificClass" class="specificClass">
+Possible Classes:
+        </h2>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for the Club Spec Mustang class
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Solo Classifier Application - Club Spec MX-5 Car Page">
+    <title>SCCA Solo Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='csxLandingPageMenu' href="#" onclick="resetQuestion('csxLandingPage'); evalSessionStorage('csxCar');">Overview</a>
+      <a id='csxBodyworkMenu' href="#" onclick="resetQuestion('csxBodywork'); evalSessionStorage('csxCar');">Bodywork</a>
+      <a id='csxSafetyMenu' href="#" onclick="resetQuestion('csxSafety'); evalSessionStorage('csxCar');">Safety</a>
+      <a id='csxSuspensionMenu' href="#" onclick="resetQuestion('csxSuspension'); evalSessionStorage('csxCar');">Suspension</a>
+      <a id='csxElectricalMenu' href="#" onclick="resetQuestion('csxElectrical'); evalSessionStorage('csxCar');">Electrical</a>
+      <a id='csxBrakesMenu' href="#" onclick="resetQuestion('csxBrakes'); evalSessionStorage('csxCar');">Brakes</a>
+      <a id='csxEngineAndDrivetrainMenu' href="#" onclick="resetQuestion('csxEngineAndDrivetrain'); evalSessionStorage('csxCar');">Engine and Drivetrain</a>
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Club Spec MX-5 Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
+      <button class="button noButton" onclick="resetState()">Clear Selections</button>
+    </div>
+  </head>
+
+  <body onload="evalSessionStorage('csxCar');">
+    <div id="csxLandingPage" class="center question sansserif">
+      <h2 id="csxLandingPageQuestion">
+        Club Spec MX-5 Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <h3>
+          Category Objective
+        </h3>
+        <p>
+          Provide an affordable multipurpose package that combines a street-ready,
+          autocross capable and track appropriate performance in a single car using specified parts.
+        </p>
+        <h3>
+          Eligible Vehicles
+        </h3>
+        <ul class="list">
+          <li>
+            2006-2015 Mazda MX-5 (NC Chassis)
+          </li>
+          <li>
+            Vehicle Requirements
+            <ul>
+              <li>
+                6-Speed Manual Transmission or Automatic Transmission
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h3>
+          Minimum Weight
+        </h3>
+        <ul>
+          <li>
+            as weighed without Driver (lbs): 2500
+          </li>
+        </ul>
+        <h3>
+          Authorized Changes/Modifications
+        </h3>
+        <ul class="list">
+          <li>
+            If a change or modification is not specifically authorized, it is not allowed.
+            All repairs must comply with factory-authorized methods and
+            procedures, or industry standard methods, as follows: If the manufacturer does not
+            provide an appropriate method of repair, industry
+            standard methods and procedures may be used. Such repairs may not
+            result in a part or combination of parts that provides a performance
+            advantage (e.g., significant change to weight, suspension control, power, etc.) as
+            compared to the standard part(s). Competitors are strongly
+            cautioned to use this allowance to make common-sense repairs only.
+          </li>
+          <li>
+            Wheel lug studs (e.g., length) and lug nuts may be changed.
+          </li>
+          <li>
+            Components which are normally expendable and considered replacement parts may be used provided they are essentially identical to the
+            standard parts, used in the same location, and provide no performance
+            benefit. Examples are:
+            <ul>
+              <li>
+                a. Clutch and related components (excluding flywheel).
+              </li>
+              <li>
+                b. Hardware (nuts, bolts, clips, etc.)
+              </li>
+            </ul>
+          </li>
+          <li>
+            Parts superseded by Mazda® may be used
+          </li>
+          <li>
+            These allowances are strictly to permit components to be replaced from
+            alternate sources other than the original manufacturer. They should
+            not be construed as an allowance to replace components with those
+            which could be considered a "higher performance" alternative.
+          </li>
+          <li>
+            It is not permitted to use non-compliant parts even if they have been set
+            to the manufacturer's specifications.
+          </li>
+        </ul>
+        <h3>
+          Required Performance Kit
+        </h3>
+        <ul class="list">
+          <li>
+            Parts specified below (tires, wheels, and suspension) must be used.
+            All components and parts (e.g., hardware) are required to be installed
+            per manufacturer instructions. Original equipment (OE) or equivalent
+            components are not allowed.
+          </li>
+          <li>
+            Tires:
+            <ul>
+              <li>
+                Falken Azenis RT660, size: 225/45R17
+              </li>
+            </ul>
+          </li>
+          <li>
+            Wheels
+            <ul>
+              <li>
+                Diameter and width (in.): 17x8
+              </li>
+              <li>
+                Offset, including wheel spacer (mm): +45 (45ET or ET45) or greater
+              </li>
+              <li>
+                Weight, without spacer if used, minimum (lbs.): 15, including:
+                <ul>
+                  <li>
+                    Wheel Weights
+                  </li>
+                  <li>
+                    TPMS sensor if installed
+                  </li>
+                  <li>
+                    Tire Valve stem (type unrestricted)
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Wheel spacers are allowed provided the resultant combination with the wheel complies with the offset requirements.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Suspension
+            <ul>
+              <li>
+                Penske Front Shock (2), Part# 0000-04-5291-SA
+              </li>
+              <li>
+                Mazda Motorsport Front Mount Kit, Part# 0000-04-5359
+              </li>
+              <li>
+                Mazda Motorsport Front Offset Bushing Kit, Part# 0000-04-5407-NC
+              </li>
+              <li>
+                Eibach Front Spring (2), Part# 0000-04-9700-08
+              </li>
+              <li>
+                Penske Rear Shock (2), Part# 0000-04-5292-SA
+              </li>
+              <li>
+                Mazda Motorsport Rear Mount Kit, 0000-04-5358
+              </li>
+              <li>
+                Mazda Motorsport Rear Shock Alignment Spacer, Part# 000004-5294
+              </li>
+              <li>
+                Eibach Rear Spring (2), Part# 0000-04-9400-07
+              </li>
+              <li>
+                Eibach Helper Springs (4), Part# 0000-04-9926
+              </li>
+              <li>
+                Eibach Front and Rear Sway Bar Kit, Part# 0000-04-5306-EB
+              </li>
+              <li>
+                Mazda Motorsport Sway Bar End Links (4), Part# 0000-04-5597-KT
+              </li>
+              <li>
+                Penske Adjustment Knob (Recommended), Part# 0000-04-5293
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csxLandingPage', 'csxCarAnsweredIndex'], [true, 0]); hideItem('csxLandingPage'); evalSessionStorage('csxCar'); window.scroll(0,0);">Continue</button>
+    </div>
+
+    <div id="csxBodywork" class="center question sansserif">
+      <h2 id="csxBodyworkQuestion">
+        Does your car meet the bodywork/interior requirements below?
+      </h2>
+      <div id="bodyworkBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Front bumpers, rear bumpers, body trim pieces, and attachment points
+            may be reinforced to prevent or repair damage from hitting cones. Reinforcements
+            that are not visible to the exterior of the car are allowed.
+            Such repairs and/or reinforcements may serve no other purpose.
+          </li>
+          <li>
+            Accessories, gauges, indicators, lights, and other appearance, comfort and convenience
+            modifications which have no effect on performance and/or handling and do not
+            materially reduce the weight of the car are permitted. This does not allow driver's
+            seat substitutions, or the removal of "tow hooks" or "tie-down loops." Data acquisition systems
+            (including video cameras) and the accompanying sensors are allowed
+            but may serve no other purpose during a run than real-time display and
+            data recording.
+          </li>
+          <li>
+            Alternate Shift knobs are allowed.
+          </li>
+          <li>
+            Spare tires, tools, and jacks may be removed. Any fastening hardware
+            and/or other pieces that can no longer be firmly secured in the absence
+            of the spare tire may be removed if necessary to ensure compliance with
+            Solo® Rules section 3.3.3.B.1, Safety Inspections, Inspection Requirements.
+          </li>
+          <li>
+            Cars may add one (1) rear trailer hitch. Factory tie downs and cosmetic
+            pieces (e.g., diffusers) may be modified or removed to facilitate hitch
+            installation. Complete or partial removal of the hitch is allowed for
+            competition, provided it does not result in a reduction in weight compared to the unmodified standard configuration.
+          </li>
+          <li>
+            Tow bar brackets may be installed and may serve no other purpose.
+          </li>
+          <li>
+            Any item not permanently in place by manufacturer-installed fasteners may be removed (i.e., emergency tool kits).
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csxBodywork', 'csxCarAnsweredIndex'], [true, 1]); hideItem('csxBodywork'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxBodywork', 'csxCarAnsweredIndex'], [false, 1]); hideItem('csxBodywork'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csxSafety" class="center question sansserif">
+      <h2 id="csxSafetyQuestion">
+        Does your car meet the safety requirements defined below?
+      </h2>
+      <div id="safetyBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Provided the vehicle fully meets SCCA Safety Level 2 as defined in the
+            Time Trials Rules, the following may be added, replaced, or modified
+            within the guidelines stated in Safety Level 2:
+            <ul>
+              <li>
+                Compliant Rollbar (Required for Safety Level 2)
+              </li>
+              <li>
+                Fixed back racing seats for driver and passenger side
+              </li>
+              <li>
+                Racing harness(es)
+              </li>
+              <li>
+                Replacement of steering wheel and/or removal of steering wheel airbag
+              </li>
+            </ul>
+          </li>
+          <li>
+            Vehicles that do not meet SCCA Level 2 Safety may not substitute or
+            modify seats or steering wheel, however a lap belt, as outlined in Solo®
+            Rules section 3.3.1, Driver Restraints, is allowed. Seats may not be cut
+            to allow for the installation of alternate seat belts or harnesses.
+          </li>
+          <li>
+            Level 2 Fire Suppression is not required for Solo Events
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csxSafety', 'csxCarAnsweredIndex'], [true, 2]); hideItem('csxSafety'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxSafety', 'csxCarAnsweredIndex'], [false, 2]); hideItem('csxSafety'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csxSuspension" class="center question sansserif">
+      <h2 id="csxSuspensionQuestion">
+        Does your suspension meet the requirements defined below?
+      </h2>
+      <div id="suspensionBody" class="questionBody">
+        <ul class="list">
+          <li>
+            Alignment:
+            <ul>
+              <li>
+                Both the front and rear suspension may be adjusted through
+                their designed range of adjustment by use of the specified parts. No
+                suspension part may be modified for the purpose of adjustment unless
+                such modification is specifically authorized by the manufacturer service
+                documentation.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Bushings:
+            <ul>
+              <li>
+                Supension bushings as supplied in the kits are mandatory.
+              </li>
+              <li>
+                Those not included in the supplied kits may not be replaced with
+                bushings of a different material or dimmension.
+              </li>
+            </ul>
+          </li>
+          <li>
+            The Mazda Motorsports Competition Rear Hub, Part# 0000-04-5530, and Rear Hub Bearing, Part# 0000-04-5531 may be utilized.
+          </li>
+          <li>
+            Mazda RX-8 Front Hub may be utilized, Part# F189-33-04X
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csxSuspension', 'csxCarAnsweredIndex'], [true, 3]); hideItem('csxSuspension'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxSuspension', 'csxCarAnsweredIndex'], [false, 3]); hideItem('csxSuspension'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csxElectrical" class="center question sansserif">
+      <h2 id="csxElectricalQuestion">
+        Does your electrical system meet the following requirements?
+      </h2>
+      <div id="electricalBody" class="questionBody">
+        <ul class="list">
+          <li>
+            The make of spark plugs is unrestricted.
+          </li>
+          <li>
+            Tire Pressure Monitoring Systems (TPMS) may be disabled. Altering the signal to the TPMS module is allowed.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csxElectrical', 'csxCarAnsweredIndex'], [true, 4]); hideItem('csxElectrical'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxElectrical', 'csxCarAnsweredIndex'], [false, 4]); hideItem('csxElectrical'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csxBrakes" class="center question sansserif">
+      <h2 id="csxBrakesQuestion">
+        Do your brakes meet the following requirements?
+      </h2>
+      <div id="brakesBody" class="questionBody">
+        <ul class="list">
+          <li>
+            The make and material of brake linings (pads) may be changed.
+          </li>
+          <li>
+            Goodridge G-Stop Brake Line Kit is allowed, Part# 0000-03-5212
+          </li>
+          <li>
+            Mazda Motorsports 2.5" Brake Duct Kit is allowed, Part# 0000-03-5301-NC
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csxBrakes', 'csxCarAnsweredIndex'], [true, 5]); hideItem('csxBrakes'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxBrakes', 'csxCarAnsweredIndex'], [false, 5]); hideItem('csxBrakes'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="csxEngineAndDrivetrain" class="center question sansserif">
+      <h2 id="csxEngineAndDrivetrainQuestion">
+        Does your engine and drivetrain fall within the following restrictions?
+      </h2>
+      <div id="engineBody" class="questionBody">
+        <ul class="list">
+          <li>
+            The engine management system parameters and operation of internal
+            combustion engines may be modified only via the methods listed below.
+            <ul>
+              <li>
+                OE ECU software may be reprogramed, but no changes to the factory ECU hardware are permitted.
+              </li>
+              <li>
+                Any OE OBD2 or newer communications port functionality must remain.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Oil filters are unrestricted.
+          </li>
+          <li>
+            Lubricants and fluids are unrestricted.
+          </li>
+          <li>
+            Fuel must be Federally approved for use on public highways and widely
+            distributed and typically sold in filling stations, commonly called "pump
+            fuel" with typical octane ratings or AKI (Anti-Knock Index) (R+M/2)
+            displayed on the pump between 87 and 93. The maximum octane rating
+            allowed is what is typically delivered from a pump marked 93 octane*.
+            </li>
+          <li>
+            Fuels comprised of more than 15% ethanol may only be used when
+            specified by the manufacturer (e.g., in the owner's manual for flex-fuel
+            vehicles).
+          </li>
+          <li>
+            Octane verification: Octane levels will vary from the number listed on
+            the pump. Octane testing has a "margin of error" and different testing
+            procedures will produce similar but different results. For the purposes
+            of testing gasoline, a result that exceeds 95.9 octane is not allowed and
+            will result in a disqualification with no exceptions (hard limit). This
+            limit gives competitors a 99.99+% confidence level that fuel purchased
+            from a pump marked 93 octane is compliant. Warning: Competitors
+            attempting to approach the 95.9 octane limit through mixing or by any
+            other means may inadvertently create fuel that appears compliant but
+            may test above the 95.9 hard limit.
+          </li>
+          <li>
+            The air intake system, upstream of the throttle body, may be replaced with the Mazda Motorsport Intake System, Part# 0000-06-5150-KT
+          </li>
+          <li>
+            The installation of oil catch tanks or oil separators is allowed provided the function of the PCV system remains functional.
+          </li>
+          <li>
+            An oil cooler is allowed provided no unauthorized modifications are made to perform the installation, Mazda Motorsports Oil Cooler Adaptor with Lines Part# 0000-015511-KT is recommended.
+          </li>
+          <li>
+            Alternate exhaust and muffler may be utilized provided it mounts to the manifold flange labeled "Z" below, the muffler is in the stock location and is at least 6 inches in diameter or 4x6 inches if oval.
+          </li>
+        </ul>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['csxEngineAndDrivetrain', 'csxCarAnsweredIndex'], [true, 6]); hideItem('csxEngineAndDrivetrain'); evalSessionStorage('csxCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['csxEngineAndDrivetrain', 'csxCarAnsweredIndex'], [false, 6]); hideItem('csxEngineAndDrivetrain'); evalSessionStorage('csxCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1 class="sansserif">
+        Your car is eligible for Club Spec MX-5!
+        </br>
+      </h1>
+      <div id="possibleClasses" class="possibleClasses">
+        <h2 id="specificClass" class="specificClass">
+Possible Classes:
+        </h2>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for the Club Spec MX-5 class
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>
