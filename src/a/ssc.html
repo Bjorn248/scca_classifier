@@ -267,13 +267,17 @@ may test above the 95.9 hard limit.
       <button class="button noButton" onclick="setState(['solospeccoupeElectrical', 'sscCarAnsweredIndex'], [false, 7]); hideItem('solospeccoupeElectrical'); evalSessionStorage('sscCar'); window.scroll(0,0);">No</button>
     </div>
 
-
-
     <div id="eligible" class="center eligible sansserif">
       <h1>
         Your car is eligible for Solo Spec Coupe class!
         </br>
       </h1>
+      <div id="possibleClasses" class="possibleClasses">
+        <h2 id="specificClass" class="specificClass">
+Possible Classes:
+        </h2>
+      </div>
+    </div>
 
     <div id="notEligible" class="center notEligible sansserif">
       <h1>
