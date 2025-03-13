@@ -2305,6 +2305,9 @@ const allSoloCars = {
       '1981': ['dp', 'sm', 'xp', 'xa'],
       '1982': ['dp', 'sm', 'xp', 'xa'],
     },
+    '240Z': {
+      'all': ['es', 'cst', 'dsp', 'fp', 'sm', 'xp', 'xb'],
+    },
     '260Z': {
       'all': ['es', 'cst', 'dsp', 'fp', 'sm', 'xp', 'xa'],
     },
@@ -2360,9 +2363,6 @@ const allSoloCars = {
       '1984': ['ep', 'sm', 'xp', 'xa'],
       '1985': ['ep', 'sm', 'xp', 'xa'],
       '1986': ['ep', 'sm', 'xp', 'xa'],
-    },
-    'd40Z': {
-      'all': ['es', 'cst', 'dsp', 'fp', 'sm', 'xp', 'xb'],
     },
   },
   'DeTomaso': {
