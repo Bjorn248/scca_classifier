@@ -4418,6 +4418,15 @@ const allSoloCars = {
       '1999': ['esp', 'fs', 'xp', 'xa', 'sm'],
       '2000': ['esp', 'fs', 'xp', 'xa', 'sm'],
     },
+    'GS 430': {
+      '2001': ['esp', 'fs', 'xp', 'xa', 'sm'],
+      '2002': ['esp', 'fs', 'xp', 'xa', 'sm'],
+      '2003': ['esp', 'fs', 'xp', 'xa', 'sm'],
+      '2004': ['esp', 'fs', 'xp', 'xa', 'sm'],
+      '2005': ['esp', 'fs', 'xp', 'xa', 'sm'],
+      '2006': ['esp', 'fs', 'xp', 'xa', 'sm'],
+      '2007': ['esp', 'fs', 'xp', 'xa', 'sm'],
+    },
     'GS-F': {
       '2016': ['fs', 'xp', 'xa', 'sm'],
       '2017': ['fs', 'xp', 'xa', 'sm'],
