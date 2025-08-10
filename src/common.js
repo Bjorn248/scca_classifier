@@ -189,6 +189,102 @@ const subclassMap = {
   'fm': 'F Modified (FM)',
 };
 
+// Class to URL mapping for eligible classes
+const classUrlMap = {
+  'ss': '/a/s.html', 'as': '/a/s.html', 'bs': '/a/s.html', 'cs': '/a/s.html', 'ds': '/a/s.html', 'es': '/a/s.html', 'fs': '/a/s.html', 'gs': '/a/s.html', 'hs': '/a/s.html', 'ssr': '/a/s.html',
+  'ssc': '/a/ssc.html', 'csm': '/a/csm.html', 'csx': '/a/csx.html',
+  'ast': '/a/st.html', 'bst': '/a/st.html', 'cst': '/a/st.html', 'dst': '/a/st.html', 'est': '/a/st.html', 'gst': '/a/st.html', 'sst': '/a/st.html',
+  'camc': '/a/cam.html', 'camt': '/a/cam.html', 'cams': '/a/cam.html',
+  'evx': '/a/ev.html',
+  'xa': '/a/x.html', 'xb': '/a/x.html', 'xu': '/a/x.html',
+  'ssp': '/a/sp.html', 'csp': '/a/sp.html', 'dsp': '/a/sp.html', 'esp': '/a/sp.html', 'fsp': '/a/sp.html',
+  'ssm': '/a/sm.html', 'sm': '/a/sm.html', 'smf': '/a/sm.html',
+  'xp': '/a/p.html', 'cp': '/a/p.html', 'dp': '/a/p.html', 'ep': '/a/p.html', 'fp': '/a/p.html',
+  'am': '/a/m.html', 'bm': '/a/m.html', 'cm': '/a/m.html', 'dm': '/a/m.html', 'em': '/a/m.html', 'fm': '/a/m.html'
+};
+
+// Global variable to track current view state
+let showingEligibleOnly = false;
+
+/**
+ * Toggle between showing the full table and showing only eligible classes
+ */
+function toggleTableView() {
+  const tableContainer = document.getElementById('classesTableContainer');
+  const eligibleList = document.getElementById('eligibleClassesList');
+  const toggleBtn = document.getElementById('toggleTableBtn');
+  
+  if (showingEligibleOnly) {
+    // Show table, hide eligible list
+    tableContainer.style.display = 'block';
+    eligibleList.style.display = 'none';
+    toggleBtn.textContent = 'Show Eligible Classes Only';
+    showingEligibleOnly = false;
+  } else {
+    // Hide table, show eligible list
+    tableContainer.style.display = 'none';
+    eligibleList.style.display = 'block';
+    toggleBtn.textContent = 'Show Full Class Table';
+    showingEligibleOnly = true;
+    updateEligibleClassesList();
+  }
+}
+
+/**
+ * Update the eligible classes list based on current car selection
+ */
+function updateEligibleClassesList() {
+  const grid = document.getElementById('eligibleClassesGrid');
+  const eligibleClasses = getCurrentEligibleClasses();
+  
+  if (eligibleClasses.length === 0) {
+    grid.innerHTML = '<div class="no-eligible-classes">Please select your car\'s make, model, and year to see eligible classes.</div>';
+    return;
+  }
+  
+  // Create eligible class items
+  let html = '';
+  eligibleClasses.forEach(classId => {
+    const className = subclassMap[classId] || classId.toUpperCase();
+    const url = classUrlMap[classId] || '/a/';
+    const acronym = classId.toUpperCase();
+    
+    html += `
+      <a href="${url}" class="eligible-class-item">
+        <div class="eligible-class-acronym">${acronym}</div>
+        <div class="eligible-class-name">${className}</div>
+      </a>
+    `;
+  });
+  
+  grid.innerHTML = html;
+}
+
+/**
+ * Get currently eligible classes based on selected car
+ */
+function getCurrentEligibleClasses() {
+  const make = document.getElementById('make').value;
+  const model = document.getElementById('model').value;
+  const year = document.getElementById('year').value;
+  
+  if (!make || !model || !year || make === 'Make' || model === 'Model' || year === 'Year') {
+    return [];
+  }
+  
+  // Get classes for the selected car
+  if (allSoloCars[make] && allSoloCars[make][model]) {
+    const modelData = allSoloCars[make][model];
+    if (modelData[year]) {
+      return modelData[year];
+    } else if (modelData['all']) {
+      return modelData['all'];
+    }
+  }
+  
+  return [];
+}
+
 const allSoloCars = {
   'AMC': {
     'AMX': {
@@ -8653,9 +8749,74 @@ function populateSubclasses() { // eslint-disable-line no-unused-vars
   for (const classAcronym in subclassMap) {
     if (Object.prototype.hasOwnProperty.call(subclassMap, classAcronym)) {
       const id = classAcronym.concat('-a');
-      aSelect = document.getElementById(id);
-      aSelect.text = subclassMap[classAcronym];
+      const aSelect = document.getElementById(id);
+      if (aSelect) {
+        // Show only the acronym in uppercase
+        aSelect.textContent = classAcronym.toUpperCase();
+        // Remove any existing title attribute to avoid browser default tooltips
+        aSelect.removeAttribute('title');
+        // Add data attribute for our custom tooltip
+        aSelect.setAttribute('data-tooltip', subclassMap[classAcronym]);
+        aSelect.setAttribute('data-acronym', classAcronym.toUpperCase());
+        
+        // Add event listeners for custom tooltip
+        aSelect.addEventListener('mouseenter', showCustomTooltip);
+        aSelect.addEventListener('mouseleave', hideCustomTooltip);
+      }
     }
+  }
+}
+
+/**
+ * Show custom tooltip on hover
+ */
+function showCustomTooltip(event) {
+  const element = event.target;
+  const tooltipText = element.getAttribute('data-tooltip');
+  
+  if (!tooltipText) return;
+  
+  // Remove any existing tooltip
+  hideCustomTooltip();
+  
+  // Create tooltip element
+  const tooltip = document.createElement('div');
+  tooltip.className = 'custom-tooltip';
+  tooltip.textContent = tooltipText;
+  tooltip.id = 'active-tooltip';
+  
+  // Add to body
+  document.body.appendChild(tooltip);
+  
+  // Position tooltip
+  const rect = element.getBoundingClientRect();
+  const tooltipRect = tooltip.getBoundingClientRect();
+  
+  // Position above the element, centered
+  let left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
+  let top = rect.top - tooltipRect.height - 10;
+  
+  // Adjust if tooltip goes off screen
+  if (left < 10) left = 10;
+  if (left + tooltipRect.width > window.innerWidth - 10) {
+    left = window.innerWidth - tooltipRect.width - 10;
+  }
+  if (top < 10) {
+    top = rect.bottom + 10; // Show below if no room above
+  }
+  
+  tooltip.style.left = left + window.scrollX + 'px';
+  tooltip.style.top = top + window.scrollY + 'px';
+  tooltip.style.opacity = '1';
+}
+
+/**
+ * Hide custom tooltip
+ */
+function hideCustomTooltip() {
+  const existingTooltip = document.getElementById('active-tooltip');
+  if (existingTooltip) {
+    existingTooltip.remove();
   }
 }
 
@@ -8733,6 +8894,11 @@ function lookupMakeModelYear() { // eslint-disable-line no-unused-vars
     for (let i = 0; i < subClasses.length; i++) {
       const tableElement = document.getElementById(subClasses[i]);
       tableElement.classList.add('highlighted');
+    }
+    
+    // Update eligible classes list if it's currently showing
+    if (showingEligibleOnly) {
+      updateEligibleClassesList();
     }
   }
 }
