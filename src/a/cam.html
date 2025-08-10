@@ -37,6 +37,23 @@
   </head>
 
   <body onload="evalSessionStorage('camCar'); highlightAndFilterCAM();">
+    <!-- Modern Top Navigation Bar -->
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button class="hamburger-menu" onclick="openNav()" title="Open navigation menu">☰</button>
+      </div>
+      <div class="nav-center">
+        <h1 class="nav-title">Classic American Muscle Class Questionnaire</h1>
+      </div>
+      <div class="nav-right">
+        <button class="nav-button" onclick="window.location.href = '/index.html';" title="Return to home page">
+          🏠 Home
+        </button>
+        <button class="nav-button" onclick="resetState()" title="Clear question answers and selections">
+          🔄 Clear
+        </button>
+      </div>
+    </nav>
     <div id="camLandingPage" class="center question sansserif">
       <h2 id="camLandingPageQuestion">
         Classic American Muscle (CAM) Class Overview

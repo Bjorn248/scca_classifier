@@ -26,21 +26,26 @@
       <a id='streettouringOutofProductionMenu' href="#" onclick="resetQuestion('streettouringOutofProduction'); evalSessionStorage('streettouringCar');">OutofProduction</a>
     </div>
 
-    <div id="main">
-      <button class="openbtn" onclick="openNav()">☰</button>
-    </div>
-
-    <h1 class="center sansserif">Street Touring Class Questionnaire</h1>
-
-    <div id="homeButton" class="left">
-      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
-    </div>
-    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
-      <button class="button noButton" onclick="resetState()">Clear Selections</button>
-    </div>
   </head>
 
   <body onload="evalSessionStorage('streettouringCar'); highlightAndFilterStreetTouring();">
+    <!-- Modern Top Navigation Bar -->
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button class="hamburger-menu" onclick="openNav()" title="Open navigation menu">☰</button>
+      </div>
+      <div class="nav-center">
+        <h1 class="nav-title">Street Touring Class Questionnaire</h1>
+      </div>
+      <div class="nav-right">
+        <button class="nav-button" onclick="window.location.href = '/index.html';" title="Return to home page">
+          🏠 Home
+        </button>
+        <button class="nav-button" onclick="resetState()" title="Clear question answers and selections">
+          🔄 Clear
+        </button>
+      </div>
+    </nav>
     <div id="streettouringLandingPage" class="center question sansserif">
       <h2 id="streettouringLandingPageQuestion">
         Street Touring Class Overview
