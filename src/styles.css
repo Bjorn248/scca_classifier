@@ -580,8 +580,8 @@ strong, b {
 }
 
 .header-card {
-  background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--color-primary-50) 10%, var(--color-primary-600) 90%);
+  color: var(--color-gray-800);
   padding: var(--space-6) var(--space-8);
   border-radius: var(--radius-2xl);
   text-align: center;
@@ -673,7 +673,7 @@ strong, b {
 }
 
 .feedback-card {
-  background: linear-gradient(135deg, var(--color-gray-50) 0%, white 100%);
+  background: linear-gradient(135deg, var(--color-gray-50) 10%, var(--color-gray-300) 90%);
   text-align: center;
 }
 
