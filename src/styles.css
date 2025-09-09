@@ -1022,12 +1022,13 @@ fieldset label {
 .select-css:hover {
   border-color: var(--color-gray-400);
   box-shadow: var(--shadow-md);
+  color: black;
 }
 
 .select-css:focus {
   border-color: var(--color-primary-600);
   box-shadow: var(--shadow-md), 0 0 0 3px var(--color-primary-100);
-  color: var(--color-gray-900);
+  color: black;
   outline: none;
 }
 
