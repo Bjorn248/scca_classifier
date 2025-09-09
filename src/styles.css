@@ -582,7 +582,7 @@ strong, b {
 .header-card {
   background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
   color: white;
-  padding: var(--space-12) var(--space-8);
+  padding: var(--space-6) var(--space-8);
   border-radius: var(--radius-2xl);
   text-align: center;
   box-shadow: var(--shadow-xl);
@@ -644,12 +644,12 @@ strong, b {
 }
 
 .intro-card h2 {
-  color: var(--color-gray-900);
+  color: #111827 !important;
   margin-bottom: var(--space-4);
 }
 
 .intro-card p {
-  color: var(--color-gray-600);
+  color: #4b5563 !important;
   font-size: var(--font-size-lg);
   margin-bottom: var(--space-8);
 }
@@ -694,7 +694,7 @@ strong, b {
   }
   
   .header-card {
-    padding: var(--space-16) var(--space-12);
+    padding: var(--space-8) var(--space-12);
   }
   
   .header-card h1 {
@@ -866,16 +866,18 @@ fieldset label {
 
 @media (max-width: 480px) {
   .nav-center {
-    flex: 0;
+    flex: 1;
     margin: 0 var(--space-2);
   }
   
   .nav-title {
     font-size: var(--font-size-sm);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 200px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    max-width: none;
+    line-height: 1.2;
+    text-align: center;
   }
 }
 
@@ -1046,16 +1048,18 @@ fieldset label {
 
 @media (max-width: 480px) {
   .nav-center {
-    flex: 0;
+    flex: 1;
     margin: 0 var(--space-2);
   }
   
   .nav-title {
     font-size: var(--font-size-sm);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 200px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    max-width: none;
+    line-height: 1.2;
+    text-align: center;
   }
 }
 

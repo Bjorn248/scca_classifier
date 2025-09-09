@@ -229,6 +229,38 @@ function toggleTableView() {
     updateEligibleClassesList();
   }
 }
+// Mobile media query handler
+const mobileQuery = window.matchMedia('(max-width: 768px)');
+
+function handleMobileChange(e) {
+  const tableContainer = document.getElementById('classesTableContainer');
+  const eligibleList = document.getElementById('eligibleClassesList');
+  const toggleBtn = document.getElementById('toggleTableBtn');
+  
+  if (!tableContainer || !eligibleList || !toggleBtn) return;
+  
+  if (e.matches) {
+    // Mobile: Show eligible classes, hide table and toggle button
+    tableContainer.style.display = 'none';
+    eligibleList.style.display = 'block';
+    toggleBtn.style.display = 'none';
+    showingEligibleOnly = true;
+    updateEligibleClassesList();
+  } else {
+    // Desktop: Show table, hide eligible classes, show toggle button
+    tableContainer.style.display = 'block';
+    eligibleList.style.display = 'none';
+    toggleBtn.style.display = 'inline-block';
+    toggleBtn.textContent = 'Show Eligible Classes Only';
+    showingEligibleOnly = false;
+  }
+}
+
+// Initialize when DOM is ready and listen for media query changes
+document.addEventListener('DOMContentLoaded', function() {
+  handleMobileChange(mobileQuery);
+});
+mobileQuery.addListener(handleMobileChange);
 
 /**
  * Update the eligible classes list based on current car selection
