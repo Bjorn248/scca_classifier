@@ -3,7 +3,7 @@
   /* Typography Scale */
   --font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   --font-family-mono: 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
-  
+
   /* Font Sizes - Modular Scale (1.25 ratio) */
   --font-size-xs: 0.75rem;    /* 12px */
   --font-size-sm: 0.875rem;   /* 14px */
@@ -14,18 +14,18 @@
   --font-size-3xl: 1.875rem;  /* 30px */
   --font-size-4xl: 2.25rem;   /* 36px */
   --font-size-5xl: 3rem;      /* 48px */
-  
+
   /* Line Heights */
   --line-height-tight: 1.25;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
-  
+
   /* Font Weights */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  
+
   /* Spacing Scale - Based on 8px grid */
   --space-1: 0.25rem;   /* 4px */
   --space-2: 0.5rem;    /* 8px */
@@ -39,13 +39,13 @@
   --space-16: 4rem;     /* 64px */
   --space-20: 5rem;     /* 80px */
   --space-24: 6rem;     /* 96px */
-  
+
   /* Container Widths */
   --container-sm: 640px;
   --container-md: 768px;
   --container-lg: 1024px;
   --container-xl: 1280px;
-  
+
   /* Dark Mode Color Palette */
   --color-primary-50: #1e3a8a;
   --color-primary-100: #1d4ed8;
@@ -53,7 +53,7 @@
   --color-primary-600: #60a5fa;
   --color-primary-700: #93c5fd;
   --color-primary-900: #dbeafe;
-  
+
   --color-gray-50: #111827;
   --color-gray-100: #1f2937;
   --color-gray-200: #374151;
@@ -64,28 +64,28 @@
   --color-gray-700: #e5e7eb;
   --color-gray-800: #f3f4f6;
   --color-gray-900: #f9fafb;
-  
+
   --color-success-50: #f0fdf4;
   --color-success-500: #22c55e;
   --color-success-600: #16a34a;
   --color-success-700: #15803d;
-  
+
   --color-error-50: #fef2f2;
   --color-error-500: #ef4444;
   --color-error-600: #dc2626;
   --color-error-700: #b91c1c;
-  
+
   --color-warning-50: #fffbeb;
   --color-warning-100: #fef3c7;
   --color-warning-500: #f59e0b;
   --color-warning-600: #d97706;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  
+
   /* Border Radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
@@ -692,21 +692,21 @@ strong, b {
   .container {
     padding: var(--space-8);
   }
-  
+
   .header-card {
     padding: var(--space-8) var(--space-12);
   }
-  
+
   .header-card h1 {
     font-size: var(--font-size-5xl);
   }
-  
+
   .action-buttons {
     flex-direction: row;
     justify-content: center;
     gap: var(--space-6);
   }
-  
+
   .intro-card, .disclaimer-card, .feedback-card {
     padding: var(--space-12);
   }
@@ -719,17 +719,17 @@ strong, b {
     grid-template-rows: auto auto;
     gap: var(--space-8);
   }
-  
+
   .intro-card {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
   }
-  
+
   .disclaimer-card {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
   }
-  
+
   .feedback-card {
     grid-column: 1 / -1;
     grid-row: 2 / 3;
@@ -790,9 +790,20 @@ strong, b {
   border: 1px solid var(--color-gray-200);
 }
 
+#makeModelYear {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .menus {
   margin: 0 auto;
-  display: table;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
 }
 
 fieldset {
@@ -812,10 +823,41 @@ fieldset p {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: var(--space-3);
+  width: 100%;
 }
 
-fieldset input, 
+@media (max-width: 480px) {
+  .center {
+    padding: var(--space-4) var(--space-3);
+    margin-left: var(--space-2);
+    margin-right: var(--space-2);
+  }
+
+  #makeModelYear {
+    align-items: center;
+    padding: 0;
+  }
+
+  .menus {
+    align-items: center;
+    padding: 0;
+  }
+
+  fieldset p {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .select-css {
+    width: 100%;
+    max-width: calc(100vw - 60px);
+    margin: var(--space-1) 0;
+  }
+}
+
+fieldset input,
 fieldset select {
   padding: var(--space-3);
   border: 2px solid var(--color-gray-300);
@@ -848,17 +890,17 @@ fieldset label {
   .nav-title {
     font-size: var(--font-size-base);
   }
-  
+
   .nav-button {
     padding: var(--space-2) var(--space-3);
     font-size: var(--font-size-xs);
     min-width: 60px;
   }
-  
+
   .nav-button span {
     display: none;
   }
-  
+
   .top-nav {
     padding: var(--space-2) var(--space-3);
   }
@@ -869,7 +911,7 @@ fieldset label {
     flex: 1;
     margin: 0 var(--space-2);
   }
-  
+
   .nav-title {
     font-size: var(--font-size-sm);
     white-space: normal;
@@ -1030,17 +1072,17 @@ fieldset label {
   .nav-title {
     font-size: var(--font-size-base);
   }
-  
+
   .nav-button {
     padding: var(--space-2) var(--space-3);
     font-size: var(--font-size-xs);
     min-width: 60px;
   }
-  
+
   .nav-button span {
     display: none;
   }
-  
+
   .top-nav {
     padding: var(--space-2) var(--space-3);
   }
@@ -1051,7 +1093,7 @@ fieldset label {
     flex: 1;
     margin: 0 var(--space-2);
   }
-  
+
   .nav-title {
     font-size: var(--font-size-sm);
     white-space: normal;
@@ -1133,8 +1175,9 @@ fieldset label {
   line-height: var(--line-height-normal);
   padding: var(--space-3) var(--space-12) var(--space-3) var(--space-4);
   margin: var(--space-2);
-  width: 300px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 300px;
+  min-width: 200px;
   box-sizing: border-box;
   border: 2px solid var(--color-gray-300);
   box-shadow: var(--shadow-sm);
@@ -1361,8 +1404,9 @@ td:hover {
 
 .eligible-class-name {
   font-size: var(--font-size-sm);
-  color: var(--color-gray-600);
+  color: #000000;
   line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-semibold);
 }
 
 .no-eligible-classes {
