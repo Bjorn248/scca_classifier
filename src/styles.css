@@ -155,19 +155,19 @@ p {
 
 /* Link Styles */
 a {
-  color: #2563eb;
+  color: #98c1fd;
   text-decoration: none;
   font-weight: var(--font-weight-medium);
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #1d4ed8;
+  color: #98c1fd;
   text-decoration: underline;
 }
 
 a:focus {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #1d4ed8;
   outline-offset: 2px;
 }
 
