@@ -12,15 +12,28 @@
   </head>
 
   <body onload="lookupMakeModelYear(); populateSubclasses();">
+    <!-- Modern Top Navigation Bar -->
+    <nav class="top-nav">
+      <div class="nav-left">
+        <!-- No hamburger menu needed on index page -->
+      </div>
+      <div class="nav-center">
+        <h1 class="nav-title">SCCA Solo Classification Assistant</h1>
+      </div>
+      <div class="nav-right">
+        <button class="nav-button" onclick="window.location.href = '/index.html';" title="Return to home page">
+          🏠 Home
+        </button>
+      </div>
+    </nav>
     <div class="center sansserif">
-      <h1>
-        Welcome to the SCCA Solo Classification Assistant!
-      </h1>
-      <div id="makeModelYear" class="center">
-        <h2 id="makeModelYearQuestion">
-          Please choose the make, model, and year of your car. The classes you are eligible for
+      <div id="makeModelYear">
+        <p id="makeModelYearQuestion">
+          Please choose the make, model, and year of your car.
+          </br>
+          The classes you are eligible for
           will be highlighted.
-        </h2>
+        </p>
         <div id="dropDownMenus" class="center menus">
           <fieldset>
             <p>
@@ -40,31 +53,44 @@
             </p>
           </fieldset>
         </div>
-        <h3 id="nocNotice">
-          If your car not listed then you should attempt to class your car using the NOC (Not Otherwise Classified)
-          rules.
+        <p>
+          Choose your class below.
           </br>
-          Please refer to the <a href="https://www.scca.com/pages/solo-cars-and-rules">SCCA rulebook</a>
-          if this happens, or get in contact with an experienced autocrosser to help you out!
-        </h3>
-        <h3>
-          Choose your class below. Classes are <i>roughly</i> in order from least to most
+          Classes are <i>roughly</i> in order from least to most
           modified, from left to right.
-        </h3>
+        </p>
       </div>
-      <div class="classesTable">
+
+      <!-- Table Toggle Controls -->
+      <div class="table-controls">
+        <button class="toggle-table-btn" onclick="toggleTableView()" id="toggleTableBtn">
+          Show Eligible Classes Only
+        </button>
+      </div>
+
+      <!-- Eligible Classes List (Hidden by default) -->
+      <div class="eligible-classes-list" id="eligibleClassesList">
+        <p>Your Eligible Classes</p>
+        <div class="eligible-classes-grid" id="eligibleClassesGrid">
+          <div class="no-eligible-classes">
+            Please select your car's make, model, and year to see eligible classes.
+          </div>
+        </div>
+      </div>
+
+      <div class="classesTable" id="classesTableContainer">
         <table id="classesTable">
           <tr>
-            <th>Street</th>
-            <th>Spec Classes</th>
-            <th>Street Touring</th>
-            <th>Classic American Muscle (CAM)</th>
-            <th>Electric Vehicle</th>
-            <th>Xtreme Street</th>
-            <th>Street Prepared</th>
-            <th>Street Modified</th>
-            <th>Prepared</th>
-            <th>Modified</th>
+            <th title="Street Classes">Street</th>
+            <th title="Spec Classes">Spec</th>
+            <th title="Street Touring Classes">ST</th>
+            <th title="Classic American Muscle">CAM</th>
+            <th title="Electric Vehicle Experimental">EVX</th>
+            <th title="Xtreme Street Classes">XS</th>
+            <th title="Street Prepared Classes">SP</th>
+            <th title="Street Modified Classes">SM</th>
+            <th title="Prepared Classes">Prepared</th>
+            <th title="Modified Classes">Modified</th>
           </tr>
           <tr>
             <td id="ss"><a id="ss-a" href="/a/s.html"></a></td>
@@ -188,10 +214,19 @@
           </tr>
         </table>
       </div>
-      <h3>
+      <p id="nocNotice">
+      If your car is not listed then you should attempt to class your car using the NOC rules
+      </br>
+      (Not Otherwise Classified).
+      </p>
+      <p>
+      Please refer to the <a href="https://www.scca.com/pages/solo-cars-and-rules">SCCA rulebook</a>
+      if this happens, or get in contact with an experienced autocrosser to help you out!
+      </p>
+      <p>
         Have feedback? This website is open source. Any feedback/contributions are welcome
         <a href="https://github.com/Bjorn248/scca_classifier" target="_blank" rel="noopener noreferrer">on Github</a>.
-      </h3>
+      </p>
     </div>
   </body>
 </html>
