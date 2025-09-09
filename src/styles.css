@@ -983,188 +983,6 @@ fieldset label {
   margin: var(--space-3) 0;
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.nav-center {
-  flex: 1;
-  text-align: center;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.nav-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  margin: 0;
-  color: white;
-}
-
-.nav-button {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-width: 80px;
-  justify-content: center;
-}
-
-.nav-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
-}
-
-.nav-button:active {
-  transform: translateY(0);
-}
-
-.nav-button.primary {
-  background: var(--color-primary-600);
-  border-color: var(--color-primary-500);
-}
-
-.nav-button.primary:hover {
-  background: var(--color-primary-700);
-  border-color: var(--color-primary-600);
-}
-
-.hamburger-menu {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  padding: var(--space-2);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-lg);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hamburger-menu:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Responsive Navigation Design */
-@media (max-width: 768px) {
-  .nav-title {
-    font-size: var(--font-size-base);
-  }
-
-  .nav-button {
-    padding: var(--space-2) var(--space-3);
-    font-size: var(--font-size-xs);
-    min-width: 60px;
-  }
-
-  .nav-button span {
-    display: none;
-  }
-
-  .top-nav {
-    padding: var(--space-2) var(--space-3);
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-center {
-    flex: 1;
-    margin: 0 var(--space-2);
-  }
-
-  .nav-title {
-    font-size: var(--font-size-sm);
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    max-width: none;
-    line-height: 1.2;
-    text-align: center;
-  }
-}
-
-/* Legacy positioning classes - now hidden */
-.left,
-.right {
-  display: none;
-}
-
-.question {
-  display: none;
-}
-
-.subclasses {
-  color: #000000;
-  width: 50%;
-  margin: 0 auto;
-  padding: var(--space-4);
-}
-
-.subclass {
-  color: #000000;
-  font-weight: var(--font-weight-medium);
-  white-space: pre;
-  text-align: center;
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--space-3);
-}
-
-.eligible {
-  display: none;
-  color: #16a34a;
-  font-weight: var(--font-weight-semibold);
-  text-align: center;
-  font-size: var(--font-size-xl);
-  margin: var(--space-4) 0;
-}
-
-.specificClass {
-  color: #1f2937;
-  font-weight: var(--font-weight-semibold);
-  white-space: pre;
-  text-align: center;
-  font-size: var(--font-size-xl);
-  margin: var(--space-4) 0;
-}
-
-.notEligible {
-  display: none;
-  color: #dc2626;
-  font-weight: var(--font-weight-semibold);
-  text-align: center;
-  font-size: var(--font-size-xl);
-  margin: var(--space-4) 0;
-}
-
-.notEligibleExplanation {
-  color: black;
-  font-weight: var(--font-weight-normal);
-  font-size: var(--font-size-base);
-  margin: var(--space-3) 0;
-}
-
 /* Modern Select Dropdown Styling */
 .select-css {
   display: inline-block;
@@ -1191,7 +1009,6 @@ fieldset label {
   for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url.
   You can also swap in a different svg icon or an external image reference
    */
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
   linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
   background-repeat: no-repeat, repeat;
   /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
@@ -1231,7 +1048,6 @@ fieldset label {
 /* Disabled styles */
 .select-css:disabled, .select-css[aria-disabled=true] {
   color: graytext;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
   linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
 }
 
@@ -1516,6 +1332,8 @@ td:hover {
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.3);
 }
+
+
 
 .sidebar {
   height: 100%;
