@@ -182,18 +182,6 @@ strong, b {
   color: #dc2626;
 }
 
-.emphasis-important {
-  font-weight: var(--font-weight-semibold);
-  color: #1f2937;
-}
-
-.emphasis-highlight {
-  font-weight: var(--font-weight-medium);
-  background-color: #fef3c7;
-  padding: 0 var(--space-1);
-  border-radius: 2px;
-}
-
 @media handheld, only screen and (min-width: 640px) {
   .questionBody {
     display: inline-block;
@@ -1361,19 +1349,6 @@ td:hover {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
-}
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
-  background-color: #444;
 }
 
 #main {
