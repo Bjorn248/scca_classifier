@@ -9047,7 +9047,7 @@ function highlightAndFilterStreet() { // eslint-disable-line no-unused-vars
       newDiv.setAttribute('id', 'subClass');
       const specificClass = document.getElementById('streetSubclass');
       if (specificClass != null) {
-        const newChild = document.createTextNode(subClass);
+        const newChild = document.createTextNode(subClass.toUpperCase());
         newDiv.appendChild(newChild);
         specificClass.insertBefore(newDiv, null);
       }
@@ -9129,7 +9129,7 @@ function highlightAndFilterStreetTouring() { // eslint-disable-line no-unused-va
       newDiv.setAttribute('id', 'subClass');
       const specificClass = document.getElementById('streettouringSubclass');
       if (specificClass != null) {
-        const newChild = document.createTextNode(subClass);
+        const newChild = document.createTextNode(subClass.toUpperCase());
         newDiv.appendChild(newChild);
         specificClass.insertBefore(newDiv, null);
       }

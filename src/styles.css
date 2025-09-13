@@ -929,7 +929,7 @@ fieldset label {
 }
 
 .subclass {
-  color: #000000;
+  color: #f4f4f4;
   font-weight: var(--font-weight-medium);
   white-space: pre;
   text-align: center;
