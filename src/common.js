@@ -5610,6 +5610,35 @@ const allSoloCars = {
       'all': ['hs', 'xp', 'xa', 'sm'],
     },
   },
+  'MG': {
+    '1100': {
+      'all': ['hs', 'fsp'],
+    },
+    '1300': {
+      'all': ['hs', 'fsp'],
+    },
+    'A': {
+      'all': ['hs', 'fsp', 'dp'],
+    },
+    'B': {
+      'all': ['hs', 'fsp', 'dp'],
+    },
+    'B GT': {
+      'all': ['hs', 'fsp', 'dp'],
+    },
+    'C': {
+      'all': ['hs', 'fsp'],
+    },
+    'C GT': {
+      'all': ['hs', 'fsp'],
+    },
+    'Midget': {
+      'all': ['hs', 'fsp', 'dp'],
+    },
+    'Sprite': {
+      'all': ['hs', 'fsp', 'dp'],
+    },
+  },
   'Mini': {
     'Clubman (non-S, non-JCW)': {
       '2008': ['hs', 'xp', 'xa', 'sm', 'smf'],
