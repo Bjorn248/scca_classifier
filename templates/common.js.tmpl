@@ -1,15 +1,40 @@
 const carFlags = {
-  '{{ range . }}{{if stringEqual .Name "Street"}}{{ toVarName .Name }}Car{{ end }}{{ end }}': [
-    '{{ range . }}{{if stringEqual .Name "Street"}}{{ toVarName .Name }}LandingPage',{{ $className := .Name }}{{ range .SubChapters }}
-    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
+  'streetCar': [
+    'streetLandingPage',
+    'streetAuthorized',
+    'streetBodywork',
+    'streetTires',
+    'streetWheels',
+    'streetShock',
+    'streetBrakes',
+    'streetAntiRoll',
+    'streetSuspension',
+    'streetElectrical',
+    'streetEngine',
   ],
-  '{{ range . }}{{if stringEqual .Name "Street Touring"}}{{ toVarName .Name }}Car{{ end }}{{ end }}': [
-    {{ range . }}{{if stringEqual .Name "Street Touring"}}'{{ toVarName .Name }}LandingPage',{{ $className := .Name }}{{ range .SubChapters }}
-    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
+  'streettouringCar': [
+    'streettouringLandingPage',
+    'streettouringAuthorized',
+    'streettouringBodywork',
+    'streettouringTires',
+    'streettouringWheels',
+    'streettouringShock',
+    'streettouringBrakes',
+    'streettouringAntiRoll',
+    'streettouringSuspension',
+    'streettouringElectrical',
+    'streettouringEngine',
+    'streettouringOutofProduction',
   ],
   'sscCar': [
-    'sscLandingPage',{{ range . }}{{if stringEqual .Name "Solo Spec Coupe"}}{{ $className := .Name }}{{ range .SubChapters }}
-    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
+    'sscLandingPage',
+    'solospeccoupeEligible',
+    'solospeccoupeMandatory',
+    'solospeccoupeAuthorized',
+    'solospeccoupeBodywork',
+    'solospeccoupeBrakes',
+    'solospeccoupeSuspension',
+    'solospeccoupeElectrical',
   ],
   'csmCar': [
     'csmLandingPage',
@@ -62,20 +87,52 @@ const carFlags = {
     'camEngineAndDrivetrain',
   ],
   'smCar': [
-    'smLandingPage',{{ range . }}{{if stringEqual .Name "Street Modified"}}{{ $className := .Name }}{{ range .SubChapters }}
-    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
+    'smLandingPage',
+    'streetmodifiedAllowed',
+    'streetmodifiedMinimum',
   ],
   'spCar': [
-    'spLandingPage',{{ range . }}{{if stringEqual .Name "Street Prepared"}}{{ $className := .Name }}{{ range .SubChapters }}
-    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
+    'spLandingPage',
+    'streetpreparedAuthorized',
+    'streetpreparedBodywork',
+    'streetpreparedTires',
+    'streetpreparedWheels',
+    'streetpreparedShock',
+    'streetpreparedBrakes',
+    'streetpreparedAntiRoll',
+    'streetpreparedSuspension',
+    'streetpreparedElectrical',
+    'streetpreparedEngine',
+    'streetpreparedOutofProduction',
   ],
   'pCar': [
-    'pLandingPage',{{ range . }}{{if stringEqual .Name "Prepared"}}{{ $className := .Name }}{{ range .SubChapters }}
-    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
+    'pLandingPage',
+    'preparedAuthorized',
+    'preparedBodywork',
+    'preparedTires',
+    'preparedWheels',
+    'preparedShock',
+    'preparedBrakes',
+    'preparedAntiRoll',
+    'preparedSuspension',
+    'preparedElectrical',
+    'preparedEngine',
+    'preparedOther',
+    'preparedSafety',
   ],
   'mCar': [
-    'mLandingPage',{{ range . }}{{if stringEqual .Name "Modified"}}{{ $className := .Name }}{{ range .SubChapters }}
-    '{{ toVarName $className }}{{ menuName .Name }}',{{ end }}{{ end }}{{ end }}
+    'mLandingPage',
+    'modifiedSound',
+    'modifiedEngine',
+    'modifiedAerodynamics',
+    'modifiedTires',
+    'modifiedSafety',
+    'modifiedModified',
+    'modifiedSports',
+    'modifiedFormula',
+    'modifiedSpecials',
+    'modifiedFormula',
+    'modifiedLegends',
   ],
 };
 
