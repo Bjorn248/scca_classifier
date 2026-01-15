@@ -9330,7 +9330,7 @@ function highlightAndFilterSM() { // eslint-disable-line no-unused-vars
       newDiv.setAttribute('id', 'subClass');
       const specificClass = document.getElementById('smSubclass');
       if (specificClass != null) {
-        const newChild = document.createTextNode(subClass);
+        const newChild = document.createTextNode(subClass.toUpperCase());
         newDiv.appendChild(newChild);
         specificClass.insertBefore(newDiv, null);
       }
@@ -9390,7 +9390,7 @@ function highlightAndFilterM() { // eslint-disable-line no-unused-vars
       newDiv.setAttribute('id', 'subClass');
       const specificClass = document.getElementById('mSubclass');
       if (specificClass != null) {
-        const newChild = document.createTextNode(subClass);
+        const newChild = document.createTextNode(subClass.toUpperCase());
         newDiv.appendChild(newChild);
         specificClass.insertBefore(newDiv, null);
       }
@@ -9451,7 +9451,7 @@ function highlightAndFilterSP() { // eslint-disable-line no-unused-vars
       newDiv.setAttribute('id', 'subClass');
       const specificClass = document.getElementById('spSubclass');
       if (specificClass != null) {
-        const newChild = document.createTextNode(subClass);
+        const newChild = document.createTextNode(subClass.toUpperCase());
         newDiv.appendChild(newChild);
         specificClass.insertBefore(newDiv, null);
       }
@@ -9507,7 +9507,7 @@ function highlightAndFilterP() { // eslint-disable-line no-unused-vars
       newDiv.setAttribute('id', 'subClass');
       const specificClass = document.getElementById('pSubclass');
       if (specificClass != null) {
-        const newChild = document.createTextNode(subClass);
+        const newChild = document.createTextNode(subClass.toUpperCase());
         newDiv.appendChild(newChild);
         specificClass.insertBefore(newDiv, null);
       }
