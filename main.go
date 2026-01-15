@@ -261,8 +261,8 @@ func main() {
 		{
 			Name:              "Solo Spec Coupe",
 			Number:            "20",
-			start:             regexp.MustCompile(`\n20\. SOLO. SPEC COUPE \(SSC\)\n`),
-			end:               regexp.MustCompile(`\n21\. PROSOLO® NATIONAL SERIES RULES\n`),
+			start:             regexp.MustCompile(`\n20\. SOLO® SPEC COUPE \(SSC\)\n`),
+			end:               regexp.MustCompile(`\n21\. CLASSIC AMERICAN MUSCLE`),
 			ChapterFillerText: regexp.MustCompile(`20\. Solo® Spec Coupe \(SSC\)`),
 			templateFile:      "./templates/a/ssc.html.tmpl",
 			outputFile:        "./src/a/ssc.html",
@@ -270,7 +270,7 @@ func main() {
 		{
 			Name:   "Xtreme Street",
 			Number: "n/a",
-			start:  regexp.MustCompile(`\nClassic American Muscle \/ Xtreme Street Category\n`),
+			start:  regexp.MustCompile(`\n21\. Classic American Muscle / Xtreme Street Category\n`),
 			end:    regexp.MustCompile(`\nElectrical Vehicle Experimental \(EVX\)\n`),
 		},
 		{
