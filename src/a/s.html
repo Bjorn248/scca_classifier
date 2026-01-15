@@ -16,8 +16,11 @@
       <a id='streetAuthorizedMenu' href="#" onclick="resetQuestion('streetAuthorized'); evalSessionStorage('streetCar');">Authorized</a>
       <a id='streetBodyworkMenu' href="#" onclick="resetQuestion('streetBodywork'); evalSessionStorage('streetCar');">Bodywork</a>
       <a id='streetTiresMenu' href="#" onclick="resetQuestion('streetTires'); evalSessionStorage('streetCar');">Tires</a>
+      <a id='streetWheelsMenu' href="#" onclick="resetQuestion('streetWheels'); evalSessionStorage('streetCar');">Wheels</a>
+      <a id='streetShockMenu' href="#" onclick="resetQuestion('streetShock'); evalSessionStorage('streetCar');">Shock</a>
       <a id='streetBrakesMenu' href="#" onclick="resetQuestion('streetBrakes'); evalSessionStorage('streetCar');">Brakes</a>
       <a id='streetAntiRollMenu' href="#" onclick="resetQuestion('streetAntiRoll'); evalSessionStorage('streetCar');">AntiRoll</a>
+      <a id='streetSuspensionMenu' href="#" onclick="resetQuestion('streetSuspension'); evalSessionStorage('streetCar');">Suspension</a>
       <a id='streetElectricalMenu' href="#" onclick="resetQuestion('streetElectrical'); evalSessionStorage('streetCar');">Electrical</a>
       <a id='streetEngineMenu' href="#" onclick="resetQuestion('streetEngine'); evalSessionStorage('streetCar');">Engine</a>
     </div>
@@ -260,8 +263,22 @@ in Regional Solo® competition.
 • Vitour Tempesta P1
 • XComp H/P
 
-13.4 WHEELS
-Any type wheel may be used provided it complies with the following:</br></div></br></br>A. It is the same width as standard and as installed it does not have an offset more than ±7.00 mm (±0.275&#34;) from a standard wheel for the car.
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streetTires', 'streetCarAnsweredIndex'], [true, 3]); hideItem('streetTires'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetTires', 'streetCarAnsweredIndex'], [false, 3]); hideItem('streetTires'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="streetWheels" class="center question sansserif">
+      <h2 id="streetWheelsQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streetBody" class="questionBody">
+        <h3>
+          13.4 WHEELS
+Any type wheel may be used provided it complies with the following:</br></br>A. It is the same width as standard and as installed it does not have an offset more than ±7.00 mm (±0.275&#34;) from a standard wheel for the car.
 The resultant change in track dimensions is allowed.</br></br>B. Wheel (rim) diameter may be increased or decreased 1&#34; from the standard part. This change may be applied to the front, rear, or both axles.
 Cars equipped with 21-inch wheels or larger may decrease to 19inch
 wheels.
@@ -275,7 +292,21 @@ be changed. Tire pressure monitoring sensors may be removed.
 Centerlock/Spline Drive/Knock-off type hubs may be converted to lug
 type hubs provided the resultant combination complies with the offset requirements of this Section.
 
-13.5 SHOCK ABSORBERS/STRUTS</br></br>A. The make of shock absorbers, struts, and strut housings may be substituted providing that the number, type (e.g., tube, lever, etc.), system
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streetWheels', 'streetCarAnsweredIndex'], [true, 4]); hideItem('streetWheels'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetWheels', 'streetCarAnsweredIndex'], [false, 4]); hideItem('streetWheels'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="streetShock" class="center question sansserif">
+      <h2 id="streetShockQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streetBody" class="questionBody">
+        <h3>
+          13.5 SHOCK ABSORBERS/STRUTS</br></br>A. The make of shock absorbers, struts, and strut housings may be substituted providing that the number, type (e.g., tube, lever, etc.), system
 of attachment and attachment points are not altered, except as noted
 below. The interchange of gas and hydraulic shocks absorbers is permitted. The following restrictions apply:</br><div class="indent"></br>1. No more than 2 (two) separate external shock damping adjustment
 controls are allowed. This permits the use of shocks which originally came with more than two external adjustments, which have been
@@ -341,8 +372,8 @@ may not be added through the exterior body panels.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetTires', 'streetCarAnsweredIndex'], [true, 3]); hideItem('streetTires'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetTires', 'streetCarAnsweredIndex'], [false, 3]); hideItem('streetTires'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetShock', 'streetCarAnsweredIndex'], [true, 5]); hideItem('streetShock'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetShock', 'streetCarAnsweredIndex'], [false, 5]); hideItem('streetShock'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetBrakes" class="center question sansserif">
@@ -360,8 +391,8 @@ They may serve no other purpose.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetBrakes', 'streetCarAnsweredIndex'], [true, 4]); hideItem('streetBrakes'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetBrakes', 'streetCarAnsweredIndex'], [false, 4]); hideItem('streetBrakes'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetBrakes', 'streetCarAnsweredIndex'], [true, 6]); hideItem('streetBrakes'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetBrakes', 'streetCarAnsweredIndex'], [false, 6]); hideItem('streetBrakes'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetAntiRoll" class="center question sansserif">
@@ -376,7 +407,21 @@ a bearing.</br></br>B. Substitution, addition, or removal of anti-roll bars may 
 purpose than that of an anti-roll bar.</br></br>C. No modification to the body, frame, or other components to accommodate anti-roll bar addition or substitution is allowed except for the drilling of holes for mounting bolts. Non-standard lateral members which
 connect between the brackets for the bar are not permitted.
 
-13.8 SUSPENSION</br></br>A. Standard, as defined herein, suspension springs must be used. They
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streetAntiRoll', 'streetCarAnsweredIndex'], [true, 7]); hideItem('streetAntiRoll'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetAntiRoll', 'streetCarAnsweredIndex'], [false, 7]); hideItem('streetAntiRoll'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="streetSuspension" class="center question sansserif">
+      <h2 id="streetSuspensionQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streetBody" class="questionBody">
+        <h3>
+          13.8 SUSPENSION</br></br>A. Standard, as defined herein, suspension springs must be used. They
 may not be cut, shortened, or collapsed. Spring perches may not vary
 from the OE shape within the working part of the perch.</br></br>B. Both the front and rear suspension may be adjusted through their designed range of adjustment by use of factory adjustment arrangements
 or by taking advantage of inherent manufacturing tolerances. This encompasses both alignment and ride height parameters if such adjustments are provided by the standard components and specified by the
@@ -398,8 +443,8 @@ the maximum factory alignment specification.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetAntiRoll', 'streetCarAnsweredIndex'], [true, 5]); hideItem('streetAntiRoll'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetAntiRoll', 'streetCarAnsweredIndex'], [false, 5]); hideItem('streetAntiRoll'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetSuspension', 'streetCarAnsweredIndex'], [true, 8]); hideItem('streetSuspension'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetSuspension', 'streetCarAnsweredIndex'], [false, 8]); hideItem('streetSuspension'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetElectrical" class="center question sansserif">
@@ -423,8 +468,8 @@ no other purpose.&#34;
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetElectrical', 'streetCarAnsweredIndex'], [true, 6]); hideItem('streetElectrical'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetElectrical', 'streetCarAnsweredIndex'], [false, 6]); hideItem('streetElectrical'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetElectrical', 'streetCarAnsweredIndex'], [true, 9]); hideItem('streetElectrical'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetElectrical', 'streetCarAnsweredIndex'], [false, 9]); hideItem('streetElectrical'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetEngine" class="center question sansserif">
@@ -539,8 +584,8 @@ Proxes RR
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetEngine', 'streetCarAnsweredIndex'], [true, 7]); hideItem('streetEngine'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetEngine', 'streetCarAnsweredIndex'], [false, 7]); hideItem('streetEngine'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetEngine', 'streetCarAnsweredIndex'], [true, 10]); hideItem('streetEngine'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetEngine', 'streetCarAnsweredIndex'], [false, 10]); hideItem('streetEngine'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
 
