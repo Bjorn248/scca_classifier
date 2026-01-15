@@ -418,6 +418,7 @@ const allSoloCars = {
       '2022': ['gs', 'gst', 'sm', 'smf', 'xa', 'xp'],
       '2023': ['gs', 'gst', 'sm', 'smf', 'xa', 'xp'],
       '2024': ['gs', 'gst', 'sm', 'smf', 'xa', 'xp'],
+      '2025': ['gs', 'gst', 'sm', 'smf', 'xa', 'xp'],
     },
     'Integra Type R': {
       'all': ['ds', 'dst', 'esp', 'sm', 'smf', 'ep', 'xa'],
@@ -565,6 +566,8 @@ const allSoloCars = {
       '2021': ['bs', 'sst', 'sm', 'xp', 'xa'],
       '2022': ['bs', 'sst', 'sm', 'xp', 'xa'],
       '2023': ['bs', 'sst', 'sm', 'xp', 'xa'],
+      '2024': ['bs', 'sst', 'sm', 'xp', 'xa'],
+      '2025': ['bs', 'sst', 'sm', 'xp', 'xa'],
     },
     'Junior Z': {
       'all': ['dp', 'sm', 'xp', 'xb'],
@@ -1761,6 +1764,7 @@ const allSoloCars = {
       '2022': ['ds', 'camc', 'xp', 'sm'],
       '2023': ['ds', 'camc', 'xp', 'sm'],
       '2024': ['ds', 'camc', 'xp', 'sm'],
+      '2025': ['ds', 'camc', 'xp', 'sm'],
     },
     'CT4V (incl. Blackwing)': {
       '2020': ['bs', 'camc', 'xp', 'sm'],
@@ -1768,12 +1772,15 @@ const allSoloCars = {
       '2022': ['bs', 'camc', 'xp', 'sm'],
       '2023': ['bs', 'camc', 'xp', 'sm'],
       '2024': ['bs', 'camc', 'xp', 'sm'],
+      '2025': ['bs', 'camc', 'xp', 'sm'],
     },
     'CT5V (incl. Blackwing)': {
       '2020': ['as', 'camc', 'xp', 'sm'],
       '2021': ['as', 'camc', 'xp', 'sm'],
       '2022': ['as', 'camc', 'xp', 'sm'],
       '2023': ['as', 'camc', 'xp', 'sm'],
+      '2024': ['as', 'camc', 'xp', 'sm'],
+      '2025': ['as', 'camc', 'xp', 'sm'],
     },
     'CTS (non-V, non-Vsport)': {
       '2003': ['ds', 'cp', 'camc', 'xp', 'sm'],
@@ -2081,6 +2088,7 @@ const allSoloCars = {
     },
     'Corvette E-Ray': {
       '2024': ['ss', 'ssr', 'ssp', 'xp', 'xu', 'ssm'],
+      '2025': ['ss', 'ssr', 'ssp', 'xp', 'xu', 'ssm'],
     },
     'Corvette Grand Sport': {
       '2005': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
@@ -2108,6 +2116,7 @@ const allSoloCars = {
       '2022': ['ss', 'ssr', 'ssp', 'xp', 'ssm'],
       '2023': ['ss', 'ssr', 'ssp', 'xp', 'ssm'],
       '2024': ['ss', 'ssr', 'ssp', 'xp', 'ssm'],
+      '2025': ['ss', 'ssr', 'ssp', 'xp', 'ssm'],
     },
     'Corvette Z06': {
       '2001': ['as', 'sst', 'ssr', 'ssp', 'cams', 'xp', 'ssm'],
@@ -2130,6 +2139,7 @@ const allSoloCars = {
       '2019': ['ss', 'ssp', 'cams', 'xp', 'ssm'],
       '2023': ['ss', 'ssp', 'xp', 'ssm'],
       '2024': ['ss', 'ssp', 'xp', 'ssm'],
+      '2025': ['ss', 'ssp', 'xp', 'ssm'],
     },
     'Corvette ZR1': {
       '2009': ['ss', 'ssp', 'cams', 'xp', 'ssm'],
@@ -3224,6 +3234,11 @@ const allSoloCars = {
       '2022': ['ds', 'bst', 'sm', 'camc', 'xp'],
       '2023': ['ds', 'bst', 'sm', 'camc', 'xp'],
       '2024': ['ds', 'bst', 'sm', 'camc', 'xp'],
+      '2025': ['ds', 'bst', 'sm', 'camc', 'xp'],
+    },
+    'Mustang Dark Horse': {
+      '2024': ['fs', 'camc', 'sm', 'xp'],
+      '2025': ['fs', 'camc', 'sm', 'xp'],
     },
     'Mustang GT500': {
       '2020': ['as', 'ssr', 'dsp', 'sm', 'camc', 'xp'],
@@ -3250,6 +3265,8 @@ const allSoloCars = {
       '2021': ['fs', 'bst', 'camc', 'sm', 'xp'],
       '2022': ['fs', 'bst', 'camc', 'sm', 'xp'],
       '2023': ['fs', 'bst', 'camc', 'sm', 'xp'],
+      '2024': ['fs', 'bst', 'camc', 'sm', 'xp'],
+      '2025': ['fs', 'bst', 'camc', 'sm', 'xp'],
     },
     'Mustang GT': {
       '2005': ['fs', 'csm', 'sm', 'camc', 'xp'],
@@ -3270,6 +3287,9 @@ const allSoloCars = {
       '2020': ['fs', 'camc', 'sm', 'xp'],
       '2021': ['fs', 'camc', 'sm', 'xp'],
       '2022': ['fs', 'camc', 'sm', 'xp'],
+      '2023': ['fs', 'camc', 'sm', 'xp'],
+      '2024': ['fs', 'camc', 'sm', 'xp'],
+      '2025': ['fs', 'camc', 'sm', 'xp'],
     },
     'Mustang Mach 1': {
       '2003': ['fs', 'bst', 'camt', 'sm', 'xp'],
@@ -5006,6 +5026,7 @@ const allSoloCars = {
       '2022': ['cs', 'ast', 'csp', 'dp', 'ssm', 'xb'],
       '2023': ['cs', 'ast', 'csp', 'dp', 'ssm', 'xb'],
       '2024': ['cs', 'ast', 'csp', 'dp', 'ssm', 'xb'],
+      '2025': ['cs', 'ast', 'csp', 'dp', 'ssm', 'xb'],
     },
     'MX-5 Miata First Generation (NA) non-Torsen differential': {
       '1990': ['es', 'est', 'csp', 'ssm', 'dp', 'xb'],
@@ -6468,6 +6489,7 @@ const allSoloCars = {
     'Z (incl. Nismo)': {
       '2023': ['sst', 'xp', 'xa', 'sm'],
       '2024': ['sst', 'xp', 'xa', 'sm'],
+      '2025': ['sst', 'xp', 'xa', 'sm'],
     },
   },
   'Oldsmobile': {
@@ -7148,6 +7170,8 @@ const allSoloCars = {
       '2021': ['as', 'sst', 'xp', 'xa', 'ssm'],
       '2022': ['as', 'sst', 'xp', 'xa', 'ssm'],
       '2023': ['as', 'sst', 'xp', 'xa', 'ssm'],
+      '2024': ['as', 'sst', 'xp', 'xa', 'ssm'],
+      '2025': ['as', 'sst', 'xp', 'xa', 'ssm'],
     },
     'Cayman GT4 (Excluding RS & Clubsport)': {
       '2016': ['ss', 'ssp', 'ssp', 'xp', 'xu', 'ssm'],
@@ -7718,6 +7742,7 @@ const allSoloCars = {
       '2022': ['ds', 'cst', 'dp', 'xa', 'sm'],
       '2023': ['ds', 'cst', 'dp', 'xa', 'sm'],
       '2024': ['ds', 'cst', 'dp', 'xa', 'sm'],
+      '2025': ['ds', 'cst', 'dp', 'xa', 'sm'],
     },
     'BRZ tS': {
       '2018': ['cs', 'dst', 'dsp', 'dp', 'xa', 'sm'],
@@ -8256,10 +8281,12 @@ const allSoloCars = {
       '2022': ['ds', 'cst', 'xp', 'xa', 'sm'],
       '2023': ['ds', 'cst', 'xp', 'xa', 'sm'],
       '2024': ['ds', 'cst', 'xp', 'xa', 'sm'],
+      '2025': ['ds', 'cst', 'xp', 'xa', 'sm'],
     },
     'GR Corolla (Morizo Edition)': {
       '2023': ['as', 'bst', 'xp', 'xa', 'csp', 'dsp', 'sm'],
       '2024': ['as', 'bst', 'xp', 'xa', 'csp', 'dsp', 'sm'],
+      '2025': ['as', 'bst', 'xp', 'xa', 'csp', 'dsp', 'sm'],
     },
     'GR Corolla (excl. MORIZO Edition, excl. Performance Shocks and Springs Package)': {
       '2022': ['bs', 'bst', 'xp', 'xa', 'csp', 'dsp', 'sm'],
@@ -8267,6 +8294,7 @@ const allSoloCars = {
     },
     'GR Corolla (with Performance Shocks and Springs Package)': {
       '2024': ['as', 'bst', 'xp', 'xa', 'csp', 'dsp', 'sm'],
+      '2025': ['as', 'bst', 'xp', 'xa', 'csp', 'dsp', 'sm'],
     },
     'MR2 (non-turbo, non-supercharged)': {
       '1985': ['es', 'est', 'csp', 'xp', 'xb', 'ssm'],
