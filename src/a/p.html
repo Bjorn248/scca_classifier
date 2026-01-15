@@ -14,39 +14,29 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a id='pLandingPageMenu' href="#" onclick="resetQuestion('pLandingPage'); evalSessionStorage('pCar');">Overview</a>
       <a id='preparedAuthorizedMenu' href="#" onclick="resetQuestion('preparedAuthorized'); evalSessionStorage('pCar');">Authorized</a>
-      <a id='preparedBodyworkMenu' href="#" onclick="resetQuestion('preparedBodywork'); evalSessionStorage('pCar');">Bodywork</a>
       <a id='preparedTiresMenu' href="#" onclick="resetQuestion('preparedTires'); evalSessionStorage('pCar');">Tires</a>
-      <a id='preparedWheelsMenu' href="#" onclick="resetQuestion('preparedWheels'); evalSessionStorage('pCar');">Wheels</a>
       <a id='preparedShockMenu' href="#" onclick="resetQuestion('preparedShock'); evalSessionStorage('pCar');">Shock</a>
-      <a id='preparedBrakesMenu' href="#" onclick="resetQuestion('preparedBrakes'); evalSessionStorage('pCar');">Brakes</a>
       <a id='preparedAntiRollMenu' href="#" onclick="resetQuestion('preparedAntiRoll'); evalSessionStorage('pCar');">AntiRoll</a>
-      <a id='preparedSuspensionMenu' href="#" onclick="resetQuestion('preparedSuspension'); evalSessionStorage('pCar');">Suspension</a>
-      <a id='preparedElectricalMenu' href="#" onclick="resetQuestion('preparedElectrical'); evalSessionStorage('pCar');">Electrical</a>
       <a id='preparedEngineMenu' href="#" onclick="resetQuestion('preparedEngine'); evalSessionStorage('pCar');">Engine</a>
       <a id='preparedOtherMenu' href="#" onclick="resetQuestion('preparedOther'); evalSessionStorage('pCar');">Other</a>
       <a id='preparedSafetyMenu' href="#" onclick="resetQuestion('preparedSafety'); evalSessionStorage('pCar');">Safety</a>
     </div>
 
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <h1 class="center sansserif">Prepared Class Questionnaire</h1>
+
+    <div id="homeButton" class="left">
+      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
+    </div>
+    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
+      <button class="button noButton" onclick="resetState()">Clear Selections</button>
+    </div>
   </head>
 
   <body onload="evalSessionStorage('pCar'); highlightAndFilterP();">
-    <!-- Modern Top Navigation Bar -->
-    <nav class="top-nav">
-      <div class="nav-left">
-        <button class="hamburger-menu" onclick="openNav()" title="Open navigation menu">☰</button>
-      </div>
-      <div class="nav-center">
-        <h1 class="nav-title">Prepared Class Questionnaire</h1>
-      </div>
-      <div class="nav-right">
-        <button class="nav-button" onclick="window.location.href = '/index.html';" title="Return to home page">
-          🏠 Home
-        </button>
-        <button class="nav-button" onclick="resetState()" title="Clear question answers and selections">
-          🔄 Clear
-        </button>
-      </div>
-    </nav>
     <div id="pLandingPage" class="center question sansserif">
       <h2 id="pLandingPageQuestion">
         Prepared Class Overview
@@ -210,24 +200,10 @@ not make tortured interpretations of this rule which will invoke Section
 of the reason, is considered to be a tortured interpretation.)
 Refer to Appendix F for past clarifications of these rules.
 
-
-        </h3>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['preparedAuthorized', 'pCarAnsweredIndex'], [true, 1]); hideItem('preparedAuthorized'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedAuthorized', 'pCarAnsweredIndex'], [false, 1]); hideItem('preparedAuthorized'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="preparedBodywork" class="center question sansserif">
-      <h2 id="preparedBodyworkQuestion">
-        Does your car meet the requirements below?
-      </h2>
-      <div id="preparedBody" class="questionBody">
-        <h3>
-          17.2 BODYWORK AND STRUCTURE
+17.2 BODYWORK AND STRUCTURE
 The purpose of the following rules is to maintain recognizable external
-features of the manufacturer's make and model, while providing the necessary safety and performance modifications. Restrictions regarding external body shape and belly pans are aimed at preventing attempts to obtain ground effects or streamlining.
-</br></br>A. The external shape of the body may only be changed where specifically
+features of the manufacturer&#39;s make and model, while providing the nec
+essary safety and performance modifications. Restrictions regarding external body shape and belly pans are aimed at preventing attempts to obtain ground effects or streamlining.</br></br>A. The external shape of the body may only be changed where specifically
 authorized. Standard window openings, rain gutters, or approved facsimiles shall be retained. All external trim and model identification may
 be removed. Grilles may be removed, modified, or substituted.</br></br>B. Chassis, frame, or subframe may be reinforced provided components
 and attachments are not relocated except where specifically permitted.
@@ -251,16 +227,16 @@ by one of alternate construction, unless specifically permitted, in Appendix A, 
 which will invoke Section 17.11 weight adjustments.</br></br>E. The floor in the driver/passenger compartment may be modified for installation of subframe connectors, exhaust components, battery boxes,
 ballast weights, and drivetrain clearance. For the same reasons listed,
 the rear seat floor area, defined as the area extending rearward from the
-back of the driver's seat to the trunk and between the frame rails, may
+back of the driver&#39;s seat to the trunk and between the frame rails, may
 be removed, modified, or replaced. The driver/passenger compartment
 must remain separate from any exhaust and drivetrain components by
 a metal panel. Trunk floors may be modified, removed, or replaced. If
 replaced, the trunk floor must be replaced with metal panels of similar
 shape to the original. Removal of the trunk floor is allowable only when
-a metal bulkhead separates the trunk area from the passenger compartment. The transmission tunnel may be modified for the purpose of installing a competition driver seat. The driver's side floor pan may be
 
+a metal bulkhead separates the trunk area from the passenger compartment. The transmission tunnel may be modified for the purpose of installing a competition driver seat. The driver&#39;s side floor pan may be
 modified to accommodate larger/taller drivers. All modifications shall
-be contained between the transmission tunnel, driver's side rocker, rear
+be contained between the transmission tunnel, driver&#39;s side rocker, rear
 bulkhead and no more than 30&#34; forward of the rear bulkhead. The modification shall not extend below the factory floor stiffener/frame rail.
 The steel used in the modification shall be no thinner than .058&#34;. All
 modifications shall be welded in place. This modification shall serve no
@@ -268,7 +244,7 @@ other purpose other than seating position.</br></br>F. The firewall may be notch
 to the engine block, fuel-carrying lines, fuel pumps, intercooling piping, carburetors, air horns, air cleaners, and distributor. Any material
 added to the firewall must be either steel or aluminum. This requires a
 sealed firewall between engine and passenger compartment. This rule
-is for driver's safety. Completely sealing all firewall openings is strongly
+is for driver&#39;s safety. Completely sealing all firewall openings is strongly
 encouraged, but no gap may be larger than ⅛ inch (0.125&#34;,3.2 mm),
 except around dynamic devices extending through the firewall (e.g.,
 throttle linkage, transmission linkage, or other mechanical devices)
@@ -285,14 +261,14 @@ fascias must be of similar shape as standard components, completely
 cover the area of the OE bumper/fascia, and not confuse the identity of
 the vehicle.</br></br>H. All interior trim, dash boards, gauges, floor covering, carpet, upholstery
 panels, and similar non-performance comfort or convenience items
-may be removed or replaced.</br></br>I. The driver's seat may be replaced with a seat of any origin. All passenger
-seats may be removed or replaced with seats of any origin. The driver's
+may be removed or replaced.</br></br>I. The driver&#39;s seat may be replaced with a seat of any origin. All passenger
+seats may be removed or replaced with seats of any origin. The driver&#39;s
 seat must remain on the standard side of the car and may not cross the
 centerline of the car. The seat may be relocated fore/aft by up to 12.0&#34;
 (30.5 cm) based on the centerline of the original front and rear mounting points. Rear bulkhead of the driver/passenger compartment may
-not be removed to relocate the seat and the driver's seat may not extend
-rearward past the bulkhead.</br></br>J. Doors may be lightened and may be replaced by ones of alternate ma
-terials. Doors may be pinned, but not bolted, to prevent their opening
+
+not be removed to relocate the seat and the driver&#39;s seat may not extend
+rearward past the bulkhead.</br></br>J. Doors may be lightened and may be replaced by ones of alternate materials. Doors may be pinned, but not bolted, to prevent their opening
 in case of an accident. Quick release fasteners (e.g., Dzus fasteners) are
 allowed. Standard door hinges and latch mechanisms may be removed,
 but the doors shall be capable of being opened or removed. Interior
@@ -317,8 +293,8 @@ panels may be altered, replaced, or removed provided there are panels
 providing total separation between driver/passenger compartment and
 wheels. A shock/strut tower integral to the inner fender panel is considered part of the inner fender panel and is included in this allowance.
 This does not allow modification of frame/frame stubs beyond Section
-17.2.C.</br></br>N. Replacement, addition, or removal of accessories (gauges, switches, indicators, etc.), or other interior modifications for driver convenience, or
 
+17.2.C.</br></br>N. Replacement, addition, or removal of accessories (gauges, switches, indicators, etc.), or other interior modifications for driver convenience, or
 to permit installation of required safety equipment, is authorized provided such modifications have no influence whatever on the mechanical
 performance of the car. Such modifications do not include the substitution or replacement of any bodywork or chassis component except
 those specifically authorized by these rules.</br></br>O. The standard OE front spoiler or a non-standard front spoiler/splitter
@@ -345,10 +321,10 @@ rear hatch lid at or near the top of the hatch in such a configuration
 the spoiler may extend not more than 7½ inches (7.50&#34;, 19.1 cm)
 from the original bodywork in any direction. The spoiler may be no
 wider that the bodywork. The use of endplates is prohibited. Spoiler
-endplates are defined as any vertical (or semi-vertical) surfaces attached in front of the spoiler which have the result of capturing and
+endplates are defined as any vertical (or semi-vertical) surfaces at
+tached in front of the spoiler which have the result of capturing and
 redistributing air (downforce) along all or any portion of the spoiler.
-The angle of attack is free. The spoiler may not function as a wing.
-</div><div class="indent"></br>3. For Classes XP, DP, EP and FP, wings may be added, removed, or
+The angle of attack is free. The spoiler may not function as a wing.</div><div class="indent"></br>3. For Classes XP, DP, EP and FP, wings may be added, removed, or
 modified. OE or non-OE spoilers must be removed. Non-OE wings
 may only be attached to the chassis or body behind the centerline of
 the rear axle. The total combined surface area of all wings shall not
@@ -378,11 +354,11 @@ replaced.</br></br>S. The hood, hatchback, deck lid, and fenders may be lightene
 by ones of alternate material provided the shape is similar to the original
 and does not confuse the identity of the vehicle. Factory bolt-on fenders
 may be replaced in their entirety. Cars with non-removable fenders may
+
 replace the front fender panels going forward from the foremost door
 opening and the rear fender panels going rearward from the rearmost
 door opening. Closed cars must not remove standard material above
-
-the horizontal line placed at the lowest point of the. Prepared driver's door window opening,
+the horizontal line placed at the lowest point of the. Prepared driver&#39;s door window opening,
 with the exception that OE removable panels (e.g., T-tops, targa tops,
 sunroofs) may be removed or replaced with panels of alternate material provided that the dimensions of any replacement panel do not vary
 from those of the original by more than 1.0&#34; (25.4 mm) in any direction.
@@ -412,8 +388,8 @@ item is removed, the resultant opening must be covered.</br></br>V. Spare wheel 
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedBodywork', 'pCarAnsweredIndex'], [true, 2]); hideItem('preparedBodywork'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedBodywork', 'pCarAnsweredIndex'], [false, 2]); hideItem('preparedBodywork'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedAuthorized', 'pCarAnsweredIndex'], [true, 1]); hideItem('preparedAuthorized'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedAuthorized', 'pCarAnsweredIndex'], [false, 1]); hideItem('preparedAuthorized'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="preparedTires" class="center question sansserif">
@@ -426,22 +402,8 @@ item is removed, the resultant opening must be covered.</br></br>V. Spare wheel 
 Any tire (including recaps) meeting the Solo® safety requirements and
 the applicable portions of 3.3 is allowed.
 
-
-        </h3>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['preparedTires', 'pCarAnsweredIndex'], [true, 3]); hideItem('preparedTires'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedTires', 'pCarAnsweredIndex'], [false, 3]); hideItem('preparedTires'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="preparedWheels" class="center question sansserif">
-      <h2 id="preparedWheelsQuestion">
-        Does your car meet the requirements below?
-      </h2>
-      <div id="preparedBody" class="questionBody">
-        <h3>
-          17.4 WHEELS</br></br>A. Any wheel may be replaced in accordance with the Prepared class listings in Appendix A.</br></br>B. Wheel spacers may be used.</br></br>C. Any wheel mounting stud or bolt may be used.
-</br></br>D. The use of center lock wheels and hubs is permitted.</br></br>E. A manufacturer's standard wheel size exceeding the listing in Appendix
+17.4 WHEELS</br></br>A. Any wheel may be replaced in accordance with the Prepared class list
+ings in Appendix A.</br></br>B. Wheel spacers may be used.</br></br>C. Any wheel mounting stud or bolt may be used.</br></br>D. The use of center lock wheels and hubs is permitted.</br></br>E. A manufacturer&#39;s standard wheel size exceeding the listing in Appendix
 A may be used, and must remain axle-specific relative to standard-size
 wheels with no additional weight. Track dimensions must comply with
 the listings in Appendix A.</br></br>F. For classes CP, any diameter and width wheel may be used without additional weight adjustments.</br></br>G. For classes DP, EP, and FP, wheels up to 10&#34; wide are allowed with no
@@ -452,8 +414,8 @@ receive a 100 lb. increase.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedWheels', 'pCarAnsweredIndex'], [true, 4]); hideItem('preparedWheels'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedWheels', 'pCarAnsweredIndex'], [false, 4]); hideItem('preparedWheels'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedTires', 'pCarAnsweredIndex'], [true, 2]); hideItem('preparedTires'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedTires', 'pCarAnsweredIndex'], [false, 2]); hideItem('preparedTires'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="preparedShock" class="center question sansserif">
@@ -473,31 +435,17 @@ manufacturer.</div><div class="indent"></br>4. Attachment points for the shock a
 shall be a metal panel, covering, or bulkhead separating non-standard rear attachment points from the driver.</div><div class="indent"></br>5. Lever shock absorbers may be modified or entirely eliminated. When
 lever shocks are replaced with tubular shocks, the entire shock assembly may be removed and replaced with a control link and bracket
 that approximates the control function of the original lever shock.</div></br></br>D. Level 2 Preparation (Limited Prep) Vehicles<div class="indent"></br>1. Any springs or torsion bars can be used provided the type of these
-items remains as standard. Springs and torsion bars must be installed in the standard location using the standard system of attachment.</div></br>2. Shock absorbers are unrestricted provided the quantity and type
+items remains as standard. Springs and torsion bars must be installed in the standard location using the standard system of attachment.
+</div><div class="indent"></br>2. Shock absorbers are unrestricted provided the quantity and type
 (i.e., tube, lever) of these items remains as fitted standard. Shock
-absorbers must be installed in the standard location using the stan
-dard system of attachment. The mounting of the remote reservoir of
+absorbers must be installed in the standard location using the standard system of attachment. The mounting of the remote reservoir of
 a remote reservoir shock absorber is unrestricted. No shock absorber
 can be capable of adjustment by the driver while the car is in motion,
 unless fitted as standard.
 
-
-        </h3>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['preparedShock', 'pCarAnsweredIndex'], [true, 5]); hideItem('preparedShock'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedShock', 'pCarAnsweredIndex'], [false, 5]); hideItem('preparedShock'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="preparedBrakes" class="center question sansserif">
-      <h2 id="preparedBrakesQuestion">
-        Does your car meet the requirements below?
-      </h2>
-      <div id="preparedBody" class="questionBody">
-        <h3>
-          17.6 BRAKES
+17.6 BRAKES
 Brake systems, including calipers, caliper mounts, discs, drums, lines,
-backing plates, pedals, boosters, master cylinders, handles, proportioning devices, pads, linings, ABS (Anti-lock Braking Systems), etc. are unrestricted except for Section 3.3.3 requirements and as follows:</br></br></br>A. Brake rotors/drums shall be located in the original position (i.e., inboard vs. outboard).</br></br>B. Brake rotor/drum friction surfaces must be ferrous metal. Carbon or
+backing plates, pedals, boosters, master cylinders, handles, proportioning devices, pads, linings, ABS (Anti-lock Braking Systems), etc. are unrestricted except for Section 3.3.3 requirements and as follows:</br></div></br></br>A. Brake rotors/drums shall be located in the original position (i.e., inboard vs. outboard).</br></br>B. Brake rotor/drum friction surfaces must be ferrous metal. Carbon or
 ceramic composite brake rotors/drums are expressly prohibited, unless
 the entire brake system, excluding pads or shoes, is original equipment to the vehicle.
 
@@ -505,8 +453,8 @@ the entire brake system, excluding pads or shoes, is original equipment to the v
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedBrakes', 'pCarAnsweredIndex'], [true, 6]); hideItem('preparedBrakes'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedBrakes', 'pCarAnsweredIndex'], [false, 6]); hideItem('preparedBrakes'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedShock', 'pCarAnsweredIndex'], [true, 3]); hideItem('preparedShock'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedShock', 'pCarAnsweredIndex'], [false, 3]); hideItem('preparedShock'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="preparedAntiRoll" class="center question sansserif">
@@ -523,33 +471,19 @@ Components may extend into the driver/passenger/trunk compartments, but shall be
 Components and mounting cannot be located in the trunk or driver/
 passenger compartment unless fitted as standard.
 
-
-        </h3>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['preparedAntiRoll', 'pCarAnsweredIndex'], [true, 7]); hideItem('preparedAntiRoll'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedAntiRoll', 'pCarAnsweredIndex'], [false, 7]); hideItem('preparedAntiRoll'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="preparedSuspension" class="center question sansserif">
-      <h2 id="preparedSuspensionQuestion">
-        Does your car meet the requirements below?
-      </h2>
-      <div id="preparedBody" class="questionBody">
-        <h3>
-          17.8 SUSPENSION/SUSPENSION CONTROL</br></br>A. Spindles, hubs, bearings, bearing carriers, stub axles, etc. may be modified or replaced.</br></br>B. Suspension Control<div class="indent"></br>1. Original suspension control arms may be reinforced, modified, or replaced with components of unrestricted origin.</div><div class="indent"></br>2. The manufacturer's original basic type of rear suspension (e.g., independent, live axle, swing axle, MacPherson strut, A-arm, etc.) shall
+17.8 SUSPENSION/SUSPENSION CONTROL</br></br>A. Spindles, hubs, bearings, bearing carriers, stub axles, etc. may be modified or replaced.</br></br>B. Suspension Control<div class="indent"></br>1. Original suspension control arms may be reinforced, modified, or replaced with components of unrestricted origin.</div><div class="indent"></br>2. The manufacturer&#39;s original basic type of rear suspension (e.g., independent, live axle, swing axle, MacPherson strut, A-arm, etc.) shall
 be retained unless otherwise stated in Appendix A.</div><div class="indent"></br>3. Suspension bushings are unrestricted. Adjustable spherical bearings
-or rod ends are permitted on all suspension components.</div><div class="indent"></br>4. The wheelbase of the vehicle shall not be changed or relocated in a
+or rod ends are permitted on all suspension components.
+</div><div class="indent"></br>4. The wheelbase of the vehicle shall not be changed or relocated in a
 fore/aft direction by more than ±1.0&#34; (±25.4 mm).</div><div class="indent"></br>5. The minimum track for all prepared cars is the OE track dimension.
 Note:</br> This minimum also applies to cars utilizing Section 17.11.A to
-compete in Prepared.
-</div><div class="indent"></br>6. Level 1 Preparation (Full Prep) Vehicles
+compete in Prepared.</div><div class="indent"></br>6. Level 1 Preparation (Full Prep) Vehicles
 a. Suspension pick-up points on the chassis or structure may
 be relocated. If such points are relocated, there shall be a metal
 panel, covering, or bulkhead separating the driver/passenger area
 from the suspension components.
 b. Front – Vehicles originally equipped with MacPherson strut front
-suspension may convert to double A-arm. Other vehicles must retain the manufacturer's system of front suspension. A-arm front
+suspension may convert to double A-arm. Other vehicles must retain the manufacturer&#39;s system of front suspension. A-arm front
 suspension shall have the shocks attached outboard of the inner
 pickup point on the upper or lower control arm. Rocker arms,
 push-pull rods, etc., are prohibited unless otherwise stated in Appendix A.
@@ -567,26 +501,12 @@ c. Camber and caster may be adjusted by modification or replacement of existing 
 the chassis or subframe structure. Any resulting change in the vertical position of the pivot points must remain within 1.0&#34; (25.4
 mm) of the original location.</div></br></br>C. Steering<div class="indent"></br>1. Steering arms, pitman arms, steering racks/gears, and steering linkage component parts may be modified, reinforced, or substituted.
 Power-assist steering components may be added, removed, or modified. The steering system may be relocated or changed.</div><div class="indent"></br>2. The steering column is unrestricted. A collapsible-type steering column having a layout and design and/or a column structure with impact and energy absorbing characteristics is strongly recommended.</div><div class="indent"></br>3. Any steering wheel and wheel quick-release mechanism may be
+
 used. Steering wheel rake and steering column length may be altered. Steering quickeners may be added to the steering column.</div></br></br>D. All spherical rod ends used on major suspension and steering components shall be retained either by the design of the mounting brackets,
 a larger area captive washer, or the inherent mechanical design of the
-
 unit (circlip or Messerschmitt joints).
 
-
-        </h3>
-      </div>
-      </br>
-      <button class="button yesButton" onclick="setState(['preparedSuspension', 'pCarAnsweredIndex'], [true, 8]); hideItem('preparedSuspension'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedSuspension', 'pCarAnsweredIndex'], [false, 8]); hideItem('preparedSuspension'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
-    </div>
-
-    <div id="preparedElectrical" class="center question sansserif">
-      <h2 id="preparedElectricalQuestion">
-        Does your car meet the requirements below?
-      </h2>
-      <div id="preparedBody" class="questionBody">
-        <h3>
-          17.9 ELECTRICAL SYSTEM</br></br>A. The use of any driver operated electric starter is permitted.</br></br>B. The use of any ignition system (except magneto ignition) is permitted
+17.9 ELECTRICAL SYSTEM</br></br>A. The use of any driver operated electric starter is permitted.</br></br>B. The use of any ignition system (except magneto ignition) is permitted
 provided the number of spark plugs remains the same as that of the
 standard production engine. If a distributor is removed, a blanking
 plate or breather may be fitted in its place.</br></br>C. The original generator or alternator may be completely removed or replaced. Mounting location and drive system for the generator or alternator is unrestricted.</br></br>D. The remaining components of the electrical system are unrestricted.</br></br>E. It is recommended that all vehicles be equipped with an electrical system master cutoff switch.</br></br>F. Any traction or stability control systems are permitted.
@@ -595,8 +515,8 @@ plate or breather may be fitted in its place.</br></br>C. The original generator
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedElectrical', 'pCarAnsweredIndex'], [true, 9]); hideItem('preparedElectrical'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedElectrical', 'pCarAnsweredIndex'], [false, 9]); hideItem('preparedElectrical'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedAntiRoll', 'pCarAnsweredIndex'], [true, 4]); hideItem('preparedAntiRoll'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedAntiRoll', 'pCarAnsweredIndex'], [false, 4]); hideItem('preparedAntiRoll'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="preparedEngine" class="center question sansserif">
@@ -620,11 +540,11 @@ to be ducted is supplied through normal or specifically authorized
 openings in the bodywork. Headlight, front parking light, front signal light, and similar standard openings in the front of the car may
 be used for ducting air to the engine and ducts may pass through
 interior panels for this purpose. &#34;Standard openings in the front of
-the car&#34; includes ventilation system intake grilles.</div><div class="indent"></br>2. Any throttle linkage may be used. All throttle linkages shall be
+the car&#34; includes ventilation system intake grilles.
+</div><div class="indent"></br>2. Any throttle linkage may be used. All throttle linkages shall be
 equipped with more than one system of positive throttle closure. Any
 throttle pedal may be used.</div><div class="indent"></br>3. All inducted air, with the exception of idle air, shall pass through the
-throttle venturi(s).
-</div><div class="indent"></br>4. Level 1 Preparation (Full Prep) Vehicles
+throttle venturi(s).</div><div class="indent"></br>4. Level 1 Preparation (Full Prep) Vehicles
 a. Unless specifically listed in Appendix A, carburetors and fuel injection systems are unrestricted.
 b. Intake manifolds are unrestricted except that no portion of any
 intake manifold may extend into the intake ports of the cylinder
@@ -649,12 +569,12 @@ may not be modified. The number of injectors must remain standard. The mounting 
 d. The intake manifold may be port matched on the port mating surface to a depth of no more than 1.0&#34; (25.4 mm). Balance pipes or
 tubes on all intake manifolds can be plugged or restricted. The
 intake manifold cannot otherwise be modified.</div></br></br>C. Induction System – Turbocharged/Supercharged Engines<div class="indent"></br>1. Turbocharging and supercharging is prohibited except for specific
-vehicles as listed in Appendix A.</div><div class="indent"></br>2. Induction systems must have a restrictor on the inlet side. This restrictor orifice must not be more than 4.0&#34; (10.2 cm) from the compressor inlet and must maintain the specified diameter for at least ½
+vehicles as listed in Appendix A.</div><div class="indent"></br>2. Induction systems must have a restrictor on the inlet side. This restrictor orifice must not be more than 4.0&#34; (10.2 cm) from the com
+pressor inlet and must maintain the specified diameter for at least ½
 inch (0.50&#34;, 12.7 mm). Induction system restrictors may be located
 within or be integral to the compressor housing, provided that all
 dimensional requirements of 17.10.C.2 are maintained. All inducted
 air must pass through this restrictor. The diameter for the restrictor
-
 shall be as follows (unless specified otherwise in Appendix A):</br>
 a. XP – No restrictor required
 b. CP – 52 mm (2.047&#34;) restrictor
@@ -673,11 +593,11 @@ cool-can may not be installed in the passenger compartment.</div><div class="ind
 after the beginning of the exhaust port of a rotary engine.</div></br></br>E. All emission equipment may be removed, in part or in whole. Removal is the only permitted modification to emission control equipment.
 When EGR air nozzles are removed from a cylinder head, the resultant
 holes shall be completely plugged.</br></br>F. Cylinder Head<div class="indent"></br>1. The original or a specified alternate cylinder head shall be used.</div><div class="indent"></br>2. Compression ratio may be altered by machining, using any head
-gasket(s), or elimination of head gasket(s).</div><div class="indent"></br>3. Level 1 Preparation (Full Prep) Vehicles
+gasket(s), or elimination of head gasket(s).
+</div><div class="indent"></br>3. Level 1 Preparation (Full Prep) Vehicles
 a. Any valve guides and valve seats may be used.
 b. Heads may be modified per Section 17.10.A.1.</div><div class="indent"></br>4. Level 2 Preparation (Limited Prep) Vehicles
 a. Heads may be ported within 1.0&#34; (25.4mm) of the manifold
-
 mounting surface.
 b. Fuel injector ports must be plugged if carburetors are used.
 c. Machining is allowed to accommodate the installation of O-rings
@@ -700,10 +620,10 @@ b. Valve sizes are to remain standard unless specifically allowed in
 Appendix A.
 c. Rocker shafts, when utilized in the same standard system, can be
 replaced by an alternate shafts and are unrestricted. Valve train
-rocker arms, cam followers, rocker ratios, and rocker/follower ratios must be standard.</div></br></br>H. Block<div class="indent"></br>1. The block may be rebored no more than 0.0472&#34; (1.20 mm) over
+rocker arms, cam followers, rocker ratios, and rocker/follower ra
+tios must be standard.</div></br></br>H. Block<div class="indent"></br>1. The block may be rebored no more than 0.0472&#34; (1.20 mm) over
 standard unless otherwise specified in Appendix A. US-produced
 six-cylinder and eight-cylinder engines may be rebored no more
-
 than 0.060&#34; (1.52 mm) over standard. Alternate blocks which are of
 the same material and nominal dimensions as standard are allowed.
 Critical dimensions for piston engines are deck height, cylinder bore,
@@ -723,11 +643,11 @@ a. Standard connecting rods are required but can be lightened and
 balanced.
 b. Connecting rod fasteners (bolts and nuts) are unrestricted.</div></br></br>J. Crank and Flywheel<div class="indent"></br>1. The original direction of crankshaft rotation and firing order shall be
 maintained.</div><div class="indent"></br>2. The use of any external crankshaft vibration dampener is permitted.</div><div class="indent"></br>3. The linkage between the clutch pedal and the clutch housing/clutch
-actuating mechanism is unrestricted, but may serve no other purpose. A mechanical linkage may be replaced with a hydraulic system.
+actuating mechanism is unrestricted, but may serve no other pur
+pose. A mechanical linkage may be replaced with a hydraulic system.
 Any clutch pedal may be used.</div><div class="indent"></br>4. Level 1 Preparation (Full Prep) Vehicles
 a. The crankshaft may be replaced with another of the same basic
 material provided the angles of the crank throws remain the same.
-
 No change in stroke is permitted unless authorized in Appendix A.
 b. Any clutch is permitted.
 c. Any steel or aluminum flywheel is permitted.</div><div class="indent"></br>5. Level 2 Preparation (Limited Prep) Vehicles
@@ -748,8 +668,8 @@ said tank is mounted in the driver/passenger compartment, it shall
 be isolated from the driver by means of a metal bulkhead or additional container that retains any spillage or leakage.</div><div class="indent"></br>4. Level 2 Preparation (Limited Prep) Vehicles
 Any mechanically driven oil pump can be used. Chassis components
 may be modified to allow installation of the oil pump. Dry sump systems are prohibited.</div></br></br>L. The components of the exhaust system are unrestricted. Exhaust must
-be compliant with Section 3.3.3.B.16 and may exit through the bodywork. Rocker panels may be modified for exhaust routing.</br></br>M.Other Engine Components<div class="indent"></br>1. The use of alternate engine components which are normally expendable and considered replacement parts, such as seals, bearings, water pumps, etc., is permitted. Fasteners may be substituted.</div><div class="indent"></br>2. Bushings may be installed where none are fitted as standard provided they are concentric and that the centerline of the bushed part
-
+be compliant with Section 3.3.3.B.16 and may exit through the bodywork. Rocker panels may be modified for exhaust routing.
+</br></br>M.Other Engine Components<div class="indent"></br>1. The use of alternate engine components which are normally expendable and considered replacement parts, such as seals, bearings, water pumps, etc., is permitted. Fasteners may be substituted.</div><div class="indent"></br>2. Bushings may be installed where none are fitted as standard provided they are concentric and that the centerline of the bushed part
 is not changed. The addition of alignment dowels is permitted. Bushings are required to be concentric so that unintended relocations and
 realignments are not permitted.</div><div class="indent"></br>3. Gaskets may be replaced with others of unrestricted origin.</div><div class="indent"></br>4. Alternator/generator, crankshaft, and water pump pulleys may be
 altered or replaced by others of unrestricted origin.</div><div class="indent"></br>5. One or more engine torque suppressors may be fitted. Original
@@ -761,18 +681,20 @@ standard part. Transverse mounted engines must locate the centerline of the cran
 to the fore-aft center of the vehicle than the standard part ±1 inch
 (25.4 mm).</div></br></br>N. Engine, Rotary Piston (only) Modifications<div class="indent"></br>1. No changes in the epitrochoidal curve of the motor are permitted.</div><div class="indent"></br>2. The capacity of the working chambers shall not be changed.</div><div class="indent"></br>3. The eccentric shaft may be replaced with another of the same basic
 material, but no changes in the eccentricity or bearing journal dimensions are permitted.</div><div class="indent"></br>4. Rotors are unrestricted provided the material and number of lobes
-remains unchanged.</div></br></br>O. Cooling System<div class="indent"></br>1. Cooling fan(s) may be modified, substituted, or removed. Electrically
-operated cooling fan(s) may be installed provided it (they) serve no
-other purpose. The use of any engine, transmission, and/or differential oil cooler(s) is/are permitted provided it/they is/are mounted
-completely within or under the bodywork, but not in the driver/passenger compartment. Associated oil cooler pumps and lines are permitted for the transmission and differential. Air ducts may be fitted
-to the oil cooler(s) as specifically authorized herein.</div><div class="indent"></br>2. Any water radiator is allowed, provided there are no changes in the
+remains unchanged.</div></br></br>O. Cooling System<div class="indent"></br>1. Cooling fan(s) may be modified, substituted, or removed. Electrically operated cooling fan(s) may be installed provided it/they (they)
+serve no other purpose. The use of any engine, transmission, and/
+or differential oil cooler(s) is/are permitted provided it/they is/are
+mounted completely within or under the bodywork, but not in the
+driver/passenger compartment. Associated oil cooler pumps and
+lines are permitted for the transmission and differential. Air ducts
+may be fitted to the oil cooler(s) as specifically authorized herein.</div><div class="indent"></br>2. Any water radiator is allowed, provided there are no changes in the
+
 exterior bodywork to accommodate its use. It shall not be located in
 the driver/ passenger compartment. Separate expansion or header
 tank(s) are permitted provided they are not mounted in the driver/
 passenger compartment. The heater core may be removed entirely
 but not modified or replaced. Water radiators may be filled with water, antifreeze, and/or nonflammable liquids the purpose of which
 is to transfer heat and/or inhibit freezing, boiling, and/or corrosion.
-
 A radiator may be relocated so long as the other applicable items in
 Section 17 are not violated (e.g., the exterior bodywork is not altered)
 to accommodate the change. OE radiator support/mounts can be
@@ -790,11 +712,11 @@ e. A functional reverse gear is not required.
 f. The transmission tunnel/cover may be altered to allow the installation of an alternate transmission and/or driveshaft. Cars originally equipped with a removable transmission tunnel/cover may
 substitute a tunnel/cover of an alternate material.</div><div class="indent"></br>4. Level 2 Preparation (Limited Prep) Vehicles
 a. There is no weight increase for the use of a standard transmission
+
 utilizing standard case, gear ratios, and synchromesh style gear
 engagement.
 b. An alternate transmission that uses standard-type, circular, beveled synchronizers, imposes a 2.5% weight increase.
-c. An alternate transmission that uses a gear engagement mechanism different than standard-type, circular, beveled synchronizers imposes a 5% weight increase.
-</div></br></br>Q. Final Drive<div class="indent"></br>1. Alternate driveshaft(s) may be used. Any driveshaft assembly may be
+c. An alternate transmission that uses a gear engagement mechanism different than standard-type, circular, beveled synchronizers imposes a 5% weight increase.</div></br></br>Q. Final Drive<div class="indent"></br>1. Alternate driveshaft(s) may be used. Any driveshaft assembly may be
 modified to permit the use of an alternate transmission.</div><div class="indent"></br>2. Any gear ratio and/or differential (limited slip or locked) is permitted. Final drive units which permit gear ratio changes while the car is
 in motion are prohibited.</div><div class="indent"></br>3. Any drive axle shafts, bearings, bearing carriers, hubs, and universal/CV joints may be used.</div><div class="indent"></br>4. &#34;Loops&#34; may be installed to prevent the driveshaft from contacting
 the ground in the event of driveshaft and/or U-joint failure.</div><div class="indent"></br>5. Level 1 Preparation (Full Prep) Vehicles
@@ -809,13 +731,13 @@ in Appendix A. Motorcycle, snowmobile, marine, or other engines of
 non-automotive design are not permitted.</div><div class="indent"></br>2. Vehicle manufacturers that no longer exist may use any motor available in the use from corporate brands or via the following listings:</br>
 a. British makes may use Ford motors including Mazda.
 b. Italian makes may use Fiat Chrysler motors.</div><div class="indent"></br>3. Alternate engines are to retain the same piston or rotor count or less
-as the vehicle's engine was originally configured. Models classed with
+as the vehicle&#39;s engine was originally configured. Models classed with
 multiple piston counts on the same line may use any piston count
+
 that matches classed models.</div><div class="indent"></br>4. Alternate engines must keep same cooling type as before. Examples:</br>
 Air cooled stays air cooled and water cooled stays water cooled.</div><div class="indent"></br>5. Alternate engine weights will be calculated using listed engine displacement of swapped engine.</div><div class="indent"></br>6. Alternate engines may make use of allowances found in 17.10
 The engine orientation (transverse stays transverse and longitudinal
 stays longitudinal) and the engine bay location must not be changed
-
 (front-engine stays front-engine, mid-engine stays mid-engine, and
 rear-engine stays rear-engine).</div></br>7. Piston engine vehicles may not substitute rotary engines and vise
 versa
@@ -824,8 +746,8 @@ versa
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedEngine', 'pCarAnsweredIndex'], [true, 10]); hideItem('preparedEngine'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedEngine', 'pCarAnsweredIndex'], [false, 10]); hideItem('preparedEngine'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedEngine', 'pCarAnsweredIndex'], [true, 5]); hideItem('preparedEngine'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedEngine', 'pCarAnsweredIndex'], [false, 5]); hideItem('preparedEngine'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="preparedOther" class="center question sansserif">
@@ -853,12 +775,12 @@ safety straps, and braided steel brake lines. Single Inlet Restrictor (SIR)
 is not required. Due to the extent of modifications permitted on GT-derived cars classed within the Prepared category, it is possible for a replica car to meet the legality requirements for the corresponding original
 model provided that the engine, track, and wheelbase remain within the
 allowed specifications. In such a case, the replica is considered compliant for Prepared, provided it correctly meets all of the applicable GCR
-specifications.</br></br>B. Weight Calculations
+specifications.
+</br></br>B. Weight Calculations
 Where there is a percentage addition as well as a specific weight addition, the percentage is added to the base weight before the specific
 weight addition. Examples:</br>
 • In Prepared class X (XP), the minimum weight for an AWD car with
-a 2.5L turbocharged engine is:</br><div class="indent"></br>2.5L x 1.4 = 3.5L x 250 lbs. = 875 lbs. + 1200 lbs. = 2075 lbs.</div></br></br>C. Data acquisition/recording systems are permitted.
-</br></br>D. Except where there are specific requirements in these rules, any safe
+a 2.5L turbocharged engine is:</br><div class="indent"></br>2.5L x 1.4 = 3.5L x 250 lbs. = 875 lbs. + 1200 lbs. = 2075 lbs.</div></br></br>C. Data acquisition/recording systems are permitted.</br></br>D. Except where there are specific requirements in these rules, any safe
 line for fuel, hydraulic fluids, oil, water or breather is allowed.</br></br>E. Ballast may be added to all cars as required to meet minimum weight
 provided it is securely mounted within the bodywork and serves no other purpose. Ballast plates may be installed beneath the floor pan so long
 as they do not protrude beyond its edges.</br></br>F. All cars may have towing eyes, hooks, or straps which do not dangerously protrude from the bodywork.</br></br>G. Removal of or modification to heating, ventilation, air conditioning,
@@ -869,8 +791,8 @@ as a supercharger).
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedOther', 'pCarAnsweredIndex'], [true, 11]); hideItem('preparedOther'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedOther', 'pCarAnsweredIndex'], [false, 11]); hideItem('preparedOther'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedOther', 'pCarAnsweredIndex'], [true, 6]); hideItem('preparedOther'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedOther', 'pCarAnsweredIndex'], [false, 6]); hideItem('preparedOther'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="preparedSafety" class="center question sansserif">
@@ -885,11 +807,27 @@ braces meeting the minimum tubing size requirements of Appendix</div></br></br>C
 requirement supersedes the need to comply with Section 17.12.A.1.</div><div class="indent"></br>3. Roll bars and cages may either be bolted or welded to the vehicle.</div></br></br>B. At a minimum, all vehicles will be equipped with driver restraints meeting Solo® safety requirements (Section 3.3). It is highly recommended that all cars with roll bars/cages be equipped with driver restraints
 meeting the requirements of the GCR.</br></br>C. A scattershield or explosion-proof bell housing complying with the GCR
 is recommended.</br></br>D. Fire extinguishers or fire systems are permitted.
+
+
+20-40% MORE
+STOPPING
+POWER FEELS
+DIFFERENT.
+
+BETTER.
+LEGENDARY.
+
+That&#39;s what Race Proven, Street Legal technology is all
+about. High performance brake products for your track car,
+daily driver, 4x4, truck and SUV. Turns out, 30 years of
+channeling our obsession with performance pays off.
+
+
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedSafety', 'pCarAnsweredIndex'], [true, 12]); hideItem('preparedSafety'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedSafety', 'pCarAnsweredIndex'], [false, 12]); hideItem('preparedSafety'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedSafety', 'pCarAnsweredIndex'], [true, 7]); hideItem('preparedSafety'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedSafety', 'pCarAnsweredIndex'], [false, 7]); hideItem('preparedSafety'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
 
