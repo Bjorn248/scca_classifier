@@ -14,13 +14,16 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a id='streettouringLandingPageMenu' href="#" onclick="resetQuestion('streettouringLandingPage'); evalSessionStorage('streettouringCar');">Overview</a>
       <a id='streettouringAuthorizedMenu' href="#" onclick="resetQuestion('streettouringAuthorized'); evalSessionStorage('streettouringCar');">Authorized</a>
+      <a id='streettouringBodyworkMenu' href="#" onclick="resetQuestion('streettouringBodywork'); evalSessionStorage('streettouringCar');">Bodywork</a>
       <a id='streettouringTiresMenu' href="#" onclick="resetQuestion('streettouringTires'); evalSessionStorage('streettouringCar');">Tires</a>
       <a id='streettouringWheelsMenu' href="#" onclick="resetQuestion('streettouringWheels'); evalSessionStorage('streettouringCar');">Wheels</a>
-      <a id='streettouringShockMenu' href="#" onclick="resetQuestion('streettouringShock'); evalSessionStorage('streettouringCar');">Shock</a>
+      <a id='streettouringShocksMenu' href="#" onclick="resetQuestion('streettouringShocks'); evalSessionStorage('streettouringCar');">Shocks</a>
       <a id='streettouringBrakesMenu' href="#" onclick="resetQuestion('streettouringBrakes'); evalSessionStorage('streettouringCar');">Brakes</a>
       <a id='streettouringAntiRollMenu' href="#" onclick="resetQuestion('streettouringAntiRoll'); evalSessionStorage('streettouringCar');">AntiRoll</a>
+      <a id='streettouringSuspensionMenu' href="#" onclick="resetQuestion('streettouringSuspension'); evalSessionStorage('streettouringCar');">Suspension</a>
       <a id='streettouringElectricalMenu' href="#" onclick="resetQuestion('streettouringElectrical'); evalSessionStorage('streettouringCar');">Electrical</a>
       <a id='streettouringEngineMenu' href="#" onclick="resetQuestion('streettouringEngine'); evalSessionStorage('streettouringCar');">Engine</a>
+      <a id='streettouringOutofProductionMenu' href="#" onclick="resetQuestion('streettouringOutofProduction'); evalSessionStorage('streettouringCar');">OutofProduction</a>
     </div>
 
     <div id="main">
@@ -181,7 +184,21 @@
 All Street Category section 13 allowances, plus all allowances contained in
 Section 14 are permitted.
 
-14.2 BODYWORK</br></br>A. Pedal cover kits and other interior cosmetic accessories may be added.
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringAuthorized', 'streettouringCarAnsweredIndex'], [true, 1]); hideItem('streettouringAuthorized'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringAuthorized', 'streettouringCarAnsweredIndex'], [false, 1]); hideItem('streettouringAuthorized'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="streettouringBodywork" class="center question sansserif">
+      <h2 id="streettouringBodyworkQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.2 BODYWORK</br></br>A. Pedal cover kits and other interior cosmetic accessories may be added.
 &#34;Dress-up&#34; items such as chrome dipsticks and non-standard filler caps
 are permitted, provided they serve no other purpose.</br></br>B. The driver and front passenger seats may be replaced with the following restrictions. The seating surface must be fully upholstered. The top
 of the seat, or an attached headrest, may not be below the center of
@@ -238,8 +255,8 @@ the installation of authorized modifications such as shifters and steering wheel
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streettouringAuthorized', 'streettouringCarAnsweredIndex'], [true, 1]); hideItem('streettouringAuthorized'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streettouringAuthorized', 'streettouringCarAnsweredIndex'], [false, 1]); hideItem('streettouringAuthorized'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streettouringBodywork', 'streettouringCarAnsweredIndex'], [true, 2]); hideItem('streettouringBodywork'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringBodywork', 'streettouringCarAnsweredIndex'], [false, 2]); hideItem('streettouringBodywork'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streettouringTires" class="center question sansserif">
@@ -264,8 +281,8 @@ AST (AWD),CST (AWD), EST. ......................................................
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streettouringTires', 'streettouringCarAnsweredIndex'], [true, 2]); hideItem('streettouringTires'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streettouringTires', 'streettouringCarAnsweredIndex'], [false, 2]); hideItem('streettouringTires'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streettouringTires', 'streettouringCarAnsweredIndex'], [true, 3]); hideItem('streettouringTires'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringTires', 'streettouringCarAnsweredIndex'], [false, 3]); hideItem('streettouringTires'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streettouringWheels" class="center question sansserif">
@@ -286,12 +303,12 @@ AST (AWD),CST (AWD), EST. ......................................................
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streettouringWheels', 'streettouringCarAnsweredIndex'], [true, 3]); hideItem('streettouringWheels'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streettouringWheels', 'streettouringCarAnsweredIndex'], [false, 3]); hideItem('streettouringWheels'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streettouringWheels', 'streettouringCarAnsweredIndex'], [true, 4]); hideItem('streettouringWheels'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringWheels', 'streettouringCarAnsweredIndex'], [false, 4]); hideItem('streettouringWheels'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="streettouringShock" class="center question sansserif">
-      <h2 id="streettouringShockQuestion">
+    <div id="streettouringShocks" class="center question sansserif">
+      <h2 id="streettouringShocksQuestion">
         Does your car meet the requirements below?
       </h2>
       <div id="streettouringBody" class="questionBody">
@@ -316,8 +333,8 @@ which affect ride height and suspension travel.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streettouringShock', 'streettouringCarAnsweredIndex'], [true, 4]); hideItem('streettouringShock'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streettouringShock', 'streettouringCarAnsweredIndex'], [false, 4]); hideItem('streettouringShock'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streettouringShocks', 'streettouringCarAnsweredIndex'], [true, 5]); hideItem('streettouringShocks'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringShocks', 'streettouringCarAnsweredIndex'], [false, 5]); hideItem('streettouringShocks'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streettouringBrakes" class="center question sansserif">
@@ -357,8 +374,8 @@ changes are permitted but may serve no other purpose.</br></br>G. A single brake
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streettouringBrakes', 'streettouringCarAnsweredIndex'], [true, 5]); hideItem('streettouringBrakes'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streettouringBrakes', 'streettouringCarAnsweredIndex'], [false, 5]); hideItem('streettouringBrakes'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streettouringBrakes', 'streettouringCarAnsweredIndex'], [true, 6]); hideItem('streettouringBrakes'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringBrakes', 'streettouringCarAnsweredIndex'], [false, 6]); hideItem('streettouringBrakes'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streettouringAntiRoll" class="center question sansserif">
@@ -375,7 +392,21 @@ purposes by also functioning as suspension locators may not be modified
 in ways that change the suspension geometry or steering geometry. Nonstandard lateral members which connect between the brackets for the bar,
 including allowed strut bars per Section 14.2.G, are permitted.
 
-14.8 SUSPENSION</br></br>A. Ride height may only be altered by suspension adjustments, the use
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringAntiRoll', 'streettouringCarAnsweredIndex'], [true, 7]); hideItem('streettouringAntiRoll'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringAntiRoll', 'streettouringCarAnsweredIndex'], [false, 7]); hideItem('streettouringAntiRoll'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="streettouringSuspension" class="center question sansserif">
+      <h2 id="streettouringSuspensionQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.8 SUSPENSION</br></br>A. Ride height may only be altered by suspension adjustments, the use
 of spacing blocks, leaf spring shackles, torsion bar levers, or change
 or modification of springs or coil spring perches. This does not allow
 the use of spacers that alter suspension geometry, such as those between the hub carrier and lower suspension arm. Springs must be of
@@ -456,8 +487,8 @@ standard location(s) without additional modification or changes. Subframe positi
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streettouringAntiRoll', 'streettouringCarAnsweredIndex'], [true, 6]); hideItem('streettouringAntiRoll'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streettouringAntiRoll', 'streettouringCarAnsweredIndex'], [false, 6]); hideItem('streettouringAntiRoll'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streettouringSuspension', 'streettouringCarAnsweredIndex'], [true, 8]); hideItem('streettouringSuspension'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringSuspension', 'streettouringCarAnsweredIndex'], [false, 8]); hideItem('streettouringSuspension'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streettouringElectrical" class="center question sansserif">
@@ -483,8 +514,8 @@ such as condensers, voltage controllers, etc.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streettouringElectrical', 'streettouringCarAnsweredIndex'], [true, 7]); hideItem('streettouringElectrical'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streettouringElectrical', 'streettouringCarAnsweredIndex'], [false, 7]); hideItem('streettouringElectrical'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streettouringElectrical', 'streettouringCarAnsweredIndex'], [true, 9]); hideItem('streettouringElectrical'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringElectrical', 'streettouringCarAnsweredIndex'], [false, 9]); hideItem('streettouringElectrical'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streettouringEngine" class="center question sansserif">
@@ -600,7 +631,21 @@ permitted. No interchange between cast and forged pistons is allowed.
 Employing standard overbore increments is highly recommended within the limit of the overbore limit above, consistent with the availability
 of OE-type parts.
 
-14.11 OUT-OF-PRODUCTION CARS
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streettouringEngine', 'streettouringCarAnsweredIndex'], [true, 10]); hideItem('streettouringEngine'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringEngine', 'streettouringCarAnsweredIndex'], [false, 10]); hideItem('streettouringEngine'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="streettouringOutofProduction" class="center question sansserif">
+      <h2 id="streettouringOutofProductionQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streettouringBody" class="questionBody">
+        <h3>
+          14.11 OUT-OF-PRODUCTION CARS
 
 Where a car is out of production and the manufacturer is either out of
 business, stocks no parts or no longer has a required part, a part of any
@@ -617,8 +662,8 @@ On
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streettouringEngine', 'streettouringCarAnsweredIndex'], [true, 8]); hideItem('streettouringEngine'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streettouringEngine', 'streettouringCarAnsweredIndex'], [false, 8]); hideItem('streettouringEngine'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streettouringOutofProduction', 'streettouringCarAnsweredIndex'], [true, 11]); hideItem('streettouringOutofProduction'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streettouringOutofProduction', 'streettouringCarAnsweredIndex'], [false, 11]); hideItem('streettouringOutofProduction'); evalSessionStorage('streettouringCar'); window.scroll(0,0);">No</button>
     </div>
 
 

@@ -19,6 +19,7 @@ import (
 // chapter (e.g. Street, Street Touring) of the rulebook.
 type Chapter struct {
 	Name              string
+	ShortName         string // Short identifier used for carFlags keys (e.g., "sp" for Street Prepared)
 	Number            string
 	SubChapters       []SubChapter
 	Reader            *io.SectionReader
@@ -41,7 +42,10 @@ type SubChapter struct {
 // chapter
 func getSubChapters(rules, chapterNumber string) []SubChapter {
 	SubChapters := []SubChapter{}
-	regexString := chapterNumber + `\.([0-9]+[.A-Z]*) ([^\.\n]*)\.+[\. ]([0-9]+)`
+	// Regex handles both formats in table of contents:
+	// "13.1 Authorized Modifications......79" (dots directly after name)
+	// "13.4 Wheels. .......................82" (period, space, then dots)
+	regexString := chapterNumber + `\.([0-9]+[.A-Z]*) ([^\.\n]*)\.? *\.{2,} *([0-9]+)`
 	tableOfContents := regexp.MustCompile(regexString)
 	match := tableOfContents.FindAllStringSubmatch(rules, -1)
 	// SSC does not have its subchapters listed in the table of contents
@@ -155,6 +159,10 @@ func ToMenuName(in string) string {
 	result = strings.Split(in, " ")[0]
 	result = strings.Split(result, "/")[0]
 	result = regexp.MustCompile(`[^a-zA-Z0-9 ]+`).ReplaceAllString(result, "")
+	// Normalize "Shock" to "Shocks" for consistency
+	if result == "Shock" {
+		result = "Shocks"
+	}
 	return result
 }
 
@@ -206,6 +214,7 @@ func main() {
 	allChapters := []Chapter{
 		{
 			Name:              "Street",
+			ShortName:         "street",
 			Number:            "13",
 			start:             regexp.MustCompile(`\n13\. STREET CATEGORY\nCategory Objective`),
 			end:               regexp.MustCompile(`\n14\. STREET TOURING® CATEGORY\nCategory Objective`),
@@ -215,6 +224,7 @@ func main() {
 		},
 		{
 			Name:              "Street Touring",
+			ShortName:         "streettouring",
 			Number:            "14",
 			start:             regexp.MustCompile(`\n14\. STREET TOURING® CATEGORY\nCategory Objective`),
 			end:               regexp.MustCompile(`\n15\. STREET PREPARED CATEGORY\nCategory Objective`),
@@ -224,6 +234,7 @@ func main() {
 		},
 		{
 			Name:              "Street Prepared",
+			ShortName:         "sp",
 			Number:            "15",
 			start:             regexp.MustCompile(`\n15\. STREET PREPARED CATEGORY\nCategory Objective`),
 			end:               regexp.MustCompile(`\n16\. STREET MODIFIED CATEGORY\nCategory Objective`),
@@ -233,6 +244,7 @@ func main() {
 		},
 		{
 			Name:              "Street Modified",
+			ShortName:         "sm",
 			Number:            "16",
 			start:             regexp.MustCompile(`\n16\. STREET MODIFIED CATEGORY\nCategory Objective`),
 			end:               regexp.MustCompile(`\n17\. PREPARED CATEGORY\nCategory Objective`),
@@ -242,6 +254,7 @@ func main() {
 		},
 		{
 			Name:              "Prepared",
+			ShortName:         "p",
 			Number:            "17",
 			start:             regexp.MustCompile(`\n17\. PREPARED CATEGORY\nCategory Objective`),
 			end:               regexp.MustCompile(`\n18\. MODIFIED CATEGORY\nCategory Objectives`),
@@ -251,6 +264,7 @@ func main() {
 		},
 		{
 			Name:              "Modified",
+			ShortName:         "m",
 			Number:            "18",
 			start:             regexp.MustCompile(`\n18\. MODIFIED CATEGORY\nCategory Objectives`),
 			end:               regexp.MustCompile(`\n19\. KART CATEGORY\nCategory Objective`),
@@ -260,6 +274,7 @@ func main() {
 		},
 		{
 			Name:              "Solo Spec Coupe",
+			ShortName:         "ssc",
 			Number:            "20",
 			start:             regexp.MustCompile(`\n20\. SOLO® SPEC COUPE \(SSC\)\n`),
 			end:               regexp.MustCompile(`\n21\. Classic American Muscle / Xtreme Street Category\n`),
@@ -268,16 +283,18 @@ func main() {
 			outputFile:        "./src/a/ssc.html",
 		},
 		{
-			Name:   "Xtreme Street",
-			Number: "n/a",
-			start:  regexp.MustCompile(`\n21\. Classic American Muscle / Xtreme Street Category\n`),
-			end:    regexp.MustCompile(`\nElectrical Vehicle Experimental \(EVX\)\n`),
+			Name:      "Xtreme Street",
+			ShortName: "xs",
+			Number:    "n/a",
+			start:     regexp.MustCompile(`\n21\. Classic American Muscle / Xtreme Street Category\n`),
+			end:       regexp.MustCompile(`\nElectrical Vehicle Experimental \(EVX\)\n`),
 		},
 		{
-			Name:   "EVX",
-			Number: "n/a",
-			start:  regexp.MustCompile(`\nElectrical Vehicle Experimental \(EVX\)\n`),
-			end:    regexp.MustCompile(`\nAPPENDIX C - SOLO® ROLL BAR STANDARDS\n`),
+			Name:      "EVX",
+			ShortName: "ev",
+			Number:    "n/a",
+			start:     regexp.MustCompile(`\nElectrical Vehicle Experimental \(EVX\)\n`),
+			end:       regexp.MustCompile(`\nAPPENDIX C - SOLO® ROLL BAR STANDARDS\n`),
 		},
 	}
 

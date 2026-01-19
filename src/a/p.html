@@ -14,9 +14,14 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a id='pLandingPageMenu' href="#" onclick="resetQuestion('pLandingPage'); evalSessionStorage('pCar');">Overview</a>
       <a id='preparedAuthorizedMenu' href="#" onclick="resetQuestion('preparedAuthorized'); evalSessionStorage('pCar');">Authorized</a>
+      <a id='preparedBodyworkMenu' href="#" onclick="resetQuestion('preparedBodywork'); evalSessionStorage('pCar');">Bodywork</a>
       <a id='preparedTiresMenu' href="#" onclick="resetQuestion('preparedTires'); evalSessionStorage('pCar');">Tires</a>
-      <a id='preparedShockMenu' href="#" onclick="resetQuestion('preparedShock'); evalSessionStorage('pCar');">Shock</a>
+      <a id='preparedWheelsMenu' href="#" onclick="resetQuestion('preparedWheels'); evalSessionStorage('pCar');">Wheels</a>
+      <a id='preparedShocksMenu' href="#" onclick="resetQuestion('preparedShocks'); evalSessionStorage('pCar');">Shocks</a>
+      <a id='preparedBrakesMenu' href="#" onclick="resetQuestion('preparedBrakes'); evalSessionStorage('pCar');">Brakes</a>
       <a id='preparedAntiRollMenu' href="#" onclick="resetQuestion('preparedAntiRoll'); evalSessionStorage('pCar');">AntiRoll</a>
+      <a id='preparedSuspensionMenu' href="#" onclick="resetQuestion('preparedSuspension'); evalSessionStorage('pCar');">Suspension</a>
+      <a id='preparedElectricalMenu' href="#" onclick="resetQuestion('preparedElectrical'); evalSessionStorage('pCar');">Electrical</a>
       <a id='preparedEngineMenu' href="#" onclick="resetQuestion('preparedEngine'); evalSessionStorage('pCar');">Engine</a>
       <a id='preparedOtherMenu' href="#" onclick="resetQuestion('preparedOther'); evalSessionStorage('pCar');">Other</a>
       <a id='preparedSafetyMenu' href="#" onclick="resetQuestion('preparedSafety'); evalSessionStorage('pCar');">Safety</a>
@@ -200,7 +205,21 @@ not make tortured interpretations of this rule which will invoke Section
 of the reason, is considered to be a tortured interpretation.)
 Refer to Appendix F for past clarifications of these rules.
 
-17.2 BODYWORK AND STRUCTURE
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['preparedAuthorized', 'pCarAnsweredIndex'], [true, 1]); hideItem('preparedAuthorized'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedAuthorized', 'pCarAnsweredIndex'], [false, 1]); hideItem('preparedAuthorized'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="preparedBodywork" class="center question sansserif">
+      <h2 id="preparedBodyworkQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="preparedBody" class="questionBody">
+        <h3>
+          17.2 BODYWORK AND STRUCTURE
 The purpose of the following rules is to maintain recognizable external
 features of the manufacturer&#39;s make and model, while providing the nec
 essary safety and performance modifications. Restrictions regarding external body shape and belly pans are aimed at preventing attempts to obtain ground effects or streamlining.</br></br>A. The external shape of the body may only be changed where specifically
@@ -388,8 +407,8 @@ item is removed, the resultant opening must be covered.</br></br>V. Spare wheel 
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedAuthorized', 'pCarAnsweredIndex'], [true, 1]); hideItem('preparedAuthorized'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedAuthorized', 'pCarAnsweredIndex'], [false, 1]); hideItem('preparedAuthorized'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedBodywork', 'pCarAnsweredIndex'], [true, 2]); hideItem('preparedBodywork'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedBodywork', 'pCarAnsweredIndex'], [false, 2]); hideItem('preparedBodywork'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="preparedTires" class="center question sansserif">
@@ -402,7 +421,21 @@ item is removed, the resultant opening must be covered.</br></br>V. Spare wheel 
 Any tire (including recaps) meeting the Solo® safety requirements and
 the applicable portions of 3.3 is allowed.
 
-17.4 WHEELS</br></br>A. Any wheel may be replaced in accordance with the Prepared class list
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['preparedTires', 'pCarAnsweredIndex'], [true, 3]); hideItem('preparedTires'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedTires', 'pCarAnsweredIndex'], [false, 3]); hideItem('preparedTires'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="preparedWheels" class="center question sansserif">
+      <h2 id="preparedWheelsQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="preparedBody" class="questionBody">
+        <h3>
+          17.4 WHEELS</br></br>A. Any wheel may be replaced in accordance with the Prepared class list
 ings in Appendix A.</br></br>B. Wheel spacers may be used.</br></br>C. Any wheel mounting stud or bolt may be used.</br></br>D. The use of center lock wheels and hubs is permitted.</br></br>E. A manufacturer&#39;s standard wheel size exceeding the listing in Appendix
 A may be used, and must remain axle-specific relative to standard-size
 wheels with no additional weight. Track dimensions must comply with
@@ -414,12 +447,12 @@ receive a 100 lb. increase.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedTires', 'pCarAnsweredIndex'], [true, 2]); hideItem('preparedTires'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedTires', 'pCarAnsweredIndex'], [false, 2]); hideItem('preparedTires'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedWheels', 'pCarAnsweredIndex'], [true, 4]); hideItem('preparedWheels'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedWheels', 'pCarAnsweredIndex'], [false, 4]); hideItem('preparedWheels'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="preparedShock" class="center question sansserif">
-      <h2 id="preparedShockQuestion">
+    <div id="preparedShocks" class="center question sansserif">
+      <h2 id="preparedShocksQuestion">
         Does your car meet the requirements below?
       </h2>
       <div id="preparedBody" class="questionBody">
@@ -436,16 +469,30 @@ shall be a metal panel, covering, or bulkhead separating non-standard rear attac
 lever shocks are replaced with tubular shocks, the entire shock assembly may be removed and replaced with a control link and bracket
 that approximates the control function of the original lever shock.</div></br></br>D. Level 2 Preparation (Limited Prep) Vehicles<div class="indent"></br>1. Any springs or torsion bars can be used provided the type of these
 items remains as standard. Springs and torsion bars must be installed in the standard location using the standard system of attachment.
-</div><div class="indent"></br>2. Shock absorbers are unrestricted provided the quantity and type
+</div></br>2. Shock absorbers are unrestricted provided the quantity and type
 (i.e., tube, lever) of these items remains as fitted standard. Shock
 absorbers must be installed in the standard location using the standard system of attachment. The mounting of the remote reservoir of
 a remote reservoir shock absorber is unrestricted. No shock absorber
 can be capable of adjustment by the driver while the car is in motion,
 unless fitted as standard.
 
-17.6 BRAKES
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['preparedShocks', 'pCarAnsweredIndex'], [true, 5]); hideItem('preparedShocks'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedShocks', 'pCarAnsweredIndex'], [false, 5]); hideItem('preparedShocks'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="preparedBrakes" class="center question sansserif">
+      <h2 id="preparedBrakesQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="preparedBody" class="questionBody">
+        <h3>
+          17.6 BRAKES
 Brake systems, including calipers, caliper mounts, discs, drums, lines,
-backing plates, pedals, boosters, master cylinders, handles, proportioning devices, pads, linings, ABS (Anti-lock Braking Systems), etc. are unrestricted except for Section 3.3.3 requirements and as follows:</br></div></br></br>A. Brake rotors/drums shall be located in the original position (i.e., inboard vs. outboard).</br></br>B. Brake rotor/drum friction surfaces must be ferrous metal. Carbon or
+backing plates, pedals, boosters, master cylinders, handles, proportioning devices, pads, linings, ABS (Anti-lock Braking Systems), etc. are unrestricted except for Section 3.3.3 requirements and as follows:</br></br></br>A. Brake rotors/drums shall be located in the original position (i.e., inboard vs. outboard).</br></br>B. Brake rotor/drum friction surfaces must be ferrous metal. Carbon or
 ceramic composite brake rotors/drums are expressly prohibited, unless
 the entire brake system, excluding pads or shoes, is original equipment to the vehicle.
 
@@ -453,8 +500,8 @@ the entire brake system, excluding pads or shoes, is original equipment to the v
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedShock', 'pCarAnsweredIndex'], [true, 3]); hideItem('preparedShock'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedShock', 'pCarAnsweredIndex'], [false, 3]); hideItem('preparedShock'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedBrakes', 'pCarAnsweredIndex'], [true, 6]); hideItem('preparedBrakes'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedBrakes', 'pCarAnsweredIndex'], [false, 6]); hideItem('preparedBrakes'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="preparedAntiRoll" class="center question sansserif">
@@ -471,7 +518,21 @@ Components may extend into the driver/passenger/trunk compartments, but shall be
 Components and mounting cannot be located in the trunk or driver/
 passenger compartment unless fitted as standard.
 
-17.8 SUSPENSION/SUSPENSION CONTROL</br></br>A. Spindles, hubs, bearings, bearing carriers, stub axles, etc. may be modified or replaced.</br></br>B. Suspension Control<div class="indent"></br>1. Original suspension control arms may be reinforced, modified, or replaced with components of unrestricted origin.</div><div class="indent"></br>2. The manufacturer&#39;s original basic type of rear suspension (e.g., independent, live axle, swing axle, MacPherson strut, A-arm, etc.) shall
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['preparedAntiRoll', 'pCarAnsweredIndex'], [true, 7]); hideItem('preparedAntiRoll'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedAntiRoll', 'pCarAnsweredIndex'], [false, 7]); hideItem('preparedAntiRoll'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="preparedSuspension" class="center question sansserif">
+      <h2 id="preparedSuspensionQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="preparedBody" class="questionBody">
+        <h3>
+          17.8 SUSPENSION/SUSPENSION CONTROL</br></br>A. Spindles, hubs, bearings, bearing carriers, stub axles, etc. may be modified or replaced.</br></br>B. Suspension Control<div class="indent"></br>1. Original suspension control arms may be reinforced, modified, or replaced with components of unrestricted origin.</div><div class="indent"></br>2. The manufacturer&#39;s original basic type of rear suspension (e.g., independent, live axle, swing axle, MacPherson strut, A-arm, etc.) shall
 be retained unless otherwise stated in Appendix A.</div><div class="indent"></br>3. Suspension bushings are unrestricted. Adjustable spherical bearings
 or rod ends are permitted on all suspension components.
 </div><div class="indent"></br>4. The wheelbase of the vehicle shall not be changed or relocated in a
@@ -506,7 +567,21 @@ used. Steering wheel rake and steering column length may be altered. Steering qu
 a larger area captive washer, or the inherent mechanical design of the
 unit (circlip or Messerschmitt joints).
 
-17.9 ELECTRICAL SYSTEM</br></br>A. The use of any driver operated electric starter is permitted.</br></br>B. The use of any ignition system (except magneto ignition) is permitted
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['preparedSuspension', 'pCarAnsweredIndex'], [true, 8]); hideItem('preparedSuspension'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedSuspension', 'pCarAnsweredIndex'], [false, 8]); hideItem('preparedSuspension'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="preparedElectrical" class="center question sansserif">
+      <h2 id="preparedElectricalQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="preparedBody" class="questionBody">
+        <h3>
+          17.9 ELECTRICAL SYSTEM</br></br>A. The use of any driver operated electric starter is permitted.</br></br>B. The use of any ignition system (except magneto ignition) is permitted
 provided the number of spark plugs remains the same as that of the
 standard production engine. If a distributor is removed, a blanking
 plate or breather may be fitted in its place.</br></br>C. The original generator or alternator may be completely removed or replaced. Mounting location and drive system for the generator or alternator is unrestricted.</br></br>D. The remaining components of the electrical system are unrestricted.</br></br>E. It is recommended that all vehicles be equipped with an electrical system master cutoff switch.</br></br>F. Any traction or stability control systems are permitted.
@@ -515,8 +590,8 @@ plate or breather may be fitted in its place.</br></br>C. The original generator
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedAntiRoll', 'pCarAnsweredIndex'], [true, 4]); hideItem('preparedAntiRoll'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedAntiRoll', 'pCarAnsweredIndex'], [false, 4]); hideItem('preparedAntiRoll'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedElectrical', 'pCarAnsweredIndex'], [true, 9]); hideItem('preparedElectrical'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedElectrical', 'pCarAnsweredIndex'], [false, 9]); hideItem('preparedElectrical'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="preparedEngine" class="center question sansserif">
@@ -746,8 +821,8 @@ versa
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedEngine', 'pCarAnsweredIndex'], [true, 5]); hideItem('preparedEngine'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedEngine', 'pCarAnsweredIndex'], [false, 5]); hideItem('preparedEngine'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedEngine', 'pCarAnsweredIndex'], [true, 10]); hideItem('preparedEngine'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedEngine', 'pCarAnsweredIndex'], [false, 10]); hideItem('preparedEngine'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="preparedOther" class="center question sansserif">
@@ -791,8 +866,8 @@ as a supercharger).
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedOther', 'pCarAnsweredIndex'], [true, 6]); hideItem('preparedOther'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedOther', 'pCarAnsweredIndex'], [false, 6]); hideItem('preparedOther'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedOther', 'pCarAnsweredIndex'], [true, 11]); hideItem('preparedOther'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedOther', 'pCarAnsweredIndex'], [false, 11]); hideItem('preparedOther'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="preparedSafety" class="center question sansserif">
@@ -826,8 +901,8 @@ channeling our obsession with performance pays off.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['preparedSafety', 'pCarAnsweredIndex'], [true, 7]); hideItem('preparedSafety'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['preparedSafety', 'pCarAnsweredIndex'], [false, 7]); hideItem('preparedSafety'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['preparedSafety', 'pCarAnsweredIndex'], [true, 12]); hideItem('preparedSafety'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['preparedSafety', 'pCarAnsweredIndex'], [false, 12]); hideItem('preparedSafety'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
     </div>
 
 

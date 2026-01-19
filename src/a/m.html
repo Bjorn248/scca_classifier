@@ -14,9 +14,14 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a id='mLandingPageMenu' href="#" onclick="resetQuestion('mLandingPage'); evalSessionStorage('mCar');">Overview</a>
       <a id='modifiedSoundMenu' href="#" onclick="resetQuestion('modifiedSound'); evalSessionStorage('mCar');">Sound</a>
+      <a id='modifiedEngineMenu' href="#" onclick="resetQuestion('modifiedEngine'); evalSessionStorage('mCar');">Engine</a>
       <a id='modifiedAerodynamicsMenu' href="#" onclick="resetQuestion('modifiedAerodynamics'); evalSessionStorage('mCar');">Aerodynamics</a>
       <a id='modifiedTiresMenu' href="#" onclick="resetQuestion('modifiedTires'); evalSessionStorage('mCar');">Tires</a>
+      <a id='modifiedSafetyMenu' href="#" onclick="resetQuestion('modifiedSafety'); evalSessionStorage('mCar');">Safety</a>
+      <a id='modifiedModifiedMenu' href="#" onclick="resetQuestion('modifiedModified'); evalSessionStorage('mCar');">Modified</a>
+      <a id='modifiedSportsMenu' href="#" onclick="resetQuestion('modifiedSports'); evalSessionStorage('mCar');">Sports</a>
       <a id='modifiedSpecialsMenu' href="#" onclick="resetQuestion('modifiedSpecials'); evalSessionStorage('mCar');">Specials</a>
+      <a id='modifiedFormulaMenu' href="#" onclick="resetQuestion('modifiedFormula'); evalSessionStorage('mCar');">Formula</a>
       <a id='modifiedLegendsMenu' href="#" onclick="resetQuestion('modifiedLegends'); evalSessionStorage('mCar');">Legends</a>
     </div>
 
@@ -147,7 +152,21 @@ and the noise limiting device(s) shall serve no other purpose than that
 stated and this allowance only applies to an extension of the exhaust
 system, not the vehicle bodywork or frame.
 
-18.0.B. Engine Classifications<div class="indent"></br>1. Four-stroke cycle and two-stroke cycle, naturally aspirated, internal
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['modifiedSound', 'mCarAnsweredIndex'], [true, 1]); hideItem('modifiedSound'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['modifiedSound', 'mCarAnsweredIndex'], [false, 1]); hideItem('modifiedSound'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="modifiedEngine" class="center question sansserif">
+      <h2 id="modifiedEngineQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="modifiedBody" class="questionBody">
+        <h3>
+          18.0.B. Engine Classifications<div class="indent"></br>1. Four-stroke cycle and two-stroke cycle, naturally aspirated, internal
 combustion engines will be classified on the basis of actual piston
 displacement.</div><div class="indent"></br>2. Rotary Engines (Wankel) – These units will be classified on the basis
 of a piston displacement equivalent to 1.6 times (1.6 ×) the volume
@@ -160,8 +179,8 @@ classified on a basis of 1.4 times (1.4 ×) the computed displacement.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['modifiedSound', 'mCarAnsweredIndex'], [true, 1]); hideItem('modifiedSound'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['modifiedSound', 'mCarAnsweredIndex'], [false, 1]); hideItem('modifiedSound'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['modifiedEngine', 'mCarAnsweredIndex'], [true, 2]); hideItem('modifiedEngine'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['modifiedEngine', 'mCarAnsweredIndex'], [false, 2]); hideItem('modifiedEngine'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="modifiedAerodynamics" class="center question sansserif">
@@ -182,8 +201,8 @@ supersedes Section 12, Wing Area Computation, for these classes.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['modifiedAerodynamics', 'mCarAnsweredIndex'], [true, 2]); hideItem('modifiedAerodynamics'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['modifiedAerodynamics', 'mCarAnsweredIndex'], [false, 2]); hideItem('modifiedAerodynamics'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['modifiedAerodynamics', 'mCarAnsweredIndex'], [true, 3]); hideItem('modifiedAerodynamics'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['modifiedAerodynamics', 'mCarAnsweredIndex'], [false, 3]); hideItem('modifiedAerodynamics'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="modifiedTires" class="center question sansserif">
@@ -193,10 +212,24 @@ supersedes Section 12, Wing Area Computation, for these classes.
       <div id="modifiedBody" class="questionBody">
         <h3>
           18.0.D. Tires
-Any tire (including recaps) meeting the applicable portions of Section<div class="indent"></br>3.3 is allowed.
+Any tire (including recaps) meeting the applicable portions of Section</br>3.3 is allowed.
 
-18.0.E. Safety Requirements
-The following shall be required in all Modified Category vehicles:</br></div><div class="indent"></br>1. Scattershields/Chain Guard:</br>The installation of scattershields or explosion-proof bell housings shall be required on all cars where the
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['modifiedTires', 'mCarAnsweredIndex'], [true, 4]); hideItem('modifiedTires'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['modifiedTires', 'mCarAnsweredIndex'], [false, 4]); hideItem('modifiedTires'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="modifiedSafety" class="center question sansserif">
+      <h2 id="modifiedSafetyQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="modifiedBody" class="questionBody">
+        <h3>
+          18.0.E. Safety Requirements
+The following shall be required in all Modified Category vehicles:</br><div class="indent"></br>1. Scattershields/Chain Guard:</br>The installation of scattershields or explosion-proof bell housings shall be required on all cars where the
 failure of the clutch, flywheel, or torque converter could create a hazard to the driver or passengers. Chain drive cars shall be fitted with a
 protective case/shield to retain the chain in case of failure.
 The following material requirements apply to scattershields/explosion-proof bell housings:</br>
@@ -241,7 +274,7 @@ specification.</div><div class="indent"></br>5. Firewalls and floors shall preve
 to the driver&#39;s compartment. For cars having fluid lines in a nonstandard routing over the belly pan, the belly pan shall have drain
 holes to prevent the accumulation of fluids.</div><div class="indent"></br>6. No fuel shall be added after the exhaust valve on a piston engine, or
 after the beginning of the exhaust port of a rotary engine.</div><div class="indent"></br>7. FSAE cars using electronic throttle control must be able to demonstrate throttle closure to zero when power is cut via kill switch.</div><div class="indent"></br>8. Ballast may be added to obtain minimum weight requirements.
-However, it must be attached and secured in a safe manner.</div><div class="indent"></br>9. Club Racing GCR specific items and/or equipment not required in
+However, it must be attached and secured in a safe manner.</div></br>9. Club Racing GCR specific items and/or equipment not required in
 
 Modified Category are as follows:</br>
 a. Fuel cells.
@@ -268,7 +301,21 @@ Refer to Appendix A for additional class-specific vehicle preparation
 rules. Refer to Appendix F for past clarifications of these rules.
 The following types of cars are assigned to the Modified Category:</br>
 
-18.1 MODIFIED PRODUCTION-BASED CARS</div></br></br>A. Eligibility
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['modifiedSafety', 'mCarAnsweredIndex'], [true, 5]); hideItem('modifiedSafety'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['modifiedSafety', 'mCarAnsweredIndex'], [false, 5]); hideItem('modifiedSafety'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="modifiedModified" class="center question sansserif">
+      <h2 id="modifiedModifiedQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="modifiedBody" class="questionBody">
+        <h3>
+          18.1 MODIFIED PRODUCTION-BASED CARS</br></br>A. Eligibility
 Modified classes D (DM) and E (EM) contain production-based cars
 which are permitted additional modifications beyond those allowed in
 Prepared classes CP through FP. Models must meet the requirements
@@ -511,9 +558,23 @@ A tolerance of ±½&#34; (±12.7 mm) shall be used when measuring floor pan
 dimensions from the car&#39;s original specifications.</br></br>I. Other<div class="indent"></br>1. At least 50% the width of each tire must be covered by the fenders,
 for no less than 75% of the length of the tire, when viewed from the
 top of the fender perpendicular to the ground. No sharp edges are
-permitted.</div><div class="indent"></br>2. Suspension systems and wheels are free.</div><div class="indent"></br>3. The use of a windscreen is not required.</div><div class="indent"></br>4. Roll bar requirements for cars competing in DM and EM are as specified in Section 3.3.2.
+permitted.</div><div class="indent"></br>2. Suspension systems and wheels are free.</div><div class="indent"></br>3. The use of a windscreen is not required.</div></br>4. Roll bar requirements for cars competing in DM and EM are as specified in Section 3.3.2.
 
-18.2 SPORTS RACERS
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['modifiedModified', 'mCarAnsweredIndex'], [true, 6]); hideItem('modifiedModified'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['modifiedModified', 'mCarAnsweredIndex'], [false, 6]); hideItem('modifiedModified'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="modifiedSports" class="center question sansserif">
+      <h2 id="modifiedSportsQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="modifiedBody" class="questionBody">
+        <h3>
+          18.2 SPORTS RACERS
 Closed wheel vehicles are referred to as Sports Racers and are assigned to
 Modified classes A, B, and C (AM, BM, and CM). AM vehicles do not have
 to comply with any Club Racing GCR, while BM and CM vehicles must
@@ -523,7 +584,7 @@ Vehicles that qualify as Sports Racers are those listed in the GCR SRCS,
 dune buggies, and production-based automobiles whether or not from Appendix A.
 Dune buggies and DM/EM cars are allowed in BM at Club Racing ASR,
 CSR, and DSR engine and weight rules as long as they do not exceed the
-DM/EM aero rule allowances and with the following noted specifics:</br></div></br></br>A. Tire covering shall be as noted in the DM/EM rules.</br></br>B. Minimum body width between front and rear tires does not have to extend to the mid plane of the rims.</br></br>C. Suspension does not have to be covered when observed from above.</br></br>D. The BM minimum wheelbase of 80.0&#34; (203.2 cm) is not required.
+DM/EM aero rule allowances and with the following noted specifics:</br></br></br>A. Tire covering shall be as noted in the DM/EM rules.</br></br>B. Minimum body width between front and rear tires does not have to extend to the mid plane of the rims.</br></br>C. Suspension does not have to be covered when observed from above.</br></br>D. The BM minimum wheelbase of 80.0&#34; (203.2 cm) is not required.
 Any dune buggy, production, or non-production street car meeting all
 GCR SRCS rule requirements may alternately run in BM with full BM
 Solo® Rules aero allowances.
@@ -545,8 +606,8 @@ Specials. The competitor must have the referenced GCR in their possession during
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['modifiedTires', 'mCarAnsweredIndex'], [true, 3]); hideItem('modifiedTires'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['modifiedTires', 'mCarAnsweredIndex'], [false, 3]); hideItem('modifiedTires'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['modifiedSports', 'mCarAnsweredIndex'], [true, 7]); hideItem('modifiedSports'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['modifiedSports', 'mCarAnsweredIndex'], [false, 7]); hideItem('modifiedSports'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="modifiedSpecials" class="center question sansserif">
@@ -567,7 +628,7 @@ unrestricted.</div></br></br>B. Chassis<div class="indent"></br>1. May be of any
 to provide braking for at least two wheels in the event of failure in
 part of the system.</div><div class="indent"></br>7. A roll bar conforming to Appendix C is required.</div><div class="indent"></br>8. Five-, six-, or seven-point driver restraint systems are required per
 Club Racing GCR Section 9.3.19.
-</div><div class="indent"></br>9. Vehicles shall have a Master Cutoff switch complying with Club Racing GCR Section 9.3.34.
+</div></br>9. Vehicles shall have a Master Cutoff switch complying with Club Racing GCR Section 9.3.34.
 10. Aerodynamic devices may not have an overall width greater than
 75.0&#34; (190.50 cm).
 11. No aerodynamic device may extend more than 66.0&#34; (167.64 cm)
@@ -578,7 +639,21 @@ computed as previously described in Section 18.0, Modified Category, &#34;Aerody
 14. The sides, front, and back of the cockpit area must be at least as high
 as the driver&#39;s waist.
 
-18.5 FORMULA SAE (FSAE)</div></br></br>A. Vehicles constructed to any single year&#39;s Formula SAE rules (1985-on)
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['modifiedSpecials', 'mCarAnsweredIndex'], [true, 8]); hideItem('modifiedSpecials'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['modifiedSpecials', 'mCarAnsweredIndex'], [false, 8]); hideItem('modifiedSpecials'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="modifiedFormula" class="center question sansserif">
+      <h2 id="modifiedFormulaQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="modifiedBody" class="questionBody">
+        <h3>
+          18.5 FORMULA SAE (FSAE)</br></br>A. Vehicles constructed to any single year&#39;s Formula SAE rules (1985-on)
 to include all FSAE safety items for that single year are eligible to run in
 SCCA® Solo® events. The FSAE rulebook year shall be specified on the
 entry form and those rules shall be provided by the entrant for viewing.</br></br>B. In addition to FSAE safety rules, SCCA® safety rules per the applicable
@@ -592,8 +667,8 @@ Current year FSAE restrictor plate and engine displacement rules. Intake restric
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['modifiedSpecials', 'mCarAnsweredIndex'], [true, 4]); hideItem('modifiedSpecials'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['modifiedSpecials', 'mCarAnsweredIndex'], [false, 4]); hideItem('modifiedSpecials'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['modifiedFormula', 'mCarAnsweredIndex'], [true, 9]); hideItem('modifiedFormula'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['modifiedFormula', 'mCarAnsweredIndex'], [false, 9]); hideItem('modifiedFormula'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="modifiedLegends" class="center question sansserif">
@@ -631,8 +706,8 @@ www.tirerack.com/storage
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['modifiedLegends', 'mCarAnsweredIndex'], [true, 5]); hideItem('modifiedLegends'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['modifiedLegends', 'mCarAnsweredIndex'], [false, 5]); hideItem('modifiedLegends'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['modifiedLegends', 'mCarAnsweredIndex'], [true, 10]); hideItem('modifiedLegends'); evalSessionStorage('mCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['modifiedLegends', 'mCarAnsweredIndex'], [false, 10]); hideItem('modifiedLegends'); evalSessionStorage('mCar'); window.scroll(0,0);">No</button>
     </div>
 
 

@@ -13,6 +13,8 @@
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a id='smLandingPageMenu' href="#" onclick="resetQuestion('smLandingPage'); evalSessionStorage('smCar');">Overview</a>
+      <a id='streetmodifiedAllowedMenu' href="#" onclick="resetQuestion('streetmodifiedAllowed'); evalSessionStorage('smCar');">Allowed</a>
+      <a id='streetmodifiedMinimumMenu' href="#" onclick="resetQuestion('streetmodifiedMinimum'); evalSessionStorage('smCar');">Minimum</a>
     </div>
 
     <div id="main">
@@ -145,6 +147,206 @@
       <button class="button yesButton" onclick="setState(['smLandingPage', 'smCarAnsweredIndex'], [true, 0]); hideItem('smLandingPage'); evalSessionStorage('smCar'); window.scroll(0,0);">Continue</button>
     </div>
 
+
+    <div id="streetmodifiedAllowed" class="center question sansserif">
+      <h2 id="streetmodifiedAllowedQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streetmodifiedBody" class="questionBody">
+        <h3>
+          16.1 ALLOWED MODIFICATIONS</br></br>A. All Street, Street Touring®, and Street Prepared category modifications
+are authorized. Except as noted by these rules and the referenced rules,
+vehicles must be as originally delivered including all road-going components such as lights, wipers, interior, heater, etc.</br></br>B. Competitors may pick and choose between all Street, Street Touring®,
+Street Prepared, and Street Modified category allowances when preparing a Street Modified category car. Apparent conflicts between inherited
+rule sets from Section 16.1.A shall not prohibit any specific inherited allowance. Allowances inherited from Section 16.1.A may not incorporate
+Street Modified-specific allowances. Foreign spec parts may not be used
+to substitute for parts which are required to remain standard.</br></br>C. Brakes, including calipers, caliper mounts, discs, drums, lines, backing
+plates, pedals, boosters, master cylinders, handles, ABS, proportioning
+valves, etc., are unrestricted. Brake rotor/drum friction surfaces must
+be 100% ferrous metallic. Carbon or ceramic composite brake components (except pads) are expressly prohibited. Standard parts, as defined
+per Section 12, are exempt from this restriction. A functional, redundant emergency (parking) brake must be present.</br></br>D. Drivetrain and related components (e.g., induction, ignition, fuel systems) are unrestricted except for the following limitations:</br><div class="indent"></br>1. Engine block (or housings of rotary engines) must be a production
+unit that can be sourced from a production automobile.</div><div class="indent"></br>2. Fuel System
+a. Any fuel line(s) may be used. All non-standard fuel line(s) passing through the passenger compartment shall be made of metal,
+metal braided hose, or equivalent (e.g., Nomex, Kevlar, or nylon
+braided hose) with AN Series threaded couplings, or entirely covered and protected with a metal cover.
+b. Any fuel pump(s), filter(s), and pressure regulator(s) may be used.
+Such components may not be located in the passenger compartment but their location within the bodywork of the car is otherwise unrestricted. If a mechanical pump is replaced, a blanking
+plate may be used to cover the original mounting point.
+c. A cool-can, not exceeding one gallon in volume, may be used. The
+cool-can may not be installed in the passenger compartment.
+
+d. The fuel tank may be modified or replaced. If the fuel tank is modified or replaced, the following restrictions apply:</br></div><div class="indent"></br>1. The fuel tank/cell may be located within the same area as the
+OE tank.</div><div class="indent"></br>2. If the fuel tank/cell does not fit within the same area as the OE
+tank, the requirements of Section 3.3.3.B.27 must be met.
+Engine and drivetrain mounts are considered part of these allowances
+and any material is permitted. The allowances of Section 16.1.O may be
+used to affix brackets, but these brackets shall serve no purpose other
+than engine and drivetrain mounting (e.g., they may not provide chassis stiffening).</div></br></br>E. Suspension components are unrestricted as long as they use the original attachment points. Cars equipped with MacPherson strut suspension may add or remove material from the top of the strut tower to facilitate installation of adjuster plate. The sides of the strut tower may
+not be modified.</br></br>F. Steering modifications are permitted as follows:</br><div class="indent"></br>1. Steering components, including the steering rack and/or box, tie
+rods, idler arms, power assist devices, and related components may
+be replaced, added, moved, or removed. Modifications to the steering column and shaft are permitted, including the installation of inline electric power steering. The steering column within the driver&#39;s
+compartment must retain its original coverings to ensure a stocklike appearance.This does not permit removal or modification of
+column-mounted accessories. Wheel-mounted electrical switches
+such as those for the horn, radio, cruise control, or shifter may be
+relocated and/or replaced, or eliminated.</div><div class="indent"></br>2. Rear-steer devices may be replaced with solid links.</div><div class="indent"></br>3. Supplemental steering gear boxes or steering quickeners are allowed
+as long as they are mounted in accordance with Section 16.1.F.1.</div><div class="indent"></br>4. Steering wheels and associated mounting hardware may be replaced.
+This does not permit removal or modification of the steering column or column-mounted accessories. OE wheel-mounted electrical
+switches such as those for the horn, radio, cruise control, or shifter
+may be relocated and/or replaced, or eliminated.</div></br></br>G. Suspension and drivetrain mounting locations, including subframes,
+may be reinforced in order to improve durability and reliability per the
+Street Prepared rules Section 15.2.S. Subframe connectors are allowed
+as per Street Prepared Section 15.2.E. OEM front bumper cross beams
+may be modified, replaced, or removed. Bolted structures forward of, or
+directly attached to, the radiator--including front radiator supports and
+frontal cross brackets--may be modified, replaced, or removed.</br></br>H. Front hoods (engine covers), engine covers, trunk lids and hatches not
+
+
+
+containing glass, front fenders, rear fenders not part of chassis structure (unibody), front &amp; rear bodywork, and side skirts may be modified
+or replaced, and may be attached with removable fasteners. Associated
+hardware including latches, hinges, window washer system, and hood
+liners may be modified, removed, or replaced. Non-metallic fender liners may be modified, replaced, or removed. Convertible soft tops may
+be modified, replaced, or removed.</br></br>I. Tires compliant in Street, Street Touring®, or Street Prepared categories are permitted.</br></br>J. Rear passenger seat(s), including restraints and associated hardware
+may be removed. When rear seats are removed, the back of the front
+seats defines the end of the passenger compartment.</br></br>K. Aerodynamic Aids:</br> Wings may be added, removed, or modified. NonOE wings may only be attached to the rear deck/hatch area behind the
+centerline of the rear axle. The total combined surface area of all wings
+shall not exceed 8 sq. ft. (0.7432 m2) as calculated per the Wing Area
+Computation in Section 12. The number of wing elements is limited to
+two (2).
+Wings, and any component thereof, may not extend beyond the vehicle
+width, as defined by the outermost portion of the vehicle doors, less
+mirrors, door handles, rub strips, and trim. In addition, no portion of
+the wing or its components may be more than 6.0&#34; forward of the rear
+axle, more than 0.0&#34; beyond the rear most portion of the bodywork,
+or more than 6.0&#34; above the roofline of the vehicle, regardless of body
+style. For convertibles and roadsters, the highest portion of the windshield frame will be considered the highest portion of the roof; however,
+a convertible or roadster utilizing a hardtop will use the highest portion
+of the hardtop as the roofline.
+Reinforcements to the wing mounting area may be used, but may serve
+no other purpose. Body panels to which a wing mounts must remain
+functional (e.g., trunk lids and rear hatches must open). Wing endplate
+surface area is limited to 200 sq. in. (1290.3 cm2) each and limited to a
+maximum of two (2).
+Except for standard parts, wings designed to be adjustable while the car
+is in motion must be locked in a single position.
+Canards are allowed and may extend a maximum of 6.0&#34; (152.4 mm)
+from the front bodywork as viewed from above. No portion of the canard may extend past the widest part of the front bodywork/fascia as
+viewed from above. Canard area will be measured in the same manner
+as wings using Section 12. Canard area may not exceed 15% of total wing
+allowance. The sum of canard area and rear wing area may not exceed
+the total wing allowance. Fore and aft variance in curvature and angle is
+open. Canards may have endplates. Canard endplate total surface area
+
+is limited to 30 sq. in. (193.5 cm2 ) for each side.
+Diffusers that come as a standard OE part are allowed but may not be
+modified. They may be removed in their entirety to facilitate other allowed modifications. Aftermarket diffusers or other items acting as diffusers are not allowed.</br></br>L. Front splitters are allowed and shall be installed parallel to the ground
+(within ±3° fore to aft) and may extend a maximum of 6.0&#34; (152.4 mm)
+from the front bodywork as viewed from above. Splitters may not extend
+rearword past the centerline of the front wheels. No portion of the splitter may extend beyond the widest part of the front bodywork as viewed
+from above. The lower surface of the splitter must be a flat plane with
+a deviation allowance of 0.25&#34; over a 12&#34; span. The edges of the splitter may be rounded to accommodate common construction materials
+and practices. The radius area may extend backwards no more than 1&#34;.
+Aerodynamically functional vertical members (features including but
+not limited to splitter fences, endplates, diffusers or ducting) are not allowed. Vertical air dams at the interface of the splitter to the bodywork
+are permitted. Splitter mounting hardware and sacrificial materials for
+wear protection are allowed but may serve no other purpose.</br></br>M.Removable OE hardtops, T-tops, targa tops, sunroofs, moonroofs, and
+similar roof-mounted panels may be removed/replaced with alternate
+panels provided that the area of interface is limited to the original perimeter of the t-top, sunroof, etc. or utilizes the OE panel mount points,
+and that the contour of any replacement panel surface does not vary
+from the contour of the part being replaced by more than 1.0&#34; (25.4
+mm) in any direction. The material used to construct the alternate
+panel and the method used to attach it to the interface is unrestricted.
+Any actuation mechanism and the associated wiring, if any, may be removed. Vehicles utilizing alternate (non-OE) hardtops will be considered as open cars in regard to Section 3.3.1.</br></br>N. Radio/Stereo and airbag equipment and/or its component parts, including wiring, control modules, antennas, amplifiers, speakers and
+their enclosures, etc. may be removed provided the part added, removed, or replaced serves no other purpose. Any visible holes that result from the removal of equipment must be covered with a cover of
+unrestricted material. Covers may be used to mount gauges, switches,
+etc. Gauge clusters may be modified or replaced, provided any visible
+holes that results from the change must be covered with a cover of unrestricted material.</br></br>O. Any minor modification, intended to allow or facilitate any allowed
+modification, is permitted as long as it does not provide any intrinsic
+performance benefit in and of itself, does not provide a weight reduction of more than 1.0 lb., and is not explicitly prohibited elsewhere
+within these rules.
+
+
+
+This rule is intended to allow minor notching, bending, clearancing,
+grinding; the drilling of holes; affixing, relocating, or strengthening of
+brackets; removal of small parts, and similar operations performed in
+order to facilitate the installation of allowed parts or modifications. Minor strengthening, without relocation, of original chassis/suspension
+pickup points is allowed. Examples include welding washers restricting
+control arm mounting bolt movement, local reinforcement of control
+arm chassis mounts, etc.
+Competitors are strongly cautioned to make the minimum amount of
+modification required to affix a given part and to not make unduly tortured interpretations of this rule. Modifications to the firewall in order
+to allow for increased engine setback, and any modification that changes the location of a suspension pickup point, are explicitly forbidden.
+Plastic under-trays and covers below the vehicle may be removed or
+modified as necessary to facilitate other compliant modifications, but
+not added or enlarged.</br></br>P. Ballast may be added. Ballast must be a maximum of 50 lbs. per segment. It must be securely mounted within the bodywork.</br></br>Q. OE side mirrors may be replaced by aftermarket units, provided they
+mount in the same location, perform the same function as the OE mirrors, and have a reflective surface area greater than 15 sq. in. (96.8 cm2)
+per mirror.</br></br>R. OE headlights, including &#34;pop-up&#34; headlights, may be replaced with
+static headlights, provided the replacement units are intended for automobile use on public roads as a primary means of illumination, and
+retain high and low beams as originally provided by the manufacturer.
+Minor repositioning of the headlights is allowed to accommodate the
+alternate headlight, but the unit may not be relocated and the repositioning may serve no other purpose. All associated hardware may be
+removed, replaced or modified. Modifying or replacing one headlight to
+include non-OE ducts is permitted. Replacement of OE tail / stop lights
+is permitted provided the replacement units are intended for automobile use on public roads and retain their basic functionality as originally
+provided by the manufacturer.</br></br>S. Alternate subframes are allowed to facilitate engine mounting only.
+Suspension pick-up points on the subframe must retain standard geometry. Weight of the subframe must be equal or greater than the standard unit.</br></br>T. Bolt-on tow hooks and tie downs may be modified, removed, or replaced. Addition of tow hooks and tie downs are permitted and location
+is unrestricted. Non-standard tow hooks shall serve no other function.
+
+
+          
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streetmodifiedAllowed', 'smCarAnsweredIndex'], [true, 1]); hideItem('streetmodifiedAllowed'); evalSessionStorage('smCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetmodifiedAllowed', 'smCarAnsweredIndex'], [false, 1]); hideItem('streetmodifiedAllowed'); evalSessionStorage('smCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="streetmodifiedMinimum" class="center question sansserif">
+      <h2 id="streetmodifiedMinimumQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streetmodifiedBody" class="questionBody">
+        <h3>
+          16.2 MINIMUM WEIGHTS
+Classes, displacements, and minimum weights are listed in Appendix A.
+
+
+          </br></br></br>Super Street Modified (SSM):</br>Minimum Weight Calculations without driver (lbs.):
+</br>• FWD....................................................................... 1350 + 125 per liter
+</br>• RWD. ....................................................................1600 + 200 per liter
+</br>• AWD. ....................................................................1600 + 300 per liter
+</br>• Supercharged/Turbocharged SSM engines:.........................................
+. .........................................................+1.4L to the actual displacement
+</br>• Tire width 275 mm or less.............................................................-200
+</br>• Regardless of the weight formulas above, no car will be required to
+weigh more than 2900.
+
+
+Appendix A - Street Modified
+
+</br></br>Street Modified (SM):</br>Minimum Weight Calculations without driver (lbs.):
+</br>• FWD....................................................................... 1550 + 125 per liter
+</br>• RWD. ....................................................................1800 + 200 per liter
+</br>• AWD. ....................................................................1800 + 300 per liter
+</br>• Supercharged/Turbocharged SM engines:...........................................
+. .........................................................+1.4L to the actual displacement
+</br>• Solid axle RWD. ................................................................ -25 per liter
+</br>• Tire width 275 mm or less.............................................................-200
+</br>• Regardless of the weight formulas above, no car will be required to
+weigh more than 3100 lbs.
+
+</br></br>Street Modified FWD (SMF):</br>Minimum Weight Calculations without driver (lbs.):
+</br>• All........................................................................... 1750 + 125 per liter
+
+
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streetmodifiedMinimum', 'smCarAnsweredIndex'], [true, 2]); hideItem('streetmodifiedMinimum'); evalSessionStorage('smCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetmodifiedMinimum', 'smCarAnsweredIndex'], [false, 2]); hideItem('streetmodifiedMinimum'); evalSessionStorage('smCar'); window.scroll(0,0);">No</button>
+    </div>
 
 
 

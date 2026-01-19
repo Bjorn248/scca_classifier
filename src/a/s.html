@@ -17,7 +17,7 @@
       <a id='streetBodyworkMenu' href="#" onclick="resetQuestion('streetBodywork'); evalSessionStorage('streetCar');">Bodywork</a>
       <a id='streetTiresMenu' href="#" onclick="resetQuestion('streetTires'); evalSessionStorage('streetCar');">Tires</a>
       <a id='streetWheelsMenu' href="#" onclick="resetQuestion('streetWheels'); evalSessionStorage('streetCar');">Wheels</a>
-      <a id='streetShockMenu' href="#" onclick="resetQuestion('streetShock'); evalSessionStorage('streetCar');">Shock</a>
+      <a id='streetShocksMenu' href="#" onclick="resetQuestion('streetShocks'); evalSessionStorage('streetCar');">Shocks</a>
       <a id='streetBrakesMenu' href="#" onclick="resetQuestion('streetBrakes'); evalSessionStorage('streetCar');">Brakes</a>
       <a id='streetAntiRollMenu' href="#" onclick="resetQuestion('streetAntiRoll'); evalSessionStorage('streetCar');">AntiRoll</a>
       <a id='streetSuspensionMenu' href="#" onclick="resetQuestion('streetSuspension'); evalSessionStorage('streetCar');">Suspension</a>
@@ -257,7 +257,7 @@ be eligible for National competition unless until specifically placed on
 the National Event Exclusion List.</div><div class="indent"></br>6. Re-introduction – Models that were once discontinued will be considered a new model once reintroduced and must meet all the requirements of Section 13.3.</div><div class="indent"></br>7. Tires will not be added to or removed from the National Exclusion List
 after June 30th.</div></br></br>C. Other<div class="indent"></br>1. Any tire which is OE on a car eligible for Street Category may be used
 on that car in Regional Solo® events. OE tires must meet all requirements of Section 13.3 to be eligible for National Solo® events.</div><div class="indent"></br>2. Tires may be shaved evenly and parallel to the axis of rotation, but
-may not otherwise be siped, grooved, or modified.</div><div class="indent"></br>3. No recap and/or retread tires may be used.</div><div class="indent"></br>4. National Event Exclusion List – Tires appearing on the following list
+may not otherwise be siped, grooved, or modified.</div><div class="indent"></br>3. No recap and/or retread tires may be used.</div></br>4. National Event Exclusion List – Tires appearing on the following list
 are not eligible for SCCA National Solo® events however may be used
 in Regional Solo® competition.
 • Vitour Tempesta P1
@@ -278,7 +278,7 @@ in Regional Solo® competition.
       <div id="streetBody" class="questionBody">
         <h3>
           13.4 WHEELS
-Any type wheel may be used provided it complies with the following:</br></br>A. It is the same width as standard and as installed it does not have an offset more than ±7.00 mm (±0.275&#34;) from a standard wheel for the car.
+Any type wheel may be used provided it complies with the following:</br></br></br>A. It is the same width as standard and as installed it does not have an offset more than ±7.00 mm (±0.275&#34;) from a standard wheel for the car.
 The resultant change in track dimensions is allowed.</br></br>B. Wheel (rim) diameter may be increased or decreased 1&#34; from the standard part. This change may be applied to the front, rear, or both axles.
 Cars equipped with 21-inch wheels or larger may decrease to 19inch
 wheels.
@@ -300,8 +300,8 @@ type hubs provided the resultant combination complies with the offset requiremen
       <button class="button noButton" onclick="setState(['streetWheels', 'streetCarAnsweredIndex'], [false, 4]); hideItem('streetWheels'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="streetShock" class="center question sansserif">
-      <h2 id="streetShockQuestion">
+    <div id="streetShocks" class="center question sansserif">
+      <h2 id="streetShocksQuestion">
         Does your car meet the requirements below?
       </h2>
       <div id="streetBody" class="questionBody">
@@ -372,8 +372,8 @@ may not be added through the exterior body panels.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetShock', 'streetCarAnsweredIndex'], [true, 5]); hideItem('streetShock'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetShock', 'streetCarAnsweredIndex'], [false, 5]); hideItem('streetShock'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetShocks', 'streetCarAnsweredIndex'], [true, 5]); hideItem('streetShocks'); evalSessionStorage('streetCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetShocks', 'streetCarAnsweredIndex'], [false, 5]); hideItem('streetShocks'); evalSessionStorage('streetCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetBrakes" class="center question sansserif">

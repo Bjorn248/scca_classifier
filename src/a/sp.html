@@ -16,11 +16,13 @@
       <a id='streetpreparedAuthorizedMenu' href="#" onclick="resetQuestion('streetpreparedAuthorized'); evalSessionStorage('spCar');">Authorized</a>
       <a id='streetpreparedBodyworkMenu' href="#" onclick="resetQuestion('streetpreparedBodywork'); evalSessionStorage('spCar');">Bodywork</a>
       <a id='streetpreparedTiresMenu' href="#" onclick="resetQuestion('streetpreparedTires'); evalSessionStorage('spCar');">Tires</a>
-      <a id='streetpreparedShockMenu' href="#" onclick="resetQuestion('streetpreparedShock'); evalSessionStorage('spCar');">Shock</a>
+      <a id='streetpreparedWheelsMenu' href="#" onclick="resetQuestion('streetpreparedWheels'); evalSessionStorage('spCar');">Wheels</a>
+      <a id='streetpreparedShocksMenu' href="#" onclick="resetQuestion('streetpreparedShocks'); evalSessionStorage('spCar');">Shocks</a>
       <a id='streetpreparedBrakesMenu' href="#" onclick="resetQuestion('streetpreparedBrakes'); evalSessionStorage('spCar');">Brakes</a>
       <a id='streetpreparedAntiRollMenu' href="#" onclick="resetQuestion('streetpreparedAntiRoll'); evalSessionStorage('spCar');">AntiRoll</a>
       <a id='streetpreparedSuspensionMenu' href="#" onclick="resetQuestion('streetpreparedSuspension'); evalSessionStorage('spCar');">Suspension</a>
       <a id='streetpreparedElectricalMenu' href="#" onclick="resetQuestion('streetpreparedElectrical'); evalSessionStorage('spCar');">Electrical</a>
+      <a id='streetpreparedOutofProductionMenu' href="#" onclick="resetQuestion('streetpreparedOutofProduction'); evalSessionStorage('spCar');">OutofProduction</a>
     </div>
 
     <div id="main">
@@ -388,11 +390,6 @@ Section 13.3.C.4 is replaced with the following list, which may be altered at
 any time by the SEB upon notification of membership.
 • Kumho Ecsta W710
 
-15.4 WHEELS
-Vehicles may only exceed the allowances of 13.4 as specified herein.</br></br>A. Wheels of any diameter, width, or offset may be used. Aftermarket
-wheels may be modified to install OE tire pressure sensors.</br></br>B. Wheel spacers are permitted. Wheel studs and knock-off wheel drive
-pegs may be changed in length and diameter. Wheel bolts may be replaced with studs and nuts.
-
 
         </h3>
       </div>
@@ -401,8 +398,27 @@ pegs may be changed in length and diameter. Wheel bolts may be replaced with stu
       <button class="button noButton" onclick="setState(['streetpreparedTires', 'spCarAnsweredIndex'], [false, 3]); hideItem('streetpreparedTires'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
-    <div id="streetpreparedShock" class="center question sansserif">
-      <h2 id="streetpreparedShockQuestion">
+    <div id="streetpreparedWheels" class="center question sansserif">
+      <h2 id="streetpreparedWheelsQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streetpreparedBody" class="questionBody">
+        <h3>
+          15.4 WHEELS
+Vehicles may only exceed the allowances of 13.4 as specified herein.</br></br>A. Wheels of any diameter, width, or offset may be used. Aftermarket
+wheels may be modified to install OE tire pressure sensors.</br></br>B. Wheel spacers are permitted. Wheel studs and knock-off wheel drive
+pegs may be changed in length and diameter. Wheel bolts may be replaced with studs and nuts.
+
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streetpreparedWheels', 'spCarAnsweredIndex'], [true, 4]); hideItem('streetpreparedWheels'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetpreparedWheels', 'spCarAnsweredIndex'], [false, 4]); hideItem('streetpreparedWheels'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="streetpreparedShocks" class="center question sansserif">
+      <h2 id="streetpreparedShocksQuestion">
         Does your car meet the requirements below?
       </h2>
       <div id="streetpreparedBody" class="questionBody">
@@ -431,8 +447,8 @@ used provided it offers no camber/caster adjustment beyond standard.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetpreparedShock', 'spCarAnsweredIndex'], [true, 4]); hideItem('streetpreparedShock'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetpreparedShock', 'spCarAnsweredIndex'], [false, 4]); hideItem('streetpreparedShock'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetpreparedShocks', 'spCarAnsweredIndex'], [true, 5]); hideItem('streetpreparedShocks'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetpreparedShocks', 'spCarAnsweredIndex'], [false, 5]); hideItem('streetpreparedShocks'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetpreparedBrakes" class="center question sansserif">
@@ -467,8 +483,8 @@ caliper bracket mounting location(s).
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetpreparedBrakes', 'spCarAnsweredIndex'], [true, 5]); hideItem('streetpreparedBrakes'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetpreparedBrakes', 'spCarAnsweredIndex'], [false, 5]); hideItem('streetpreparedBrakes'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetpreparedBrakes', 'spCarAnsweredIndex'], [true, 6]); hideItem('streetpreparedBrakes'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetpreparedBrakes', 'spCarAnsweredIndex'], [false, 6]); hideItem('streetpreparedBrakes'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetpreparedAntiRoll" class="center question sansserif">
@@ -497,8 +513,8 @@ down) other than that of the original configuration.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetpreparedAntiRoll', 'spCarAnsweredIndex'], [true, 6]); hideItem('streetpreparedAntiRoll'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetpreparedAntiRoll', 'spCarAnsweredIndex'], [false, 6]); hideItem('streetpreparedAntiRoll'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetpreparedAntiRoll', 'spCarAnsweredIndex'], [true, 7]); hideItem('streetpreparedAntiRoll'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetpreparedAntiRoll', 'spCarAnsweredIndex'], [false, 7]); hideItem('streetpreparedAntiRoll'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetpreparedSuspension" class="center question sansserif">
@@ -594,8 +610,8 @@ but not both.
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetpreparedSuspension', 'spCarAnsweredIndex'], [true, 7]); hideItem('streetpreparedSuspension'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetpreparedSuspension', 'spCarAnsweredIndex'], [false, 7]); hideItem('streetpreparedSuspension'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetpreparedSuspension', 'spCarAnsweredIndex'], [true, 8]); hideItem('streetpreparedSuspension'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetpreparedSuspension', 'spCarAnsweredIndex'], [false, 8]); hideItem('streetpreparedSuspension'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
     <div id="streetpreparedElectrical" class="center question sansserif">
@@ -797,7 +813,21 @@ additional oil supplied through the standard fuel delivery system and/
 or an oil-metering-pump (OMP) adaptor plate. An oil storage tank may
 be added to provide oil to the OMP. Holes may be drilled for mounting
 
-15.11 OUT-OF-PRODUCTION CARS
+
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['streetpreparedElectrical', 'spCarAnsweredIndex'], [true, 9]); hideItem('streetpreparedElectrical'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetpreparedElectrical', 'spCarAnsweredIndex'], [false, 9]); hideItem('streetpreparedElectrical'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="streetpreparedOutofProduction" class="center question sansserif">
+      <h2 id="streetpreparedOutofProductionQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="streetpreparedBody" class="questionBody">
+        <h3>
+          15.11 OUT-OF-PRODUCTION CARS
 Where a car is out of production and the manufacturer is either out of
 
 
@@ -812,8 +842,8 @@ improvements in performance (e.g., superior gearing, lighter weight, better cams
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['streetpreparedElectrical', 'spCarAnsweredIndex'], [true, 8]); hideItem('streetpreparedElectrical'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['streetpreparedElectrical', 'spCarAnsweredIndex'], [false, 8]); hideItem('streetpreparedElectrical'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['streetpreparedOutofProduction', 'spCarAnsweredIndex'], [true, 10]); hideItem('streetpreparedOutofProduction'); evalSessionStorage('spCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['streetpreparedOutofProduction', 'spCarAnsweredIndex'], [false, 10]); hideItem('streetpreparedOutofProduction'); evalSessionStorage('spCar'); window.scroll(0,0);">No</button>
     </div>
 
 
