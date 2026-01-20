@@ -16,22 +16,26 @@
       <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('{{ $shortname }}Car');">{{ menuName .Name }}</a>{{ end }}
     </div>
 
-    <div id="main">
-      <button class="openbtn" onclick="openNav()">☰</button>
-    </div>
-
-    <h1 class="center sansserif">Solo Spec Coupe Class Questionnaire</h1>
-
-    <div id="homeButton" class="left">
-      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
-      <button class="button noButton" onclick="window.location.href = '/a/index.html';">Car Selection</button>
-    </div>
-    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
-      <button class="button noButton" onclick="resetState()">Clear Selections</button>
-    </div>
   </head>
 
   <body onload="evalSessionStorage('{{ $shortname }}Car');">
+    <!-- Modern Top Navigation Bar -->
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button class="hamburger-menu" onclick="openNav()" title="Open navigation menu">☰</button>
+      </div>
+      <div class="nav-center">
+        <h1 class="nav-title">Solo Spec Coupe Class Questionnaire</h1>
+      </div>
+      <div class="nav-right">
+        <button class="nav-button" onclick="window.location.href = '/index.html';" title="Return to home page">
+          🏠 Home
+        </button>
+        <button class="nav-button" onclick="resetState()" title="Clear question answers and selections">
+          🔄 Clear
+        </button>
+      </div>
+    </nav>
     <div id="{{ $shortname }}LandingPage" class="center question sansserif">
       <h2 id="{{ $shortname }}LandingPageQuestion">
         Solo Spec Coupe Class Overview

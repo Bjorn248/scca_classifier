@@ -911,10 +911,10 @@ fieldset label {
   }
 }
 
-/* Legacy positioning classes - now hidden */
+/* Legacy positioning classes for navigation buttons */
 .left,
 .right {
-  display: none;
+  display: inline-block;
 }
 
 .question {

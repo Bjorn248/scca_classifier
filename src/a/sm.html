@@ -17,22 +17,26 @@
       <a id='streetmodifiedMinimumMenu' href="#" onclick="resetQuestion('streetmodifiedMinimum'); evalSessionStorage('smCar');">Minimum</a>
     </div>
 
-    <div id="main">
-      <button class="openbtn" onclick="openNav()">☰</button>
-    </div>
-
-    <h1 class="center sansserif">Street Modified (SM) Class Questionnaire</h1>
-
-    <div id="homeButton" class="left">
-      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
-      <button class="button noButton" onclick="window.location.href = '/a/index.html';">Car Selection</button>
-    </div>
-    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
-      <button class="button noButton" onclick="resetState()">Clear Selections</button>
-    </div>
   </head>
 
   <body onload="evalSessionStorage('smCar'); highlightAndFilterSM();">
+    <!-- Modern Top Navigation Bar -->
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button class="hamburger-menu" onclick="openNav()" title="Open navigation menu">☰</button>
+      </div>
+      <div class="nav-center">
+        <h1 class="nav-title">Street Modified Class Questionnaire</h1>
+      </div>
+      <div class="nav-right">
+        <button class="nav-button" onclick="window.location.href = '/index.html';" title="Return to home page">
+          🏠 Home
+        </button>
+        <button class="nav-button" onclick="resetState()" title="Clear question answers and selections">
+          🔄 Clear
+        </button>
+      </div>
+    </nav>
     <div id="smLandingPage" class="center question sansserif">
       <h2 id="smLandingPageQuestion">
         Street Modified (SM) Class Overview
