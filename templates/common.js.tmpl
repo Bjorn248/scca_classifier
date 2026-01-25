@@ -1,73 +1,10 @@
 // carFlags maps class identifiers to arrays of question IDs in display order.
-// Generated classes are built from rules.txt via templates; static classes are manually maintained.
+// All entries are auto-generated from main.go configuration.
 const carFlags = {
-  // ============ GENERATED FROM TEMPLATES ============
-  // These entries are auto-generated from Chapter data in main.go.
-  // The question IDs must match the HTML element IDs in the corresponding template.
-{{ range $chapter := . }}{{ if $chapter.SubChapters }}  '{{ $chapter.ShortName }}Car': [
-    '{{ $chapter.ShortName }}LandingPage',
-{{ range $chapter.SubChapters }}    '{{ toVarName $chapter.Name }}{{ menuName .Name }}',
+{{ range $chapter := . }}{{ if $chapter.CarFlags }}  '{{ $chapter.ShortName }}Car': [
+{{ range $chapter.CarFlags }}    '{{ . }}',
 {{ end }}  ],
-{{ end }}{{ end }}
-  // ============ STATIC ENTRIES ============
-  // These classes don't have generated templates and are manually maintained.
-  // When adding new static classes, ensure the IDs match the corresponding HTML files.
-  'smCar': [
-    'smLandingPage',
-    'streetmodifiedAllowed',
-    'streetmodifiedMinimum',
-  ],
-  'csmCar': [
-    'csmLandingPage',
-    'csmBodywork',
-    'csmSafety',
-    'csmSuspension',
-    'csmElectrical',
-    'csmBrakes',
-    'csmEngineAndDrivetrain',
-  ],
-  'csxCar': [
-    'csxLandingPage',
-    'csxBodywork',
-    'csxSafety',
-    'csxSuspension',
-    'csxElectrical',
-    'csxBrakes',
-    'csxEngineAndDrivetrain',
-  ],
-  'xsCar': [
-    'xsLandingPage',
-    'xsBodywork',
-    'xsSuspension',
-    'xsBrakes',
-    'xsWheels',
-    'xsTires',
-    'xsMinWeight',
-    'xsEngineAndDrivetrain',
-    'xsAero',
-  ],
-  'evCar': [
-    'evLandingPage',
-    'evBodywork',
-    'evBrakes',
-    'evTires',
-    'evWheels',
-    'evShocks',
-    'evARB',
-    'evSuspension',
-    'evElectricalAndDrivetrain',
-  ],
-  'camCar': [
-    'camLandingPage',
-    'camBodywork',
-    'camSuspension',
-    'camBrakes',
-    'camWheels',
-    'camTires',
-    'camWeight',
-    'camEngineAndDrivetrain',
-  ],
-};
+{{ end }}{{ end }}};
 
 /*
  * this maps the friendly subclass names

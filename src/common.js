@@ -1,9 +1,6 @@
 // carFlags maps class identifiers to arrays of question IDs in display order.
-// Generated classes are built from rules.txt via templates; static classes are manually maintained.
+// All entries are auto-generated from main.go configuration.
 const carFlags = {
-  // ============ GENERATED FROM TEMPLATES ============
-  // These entries are auto-generated from Chapter data in main.go.
-  // The question IDs must match the HTML element IDs in the corresponding template.
   'streetCar': [
     'streetLandingPage',
     'streetAuthorized',
@@ -86,15 +83,6 @@ const carFlags = {
     'solospeccoupeBrakes',
     'solospeccoupeSuspension',
     'solospeccoupeElectrical',
-  ],
-
-  // ============ STATIC ENTRIES ============
-  // These classes don't have generated templates and are manually maintained.
-  // When adding new static classes, ensure the IDs match the corresponding HTML files.
-  'smCar': [
-    'smLandingPage',
-    'streetmodifiedAllowed',
-    'streetmodifiedMinimum',
   ],
   'csmCar': [
     'csmLandingPage',

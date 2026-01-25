@@ -22,6 +22,8 @@ type Chapter struct {
 	ShortName         string // Short identifier used for carFlags keys (e.g., "sp" for Street Prepared)
 	Number            string
 	SubChapters       []SubChapter
+	Sections          []string // Section names for classes without SubChapters (e.g., "Bodywork", "Safety")
+	CarFlags          []string // Question IDs for carFlags (auto-populated from SubChapters/Sections)
 	Reader            *io.SectionReader
 	start             *regexp.Regexp
 	end               *regexp.Regexp
@@ -172,6 +174,24 @@ func ToVarName(in string) string {
 	return strings.ToLower(result)
 }
 
+// generateCarFlags creates the carFlags array for a chapter based on its SubChapters or Sections
+func generateCarFlags(chapter Chapter) []string {
+	flags := []string{chapter.ShortName + "LandingPage"}
+	if len(chapter.SubChapters) > 0 {
+		// Generate from SubChapters (parsed from rules.txt)
+		varName := ToVarName(chapter.Name)
+		for _, sub := range chapter.SubChapters {
+			flags = append(flags, varName+ToMenuName(sub.Name))
+		}
+	} else if len(chapter.Sections) > 0 {
+		// Generate from explicit Sections list
+		for _, section := range chapter.Sections {
+			flags = append(flags, chapter.ShortName+section)
+		}
+	}
+	return flags
+}
+
 func stringEqual(a, b string) bool {
 	return a == b
 }
@@ -298,6 +318,15 @@ func main() {
 		},
 	}
 
+	// Static classes don't have numbered subchapters in rules.txt - their Sections are explicitly defined
+	staticClasses := []Chapter{
+		{ShortName: "csm", Sections: []string{"Bodywork", "Safety", "Suspension", "Electrical", "Brakes", "EngineAndDrivetrain"}},
+		{ShortName: "csx", Sections: []string{"Bodywork", "Safety", "Suspension", "Electrical", "Brakes", "EngineAndDrivetrain"}},
+		{ShortName: "xs", Sections: []string{"Bodywork", "Suspension", "Brakes", "Wheels", "Tires", "MinWeight", "EngineAndDrivetrain", "Aero"}},
+		{ShortName: "ev", Sections: []string{"Bodywork", "Brakes", "Tires", "Wheels", "Shocks", "ARB", "Suspension", "ElectricalAndDrivetrain"}},
+		{ShortName: "cam", Sections: []string{"Bodywork", "Suspension", "Brakes", "Wheels", "Tires", "Weight", "EngineAndDrivetrain"}},
+	}
+
 	toRemove := []*pcre.Regexp{
 		pcre.MustCompile(`(?s)20-40% MORE.+Section 14`),
 		pcre.MustCompile(`(?s)orders over .+15\. Street Prepared`),
@@ -367,6 +396,11 @@ func main() {
 			allChapters[i].SubChapters = findSubChapterBody(allChapters[i], chapterText)
 		}
 
+		// Populate CarFlags for chapters with SubChapters
+		if len(allChapters[i].SubChapters) > 0 {
+			allChapters[i].CarFlags = generateCarFlags(allChapters[i])
+		}
+
 		// grab minmum weights from appendix for SM
 		if allChapters[i].Name == "Street Modified" {
 			var weightInfo string
@@ -416,7 +450,14 @@ func main() {
 		log.Fatal("Could not create file", err)
 	}
 
-	err = tpl.Execute(outFile, allChapters)
+	// Generate CarFlags for staticClasses from their Sections
+	for i := range staticClasses {
+		staticClasses[i].CarFlags = generateCarFlags(staticClasses[i])
+	}
+
+	// Combine allChapters and staticClasses for template execution
+	allClassesForJS := append(allChapters, staticClasses...)
+	err = tpl.Execute(outFile, allClassesForJS)
 	if err != nil {
 		log.Fatal("Could not execute template", err)
 	}
