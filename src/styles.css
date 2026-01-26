@@ -911,10 +911,10 @@ fieldset label {
   }
 }
 
-/* Legacy positioning classes - now hidden */
+/* Legacy positioning classes for navigation buttons */
 .left,
 .right {
-  display: none;
+  display: inline-block;
 }
 
 .question {
@@ -943,7 +943,8 @@ fieldset label {
   font-weight: var(--font-weight-semibold);
   text-align: center;
   font-size: var(--font-size-xl);
-  margin: var(--space-4) 0;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
 }
 
 .specificClass {
@@ -961,7 +962,8 @@ fieldset label {
   font-weight: var(--font-weight-semibold);
   text-align: center;
   font-size: var(--font-size-xl);
-  margin: var(--space-4) 0;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
 }
 
 .notEligibleExplanation {

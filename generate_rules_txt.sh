@@ -23,5 +23,7 @@ then
 fi
 
 echo "Converting PDF to txt..."
+# Use -raw to extract text in content stream order (column by column)
+# rather than default which reads line by line across columns
 pdftotext rules.pdf rules.txt
 echo "Done"
