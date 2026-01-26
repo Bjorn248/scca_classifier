@@ -2546,10 +2546,10 @@ const allSoloCars = {
   },
   'DeTomaso': {
     'Mangusta': {
-      'all': ['bs', 'esp', 'dsp', 'ssm', 'xp', 'xa'],
+      'all': ['bs', 'esp', 'ssm', 'xp', 'xa'],
     },
     'Pantera': {
-      'all': ['bs', 'esp', 'dsp', 'ssm', 'xp', 'xa'],
+      'all': ['bs', 'esp', 'ssm', 'xp', 'xa'],
     },
   },
   'Dodge': {
