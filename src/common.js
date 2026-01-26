@@ -1104,7 +1104,7 @@ const allSoloCars = {
       '2003': ['hs', 'dst', 'esp', 'sm', 'xp', 'xa'],
       '2004': ['hs', 'dst', 'esp', 'sm', 'xp', 'xa'],
       '2005': ['hs', 'dst', 'esp', 'sm', 'xp', 'xa'],
-      '2006': ['gs', 'dst', 'esp', 'sm', 'xp', 'xa'],
+      '2006': ['hs', 'dst', 'esp', 'sm', 'xp', 'xa'],
       '2007': ['gs', 'dst', 'sm', 'xp', 'xa'],
       '2008': ['gs', 'dst', 'sm', 'xp', 'xa'],
       '2009': ['gs', 'dst', 'sm', 'xp', 'xa'],
