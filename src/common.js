@@ -675,7 +675,7 @@ const allSoloCars = {
       '2025': ['gs', 'gst', 'esp', 'sm', 'smf', 'xp', 'xa'],
     },
     'A3 Sportback e-tron': {
-      '2016': ['gst', 'sm', 'xp', 'xa', 'evx'],
+      '2016': ['gs', 'gst', 'sm', 'xp', 'xa', 'evx'],
       '2017': ['gs', 'gst', 'sm', 'xp', 'xa', 'evx'],
       '2018': ['gs', 'gst', 'sm', 'xp', 'xa', 'evx'],
     },
@@ -8107,11 +8107,11 @@ const allSoloCars = {
       '2025': ['ss', 'xp', 'xu', 'sm', 'evx'],
     },
     'Model S Plaid': {
-      '2021': ['ssp', 'xp', 'xu', 'sm', 'evx'],
-      '2022': ['ssp', 'xp', 'xu', 'sm', 'evx'],
-      '2023': ['ssp', 'xp', 'xu', 'sm', 'evx'],
-      '2024': ['ssp', 'xp', 'xu', 'sm', 'evx'],
-      '2025': ['ssp', 'xp', 'xu', 'sm', 'evx'],
+      '2021': ['ss', 'ssp', 'xp', 'xu', 'sm', 'evx'],
+      '2022': ['ss', 'ssp', 'xp', 'xu', 'sm', 'evx'],
+      '2023': ['ss', 'ssp', 'xp', 'xu', 'sm', 'evx'],
+      '2024': ['ss', 'ssp', 'xp', 'xu', 'sm', 'evx'],
+      '2025': ['ss', 'ssp', 'xp', 'xu', 'sm', 'evx'],
     },
     'Model X': {
       '2016': ['evx'],
