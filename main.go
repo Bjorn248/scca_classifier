@@ -19,8 +19,11 @@ import (
 // chapter (e.g. Street, Street Touring) of the rulebook.
 type Chapter struct {
 	Name              string
+	ShortName         string // Short identifier used for carFlags keys (e.g., "sp" for Street Prepared)
 	Number            string
 	SubChapters       []SubChapter
+	Sections          []string // Section names for classes without SubChapters (e.g., "Bodywork", "Safety")
+	CarFlags          []string // Question IDs for carFlags (auto-populated from SubChapters/Sections)
 	Reader            *io.SectionReader
 	start             *regexp.Regexp
 	end               *regexp.Regexp
@@ -41,7 +44,10 @@ type SubChapter struct {
 // chapter
 func getSubChapters(rules, chapterNumber string) []SubChapter {
 	SubChapters := []SubChapter{}
-	regexString := chapterNumber + `\.([0-9]+[.A-Z]*) ([^\.\n]*)\.+[\. ]([0-9]+)`
+	// Regex handles both formats in table of contents:
+	// "13.1 Authorized Modifications......79" (dots directly after name)
+	// "13.4 Wheels. .......................82" (period, space, then dots)
+	regexString := chapterNumber + `\.([0-9]+[.A-Z]*) ([^\.\n]*)\.? *\.{2,} *([0-9]+)`
 	tableOfContents := regexp.MustCompile(regexString)
 	match := tableOfContents.FindAllStringSubmatch(rules, -1)
 	// SSC does not have its subchapters listed in the table of contents
@@ -155,6 +161,10 @@ func ToMenuName(in string) string {
 	result = strings.Split(in, " ")[0]
 	result = strings.Split(result, "/")[0]
 	result = regexp.MustCompile(`[^a-zA-Z0-9 ]+`).ReplaceAllString(result, "")
+	// Normalize "Shock" to "Shocks" for consistency
+	if result == "Shock" {
+		result = "Shocks"
+	}
 	return result
 }
 
@@ -162,6 +172,24 @@ func ToVarName(in string) string {
 	var result string
 	result = regexp.MustCompile(`[^a-zA-Z0-9]+`).ReplaceAllString(in, "")
 	return strings.ToLower(result)
+}
+
+// generateCarFlags creates the carFlags array for a chapter based on its SubChapters or Sections
+func generateCarFlags(chapter Chapter) []string {
+	flags := []string{chapter.ShortName + "LandingPage"}
+	if len(chapter.SubChapters) > 0 {
+		// Generate from SubChapters (parsed from rules.txt)
+		varName := ToVarName(chapter.Name)
+		for _, sub := range chapter.SubChapters {
+			flags = append(flags, varName+ToMenuName(sub.Name))
+		}
+	} else if len(chapter.Sections) > 0 {
+		// Generate from explicit Sections list
+		for _, section := range chapter.Sections {
+			flags = append(flags, chapter.ShortName+section)
+		}
+	}
+	return flags
 }
 
 func stringEqual(a, b string) bool {
@@ -206,79 +234,97 @@ func main() {
 	allChapters := []Chapter{
 		{
 			Name:              "Street",
+			ShortName:         "street",
 			Number:            "13",
-			start:             regexp.MustCompile(`\n13\. STREET CATEGORY\n`),
-			end:               regexp.MustCompile(`\n14\. STREET TOURING® CATEGORY\n`),
+			start:             regexp.MustCompile(`\n13\. STREET CATEGORY\nCategory Objective`),
+			end:               regexp.MustCompile(`\n14\. STREET TOURING® CATEGORY\nCategory Objective`),
 			ChapterFillerText: regexp.MustCompile(`13\. Street Category`),
 			templateFile:      "./templates/a/s.html.tmpl",
 			outputFile:        "./src/a/s.html",
 		},
 		{
 			Name:              "Street Touring",
+			ShortName:         "streettouring",
 			Number:            "14",
-			start:             regexp.MustCompile(`\n14\. STREET TOURING® CATEGORY\n`),
-			end:               regexp.MustCompile(`\n15\. STREET PREPARED CATEGORY\n`),
+			start:             regexp.MustCompile(`\n14\. STREET TOURING® CATEGORY\nCategory Objective`),
+			end:               regexp.MustCompile(`\n15\. STREET PREPARED CATEGORY\nCategory Objective`),
 			ChapterFillerText: regexp.MustCompile(`14\. Street Touring®`),
 			templateFile:      "./templates/a/st.html.tmpl",
 			outputFile:        "./src/a/st.html",
 		},
 		{
 			Name:              "Street Prepared",
+			ShortName:         "sp",
 			Number:            "15",
-			start:             regexp.MustCompile(`\n15\. STREET PREPARED CATEGORY\n`),
-			end:               regexp.MustCompile(`\n16\. STREET MODIFIED CATEGORY\n`),
+			start:             regexp.MustCompile(`\n15\. STREET PREPARED CATEGORY\nCategory Objective`),
+			end:               regexp.MustCompile(`\n16\. STREET MODIFIED CATEGORY\nCategory Objective`),
 			ChapterFillerText: regexp.MustCompile(`15\. Street Prepared`),
 			templateFile:      "./templates/a/sp.html.tmpl",
 			outputFile:        "./src/a/sp.html",
 		},
 		{
 			Name:              "Street Modified",
+			ShortName:         "sm",
 			Number:            "16",
-			start:             regexp.MustCompile(`\n16\. STREET MODIFIED CATEGORY\n`),
-			end:               regexp.MustCompile(`\n17\. PREPARED CATEGORY\n`),
+			start:             regexp.MustCompile(`\n16\. STREET MODIFIED CATEGORY\nCategory Objective`),
+			end:               regexp.MustCompile(`\n17\. PREPARED CATEGORY\nCategory Objective`),
 			ChapterFillerText: regexp.MustCompile(`16\. Street Modified`),
 			templateFile:      "./templates/a/sm.html.tmpl",
 			outputFile:        "./src/a/sm.html",
 		},
 		{
 			Name:              "Prepared",
+			ShortName:         "p",
 			Number:            "17",
-			start:             regexp.MustCompile(`\n17\. PREPARED CATEGORY\n`),
-			end:               regexp.MustCompile(`\n18\. MODIFIED CATEGORY\n`),
+			start:             regexp.MustCompile(`\n17\. PREPARED CATEGORY\nCategory Objective`),
+			end:               regexp.MustCompile(`\n18\. MODIFIED CATEGORY\nCategory Objectives`),
 			ChapterFillerText: regexp.MustCompile(`17\. Prepared`),
 			templateFile:      "./templates/a/p.html.tmpl",
 			outputFile:        "./src/a/p.html",
 		},
 		{
 			Name:              "Modified",
+			ShortName:         "m",
 			Number:            "18",
-			start:             regexp.MustCompile(`\n18\. MODIFIED CATEGORY\n`),
-			end:               regexp.MustCompile(`\n19\. KART CATEGORY\n`),
+			start:             regexp.MustCompile(`\n18\. MODIFIED CATEGORY\nCategory Objectives`),
+			end:               regexp.MustCompile(`\n19\. KART CATEGORY\nCategory Objective`),
 			ChapterFillerText: regexp.MustCompile(`18\. Modified Category`),
 			templateFile:      "./templates/a/m.html.tmpl",
 			outputFile:        "./src/a/m.html",
 		},
 		{
 			Name:              "Solo Spec Coupe",
+			ShortName:         "ssc",
 			Number:            "20",
-			start:             regexp.MustCompile(`\n20\. SOLO. SPEC COUPE \(SSC\)\n`),
-			end:               regexp.MustCompile(`\n21\. PROSOLO® NATIONAL SERIES RULES\n`),
+			start:             regexp.MustCompile(`\n20\. SOLO® SPEC COUPE \(SSC\)\n`),
+			end:               regexp.MustCompile(`\n21\. Classic American Muscle / Xtreme Street Category\n`),
 			ChapterFillerText: regexp.MustCompile(`20\. Solo® Spec Coupe \(SSC\)`),
 			templateFile:      "./templates/a/ssc.html.tmpl",
 			outputFile:        "./src/a/ssc.html",
 		},
 		{
-			Name:   "Xtreme Street",
-			Number: "n/a",
-			start:  regexp.MustCompile(`\nClassic American Muscle \/ Xtreme Street Category\n`),
-			end:    regexp.MustCompile(`\nElectrical Vehicle Experimental \(EVX\)\n`),
+			Name:      "Xtreme Street",
+			ShortName: "xs",
+			Number:    "n/a",
+			start:     regexp.MustCompile(`\n21\. Classic American Muscle / Xtreme Street Category\n`),
+			end:       regexp.MustCompile(`\nElectrical Vehicle Experimental \(EVX\)\n`),
 		},
 		{
-			Name:   "EVX",
-			Number: "n/a",
-			start:  regexp.MustCompile(`\nElectrical Vehicle Experimental \(EVX\)\n`),
-			end:    regexp.MustCompile(`\nAPPENDIX C - SOLO® ROLL BAR STANDARDS\n`),
+			Name:      "EVX",
+			ShortName: "ev",
+			Number:    "n/a",
+			start:     regexp.MustCompile(`\nElectrical Vehicle Experimental \(EVX\)\n`),
+			end:       regexp.MustCompile(`\nAPPENDIX C - SOLO® ROLL BAR STANDARDS\n`),
 		},
+	}
+
+	// Static classes don't have numbered subchapters in rules.txt - their Sections are explicitly defined
+	staticClasses := []Chapter{
+		{ShortName: "csm", Sections: []string{"Bodywork", "Safety", "Suspension", "Electrical", "Brakes", "EngineAndDrivetrain"}},
+		{ShortName: "csx", Sections: []string{"Bodywork", "Safety", "Suspension", "Electrical", "Brakes", "EngineAndDrivetrain"}},
+		{ShortName: "xs", Sections: []string{"Bodywork", "Suspension", "Brakes", "Wheels", "Tires", "MinWeight", "EngineAndDrivetrain", "Aero"}},
+		{ShortName: "ev", Sections: []string{"Bodywork", "Brakes", "Tires", "Wheels", "Shocks", "ARB", "Suspension", "ElectricalAndDrivetrain"}},
+		{ShortName: "cam", Sections: []string{"Bodywork", "Suspension", "Brakes", "Wheels", "Tires", "Weight", "EngineAndDrivetrain"}},
 	}
 
 	toRemove := []*pcre.Regexp{
@@ -350,6 +396,11 @@ func main() {
 			allChapters[i].SubChapters = findSubChapterBody(allChapters[i], chapterText)
 		}
 
+		// Populate CarFlags for chapters with SubChapters
+		if len(allChapters[i].SubChapters) > 0 {
+			allChapters[i].CarFlags = generateCarFlags(allChapters[i])
+		}
+
 		// grab minmum weights from appendix for SM
 		if allChapters[i].Name == "Street Modified" {
 			var weightInfo string
@@ -399,7 +450,14 @@ func main() {
 		log.Fatal("Could not create file", err)
 	}
 
-	err = tpl.Execute(outFile, allChapters)
+	// Generate CarFlags for staticClasses from their Sections
+	for i := range staticClasses {
+		staticClasses[i].CarFlags = generateCarFlags(staticClasses[i])
+	}
+
+	// Combine allChapters and staticClasses for template execution
+	allClassesForJS := append(allChapters, staticClasses...)
+	err = tpl.Execute(outFile, allClassesForJS)
 	if err != nil {
 		log.Fatal("Could not execute template", err)
 	}

@@ -1,4 +1,4 @@
-{{ $name := .Name }}{{ $chapterfillertext := .ChapterFillerText }}<!DOCTYPE html>
+{{ $name := .Name }}{{ $shortname := .ShortName }}{{ $chapterfillertext := .ChapterFillerText }}<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -12,27 +12,32 @@
 
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a id='pLandingPageMenu' href="#" onclick="resetQuestion('pLandingPage'); evalSessionStorage('pCar');">Overview</a>{{ range .SubChapters }}
-      <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('pCar');">{{ menuName .Name }}</a>{{ end }}
+      <a id='{{ $shortname }}LandingPageMenu' href="#" onclick="resetQuestion('{{ $shortname }}LandingPage'); evalSessionStorage('{{ $shortname }}Car');">Overview</a>{{ range .SubChapters }}
+      <a id='{{ toVarName $name}}{{ menuName .Name}}Menu' href="#" onclick="resetQuestion('{{ toVarName $name}}{{ menuName .Name }}'); evalSessionStorage('{{ $shortname }}Car');">{{ menuName .Name }}</a>{{ end }}
     </div>
 
-    <div id="main">
-      <button class="openbtn" onclick="openNav()">☰</button>
-    </div>
-
-    <h1 class="center sansserif">Prepared Class Questionnaire</h1>
-
-    <div id="homeButton" class="left">
-      <button class="button noButton" onclick="window.location.href = '/index.html';">Home</button>
-    </div>
-    <div id="resetButton" class="right" title="Clear question answers, as well as make, model, and year selections">
-      <button class="button noButton" onclick="resetState()">Clear Selections</button>
-    </div>
   </head>
 
-  <body onload="evalSessionStorage('pCar'); highlightAndFilterP();">
-    <div id="pLandingPage" class="center question sansserif">
-      <h2 id="pLandingPageQuestion">
+  <body onload="evalSessionStorage('{{ $shortname }}Car'); highlightAndFilterP();">
+    <!-- Modern Top Navigation Bar -->
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button class="hamburger-menu" onclick="openNav()" title="Open navigation menu">☰</button>
+      </div>
+      <div class="nav-center">
+        <h1 class="nav-title">Prepared Class Questionnaire</h1>
+      </div>
+      <div class="nav-right">
+        <button class="nav-button" onclick="window.location.href = '/index.html';" title="Return to home page">
+          🏠 Home
+        </button>
+        <button class="nav-button" onclick="resetState()" title="Clear question answers and selections">
+          🔄 Clear
+        </button>
+      </div>
+    </nav>
+    <div id="{{ $shortname }}LandingPage" class="center question sansserif">
+      <h2 id="{{ $shortname }}LandingPageQuestion">
         Prepared Class Overview
       </h2>
       <div id="overviewBody" class="questionBody">
@@ -167,7 +172,7 @@
         </ul>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['pLandingPage', 'pCarAnsweredIndex'], [true, 0]); hideItem('pLandingPage'); evalSessionStorage('pCar'); window.scroll(0,0);">Continue</button>
+      <button class="button yesButton" onclick="setState(['{{ $shortname }}LandingPage', '{{ $shortname }}CarAnsweredIndex'], [true, 0]); hideItem('{{ $shortname }}LandingPage'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Continue</button>
     </div>
 
 {{ range $index, $subchapter := .SubChapters }}
@@ -181,8 +186,8 @@
         </h3>
       </div>
       </br>
-      <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'pCarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('pCar'); window.scroll(0,0);">Yes</button>
-      <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', 'pCarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('pCar'); window.scroll(0,0);">No</button>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ $shortname }}CarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ $shortname }}CarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">No</button>
     </div>
 {{ end }}
 
@@ -193,14 +198,10 @@
         </br>
       </h1>
       <div id="pSubclasses" class="subclasses">
-        <h2 id="pSubclass" class="subclass">
-Prepared Subclass:
-        </h2>
+        <h2 id="pSubclass" class="subclass">Prepared Subclass:</h2>
       </div>
       <div id="possibleClasses" class="possibleClasses">
-        <h2 id="specificClass" class="specificClass">
-Possible Classes:
-        </h2>
+        <h2 id="specificClass" class="specificClass">Possible Classes:</h2>
       </div>
     </div>
 
