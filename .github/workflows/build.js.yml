@@ -13,20 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         lfs: true
     - name: Checkout LFS Objects
       run: git lfs fetch --all
-    - name: Use Node.js '22.x'
-      uses: actions/setup-node@v4
+    - name: Use Node.js '24.x'
+      uses: actions/setup-node@v6
       with:
-        node-version: 22
+        node-version: 24
     - run: npm ci
     - run: npm run build --if-present
 
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
+      uses: aws-actions/configure-aws-credentials@v5
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
