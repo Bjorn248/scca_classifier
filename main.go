@@ -7,6 +7,8 @@ import (
 	"os"
 	"path"
 	"regexp"
+	"sort"
+	"strconv"
 	"strings"
 	"text/template"
 
@@ -38,6 +40,577 @@ type SubChapter struct {
 	Name   string
 	Number string
 	Reader *io.SectionReader
+}
+
+// CarEntry represents a single car model in a specific class
+type CarEntry struct {
+	Make  string
+	Model string
+	Years []string // Individual years or "all"
+	Class string   // lowercase class abbreviation
+}
+
+// ClassSection represents a parsed class section from Appendix A
+type ClassSection struct {
+	ClassName   string
+	ClassAbbrev string
+	RawText     string
+}
+
+// AllSoloCars: Make -> Model -> Year -> []Classes
+type AllSoloCars map[string]map[string]map[string][]string
+
+// TemplateData holds all data passed to templates
+type TemplateData struct {
+	Chapters      []Chapter
+	AllSoloCarsJS string
+}
+
+// extractAppendixA extracts the Appendix A section from the rules text
+func extractAppendixA(rules string) string {
+	// Find all occurrences - we want the second one (first is Table of Contents)
+	startPattern := regexp.MustCompile(`APPENDIX A - AUTOMOBILE CLASSES`)
+	endPattern := regexp.MustCompile(`APPENDIX B`)
+
+	allMatches := startPattern.FindAllStringIndex(rules, -1)
+	if len(allMatches) < 2 {
+		// Fallback to first match if only one exists
+		if len(allMatches) == 1 {
+			startMatch := allMatches[0]
+			endMatch := endPattern.FindStringIndex(rules[startMatch[0]:])
+			if endMatch == nil {
+				return rules[startMatch[0]:]
+			}
+			return rules[startMatch[0] : startMatch[0]+endMatch[0]]
+		}
+		return ""
+	}
+
+	// Use the second occurrence (actual content, not ToC)
+	startMatch := allMatches[1]
+	endMatch := endPattern.FindStringIndex(rules[startMatch[0]:])
+	if endMatch == nil {
+		return rules[startMatch[0]:]
+	}
+
+	return rules[startMatch[0] : startMatch[0]+endMatch[0]]
+}
+
+// cleanAppendixText removes page numbers, headers, and other noise from Appendix A text
+func cleanAppendixText(text string) string {
+	// Remove page numbers like "2026 SCCA® National Solo® Rules — 189"
+	pageNumPattern := regexp.MustCompile(`\d{4} SCCA® National Solo® Rules — \d+`)
+	text = pageNumPattern.ReplaceAllString(text, "")
+
+	// Remove page numbers like "189 — 2026 SCCA® National Solo® Rules"
+	pageNumPattern2 := regexp.MustCompile(`\d+ — \d{4} SCCA® National Solo® Rules`)
+	text = pageNumPattern2.ReplaceAllString(text, "")
+
+	// NOTE: We no longer remove "Appendix A - (XX) ..." headers here because
+	// parseClassSections needs them to identify class boundaries.
+	// The inverted page headers like "Appendix A - (AS) Street" are used as markers.
+
+	// Remove continuation markers like "SS (continued)"
+	continuedPattern := regexp.MustCompile(`(?m)^[A-Z]+ \(continued\)$`)
+	text = continuedPattern.ReplaceAllString(text, "")
+
+	// Remove catch-all lines (simpler approach - just remove lines starting with "Catch-all")
+	catchAllPattern := regexp.MustCompile(`(?m)^"Catch-all":.*$`)
+	text = catchAllPattern.ReplaceAllString(text, "")
+
+	// Also remove multi-line catch-all descriptions
+	catchAllMultiline := regexp.MustCompile(`(?m)^All eligible unclassified cars.*$`)
+	text = catchAllMultiline.ReplaceAllString(text, "")
+
+	return text
+}
+
+// parseClassSections identifies and extracts individual class sections from Appendix A
+func parseClassSections(appendixA string) []ClassSection {
+	var sections []ClassSection
+
+	// Patterns for different class types
+	// These include both formal headers AND page headers (which appear in -raw PDF output)
+	classPatterns := []struct {
+		pattern *regexp.Regexp
+		name    string
+	}{
+		// Street classes: "Super Street class (SS)", "A Street class (AS)"
+		{regexp.MustCompile(`([A-Z][A-Za-z\s]*?) Street class \(([A-Z]+)\)`), "Street"},
+		// Street Touring: "Super Street Touring® (SST)", "A Street Touring (AST)"
+		{regexp.MustCompile(`([A-Z][A-Za-z\s]*?) Street Touring®? \(([A-Z]+)\)`), "Street Touring"},
+		// Street Prepared: "Super Street Prepared (SSP)"
+		{regexp.MustCompile(`([A-Z][A-Za-z\s]*?) Street Prepared \(([A-Z]+)\)`), "Street Prepared"},
+		// Street Modified: "Super Street Modified class (SSM)", "Street Modified class (SM)"
+		{regexp.MustCompile(`([A-Z][A-Za-z\s-]*?) Street Modified[A-Za-z\s-]* class \(([A-Z]+)\)`), "Street Modified"},
+		// Prepared: "X Prepared (XP)", "C Prepared (CP)"
+		{regexp.MustCompile(`([A-Z]) Prepared \(([A-Z]+)\)`), "Prepared"},
+		// Page headers from -raw PDF output: "Street (BS) - Appendix A"
+		{regexp.MustCompile(`(Street) \(([A-Z]{2})\) - Appendix A`), "Street Page Header"},
+		// Page headers: "Street Touring® (SST) - Appendix A"
+		{regexp.MustCompile(`(Street Touring®?) \(([A-Z]+)\) - Appendix A`), "Street Touring Page Header"},
+		// Page headers: "Street Prepared (SSP) - Appendix A"
+		{regexp.MustCompile(`(Street Prepared) \(([A-Z]+)\) - Appendix A`), "Street Prepared Page Header"},
+		// Page headers: "Prepared (XP) - Appendix A"
+		{regexp.MustCompile(`(Prepared) \(([A-Z]+)\) - Appendix A`), "Prepared Page Header"},
+		// Inverted page headers: "Appendix A - (AS) Street"
+		{regexp.MustCompile(`(?m)(Appendix A) - \(([A-Z]{2})\) Street$`), "Street Page Header Inverted"},
+		// Inverted page headers: "Appendix A - (BST) Street Touring®"
+		{regexp.MustCompile(`(Appendix A) - \(([A-Z]+)\) Street Touring®?`), "Street Touring Page Header Inverted"},
+		// Inverted page headers: "Appendix A - (CSP) Street Prepared"
+		{regexp.MustCompile(`(Appendix A) - \(([A-Z]+)\) Street Prepared`), "Street Prepared Page Header Inverted"},
+		// Inverted page headers: "Appendix A - (SM) Street Modified"
+		{regexp.MustCompile(`(Appendix A) - \(([A-Z]+)\) Street Modified`), "Street Modified Page Header Inverted"},
+	}
+
+	// Classes to parse (skip formula-based classes)
+	targetClasses := map[string]bool{
+		"SS": true, "AS": true, "BS": true, "CS": true, "DS": true,
+		"ES": true, "FS": true, "GS": true, "HS": true,
+		"SST": true, "AST": true, "BST": true, "CST": true,
+		"DST": true, "EST": true, "GST": true,
+		"SSP": true, "CSP": true, "DSP": true, "ESP": true, "FSP": true,
+		"SSM": true, "SM": true, "SMF": true,
+		"XP": true, "CP": true, "DP": true, "EP": true, "FP": true,
+	}
+
+	// Find all class headers and their positions
+	type classMatch struct {
+		name   string
+		abbrev string
+		start  int
+		end    int
+	}
+	var matches []classMatch
+
+	for _, cp := range classPatterns {
+		allMatches := cp.pattern.FindAllStringSubmatchIndex(appendixA, -1)
+		for _, m := range allMatches {
+			if m == nil || len(m) < 6 {
+				continue
+			}
+			abbrev := appendixA[m[4]:m[5]]
+			if !targetClasses[abbrev] {
+				continue
+			}
+			name := appendixA[m[2]:m[3]]
+			matches = append(matches, classMatch{
+				name:   strings.TrimSpace(name),
+				abbrev: abbrev,
+				start:  m[0],
+				end:    m[1],
+			})
+		}
+	}
+
+	// Sort matches by position
+	sort.Slice(matches, func(i, j int) bool {
+		return matches[i].start < matches[j].start
+	})
+
+	// Deduplicate: keep only the first match for each class abbreviation
+	// (page headers appear before formal headers, so first occurrence wins)
+	seen := make(map[string]bool)
+	var dedupedMatches []classMatch
+	for _, m := range matches {
+		if !seen[m.abbrev] {
+			seen[m.abbrev] = true
+			dedupedMatches = append(dedupedMatches, m)
+		}
+	}
+	matches = dedupedMatches
+
+	// Extract text for each class (from header to next header)
+	for i, m := range matches {
+		var endPos int
+		if i+1 < len(matches) {
+			endPos = matches[i+1].start
+		} else {
+			endPos = len(appendixA)
+		}
+		sections = append(sections, ClassSection{
+			ClassName:   m.name,
+			ClassAbbrev: m.abbrev,
+			RawText:     appendixA[m.end:endPos],
+		})
+	}
+
+	return sections
+}
+
+// expandYearRange expands year ranges like "2017-21" to individual years
+func expandYearRange(yearStr string) []string {
+	yearStr = strings.TrimSpace(yearStr)
+
+	// Handle "all"
+	if strings.ToLower(yearStr) == "all" {
+		return []string{"all"}
+	}
+
+	var years []string
+
+	// Split by comma for multiple ranges like "2012-13, 2018-20"
+	parts := strings.Split(yearStr, ",")
+	for _, part := range parts {
+		part = strings.TrimSpace(part)
+		// Remove half-year notation (e.g., "1993½")
+		part = strings.ReplaceAll(part, "½", "")
+
+		// Check for range pattern
+		rangePattern := regexp.MustCompile(`(\d{4})-(\d{2,4})`)
+		if match := rangePattern.FindStringSubmatch(part); match != nil {
+			startYear, _ := strconv.Atoi(match[1])
+			endYearStr := match[2]
+
+			var endYear int
+			if len(endYearStr) == 2 {
+				// Short form like "17" for 2017
+				century := (startYear / 100) * 100
+				endYear, _ = strconv.Atoi(endYearStr)
+				endYear += century
+				// Handle century rollover (e.g., 1999-02)
+				if endYear < startYear {
+					endYear += 100
+				}
+			} else {
+				endYear, _ = strconv.Atoi(endYearStr)
+			}
+
+			// Validate years
+			if startYear >= 1960 && startYear <= 2030 && endYear >= startYear && endYear <= 2030 {
+				for y := startYear; y <= endYear; y++ {
+					years = append(years, strconv.Itoa(y))
+				}
+			}
+		} else {
+			// Single year pattern
+			singlePattern := regexp.MustCompile(`(\d{4})`)
+			if match := singlePattern.FindStringSubmatch(part); match != nil {
+				year, _ := strconv.Atoi(match[1])
+				if year >= 1960 && year <= 2030 {
+					years = append(years, match[1])
+				}
+			}
+		}
+	}
+
+	if len(years) == 0 {
+		return []string{"all"}
+	}
+
+	return years
+}
+
+// parseCarEntries parses car entries from a class section
+func parseCarEntries(classText string, classAbbrev string) []CarEntry {
+	var entries []CarEntry
+
+	lines := strings.Split(classText, "\n")
+	var currentMake string
+	var pendingModel string
+
+	// Known makes map for matching
+	knownMakes := map[string]bool{
+		"Acura": true, "Alfa Romeo": true, "AMC": true, "Aston Martin": true,
+		"Audi": true, "BMW": true, "Buick": true, "Cadillac": true,
+		"Chevrolet": true, "Chrysler": true, "Datsun": true, "DeTomaso": true,
+		"Dodge": true, "Eagle": true, "Ferrari": true, "Fiat": true,
+		"Ford": true, "Genesis": true, "Geo": true, "GMC": true,
+		"Honda": true, "Hyundai": true, "Infiniti": true, "Isuzu": true,
+		"Jaguar": true, "Jeep": true, "Jensen": true, "Kia": true,
+		"Lamborghini": true, "Lancia": true, "Lexus": true, "Lincoln": true,
+		"Lotus": true, "Maserati": true, "Mazda": true, "McLaren": true,
+		"Mercedes-Benz": true, "Mercury": true, "MG": true, "Mini": true,
+		"Mitsubishi": true, "Morgan": true, "Nissan": true, "Oldsmobile": true,
+		"Opel": true, "Panoz": true, "Peugeot": true, "Plymouth": true,
+		"Polestar": true, "Pontiac": true, "Porsche": true, "Renault": true,
+		"Saab": true, "Saleen": true, "Saturn": true, "Scion": true,
+		"Shelby": true, "Smart": true, "SRT": true, "Subaru": true,
+		"Sunbeam": true, "Suzuki": true, "Tesla Motors": true, "Toyota": true,
+		"Triumph": true, "TVR": true, "Volkswagen": true, "Volvo": true,
+		"Dodge & SRT": true, "Chrysler & Plymouth": true,
+	}
+
+	// Pattern for year in parentheses
+	yearPattern := regexp.MustCompile(`\(([^)]+)\)\s*$`)
+
+	for i := 0; i < len(lines); i++ {
+		line := strings.TrimSpace(lines[i])
+		if line == "" {
+			continue
+		}
+
+		// Skip known non-car lines
+		if strings.HasPrefix(line, "STREET") ||
+			strings.HasPrefix(line, "PREPARED") ||
+			strings.HasPrefix(line, "MODIFIED") ||
+			strings.HasPrefix(line, "Excluded") ||
+			strings.HasPrefix(line, "Cars designated") ||
+			strings.HasPrefix(line, "The following") ||
+			strings.HasPrefix(line, "•") ||
+			strings.HasPrefix(line, "*") ||
+			strings.Contains(line, "catch-all") ||
+			strings.Contains(line, "Catch-all") ||
+			strings.Contains(line, "NOC") && !strings.Contains(line, "(") {
+			continue
+		}
+
+		// Skip page numbers and headers
+		if regexp.MustCompile(`^\d+ —\d{4} SCCA`).MatchString(line) ||
+			regexp.MustCompile(`^\d+ — \d{4} SCCA`).MatchString(line) ||
+			regexp.MustCompile(`^\d{4} SCCA.*Rules`).MatchString(line) ||
+			regexp.MustCompile(`^Appendix A`).MatchString(line) ||
+			regexp.MustCompile(`^\([A-Z]+\) Street`).MatchString(line) ||
+			regexp.MustCompile(`^[A-Z]+ \(continued\)$`).MatchString(line) ||
+			regexp.MustCompile(`^\d{3} —\d{4}`).MatchString(line) {
+			continue
+		}
+
+		// Skip explanatory text (lines that look like sentences)
+		// These typically start lowercase, contain common words, or are very long
+		if len(line) > 80 ||
+			regexp.MustCompile(`^[a-z]`).MatchString(line) ||
+			strings.Contains(line, " may be ") ||
+			strings.Contains(line, " must be ") ||
+			strings.Contains(line, " are allowed") ||
+			strings.Contains(line, " will be ") ||
+			strings.Contains(line, " is allowed") ||
+			strings.Contains(line, " shall be ") ||
+			strings.Contains(line, "displacement") ||
+			strings.Contains(line, "eligible") ||
+			strings.Contains(line, "classified") ||
+			strings.Contains(line, "radiator") ||
+			strings.Contains(line, "piston") ||
+			strings.Contains(line, "rotors") ||
+			strings.Contains(line, "engine") && !strings.Contains(line, "(") {
+			continue
+		}
+
+		// Skip tire brand names and partial lines
+		tireBrands := map[string]bool{
+			"ADVAN": true, "ADVAN A052": true, "ADVAN A055": true,
+			"AZENIS": true, "BFGoodrich": true, "Bridgestone": true,
+			"Continental": true, "Dunlop": true, "Falken": true,
+			"Firestone": true, "Goodyear": true, "Hankook": true,
+			"Hoosier": true, "Kumho": true, "Maxxis": true,
+			"Michelin": true, "Nitto": true, "Pirelli": true,
+			"Toyo": true, "Yokohama": true, "RE-71R": true,
+			"RE-71RS": true, "Pilot Sport": true, "Sport Cup": true,
+			"Potenza": true, "A7 / R7": true, "CR-S": true,
+			"Federal": true, "Nexen": true,
+		}
+		if tireBrands[line] {
+			continue
+		}
+
+		// Skip lines ending with comma (partial lines from multi-column)
+		if strings.HasSuffix(line, ",") {
+			continue
+		}
+
+		// Skip lines that look like table rows or specifications
+		if strings.Contains(line, "......") ||
+			strings.Contains(line, "cc:") ||
+			strings.Contains(line, "cc)") && !strings.Contains(line, "(") ||
+			regexp.MustCompile(`^\d+$`).MatchString(line) ||
+			regexp.MustCompile(`^[A-Z]+-[A-Z]+$`).MatchString(line) {
+			continue
+		}
+
+		// Skip numbered rules/lists (e.g., "4. Electric Motors – ...")
+		if regexp.MustCompile(`^\d+\.\s+[A-Z]`).MatchString(line) && len(line) > 30 {
+			continue
+		}
+
+		// Skip lines with dashes that look like rule descriptions
+		if strings.Contains(line, " – ") && len(line) > 40 {
+			continue
+		}
+
+		// Skip lines that are clearly not model names (contain "including", "allowed", etc.)
+		if strings.Contains(line, "including") ||
+			strings.Contains(line, "following") ||
+			strings.Contains(line, "vehicles") && len(line) > 20 {
+			continue
+		}
+
+		// Check if this line exactly matches a known make
+		if knownMakes[line] {
+			currentMake = line
+			pendingModel = ""
+			continue
+		}
+
+		// Skip if no current make
+		if currentMake == "" {
+			continue
+		}
+
+		// Check if this line has a year pattern
+		if yearMatch := yearPattern.FindStringSubmatch(line); yearMatch != nil {
+			// This is a model line with years
+			yearStr := yearMatch[1]
+			modelName := strings.TrimSpace(line[:len(line)-len(yearMatch[0])])
+
+			// Handle multi-line models (if previous line was a partial model name)
+			if pendingModel != "" {
+				modelName = pendingModel + " " + modelName
+				pendingModel = ""
+			}
+
+			if modelName != "" {
+				years := expandYearRange(yearStr)
+				entries = append(entries, CarEntry{
+					Make:  currentMake,
+					Model: modelName,
+					Years: years,
+					Class: strings.ToLower(classAbbrev),
+				})
+			}
+		} else {
+			// Line without years - either a complete model or a continuation
+			// Only treat as continuation if line ends with continuation chars
+			if strings.HasSuffix(line, "-") || strings.HasSuffix(line, "(") {
+				// Line ends with "-" or "(", it's a continuation
+				pendingModel = line
+			} else if i+1 < len(lines) {
+				// Check if this line should be merged with the next line
+				// Only merge if next line starts with "(" (year on separate line)
+				nextLine := strings.TrimSpace(lines[i+1])
+				if strings.HasPrefix(nextLine, "(") && yearPattern.MatchString(nextLine) {
+					// Year is on the next line, merge
+					pendingModel = line
+					continue
+				}
+				// Otherwise, treat as complete model without years
+				if len(line) > 1 && !knownMakes[line] {
+					if regexp.MustCompile(`[a-zA-Z]`).MatchString(line) {
+						entries = append(entries, CarEntry{
+							Make:  currentMake,
+							Model: line,
+							Years: []string{"all"},
+							Class: strings.ToLower(classAbbrev),
+						})
+					}
+				}
+			} else {
+				// Last line, treat as model without years
+				if len(line) > 1 && !knownMakes[line] {
+					if regexp.MustCompile(`[a-zA-Z]`).MatchString(line) {
+						entries = append(entries, CarEntry{
+							Make:  currentMake,
+							Model: line,
+							Years: []string{"all"},
+							Class: strings.ToLower(classAbbrev),
+						})
+					}
+				}
+			}
+		}
+	}
+
+	return entries
+}
+
+// mergeCarEntries merges car entries from all classes into AllSoloCars structure
+func mergeCarEntries(entries []CarEntry) AllSoloCars {
+	result := make(AllSoloCars)
+
+	for _, entry := range entries {
+		if _, ok := result[entry.Make]; !ok {
+			result[entry.Make] = make(map[string]map[string][]string)
+		}
+		if _, ok := result[entry.Make][entry.Model]; !ok {
+			result[entry.Make][entry.Model] = make(map[string][]string)
+		}
+
+		for _, year := range entry.Years {
+			// Check if class already exists for this year
+			classes := result[entry.Make][entry.Model][year]
+			found := false
+			for _, c := range classes {
+				if c == entry.Class {
+					found = true
+					break
+				}
+			}
+			if !found {
+				result[entry.Make][entry.Model][year] = append(classes, entry.Class)
+			}
+		}
+	}
+
+	return result
+}
+
+// generateAllSoloCarsJS generates the JavaScript object for allSoloCars
+func generateAllSoloCarsJS(cars AllSoloCars) string {
+	var sb strings.Builder
+	sb.WriteString("const allSoloCars = {\n")
+
+	// Sort makes
+	makeNames := make([]string, 0, len(cars))
+	for makeName := range cars {
+		makeNames = append(makeNames, makeName)
+	}
+	sort.Strings(makeNames)
+
+	for _, makeName := range makeNames {
+		models := cars[makeName]
+		sb.WriteString(fmt.Sprintf("  '%s': {\n", escapeJSString(makeName)))
+
+		// Sort models
+		modelNames := make([]string, 0, len(models))
+		for model := range models {
+			modelNames = append(modelNames, model)
+		}
+		sort.Strings(modelNames)
+
+		for _, model := range modelNames {
+			years := models[model]
+			sb.WriteString(fmt.Sprintf("    '%s': {\n", escapeJSString(model)))
+
+			// Sort years (put "all" first, then numeric years)
+			yearList := make([]string, 0, len(years))
+			for year := range years {
+				yearList = append(yearList, year)
+			}
+			sort.Slice(yearList, func(i, j int) bool {
+				if yearList[i] == "all" {
+					return true
+				}
+				if yearList[j] == "all" {
+					return false
+				}
+				return yearList[i] < yearList[j]
+			})
+
+			for _, year := range yearList {
+				classes := years[year]
+				// Sort classes
+				sort.Strings(classes)
+				classesStr := make([]string, len(classes))
+				for i, c := range classes {
+					classesStr[i] = fmt.Sprintf("'%s'", c)
+				}
+				sb.WriteString(fmt.Sprintf("      '%s': [%s],\n", year, strings.Join(classesStr, ", ")))
+			}
+
+			sb.WriteString("    },\n")
+		}
+
+		sb.WriteString("  },\n")
+	}
+
+	sb.WriteString("};")
+	return sb.String()
+}
+
+// escapeJSString escapes a string for use in JavaScript
+func escapeJSString(s string) string {
+	s = strings.ReplaceAll(s, `\`, `\\`)
+	s = strings.ReplaceAll(s, `'`, `\'`)
+	return s
 }
 
 // getSubChapters returns an array of sub chapters (e.g. 13.1, 13.2) that exist for a given
@@ -438,6 +1011,28 @@ func main() {
 		}
 	}
 
+	// Parse Appendix A for car classifications from raw format file
+	// The raw format is needed to correctly parse multi-column Appendix A layout
+	fmt.Println("Parsing Appendix A for car classifications...")
+	rulesRawBytes, err := os.ReadFile("rules_raw.txt")
+	if err != nil {
+		log.Fatal("Could not read rules_raw.txt - run generate_rules_txt.sh first", err)
+	}
+	appendixA := extractAppendixA(string(rulesRawBytes))
+	appendixA = cleanAppendixText(appendixA)
+	classSections := parseClassSections(appendixA)
+
+	var allEntries []CarEntry
+	for _, section := range classSections {
+		entries := parseCarEntries(section.RawText, section.ClassAbbrev)
+		allEntries = append(allEntries, entries...)
+	}
+
+	allSoloCars := mergeCarEntries(allEntries)
+	allSoloCarsJS := generateAllSoloCarsJS(allSoloCars)
+
+	fmt.Printf("Parsed %d car entries across %d classes\n", len(allEntries), len(classSections))
+
 	fmt.Println("Generating common.js...")
 	commonJS := template.New("common.js.tmpl").Funcs(funcMap)
 	tpl, err := commonJS.ParseFiles("templates/common.js.tmpl")
@@ -457,7 +1052,14 @@ func main() {
 
 	// Combine allChapters and staticClasses for template execution
 	allClassesForJS := append(allChapters, staticClasses...)
-	err = tpl.Execute(outFile, allClassesForJS)
+
+	// Create template data with both chapter info and allSoloCars
+	templateData := TemplateData{
+		Chapters:      allClassesForJS,
+		AllSoloCarsJS: allSoloCarsJS,
+	}
+
+	err = tpl.Execute(outFile, templateData)
 	if err != nil {
 		log.Fatal("Could not execute template", err)
 	}

@@ -23,7 +23,8 @@ then
 fi
 
 echo "Converting PDF to txt..."
-# Use -raw to extract text in content stream order (column by column)
-# rather than default which reads line by line across columns
+# Default format for chapter parsing (line by line)
 pdftotext rules.pdf rules.txt
+# Raw format for Appendix A parsing (column by column, needed for multi-column layout)
+pdftotext -raw rules.pdf rules_raw.txt
 echo "Done"
