@@ -4486,11 +4486,11 @@ const allSoloCars = {
       'all': ['hs', 'est', 'fsp', 'xp', 'xa', 'sm'],
     },
     'Forte GT': {
-      '2020': ['hs', 'xp', 'xa', 'sm'],
-      '2021': ['hs', 'xp', 'xa', 'sm'],
-      '2022': ['hs', 'xp', 'xa', 'sm'],
-      '2023': ['hs', 'xp', 'xa', 'sm'],
-      '2024': ['hs', 'xp', 'xa', 'sm'],
+      '2020': ['hs', 'gst', 'xp', 'xa', 'sm'],
+      '2021': ['hs', 'gst', 'xp', 'xa', 'sm'],
+      '2022': ['hs', 'gst', 'xp', 'xa', 'sm'],
+      '2023': ['hs', 'gst', 'xp', 'xa', 'sm'],
+      '2024': ['hs', 'gst', 'xp', 'xa', 'sm'],
     },
     'Forte Koup (non-turbo)': {
       'all': ['hs', 'est', 'dsp', 'xp', 'xa', 'sm'],
