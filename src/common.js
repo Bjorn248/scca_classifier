@@ -9659,7 +9659,7 @@ function checkEligibility(className) {
     for (let i=0; i<failedQuestions.length; i++) {
       const question = document.getElementById(failedQuestions[i] + 'Question');
       questionString = questionString + question.innerHTML;
-      questionString = questionString + '</br>';
+      questionString = questionString + '<br>';
     }
     document.getElementById('ineligibilityQuestions').innerHTML = questionString;
   }

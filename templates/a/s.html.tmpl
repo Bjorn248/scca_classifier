@@ -65,7 +65,7 @@
         </h3>
         <p>
         Your subclass should be highlighted
-        </br>
+        <br>
         Sports cars and other high-performance vehicles classed by performance potential.
         </p>
         <ul>
@@ -125,7 +125,7 @@
           </li>
         </ul>
       </div>
-      </br>
+      <br>
       <button class="button yesButton" onclick="setState(['{{ $shortname }}LandingPage', '{{ $shortname }}CarAnsweredIndex'], [true, 0]); hideItem('{{ $shortname }}LandingPage'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Continue</button>
     </div>
 {{ range $index, $subchapter := .SubChapters }}
@@ -138,7 +138,7 @@
           {{ subChapterText $subchapter.Reader $chapterfillertext }}
         </h3>
       </div>
-      </br>
+      <br>
       <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ $shortname }}CarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ $shortname }}CarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">No</button>
     </div>
@@ -147,7 +147,7 @@
     <div id="eligible" class="center eligible sansserif">
       <h1>
         Your car is eligible for {{ $name }} class!
-        </br>
+        <br>
       </h1>
       <div id="{{ toVarName $name }}Subclasses" class="subclasses">
         <h2 id="{{ toVarName $name }}Subclass" class="subclass">{{ $name }} Subclass:</h2>
