@@ -6834,7 +6834,10 @@ const allSoloCars = {
       '2020': ['ss', 'xp', 'xu', 'ssm'],
       '2021': ['ss', 'xp', 'xu', 'ssm'],
       '2022': ['ss', 'xp', 'xu', 'ssm'],
+      '2023': ['ss', 'xp', 'xu', 'ssm'],
+      '2024': ['ss', 'xp', 'xu', 'ssm'],
       '2025': ['ss', 'xp', 'xu', 'ssm'],
+      '2026': ['ss', 'xp', 'xu', 'ssm'],
     },
     '911 Carrera (incl. 4, S, 4S, GTS)': {
       '2005': ['as', 'xp', 'xa', 'ssm'],
