@@ -204,7 +204,7 @@ func formatChapterBody(in string) string {
 	var result string
 	result = regexp.MustCompile(`\n([A-Z]\.)`).ReplaceAllString(in, "<br><br>$1")
 	result = regexp.MustCompile(`\n([0-9]\.)`).ReplaceAllString(result, "<br>$1")
-	result = pcre.MustCompile(`(?s)(<\/br>[0-9]\..+?)(?=<\/br>)`).ReplaceAllString(result, "<div class=\"indent\">$1</div>")
+	result = pcre.MustCompile(`(?s)(<br>[0-9]\..+?)(?=<br>)`).ReplaceAllString(result, "<div class=\"indent\">$1</div>")
 	result = regexp.MustCompile(`:`).ReplaceAllString(result, ":<br>")
 	result = regexp.MustCompile(`([^.]+\.{5,}.+\n)`).ReplaceAllString(result, "$1<br>")
 	return result
