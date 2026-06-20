@@ -58,7 +58,7 @@
         Required bump stops are provided in the Eibach® PRO-PLUS Performance Handling Package.
         </p>
       </div>
-      </br>
+      <br>
       <button class="button yesButton" onclick="setState(['{{ $shortname }}LandingPage', '{{ $shortname }}CarAnsweredIndex'], [true, 0]); hideItem('{{ $shortname }}LandingPage'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Continue</button>
     </div>
 
@@ -72,7 +72,7 @@
           {{ subChapterText $subchapter.Reader $chapterfillertext }}
         </h3>
       </div>
-      </br>
+      <br>
       <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ $shortname }}CarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ $shortname }}CarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">No</button>
     </div>
@@ -82,7 +82,7 @@
     <div id="eligible" class="center eligible sansserif">
       <h1>
         Your car is eligible for Solo Spec Coupe class!
-        </br>
+        <br>
       </h1>
 
     <div id="notEligible" class="center notEligible sansserif">

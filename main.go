@@ -202,11 +202,11 @@ func addOne(i int) int {
 
 func formatChapterBody(in string) string {
 	var result string
-	result = regexp.MustCompile(`\n([A-Z]\.)`).ReplaceAllString(in, "</br></br>$1")
-	result = regexp.MustCompile(`\n([0-9]\.)`).ReplaceAllString(result, "</br>$1")
-	result = pcre.MustCompile(`(?s)(<\/br>[0-9]\..+?)(?=<\/br>)`).ReplaceAllString(result, "<div class=\"indent\">$1</div>")
-	result = regexp.MustCompile(`:`).ReplaceAllString(result, ":</br>")
-	result = regexp.MustCompile(`([^.]+\.{5,}.+\n)`).ReplaceAllString(result, "$1</br>")
+	result = regexp.MustCompile(`\n([A-Z]\.)`).ReplaceAllString(in, "<br><br>$1")
+	result = regexp.MustCompile(`\n([0-9]\.)`).ReplaceAllString(result, "<br>$1")
+	result = pcre.MustCompile(`(?s)(<br>[0-9]\..+?)(?=<br>)`).ReplaceAllString(result, "<div class=\"indent\">$1</div>")
+	result = regexp.MustCompile(`:`).ReplaceAllString(result, ":<br>")
+	result = regexp.MustCompile(`([^.]+\.{5,}.+\n)`).ReplaceAllString(result, "$1<br>")
 	return result
 }
 
@@ -339,12 +339,23 @@ func main() {
 		pcre.MustCompile(`\n17. Prepared\n`),
 		pcre.MustCompile(`\n18. Modified Category\n`),
 		pcre.MustCompile(`\n21. ProSolo® Series\n`),
+		// Tire Rack sidebar advertisements that bleed in from the PDF layout
+		// (e.g. "FAST FREE SHIPPING", "tirerack.com/freeshipping", phone number,
+		// product callouts). The block is matched as a run of ad-fragment lines
+		// that must contain at least one strong ad token, so genuine rule text
+		// referencing "Tire Rack®" parts is left untouched.
+		pcre.MustCompile(`\n{2,}(?:[ \t]*(?:FAST FREE SHIPPING(?: On)?|On orders over \$50|orders over \$50|On|tirerack\.com/freeshipping|www\.tirerack\.com/storage|LOWERING SPRINGS & ANTI-ROLL BARS|COIL-OVERS|®|©20\d\d|Tire Rack|888-380-8473)[ \t]*\n+)*[ \t]*(?:FAST FREE SHIPPING(?: On)?|tirerack\.com/freeshipping|www\.tirerack\.com/storage|888-380-8473)[ \t]*\n+(?:[ \t]*(?:FAST FREE SHIPPING(?: On)?|On orders over \$50|orders over \$50|On|tirerack\.com/freeshipping|www\.tirerack\.com/storage|LOWERING SPRINGS & ANTI-ROLL BARS|COIL-OVERS|®|©20\d\d|Tire Rack|888-380-8473)[ \t]*\n+)*`),
+		// Tire Rack tire-brand advertisement (a column of tire make/model names
+		// under the "STREET AND ST-CLASS TIRES" banner). Anchored on that banner,
+		// which never appears in genuine rule text, and bounded at the trailing
+		// "Proxes RR" line so inline tire references in the rules are untouched.
+		pcre.MustCompile(`(?s)\n+STREET AND ST-CLASS TIRES\n.+?\nProxes RR\b`),
 	}
 
 	SMWeights := []*pcre.Regexp{
 		pcre.MustCompile(`(?s)Super Street Modified class \(SSM\)\n.+(Minimum Weight Calculations without driver.+?)\nStreet Modified class \(SM\)\n`),
 		pcre.MustCompile(`(?s)Street Modified class \(SM\)\n.+(Minimum Weight Calculations without driver.+?)\nStreet Modified Front-Wheel-Drive class \(SMF\)\n`),
-		pcre.MustCompile(`(?s)Street Modified Front-Wheel-Drive class \(SMF\)\n.+(Minimum Weight Calculations without driver.+?)Prepared \(XP\) - Appendix A`),
+		pcre.MustCompile(`(?s)Street Modified Front-Wheel-Drive class \(SMF\)\n.+(Minimum Weight Calculations without driver.+?)Appendix A - \(XP\) Prepared`),
 	}
 
 	// using two arrays here for SMWeights and SMClasses sinces maps aren't walked deterministically
@@ -405,14 +416,22 @@ func main() {
 		if allChapters[i].Name == "Street Modified" {
 			var weightInfo string
 			for i, regex := range SMWeights {
-				weightInfo = weightInfo + "</br></br>" + SMClasses[i] + ":</br>"
+				weightInfo = weightInfo + "<br><br>" + SMClasses[i] + ":<br>"
 				match := regex.FindAllStringSubmatch(string(rulesBytes), 1)
 				if len(match) > 0 {
 					weightInfo = weightInfo + match[0][1] + "\n"
 				}
 			}
 			weightInfo = remove.ReplaceAllString(weightInfo, "")
-			weightInfo = regexp.MustCompile(`(•)`).ReplaceAllString(weightInfo, "</br>$1")
+			weightInfo = regexp.MustCompile(`(•)`).ReplaceAllString(weightInfo, "<br>$1")
+			// Collapse the PDF dot-leaders ("....") that separate each label from its
+			// value into a single em-dash so formulas render as "FWD — 1350 + 125 per
+			// liter" instead of wrapping across the line. Handles runs split by a stray
+			// ". " continuation (e.g. the forced-induction lines).
+			dotLeader := regexp.MustCompile(`[\s.]*\.{2,}(?:[\s.]*\.{2,})*\s*`)
+			weightInfo = dotLeader.ReplaceAllString(weightInfo, " — ")
+			// Where a label already ends in a colon, drop the redundant dash.
+			weightInfo = regexp.MustCompile(`:\s*—\s*`).ReplaceAllString(weightInfo, ": ")
 			allChapters[i].WeightInformation = weightInfo
 		}
 

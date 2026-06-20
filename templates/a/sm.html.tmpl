@@ -147,7 +147,7 @@
           </li>
         </ul>
       </div>
-      </br>
+      <br>
       <button class="button yesButton" onclick="setState(['{{ $shortname }}LandingPage', '{{ $shortname }}CarAnsweredIndex'], [true, 0]); hideItem('{{ $shortname }}LandingPage'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Continue</button>
     </div>
 
@@ -159,10 +159,114 @@
       <div id="{{ toVarName $name}}Body" class="questionBody">
         <h3>
           {{ subChapterText $subchapter.Reader $chapterfillertext }}
-          {{if stringEqual $subchapter.Name "Minimum Weights"}}</br>{{$weightinfo}}{{ end }}
+          {{if stringEqual $subchapter.Name "Minimum Weights"}}<br>{{$weightinfo}}{{ end }}
         </h3>
+        {{if stringEqual $subchapter.Name "Minimum Weights"}}
+        <div id="smWeightCalculator" class="weightCalc">
+          <h3 class="weightCalcTitle">Minimum Weight Calculator</h3>
+          <p class="weightCalcNote">
+            Estimates the minimum competition weight (without driver) from the Appendix A
+            formulas above. This is a planning aid &mdash; always verify against the current rulebook.
+          </p>
+          <fieldset>
+            <p>
+              <label for="smwcSubclass">Subclass:</label>
+              <select id="smwcSubclass" class="select-css" onchange="smwcUpdateUI(); smwcCalculate();">
+                <option value="SSM">Super Street Modified (SSM)</option>
+                <option value="SM" selected>Street Modified (SM)</option>
+                <option value="SMF">Street Modified FWD (SMF)</option>
+              </select>
+            </p>
+            <p id="smwcDriveRow">
+              <label for="smwcDrive">Drive type:</label>
+              <select id="smwcDrive" class="select-css" onchange="smwcSyncRows(); smwcCalculate();">
+                <option value="FWD">FWD</option>
+                <option value="RWD" selected>RWD</option>
+                <option value="AWD">AWD</option>
+              </select>
+            </p>
+            <p>
+              <label for="smwcDisp">Engine displacement (liters):</label>
+              <input type="number" id="smwcDisp" min="0" step="0.1" value="2.0" oninput="smwcCalculate();">
+            </p>
+            <p id="smwcFiRow">
+              <label for="smwcFi">Supercharged / Turbocharged:</label>
+              <input type="checkbox" id="smwcFi" onchange="smwcCalculate();">
+            </p>
+            <p id="smwcTireRow">
+              <label for="smwcTire">Tire width 275 mm or less:</label>
+              <input type="checkbox" id="smwcTire" onchange="smwcCalculate();">
+            </p>
+            <p id="smwcSolidRow">
+              <label for="smwcSolid">Solid axle RWD:</label>
+              <input type="checkbox" id="smwcSolid" onchange="smwcCalculate();">
+            </p>
+          </fieldset>
+          <p class="weightCalcResult">Minimum weight: <span id="smwcResult">&mdash;</span></p>
+        </div>
+        <script>
+          (function() {
+            var SMWC = {
+              SSM: {base: {FWD: 1350, RWD: 1600, AWD: 1600}, perL: {FWD: 125, RWD: 200, AWD: 300}, fiAdd: 1.4, tire: true, solid: false, cap: 2900, drives: ['FWD', 'RWD', 'AWD']},
+              SM: {base: {FWD: 1550, RWD: 1800, AWD: 1800}, perL: {FWD: 125, RWD: 200, AWD: 300}, fiAdd: 1.4, tire: true, solid: true, cap: 3100, drives: ['FWD', 'RWD', 'AWD']},
+              SMF: {base: {FWD: 1750}, perL: {FWD: 125}, fiAdd: 1.0, tire: false, solid: false, cap: 3100, drives: ['FWD']}
+            };
+            function el(id) {
+              return document.getElementById(id);
+            }
+            window.smwcSyncRows = function() {
+              var cfg = SMWC[el('smwcSubclass').value];
+              var drive = el('smwcDrive').value;
+              el('smwcDriveRow').style.display = cfg.drives.length > 1 ? '' : 'none';
+              el('smwcTireRow').style.display = cfg.tire ? '' : 'none';
+              el('smwcSolidRow').style.display = (cfg.solid && drive === 'RWD') ? '' : 'none';
+            };
+            window.smwcUpdateUI = function() {
+              var cfg = SMWC[el('smwcSubclass').value];
+              var drive = el('smwcDrive');
+              var current = drive.value;
+              drive.innerHTML = '';
+              cfg.drives.forEach(function(d) {
+                var o = document.createElement('option');
+                o.value = d;
+                o.textContent = d;
+                drive.appendChild(o);
+              });
+              drive.value = cfg.drives.indexOf(current) !== -1 ? current : cfg.drives[0];
+              smwcSyncRows();
+            };
+            window.smwcCalculate = function() {
+              var cfg = SMWC[el('smwcSubclass').value];
+              var drive = el('smwcDrive').value;
+              if (cfg.drives.indexOf(drive) === -1) {
+                drive = cfg.drives[0];
+              }
+              var disp = parseFloat(el('smwcDisp').value);
+              if (isNaN(disp) || disp <= 0) {
+                el('smwcResult').textContent = '—';
+                return;
+              }
+              var effDisp = disp + (el('smwcFi').checked ? cfg.fiAdd : 0);
+              var rate = cfg.perL[drive];
+              if (cfg.solid && drive === 'RWD' && el('smwcSolid').checked) {
+                rate -= 25;
+              }
+              var weight = cfg.base[drive] + rate * effDisp;
+              if (weight > cfg.cap) {
+                weight = cfg.cap;
+              }
+              if (cfg.tire && el('smwcTire').checked) {
+                weight -= 200;
+              }
+              el('smwcResult').textContent = Math.round(weight) + ' lbs.';
+            };
+            smwcUpdateUI();
+            smwcCalculate();
+          })();
+        </script>
+        {{ end }}
       </div>
-      </br>
+      <br>
       <button class="button yesButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ $shortname }}CarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['{{ toVarName $name}}{{ menuName $subchapter.Name }}', '{{ $shortname }}CarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name}}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">No</button>
     </div>
@@ -172,7 +276,7 @@
     <div id="eligible" class="center eligible sansserif">
       <h1>
         Your car is eligible for Street Modified class!
-        </br>
+        <br>
       </h1>
       <div id="smSubclasses" class="subclasses">
         <h2 id="smSubclass" class="subclass">Street Modified Subclass:</h2>

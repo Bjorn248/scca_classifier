@@ -210,6 +210,62 @@ strong, b {
   margin-left: var(--space-4);
 }
 
+.weightCalc {
+  margin: var(--space-6) auto 0;
+  max-width: 32rem;
+  padding: var(--space-6);
+  background-color: var(--color-gray-100);
+  border: 2px solid var(--color-primary-500);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: left;
+}
+
+.weightCalcTitle {
+  margin-top: 0;
+  text-align: center;
+  color: var(--color-primary-700);
+}
+
+.weightCalcNote {
+  font-size: 0.875rem;
+  color: var(--color-gray-500);
+}
+
+.weightCalc fieldset {
+  border: none;
+  padding: 0;
+}
+
+.weightCalc fieldset p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.weightCalc label {
+  flex: 1;
+}
+
+.weightCalc input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.weightCalcResult {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-gray-300);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.weightCalcResult span {
+  color: var(--color-success-500);
+}
+
 .button {
   background-color: white;
   border: 2px solid var(--color-gray-300);
