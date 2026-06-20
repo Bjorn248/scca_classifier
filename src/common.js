@@ -1075,6 +1075,14 @@ const allSoloCars = {
       '2022': ['fs', 'bst', 'sm', 'xp', 'xa'],
       '2023': ['fs', 'bst', 'sm', 'xp', 'xa'],
     },
+    '3 Series (G20/G21 chassis; 330i incl. xDrive, 330e incl. xDrive, M340i)': {
+      '2020': ['fs', 'sm', 'xp', 'xa'],
+      '2021': ['fs', 'sm', 'xp', 'xa'],
+      '2022': ['fs', 'sm', 'xp', 'xa'],
+      '2023': ['fs', 'sm', 'xp', 'xa'],
+      '2024': ['fs', 'sm', 'xp', 'xa'],
+      '2025': ['fs', 'sm', 'xp', 'xa'],
+    },
     '3 Series (non-M3, non-turbo)': {
       '1975': ['gs', 'dst', 'fsp', 'sm', 'dp', 'xp', 'xa'],
       '1976': ['gs', 'dst', 'fsp', 'sm', 'dp', 'xp', 'xa'],
@@ -6826,6 +6834,10 @@ const allSoloCars = {
       '2020': ['ss', 'xp', 'xu', 'ssm'],
       '2021': ['ss', 'xp', 'xu', 'ssm'],
       '2022': ['ss', 'xp', 'xu', 'ssm'],
+      '2023': ['ss', 'xp', 'xu', 'ssm'],
+      '2024': ['ss', 'xp', 'xu', 'ssm'],
+      '2025': ['ss', 'xp', 'xu', 'ssm'],
+      '2026': ['ss', 'xp', 'xu', 'ssm'],
     },
     '911 Carrera (incl. 4, S, 4S, GTS)': {
       '2005': ['as', 'xp', 'xa', 'ssm'],
