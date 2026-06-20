@@ -299,8 +299,9 @@ Suspension pick-up points on the subframe must retain standard geometry. Weight 
 is unrestricted. Non-standard tow hooks shall serve no other function.
 
 
-          
+
         </h3>
+
       </div>
       </br>
       <button class="button yesButton" onclick="setState(['streetmodifiedAllowed', 'smCarAnsweredIndex'], [true, 1]); hideItem('streetmodifiedAllowed'); evalSessionStorage('smCar'); window.scroll(0,0);">Yes</button>
@@ -316,6 +317,15 @@ is unrestricted. Non-standard tow hooks shall serve no other function.
           16.2 MINIMUM WEIGHTS
 Classes, displacements, and minimum weights are listed in Appendix A.
 
+For the purpose of determining minimum weights, a mid-engine vehicle
+is defined as one having a chassis configuration where the engine block is
+not located entirely in front of the driver&#39;s seat and is not far enough back
+to be considered a rear-engine vehicle. Adjustments to minimum weights
+are shown in Appendix A.
+
+
+
+
 
           </br></br></br>Super Street Modified (SSM):</br>Minimum Weight Calculations without driver (lbs.):
 </br>• FWD....................................................................... 1350 + 125 per liter
@@ -326,9 +336,6 @@ Classes, displacements, and minimum weights are listed in Appendix A.
 </br>• Tire width 275 mm or less.............................................................-200
 </br>• Regardless of the weight formulas above, no car will be required to
 weigh more than 2900.
-
-
-Appendix A - Street Modified
 
 </br></br>Street Modified (SM):</br>Minimum Weight Calculations without driver (lbs.):
 </br>• FWD....................................................................... 1550 + 125 per liter
@@ -343,10 +350,160 @@ weigh more than 3100 lbs.
 
 </br></br>Street Modified FWD (SMF):</br>Minimum Weight Calculations without driver (lbs.):
 </br>• All........................................................................... 1750 + 125 per liter
+</br>• Supercharged/Turbocharged SMF engines:. .......................................
+. ....................................................... +1.0L to the actual displacement
+</br>• Regardless of the weight formulas above, no car will be required to
+weigh more than 3100 lbs.
+</br>• Cars running in SMF using tires with a nominal width of 275 mm or
+less will NOT receive the weight adjustment as stated in the SM class.
+
+
+Appendix A - (XP) Prepared
+
+PREPARED CATEGORY
+
+X Prepared (XP)
+
+XP vehicles must conform to the rules in Section 17 except as noted herein.
+This class is for almost any production car using almost any automobile
+drivetrain. Any vehicle meeting the requirements of Section 17.A.2, listed
+in another Prepared class, specifically listed in CP, DP, EP, FP, or listed at
+the end, is eligible for XP.
+1. Bodywork and Structure
+a. Chassis components attached by removable fasteners (e.g., bolt-on
+subframes) may be modified or replaced without penalty.
+b. Front hoods, engine covers, trunk lids, hatches, front fenders, rear
+fenders not part of chassis structure (unibody), front & rear fascias,
+and side skirts may be modified or replaced, and may be attached
+with removable fasteners. Associated hardware, including latches
+and hinges, may be modified, removed, or replaced. Fenders may be
+flared as per Section 17.2. Unibody fender may be replaced as described in Section 17.2.S. Non-metallic fender liners may be modified, replaced, or removed. Body panels may be attached with removable fasteners (e.g., Dzus®).
+c. Steering wheel, pedals, and driver's seat must be completely to the
+left or right of vehicle centerline.
+d. Exhaust may exit through the bodywork. Rocker panels may be modified for exhaust routing.
+e. The transmission tunnel/cover may be altered to allow the installation of an alternate transmission and/or driveshaft. Cars originally
+equipped with a removable transmission tunnel/cover may substitute a tunnel/cover of an alternate material.
+f. The shift lever opening in the body of the car may be altered to allow
+the installation of alternate shift linkage.
+g. Non-OE replacement bodies are allowable for the Factory Five Roadster/Challenge Car and Superformance MKIII. Replacement bodies
+must not confuse the identity of the vehicle.
+h. Minimum track width is 55" (139.7 cm).
+2. Wheels
+Any size wheel may be used. Wheel size does not affect minimum weight.
+3. Shock Absorbers and Springs
+a. Section 17.5.B, which restricts the type of shocks authorized by
+17.5.C.3, does not apply.
+b. Active/reactive suspension systems incur a minimum weight adjustment, including standard parts.
+4. Suspension Control
+Any front and rear suspension system type (MacPherson/Chapman
 
 
 
         </h3>
+
+        <div id="smWeightCalculator" class="weightCalc">
+          <h3 class="weightCalcTitle">Minimum Weight Calculator</h3>
+          <p class="weightCalcNote">
+            Estimates the minimum competition weight (without driver) from the Appendix A
+            formulas above. This is a planning aid &mdash; always verify against the current rulebook.
+          </p>
+          <fieldset>
+            <p>
+              <label for="smwcSubclass">Subclass:</label>
+              <select id="smwcSubclass" class="select-css" onchange="smwcUpdateUI(); smwcCalculate();">
+                <option value="SSM">Super Street Modified (SSM)</option>
+                <option value="SM" selected>Street Modified (SM)</option>
+                <option value="SMF">Street Modified FWD (SMF)</option>
+              </select>
+            </p>
+            <p id="smwcDriveRow">
+              <label for="smwcDrive">Drive type:</label>
+              <select id="smwcDrive" class="select-css" onchange="smwcSyncRows(); smwcCalculate();">
+                <option value="FWD">FWD</option>
+                <option value="RWD" selected>RWD</option>
+                <option value="AWD">AWD</option>
+              </select>
+            </p>
+            <p>
+              <label for="smwcDisp">Engine displacement (liters):</label>
+              <input type="number" id="smwcDisp" min="0" step="0.1" value="2.0" oninput="smwcCalculate();">
+            </p>
+            <p id="smwcFiRow">
+              <label for="smwcFi">Supercharged / Turbocharged:</label>
+              <input type="checkbox" id="smwcFi" onchange="smwcCalculate();">
+            </p>
+            <p id="smwcTireRow">
+              <label for="smwcTire">Tire width 275 mm or less:</label>
+              <input type="checkbox" id="smwcTire" onchange="smwcCalculate();">
+            </p>
+            <p id="smwcSolidRow">
+              <label for="smwcSolid">Solid axle RWD:</label>
+              <input type="checkbox" id="smwcSolid" onchange="smwcCalculate();">
+            </p>
+          </fieldset>
+          <p class="weightCalcResult">Minimum weight: <span id="smwcResult">&mdash;</span></p>
+        </div>
+        <script>
+          (function() {
+            var SMWC = {
+              SSM: {base: {FWD: 1350, RWD: 1600, AWD: 1600}, perL: {FWD: 125, RWD: 200, AWD: 300}, fiAdd: 1.4, tire: true, solid: false, cap: 2900, drives: ['FWD', 'RWD', 'AWD']},
+              SM: {base: {FWD: 1550, RWD: 1800, AWD: 1800}, perL: {FWD: 125, RWD: 200, AWD: 300}, fiAdd: 1.4, tire: true, solid: true, cap: 3100, drives: ['FWD', 'RWD', 'AWD']},
+              SMF: {base: {FWD: 1750}, perL: {FWD: 125}, fiAdd: 1.0, tire: false, solid: false, cap: 3100, drives: ['FWD']}
+            };
+            function el(id) {
+              return document.getElementById(id);
+            }
+            window.smwcSyncRows = function() {
+              var cfg = SMWC[el('smwcSubclass').value];
+              var drive = el('smwcDrive').value;
+              el('smwcDriveRow').style.display = cfg.drives.length > 1 ? '' : 'none';
+              el('smwcTireRow').style.display = cfg.tire ? '' : 'none';
+              el('smwcSolidRow').style.display = (cfg.solid && drive === 'RWD') ? '' : 'none';
+            };
+            window.smwcUpdateUI = function() {
+              var cfg = SMWC[el('smwcSubclass').value];
+              var drive = el('smwcDrive');
+              var current = drive.value;
+              drive.innerHTML = '';
+              cfg.drives.forEach(function(d) {
+                var o = document.createElement('option');
+                o.value = d;
+                o.textContent = d;
+                drive.appendChild(o);
+              });
+              drive.value = cfg.drives.indexOf(current) !== -1 ? current : cfg.drives[0];
+              smwcSyncRows();
+            };
+            window.smwcCalculate = function() {
+              var cfg = SMWC[el('smwcSubclass').value];
+              var drive = el('smwcDrive').value;
+              if (cfg.drives.indexOf(drive) === -1) {
+                drive = cfg.drives[0];
+              }
+              var disp = parseFloat(el('smwcDisp').value);
+              if (isNaN(disp) || disp <= 0) {
+                el('smwcResult').textContent = '—';
+                return;
+              }
+              var effDisp = disp + (el('smwcFi').checked ? cfg.fiAdd : 0);
+              var rate = cfg.perL[drive];
+              if (cfg.solid && drive === 'RWD' && el('smwcSolid').checked) {
+                rate -= 25;
+              }
+              var weight = cfg.base[drive] + rate * effDisp;
+              if (weight > cfg.cap) {
+                weight = cfg.cap;
+              }
+              if (cfg.tire && el('smwcTire').checked) {
+                weight -= 200;
+              }
+              el('smwcResult').textContent = Math.round(weight) + ' lbs.';
+            };
+            smwcUpdateUI();
+            smwcCalculate();
+          })();
+        </script>
+
       </div>
       </br>
       <button class="button yesButton" onclick="setState(['streetmodifiedMinimum', 'smCarAnsweredIndex'], [true, 2]); hideItem('streetmodifiedMinimum'); evalSessionStorage('smCar'); window.scroll(0,0);">Yes</button>

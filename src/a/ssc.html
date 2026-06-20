@@ -20,6 +20,7 @@
       <a id='solospeccoupeBrakesMenu' href="#" onclick="resetQuestion('solospeccoupeBrakes'); evalSessionStorage('sscCar');">Brakes</a>
       <a id='solospeccoupeSuspensionMenu' href="#" onclick="resetQuestion('solospeccoupeSuspension'); evalSessionStorage('sscCar');">Suspension</a>
       <a id='solospeccoupeElectricalMenu' href="#" onclick="resetQuestion('solospeccoupeElectrical'); evalSessionStorage('sscCar');">Electrical</a>
+      <a id='solospeccoupeEngineMenu' href="#" onclick="resetQuestion('solospeccoupeEngine'); evalSessionStorage('sscCar');">Engine</a>
     </div>
 
   </head>
@@ -99,7 +100,7 @@ Original equipment (OE) or equivalent components are not allowed.
 Required bumps stops are provided in the Eibach® PRO-PLUS Performance Handling Package.</br></br>B. Anti-roll (sway) bar end links may be substituted but may serve no other purpose.
 To facilitate anti-roll bar installation and adjustment through the range
 of operation metal spacers (e.g., washers), may be added between the
-anti-roll bar bracket and the subframe. The spacers must be less than<div class="indent"></br>7.00 mm (0.275&#34;) thick.</div></br></br>C. Tires:</br> Falken Azenis RT660, size:</br> 225/45R17.</br></br>D. Wheels<div class="indent"></br>1. Diameter and width (in.):</br> 17x8 (OE 17x7 may be used only as a full
+anti-roll bar bracket and the subframe. The spacers must be less than<div class="indent"></br>7.00 mm (0.275&#34;) thick.</div></br></br>C. Tires:</br> Falken Azenis RT660+, size:</br> 225/45R17.</br></br>D. Wheels<div class="indent"></br>1. Diameter and width (in.):</br> 17x8 (OE 17x7 may be used only as a full
 set of 4 wheels.)</div><div class="indent"></br>2. Offset, including wheel spacer (mm):</br> +40 (40ET or ET40) or greater</div><div class="indent"></br>3. Weight, without spacer if used, minimum (lbs.):</br> 17, including:</br>
 • Wheel weights
 • TPMS sensor if installed
@@ -243,48 +244,51 @@ bushings of a different material or dimension.
 </br></br>A. The make of spark plugs is unrestricted.</br></br>B. No changes are permitted to electronic engine management systems or
 their programming.</br></br>C. Tire Pressure Monitoring Systems (TPMS) may be disabled. Altering
 the signal to the TPMS module is allowed.
-Engine and Drivetrain</br></br>A. The engine air filter element may be removed or replaced provided the
-air flow path remains as originally designed (i.e., no additional openings). No other components of the air induction system may be removed, replaced, or modified.
-</br></br>B. Oil filters are unrestricted.</br></br>C. The installation of oil catch tanks or oil separators is allowed provided
-the function of the PCV system remains functional.</br></br>D. An oil cooler is allowed provided no unauthorized modifications are
-made to perform the installation.</br></br>E. The muffler and midpipe (as shown in the following figure) may be substituted provided the system exits the car in one or both original locations.
-– Weight, minimum, both muffler and midpipe (lbs.):</br>.......................18</br></br>F. Silicone replacement hoses are allowed as alternate components provided they meet the requirements of Solo® Rules section 13, Street
-</br>Category, with regard to size, shape, location, and performance equivalence. Replacement induction system air intake hoses must also match
-the standard part in stiffness, contour, and internal wall texture.</br></br>G. Lubricants and fluids are unrestricted.</br></br>H. Fuel must be Federally-approved for use on public highways and is
-widely distributed and typically sold in filling stations, commonly
-called &#34;pump fuel&#34; with typical octane ratings or AKI (Anti-Knock Index) (R+M/2) displayed on the pump between 87 and 93. The maximum octane rating allowed is what is typically delivered from a pump
-marked 93 octane*. Fuels comprised of more than 15% ethanol may
-only be used when specified by the manufacturer (e.g., in the owner&#39;s
-manual for flex-fuel vehicles).
-
-
-
-orders over $50
-tirerack.com/freeshipping
-FAST FREE SHIPPING On
-
-LOWERING SPRINGS &amp; ANTI-ROLL BARS
-
-COIL-OVERS
-
-®
-
-®
-
-www.tirerack.com/storage
-©2024
-Tire Rack
-
-888-380-8473
-
-
-21. Classic American Muscle/ Xtreme Street
 
         </h3>
       </div>
       </br>
       <button class="button yesButton" onclick="setState(['solospeccoupeElectrical', 'sscCarAnsweredIndex'], [true, 7]); hideItem('solospeccoupeElectrical'); evalSessionStorage('sscCar'); window.scroll(0,0);">Yes</button>
       <button class="button noButton" onclick="setState(['solospeccoupeElectrical', 'sscCarAnsweredIndex'], [false, 7]); hideItem('solospeccoupeElectrical'); evalSessionStorage('sscCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="solospeccoupeEngine" class="center question sansserif">
+      <h2 id="solospeccoupeEngineQuestion">
+        Does your car meet the requirements below?
+      </h2>
+      <div id="solospeccoupeBody" class="questionBody">
+        <h3>
+          20.7 Engine and Drivetrain</br></br>A. The engine air filter element may be removed or replaced provided the
+air flow path remains as originally designed (i.e., no additional openings). No other components of the air induction system may be removed, replaced, or modified.</br></br>B. Oil filters are unrestricted.</br></br>C. The installation of oil catch tanks or oil separators is allowed provided
+the function of the PCV system remains functional.</br></br>D. An oil cooler is allowed provided no unauthorized modifications are
+made to perform the installation.</br></br>E. The muffler and midpipe (as shown in the following figure) may be substituted provided the system exits the car in one or both original locations.
+– Weight, minimum, both muffler and midpipe (lbs.):</br>.......................18
+</br></br></br>F. Silicone replacement hoses are allowed as alternate components provided they meet the requirements of Solo® Rules section 13, Street
+Category, with regard to size, shape, location, and performance equivalence. Replacement induction system air intake hoses must also match
+the standard part in stiffness, contour, and internal wall texture.</br></br>G. Lubricants and fluids are unrestricted.
+
+
+</br></br>H. Fuel must be Federally-approved for use on public highways and is
+widely distributed and typically sold in filling stations, commonly
+called &#34;pump fuel&#34; with typical octane ratings or AKI (Anti-Knock Index) (R+M/2) displayed on the pump between 87 and 93. The maximum octane rating allowed is what is typically delivered from a pump
+marked 93 octane*. Fuels comprised of more than 15% ethanol may
+only be used when specified by the manufacturer (e.g., in the owner&#39;s
+manual for flex-fuel vehicles).
+* Octane verification:</br> Octane levels will vary from the number listed on
+the pump. Octane testing has a &#34;margin of error&#34; and different testing
+procedures will produce similar but different results. For the purposes
+of testing gasoline, a result that exceeds 95.9 octane is not allowed and
+will result in a disqualification with no exceptions (hard limit). This
+limit gives competitors a 99.99+% confidence level that fuel purchased
+from a pump marked 93 octane is compliant. Warning:</br> Competitors
+attempting to approach the 95.9 octane limit through mixing or by any
+other means may inadvertently create fuel that appears compliant but
+may test above the 95.9 hard limit.
+        </h3>
+      </div>
+      </br>
+      <button class="button yesButton" onclick="setState(['solospeccoupeEngine', 'sscCarAnsweredIndex'], [true, 8]); hideItem('solospeccoupeEngine'); evalSessionStorage('sscCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['solospeccoupeEngine', 'sscCarAnsweredIndex'], [false, 8]); hideItem('solospeccoupeEngine'); evalSessionStorage('sscCar'); window.scroll(0,0);">No</button>
     </div>
 
 

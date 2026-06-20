@@ -39,6 +39,7 @@ const carFlags = {
     'streetpreparedAntiRoll',
     'streetpreparedSuspension',
     'streetpreparedElectrical',
+    'streetpreparedEngine',
     'streetpreparedOutofProduction',
   ],
   'smCar': [
@@ -83,6 +84,7 @@ const carFlags = {
     'solospeccoupeBrakes',
     'solospeccoupeSuspension',
     'solospeccoupeElectrical',
+    'solospeccoupeEngine',
   ],
   'csmCar': [
     'csmLandingPage',
