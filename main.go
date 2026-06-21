@@ -270,12 +270,39 @@ func formatChapterBody(in string) string {
 	return result
 }
 
-// subChapterTextRR renders a road-racing section body and strips the leading lettered
-// header (e.g. "A. PURPOSE"), which is rendered separately as a heading in the template.
-func subChapterTextRR(r io.Reader, chapterText *regexp.Regexp, number, name string) string {
-	result := subChapterText(r, chapterText)
-	lead := regexp.MustCompile(`(?i)^\s*` + regexp.QuoteMeta(number+" "+name) + `\s*`)
-	return lead.ReplaceAllString(result, "")
+// formatRRBody turns a road-racing section body into readable HTML. The GCR's multi-column
+// PDF layout strands list markers ("b.", "3.") on their own lines and inserts blank gaps,
+// and the shared formatChapterBody only breaks on uppercase letters/digits, so the lowercase
+// lettered items (a., b., ... v.) otherwise run together into a wall of text. This rebuilds
+// the list: rejoin a stranded marker with the text it introduces, collapse blank runs, then
+// start each lettered item on a new line and each numbered item on a new indented line.
+func formatRRBody(in string) string {
+	s := in
+	// Pull a marker the PDF left alone on a line ("b.\n\nText") onto the line it introduces.
+	s = regexp.MustCompile(`(?m)^([a-zA-Z]\.|\d+\.)[ \t]*\n[ \t\n]*(\S)`).ReplaceAllString(s, "$1 $2")
+	// Collapse leftover blank lines.
+	s = regexp.MustCompile(`\n{2,}`).ReplaceAllString(s, "\n")
+	// Lettered items (a., b., ...) begin a new, spaced line.
+	s = regexp.MustCompile(`(?m)^([a-zA-Z]\. )`).ReplaceAllString(s, "<br><br>$1")
+	// Numbered items (1., 2., ...) begin a new, indented line.
+	s = regexp.MustCompile(`(?m)^(\d+\. )`).ReplaceAllString(s, "<br>$1")
+	s = pcre.MustCompile(`(?s)(<br>\d+\. .+?)(?=<br>)`).ReplaceAllString(s, `<div class="indent">$1</div>`)
+	// Trim any leading break/whitespace left at the very top of the section.
+	s = regexp.MustCompile(`^(?:\s|<br>)+`).ReplaceAllString(s, "")
+	return s
+}
+
+// subChapterTextRR renders a road-racing section body to HTML using the road-racing list
+// formatter. The section heading is not part of the body (it is matched and consumed by the
+// section anchor), so no leading-header stripping is needed.
+func subChapterTextRR(r io.Reader, chapterFiller *regexp.Regexp) string {
+	resultBytes, err := io.ReadAll(r)
+	if err != nil {
+		return ""
+	}
+	resultBytes = chapterFiller.ReplaceAll(resultBytes, []byte{})
+	result := template.HTMLEscapeString(string(resultBytes))
+	return formatRRBody(result)
 }
 
 func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
@@ -308,7 +335,7 @@ func roadRacingChapters() []Chapter {
 			start: regexp.MustCompile(`9\.1\.3\. IMPROVED TOURING CATEGORY\n`),
 			// The Improved Touring Category Specifications (ITCS) per-car spec table begins
 			// immediately after the prose rules with this column header.
-			end:               regexp.MustCompile(`Engine\nType\n\nBore x\n`),
+			end: regexp.MustCompile(`Engine\nType\n\nBore x\n`),
 			// Match only the standalone page-header repeats, not the identical phrase where
 			// it legitimately appears inline (e.g. "...publish the Improved Touring Category
 			// Specifications (ITCS)..." in section C).
@@ -324,7 +351,7 @@ func roadRacingChapters() []Chapter {
 				{Name: "Intent", Informational: true, anchor: regexp.MustCompile(`\nB\. INTENT\n`)},
 				{Name: "Specifications", Informational: true, anchor: regexp.MustCompile(`\nC\. SPECIFICATIONS\n`)},
 				{Name: "Modifications", DisplayName: "About These Modifications", Informational: true, anchor: regexp.MustCompile(`\nD\. AUTHORIZED MODIFICATIONS\n`)},
-				{Name: "Engine", DisplayName: "Engine (Reciprocating)", anchor: regexp.MustCompile(`\nReciprocating Engines \(only\)\n`)},
+				{Name: "Engine", DisplayName: "Engine (Reciprocating)", anchor: regexp.MustCompile(`\n1\.\n+Reciprocating Engines \(only\)\n`)},
 				{Name: "RotaryEngine", DisplayName: "Engine (Rotary)", anchor: regexp.MustCompile(`\nRotary engines \(only\)\n`)},
 				{Name: "TurboEngine", DisplayName: "Engine (Turbocharged)", anchor: regexp.MustCompile(`\nTurbocharged engines \(only\)\n`)},
 				{Name: "Cooling", DisplayName: "Engine Cooling System", anchor: regexp.MustCompile(`\nEngine Cooling System\n`)},

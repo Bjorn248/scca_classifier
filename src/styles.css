@@ -341,6 +341,15 @@ strong, b {
   font-size: var(--font-size-lg);
 }
 
+/* Secondary line under a road racing question heading naming the rule section. */
+.questionContext {
+  display: inline-block;
+  margin-top: var(--space-2);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-gray-600);
+}
+
 .yesButton {
   border: 2px solid var(--color-success-500);
   color: var(--color-success-700);

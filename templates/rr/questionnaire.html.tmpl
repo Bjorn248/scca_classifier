@@ -50,7 +50,7 @@
         built to {{ $name }} specifications. The overview below explains the intent of the category.
         </p>
 {{ range .OverviewSections }}        <h3>{{ menuLabel . }}</h3>
-        <p>{{ subChapterTextRR .Reader $chapterfillertext .Number .Name }}</p>
+        <p>{{ subChapterTextRR .Reader $chapterfillertext }}</p>
 {{ end }}      </div>
       <br>
       <button class="button yesButton" onclick="setState(['{{ $shortname }}LandingPage', '{{ $shortname }}CarAnsweredIndex'], [true, 0]); hideItem('{{ $shortname }}LandingPage'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Continue</button>
@@ -63,7 +63,7 @@
         <span class="questionContext">These requirements are for {{ menuLabel $subchapter }}.</span>
       </h2>
       <div id="{{ toVarName $name }}Body" class="questionBody">
-        {{ subChapterTextRR $subchapter.Reader $chapterfillertext $subchapter.Number $subchapter.Name }}
+        {{ subChapterTextRR $subchapter.Reader $chapterfillertext }}
       </div>
       <br>
       <button class="button yesButton" onclick="setState(['{{ toVarName $name }}{{ menuName $subchapter.Name }}', '{{ $shortname }}CarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name }}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Yes</button>
