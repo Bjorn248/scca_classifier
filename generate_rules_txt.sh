@@ -22,8 +22,18 @@ then
   exit 1
 fi
 
-echo "Converting PDF to txt..."
+echo "Converting Solo Rules PDF to txt..."
 # Use -raw to extract text in content stream order (column by column)
 # rather than default which reads line by line across columns
 pdftotext rules.pdf rules.txt
+echo "Done"
+
+echo "Downloading GCR PDF..."
+curl -L https://www.scca.com/downloads/80050-jun-26 -o gcr.pdf
+echo "Done"
+
+echo "Converting GCR PDF to txt..."
+# Use -raw to extract text in content stream order (column by column)
+# rather than default which reads line by line across columns
+pdftotext gcr.pdf gcr.txt
 echo "Done"
