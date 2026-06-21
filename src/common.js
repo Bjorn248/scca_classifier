@@ -1544,6 +1544,7 @@ const allSoloCars = {
       '2021': ['bs', 'bst', 'sm', 'xp', 'xa'],
       '2022': ['bs', 'bst', 'sm', 'xp', 'xa'],
       '2023': ['bs', 'bst', 'sm', 'xp', 'xa'],
+      '2024': ['ss', 'sm', 'xp', 'xu'],
       '2025': ['ss', 'sm', 'xp', 'xu'],
     },
     'M5 CS': {
