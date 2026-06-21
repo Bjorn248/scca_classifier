@@ -26,3 +26,6 @@ rr_rules.*
 rules_layout.*
 rules_raw.*
 old_rules.*
+
+# goenv
+.go-version
