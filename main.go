@@ -22,8 +22,10 @@ type Chapter struct {
 	ShortName         string // Short identifier used for carFlags keys (e.g., "sp" for Street Prepared)
 	Number            string
 	SubChapters       []SubChapter
-	Sections          []string // Section names for classes without SubChapters (e.g., "Bodywork", "Safety")
-	CarFlags          []string // Question IDs for carFlags (auto-populated from SubChapters/Sections)
+	OverviewSections  []SubChapter // Informational sections rendered on the landing page (e.g. Purpose, Intent)
+	QuestionSections  []SubChapter // Sections rendered as yes/no eligibility questions
+	Sections          []string     // Section names for classes without SubChapters (e.g., "Bodywork", "Safety")
+	CarFlags          []string     // Question IDs for carFlags (auto-populated from SubChapters/Sections)
 	Reader            *io.SectionReader
 	start             *regexp.Regexp
 	end               *regexp.Regexp
@@ -35,8 +37,19 @@ type Chapter struct {
 
 // SubChapter holds the name, number, and body of a subchapter of the rules (e.g. 13.2 Bodywork)
 type SubChapter struct {
-	Name   string
-	Number string
+	Name string
+	// DisplayName is an optional human-friendly label used for the sidebar menu and
+	// question heading. When empty, ToMenuName(Name) is used. It does not affect the
+	// element IDs or carFlags keys (those always derive from Name) so it is purely cosmetic.
+	DisplayName string
+	Number      string
+	// Informational marks a section that is shown on the landing/overview page rather
+	// than as a yes/no eligibility question (e.g. a category's Purpose and Intent).
+	Informational bool
+	// anchor matches the section's heading line in the rulebook. Road racing sections use
+	// it (instead of Number+Name) because the GCR's logical sections are titled headings
+	// (e.g. "Brakes", "Wheels/Tires") rather than numbered table-of-contents entries.
+	anchor *regexp.Regexp
 	Reader *io.SectionReader
 }
 
@@ -73,8 +86,7 @@ func getSubChapters(rules, chapterNumber string) []SubChapter {
 }
 
 // readFile returns a Reader of a specific file
-func readFile() *strings.Reader {
-	filePath := "rules.txt"
+func readFile(filePath string) *strings.Reader {
 	rules, err := os.ReadFile(filePath)
 	if err != nil {
 		fmt.Println("Encountered error reading file", filePath)
@@ -146,14 +158,55 @@ func findSubChapterBody(chapter Chapter, chapterText []byte) []SubChapter {
 	return SubChapters
 }
 
+// findRRSectionBodies walks an ordered list of road-racing sections and fills each one's
+// Reader with the text between its heading anchor and the next section's heading anchor
+// (the last section runs to the end of the chapter text). Anchors are matched sequentially
+// so a heading word that recurs in body text earlier in the chapter can't steal a match.
+func findRRSectionBodies(sections []SubChapter, chapterText []byte) []SubChapter {
+	text := string(chapterText)
+	reader := strings.NewReader(text)
+	headStart := make([]int, len(sections))
+	bodyStart := make([]int, len(sections))
+	cursor := 0
+	for i := range sections {
+		loc := sections[i].anchor.FindStringIndex(text[cursor:])
+		if loc == nil {
+			log.Fatalf("road racing section anchor not found: %q (%s)", sections[i].Name, sections[i].anchor)
+		}
+		headStart[i] = cursor + loc[0]
+		bodyStart[i] = cursor + loc[1]
+		cursor = cursor + loc[1]
+	}
+	for i := range sections {
+		end := len(text)
+		if i < len(sections)-1 {
+			end = headStart[i+1]
+		}
+		sections[i].Reader = io.NewSectionReader(reader, int64(bodyStart[i]), int64(end-bodyStart[i]))
+	}
+	return sections
+}
+
 func getChapterReader(rules *strings.Reader, chapter Chapter) *io.SectionReader {
 	rules.Seek(0, 0)
 	startMatch := chapter.start.FindReaderIndex(rules)
-	rules.Seek(0, 0)
+	// Search for the end anchor only in the text following the start anchor. This lets
+	// non-unique anchors (e.g. a spec-table column header that recurs in every category)
+	// be used to bound a chapter, since we always take the first match after the start.
+	rules.Seek(int64(startMatch[1]), 0)
 	endMatch := chapter.end.FindReaderIndex(rules)
 	rules.Seek(0, 0)
-	length := endMatch[0] - startMatch[0]
+	length := (startMatch[1] + endMatch[0]) - startMatch[0]
 	return io.NewSectionReader(rules, int64(startMatch[0]), int64(length))
+}
+
+// menuLabel returns the human-friendly label for a section's sidebar menu entry and
+// question heading, preferring an explicit DisplayName and falling back to ToMenuName.
+func menuLabel(sub SubChapter) string {
+	if sub.DisplayName != "" {
+		return sub.DisplayName
+	}
+	return ToMenuName(sub.Name)
 }
 
 func ToMenuName(in string) string {
@@ -177,7 +230,14 @@ func ToVarName(in string) string {
 // generateCarFlags creates the carFlags array for a chapter based on its SubChapters or Sections
 func generateCarFlags(chapter Chapter) []string {
 	flags := []string{chapter.ShortName + "LandingPage"}
-	if len(chapter.SubChapters) > 0 {
+	if len(chapter.QuestionSections) > 0 {
+		// Road racing categories list their question sections explicitly; the
+		// informational overview sections are excluded from the questionnaire flags.
+		varName := ToVarName(chapter.Name)
+		for _, sub := range chapter.QuestionSections {
+			flags = append(flags, varName+ToMenuName(sub.Name))
+		}
+	} else if len(chapter.SubChapters) > 0 {
 		// Generate from SubChapters (parsed from rules.txt)
 		varName := ToVarName(chapter.Name)
 		for _, sub := range chapter.SubChapters {
@@ -210,6 +270,14 @@ func formatChapterBody(in string) string {
 	return result
 }
 
+// subChapterTextRR renders a road-racing section body and strips the leading lettered
+// header (e.g. "A. PURPOSE"), which is rendered separately as a heading in the template.
+func subChapterTextRR(r io.Reader, chapterText *regexp.Regexp, number, name string) string {
+	result := subChapterText(r, chapterText)
+	lead := regexp.MustCompile(`(?i)^\s*` + regexp.QuoteMeta(number+" "+name) + `\s*`)
+	return lead.ReplaceAllString(result, "")
+}
+
 func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
 	var result string
 	resultBytes, err := io.ReadAll(r)
@@ -222,8 +290,127 @@ func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
 	return result
 }
 
+// roadRacingChapters returns the prose road-racing categories parsed from gcr.txt.
+// Unlike the autocross categories (whose subchapters are discovered from the rulebook
+// table of contents), road-racing categories list their lettered sections explicitly
+// because the GCR interleaves prose rules with large per-car spec tables that are not
+// part of the questionnaire. Sections marked Informational render on the landing page;
+// the rest become yes/no eligibility questions.
+func roadRacingChapters() []Chapter {
+	return []Chapter{
+		{
+			Name:      "Improved Touring",
+			ShortName: "it",
+			Number:    "n/a",
+			// No leading newline anchor: the heading is preceded by a stray form feed left
+			// over from the PDF. This exact text occurs once and differs from the table-of-
+			// contents entry ("9.1.3.\nIMPROVED TOURING CATEGORY CLASSES...").
+			start: regexp.MustCompile(`9\.1\.3\. IMPROVED TOURING CATEGORY\n`),
+			// The Improved Touring Category Specifications (ITCS) per-car spec table begins
+			// immediately after the prose rules with this column header.
+			end:               regexp.MustCompile(`Engine\nType\n\nBore x\n`),
+			// Match only the standalone page-header repeats, not the identical phrase where
+			// it legitimately appears inline (e.g. "...publish the Improved Touring Category
+			// Specifications (ITCS)..." in section C).
+			ChapterFillerText: regexp.MustCompile(`(?m)^(?:9\.1\.3\.|Improved Touring Category Specifications)\s*$`),
+			templateFile:      "./templates/rr/questionnaire.html.tmpl",
+			outputFile:        "./src/rr/it.html",
+			// Purpose/Intent/Specifications and the modifications preamble are informational
+			// (landing page). The numbered modification categories within "D. AUTHORIZED
+			// MODIFICATIONS" each become their own yes/no question, mirroring how the
+			// autocross categories ask one question per modification area.
+			SubChapters: []SubChapter{
+				{Name: "Purpose", Informational: true, anchor: regexp.MustCompile(`\nA\. PURPOSE\n`)},
+				{Name: "Intent", Informational: true, anchor: regexp.MustCompile(`\nB\. INTENT\n`)},
+				{Name: "Specifications", Informational: true, anchor: regexp.MustCompile(`\nC\. SPECIFICATIONS\n`)},
+				{Name: "Modifications", DisplayName: "About These Modifications", Informational: true, anchor: regexp.MustCompile(`\nD\. AUTHORIZED MODIFICATIONS\n`)},
+				{Name: "Engine", DisplayName: "Engine (Reciprocating)", anchor: regexp.MustCompile(`\nReciprocating Engines \(only\)\n`)},
+				{Name: "RotaryEngine", DisplayName: "Engine (Rotary)", anchor: regexp.MustCompile(`\nRotary engines \(only\)\n`)},
+				{Name: "TurboEngine", DisplayName: "Engine (Turbocharged)", anchor: regexp.MustCompile(`\nTurbocharged engines \(only\)\n`)},
+				{Name: "Cooling", DisplayName: "Engine Cooling System", anchor: regexp.MustCompile(`\nEngine Cooling System\n`)},
+				{Name: "Drivetrain", DisplayName: "Transmission / Final Drive", anchor: regexp.MustCompile(`\nTransmission/Final Drive\n`)},
+				{Name: "Suspension", DisplayName: "Chassis & Suspension", anchor: regexp.MustCompile(`\nChassis\n`)},
+				{Name: "Brakes", DisplayName: "Brakes", anchor: regexp.MustCompile(`\nBrakes\n`)},
+				{Name: "Wheels", DisplayName: "Wheels & Tires", anchor: regexp.MustCompile(`\nWheels/Tires\n`)},
+				{Name: "Bodywork", DisplayName: "Body & Structure", anchor: regexp.MustCompile(`\nBody/Structure\n`)},
+				{Name: "Interior", DisplayName: "Driver / Passenger Compartment", anchor: regexp.MustCompile(`\n10\. Driver/Passenger Compartment[^\n]*\n`)},
+				{Name: "Electrical", DisplayName: "Electrical", anchor: regexp.MustCompile(`\n11\. Electrical\n`)},
+				{Name: "Safety", DisplayName: "Safety", anchor: regexp.MustCompile(`\n12\. Safety\n`)},
+				{Name: "Measurement", DisplayName: "Measurement Standards", anchor: regexp.MustCompile(`\nE\. MEASUREMENT STANDARDS\n`)},
+			},
+		},
+	}
+}
+
+// processRRChapters parses gcr.txt, populates each road-racing chapter's section bodies
+// and carFlags, and renders its questionnaire page. It returns the chapters so their
+// carFlags can be included in common.js.
+func processRRChapters(funcMap template.FuncMap) []Chapter {
+	gcr := readFile("gcr.txt")
+	rrChapters := roadRacingChapters()
+
+	// Page footers and sponsor advertisements that bleed in from the GCR PDF layout.
+	gcrRemove := []*regexp.Regexp{
+		regexp.MustCompile(`©SCCA`),
+		regexp.MustCompile(`\d* *20\d\d GCR V\.\d+ p\.\d+`),
+		// Summit Racing full-page advertisement.
+		regexp.MustCompile(`(?s)GET THE SUMMIT ADVANTAGE!.+?SummitRacing\.com`),
+		// Standalone section-number page headers (e.g. a lone "9.1.3." line).
+		regexp.MustCompile(`(?m)^9\.1\.\d+\.\s*$`),
+		// Standalone running-header lines (e.g. "Improved Touring Category Specifications").
+		// The $ anchor leaves inline mentions intact (e.g. "...the Improved Touring Category
+		// Specifications (ITCS)..." keeps its trailing "(ITCS)" and so is not a whole line).
+		regexp.MustCompile(`(?m)^[A-Z][A-Za-z0-9/&' -]+ Category Specifications[ \t]*$`),
+		// Runs of two or more orphaned list-number lines left by the PDF's multi-column
+		// page breaks (e.g. a stray "2.\n\n3.\n\n4." cluster whose text is in another
+		// column). A single lone number line is a legitimate marker and is preserved.
+		regexp.MustCompile(`(?m)^(?:\d+\.[ \t]*\n+){2,}`),
+	}
+
+	for i := range rrChapters {
+		fmt.Printf("Currently processing (road racing): %s\n", rrChapters[i].Name)
+		chapterReader := getChapterReader(gcr, rrChapters[i])
+		rrChapters[i].Reader = chapterReader
+
+		chapterText, err := io.ReadAll(chapterReader)
+		if err != nil {
+			fmt.Println("error reading road racing chapter text")
+			os.Exit(1)
+		}
+		for _, r := range gcrRemove {
+			chapterText = r.ReplaceAll(chapterText, []byte{})
+		}
+
+		rrChapters[i].SubChapters = findRRSectionBodies(rrChapters[i].SubChapters, chapterText)
+		for _, sub := range rrChapters[i].SubChapters {
+			if sub.Informational {
+				rrChapters[i].OverviewSections = append(rrChapters[i].OverviewSections, sub)
+			} else {
+				rrChapters[i].QuestionSections = append(rrChapters[i].QuestionSections, sub)
+			}
+		}
+		rrChapters[i].CarFlags = generateCarFlags(rrChapters[i])
+
+		fmt.Println("Generating road racing class page...")
+		classTemplate := template.New(path.Base(rrChapters[i].templateFile)).Funcs(funcMap)
+		tpl, err := classTemplate.ParseFiles(rrChapters[i].templateFile)
+		if err != nil {
+			log.Fatal("Could not parse template", err)
+		}
+		outFile, err := os.Create(rrChapters[i].outputFile)
+		if err != nil {
+			log.Fatal("Could not create file", err)
+		}
+		if err = tpl.Execute(outFile, rrChapters[i]); err != nil {
+			log.Fatal("Could not execute template", err)
+		}
+		outFile.Close()
+	}
+	return rrChapters
+}
+
 func main() {
-	rules := readFile()
+	rules := readFile("rules.txt")
 
 	rulesBytes, err := io.ReadAll(rules)
 	if err != nil {
@@ -366,11 +553,13 @@ func main() {
 	}
 
 	funcMap := template.FuncMap{
-		"subChapterText": subChapterText,
-		"menuName":       ToMenuName,
-		"stringEqual":    stringEqual,
-		"addOne":         addOne,
-		"toVarName":      ToVarName,
+		"subChapterText":   subChapterText,
+		"subChapterTextRR": subChapterTextRR,
+		"menuName":         ToMenuName,
+		"menuLabel":        menuLabel,
+		"stringEqual":      stringEqual,
+		"addOne":           addOne,
+		"toVarName":        ToVarName,
 	}
 
 	for i := range allChapters {
@@ -457,6 +646,10 @@ func main() {
 		}
 	}
 
+	// Road racing categories are parsed from a separate rulebook (gcr.txt) and rendered
+	// with their own template; their carFlags are folded into common.js below.
+	rrChapters := processRRChapters(funcMap)
+
 	fmt.Println("Generating common.js...")
 	commonJS := template.New("common.js.tmpl").Funcs(funcMap)
 	tpl, err := commonJS.ParseFiles("templates/common.js.tmpl")
@@ -474,8 +667,9 @@ func main() {
 		staticClasses[i].CarFlags = generateCarFlags(staticClasses[i])
 	}
 
-	// Combine allChapters and staticClasses for template execution
+	// Combine allChapters, staticClasses, and road racing chapters for template execution
 	allClassesForJS := append(allChapters, staticClasses...)
+	allClassesForJS = append(allClassesForJS, rrChapters...)
 	err = tpl.Execute(outFile, allClassesForJS)
 	if err != nil {
 		log.Fatal("Could not execute template", err)

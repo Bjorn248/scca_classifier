@@ -136,6 +136,22 @@ const carFlags = {
     'camWeight',
     'camEngineAndDrivetrain',
   ],
+  'itCar': [
+    'itLandingPage',
+    'improvedtouringEngine',
+    'improvedtouringRotaryEngine',
+    'improvedtouringTurboEngine',
+    'improvedtouringCooling',
+    'improvedtouringDrivetrain',
+    'improvedtouringSuspension',
+    'improvedtouringBrakes',
+    'improvedtouringWheels',
+    'improvedtouringBodywork',
+    'improvedtouringInterior',
+    'improvedtouringElectrical',
+    'improvedtouringSafety',
+    'improvedtouringMeasurement',
+  ],
 };
 
 /*
@@ -9667,11 +9683,20 @@ function checkEligibility(className) {
     notEligibleElement.style.display = 'none';
     const eligibleElement = document.getElementById('eligible');
     eligibleElement.style.display = 'block';
-    if (!document.getElementById('possibleClassesList')) {
+    // The make/model/year-driven subclass listing only applies to the autocross pages,
+    // which include a 'specificClass' element and a selected car. Road racing pages omit
+    // both, so guard the lookup to avoid dereferencing an unselected car.
+    const make = sessionStorage.getItem('make');
+    const model = sessionStorage.getItem('model');
+    const year = sessionStorage.getItem('year');
+    const haveCar = make && model && year &&
+      allSoloCars[make] && allSoloCars[make][model] && allSoloCars[make][model][year];
+    if (document.getElementById('specificClass') && haveCar &&
+        !document.getElementById('possibleClassesList')) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('id', 'possibleClassesList');
       const specificClass = document.getElementById('specificClass');
-      const possibleClasses = allSoloCars[sessionStorage.getItem('make')][sessionStorage.getItem('model')][sessionStorage.getItem('year')]; // eslint-disable-line max-len
+      const possibleClasses = allSoloCars[make][model][year]; // eslint-disable-line max-len
       let possibleClassesString = '';
       for (let i=0; i<possibleClasses.length; i++) {
         if (i == 0) {

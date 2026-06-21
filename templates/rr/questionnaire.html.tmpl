@@ -1,0 +1,101 @@
+{{ $name := .Name }}{{ $shortname := .ShortName }}{{ $chapterfillertext := .ChapterFillerText }}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Road Racing Classifier Application - {{ $name }} Car Page">
+    <title>SCCA Road Racing Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='{{ $shortname }}LandingPageMenu' href="#" onclick="resetQuestion('{{ $shortname }}LandingPage'); evalSessionStorage('{{ $shortname }}Car');">Overview</a>{{ range .QuestionSections }}
+      <a id='{{ toVarName $name }}{{ menuName .Name }}Menu' href="#" onclick="resetQuestion('{{ toVarName $name }}{{ menuName .Name }}'); evalSessionStorage('{{ $shortname }}Car');">{{ menuLabel . }}</a>{{ end }}
+    </div>
+
+  </head>
+
+  <body onload="evalSessionStorage('{{ $shortname }}Car');">
+    <!-- Modern Top Navigation Bar -->
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button class="hamburger-menu" onclick="openNav()" title="Open navigation menu">☰</button>
+      </div>
+      <div class="nav-center">
+        <h1 class="nav-title">{{ $name }} Class Questionnaire</h1>
+      </div>
+      <div class="nav-right">
+        <button class="nav-button" onclick="window.location.href = '/index.html';" title="Return to home page">
+          🏠 Home
+        </button>
+        <button class="nav-button" onclick="window.location.href = '/rr/index.html';" title="Back to road racing classes">
+          🏎️ Classes
+        </button>
+        <button class="nav-button" onclick="resetState()" title="Clear question answers and selections">
+          🔄 Clear
+        </button>
+      </div>
+    </nav>
+    <div id="{{ $shortname }}LandingPage" class="center question sansserif">
+      <h2 id="{{ $shortname }}LandingPageQuestion">
+        {{ $name }} Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <p>
+        This questionnaire walks through the {{ $name }} preparation rules from the SCCA General
+        Competition Rules (GCR). Answer "Yes" or "No" for each section to see whether your car can be
+        built to {{ $name }} specifications. The overview below explains the intent of the category.
+        </p>
+{{ range .OverviewSections }}        <h3>{{ menuLabel . }}</h3>
+        <p>{{ subChapterTextRR .Reader $chapterfillertext .Number .Name }}</p>
+{{ end }}      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['{{ $shortname }}LandingPage', '{{ $shortname }}CarAnsweredIndex'], [true, 0]); hideItem('{{ $shortname }}LandingPage'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Continue</button>
+    </div>
+{{ range $index, $subchapter := .QuestionSections }}
+    <div id="{{ toVarName $name }}{{ menuName $subchapter.Name }}" class="center question sansserif">
+      <h2 id="{{ toVarName $name }}{{ menuName $subchapter.Name }}Question">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for {{ menuLabel $subchapter }}.</span>
+      </h2>
+      <div id="{{ toVarName $name }}Body" class="questionBody">
+        {{ subChapterTextRR $subchapter.Reader $chapterfillertext $subchapter.Number $subchapter.Name }}
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['{{ toVarName $name }}{{ menuName $subchapter.Name }}', '{{ $shortname }}CarAnsweredIndex'], [true, {{ addOne $index }}]); hideItem('{{ toVarName $name }}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['{{ toVarName $name }}{{ menuName $subchapter.Name }}', '{{ $shortname }}CarAnsweredIndex'], [false, {{ addOne $index }}]); hideItem('{{ toVarName $name }}{{ menuName $subchapter.Name }}'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">No</button>
+    </div>
+{{ end }}
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1>
+        Your car may be eligible for {{ $name }} class!
+        <br>
+      </h1>
+      <div class="possibleClasses">
+        <p>
+        Based on your answers, your car can be built to {{ $name }} specifications. Confirm your specific
+        car's spec line and minimum weight in the
+        <a href="https://www.scca.com/pages/cars-and-rules" target="_blank" rel="noopener noreferrer">official GCR</a>
+        before competing.
+        </p>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for {{ $name }} class.
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>

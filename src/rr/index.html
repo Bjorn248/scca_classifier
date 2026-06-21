@@ -3,61 +3,63 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" content="SCCA Solo Classifier Application - Road Racing Page">
-    <title>SCCA Solo Classification Assistant</title>
+    <meta name="Description" content="SCCA Road Racing Classifier Application - Road Racing Page">
+    <title>SCCA Road Racing Classification Assistant</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
   </head>
 
   <body>
-    <div class="center">
-      <h1 class="sansserif">
-        Welcome to the SCCA Solo Classification Assistant!
-      </h1>
-      <h3 class="sansserif">
-        Don't know which class you belong to yet? Click 'Start Fresh'
-      </h3>
-      <button class="button yesButton" onclick="window.location.href = '/s.html';">Start Fresh</button>
-      <br>
-      <br>
-      <h3 class="sansserif">
-        You know which class you are targeting. Choose your class below.
-      </h3>
-      <button class="button gt1Button" onclick="window.location.href = '/rr/gt1.html';">GT1</button>
-      <br>
-      <button class="button gt2Button" onclick="window.location.href = '/rr/gt2.html';">GT2</button>
-      <br>
-      <button class="button gt3Button" onclick="window.location.href = '/rr/gt3.html';">GT3</button>
-      <br>
-      <button class="button gtaButton" onclick="window.location.href = '/rr/gta.html';">GTA (Regional)</button>
-      <br>
-      <button class="button gtxButton" onclick="window.location.href = '/rr/gtx.html';">GTX</button>
-      <br>
-      <button class="button improvedTouring" onclick="window.location.href = '/rr/it.html';">Improved Touring</button>
-      <br>
-      <button class="button superTouring" onclick="window.location.href = '/rr/st.html';">Super Touring</button>
-      <br>
-      <button class="button production" onclick="window.location.href = '/rr/p.html';">Production</button>
-      <br>
-      <button class="button americanSedan" onclick="window.location.href = '/rr/as.html';">American Sedan</button>
-      <br>
-      <button class="button specMiata" onclick="window.location.href = '/rr/sm.html';">Spec Miata</button>
-      <br>
-      <button class="button aSports" onclick="window.location.href = '/rr/as.html';">A Sports</button>
-      <br>
-      <button class="button t1" onclick="window.location.href = '/rr/t1.html';">T1</button>
-      <br>
-      <button class="button t2" onclick="window.location.href = '/rr/t2.html';">T2</button>
-      <br>
-      <button class="button t3" onclick="window.location.href = '/rr/t3.html';">T3</button>
-      <br>
-      <button class="button t4" onclick="window.location.href = '/rr/t4.html';">T4</button>
-      <br>
-      <button class="button bSpec" onclick="window.location.href = '/rr/bspec.html';">B Spec</button>
-      <br>
-      <button class="button specMX5" onclick="window.location.href = '/rr/smx5.html';">Spec MX-5 (Regional)</button>
-      <br>
+    <div class="container">
+      <header class="header-card">
+        <h2>Road Racing Classification</h2>
+      </header>
+
+      <main class="main-content">
+        <div class="intro-card">
+          <h2>Choose a Class</h2>
+          <p>
+            Pick a road racing class below to walk through its preparation rules from the
+            SCCA General Competition Rules (GCR) and find out whether your car can be built to it.
+          </p>
+
+          <div class="action-buttons">
+            <button class="button button-primary" onclick="window.location.href = '/rr/it.html';">
+              <span class="button-icon">🏎️</span>
+              Improved Touring
+            </button>
+          </div>
+
+          <p>
+            More classes are on the way. Coming soon:
+            American Sedan, Touring (T1–T4), Super Touring, Production, GT1/GT2/GT3,
+            Spec Miata, Spec MX-5, and B-Spec.
+          </p>
+
+          <div class="action-buttons">
+            <button class="button button-secondary" onclick="window.location.href = '/index.html';">
+              <span class="button-icon">🏠</span>
+              Back to Home
+            </button>
+          </div>
+        </div>
+
+        <div class="disclaimer-card">
+          <div class="disclaimer-content">
+            <span class="emphasis-critical">DISCLAIMER</span>: This is not an official SCCA website. This is not a substitute for the official rules.
+            Please refer to the <a href="https://www.scca.com/pages/cars-and-rules">latest rules</a>
+            as the official source of information.
+          </div>
+        </div>
+
+        <div class="feedback-card">
+          <h3>Have Feedback?</h3>
+          <p>This website is open source. Any feedback or contributions are welcome
+            <a href="https://github.com/Bjorn248/scca_classifier" target="_blank" rel="noopener noreferrer">on Github</a>.
+          </p>
+        </div>
+      </main>
     </div>
   </body>
 </html>
