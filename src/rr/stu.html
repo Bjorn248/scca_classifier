@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Road Racing Classifier Application - Super Touring (STU) Car Page">
+    <title>SCCA Road Racing Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='stuLandingPageMenu' href="#" onclick="resetQuestion('stuLandingPage'); evalSessionStorage('stuCar');">Overview</a>
+      <a id='supertouringstuChassisBodyworkMenu' href="#" onclick="resetQuestion('supertouringstuChassisBodywork'); evalSessionStorage('stuCar');">Chassis & Bodywork</a>
+      <a id='supertouringstuEnginesMenu' href="#" onclick="resetQuestion('supertouringstuEngines'); evalSessionStorage('stuCar');">Engines</a>
+      <a id='supertouringstuDrivetrainMenu' href="#" onclick="resetQuestion('supertouringstuDrivetrain'); evalSessionStorage('stuCar');">Drivetrain</a>
+      <a id='supertouringstuSuspensionMenu' href="#" onclick="resetQuestion('supertouringstuSuspension'); evalSessionStorage('stuCar');">Suspension & Steering</a>
+      <a id='supertouringstuBrakesMenu' href="#" onclick="resetQuestion('supertouringstuBrakes'); evalSessionStorage('stuCar');">Brakes</a>
+      <a id='supertouringstuWheelsMenu' href="#" onclick="resetQuestion('supertouringstuWheels'); evalSessionStorage('stuCar');">Wheels</a>
+      <a id='supertouringstuTiresMenu' href="#" onclick="resetQuestion('supertouringstuTires'); evalSessionStorage('stuCar');">Tires</a>
+      <a id='supertouringstuWeightsMenu' href="#" onclick="resetQuestion('supertouringstuWeights'); evalSessionStorage('stuCar');">Weights & Engine Allowances</a>
+    </div>
+
+  </head>
+
+  <body onload="evalSessionStorage('stuCar');">
+    <!-- Modern Top Navigation Bar -->
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button class="hamburger-menu" onclick="openNav()" title="Open navigation menu">☰</button>
+      </div>
+      <div class="nav-center">
+        <h1 class="nav-title">Super Touring (STU) Class Questionnaire</h1>
+      </div>
+      <div class="nav-right">
+        <button class="nav-button" onclick="window.location.href = '/index.html';" title="Return to home page">
+          🏠 Home
+        </button>
+        <button class="nav-button" onclick="window.location.href = '/rr/index.html';" title="Back to road racing classes">
+          🏎️ Classes
+        </button>
+        <button class="nav-button" onclick="resetState()" title="Clear question answers and selections">
+          🔄 Clear
+        </button>
+      </div>
+    </nav>
+    <div id="stuLandingPage" class="center question sansserif">
+      <h2 id="stuLandingPageQuestion">
+        Super Touring (STU) Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <p>
+        This questionnaire walks through the Super Touring (STU) preparation rules from the SCCA General
+        Competition Rules (GCR). Answer "Yes" or "No" for each section to see whether your car can be
+        built to Super Touring (STU) specifications. The overview below explains the intent of the category.
+        </p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['stuLandingPage', 'stuCarAnsweredIndex'], [true, 0]); hideItem('stuLandingPage'); evalSessionStorage('stuCar'); window.scroll(0,0);">Continue</button>
+    </div>
+
+    <div id="supertouringstuChassisBodywork" class="center question sansserif">
+      <h2 id="supertouringstuChassisBodyworkQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Chassis & Bodywork.</span>
+      </h2>
+      <div id="supertouringstuBody" class="questionBody">
+        <p class="indent">1. Minimum ride height is 4.0 inches.</p><p class="indent">2. Hoods may have a maximum of 2 vents installed for cooling purposes. Cars with mid or rear engines may have a maximum of 2 vents located in the hood or fenders for cooling purposes. The maximum combined total area of the vents shall not exceed 200 square inches. The 200 Square inches includes any area that deviates from the factory hood profile or fender(s). Louvers within the 200 sq. inch are allowed. Louver vents that are OEM do not count in the number of vents allowed or 200 square inch allowance.</p><p class="indent">3. Advanced Aerodynamics The following maximum specifications regarding aerodynamic allowances can be used with a 5% weight penalty:</p><p>a. The front splitter must not extend more than 3.0 inches past the original or approved bodywork as viewed from above for the entire profile of the splitter.</p><p>b. A wing assembly no wider than the widest part of the body (Not including the mirrors), with a maximum cord length of 12&#34;, and end plates that do not exceed 72.0 square inches each. No part of the wing assembly may be no higher than roof height.</p><p>c. Canards or dive planes are permitted. 2 per side not exceeding 50 square inches each.</p><p class="indent">4. Fender Flare The exterior contour of all wheel openings may be flared a maximum of 2&#34; with a 1% weight penalty. The fender/wheel opening or any other part of the body forming the wheel opening, when viewed from the top perpendicular to the ground, must cover the portion of the tire that contacts the ground while the car is at rest. The flare of the exterior contour of any wheel opening may not change the wheel opening size, location or shape when viewed from the side. The overall vehicle width may not exceed the manufacture&#39;s published width, plus 4&#34;.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['supertouringstuChassisBodywork', 'stuCarAnsweredIndex'], [true, 1]); hideItem('supertouringstuChassisBodywork'); evalSessionStorage('stuCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['supertouringstuChassisBodywork', 'stuCarAnsweredIndex'], [false, 1]); hideItem('supertouringstuChassisBodywork'); evalSessionStorage('stuCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="supertouringstuEngines" class="center question sansserif">
+      <h2 id="supertouringstuEnginesQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Engines.</span>
+      </h2>
+      <div id="supertouringstuBody" class="questionBody">
+        <p class="indent">1. Engines up to 6 cylinders and 3200 cubic centimeters factory displacement are permitted.</p><p class="indent">2. Turbo inlet restrictors designed per GCR Appendix F Technical Glossary definition of &#34;Turbo Inlet Restrictor&#34; may be required; see table 9.1.4.1.H.3. Swapping of turbochargers between engine makes and models is prohibited. Supercharged cars may be approved on a case-by-case basis; twin turbo engines are allowed on a case-by-case basis only. Contact the Road Racing Technical Office for details. Twin turbo engines may be converted to single turbo using one of the allowed alternate turbos (see 9.1.4.1.H.2). Aftermarket turbocharger and supercharger kits will be allowed on a case-by-case basis.</p><p class="indent">3. Alternate intake manifolds will be permitted on a case-by-case basis.</p><p class="indent">4. Porting of intake manifolds and cylinder heads is free on piston engines.</p><p class="indent">5. Compression ratio on spark-ignition engines is limited to 12.0:1. Compression ratio on compressionignition engines is unrestricted.</p><p>a. On Spark-Ignition engines, in those cases where the stock compression ratio is greater than allowed above, stock compression ratio may be used. 1.8% shall be added to the engine base weight for every 0.50 point of additional compression ratio (e.g.., 12.01:1-12.50:1=+1.8%, 12.51:1- 13.00:1=+3.6%). Competitor must provide proof of stock compression ratio being greater than 12.0:1 in order to utilize this allowance.</p><p class="indent">6. Valve lift is limited to .600 inches.</p><p class="indent">7. Dry sump systems are permitted. The oil tank shall be located within the bodywork.</p><p class="indent">8. Clutch and pressure plate is free. Carbon clutch components are prohibited.</p><p class="indent">9. Boost control/wastegate actuation is free, subject to 9.1.4.G.19. Modifications to turbocharger are limited to only that necessary for wastegate control.</p><p class="indent">10. Valve seat and valve head angles are free.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['supertouringstuEngines', 'stuCarAnsweredIndex'], [true, 2]); hideItem('supertouringstuEngines'); evalSessionStorage('stuCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['supertouringstuEngines', 'stuCarAnsweredIndex'], [false, 2]); hideItem('supertouringstuEngines'); evalSessionStorage('stuCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="supertouringstuDrivetrain" class="center question sansserif">
+      <h2 id="supertouringstuDrivetrainQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Drivetrain.</span>
+      </h2>
+      <div id="supertouringstuBody" class="questionBody">
+        <p class="indent">1. Engine and gearbox mounts may be solid.</p><p class="indent">2. Transmission and ratios are free. Forward gears are limited to 6 speeds. Cars equipped with automatic are limited to 8 forward speeds. Cars with sequential shift transmissions including factory DCT-type systems shall increase the required minimum weight by 3.5%. Cars equipped with Alternate H-Pattern Transmission w/non-stock type syncros (dog-ring) will increase the required minimum weight by 1.25%.</p><p class="indent">3. Front engine rear drive cars may use a Ford 8.8 IRS differential housing in place of the original housing. Rear subframes may be modified or replaced for fitment but cannot alter the mounting points of the rear suspension greater than what is allowed in 9.1.4.1.D.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['supertouringstuDrivetrain', 'stuCarAnsweredIndex'], [true, 3]); hideItem('supertouringstuDrivetrain'); evalSessionStorage('stuCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['supertouringstuDrivetrain', 'stuCarAnsweredIndex'], [false, 3]); hideItem('supertouringstuDrivetrain'); evalSessionStorage('stuCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="supertouringstuSuspension" class="center question sansserif">
+      <h2 id="supertouringstuSuspensionQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Suspension & Steering.</span>
+      </h2>
+      <div id="supertouringstuBody" class="questionBody">
+        <p class="indent">1. Cars that come with a solid rear axle or trailing arm suspension are permitted an aftermarket or fabricated rear suspension. Cars with an altered rear suspension must add 50 lbs. Cars with live axle rear wheel drive may reduce the minimum weight by 50 lbs</p><p class="indent">2. Original suspension pick-up points below the upper line of the wheel rim must be used within a tolerance of 1.0 inch; however, if the lower suspension pickup point is changed from the OEM location, 50 lbs. must be added to the car. The body/frame around the pick-up points may be reinforced; this reinforcement shall be limited to a radius of 6.0 inches. The 1.0 inch tolerance applies to pick-up points on the chassis only.</p><p class="indent">3. Suspension mounting points above the upper line of the wheel rim must be retained within a tolerance of 3.0 inches, however, the body/frame around the pick-up points may be reinforced; this reinforcement shall be limited to a radius of 6.0 inches. The 3.0 inch tolerance applies to pick-up points on chassis only.</p><p class="indent">4. The spindle and/or outer joint on the a-arm and/or strut may be moved to correct bump steer caused by changing the vehicle ride height. These components are not limited to the 1.0 inch of movement that applies to the suspension pick-up points located on the chassis.</p><p class="indent">5. Alternate control arms permitted.</p><p class="indent">6. Spherical bearings are permitted on suspension components.</p><p class="indent">7. Alternate suspension components including spindle, knuckle, hubs, etc. sourced from the same manufacture are permitted.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['supertouringstuSuspension', 'stuCarAnsweredIndex'], [true, 4]); hideItem('supertouringstuSuspension'); evalSessionStorage('stuCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['supertouringstuSuspension', 'stuCarAnsweredIndex'], [false, 4]); hideItem('supertouringstuSuspension'); evalSessionStorage('stuCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="supertouringstuBrakes" class="center question sansserif">
+      <h2 id="supertouringstuBrakesQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Brakes.</span>
+      </h2>
+      <div id="supertouringstuBody" class="questionBody">
+        <p class="indent">1. Maximum rotor size 331mm in diameter, 32mm in thickness.</p><p class="indent">2. Calipers- The standard production calipers or any 4-piston or fewer calipers may be used. 6 piston calipers may be used with a 1% weight penalty.</p><p class="indent">3. Original equipment master cylinders and pedals may be replaced.</p><p class="indent">4. Power assisted braking systems are permitted.</p><p class="indent">5. The balance of braking forces between the two wheels on an axle shall be equal and non-adjustable.</p><p class="indent">6. The balance of braking forces between the front and rear axles may only be adjusted by the driver through:</p><p>a. Direct intervention on the position of the center of the joint, on the linkage lever of the hydraulic pumps of the front and rear circuits.</p><p>b. Direct intervention on a proportioning valve in which the intake pressure is adjusted through a preloaded spring.</p><p class="indent">7. Delta Motorsports ABS system is allowed. Other aftermarket ABS systems will be considered on a case by case basis.</p><p class="indent">8. Brake booster vacuum regulator allowed, cannot be in-car adjustable</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['supertouringstuBrakes', 'stuCarAnsweredIndex'], [true, 5]); hideItem('supertouringstuBrakes'); evalSessionStorage('stuCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['supertouringstuBrakes', 'stuCarAnsweredIndex'], [false, 5]); hideItem('supertouringstuBrakes'); evalSessionStorage('stuCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="supertouringstuWheels" class="center question sansserif">
+      <h2 id="supertouringstuWheelsQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Wheels.</span>
+      </h2>
+      <div id="supertouringstuBody" class="questionBody">
+        <p class="indent">1. Wheels may not exceed 18 inches in diameter. Cars equal to or less than 2,850 lbs. minimum allowed race weight may not use wheels wider than 8 inches. Cars greater than 2,850 lbs. minimum allowed race weight may not use wheels wider than 9 inches.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['supertouringstuWheels', 'stuCarAnsweredIndex'], [true, 6]); hideItem('supertouringstuWheels'); evalSessionStorage('stuCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['supertouringstuWheels', 'stuCarAnsweredIndex'], [false, 6]); hideItem('supertouringstuWheels'); evalSessionStorage('stuCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="supertouringstuTires" class="center question sansserif">
+      <h2 id="supertouringstuTiresQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Tires.</span>
+      </h2>
+      <div id="supertouringstuBody" class="questionBody">
+        <p class="indent">1. A maximum section width of 245 is permitted.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['supertouringstuTires', 'stuCarAnsweredIndex'], [true, 7]); hideItem('supertouringstuTires'); evalSessionStorage('stuCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['supertouringstuTires', 'stuCarAnsweredIndex'], [false, 7]); hideItem('supertouringstuTires'); evalSessionStorage('stuCar'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="supertouringstuWeights" class="center question sansserif">
+      <h2 id="supertouringstuWeightsQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Weights & Engine Allowances.</span>
+      </h2>
+      <div id="supertouringstuBody" class="questionBody">
+        <p class="indent">1. Minimum weights for cars with normally aspirated piston engines will be determined by the following table. Displacement is the stock displacement for the installed engine. For the purpose of weight assignment, engine displacement will be rounded to the nearest 50cc (e.g., 2176cc = 2200cc and 2175cc = 2150cc). Normally-aspirated engines of fewer than 4 valves per cylinder may reduce base engine weight 9%. Factory Engine Minimum Displacement (cc) Weight (lbs) 1600 1760 1650 1815 1700 1870 1750 1925 1800 1980 1850 2035 1900 2090 1950 2145 2000 2200 2050 2255 2100 2310 2150 2360 2200 2400 2250 2440 2300 2480 2350 2520 2400 2560 2450 2595 2500 2635 2550 2675 2600 2710 2650 2750 2700 2790 2750 2825 2800 2860 2850 2895 2900 2930 2950 2960 3000 2990 3050 3025 3100 3070 3150 3110 3200 3150</p><p class="indent">2. Factory turbocharged engines must run the stock turbo or any turbo from the following list: - KKK/Borg-Warner K04 - IHI VF30, VF39, or VF48 -Garrett GT2554R, p/n 471171-3 - Borg-Warner EFR6258</p><p class="indent">3. All turbocharged engines shall use a turbo inlet restrictor. Vehicle base weight is determined by TIR size selected from the following table. Turbocharged engines of greater than 2.7L displacement shall use the weight either as listed in the lbs/cc or restrictor size/lbs charts, whichever is greater. Turbocharged engines utilizing Direct Fuel Injection (DI) shall increase their base weight by 3%. Inlet Restrictor (mm) Minimum Weight (lbs) 35 2675 36 2830 37 2980 38 3150 39 3315 40 3480</p><p class="indent">4. Front wheel drive cars may reduce their minimum weight by 5%. Front wheel drive cars with a strut type front suspension may reduce their minimum weight by an additional 2.5%.</p><p class="indent">5. All cars in Table B: Approved World Challenge Cars, listed in Table B must be run in accordance with an approved VTS sheet of 2009 or earlier and in accordance with World Challenge 2009 Appendix A. Appendix A is available on the www.scca.com website on the Road Racing Technical Forms and Downloads page (accessible from the Road Racing Cars and Rules page).</p><p class="indent">6. The minimum weight is determined by the installed engine displacementt, TIR or table spec line. It is to be used as the base weight for any weight related adjustments. All positive adjustments that are percentage based are performed by adding the total of all specified percentages first and subtracting the total of all negative specified percentages second. Final step is addition or subtraction of specified weight in pounds.</p><p class="indent">7. All current STU cars, may reduce their weight by 4% after all other modifiers. Table A: Alternate Vehicle and Engine Requirements Table A, Requirements specifies deviations from the STCS that competitors are required to do if they are running the following cars, engines, and/or combinations. All other GCR/STCS specs apply, except as noted below.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['supertouringstuWeights', 'stuCarAnsweredIndex'], [true, 8]); hideItem('supertouringstuWeights'); evalSessionStorage('stuCar'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['supertouringstuWeights', 'stuCarAnsweredIndex'], [false, 8]); hideItem('supertouringstuWeights'); evalSessionStorage('stuCar'); window.scroll(0,0);">No</button>
+    </div>
+
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1>
+        Your car may be eligible for the Super Touring (STU) category!
+        <br>
+      </h1>
+      <div class="possibleClasses">
+        <p>
+        Based on your answers, your car can be built to Super Touring (STU) specifications.
+        Super Touring (STU) is divided into STU &mdash;
+        the class your car runs in (and its minimum weight) is set by its spec line.
+        </p>
+        <p>
+        To find your specific car's class and minimum weight, use the
+        <a href="/rr/index.html">make / model / year selector</a>. Always confirm your car's
+        spec line in the
+        <a href="https://www.scca.com/pages/cars-and-rules" target="_blank" rel="noopener noreferrer">official GCR</a>
+        before competing.
+        </p>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for Super Touring (STU) class.
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>
