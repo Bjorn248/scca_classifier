@@ -821,6 +821,65 @@ func roadRacingChapters() []Chapter {
 				{Name: "Wheels", DisplayName: "Tires & Wheels", anchor: regexp.MustCompile(`(?m)^[ \t]*O\.[ \t]+Tires & Wheels`)},
 			},
 		},
+		{
+			Name:       "GT",
+			ShortName:  "gt",
+			Number:     "n/a",
+			Subclasses: []string{"GT1", "GT2", "GT3", "GTL", "GTA", "GTX"},
+			start:      regexp.MustCompile(`9\.1\.2\. GT1 CATEGORY SPECIFICATIONS[ \t]*\n`),
+			// The GT-1 ruleset (A-D) is the questionnaire; end at the Approved Automobiles notes
+			// (and the per-car spec lines / GT-2/3/Lite rulesets that follow).
+			end:               regexp.MustCompile(`(?m)^[ \t]*E\.[ \t]+APPROVED AUTOMOBILES`),
+			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+(?:\.\d+)?\.?[ \t]+.*(?:Category Specifications|Spec Lines)[ \t]*$`),
+			templateFile:      "./templates/rr/questionnaire.html.tmpl",
+			outputFile:        "./src/rr/gt.html",
+			// Overview = Purpose/Intent/Specifications + the modifications preamble. The numbered
+			// areas within "D. AUTHORIZED MODIFICATIONS (GT-1)" become questions (their "(GT-1)"
+			// suffix keeps the anchors unambiguous). GT-2/3/Lite/A/X have their own rule sets.
+			SubChapters: []SubChapter{
+				{Name: "Purpose", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*A\.[ \t]+PURPOSE`)},
+				{Name: "Intent", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*B\.[ \t]+INTENT`)},
+				{Name: "Specifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*C\.[ \t]+SPECIFICATIONS`)},
+				{Name: "Modifications", DisplayName: "About These Modifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*D\.[ \t]+AUTHORIZED MODIFICATIONS`)},
+				{Name: "Engine", DisplayName: "Engine", anchor: regexp.MustCompile(`1\.[ \t]+Engine \(GT-1\)`)},
+				{Name: "RotaryEngine", DisplayName: "Engine (Rotary)", anchor: regexp.MustCompile(`2\.[ \t]+Engine, Rotary Piston`)},
+				{Name: "Cooling", DisplayName: "Cooling System", anchor: regexp.MustCompile(`3\.[ \t]+Cooling System \(GT-1\)`)},
+				{Name: "Drivetrain", DisplayName: "Transmission / Final Drive", anchor: regexp.MustCompile(`4\.[ \t]+Transmission/Final Drive \(GT-1\)`)},
+				{Name: "Suspension", DisplayName: "Suspension", anchor: regexp.MustCompile(`5\.[ \t]+Suspension \(GT-1\)`)},
+				{Name: "Brakes", DisplayName: "Brakes", anchor: regexp.MustCompile(`6\.[ \t]+Brakes \(GT-1\)`)},
+				{Name: "Wheels", DisplayName: "Wheels & Tires", anchor: regexp.MustCompile(`7\.[ \t]+Wheels and Tires \(GT-1\)`)},
+				{Name: "Bodywork", DisplayName: "Body & Structure", anchor: regexp.MustCompile(`8\.[ \t]+Body/Structure \(GT-1\)`)},
+				{Name: "Interior", DisplayName: "Driver / Passenger Compartment", anchor: regexp.MustCompile(`9\.[ \t]+Driver/Passenger Compartment`)},
+				{Name: "Safety", DisplayName: "Safety", anchor: regexp.MustCompile(`10\.[ \t]+Safety \(GT-1\)`)},
+			},
+		},
+		{
+			Name:       "Spec Miata",
+			ShortName:  "specmiata",
+			Number:     "n/a",
+			Subclasses: []string{"SM"},
+			start:      regexp.MustCompile(`9\.1\.7\. SPEC MIATA CLASS[ \t]*\n`),
+			// The per-car spec table ("SM   Bore x ...") follows the prose rules.
+			end:               regexp.MustCompile(`SM[ \t]+Bore x`),
+			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+(?:\.\d+)?\.?[ \t]+.*(?:Category Specifications|Spec Lines)[ \t]*$`),
+			templateFile:      "./templates/rr/questionnaire.html.tmpl",
+			outputFile:        "./src/rr/specmiata.html",
+			SubChapters: []SubChapter{
+				{Name: "Purpose", DisplayName: "Purpose & Intent", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*A\.[ \t]+PURPOSE AND INTENT`)},
+				{Name: "ClassifiedCars", DisplayName: "Classified Cars & Weights", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*B\.[ \t]+CLASSIFIED CARS`)},
+				{Name: "Modifications", DisplayName: "About These Modifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*C\.[ \t]+AUTHORIZED MODIFICATIONS`)},
+				{Name: "Engine", DisplayName: "Engine", anchor: regexp.MustCompile(`1\.[ \t]+Engine Modifications`)},
+				{Name: "Drivetrain", DisplayName: "Transmission / Final Drive", anchor: regexp.MustCompile(`2\.[ \t]+Transmission/Final Drive`)},
+				{Name: "Chassis", DisplayName: "Chassis", anchor: regexp.MustCompile(`3\.[ \t]+Chassis\b`)},
+				{Name: "Brakes", DisplayName: "Brakes", anchor: regexp.MustCompile(`4\.[ \t]+Brakes\b`)},
+				{Name: "Wheels", DisplayName: "Wheels", anchor: regexp.MustCompile(`5\.[ \t]+Wheels\b`)},
+				{Name: "Tires", DisplayName: "Tires", anchor: regexp.MustCompile(`6\.[ \t]+Tires\b`)},
+				{Name: "Bodywork", DisplayName: "Body & Structure", anchor: regexp.MustCompile(`7\.[ \t]+Body/Structure`)},
+				{Name: "Interior", DisplayName: "Driver / Passenger Compartment", anchor: regexp.MustCompile(`8\.[ \t]+Driver/Passenger Compartment`)},
+				{Name: "Safety", DisplayName: "Safety", anchor: regexp.MustCompile(`9\.[ \t]+Safety\b`)},
+				{Name: "Updates", DisplayName: "Updates & Backdating", anchor: regexp.MustCompile(`10\.[ \t]+Updates`)},
+			},
+		},
 	}
 }
 
@@ -925,6 +984,8 @@ func processRRChapters(funcMap template.FuncMap) []Chapter {
 		regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+\.[ \t]+[A-Z][A-Za-z0-9/&' -]*? Category Specifications[ \t]*$`),
 		// Summit Racing full-page advertisement, if present.
 		regexp.MustCompile(`(?s)GET THE SUMMIT ADVANTAGE!.+?SummitRacing\.com`),
+		// Tire Rack advertisement block, if present.
+		regexp.MustCompile(`(?s)©20\d\d Tire Rack.+?ON ORDERS OVER \$50`),
 	}
 
 	for i := range rrChapters {

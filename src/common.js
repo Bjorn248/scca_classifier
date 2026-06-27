@@ -243,6 +243,32 @@ const carFlags = {
     'supertouringBrakes',
     'supertouringWheels',
   ],
+  'gtCar': [
+    'gtLandingPage',
+    'gtEngine',
+    'gtRotaryEngine',
+    'gtCooling',
+    'gtDrivetrain',
+    'gtSuspension',
+    'gtBrakes',
+    'gtWheels',
+    'gtBodywork',
+    'gtInterior',
+    'gtSafety',
+  ],
+  'specmiataCar': [
+    'specmiataLandingPage',
+    'specmiataEngine',
+    'specmiataDrivetrain',
+    'specmiataChassis',
+    'specmiataBrakes',
+    'specmiataWheels',
+    'specmiataTires',
+    'specmiataBodywork',
+    'specmiataInterior',
+    'specmiataSafety',
+    'specmiataUpdates',
+  ],
 };
 
 /*
