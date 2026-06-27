@@ -27,6 +27,7 @@ type Chapter struct {
 	OverviewSections  []SubChapter // Informational sections rendered on the landing page (e.g. Purpose, Intent)
 	QuestionSections  []SubChapter // Sections rendered as yes/no eligibility questions
 	Subclasses        []string     // Category subclasses (e.g. ITR/ITS/ITA/ITB/ITC); the specific one is set by a car's spec line
+	IndexCategory     string       // Class-table column this chapter's subclasses belong under; defaults to Name. Lets sibling rule sets (e.g. Touring T1 and T2-T4) share one "Touring" column.
 	Sections          []string     // Section names for classes without SubChapters (e.g., "Bodywork", "Safety")
 	CarFlags          []string     // Question IDs for carFlags (auto-populated from SubChapters/Sections)
 	Reader            *io.SectionReader
@@ -641,11 +642,12 @@ func roadRacingChapters() []Chapter {
 			},
 		},
 		{
-			Name:       "Touring (T1)",
-			ShortName:  "t1",
-			Number:     "n/a",
-			Subclasses: []string{"T1"},
-			start:      regexp.MustCompile(`9\.1\.9\.1 TOURING \(T1\) CATEGORY[ \t]*\n`),
+			Name:          "Touring (T1)",
+			ShortName:     "t1",
+			Number:        "n/a",
+			Subclasses:    []string{"T1"},
+			IndexCategory: "Touring",
+			start:         regexp.MustCompile(`9\.1\.9\.1 TOURING \(T1\) CATEGORY[ \t]*\n`),
 			// End before the Labeling/Approved-Cars sections and the per-car spec table.
 			end:               regexp.MustCompile(`M\.[ \t]+Labeling`),
 			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+(?:\.\d+)?\.?[ \t]+.*Spec Lines[ \t]*$`),
@@ -676,6 +678,7 @@ func roadRacingChapters() []Chapter {
 			ShortName:         "t2t4",
 			Number:            "n/a",
 			Subclasses:        []string{"T2", "T3", "T4"},
+			IndexCategory:     "Touring",
 			start:             regexp.MustCompile(`9\.1\.9\.2 TOURING \(T2-T4\) CATEGORY[ \t]*\n`),
 			end:               regexp.MustCompile(`E\.[ \t]+Car Classification`),
 			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+(?:\.\d+)?\.?[ \t]+.*Spec Lines[ \t]*$`),
@@ -748,23 +751,33 @@ func generateRRIndex(funcMap template.FuncMap, chapters []Chapter, specLines []S
 	if err != nil {
 		log.Fatal("Could not marshal road racing car data", err)
 	}
-	// One column per category that defines subclasses; its subclasses stack down the column
-	// (autocross-style). The grid is ragged — categories with fewer subclasses leave blank cells.
+	// One column per display category; its subclasses stack down the column (autocross-style).
+	// Chapters sharing an IndexCategory (e.g. Touring T1 and T2-T4) merge into one column, with
+	// each subclass linking to its own questionnaire. The grid is ragged — shorter columns
+	// leave blank cells.
 	var categories []string
-	var cols [][]rrClassCell
-	maxRows := 0
+	colCells := map[string][]rrClassCell{}
 	for _, c := range chapters {
 		if len(c.Subclasses) == 0 {
 			continue
 		}
-		categories = append(categories, c.Name)
-		col := make([]rrClassCell, len(c.Subclasses))
-		for i, sub := range c.Subclasses {
-			col[i] = rrClassCell{Subclass: sub, URL: "/rr/" + c.ShortName + ".html"}
+		cat := c.IndexCategory
+		if cat == "" {
+			cat = c.Name
 		}
-		cols = append(cols, col)
-		if len(col) > maxRows {
-			maxRows = len(col)
+		if _, seen := colCells[cat]; !seen {
+			categories = append(categories, cat)
+		}
+		for _, sub := range c.Subclasses {
+			colCells[cat] = append(colCells[cat], rrClassCell{Subclass: sub, URL: "/rr/" + c.ShortName + ".html"})
+		}
+	}
+	cols := make([][]rrClassCell, len(categories))
+	maxRows := 0
+	for i, cat := range categories {
+		cols[i] = colCells[cat]
+		if len(cols[i]) > maxRows {
+			maxRows = len(cols[i])
 		}
 	}
 	rows := make([][]rrClassCell, maxRows)
