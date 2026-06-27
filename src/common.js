@@ -222,6 +222,11 @@ const carFlags = {
     'specmx5RollCage',
     'specmx5Safety',
   ],
+  'bspecCar': [
+    'bspecLandingPage',
+    'bspecSafety',
+    'bspecPreparation',
+  ],
 };
 
 /*

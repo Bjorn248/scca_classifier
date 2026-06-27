@@ -769,6 +769,27 @@ func roadRacingChapters() []Chapter {
 				{Name: "Safety", DisplayName: "Safety", anchor: regexp.MustCompile(`19\.[ \t]+Safety\b`)},
 			},
 		},
+		{
+			Name:       "B-Spec",
+			ShortName:  "bspec",
+			Number:     "n/a",
+			Subclasses: []string{"B-Spec", "C-Spec"},
+			start:      regexp.MustCompile(`9\.1\.10\. B-SPEC AND C-SPEC \(REGIONAL CLASS ONLY\)[ \t]*\n`),
+			// The per-car spec table begins with the "B-SPEC ... Stroke (mm)" column header.
+			end:               regexp.MustCompile(`B-SPEC[ \t]+Stroke`),
+			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+(?:\.\d+)?\.?[ \t]+.*(?:Category Specifications|Spec Lines)[ \t]*$`),
+			templateFile:      "./templates/rr/questionnaire.html.tmpl",
+			outputFile:        "./src/rr/bspec.html",
+			// Definition/Eligibility/Classification are overview; the Technical & Safety and
+			// Vehicle Preparation sections (each a long numbered list) become the questions.
+			SubChapters: []SubChapter{
+				{Name: "Definition", DisplayName: "Definition", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*A\.[ \t]+Definition`)},
+				{Name: "Eligibility", DisplayName: "Automobile Eligibility", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*B\.[ \t]+Automobile Eligibility`)},
+				{Name: "Classification", DisplayName: "Classification", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*C\.[ \t]+Classification`)},
+				{Name: "Safety", DisplayName: "Technical & Safety Items", anchor: regexp.MustCompile(`(?m)^[ \t]*D\.[ \t]+Technical and Safety Items`)},
+				{Name: "Preparation", DisplayName: "Vehicle Preparation", anchor: regexp.MustCompile(`(?m)^[ \t]*E\.[ \t]+Vehicle Preparation`)},
+			},
+		},
 	}
 }
 
