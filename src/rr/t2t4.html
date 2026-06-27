@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Road Racing Classifier Application - Touring (T2-T4) Car Page">
+    <title>SCCA Road Racing Classification Assistant</title>
+    <script src="../common.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a id='t2t4LandingPageMenu' href="#" onclick="resetQuestion('t2t4LandingPage'); evalSessionStorage('t2t4Car');">Overview</a>
+      <a id='touringt2t4EngineMenu' href="#" onclick="resetQuestion('touringt2t4Engine'); evalSessionStorage('t2t4Car');">Engine</a>
+      <a id='touringt2t4CoolingMenu' href="#" onclick="resetQuestion('touringt2t4Cooling'); evalSessionStorage('t2t4Car');">Cooling System</a>
+      <a id='touringt2t4DrivetrainMenu' href="#" onclick="resetQuestion('touringt2t4Drivetrain'); evalSessionStorage('t2t4Car');">Transmission / Final Drive</a>
+      <a id='touringt2t4SuspensionMenu' href="#" onclick="resetQuestion('touringt2t4Suspension'); evalSessionStorage('t2t4Car');">Suspension</a>
+      <a id='touringt2t4BrakesMenu' href="#" onclick="resetQuestion('touringt2t4Brakes'); evalSessionStorage('t2t4Car');">Brakes</a>
+      <a id='touringt2t4WheelsMenu' href="#" onclick="resetQuestion('touringt2t4Wheels'); evalSessionStorage('t2t4Car');">Wheels & Tires</a>
+      <a id='touringt2t4BodyworkMenu' href="#" onclick="resetQuestion('touringt2t4Bodywork'); evalSessionStorage('t2t4Car');">Body & Structure</a>
+      <a id='touringt2t4InteriorMenu' href="#" onclick="resetQuestion('touringt2t4Interior'); evalSessionStorage('t2t4Car');">Driver / Passenger Compartment</a>
+      <a id='touringt2t4SafetyMenu' href="#" onclick="resetQuestion('touringt2t4Safety'); evalSessionStorage('t2t4Car');">Safety</a>
+    </div>
+
+  </head>
+
+  <body onload="evalSessionStorage('t2t4Car');">
+    <!-- Modern Top Navigation Bar -->
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button class="hamburger-menu" onclick="openNav()" title="Open navigation menu">☰</button>
+      </div>
+      <div class="nav-center">
+        <h1 class="nav-title">Touring (T2-T4) Class Questionnaire</h1>
+      </div>
+      <div class="nav-right">
+        <button class="nav-button" onclick="window.location.href = '/index.html';" title="Return to home page">
+          🏠 Home
+        </button>
+        <button class="nav-button" onclick="window.location.href = '/rr/index.html';" title="Back to road racing classes">
+          🏎️ Classes
+        </button>
+        <button class="nav-button" onclick="resetState()" title="Clear question answers and selections">
+          🔄 Clear
+        </button>
+      </div>
+    </nav>
+    <div id="t2t4LandingPage" class="center question sansserif">
+      <h2 id="t2t4LandingPageQuestion">
+        Touring (T2-T4) Class Overview
+      </h2>
+      <div id="overviewBody" class="questionBody">
+        <p>
+        This questionnaire walks through the Touring (T2-T4) preparation rules from the SCCA General
+        Competition Rules (GCR). Answer "Yes" or "No" for each section to see whether your car can be
+        built to Touring (T2-T4) specifications. The overview below explains the intent of the category.
+        </p>
+        <h3>Purpose</h3>
+        <p>Touring Category Classes are intended to provide the Membership with the opportunity to compete in commonly-available, recently-produced automobiles in as near the legal, street-driven form of those automobiles as is practically and safely possible under racing circumstances.</p>
+        <h3>Intent</h3>
+        <p>Touring Category automobiles shall, at all times, be in com­pliance with the specifications contained within their factory Shop/Service Manual(s) except as modified by these rules. Factory Shop/Service Manuals may come in the form of printed material, microfiche, CDs, DVDs and/or Internet access to manufacturer sponsored web-based databases. It is the responsibility of the competitor to provide the electronic device capable of accessing the data for compliance verification.</p><p class="indent">1. The competitiveness of any car in any Class shall not be guaranteed, nor shall the continued recognition of any car in any Class. Eligibility of cars may be discontinued at any time and for any reason, other than that of competitive stature.</p>
+        <h3>Specifications</h3>
+        <p>The SCCA shall publish Touring Category Specifications (TCS), containing the basic officially recognized specifications for each car eligible to compete in the Category during the calendar year.</p><p class="indent">1. To supplement those Specifications, competitors in the Touring Category shall be required to have in their possession a factory Shop/Service manual or its equivalent (See TCS section 9.1.10.B) for the specific make, model and year of the automobile entered. This manual or its equivalent will assist in determining the originality and configuration of the automobile, and shall be presented at Technical Inspection for every event and when otherwise so officially requested. If the factory Shop/Service manual is not available, then the competitor shall have a copy of the official SCCA Vehicle Technical Sheet (VTS) with them at every event and shall present it for reference when officially requested.</p><p class="indent">2. The proof of legality or illegality shall rest upon the protestor and/or protestee.</p><p class="indent">3. The Club Racing Board may classify any particular model of a car, and may permit specific factory options for that car. Cars classified shall have been approved by the ARB, EPA, and DOT for sale in the United States, and shall be models intended to be available to the general public for purchase. Such options shall be listed on the Specification Line for that vehicle. No unlisted models or factory options are eligible. If no specific model or options are listed on said line, the classified car shall be the base model with no options. Converting a car delivered with an automatic transmission to a manual transmission is allowed as long as all components which differ, including, but not limited to, radiator, springs, engine management systems, final drive ratio, etc., are converted to manual transmission specification.</p><p>a. Only those cars listed each year are eligible to compete. Additions and/or deletions of auto­mobiles shall be at the discretion of the SCCA. Competitiveness of cars is not guaranteed.</p><p>b. &#34;Special Performance&#34; specifications from the manufacturer which go beyond those listed in the Touring Specifications book will not be considered valid. Any manufacturer determined to be supplying false specifications to competitors or to the SCCA may be advised that said specifications may be withdrawn or the eligibility of the car(s) involved shall be terminated. The Club Racing Board is authorized to implement these terminations on an immediate basis without the approval of the Board of Directors.</p><p>c. In the case of service circulars, recalls, etc., the burden of proof of validity shall be upon the competitor. 9.1.9.2. Touring (T2-T4) Category Specifications</p><p class="indent">4. To maintain the stock basis of Touring, updating and/or backdating of components is only permitted within cars of the same make and model as listed on a single Touring Specification Line. Interchanging of parts between engines of varying displacements is prohibited.</p><p>a. The Club may permit substitution/replacement of certain components or modification of some assemblies on Touring Category automobiles. To assist in equating competition potential, not all automobiles may be permitted some or all of these allowed substitutions and/or modifications. Any such permissions shall be listed on the Specification line for each vehicle Where a kit or option is permitted on a specification line, all of the listed parts must be used.</p><p>b. Spec lines may include modifications that are &#34;permitted&#34; or &#34;allowed&#34;. This means that they are a permitted as alternatives to the allowances written into the category rules. For example &#34;Koni shock #xxxxxxx allowed&#34; implies that you could use the Koni option or any option that complies with the category rules.</p><p class="indent">5. In order to equate competition potential, the Club will specify a competition weight for the vehicle.</p><p class="indent">6. When alternate parts are approved for competitor use, the requesting party must first provide proof that sufficient quantities of the parts are readily available through commercial channels. The kit must be submitted to SCCA Road Racing Technical Services for inspection, and the kit may be returned to the sender.</p>
+        <h3>About These Modifications</h3>
+        <p>(Configuration) The following items represent the only modifications and safety items permitted and/or required on Touring Category automobiles. No permitted component or authorized modification shall additionally perform a prohibited function.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['t2t4LandingPage', 't2t4CarAnsweredIndex'], [true, 0]); hideItem('t2t4LandingPage'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">Continue</button>
+    </div>
+
+    <div id="touringt2t4Engine" class="center question sansserif">
+      <h2 id="touringt2t4EngineQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Engine.</span>
+      </h2>
+      <div id="touringt2t4Body" class="questionBody">
+        <p>a. Component Modification</p><p class="indent">1. Overhaul procedures which in the slightest way could increase performance beyond factory specifications shall not be utilized, e.g. porting/polishing, etc.</p><p class="indent">2. Blueprinting and balancing is allowed.</p><p class="indent">3. No engine component(s) shall be modified in any manner that is not specifically permitted or authorized by the Factory Service Manual or legitimate Factory Technical Bulletins.</p><p class="indent">4. &#34;Special Performance&#34; specifications from the manufacturer which go beyond those listed in the TCS book shall not be considered valid.</p><p>b. Induction System</p><p class="indent">1. Air filter(s) elements (only) may be substituted. Unless listed on individual spec line.</p><p class="indent">2. OEM intake- Chambers, resonators and acoustic devices may be removed, provided; that their ports are located prior to any required restrictor, their ports are completely sealed, and that the part serves no other purpose.</p><p>c. Fuel System</p><p class="indent">1. All fuel system components, settings, and specifications shall be as specified by the manufacturer. Fuel filters may be substituted with other fuel filters of equivalent OEM specifications.</p><p class="indent">2. Only the fuel type specified by the Owner&#39;s and/or Factory Service Manual may be used. Refer to GCR Section 9.3 Fuel, for permitted fuel specifications.</p><p class="indent">3. The stock fuel tank may be replaced with a fuel cell that is designed to mount in the OEM fuel tank location or is specifically designed to mount in the spare tire well provided that it is not necessary to modify any bodywork to accomplish the installation other than for the purposes of fastening the cell securely in place.</p><p class="indent">4. For cars that have OEM saddle bag fuel tanks, a single auxiliary aftermarket fuel transfer pump is permitted if the only function this transfer pump performs is to transfer fuel to the OEM pump.</p><p class="indent">5. Removal of ancillary fuel tank equipment charcoal canisters, emissions valves, and sensors allowed for OEM or aftermarket fuel cell installations</p><p>d. Camshaft and Valve Gear</p><p class="indent">1. All valve sizes, seat dimensions, and angles, etc., shall be in conformance with those specifications and procedures outlined in the Factory Service manual.</p><p>e. Block</p><p class="indent">1. Any overbore up to .020&#34; permitted T2-T4 with +30 lbs. penalty. Oversize OEM equivalent pistons are required. This allowance does not apply to any car adhering to spec rules.</p><p class="indent">2. The production engine block/crankcase may be substituted with another OE engine block regardless of generation and/or date of manufacture. The replacement engine block must be of the same material, and have the same, bore, stroke, and deck height as the block supplied in the car of the specific spec line. Aftermarket blocks are prohibited. 9.1.9.2. Touring (T2-T4) Category Specifications</p><p>f. Oiling System</p><p class="indent">1. Engine oil may be substituted with other oil of equivalent OEM specifications. Oil additives are unrestricted.</p><p class="indent">2. Engine oil filter may be substituted with any unit meeting OEM specifications.</p><p class="indent">3. An oil catch can is permitted.</p><p class="indent">4. Any oil cooler(s) is permitted.</p><p class="indent">5. Accusump systems and related hoses and brackets are permitted in all Touring category cars.</p><p class="indent">6. The oil pan and oil pickup may be baffled, modified, or replaced. Using safety wire or a similar method to secure the drainplug is allowed and encouraged. Relocating the oil filter within the engine bay is permitted.</p><p>g. Ignition/Starter/Electrical System</p><p class="indent">1. Spark plugs may be substituted.</p><p class="indent">2. The use of resistor or non-resistor-type plugs is permitted.</p><p class="indent">3. Batteries may be replaced provided the replacement is capable of starting the car. Batteries may not be relocated unless noted on the spec line. Batteries must be adequately secured. Battery labeling must conform to 9.3.35.D.</p><p>h. Exhaust System</p><p class="indent">1. Exhaust systems after the exhaust header manifold are free. If the catalytic converter is part of the stock exhaust header, it is permitted to modify the stock header only to replace the catalytic converter with a tube of the same diameter inlet. Removal of secondary air injection (air/smog pump) components is allowed.</p><p>a. The system exits from beneath the body in the same approximate location(s) as the original system. When a factory (OEM) single exhaust system is cosmetically split into dual outlets, it is permitted to continue as a single system provided it exits in approximately the same location as one of the originals.</p><p>b. The system meets all appropriate event-specific sound level requirements.</p><p>i. Other Engine Components</p><p class="indent">1. Fluid hoses, their appropriate clamps, and belts (fan, alternator, etc.) may be substituted. Related clamps and hardware are unrestricted.</p><p class="indent">2. The engine management computer or ECU may be altered, but not replaced. All modifications shall be done within the original housing. The car may meet federal emission standards, but shall provide OBD II compliant data to the data link connector.</p><p class="indent">3. Cosmetic engine covers made of plastic may be removed.</p><p class="indent">4. Any power steering cooler(s) is permitted.</p><p class="indent">5. T2-T4 only: Any clutch disc and pressure plate of OEM diameter may be used, provided that they shall be bolted directly to an unmodified stock flywheel and is no lighter than 95% of the factory OEM clutch disc and pressure plate.</p><p class="indent">6. Any car with a dual mass flywheel may change to a single mass flywheel that is no lighter than 95% of factory OEM weight.</p><p class="indent">7. Fluid filled motor mounts, fluid filled transmission mounts, fluid filled differential mounts and subframe bushings may be replaced with non-spherical non-metallic mounts. Sub-frame bushings may be replaced with non-spherical bushings; any material allowed. Mounts that are replaced may serve no other function or provide any other performance improvement or alteration than the original purpose.</p><p class="indent">8. Aftermarket, OEM-equivalent piston rings and apex seals are allowed.</p><p class="indent">9. Any thermostat is allowed provided it serves no purpose other than the OE intent.</p><p class="indent">10. Intercoolers- If an alternative intercooler is allowed on a vehicle&#39;s spec line, it must conform to the following: It must fit in the original location. It must require no body or structural modifications to install. No new openings may be created to direct air to the intercooler. If an intercooler is allowed, the appropriate hoses to attach it are also permitted provided that they serve no other purpose than the OE hoses.</p><p class="indent">2. Engine, Rotary Piston</p><p>a. All permissions and restrictions in Sections D.1. apply.</p><p>b. Rotary engines can pre-mix gas with 2-cycle oil additives. See section 9.3 Fuel for more details. 9.1.9.2. Touring (T2-T4) Category Specifications</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['touringt2t4Engine', 't2t4CarAnsweredIndex'], [true, 1]); hideItem('touringt2t4Engine'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['touringt2t4Engine', 't2t4CarAnsweredIndex'], [false, 1]); hideItem('touringt2t4Engine'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="touringt2t4Cooling" class="center question sansserif">
+      <h2 id="touringt2t4CoolingQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Cooling System.</span>
+      </h2>
+      <div id="touringt2t4Body" class="questionBody">
+        <p>a. Radiator(s)</p><p class="indent">1. A radiator screen of one-fourth (¼) inch minimum mesh may be added in front of the radiator. If added, it shall be contained entirely within the bodywork of the vehicle.</p><p class="indent">2. Any radiator and fans are permitted, provided it mounts in the original location, maintains the same plane as the original core, and requires no body or structural modifications to install. No new openings created by fitting an alternate radiator may be used to duct air to the engine. Any expansion tank permitted as long as it serves no other purpose.</p><p class="indent">3. Radiator and coolant hoses may be replaced with aftermarket options. Modification for coolant temp sensors is permitted.</p><p>b. HVAC:</p><p class="indent">1. The factory and/or aftermarket air conditioning and heating system may be removed, provided that at least the following items associated with the system are also removed: compressor, condenser. All duct work, vents, wiring, Freon lines, valves, evaporators, dryers, and dash controls may remain. If the air conditioning compressor is an integral part of the drive system, the compressor may be retained and disabled or replaced with an idler pulley that serves no other purpose.</p><p class="indent">2. Items that serve a dual purpose, such as an alternator/air conditioning compressor bracket, etc., may not be substituted.</p><p class="indent">3. The gaps around the radiator that are created by the removal of the air conditioning condenser and related items may be sealed with foam.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['touringt2t4Cooling', 't2t4CarAnsweredIndex'], [true, 2]); hideItem('touringt2t4Cooling'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['touringt2t4Cooling', 't2t4CarAnsweredIndex'], [false, 2]); hideItem('touringt2t4Cooling'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="touringt2t4Drivetrain" class="center question sansserif">
+      <h2 id="touringt2t4DrivetrainQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Transmission / Final Drive.</span>
+      </h2>
+      <div id="touringt2t4Body" class="questionBody">
+        <p>a. Transmission</p><p class="indent">1. Transmission lubricant may be substituted. Transmission lubricant additives are unrestricted.</p><p class="indent">2. An oil catch can is permitted.</p><p class="indent">3. Any transmission cooler(s) is permitted.</p><p class="indent">4. Conventional aftermarket shift kits allowed (i.e., short-shift). Parts can serve no other purpose than to accomplish the shifting of the OE transmission.</p><p>b. Final Drive</p><p class="indent">1. Unless otherwise so noted on the Vehicle&#39;s Specification Line, the differential ratio shall be as delivered as standard equipment by the manufacturer.</p><p class="indent">2. All legitimately classified cars in Touring Class are permitted a limited-slip differential (Quaiffe, Torsen, etc.). Locked differentials are not allowed.</p><p class="indent">3. Final Drive lubricant may be substituted. Final Drive lubricant additives are unrestricted.</p><p class="indent">4. An oil catch can is permitted.</p><p class="indent">5. Any differential cooler(s) is permitted.</p><p class="indent">6. Driveshafts may be replaced with alternative materials ie. carbon fiber, aluminum, steel. Two-piece driveshafts may be replaced with one-piece units.</p><p class="indent">7. RWD cars may install a driveshaft safety loop. This includes Spec cars.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['touringt2t4Drivetrain', 't2t4CarAnsweredIndex'], [true, 3]); hideItem('touringt2t4Drivetrain'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['touringt2t4Drivetrain', 't2t4CarAnsweredIndex'], [false, 3]); hideItem('touringt2t4Drivetrain'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="touringt2t4Suspension" class="center question sansserif">
+      <h2 id="touringt2t4SuspensionQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Suspension.</span>
+      </h2>
+      <div id="touringt2t4Body" class="questionBody">
+        <p>a. Suspension Adjustments</p><p class="indent">1. T2-T4: Spec line part(s) may not be modified to increase caster and camber. Strut suspensions may adjust camber and caster by the use of eccentric bushings, eccentric bolts (crash bolts) at the strut-to-spindle, and/or by use of slotted adjustment plates at the top of the strut mounting plate. If upper strut slotted adjustment plates are used, they shall be located on existing chassis structure, utilizing the unmodified manufacturer&#39;s original bolt holes and may not serve as reinforcement for that structure. Slotted adjustment plates (strut camber plates) may incorporate a single spherical bearing (spherical bushing) and a ball thrust bearing per strut tower. On other forms of suspension, camber and caster adjustment may be achieved by the use of shims and/ or eccentric bushings. Adjustable toe links are permitted. They are allowed to have performance alternative bushings and spherical bearings. They may serve no purpose other than adjusting toe angle. Spherical bearings/bushings are not permitted in T2-T4 except for the specific examples listed in the class rules or vehicle spec line.</p><p>b. Springs, Anti‑Roll bar(s), and Shock Absorbers</p><p class="indent">1. Anti-Roll bars may be removed or disconnected. Cars where air conditioning units have been removed shall refer additionally to Section D.3.b.1., above, for additional spring requirements. If alternate sway bar(s) are listed on the specification line, adjustable end links are allowed. The length of the link must be within 1&#34; +/- length of stock. No modifications are allowed to the mounting point(s) other than to accomplish attachment of link. There may only be (1) rated spring per suspension corner. In addition to the main rated spring, there may be a &#34;helper&#34; spring on cars allowed a maximum spring rate on their spec line. Helper springs keep the main 9.1.9.2. Touring (T2-T4) Category Specifications spring snug and feature a very soft rate, on the order of 10 lbs./in.</p><p class="indent">2. The make of shock absorber may be changed. Their number, perch location(s), system of attachment, and attachment points shall not be altered. Their type (tube vs. lever, etc.) shall not be altered. The interchange of gas and hydraulic shock absorbers is permitted. T2-T3: Shocks must be installed in the original mounting locations unless noted in the spec line. Remote reservoirs and multiple adjusters are permitted. Threaded shock bodies or adjusters may be used. Shocks can serve no purpose other than to damp motion. T4 only: Any non-adjustable or single adjustable (knob or screw) shock absorber is allowed. Shocks must be installed in the original mounting locations. Remote reservoirs are not permitted. Threaded shock bodies or adjusters may be used. Shocks can serve no purpose other than to damp motion.</p><p>a. The mounting hardware utilized shall be of the original type.</p><p>b. The use of any shock absorber bushing material is permitted. Note: the bushing attaching the end of the strut to the body or frame on a strut-type suspension system is considered a suspension bushing, not a shock absorber bushing.</p><p>c. T2 only: minimum ride height is 3.75&#34; inches. T3, T4 only: minimum ride height is 4.5&#34; inches. Ride height to be measured without driver at the lowest point of the rocker, but not to include welded seams, fasteners or factory aero cladding.</p><p>d. T2-T4 only: Cars with alternate spring allowance in spec line, may use adaptors, and adjustable perches to allow fitment of springs.</p><p>e. Cars with inboard rear springs are permitted to relocate the spring to the shock.</p><p>f. Cars with an alternative spring allowance are permitted to use performance alternative top hats on shocks and struts. These top hats are permitted to utilize spherical bearings.</p><p>c. Alternate Bushings</p><p class="indent">1. All T2-T3 cars are allowed to replace OEM upper and lower control arm bushings with polyurethane, delrin bushings or alternate synthetic material.</p><p class="indent">2. All T2 cars are allowed to replace OEM rear suspension cradle bushings with an alternate material. The bushing can serve no purpose other than its original intent.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['touringt2t4Suspension', 't2t4CarAnsweredIndex'], [true, 4]); hideItem('touringt2t4Suspension'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['touringt2t4Suspension', 't2t4CarAnsweredIndex'], [false, 4]); hideItem('touringt2t4Suspension'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="touringt2t4Brakes" class="center question sansserif">
+      <h2 id="touringt2t4BrakesQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Brakes.</span>
+      </h2>
+      <div id="touringt2t4Body" class="questionBody">
+        <p>a. Components</p><p class="indent">1. The make and material of brake pads and linings may be changed.</p><p class="indent">2. Brake fluid may be substituted with any brake fluid.</p><p class="indent">3. Brake rotor dust shields may be removed or replaced to accommodate brake ducts.</p><p class="indent">4. Flexible rubber brake lines may be replaced with Teflon lined, metal braided hoses.</p><p class="indent">5. Any brake ducts are permitted, but they must serve no other purpose. Fender liners may be modified solely for routing and attachment of brake ducts. Duct intake openings may be created by the opening of 2 sections up to 14.5 square inches each in the front fascia. The stock headlamp location is not permitted for brake ducting. Two alternative duct openings may be created by the removal of the fog lights or 2 sections up to 14.5 square inches each of stock false grills originally located in the front fascia.</p><p class="indent">6. In T2-Performance alternative rotors, including 2 piece rotors are permitted. Rotors must be within 5% of OE diameter or a maximum diameter of 360mm. In T3- Performance alternative rotors, including 2 piece rotors are permitted with a maximum diameter of 360mm. T4- Performance alternative1-piece rotors are permitted but rotors must meet the sizes listed in the spec line. Spec lines showing alternate brake kits are also permitted to use 1-piece performance alternative rotors of the same size.</p><p class="indent">7. Parking brakes, mechanisms, and actuating components may be removed.</p><p class="indent">8. Brake vacuum reservoirs sized 0.50 gallons or smaller are permitted. The port or fitting at the vacuum source may not be modified, enlarged or relocated. The vacuum reservoir and brake booster must be a closed system.</p><p class="indent">9. Touring 2 and Touring 3 only- 4 or 6-piston performance alternative brake calipers are permitted on the front axles. 9.1.9.2. Touring (T2-T4) Category Specifications</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['touringt2t4Brakes', 't2t4CarAnsweredIndex'], [true, 5]); hideItem('touringt2t4Brakes'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['touringt2t4Brakes', 't2t4CarAnsweredIndex'], [false, 5]); hideItem('touringt2t4Brakes'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="touringt2t4Wheels" class="center question sansserif">
+      <h2 id="touringt2t4WheelsQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Wheels & Tires.</span>
+      </h2>
+      <div id="touringt2t4Body" class="questionBody">
+        <p>a. Wheels</p><p class="indent">1. Any type wheel suitable for competition may be used, provided:</p><p>a. Any wheel not exceeding the specified diameter and rim width on the vehicle&#39;s specification line may be used. Each wheel, measured without weights, must weigh at least 15 lbs.</p><p>b. Wheels are permitted any offset provided the tire tread (that portion of the tire that contacts the ground) does not protrude beyond the fender opening when viewed from the top perpendicular to the ground, unless specified differently on the individual spec line for that car. To determine compliance the vehicle should be rolled through a powdered substance, as raced with driver, in order to indicate the tire tread contact patch under static conditions. When a maximum tire size is listed on a vehicle&#39;s specification line, aspect ratio is open and any tire may be used that does not exceed the stated maximum section width.</p><p>c. Cars equipped with lug bolts may convert to wheel studs and lug nuts.</p><p>d. Wheel studs may be replaced with longer studs as necessary to fit optional wheels. Wheel spacers may be used for purposes of adjusting track.</p><p class="indent">2. Hub caps and wheel trim rings shall be removed from all wheels.</p><p>b. Tires Tires must conform to GCR section 9.3. Tires. All tires shall be offered for sale over the counter through the manufacturer&#39;s tire dealer network. The brand of tire and tire pressures are unrestricted.All cars shall run tires with a minimum of a &#34;U&#34; speed rating. Tires must be DOT certified. The tire size on a vehicle spec line is a maximum unless otherwise noted. Touring spec line tire classification supersedes all other rules.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['touringt2t4Wheels', 't2t4CarAnsweredIndex'], [true, 6]); hideItem('touringt2t4Wheels'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['touringt2t4Wheels', 't2t4CarAnsweredIndex'], [false, 6]); hideItem('touringt2t4Wheels'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="touringt2t4Bodywork" class="center question sansserif">
+      <h2 id="touringt2t4BodyworkQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Body & Structure.</span>
+      </h2>
+      <div id="touringt2t4Body" class="questionBody">
+        <p>a. Configuration/Modifications</p><p class="indent">1. Component Alignment: All body components shall maintain their original relationships. Gaps or openings shall not be increased, decreased, or eliminated through realignment of components. Normally occurring gaps or seams shall not be taped over.</p><p class="indent">2. Door Glass</p><p>a. All cars shall run with both front door windows fully open (down).</p><p>b. Both front windows, driver and passenger, shall be down (preferably removed) whenever the vehicle is on track. The OEM window opening on the front doors shall not be filled in with any material, other than the material required to mount a NACA-duct for driver cooling. If used, the NACA-duct shall be mounted in the front, lower, corner of the window opening. The area closed off to mount the NACA-duct shall not exceed 50 square-inches. In rain conditions, a quarter window larger than 50 square-inches may be used in the area normally used to mount the permitted NACA-duct, in an attempt to minimize the amount of water entering the cockpit. Enough open area for the driver to exit in an emergency shall remain open at all times.</p><p class="indent">3. Spoilers (Wings)</p><p>a. Only original equipment front spoilers, dams, and rear spoilers and wings shall be permitted unless specified on the vehicle specification line.</p><p class="indent">4. Other Body Components</p><p>a. Sunroofs, Targa tops, and T-tops are only permitted if installed by the manufacturer of the vehicle. If installed they must be retained on the vehicle, run in the closed position, and securely bolted in place unless the operating rails adequately secure the panel. Glass panels are permitted. The glass sunroof may be replaced with a metal panel or a panel made of the same material as the roof of the car and all its associated mechanical components may be removed; the panel must be the same thickness as the roof material; the panel must retain the shape of the glass sunroof. Hardtops: Shall be the original equipment hardtop from the vehicle manufacturer unless an alternate part number or manufacturer is listed on the vehicle spec line. If a hardtop is used, latches shall be replaced with positive fasteners and convertible top shall be removed. Convertible or roadster top: Convertible or roadster top vehicles are allowed. The convertible top shall be removed.</p><p>b. Hatchback &#34;privacy covers&#34; shall be completely removed.</p><p>c. All of the vehicle&#39;s doors must be able to be opened from both inside and outside the vehicle. Electric door latches may be removed and replaced with mechanical linkage. Mechanical door latch location must be marked to be visible to workers. Front doors- Inner door skin, and window hardware, may be removed to reduce weight. Front factory door bars may be removed if the roll cage adequately protects the driver. Rear doors (if equipped)- Inner door skin, factory door bars window hardware may be removed provided rear windows are securely fastened in place. 9.1.9.2. Touring (T2-T4) Category Specifications</p><p class="indent">5. Fenders and wheel openings shall remain unmodified. It is permitted to roll under or flatten any interior lip on the wheel opening for tire clearance. Cars with plastic/composite fenders may remove any interior wheel opening lip, but the resulting material edge shall be no thinner than the basic fender material thickness. Non-metallic inner fender liners may be removed.</p><p class="indent">6. Air jacks are permitted, but no air source may be carried on board. Installation of such may not reinforce the chassis, or add another attachment point to the roll cage structure. It is permitted to attach one or more plates, or pads, under the car to provide for jacking of the car, provided they serve no other purpose. It is prohibited to install any kind of device, which protrudes from the rocker panel or side of the car.</p><p class="indent">7. Touring 2 and 3 only: Hoods may have a maximum of 2 vents installed for cooling purposes. The maximum combined total area of the vents shall not exceed 200 square inches. The 200 Square inches includes any area that deviates from the factory hood profile. Vents may not protrude above the OEM hood profile more than 25mm (1 inch).</p><p class="indent">8. For the sole purpose of engine radiator cooling, it is permitted to remove the outermost non-metallic webbed false grill openings that are closed in mesh style factory grill openings. The modified grill opening mesh shape and contour must be retained as delivered from the manufacturer. This allowance does not permit modification to dedicated brake-only or intercooler-only grill openings.</p><p class="indent">9. OEM fog lights may be removed. The resulting hole may be directed to brake ducts or coolers, any resulting hole not used for cooling must be covered</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['touringt2t4Bodywork', 't2t4CarAnsweredIndex'], [true, 7]); hideItem('touringt2t4Bodywork'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['touringt2t4Bodywork', 't2t4CarAnsweredIndex'], [false, 7]); hideItem('touringt2t4Bodywork'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="touringt2t4Interior" class="center question sansserif">
+      <h2 id="touringt2t4InteriorQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Driver / Passenger Compartment.</span>
+      </h2>
+      <div id="touringt2t4Body" class="questionBody">
+        <p>(Trunk)</p><p>a. Seating</p><p class="indent">1. All seats and seat brackets may be removed.</p><p class="indent">2. Rear heating/air conditioning ducts which are located under the seats may be removed or modified to facilitate seat installation.</p><p>b. Steering Wheel</p><p class="indent">1. Aftermarket steering wheels, and their required mounting modifications, are permitted.</p><p>c. Gauges and Accessories</p><p class="indent">1. Add on gauges are permitted and shall perform no other function other than their primary use or for Data acquisition.</p><p class="indent">2. Interior mirror(s) may be replaced, but no such mirror shall extend beyond the confines of the interior of the vehicle.</p><p class="indent">3. Two-way radios may be used.</p><p class="indent">4. Data Acquisition Systems Stand alone data acquisition systems are allowed to be in use in the car during practice, qualifying and race events. These devices may be connected to the data link connector in the car to extract available data. This must be a one-way out connection and no calibrating or alteration of the PCM is to be done while the car is in motion and the system in place.</p><p class="indent">5. It is permitted to add an aftermarket tachometer to any car that is not equipped with a factory tachometer.</p><p>d. Interior Modifications</p><p class="indent">1. Front passenger seat, rear seat back, rear seat bottom cushion(s), all seat-related wiring, sun visors, seat belts and their attaching hardware and bracketry may be removed. In any automobile where allowed removal of rear seats, upholstery, etc., creates an opening between the driver/ passenger compartment and an exposed gas tank, fuel cell, or part thereof, a metal bulkhead which completely fills such opening shall be installed (See GCR 9.3 Fuel Cell Specifications).</p><p class="indent">2. Carpets, carpet padding, center consoles, floor mats, headliners, sun roof liner and frame, dome lights, grab handles, and their insulating, attaching or operating mechanisms and front door windows may be removed. Sound deadening (melt sheets) and undercoating may be removed on the interior only.</p><p class="indent">3. Spare tires and any removable covers, tools, bins, etc., may be removed along with attaching hardware and bracketry.</p><p class="indent">4. Removal of radio and speaker components is permitted.</p><p class="indent">5. All other interior trim panels, except the dashboard, may be removed. Other than to provide for the installation of required safety equipment or other authorized modifications, no other driver/ passenger compartment alterations or gutting are permitted.</p><p class="indent">6. Modifications may be made to the foot pedals to improve the comfort and accessibility to the driver. Dead pedal/foot rest and heel stop may be added. 9.1.9.2. Touring (T2-T4) Category Specifications</p><p class="indent">7. The driver&#39;s side floor pan may be modified to accommodate larger/taller drivers. All modifications shall be contained between the transmission tunnel, driver&#39;s side rocker, rear bulkhead. The modification shall not extend below the factory floor stiffener/frame rail. The steel used in the modification shall be no thinner than .058&#34;. All modifications shall be welded in place. This modification shall serve no other purpose other than seating position.</p><p class="indent">8. Under-dash electronics including computers, modules and fuse boxes may be relocated so they can be easily accessed after roll cage installation.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['touringt2t4Interior', 't2t4CarAnsweredIndex'], [true, 8]); hideItem('touringt2t4Interior'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['touringt2t4Interior', 't2t4CarAnsweredIndex'], [false, 8]); hideItem('touringt2t4Interior'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">No</button>
+    </div>
+
+    <div id="touringt2t4Safety" class="center question sansserif">
+      <h2 id="touringt2t4SafetyQuestion">
+        Does your car meet the requirements below?
+        <br>
+        <span class="questionContext">These requirements are for Safety.</span>
+      </h2>
+      <div id="touringt2t4Body" class="questionBody">
+        <p>a. Steering Column (Locks)</p><p class="indent">1. Steering column locks may be removed or disabled.</p><p>b. Safety Harness</p><p class="indent">1. All cars shall be equipped with a driver&#39;s restraint system meeting the specifications of GCR Section 9.3 Driver&#39;s Restraint System.</p><p class="indent">2. All cars shall have a driver&#39;s side window safety net complying with GCR Section 9.3 Window Safety Nets shall be mounted in such a manner as to provide protection in the event the driver&#39;s door opens.</p><p class="indent">3. In those cars where a window safety net cannot be installed, arm restraints shall be used. Arm restraints are not an acceptable substitute for window nets in any other type of car.</p><p>c. Fire Systems (Extinguishers) All cars shall have, as a minimum, a fire extinguisher meeting the specifications of GCR Section 9.3 Fire System. Touring 2 cars must have a fire system installed. Touring 3, and Touring 4 automobiles may be equipped with a fire system meeting the specifications of GCR Section 9.3 Fire System.</p><p>d. Passive Restraint Systems Passive restraint systems shall be deac­ tivated. Air bag systems shall be deactivated and may be removed. If the car is to be used on public roads, we recommend that these items be reactivated/ rearmed/replaced when not in competition. If so equipped, the rolling door lock mechanism may be deactivated by unplugging the components.</p><p>e. Towing Eyes Towing eyes per GCR Section 9.3 Towing Eyes, shall be fitted.</p><p>f. Electrical Master Switch An electrical master switch may be installed.</p><p>g. It is permitted to either: • disconnect the stock hood release cable and replace it with a release cable easily accessible from the front of the car, or • disconnect the stock hood release cable and remove the stock hood latch and use hood pins to retain the hood in place.</p>
+      </div>
+      <br>
+      <button class="button yesButton" onclick="setState(['touringt2t4Safety', 't2t4CarAnsweredIndex'], [true, 9]); hideItem('touringt2t4Safety'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">Yes</button>
+      <button class="button noButton" onclick="setState(['touringt2t4Safety', 't2t4CarAnsweredIndex'], [false, 9]); hideItem('touringt2t4Safety'); evalSessionStorage('t2t4Car'); window.scroll(0,0);">No</button>
+    </div>
+
+
+    <div id="eligible" class="center eligible sansserif">
+      <h1>
+        Your car may be eligible for the Touring (T2-T4) category!
+        <br>
+      </h1>
+      <div class="possibleClasses">
+        <p>
+        Based on your answers, your car can be built to Touring (T2-T4) specifications.
+        Touring (T2-T4) is divided into T2, T3, T4 &mdash;
+        the class your car runs in (and its minimum weight) is set by its spec line.
+        </p>
+        <p>
+        To find your specific car's class and minimum weight, use the
+        <a href="/rr/index.html">make / model / year selector</a>. Always confirm your car's
+        spec line in the
+        <a href="https://www.scca.com/pages/cars-and-rules" target="_blank" rel="noopener noreferrer">official GCR</a>
+        before competing.
+        </p>
+      </div>
+    </div>
+
+    <div id="notEligible" class="center notEligible sansserif">
+      <h1>
+        Your car is NOT eligible for Touring (T2-T4) class.
+      </h1>
+      <div class="notEligibleExplanation">
+        <h2>
+          You answered "No" to the following questions, which resulted in your ineligibility:
+        </h2>
+        <p id="ineligibilityQuestions"></p>
+      </div>
+    </div>
+  </body>
+</html>

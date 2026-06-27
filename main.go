@@ -605,6 +605,131 @@ func roadRacingChapters() []Chapter {
 				{Name: "Measurement", DisplayName: "Measurement Standards", anchor: regexp.MustCompile(`(?m)^[ \t]*E\. MEASUREMENT STANDARDS[ \t]*$`)},
 			},
 		},
+		{
+			Name:      "American Sedan",
+			ShortName: "as",
+			Number:    "n/a",
+			// American Sedan (AS) is a single class.
+			Subclasses: []string{"AS"},
+			start:      regexp.MustCompile(`9\.1\.6\. AMERICAN SEDAN CATEGORY[ \t]*\n`),
+			// The prose rules end where Car Classification (the eligible-cars reference and
+			// engine build sheets) begins; the per-car spec table follows that.
+			end:               regexp.MustCompile(`(?m)^[ \t]*E\. CAR CLASSIFICATION[ \t]*$`),
+			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+\.[ \t]+[A-Z][A-Za-z0-9/&' -]*? Category Specifications[ \t]*$`),
+			templateFile:      "./templates/rr/questionnaire.html.tmpl",
+			outputFile:        "./src/rr/as.html",
+			// Overview = Purpose/Intent/Specifications + the modifications preamble. The numbered
+			// areas within "D. AUTHORIZED MODIFICATIONS" each become a yes/no question.
+			SubChapters: []SubChapter{
+				{Name: "Purpose", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*A\. PURPOSE[ \t]*$`)},
+				{Name: "Intent", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*B\. INTENT[ \t]*$`)},
+				{Name: "Specifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*C\. SPECIFICATIONS[ \t]*$`)},
+				{Name: "Modifications", DisplayName: "About These Modifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*D\. AUTHORIZED MODIFICATIONS[ \t]*$`)},
+				// No line-start anchor: -layout sometimes glues a heading number to the previous
+				// line's end (e.g. "...cadence.7.   Body/Structure:"). The specific heading text
+				// plus sequential matching keeps these unambiguous.
+				{Name: "Engine", DisplayName: "Engine", anchor: regexp.MustCompile(`1\.[ \t]+Engine \([^)]*\)`)},
+				{Name: "Cooling", DisplayName: "Engine Cooling System", anchor: regexp.MustCompile(`2\.[ \t]+Engine Cooling System:`)},
+				{Name: "Drivetrain", DisplayName: "Transmission / Final Drive", anchor: regexp.MustCompile(`3\.[ \t]+Transmission/Final Drive:`)},
+				{Name: "Suspension", DisplayName: "Suspension", anchor: regexp.MustCompile(`4\.[ \t]+Suspension:`)},
+				{Name: "Brakes", DisplayName: "Brake System", anchor: regexp.MustCompile(`5\.[ \t]+Brake System:`)},
+				{Name: "Wheels", DisplayName: "Wheels & Tires", anchor: regexp.MustCompile(`6\.[ \t]+Wheels/Tires:`)},
+				{Name: "Bodywork", DisplayName: "Body & Structure", anchor: regexp.MustCompile(`7\.[ \t]+Body/Structure:`)},
+				{Name: "Interior", DisplayName: "Driver / Passenger Compartment", anchor: regexp.MustCompile(`8\.[ \t]+Driver/Passenger Compartment:`)},
+				{Name: "Safety", DisplayName: "Safety", anchor: regexp.MustCompile(`9\.[ \t]+Safety:`)},
+				{Name: "Misc", DisplayName: "Miscellaneous", anchor: regexp.MustCompile(`10\.[ \t]+Miscellaneous:`)},
+			},
+		},
+		{
+			Name:       "Touring (T1)",
+			ShortName:  "t1",
+			Number:     "n/a",
+			Subclasses: []string{"T1"},
+			start:      regexp.MustCompile(`9\.1\.9\.1 TOURING \(T1\) CATEGORY[ \t]*\n`),
+			// End before the Labeling/Approved-Cars sections and the per-car spec table.
+			end:               regexp.MustCompile(`M\.[ \t]+Labeling`),
+			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+(?:\.\d+)?\.?[ \t]+.*Spec Lines[ \t]*$`),
+			templateFile:      "./templates/rr/questionnaire.html.tmpl",
+			outputFile:        "./src/rr/t1.html",
+			// The lettered prep areas are the questions. The source mislabels some letters (D and
+			// E repeat), so anchors match on the heading TEXT with a flexible letter prefix.
+			SubChapters: []SubChapter{
+				{Name: "Overview", DisplayName: "Purpose & Eligibility", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*T1 Category Purpose and Philosophy:`)},
+				{Name: "Bodywork", DisplayName: "Bodywork", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Bodywork\b`)},
+				{Name: "Aero", DisplayName: "Aerodynamic Devices", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Aerodynamic Devices`)},
+				{Name: "Interior", DisplayName: "Interior", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Interior\b`)},
+				{Name: "Chassis", DisplayName: "Chassis", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Chassis\b`)},
+				{Name: "Engine", DisplayName: "Engine", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Engine\b`)},
+				{Name: "Cooling", DisplayName: "Cooling", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Cooling\b`)},
+				{Name: "FluidFuel", DisplayName: "Fluid Piping & Fuel Tank", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Fluid Piping`)},
+				{Name: "Oil", DisplayName: "Oil System", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Oil System`)},
+				{Name: "Exhaust", DisplayName: "Exhaust System", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Exhaust System`)},
+				{Name: "Electrical", DisplayName: "Electrical System", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Electrical System`)},
+				{Name: "Drivetrain", DisplayName: "Drivetrain", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Drivetrain\b`)},
+				{Name: "Suspension", DisplayName: "Suspension & Steering", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Suspension and Steering`)},
+				{Name: "Brakes", DisplayName: "Brakes", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Brakes\b`)},
+				{Name: "Wheels", DisplayName: "Tires & Wheels", anchor: regexp.MustCompile(`[A-Z]\.[ \t]+Tires & Wheels`)},
+			},
+		},
+		{
+			Name:              "Touring (T2-T4)",
+			ShortName:         "t2t4",
+			Number:            "n/a",
+			Subclasses:        []string{"T2", "T3", "T4"},
+			start:             regexp.MustCompile(`9\.1\.9\.2 TOURING \(T2-T4\) CATEGORY[ \t]*\n`),
+			end:               regexp.MustCompile(`E\.[ \t]+Car Classification`),
+			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+(?:\.\d+)?\.?[ \t]+.*Spec Lines[ \t]*$`),
+			templateFile:      "./templates/rr/questionnaire.html.tmpl",
+			outputFile:        "./src/rr/t2t4.html",
+			// Overview = Purpose/Intent/Specifications + the modifications preamble. The numbered
+			// areas within "D. Modifications" become questions (the rotary sub-area folds into
+			// Engine). Anchors drop the line-start since -layout can glue a number to a prior line.
+			SubChapters: []SubChapter{
+				{Name: "Purpose", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*A\.[ \t]+Purpose\b`)},
+				{Name: "Intent", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*B\.[ \t]+Intent\b`)},
+				{Name: "Specifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*C\.[ \t]+Specifications\b`)},
+				{Name: "Modifications", DisplayName: "About These Modifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*D\.[ \t]+Modifications`)},
+				{Name: "Engine", DisplayName: "Engine", anchor: regexp.MustCompile(`1\.[ \t]+Engine\b`)},
+				{Name: "Cooling", DisplayName: "Cooling System", anchor: regexp.MustCompile(`3\.[ \t]+Cooling System`)},
+				{Name: "Drivetrain", DisplayName: "Transmission / Final Drive", anchor: regexp.MustCompile(`4\.[ \t]+Transmission/Final Drive`)},
+				{Name: "Suspension", DisplayName: "Suspension", anchor: regexp.MustCompile(`5\.[ \t]+Suspension\b`)},
+				{Name: "Brakes", DisplayName: "Brakes", anchor: regexp.MustCompile(`6\.[ \t]+Brakes\b`)},
+				{Name: "Wheels", DisplayName: "Wheels & Tires", anchor: regexp.MustCompile(`7\.[ \t]+Wheels and Tires`)},
+				{Name: "Bodywork", DisplayName: "Body & Structure", anchor: regexp.MustCompile(`8\.[ \t]+Body/Structure`)},
+				{Name: "Interior", DisplayName: "Driver / Passenger Compartment", anchor: regexp.MustCompile(`9\.[ \t]+Driver \(Passenger\) Compartment`)},
+				{Name: "Safety", DisplayName: "Safety", anchor: regexp.MustCompile(`10\.[ \t]+Safety\b`)},
+			},
+		},
+		{
+			Name:       "Production",
+			ShortName:  "prod",
+			Number:     "n/a",
+			Subclasses: []string{"EP", "FP", "HP"},
+			start:      regexp.MustCompile(`9\.1\.5 PRODUCTION CATEGORY[ \t]*\n`),
+			// The per-car spec table begins with a standalone "EP" column header.
+			end:               regexp.MustCompile(`(?m)^[ \t]*EP[ \t]*$`),
+			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+(?:\.\d+)?\.?[ \t]+.*(?:Category Specifications|Spec Lines)[ \t]*$`),
+			templateFile:      "./templates/rr/questionnaire.html.tmpl",
+			outputFile:        "./src/rr/prod.html",
+			// Overview = Philosophy/Classification/Specifications/Interpretation + the
+			// modifications preamble. Each prep area within "E. Authorized Modifications"
+			// becomes a question; the Level 1 / Level 2 pairs are folded into one question each.
+			SubChapters: []SubChapter{
+				{Name: "Philosophy", DisplayName: "Philosophy", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*A\.[ \t]+Philosophy\b`)},
+				{Name: "Classification", DisplayName: "Classification", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*B\.[ \t]+Classification\b`)},
+				{Name: "Specifications", DisplayName: "Specifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*C\.[ \t]+Specifications\b`)},
+				{Name: "Interpretation", DisplayName: "Interpretation", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*D\.[ \t]+Interpretation\b`)},
+				{Name: "Modifications", DisplayName: "About These Modifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*E\.[ \t]+Authorized Modifications`)},
+				{Name: "Drivetrain", DisplayName: "Drivetrain", anchor: regexp.MustCompile(`1\.[ \t]+Drivetrain Level 1`)},
+				{Name: "Suspension", DisplayName: "Suspension & Steering", anchor: regexp.MustCompile(`4\.[ \t]+Suspension and Steering Level 1`)},
+				{Name: "Cooling", DisplayName: "Cooling System", anchor: regexp.MustCompile(`6\.[ \t]+Cooling System`)},
+				{Name: "Brakes", DisplayName: "Brakes", anchor: regexp.MustCompile(`7\.[ \t]+Brakes Level`)},
+				{Name: "Wheels", DisplayName: "Wheels & Tires", anchor: regexp.MustCompile(`8\.[ \t]+Wheels and Tires`)},
+				{Name: "Bodywork", DisplayName: "Body & Structure", anchor: regexp.MustCompile(`9\.[ \t]+Body/Structure`)},
+				{Name: "Interior", DisplayName: "Driver / Passenger / Trunk Compartment", anchor: regexp.MustCompile(`10\.[ \t]+Driver/Passenger/Trunk`)},
+				{Name: "GeneralPrep", DisplayName: "General Preparation", anchor: regexp.MustCompile(`11\.[ \t]+General preparation`)},
+			},
+		},
 	}
 }
 
@@ -618,17 +743,38 @@ type rrClassCell struct {
 // generateRRIndex renders the road-racing landing page (src/rr/index.html): a make/model/year
 // selector backed by the spec-line data and a class table laid out like the autocross
 // /a/index.html — each category is a column header with its subclasses stacked below.
-func generateRRIndex(funcMap template.FuncMap, specLines []SpecLine, subclasses []string) {
+func generateRRIndex(funcMap template.FuncMap, chapters []Chapter, specLines []SpecLine) {
 	carsJSON, err := json.Marshal(buildRRCars(specLines))
 	if err != nil {
 		log.Fatal("Could not marshal road racing car data", err)
 	}
-	// Build the class table as a grid of category columns. Only Improved Touring exists today;
-	// add a column (and its subclasses) here as each category's questionnaire lands.
-	categories := []string{"Improved Touring"}
-	rows := make([][]rrClassCell, len(subclasses))
-	for i, sub := range subclasses {
-		rows[i] = []rrClassCell{{Subclass: sub, URL: "/rr/it.html"}}
+	// One column per category that defines subclasses; its subclasses stack down the column
+	// (autocross-style). The grid is ragged — categories with fewer subclasses leave blank cells.
+	var categories []string
+	var cols [][]rrClassCell
+	maxRows := 0
+	for _, c := range chapters {
+		if len(c.Subclasses) == 0 {
+			continue
+		}
+		categories = append(categories, c.Name)
+		col := make([]rrClassCell, len(c.Subclasses))
+		for i, sub := range c.Subclasses {
+			col[i] = rrClassCell{Subclass: sub, URL: "/rr/" + c.ShortName + ".html"}
+		}
+		cols = append(cols, col)
+		if len(col) > maxRows {
+			maxRows = len(col)
+		}
+	}
+	rows := make([][]rrClassCell, maxRows)
+	for r := 0; r < maxRows; r++ {
+		rows[r] = make([]rrClassCell, len(cols))
+		for c := range cols {
+			if r < len(cols[c]) {
+				rows[r][c] = cols[c][r]
+			}
+		}
 	}
 	data := struct {
 		CarsJSON   string
@@ -665,11 +811,7 @@ func processRRChapters(funcMap template.FuncMap) []Chapter {
 	// can list each car's subclass and minimum weight.
 	itcs := parseITCSSpecLines()
 	fmt.Printf("Parsed %d ITCS spec lines\n", len(itcs))
-	for i := range rrChapters {
-		if rrChapters[i].ShortName == "it" {
-			generateRRIndex(funcMap, itcs, rrChapters[i].Subclasses)
-		}
-	}
+	generateRRIndex(funcMap, rrChapters, itcs)
 
 	// Page footers and running headers that bleed in from the GCR PDF layout. In -layout each
 	// is its own line: a centered footer ("©SCCA   2026 GCR V.06 p.402") and a left running
