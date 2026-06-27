@@ -205,6 +205,23 @@ const carFlags = {
     'productionInterior',
     'productionGeneralPrep',
   ],
+  'smxCar': [
+    'smxLandingPage',
+    'specmx5WeightBallast',
+    'specmx5Chassis',
+    'specmx5Body',
+    'specmx5Cockpit',
+    'specmx5Engine',
+    'specmx5Exhaust',
+    'specmx5Cooling',
+    'specmx5Driveline',
+    'specmx5Suspension',
+    'specmx5Brakes',
+    'specmx5Wheels',
+    'specmx5Electrical',
+    'specmx5RollCage',
+    'specmx5Safety',
+  ],
 };
 
 /*

@@ -733,6 +733,42 @@ func roadRacingChapters() []Chapter {
 				{Name: "GeneralPrep", DisplayName: "General Preparation", anchor: regexp.MustCompile(`11\.[ \t]+General preparation`)},
 			},
 		},
+		{
+			Name:       "Spec MX-5",
+			ShortName:  "smx",
+			Number:     "n/a",
+			Subclasses: []string{"SMX"},
+			start:      regexp.MustCompile(`9\.1\.7\.1 SPEC MX-5 \(SMX\)[ \t]*\n`),
+			// End before the administrative VTS sections (Data Acquisition, video, confiscation,
+			// penalties) and the next category.
+			end:               regexp.MustCompile(`20\.[ \t]+Data Acquisition`),
+			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+(?:\.\d+)?\.?[ \t]+.*(?:Category Specifications|Spec Lines)[ \t]*$`),
+			templateFile:      "./templates/rr/questionnaire.html.tmpl",
+			outputFile:        "./src/rr/smx.html",
+			// Overview = Purpose/Classified Cars/Authorized Modifications + the VTS preamble. The
+			// VTS numbered areas become questions; closely related items (transmission/differential
+			// under Driveline, hubs under Suspension, tires under Wheels) fold into one question.
+			SubChapters: []SubChapter{
+				{Name: "Purpose", DisplayName: "Purpose & Intent", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*A\.[ \t]+PURPOSE AND INTENT`)},
+				{Name: "ClassifiedCars", DisplayName: "Classified Cars & Weights", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*B\.[ \t]+CLASSIFIED CARS`)},
+				{Name: "Modifications", DisplayName: "About These Modifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*C\.[ \t]+AUTHORIZED MODIFICATIONS`)},
+				{Name: "VTS", DisplayName: "Vehicle Technical Specifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*D\.[ \t]+VEHICLE TECHNICAL SPECIFICATIONS`)},
+				{Name: "WeightBallast", DisplayName: "Weight & Ballast", anchor: regexp.MustCompile(`1\.[ \t]+Vehicle Weight`)},
+				{Name: "Chassis", DisplayName: "Chassis", anchor: regexp.MustCompile(`3\.[ \t]+Chassis`)},
+				{Name: "Body", DisplayName: "Body", anchor: regexp.MustCompile(`4\.[ \t]+Body\b`)},
+				{Name: "Cockpit", DisplayName: "Cockpit / Trunk", anchor: regexp.MustCompile(`5\.[ \t]+Cockpit`)},
+				{Name: "Engine", DisplayName: "Engine", anchor: regexp.MustCompile(`6\.[ \t]+Engine Modifications`)},
+				{Name: "Exhaust", DisplayName: "Exhaust", anchor: regexp.MustCompile(`7\.[ \t]+Exhaust\b`)},
+				{Name: "Cooling", DisplayName: "Cooling System", anchor: regexp.MustCompile(`8\.[ \t]+Cooling System`)},
+				{Name: "Driveline", DisplayName: "Clutch & Drivetrain", anchor: regexp.MustCompile(`9\.[ \t]+Clutch`)},
+				{Name: "Suspension", DisplayName: "Suspension & Steering", anchor: regexp.MustCompile(`12\.[ \t]+Suspension and Steering`)},
+				{Name: "Brakes", DisplayName: "Brakes", anchor: regexp.MustCompile(`14\.[ \t]+Brakes\b`)},
+				{Name: "Wheels", DisplayName: "Wheels & Tires", anchor: regexp.MustCompile(`15\.[ \t]+Wheels\b`)},
+				{Name: "Electrical", DisplayName: "Electrical Equipment", anchor: regexp.MustCompile(`17\.[ \t]+Electrical Equipment`)},
+				{Name: "RollCage", DisplayName: "Roll Cage", anchor: regexp.MustCompile(`18\.[ \t]+Roll Cage`)},
+				{Name: "Safety", DisplayName: "Safety", anchor: regexp.MustCompile(`19\.[ \t]+Safety\b`)},
+			},
+		},
 	}
 }
 
