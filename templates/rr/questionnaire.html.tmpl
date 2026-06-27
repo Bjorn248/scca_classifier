@@ -50,7 +50,7 @@
         built to {{ $name }} specifications. The overview below explains the intent of the category.
         </p>
 {{ range .OverviewSections }}        <h3>{{ menuLabel . }}</h3>
-        <p>{{ subChapterTextRR .Reader $chapterfillertext }}</p>
+        {{ subChapterTextRR .Reader $chapterfillertext }}
 {{ end }}      </div>
       <br>
       <button class="button yesButton" onclick="setState(['{{ $shortname }}LandingPage', '{{ $shortname }}CarAnsweredIndex'], [true, 0]); hideItem('{{ $shortname }}LandingPage'); evalSessionStorage('{{ $shortname }}Car'); window.scroll(0,0);">Continue</button>
@@ -73,13 +73,19 @@
 
     <div id="eligible" class="center eligible sansserif">
       <h1>
-        Your car may be eligible for {{ $name }} class!
+        Your car may be eligible for the {{ $name }} category!
         <br>
       </h1>
       <div class="possibleClasses">
         <p>
-        Based on your answers, your car can be built to {{ $name }} specifications. Confirm your specific
-        car's spec line and minimum weight in the
+        Based on your answers, your car can be built to {{ $name }} specifications.
+{{ if .Subclasses }}        {{ $name }} is divided into {{ range $i, $s := .Subclasses }}{{ if $i }}, {{ end }}{{ $s }}{{ end }} &mdash;
+        the class your car runs in (and its minimum weight) is set by its spec line.
+{{ end }}        </p>
+        <p>
+        To find your specific car's class and minimum weight, use the
+        <a href="/rr/index.html">make / model / year selector</a>. Always confirm your car's
+        spec line in the
         <a href="https://www.scca.com/pages/cars-and-rules" target="_blank" rel="noopener noreferrer">official GCR</a>
         before competing.
         </p>

@@ -9595,6 +9595,103 @@ function setState(keyArray, valueArray) { // eslint-disable-line no-unused-vars
   }
 };
 
+/* global allRRCars */
+
+/**
+ * Fills a select element with options and reselects a previously saved value.
+ * @param {Element} select the select element to populate
+ * @param {Array} values the option values, in display order
+ * @param {string} saved the value to reselect if it is present in values
+ */
+function fillSelect(select, values, saved) {
+  let html = '<option value="">-- Select --</option>';
+  for (const value of values) {
+    html += '<option value="' + value + '">' + value + '</option>';
+  }
+  select.innerHTML = html;
+  if (saved && values.indexOf(saved) !== -1) {
+    select.value = saved;
+  }
+}
+
+/**
+ * Populates the road racing make dropdown from allRRCars and cascades to model/year.
+ * No-op on pages without the selector.
+ */
+function populateRRMakes() { // eslint-disable-line no-unused-vars
+  const makeSelect = document.getElementById('rrMake');
+  if (!makeSelect || typeof allRRCars === 'undefined') {
+    return;
+  }
+  fillSelect(makeSelect, Object.keys(allRRCars).sort(), sessionStorage.getItem('rrMake'));
+  populateRRModels();
+}
+
+/**
+ * Populates the model dropdown for the selected make, then cascades to year.
+ */
+function populateRRModels() { // eslint-disable-line no-unused-vars
+  const modelSelect = document.getElementById('rrModel');
+  if (!modelSelect) {
+    return;
+  }
+  const make = sessionStorage.getItem('rrMake');
+  const models = (make && allRRCars[make]) ? Object.keys(allRRCars[make]).sort() : [];
+  fillSelect(modelSelect, models, sessionStorage.getItem('rrModel'));
+  populateRRYears();
+}
+
+/**
+ * Populates the year dropdown for the selected make/model.
+ */
+function populateRRYears() { // eslint-disable-line no-unused-vars
+  const yearSelect = document.getElementById('rrYear');
+  if (!yearSelect) {
+    return;
+  }
+  const make = sessionStorage.getItem('rrMake');
+  const model = sessionStorage.getItem('rrModel');
+  let years = [];
+  if (make && model && allRRCars[make] && allRRCars[make][model]) {
+    years = Object.keys(allRRCars[make][model]).sort();
+  }
+  fillSelect(yearSelect, years, sessionStorage.getItem('rrYear'));
+}
+
+/**
+ * Looks up the selected car, shows its class and minimum weight, and highlights the
+ * matching row in the class table.
+ */
+function lookupRRCar() { // eslint-disable-line no-unused-vars
+  const result = document.getElementById('rrResult');
+  const table = document.getElementById('rrClassTable');
+  if (table) {
+    const cells = table.getElementsByTagName('a');
+    for (let i = 0; i < cells.length; i++) {
+      cells[i].classList.remove('highlighted');
+    }
+  }
+  const make = sessionStorage.getItem('rrMake');
+  const model = sessionStorage.getItem('rrModel');
+  const year = sessionStorage.getItem('rrYear');
+  const car = (make && model && year && allRRCars[make] && allRRCars[make][model]) ?
+      allRRCars[make][model][year] : null;
+  if (!result) {
+    return;
+  }
+  if (!car) {
+    result.innerHTML = '';
+    return;
+  }
+  result.innerHTML = 'Your car runs in <strong>' + car.class +
+      '</strong> with a minimum competition weight of <strong>' + car.weight +
+      ' lbs</strong>.';
+  const cell = document.getElementById('rrClass-' + car.class);
+  if (cell) {
+    cell.classList.add('highlighted');
+  }
+}
+
 /**
  * Hides an item by setting its display to 'none'
  * @param {String} id is the id of the html element to hide

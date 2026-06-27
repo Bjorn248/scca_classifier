@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="SCCA Road Racing Classifier Application - Road Racing Page">
+    <title>SCCA Road Racing Classification Assistant</title>
+    <script src="../common.js"></script>
+    <script>const allRRCars = {{ .CarsJSON }};</script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  </head>
+
+  <body onload="populateRRMakes();">
+    <nav class="top-nav">
+      <div class="nav-left"></div>
+      <div class="nav-center">
+        <h1 class="nav-title">Road Racing Classification</h1>
+      </div>
+      <div class="nav-right">
+        <button class="nav-button" onclick="window.location.href = '/index.html';" title="Return to home page">
+          🏠 Home
+        </button>
+      </div>
+    </nav>
+
+    <div class="container">
+      <main class="rr-content">
+        <div class="intro-card">
+          <h2>Find Your Class by Car</h2>
+          <p>
+            Choose your car's make, model, and year to see which Improved Touring class it runs
+            in and its minimum competition weight.
+          </p>
+          <div id="dropDownMenus" class="center menus">
+            <fieldset>
+              <p>
+                <label for="rrMake">Make:</label>
+                <select name="rrMake" id="rrMake" class="select-css" onchange="setState(['rrMake'], [this.value]); setState(['rrModel', 'rrYear'], ['', '']); populateRRModels(); lookupRRCar();"></select>
+              </p>
+              <p>
+                <label for="rrModel">Model:</label>
+                <select name="rrModel" id="rrModel" class="select-css" onchange="setState(['rrModel'], [this.value]); setState(['rrYear'], ['']); populateRRYears(); lookupRRCar();"></select>
+              </p>
+              <p>
+                <label for="rrYear">Year:</label>
+                <select name="rrYear" id="rrYear" class="select-css" onchange="setState(['rrYear'], [this.value]); lookupRRCar();"></select>
+              </p>
+            </fieldset>
+          </div>
+          <div id="rrResult" class="rrResult"></div>
+        </div>
+
+        <div class="intro-card">
+          <h2>Or Choose a Class</h2>
+          <p>Pick a class to walk through its preparation rules. Your eligible class is highlighted once you choose a car above.</p>
+          <table id="rrClassTable" class="rrClassTable">
+            <thead>
+              <tr>
+{{ range .Categories }}                <th>{{ . }}</th>
+{{ end }}              </tr>
+            </thead>
+            <tbody>
+{{ range .Rows }}              <tr>
+{{ range . }}                <td>{{ if .Subclass }}<a href="{{ .URL }}" id="rrClass-{{ .Subclass }}">{{ .Subclass }}</a>{{ end }}</td>
+{{ end }}              </tr>
+{{ end }}            </tbody>
+          </table>
+          <p>
+            More categories are on the way: American Sedan, Touring (T1–T4), Super Touring,
+            Production, GT1/GT2/GT3, Spec Miata, Spec MX-5, and B-Spec.
+          </p>
+        </div>
+
+        <div class="disclaimer-card">
+          <div class="disclaimer-content">
+            <span class="emphasis-critical">DISCLAIMER</span>: This is not an official SCCA website. This is not a substitute for the official rules.
+            Please refer to the <a href="https://www.scca.com/pages/cars-and-rules">latest rules</a>
+            as the official source of information.
+          </div>
+        </div>
+
+        <div class="feedback-card">
+          <h3>Have Feedback?</h3>
+          <p>This website is open source. Any feedback or contributions are welcome
+            <a href="https://github.com/Bjorn248/scca_classifier" target="_blank" rel="noopener noreferrer">on Github</a>.
+          </p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

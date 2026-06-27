@@ -1,12 +1,14 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"log"
 	"os"
 	"path"
 	"regexp"
+	"strconv"
 	"strings"
 	"text/template"
 
@@ -24,6 +26,7 @@ type Chapter struct {
 	SubChapters       []SubChapter
 	OverviewSections  []SubChapter // Informational sections rendered on the landing page (e.g. Purpose, Intent)
 	QuestionSections  []SubChapter // Sections rendered as yes/no eligibility questions
+	Subclasses        []string     // Category subclasses (e.g. ITR/ITS/ITA/ITB/ITC); the specific one is set by a car's spec line
 	Sections          []string     // Section names for classes without SubChapters (e.g., "Bodywork", "Safety")
 	CarFlags          []string     // Question IDs for carFlags (auto-populated from SubChapters/Sections)
 	Reader            *io.SectionReader
@@ -110,6 +113,27 @@ func readFile(filePath string) *strings.Reader {
 	rulesString = string(remove.ReplaceAll([]byte(rulesString), []byte{}))
 
 	return strings.NewReader(rulesString)
+}
+
+// readLayoutFile reads a -layout pdftotext extraction, applying the same character
+// normalization as readFile but preserving line structure. readFile removes "\n\f" page
+// breaks, which glues the last line of a page to the next and destroys the leading-whitespace
+// columns; the road-racing prose parser relies on that indentation, so here form feeds are
+// dropped while newlines are kept.
+func readLayoutFile(filePath string) *strings.Reader {
+	raw, err := os.ReadFile(filePath)
+	if err != nil {
+		fmt.Println("Encountered error reading file", filePath)
+		os.Exit(1)
+	}
+	s := string(raw)
+	s = strings.ReplaceAll(s, "ﬀ", "ff")
+	s = strings.ReplaceAll(s, "“", `"`)
+	s = strings.ReplaceAll(s, "”", `"`)
+	s = strings.ReplaceAll(s, "‘", `'`)
+	s = strings.ReplaceAll(s, "’", `'`)
+	s = strings.ReplaceAll(s, "\f", "")
+	return strings.NewReader(s)
 }
 
 // findSubChapterBody populates the reader field of each subchapter with the body
@@ -276,33 +300,88 @@ func formatChapterBody(in string) string {
 // lettered items (a., b., ... v.) otherwise run together into a wall of text. This rebuilds
 // the list: rejoin a stranded marker with the text it introduces, collapse blank runs, then
 // start each lettered item on a new line and each numbered item on a new indented line.
+var rrMarkerRe = regexp.MustCompile(`^\s*([a-zA-Z]|\d{1,2})\.\s`)
+
+// formatRRBody converts a -layout road-racing section body into nested HTML.
+//
+// Nesting is read from the marker *type*, not from indentation. The -layout extraction does
+// preserve leading whitespace, but pdftotext re-detects columns per page, so the same logical
+// level lands at different indents across page breaks (e.g. items a.-e. at column 6 on one
+// page, f.-o. at column 0 on the next). The rulebook's outline convention, however, is stable
+// and page-independent: lowercase letters are top-level items, numbers are their sub-items,
+// and uppercase letters are sub-sub-items. (The -layout text is still preferable here for its
+// clean footers and because it keeps markers attached to their content.)
+//
+// A line beginning with a marker (a./1./A.) starts a new item; any other non-empty line
+// continues the current item, re-joining words the PDF hyphenated across a wrap ("modi-" +
+// "fications"). Each item is emitted as a paragraph indented to its level.
 func formatRRBody(in string) string {
-	s := in
-	// Pull a marker the PDF left alone on a line ("b.\n\nText") onto the line it introduces.
-	s = regexp.MustCompile(`(?m)^([a-zA-Z]\.|\d+\.)[ \t]*\n[ \t\n]*(\S)`).ReplaceAllString(s, "$1 $2")
-	// Collapse leftover blank lines.
-	s = regexp.MustCompile(`\n{2,}`).ReplaceAllString(s, "\n")
-	// Lettered items (a., b., ...) begin a new, spaced line.
-	s = regexp.MustCompile(`(?m)^([a-zA-Z]\. )`).ReplaceAllString(s, "<br><br>$1")
-	// Numbered items (1., 2., ...) begin a new, indented line.
-	s = regexp.MustCompile(`(?m)^(\d+\. )`).ReplaceAllString(s, "<br>$1")
-	s = pcre.MustCompile(`(?s)(<br>\d+\. .+?)(?=<br>)`).ReplaceAllString(s, `<div class="indent">$1</div>`)
-	// Trim any leading break/whitespace left at the very top of the section.
-	s = regexp.MustCompile(`^(?:\s|<br>)+`).ReplaceAllString(s, "")
-	return s
+	type item struct {
+		level int
+		text  string
+	}
+	var items []item
+	for _, ln := range strings.Split(in, "\n") {
+		text := strings.TrimSpace(ln)
+		if text == "" {
+			continue
+		}
+		text = multiSpace.ReplaceAllString(text, " ") // collapse -layout column padding
+		if m := rrMarkerRe.FindStringSubmatch(ln); m != nil {
+			items = append(items, item{level: markerLevel(m[1][0]), text: text})
+			continue
+		}
+		if len(items) == 0 {
+			// Preamble text before the first list marker (e.g. a section's opening sentence).
+			items = append(items, item{level: 0, text: text})
+			continue
+		}
+		prev := &items[len(items)-1]
+		if n := len(prev.text); n >= 2 && prev.text[n-1] == '-' && isLower(prev.text[n-2]) {
+			prev.text = prev.text[:n-1] + text
+		} else {
+			prev.text += " " + text
+		}
+	}
+
+	var b strings.Builder
+	for _, it := range items {
+		class := ""
+		switch it.level {
+		case 1:
+			class = ` class="indent"`
+		case 2:
+			class = ` class="indent2"`
+		}
+		b.WriteString("<p" + class + ">" + template.HTMLEscapeString(it.text) + "</p>")
+	}
+	return b.String()
 }
 
-// subChapterTextRR renders a road-racing section body to HTML using the road-racing list
-// formatter. The section heading is not part of the body (it is matched and consumed by the
-// section anchor), so no leading-header stripping is needed.
+// markerLevel maps a list marker to its outline nesting level: lowercase letter = top (0),
+// number = sub-item (1), uppercase letter = sub-sub-item (2).
+func markerLevel(marker byte) int {
+	switch {
+	case marker >= '0' && marker <= '9':
+		return 1
+	case marker >= 'A' && marker <= 'Z':
+		return 2
+	default:
+		return 0
+	}
+}
+
+func isLower(b byte) bool { return b >= 'a' && b <= 'z' }
+
+// subChapterTextRR renders a road-racing section body to HTML. The section heading is matched
+// and consumed by the section anchor, so the body begins with the section's content.
 func subChapterTextRR(r io.Reader, chapterFiller *regexp.Regexp) string {
 	resultBytes, err := io.ReadAll(r)
 	if err != nil {
 		return ""
 	}
 	resultBytes = chapterFiller.ReplaceAll(resultBytes, []byte{})
-	result := template.HTMLEscapeString(string(resultBytes))
-	return formatRRBody(result)
+	return formatRRBody(string(resultBytes))
 }
 
 func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
@@ -317,6 +396,161 @@ func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
 	return result
 }
 
+// SpecLine is one car's entry in a road-racing spec table: its category subclass, full model
+// designation (make/model/years), minimum competition weight, and any per-car note.
+type SpecLine struct {
+	Subclass  string `json:"subclass"`
+	Model     string `json:"model"`
+	MinWeight int    `json:"minWeight"`
+	Notes     string `json:"notes,omitempty"`
+}
+
+var (
+	// A subclass table title in gcr_layout.txt, e.g. "        ITR        Engine   Bore x   Weight".
+	itcsTitleRe = regexp.MustCompile(`^\s+(IT[RSABC])\s+Engine\b`)
+	// The engine column of a car's primary line: a cylinder/rotor count, V-config, or
+	// displacement (e.g. "4 Cyl", "2 Rotor", "V8", "2.0"). Continuation lines instead carry
+	// the valvetrain ("DOHC", "Turbo", "VTEC") here, so this distinguishes the two.
+	itcsEngineRe = regexp.MustCompile(`(?i)^(\d+\s?cyl|\d\s?rotor|v-?\d+|\d\.\d)`)
+	// A 3-4 digit weight at the start of a field (allowing a trailing unit/note).
+	weightLeadRe = regexp.MustCompile(`^(\d{3,4})\b`)
+	// Page footers and running headers interspersed in the spec tables.
+	specCruftRe = regexp.MustCompile(`SCCA|GCR V\.|Spec Lines`)
+	multiSpace  = regexp.MustCompile(`\s{2,}`)
+)
+
+// parseITCSSpecLines extracts the Improved Touring Category Specifications per-car spec lines
+// (ITR/ITS/ITA/ITB/ITC) from gcr_layout.txt. The -layout extraction aligns each car's fields
+// into columns: a primary line carries model · engine · bore · weight [· note], with model/
+// engine/displacement continuation lines stacked below. See ROAD_RACING_PLAN.md (Task 2).
+func parseITCSSpecLines() []SpecLine {
+	data, err := os.ReadFile("gcr_layout.txt")
+	if err != nil {
+		fmt.Println("warning: gcr_layout.txt not found; skipping spec-line parse")
+		return nil
+	}
+	var out []SpecLine
+	subclass := ""
+	var cur *SpecLine
+	flush := func() {
+		if cur != nil {
+			cur.Model = strings.TrimSpace(cur.Model)
+			out = append(out, *cur)
+			cur = nil
+		}
+	}
+	for _, raw := range strings.Split(string(data), "\n") {
+		if subclass != "" && strings.Contains(raw, "SUPER TOURING CATEGORY") {
+			break // reached the next category; end of the ITCS region
+		}
+		if m := itcsTitleRe.FindStringSubmatch(raw); m != nil {
+			flush()
+			subclass = m[1]
+			continue
+		}
+		if subclass == "" || strings.TrimSpace(raw) == "" || specCruftRe.MatchString(raw) {
+			continue
+		}
+		fields := multiSpace.Split(strings.TrimSpace(raw), -1)
+		// A new car begins on any line whose engine column is populated (continuation lines
+		// carry the valvetrain "DOHC"/"Turbo" or a bare year there, which don't match). The
+		// weight is read from this line, or — when the PDF misaligns it (e.g. a year lands in
+		// the weight column) — from a continuation line below.
+		if len(fields) >= 2 && itcsEngineRe.MatchString(fields[1]) {
+			flush()
+			w, note := itcsWeight(fields[2:])
+			cur = &SpecLine{Subclass: subclass, Model: fields[0], MinWeight: w, Notes: note}
+			continue
+		}
+		if cur != nil {
+			// A model/year continuation line (e.g. "Type R", "(97-98/00-01)"); its first
+			// column extends the current car's model designation.
+			cur.Model += " " + fields[0]
+			if cur.MinWeight == 0 && len(fields) > 1 {
+				if w, note := itcsWeight(fields[1:]); w > 0 {
+					cur.MinWeight = w
+					if cur.Notes == "" {
+						cur.Notes = note
+					}
+				}
+			}
+		}
+	}
+	flush()
+	return out
+}
+
+// itcsWeight finds the minimum weight among a primary line's post-engine fields (bore,
+// displacement, weight, note) and returns it with any trailing note text. The weight is the
+// rightmost field beginning with a 3-4 digit number; the bore ("81.0 x ...") and a bare or
+// "cc"-suffixed displacement sit to its left, and a leading note number (e.g. "32mm") is
+// fewer digits, so scanning from the right lands on the weight column.
+func itcsWeight(fields []string) (int, string) {
+	for i := len(fields) - 1; i >= 0; i-- {
+		m := weightLeadRe.FindStringSubmatch(fields[i])
+		if m == nil {
+			continue
+		}
+		weight, err := strconv.Atoi(m[1])
+		if err != nil {
+			continue
+		}
+		note := strings.TrimSpace(fields[i][len(m[1]):])
+		if len(fields) > i+1 {
+			note = strings.TrimSpace(note + " " + strings.Join(fields[i+1:], " "))
+		}
+		note = strings.TrimPrefix(note, "lbs.")
+		note = strings.TrimPrefix(note, "lbs")
+		return weight, strings.TrimSpace(note)
+	}
+	return 0, ""
+}
+
+// rrCar is one car's road-racing classification for the make/model/year selector.
+type rrCar struct {
+	Class  string `json:"class"`
+	Weight int    `json:"weight"`
+}
+
+// parseModel splits a spec line's model designation into make, model, and year range, e.g.
+// "Acura Integra Type R (97-98/00-01)" -> ("Acura", "Integra Type R", "97-98/00-01"). The
+// year is taken from a trailing parenthetical; when absent it is "all".
+func parseModel(model string) (mk, name, year string) {
+	year = "all"
+	if i := strings.LastIndex(model, "("); i != -1 {
+		if j := strings.Index(model[i:], ")"); j != -1 {
+			year = strings.TrimSpace(model[i+1 : i+j])
+			model = strings.TrimSpace(model[:i])
+		}
+	}
+	parts := strings.SplitN(strings.TrimSpace(model), " ", 2)
+	mk = parts[0]
+	if len(parts) > 1 {
+		name = parts[1]
+	} else {
+		name = mk
+	}
+	return mk, name, year
+}
+
+// buildRRCars indexes spec lines as make -> model -> year -> {class, weight} for the
+// road-racing make/model/year selector. json.Marshal sorts the string keys, so output is
+// deterministic.
+func buildRRCars(specs []SpecLine) map[string]map[string]map[string]rrCar {
+	cars := map[string]map[string]map[string]rrCar{}
+	for _, s := range specs {
+		mk, name, year := parseModel(s.Model)
+		if cars[mk] == nil {
+			cars[mk] = map[string]map[string]rrCar{}
+		}
+		if cars[mk][name] == nil {
+			cars[mk][name] = map[string]rrCar{}
+		}
+		cars[mk][name][year] = rrCar{Class: s.Subclass, Weight: s.MinWeight}
+	}
+	return cars
+}
+
 // roadRacingChapters returns the prose road-racing categories parsed from gcr.txt.
 // Unlike the autocross categories (whose subchapters are discovered from the rulebook
 // table of contents), road-racing categories list their lettered sections explicitly
@@ -329,17 +563,22 @@ func roadRacingChapters() []Chapter {
 			Name:      "Improved Touring",
 			ShortName: "it",
 			Number:    "n/a",
+			// Improved Touring is a category; a car's specific subclass is set by its ITCS
+			// spec line and minimum weight (handled later by the spec-table parser / selector).
+			Subclasses: []string{"ITR", "ITS", "ITA", "ITB", "ITC"},
 			// No leading newline anchor: the heading is preceded by a stray form feed left
 			// over from the PDF. This exact text occurs once and differs from the table-of-
 			// contents entry ("9.1.3.\nIMPROVED TOURING CATEGORY CLASSES...").
-			start: regexp.MustCompile(`9\.1\.3\. IMPROVED TOURING CATEGORY\n`),
+			// Anchors match the -layout extraction (gcr_layout.txt), which keeps each line's
+			// indentation. The category heading is the running header; the TOC entry differs
+			// ("...CATEGORY CLASSES") so requiring end-of-line after CATEGORY excludes it.
+			start: regexp.MustCompile(`IMPROVED TOURING CATEGORY[ \t]*\n`),
 			// The Improved Touring Category Specifications (ITCS) per-car spec table begins
-			// immediately after the prose rules with this column header.
-			end: regexp.MustCompile(`Engine\nType\n\nBore x\n`),
-			// Match only the standalone page-header repeats, not the identical phrase where
-			// it legitimately appears inline (e.g. "...publish the Improved Touring Category
-			// Specifications (ITCS)..." in section C).
-			ChapterFillerText: regexp.MustCompile(`(?m)^(?:9\.1\.3\.|Improved Touring Category Specifications)\s*$`),
+			// immediately after the prose rules with this column-header row.
+			end: regexp.MustCompile(`ITR[ \t]+Engine[ \t]+Bore x`),
+			// Redundant safety net: the page-break running header is already stripped from
+			// the chapter text by gcrRemove before sections are extracted.
+			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+\.[ \t]+[A-Z][A-Za-z0-9/&' -]*? Category Specifications[ \t]*$`),
 			templateFile:      "./templates/rr/questionnaire.html.tmpl",
 			outputFile:        "./src/rr/it.html",
 			// Purpose/Intent/Specifications and the modifications preamble are informational
@@ -347,51 +586,102 @@ func roadRacingChapters() []Chapter {
 			// MODIFICATIONS" each become their own yes/no question, mirroring how the
 			// autocross categories ask one question per modification area.
 			SubChapters: []SubChapter{
-				{Name: "Purpose", Informational: true, anchor: regexp.MustCompile(`\nA\. PURPOSE\n`)},
-				{Name: "Intent", Informational: true, anchor: regexp.MustCompile(`\nB\. INTENT\n`)},
-				{Name: "Specifications", Informational: true, anchor: regexp.MustCompile(`\nC\. SPECIFICATIONS\n`)},
-				{Name: "Modifications", DisplayName: "About These Modifications", Informational: true, anchor: regexp.MustCompile(`\nD\. AUTHORIZED MODIFICATIONS\n`)},
-				{Name: "Engine", DisplayName: "Engine (Reciprocating)", anchor: regexp.MustCompile(`\n1\.\n+Reciprocating Engines \(only\)\n`)},
-				{Name: "RotaryEngine", DisplayName: "Engine (Rotary)", anchor: regexp.MustCompile(`\nRotary engines \(only\)\n`)},
-				{Name: "TurboEngine", DisplayName: "Engine (Turbocharged)", anchor: regexp.MustCompile(`\nTurbocharged engines \(only\)\n`)},
-				{Name: "Cooling", DisplayName: "Engine Cooling System", anchor: regexp.MustCompile(`\nEngine Cooling System\n`)},
-				{Name: "Drivetrain", DisplayName: "Transmission / Final Drive", anchor: regexp.MustCompile(`\nTransmission/Final Drive\n`)},
-				{Name: "Suspension", DisplayName: "Chassis & Suspension", anchor: regexp.MustCompile(`\nChassis\n`)},
-				{Name: "Brakes", DisplayName: "Brakes", anchor: regexp.MustCompile(`\nBrakes\n`)},
-				{Name: "Wheels", DisplayName: "Wheels & Tires", anchor: regexp.MustCompile(`\nWheels/Tires\n`)},
-				{Name: "Bodywork", DisplayName: "Body & Structure", anchor: regexp.MustCompile(`\nBody/Structure\n`)},
-				{Name: "Interior", DisplayName: "Driver / Passenger Compartment", anchor: regexp.MustCompile(`\n10\. Driver/Passenger Compartment[^\n]*\n`)},
-				{Name: "Electrical", DisplayName: "Electrical", anchor: regexp.MustCompile(`\n11\. Electrical\n`)},
-				{Name: "Safety", DisplayName: "Safety", anchor: regexp.MustCompile(`\n12\. Safety\n`)},
-				{Name: "Measurement", DisplayName: "Measurement Standards", anchor: regexp.MustCompile(`\nE\. MEASUREMENT STANDARDS\n`)},
+				{Name: "Purpose", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*A\. PURPOSE[ \t]*$`)},
+				{Name: "Intent", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*B\. INTENT[ \t]*$`)},
+				{Name: "Specifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*C\. SPECIFICATIONS[ \t]*$`)},
+				{Name: "Modifications", DisplayName: "About These Modifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*D\. AUTHORIZED MODIFICATIONS[ \t]*$`)},
+				{Name: "Engine", DisplayName: "Engine (Reciprocating)", anchor: regexp.MustCompile(`(?m)^[ \t]*1\.[ \t]+Reciprocating Engines \(only\)[ \t]*$`)},
+				{Name: "RotaryEngine", DisplayName: "Engine (Rotary)", anchor: regexp.MustCompile(`(?m)^[ \t]*2\.[ \t]+Rotary engines \(only\)[ \t]*$`)},
+				{Name: "TurboEngine", DisplayName: "Engine (Turbocharged)", anchor: regexp.MustCompile(`(?m)^[ \t]*3\.[ \t]+Turbocharged engines \(only\)[ \t]*$`)},
+				{Name: "Cooling", DisplayName: "Engine Cooling System", anchor: regexp.MustCompile(`(?m)^[ \t]*4\.[ \t]+Engine Cooling System[ \t]*$`)},
+				{Name: "Drivetrain", DisplayName: "Transmission / Final Drive", anchor: regexp.MustCompile(`(?m)^[ \t]*5\.[ \t]+Transmission/Final Drive[ \t]*$`)},
+				{Name: "Suspension", DisplayName: "Chassis & Suspension", anchor: regexp.MustCompile(`(?m)^[ \t]*6\.[ \t]+Chassis[ \t]*$`)},
+				{Name: "Brakes", DisplayName: "Brakes", anchor: regexp.MustCompile(`(?m)^[ \t]*7\.[ \t]+Brakes[ \t]*$`)},
+				{Name: "Wheels", DisplayName: "Wheels & Tires", anchor: regexp.MustCompile(`(?m)^[ \t]*8\.[ \t]+Wheels/Tires[ \t]*$`)},
+				{Name: "Bodywork", DisplayName: "Body & Structure", anchor: regexp.MustCompile(`(?m)^[ \t]*9\.[ \t]+Body/Structure[ \t]*$`)},
+				{Name: "Interior", DisplayName: "Driver / Passenger Compartment", anchor: regexp.MustCompile(`(?m)^[ \t]*10\.[ \t]+Driver/Passenger Compartment[^\n]*$`)},
+				{Name: "Electrical", DisplayName: "Electrical", anchor: regexp.MustCompile(`(?m)^[ \t]*11\.[ \t]+Electrical[ \t]*$`)},
+				{Name: "Safety", DisplayName: "Safety", anchor: regexp.MustCompile(`(?m)^[ \t]*12\.[ \t]+Safety[ \t]*$`)},
+				{Name: "Measurement", DisplayName: "Measurement Standards", anchor: regexp.MustCompile(`(?m)^[ \t]*E\. MEASUREMENT STANDARDS[ \t]*$`)},
 			},
 		},
 	}
 }
 
-// processRRChapters parses gcr.txt, populates each road-racing chapter's section bodies
-// and carFlags, and renders its questionnaire page. It returns the chapters so their
-// carFlags can be included in common.js.
+// rrClassCell is one cell in the road-racing class table: a subclass and the page its
+// questionnaire lives on. An empty Subclass renders as a blank cell.
+type rrClassCell struct {
+	Subclass string
+	URL      string
+}
+
+// generateRRIndex renders the road-racing landing page (src/rr/index.html): a make/model/year
+// selector backed by the spec-line data and a class table laid out like the autocross
+// /a/index.html — each category is a column header with its subclasses stacked below.
+func generateRRIndex(funcMap template.FuncMap, specLines []SpecLine, subclasses []string) {
+	carsJSON, err := json.Marshal(buildRRCars(specLines))
+	if err != nil {
+		log.Fatal("Could not marshal road racing car data", err)
+	}
+	// Build the class table as a grid of category columns. Only Improved Touring exists today;
+	// add a column (and its subclasses) here as each category's questionnaire lands.
+	categories := []string{"Improved Touring"}
+	rows := make([][]rrClassCell, len(subclasses))
+	for i, sub := range subclasses {
+		rows[i] = []rrClassCell{{Subclass: sub, URL: "/rr/it.html"}}
+	}
+	data := struct {
+		CarsJSON   string
+		Categories []string
+		Rows       [][]rrClassCell
+	}{CarsJSON: string(carsJSON), Categories: categories, Rows: rows}
+
+	tpl := template.New("index.html.tmpl").Funcs(funcMap)
+	tpl, err = tpl.ParseFiles("./templates/rr/index.html.tmpl")
+	if err != nil {
+		log.Fatal("Could not parse road racing index template", err)
+	}
+	out, err := os.Create("./src/rr/index.html")
+	if err != nil {
+		log.Fatal("Could not create road racing index", err)
+	}
+	defer out.Close()
+	if err = tpl.Execute(out, data); err != nil {
+		log.Fatal("Could not execute road racing index template", err)
+	}
+}
+
+// processRRChapters parses gcr_layout.txt, populates each road-racing chapter's section
+// bodies and carFlags, and renders its questionnaire page. It returns the chapters so their
+// carFlags can be included in common.js. The -layout extraction is used (rather than the -raw
+// gcr.txt) because it keeps list markers attached to their text, has clean standalone footers,
+// and lets formatRRBody de-hyphenate line wraps. (List nesting is taken from the marker type,
+// not indentation, since pdftotext re-detects columns per page — see formatRRBody.)
 func processRRChapters(funcMap template.FuncMap) []Chapter {
-	gcr := readFile("gcr.txt")
+	gcr := readLayoutFile("gcr_layout.txt")
 	rrChapters := roadRacingChapters()
 
-	// Page footers and sponsor advertisements that bleed in from the GCR PDF layout.
+	// Attach the parsed Improved Touring spec lines to the IT category so the eligible result
+	// can list each car's subclass and minimum weight.
+	itcs := parseITCSSpecLines()
+	fmt.Printf("Parsed %d ITCS spec lines\n", len(itcs))
+	for i := range rrChapters {
+		if rrChapters[i].ShortName == "it" {
+			generateRRIndex(funcMap, itcs, rrChapters[i].Subclasses)
+		}
+	}
+
+	// Page footers and running headers that bleed in from the GCR PDF layout. In -layout each
+	// is its own line: a centered footer ("©SCCA   2026 GCR V.06 p.402") and a left running
+	// header ("9.1.3.   Improved Touring Category Specifications").
 	gcrRemove := []*regexp.Regexp{
-		regexp.MustCompile(`©SCCA`),
-		regexp.MustCompile(`\d* *20\d\d GCR V\.\d+ p\.\d+`),
-		// Summit Racing full-page advertisement.
+		regexp.MustCompile(`(?m)^[ \t]*© ?SCCA[ \t]+\d{4} GCR V\.\d+ p\.\d+[ \t]*$`),
+		// Running header. The numeric section prefix (e.g. "9.1.3. ") distinguishes it from
+		// the legitimate inline mention "...the Improved Touring Category Specifications
+		// (ITCS)..." which has no such prefix and is not a whole line.
+		regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+\.[ \t]+[A-Z][A-Za-z0-9/&' -]*? Category Specifications[ \t]*$`),
+		// Summit Racing full-page advertisement, if present.
 		regexp.MustCompile(`(?s)GET THE SUMMIT ADVANTAGE!.+?SummitRacing\.com`),
-		// Standalone section-number page headers (e.g. a lone "9.1.3." line).
-		regexp.MustCompile(`(?m)^9\.1\.\d+\.\s*$`),
-		// Standalone running-header lines (e.g. "Improved Touring Category Specifications").
-		// The $ anchor leaves inline mentions intact (e.g. "...the Improved Touring Category
-		// Specifications (ITCS)..." keeps its trailing "(ITCS)" and so is not a whole line).
-		regexp.MustCompile(`(?m)^[A-Z][A-Za-z0-9/&' -]+ Category Specifications[ \t]*$`),
-		// Runs of two or more orphaned list-number lines left by the PDF's multi-column
-		// page breaks (e.g. a stray "2.\n\n3.\n\n4." cluster whose text is in another
-		// column). A single lone number line is a legitimate marker and is preserved.
-		regexp.MustCompile(`(?m)^(?:\d+\.[ \t]*\n+){2,}`),
 	}
 
 	for i := range rrChapters {

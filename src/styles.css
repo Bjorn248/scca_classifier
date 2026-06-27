@@ -210,6 +210,64 @@ strong, b {
   margin-left: var(--space-4);
 }
 
+.indent2 {
+  margin-left: var(--space-8);
+}
+
+/* Road racing index lays its cards out in a single stacked column (the homepage's
+   .main-content grid assumes a single intro-card and would overlap the RR index's two). */
+.rr-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  flex: 1;
+}
+
+/* Make/model/year lookup result line. */
+.rrResult {
+  margin-top: var(--space-3);
+  font-size: var(--font-size-lg);
+  color: #1f2937; /* dark text on the light card */
+}
+
+/* Class table laid out like the autocross matrix: each category is a column header with its
+   subclasses stacked below. Sits on a light card, so colors are set explicitly (dark). */
+.rrClassTable {
+  margin: var(--space-4) auto;
+  border-collapse: collapse;
+  color: #1f2937;
+}
+
+.rrClassTable th {
+  background: #e5e7eb;
+  color: #111827;
+  padding: var(--space-2) var(--space-5);
+  font-weight: var(--font-weight-semibold);
+}
+
+.rrClassTable td {
+  padding: 0;
+  width: auto;
+}
+
+.rrClassTable td a {
+  display: block;
+  padding: var(--space-2) var(--space-5);
+  color: var(--color-primary-700);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+}
+
+.rrClassTable td a:hover {
+  background: var(--color-primary-100);
+}
+
+.rrClassTable td a.highlighted {
+  background: #f59e0b;
+  color: #111827;
+  font-weight: bold;
+}
+
 .weightCalc {
   margin: var(--space-6) auto 0;
   max-width: 32rem;
