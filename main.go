@@ -790,6 +790,37 @@ func roadRacingChapters() []Chapter {
 				{Name: "Preparation", DisplayName: "Vehicle Preparation", anchor: regexp.MustCompile(`(?m)^[ \t]*E\.[ \t]+Vehicle Preparation`)},
 			},
 		},
+		{
+			Name:       "Super Touring",
+			ShortName:  "st",
+			Number:     "n/a",
+			Subclasses: []string{"STU", "STL"},
+			start:      regexp.MustCompile(`9\.1\.4\. SUPER TOURING CATEGORY[ \t]*\n`),
+			// The main category ruleset is sections A-O. After it, the lettered sections repeat
+			// per subclass (STU/STL: "A. Chassis and Bodywork", etc.) — end there so the main
+			// ruleset's letters stay unique. (Subclass-specific allowances are not yet captured.)
+			end:               regexp.MustCompile(`(?m)^[ \t]*A\.[ \t]+Chassis and Bodywork`),
+			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+(?:\.\d+)?\.?[ \t]+.*(?:Category Specifications|Spec Lines)[ \t]*$`),
+			templateFile:      "./templates/rr/questionnaire.html.tmpl",
+			outputFile:        "./src/rr/st.html",
+			SubChapters: []SubChapter{
+				{Name: "Purpose", DisplayName: "Purpose & Philosophy", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*A\.[ \t]+Purpose and Philosophy`)},
+				{Name: "Eligibility", DisplayName: "Eligibility", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*B\.[ \t]+Eligibility`)},
+				{Name: "Bodywork", DisplayName: "Bodywork", anchor: regexp.MustCompile(`(?m)^[ \t]*C\.[ \t]+Bodywork`)},
+				{Name: "Aero", DisplayName: "Aerodynamic Devices", anchor: regexp.MustCompile(`(?m)^[ \t]*D\.[ \t]+Aerodynamic Devices`)},
+				{Name: "Interior", DisplayName: "Interior", anchor: regexp.MustCompile(`(?m)^[ \t]*E\.[ \t]+Interior`)},
+				{Name: "Chassis", DisplayName: "Chassis", anchor: regexp.MustCompile(`(?m)^[ \t]*F\.[ \t]+Chassis`)},
+				{Name: "Engine", DisplayName: "Engine", anchor: regexp.MustCompile(`(?m)^[ \t]*G\.[ \t]+Engine`)},
+				{Name: "Cooling", DisplayName: "Cooling Systems", anchor: regexp.MustCompile(`(?m)^[ \t]*H\.[ \t]+Cooling Systems`)},
+				{Name: "FluidFuel", DisplayName: "Fluid Piping & Fuel Tank", anchor: regexp.MustCompile(`(?m)^[ \t]*I\.[ \t]+Fluid Piping`)},
+				{Name: "Exhaust", DisplayName: "Exhaust System", anchor: regexp.MustCompile(`(?m)^[ \t]*J\.[ \t]+Exhaust System`)},
+				{Name: "Electrical", DisplayName: "Electrical System", anchor: regexp.MustCompile(`(?m)^[ \t]*K\.[ \t]+Electrical System`)},
+				{Name: "Drivetrain", DisplayName: "Drivetrain", anchor: regexp.MustCompile(`(?m)^[ \t]*L\.[ \t]+Drivetrain`)},
+				{Name: "Suspension", DisplayName: "Suspension & Steering", anchor: regexp.MustCompile(`(?m)^[ \t]*M\.[ \t]+Suspension and Steering`)},
+				{Name: "Brakes", DisplayName: "Brakes", anchor: regexp.MustCompile(`(?m)^[ \t]*N\.[ \t]+Brakes`)},
+				{Name: "Wheels", DisplayName: "Tires & Wheels", anchor: regexp.MustCompile(`(?m)^[ \t]*O\.[ \t]+Tires & Wheels`)},
+			},
+		},
 	}
 }
 

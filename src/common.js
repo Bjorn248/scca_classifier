@@ -227,6 +227,22 @@ const carFlags = {
     'bspecSafety',
     'bspecPreparation',
   ],
+  'stCar': [
+    'stLandingPage',
+    'supertouringBodywork',
+    'supertouringAero',
+    'supertouringInterior',
+    'supertouringChassis',
+    'supertouringEngine',
+    'supertouringCooling',
+    'supertouringFluidFuel',
+    'supertouringExhaust',
+    'supertouringElectrical',
+    'supertouringDrivetrain',
+    'supertouringSuspension',
+    'supertouringBrakes',
+    'supertouringWheels',
+  ],
 };
 
 /*
