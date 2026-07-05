@@ -622,7 +622,7 @@ func parseGTSpecLines() []SpecLine {
 	}
 	flushRow := func(model, years string) {
 		model = strings.TrimSpace(multiSpace.ReplaceAllString(model, " "))
-		if model == "" {
+		if model == "" || mk == "" {
 			return
 		}
 		if years != "" && !strings.EqualFold(years, "NA") {
@@ -676,8 +676,10 @@ func parseGTSpecLines() []SpecLine {
 		}
 		if centers == nil {
 			// Between the section heading and its header row, a bare heading ("GT2 Cars")
-			// carries the first make on its own line.
-			if t := strings.TrimSpace(raw); mk == "" && t != "" {
+			// carries the first make on its own line. Far-indented text is a right-aligned
+			// running header ("9.1.2. GTL Spec Lines"), not a make.
+			if t := strings.TrimSpace(raw); mk == "" && t != "" &&
+				len(raw)-len(strings.TrimLeft(raw, " \t\f")) < 60 {
 				mk = normalizeGTMake(t)
 			}
 			continue
@@ -763,6 +765,7 @@ var (
 	// A chassis code ("E36", "(E46)"): moved to the entry's note so generations of one model
 	// fold together and the year picks the generation.
 	chassisRe = regexp.MustCompile(`\(?\bE\d{2}\b\)?`)
+	hasWordRe = regexp.MustCompile(`[A-Za-z0-9]`)
 )
 
 // yearToken resolves a 2- or 4-digit year token; two-digit years pivot on 40 (the spec lines
@@ -886,8 +889,14 @@ func normalizeRRModel(name string) (string, string) {
 	name = wrapSlashRe.ReplaceAllString(name, "$1/")
 	note := ""
 	if m := chassisRe.FindString(name); m != "" {
-		note = strings.Trim(m, "()")
-		name = strings.Replace(name, m, " ", 1)
+		stripped := strings.TrimSpace(multiSpace.ReplaceAllString(strings.Replace(name, m, " ", 1), " "))
+		// Keep the code in place when it IS the model name (the GT-Lite tables list the
+		// BMW 3-series generation as just "E21", possibly with a year range): strip only if
+		// some model text remains outside parentheticals ("318" does; "(1975-)" does not).
+		if hasWordRe.MatchString(parenRe.ReplaceAllString(stripped, "")) {
+			note = strings.Trim(m, "()")
+			name = stripped
+		}
 	}
 	name = strings.TrimSpace(multiSpace.ReplaceAllString(name, " "))
 	return name, note
@@ -958,6 +967,50 @@ var rrSpecFixes = map[string]rrSpecFix{
 	"Mercury|Capri I V-6 72-74) 93.0 x 68.5 2796":                {Model: "Capri I V-6", Year: "72-74"},
 	"Chevrolet|Chevette 1.6 (76-87) Chevrolet Spark":             {Model: "Chevette 1.6", Year: "76-87"},
 	"Alfa Romeo|all Spider models (90-94) Audi 4000 & 4000S":     {Model: "all Spider models", Year: "90-94"},
+	// The GT tables use open-ended year ranges ("00-", "-89") that cannot expand to
+	// individual years. The open side is bounded by the model's production/US-model years
+	// (verified against Wikipedia); the side the GCR states is kept as written. Models still
+	// in production are capped at the rulebook year (2026). Oddities are noted per entry.
+	"AMC|Gremlin (-78)":                             {Model: "Gremlin", Year: "70-78"},
+	"AMC|Spirit (-79)":                              {Model: "Spirit", Year: "79-83"}, // GCR "-79" read as "79-": the Spirit's first model year IS 1979
+	"Acura|Integra (-93)":                           {Model: "Integra", Year: "86-93"},
+	"Acura|Integra (-94)":                           {Model: "Integra", Year: "86-94"},
+	"Acura|Integra (94-)":                           {Model: "Integra", Year: "94-01"},
+	"Alfa Romeo|All Spider Models (-94)":            {Model: "all Spider models", Year: "66-94"},
+	"BMC thru Rover Group|BMW Mini (2002-)":         {Model: "BMW Mini", Year: "2002-2026"}, // still in production
+	"BMW|318 Coupe (-92)":                           {Model: "318i", Year: "84-92", Note: "E30 coupe"},
+	"BMW|330ci (01-)":                               {Model: "330i", Year: "01-06", Note: "Ci coupe"},
+	"BMW|E21 (1975-)":                               {Model: "320i", Year: "75-83", Note: "E21"},
+	"BMW|M3 (00-)":                                  {Model: "M3", Year: "00-06"}, // E46 note comes from the chassis-code strip
+	"BMW|318i/318iS":                                {Model: "318i", Note: "incl. iS"},
+	"Chrysler/Dodge/Plymouth|Daytona / Laser (-89)": {Model: "Daytona / Laser", Year: "84-89"},
+	"Ferrari|308 GTB (76-)":                         {Model: "308 GTB", Year: "76-85"},
+	"Ginetta|Ginetta G40 (2002-)":                   {Model: "G40", Year: "2008-2026"}, // GCR says 2002-, but G40 production began 2008; still made
+	"Honda|Civic Coupe (2017-)":                     {Model: "Civic Coupe", Year: "2017-2020"},
+	"Honda|Prelude (93-)":                           {Model: "Prelude", Year: "93-01"},
+	"Hyundai|Accent (2010-)":                        {Model: "Accent", Year: "2010-2022"}, // US sales ended MY2022
+	"Lotus|Esprit (75-)":                            {Model: "Esprit", Year: "75-04"},
+	"Mazda|MX-5 / Miata (-05)":                      {Model: "MX-5 / Miata", Year: "90-05"},
+	"Mazda|MX-5 / Miata (90-)":                      {Model: "MX-5 / Miata", Year: "90-2026"}, // still in production
+	"Mazda|MX-5 Miata (2016-)":                      {Model: "MX-5 / Miata", Year: "2016-2026", Note: "ND"},
+	"Nissan|240Z / 260Z / 280Z (-78)":               {Model: "240Z / 260Z / 280Z", Year: "70-78"},
+	"Nissan|280-ZX (79-)":                           {Model: "280-ZX", Year: "79-83"},
+	"Nissan|300-ZX Z31 (-89)":                       {Model: "300-ZX", Year: "84-89", Note: "Z31"},
+	"Nissan|300-ZX Z32 (90-)":                       {Model: "300-ZX", Year: "90-96", Note: "Z32"},
+	"Nissan|Nissan GT-R (2009-)":                    {Model: "GT-R", Year: "2009-2024"},
+	"Porsche|911 Coupe & Targa (-68)":               {Model: "911 Coupe & Targa", Year: "65-68"},
+	"Porsche|911 Coupe & Targa (68-)":               {Model: "911 Coupe & Targa", Year: "68-98"}, // air-cooled 911s; the row's note references 993 parts (993 ended 1998)
+	"Porsche|991.2 GT3 Cup Car (2017-)":             {Model: "991.2 GT3 Cup Car", Year: "2017-2020"},
+	"Saab|900 (-79)":                                {Model: "900", Year: "79-94"}, // GCR "-79" read as "79-": the classic 900's first model year IS 1979
+	"Saab|Sedan (-1964)":                            {Model: "Sedan (92/93/96)", Year: "1949-1964"},
+	"Scion|tC (-5)":                                 {Model: "tC", Year: "05-16"}, // GCR years cell reads "-5" (mangled); tC US model years
+	"Toyota|Corolla SR-5 (-74)":                     {Model: "Corolla / SR5", Year: "68-74"},
+	"Toyota|MR-2 (-89)":                             {Model: "MR-2", Year: "85-89"},
+	"Toyota|Solora (00-)":                           {Model: "Solara", Year: "00-08"}, // GCR misspells Solara
+	"Toyota|Tercel (-91)":                           {Model: "Tercel", Year: "80-91"},
+	"Toyota|Tercel (91-)":                           {Model: "Tercel", Year: "91-98"},
+	"Triumph|GT6, GT6+ & Mk III (-74)":              {Model: "GT6, GT6+ & Mk III", Year: "66-74"},
+	"Volkswagen|Golf (85-)":                         {Model: "Golf", Year: "85-2026"}, // still in production
 }
 
 // joinNotes joins the non-empty note fragments with "; ".

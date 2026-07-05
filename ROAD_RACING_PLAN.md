@@ -213,6 +213,12 @@ ITR → ITS → ITA → ITB → ITC, then Super Touring. Bound each by its title
   Spec Lines" running headers (a table-end marker only counts at indent < 60).
 - GT weights are **per-engine, not per-car** → `MinWeight` 0; `lookupRRCar` says "minimum
   weight is set by the engine spec line in the GCR" for weight-less entries.
+- The GT tables use **open-ended year ranges** ("M3 00-", "300-ZX Z31 -89") that can't expand
+  to individual years. Each such row has an `rrSpecFixes` entry bounding the open side with
+  the model's **production/US-model years, verified against Wikipedia** (the GCR-stated side
+  is kept; still-produced models cap at the rulebook year, 2026). A few GCR quirks are
+  interpreted there with comments: Spirit/900 "-79" read as "79-" (both nameplates *started*
+  in '79), Scion tC's mangled "-5" cell, "Solora" → Solara.
 - `SpecLine.Make` (new) carries multi-word makes ("BMC thru Rover Group") verbatim past the
   first-word make split; `normalizeGTMake` title-cases the shouted headings (KIA→Kia) keeping
   initialisms (BMW/AMC/TVR/BMC).
