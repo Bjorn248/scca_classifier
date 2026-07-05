@@ -190,13 +190,33 @@ ITR → ITS → ITA → ITB → ITC, then Super Touring. Bound each by its title
    in `processRRChapters` and rendered in the eligible result as a searchable table (Car /
    Class / Min Weight / Notes) filtered by `filterSpecLines` in `common.js`. Next: do the same
    for other categories as their spec parsers land, and/or fold into `common.js` for Task 3.
-2. Split each `SpecLine.Model` into make / model / year-range if Task 3's selector needs
-   structured make→model→year menus (the autocross data is keyed that way).
-3. Extend to GT `9.1.2` (single-line rows: `Civic 96-06 2dr FWD 103.2 ...`) and Spec Miata
+2. Extend to GT `9.1.2` (single-line rows: `Civic 96-06 2dr FWD 103.2 ...`) and Spec Miata
    `9.1.7` — different layouts, likely separate row parsers.
-4. Spot-check the full 489-row output for parse errors before relying on the weights.
+3. Spot-check the full ~499-row output for parse errors before relying on the weights.
 - Also relevant: embedded spec tables inside prose sections (e.g. IT Wheels & Tires rim widths)
   that the prose formatter renders as fragments — the same layout data can replace them.
+
+**Selector data cleanup (DONE for IT):**
+- `expandYears` expands year designations into **individual 4-digit years** (like the
+  autocross data): `96-99`, `97-98/00-01`, `2001- 03`, `86 1/2-92` (rounds down), `99-00`
+  (crosses century). `parseModel` takes the **rightmost parenthetical that parses as a year**
+  (others are trim notes, kept as the entry note), with a fallback for a trailing
+  unparenthesized range ("TT Quattro 2001-2006").
+- Generations of one model are **folded into a single selector model** — the year picks the
+  generation. `normalizeRRModel` moves chassis codes (`E36`) into the entry note and rejoins
+  PDF slash wraps (`328i/ is`); `rrSpecFixes` (keyed `"Make|Model"`) folds trim lists
+  (BMW `328i/is` + `328i/ci` → `328i`), fixes hyphen wraps (`Fire- bird`), repairs rows the
+  column parser mangles, and is **the extension point for further merges**.
+- A year now maps to a **list** of `{class, weight, notes}` (dual-classed cars, and merged
+  generations overlapping on a year — e.g. 328i in 1999 is E36 ITR@2714 *and* E46 ITR@2823);
+  `lookupRRCar` renders one line per entry, notes in parentheses.
+- Parser fixes: cruft skip is now narrow (a car note mentioning "SCCA" no longer eats the row
+  — restored Civic Si 99-00 etc.), `Inline 5` counts as an engine column (Volvo 850 GLT), and
+  4 cars whose rows are unrecoverable (page-top "exploded" one-field-per-line blocks or
+  engineless rows: Alfa GTV-6, 300-ZX 2+2, Audi 4000, Chevrolet Spark) are re-added by hand at
+  the end of `parseITCSSpecLines`.
+- Still raw: `Chapter.SpecLines` (the questionnaire's eligible-result table) shows the
+  unnormalized model strings; the fixes currently apply only inside `buildRRCars`.
 
 ### ✅ Task 3 — road racing make/model/year selector (DONE for IT)
 `src/rr/index.html` is generated from `templates/rr/index.html.tmpl` (by `generateRRIndex`):
@@ -209,8 +229,8 @@ ITR → ITS → ITA → ITB → ITC, then Super Touring. Bound each by its title
   instead of embedding the full table.
 - **To extend**: as other categories' spec parsers land (Task 2), feed their lines into
   `allRRCars` and add their subclasses to the class table.
-- **Caveat**: `parseModel` (make = first word, year = trailing parenthetical) is heuristic;
-  merged/odd spec rows produce odd dropdown entries. Clean up spec data for a pristine selector.
+- Selector data shape: make → model → **individual year** → list of `{class, weight, notes}`
+  (see "Selector data cleanup" under Task 2). Odd rows are repaired/merged via `rrSpecFixes`.
 
 ## Known rough spots
 - Embedded spec **tables** inside prose sections (e.g. IT Wheels & Tires rim widths) render as

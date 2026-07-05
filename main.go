@@ -409,14 +409,18 @@ type SpecLine struct {
 var (
 	// A subclass table title in gcr_layout.txt, e.g. "        ITR        Engine   Bore x   Weight".
 	itcsTitleRe = regexp.MustCompile(`^\s+(IT[RSABC])\s+Engine\b`)
-	// The engine column of a car's primary line: a cylinder/rotor count, V-config, or
-	// displacement (e.g. "4 Cyl", "2 Rotor", "V8", "2.0"). Continuation lines instead carry
-	// the valvetrain ("DOHC", "Turbo", "VTEC") here, so this distinguishes the two.
-	itcsEngineRe = regexp.MustCompile(`(?i)^(\d+\s?cyl|\d\s?rotor|v-?\d+|\d\.\d)`)
+	// The engine column of a car's primary line: a cylinder/rotor count, V-config, inline
+	// count, or displacement (e.g. "4 Cyl", "2 Rotor", "V8", "Inline 5", "2.0"). Continuation
+	// lines instead carry the valvetrain ("DOHC", "Turbo", "VTEC") here, so this
+	// distinguishes the two.
+	itcsEngineRe = regexp.MustCompile(`(?i)^(\d+\s?cyl|\d\s?rotor|v-?\d+|inline\s?\d|\d\.\d)`)
 	// A 3-4 digit weight at the start of a field (allowing a trailing unit/note).
 	weightLeadRe = regexp.MustCompile(`^(\d{3,4})\b`)
-	// Page footers and running headers interspersed in the spec tables.
-	specCruftRe = regexp.MustCompile(`SCCA|GCR V\.|Spec Lines`)
+	// Page footers and running headers interspersed in the spec tables: a line-leading ©SCCA
+	// footer marker, the GCR version footer, or a standalone "9.1.3. ITx Spec lines" running
+	// header (either capitalization). Matched narrowly — a car's note may legitimately
+	// mention SCCA ("...registered with SCCA before 5/1/06."), so a mid-line SCCA is kept.
+	specCruftRe = regexp.MustCompile(`^\s*©?SCCA\b|GCR V\.|^\s*\d+\.\d+\.\d+\.\s+IT\w Spec [Ll]ines\s*$`)
 	multiSpace  = regexp.MustCompile(`\s{2,}`)
 )
 
@@ -478,6 +482,17 @@ func parseITCSSpecLines() []SpecLine {
 		}
 	}
 	flush()
+	// Cars whose rows the column parser cannot recover: at a page top the PDF sometimes
+	// explodes a row into one field per line (so the primary-line engine test never fires and
+	// the fields fold into the previous car), and the Audi 4000 / Chevrolet Spark rows have
+	// no engine column at all. The mangled combined rows are repaired in rrSpecFixes; the
+	// swallowed cars are re-added here by hand from gcr_layout.txt.
+	out = append(out,
+		SpecLine{Subclass: "ITS", Model: "Alfa Romeo GTV-6 (81-86)", MinWeight: 2680, Notes: "Bosch L-Jetronic Fuel Injection"},
+		SpecLine{Subclass: "ITS", Model: "Nissan 300-ZX 2+2 (1986)", MinWeight: 2725, Notes: "Bosch L-Jetronic Fuel Injection"},
+		SpecLine{Subclass: "ITB", Model: "Audi 4000 & 4000S (1986)", MinWeight: 2500},
+		SpecLine{Subclass: "ITC", Model: "Chevrolet Spark (2016-2022)", MinWeight: 2216},
+	)
 	return out
 }
 
@@ -507,47 +522,267 @@ func itcsWeight(fields []string) (int, string) {
 	return 0, ""
 }
 
-// rrCar is one car's road-racing classification for the make/model/year selector.
+// rrCar is one car's road-racing classification for the make/model/year selector. A model
+// year maps to a list of these because one car can hold several spec lines (e.g. dual-classed
+// cars, or merged generations distinguished by the note).
 type rrCar struct {
 	Class  string `json:"class"`
 	Weight int    `json:"weight"`
+	Notes  string `json:"notes,omitempty"`
 }
 
-// parseModel splits a spec line's model designation into make, model, and year range, e.g.
-// "Acura Integra Type R (97-98/00-01)" -> ("Acura", "Integra Type R", "97-98/00-01"). The
-// year is taken from a trailing parenthetical; when absent it is "all".
-func parseModel(model string) (mk, name, year string) {
-	year = "all"
-	if i := strings.LastIndex(model, "("); i != -1 {
-		if j := strings.Index(model[i:], ")"); j != -1 {
-			year = strings.TrimSpace(model[i+1 : i+j])
-			model = strings.TrimSpace(model[:i])
+var (
+	parenRe = regexp.MustCompile(`\(([^)]*)\)`)
+	// One year or year range within a designation, after space/"1/2"/".5" cleanup.
+	yearPartRe = regexp.MustCompile(`^(\d{2}|\d{4})(?:-(\d{2}|\d{4}))?$`)
+	// A PDF soft line wrap after a slash ("328i/ is" was "328i/is" in the rulebook).
+	wrapSlashRe = regexp.MustCompile(`(\S)/ +`)
+	// A chassis code ("E36", "(E46)"): moved to the entry's note so generations of one model
+	// fold together and the year picks the generation.
+	chassisRe = regexp.MustCompile(`\(?\bE\d{2}\b\)?`)
+)
+
+// yearToken resolves a 2- or 4-digit year token; two-digit years pivot on 40 (the spec lines
+// span 1968-present).
+func yearToken(tok string) int {
+	y, err := strconv.Atoi(tok)
+	if err != nil {
+		return 0
+	}
+	if len(tok) == 4 {
+		return y
+	}
+	if y >= 40 {
+		return 1900 + y
+	}
+	return 2000 + y
+}
+
+// expandYears expands a spec line's year designation into individual model years, matching
+// the autocross data's year keys: "96-99" -> 1996..1999, "97-98/00-01" -> both ranges,
+// "99-00" crosses the century, "86 1/2-92" rounds the mid-year revision down, and "all"
+// passes through. Returns nil when s is not a year designation, which parseModel uses to
+// tell year parentheticals apart from notes like "(exclude Cobra)".
+func expandYears(s string) []string {
+	if s == "all" {
+		return []string{"all"}
+	}
+	s = strings.ReplaceAll(s, " ", "")
+	s = strings.ReplaceAll(s, "1/2", "")
+	s = strings.ReplaceAll(s, ".5", "")
+	var out []string
+	for _, part := range strings.Split(s, "/") {
+		m := yearPartRe.FindStringSubmatch(part)
+		if m == nil {
+			return nil
+		}
+		start := yearToken(m[1])
+		end := start
+		if m[2] != "" {
+			end = yearToken(m[2])
+			if len(m[2]) == 2 {
+				end = start - start%100 + end%100
+				if end < start {
+					end += 100
+				}
+			}
+		}
+		if start == 0 || end < start || end-start > 60 {
+			return nil
+		}
+		for y := start; y <= end; y++ {
+			out = append(out, strconv.Itoa(y))
 		}
 	}
-	parts := strings.SplitN(strings.TrimSpace(model), " ", 2)
+	return out
+}
+
+// parseModel splits a spec line's model designation into make, model, year designation, and
+// note, e.g. "Acura Integra Type R (97-98/00-01)" -> ("Acura", "Integra Type R",
+// "97-98/00-01", ""). The year is the rightmost parenthetical that parses as one (others are
+// trim notes: "S2000 (04-09) (Exclude CR package)" -> note "Exclude CR package"). With no
+// year parenthetical, a trailing unparenthesized range is tried ("TT Quattro 2001-2006",
+// or "Capri I 72-74)" whose "(" the PDF lost); otherwise the year is "all". Text after the
+// year that is not a single parenthesized note is table bleed and is dropped.
+func parseModel(model string) (mk, name, year, note string) {
+	model = strings.TrimSpace(model)
+	year = "all"
+	locs := parenRe.FindAllStringSubmatchIndex(model, -1)
+	for i := len(locs) - 1; i >= 0; i-- {
+		inner := strings.TrimSpace(model[locs[i][2]:locs[i][3]])
+		if expandYears(inner) == nil {
+			continue
+		}
+		year = inner
+		if trailing := strings.TrimSpace(model[locs[i][1]:]); trailing != "" {
+			if m := parenRe.FindStringSubmatch(trailing); m != nil && parenRe.FindString(trailing) == trailing {
+				note = m[1]
+			}
+		}
+		model = strings.TrimSpace(model[:locs[i][0]])
+		break
+	}
+	if year == "all" {
+		if i := strings.LastIndex(model, " "); i != -1 {
+			tok := strings.TrimSuffix(model[i+1:], ")")
+			if strings.Contains(tok, "-") && expandYears(tok) != nil {
+				year = tok
+				model = strings.TrimSpace(model[:i])
+			}
+		}
+	}
+	parts := strings.SplitN(model, " ", 2)
 	mk = parts[0]
 	if len(parts) > 1 {
 		name = parts[1]
 	} else {
 		name = mk
 	}
-	return mk, name, year
+	// The GCR writes two-word makes that the first-space split cuts short.
+	if mk == "Alfa" && strings.HasPrefix(name, "Romeo ") {
+		mk = "Alfa Romeo"
+		name = strings.TrimPrefix(name, "Romeo ")
+	}
+	return mk, name, year, note
 }
 
-// buildRRCars indexes spec lines as make -> model -> year -> {class, weight} for the
-// road-racing make/model/year selector. json.Marshal sorts the string keys, so output is
-// deterministic.
-func buildRRCars(specs []SpecLine) map[string]map[string]map[string]rrCar {
-	cars := map[string]map[string]map[string]rrCar{}
+// normalizeRRModel cleans a parsed model name: rejoins PDF soft line wraps after a slash and
+// moves a chassis code ("E36") into the returned note so a model's generations share one
+// selector entry.
+func normalizeRRModel(name string) (string, string) {
+	name = wrapSlashRe.ReplaceAllString(name, "$1/")
+	note := ""
+	if m := chassisRe.FindString(name); m != "" {
+		note = strings.Trim(m, "()")
+		name = strings.Replace(name, m, " ", 1)
+	}
+	name = strings.TrimSpace(multiSpace.ReplaceAllString(name, " "))
+	return name, note
+}
+
+// rrSpecFix overrides a parsed spec line in the selector, keyed on "make|model" as produced
+// by parseModel + normalizeRRModel. Model overrides fold variants of one model into a single
+// selector entry (the year picks the generation, per the note); Make/Year overrides repair
+// rows the column parser mangles (see parseITCSSpecLines) and misread makes.
+type rrSpecFix struct {
+	Make, Model, Year, Note string
+}
+
+var rrSpecFixes = map[string]rrSpecFix{
+	// BMW generations: one model per designation; the year (and E-code note) picks the
+	// generation, and trim lists like "328i/is" fold into the base designation.
+	"BMW|318":                  {Model: "318i"},
+	"BMW|318i/is":              {Model: "318i"},
+	"BMW|318i/is Twin Cam":     {Model: "318i", Note: "Twin Cam"},
+	"BMW|318ti & Club Sport":   {Model: "318ti", Note: "incl. Club Sport"},
+	"BMW|318ti / Sport":        {Model: "318ti", Note: "incl. Sport"},
+	"BMW|320i 1.8":             {Model: "320i", Note: "1.8L"},
+	"BMW|320i 2.0":             {Model: "320i", Note: "2.0L"},
+	"BMW|323 is":               {Model: "323i", Note: "is"},
+	"BMW|325i/is":              {Model: "325i"},
+	"BMW|325i/is (2 & 4door)":  {Model: "325i", Note: "2 & 4 door"},
+	"BMW|325i/ci Coupe":        {Model: "325i", Note: "incl. Ci coupe"},
+	"BMW|328i/is":              {Model: "328i"},
+	"BMW|328i/ci":              {Model: "328i", Note: "incl. Ci"},
+	"BMW|330i/ci excludes ZHP": {Model: "330i", Note: "incl. Ci; excludes ZHP"},
+	// Other generation splits folded into one model.
+	"Nissan|240-SX / S13":           {Model: "240-SX", Note: "S13"},
+	"Nissan|240-SX / S14":           {Model: "240-SX", Note: "S14"},
+	"Mazda|MX-5":                    {Model: "MX-5 / Miata"},
+	"Mazda|MX-5 / Miata includes R": {Model: "MX-5 / Miata", Note: "includes R"},
+	"Toyota|Celica I 2.0L":          {Model: "Celica", Note: "2.0L"},
+	"Toyota|Celica I 2.2":           {Model: "Celica", Note: "2.2L"},
+	"Toyota|Celica II 2.2":          {Model: "Celica", Note: "2.2L"},
+	"Toyota|Celica II 2.4":          {Model: "Celica", Note: "2.4L"},
+	"Toyota|Celica III 2.4":         {Model: "Celica", Note: "2.4L"},
+	"Toyota|Celica III GTS":         {Model: "Celica GTS"},
+	"Toyota|Celica ST":              {Model: "Celica", Note: "ST"},
+	"Porsche|911S 2.0":              {Model: "911S", Note: "2.0L"},
+	"Porsche|911S 2.2":              {Model: "911S", Note: "2.2L"},
+	"Porsche|911S 2.4":              {Model: "911S", Note: "2.4L"},
+	"Ford|Mustang GT & LX":          {Model: "Mustang GT", Note: "incl. LX"},
+	// PDF soft line wraps and misread makes.
+	"Pontiac|Fire- bird":                          {Model: "Firebird"},
+	"Pontiac|Grand- Am (Quad 4)":                  {Model: "Grand Am (Quad 4)"},
+	"Volkswagen|Sci- rocco 16V":                   {Model: "Scirocco 16V"},
+	"Plymouth|Hori- zon 2.2":                      {Model: "Horizon 2.2"},
+	"Dodge|Day- tona/Chrysler Laser 2.2":          {Model: "Daytona / Chrysler Laser 2.2"},
+	"Alfa Romeo|Al- fetta GT, GTV, Sprint Veloce": {Model: "Alfetta GT, GTV, Sprint Veloce"},
+	"Alfa Romeo|Spider Quadri- foglio":            {Model: "Spider Quadrifoglio"},
+	"Mitsubishi|3000 GT (non- turbo FWD)":         {Model: "3000 GT", Note: "non-turbo FWD"},
+	"Ford|Probe GL/LX 2.2L non- turbo":            {Model: "Probe GL/LX 2.2L", Note: "non-turbo"},
+	"Mercedes-Benz|190E 2.3L 8V":                  {Model: "190 E 2.3L 8V"},
+	"Dodge|/ Plymouth Neon RT & ACR":              {Model: "Neon RT & ACR", Note: "Dodge / Plymouth"},
+	"Dodge|/ Plymouth Neon incl. SE, ES, SXT":     {Model: "Neon incl. SE, ES, SXT", Note: "Dodge / Plymouth"},
+	"Mazda2|Mazda2":                               {Make: "Mazda"},
+	"Chevy|Beretta":                               {Make: "Chevrolet"},
+	"Audi|TT Quattro 2000":                        {Model: "TT Quattro", Year: "2000"},
+	// Rows the column parser mangles (page-top exploded rows folded into the previous car —
+	// see parseITCSSpecLines, which re-adds the swallowed cars).
+	"Acura|TSX (04-08) GTV-6 V-6 SOHC 88.0 x 68.3 2492 2680":     {Model: "TSX", Year: "04-08"},
+	"Nissan|300-ZX (84-88) 2+2 6 Cyl SOHC 87.0 x 83.0 2960 2725": {Model: "300-ZX", Year: "84-88"},
+	"Mercury|Capri I V-6 72-74) 93.0 x 68.5 2796":                {Model: "Capri I V-6", Year: "72-74"},
+	"Chevrolet|Chevette 1.6 (76-87) Chevrolet Spark":             {Model: "Chevette 1.6", Year: "76-87"},
+	"Alfa Romeo|all Spider models (90-94) Audi 4000 & 4000S":     {Model: "all Spider models", Year: "90-94"},
+}
+
+// joinNotes joins the non-empty note fragments with "; ".
+func joinNotes(parts ...string) string {
+	var out []string
+	for _, p := range parts {
+		if p != "" {
+			out = append(out, p)
+		}
+	}
+	return strings.Join(out, "; ")
+}
+
+// buildRRCars indexes spec lines as make -> model -> year -> [{class, weight, notes}] for
+// the road-racing make/model/year selector. Year designations expand to individual years
+// (like the autocross data); a year holds a list because merged generations and dual-classed
+// cars can share one. json.Marshal sorts the string keys, so output is deterministic.
+func buildRRCars(specs []SpecLine) map[string]map[string]map[string][]rrCar {
+	cars := map[string]map[string]map[string][]rrCar{}
 	for _, s := range specs {
-		mk, name, year := parseModel(s.Model)
+		mk, name, year, note := parseModel(s.Model)
+		var chassis string
+		name, chassis = normalizeRRModel(name)
+		fixNote := ""
+		if fix, ok := rrSpecFixes[mk+"|"+name]; ok {
+			if fix.Make != "" {
+				mk = fix.Make
+			}
+			if fix.Model != "" {
+				name = fix.Model
+			}
+			if fix.Year != "" {
+				year = fix.Year
+			}
+			fixNote = fix.Note
+		}
+		car := rrCar{Class: s.Subclass, Weight: s.MinWeight, Notes: joinNotes(chassis, fixNote, note, s.Notes)}
+		years := expandYears(year)
+		if years == nil {
+			years = []string{"all"}
+		}
 		if cars[mk] == nil {
-			cars[mk] = map[string]map[string]rrCar{}
+			cars[mk] = map[string]map[string][]rrCar{}
 		}
 		if cars[mk][name] == nil {
-			cars[mk][name] = map[string]rrCar{}
+			cars[mk][name] = map[string][]rrCar{}
 		}
-		cars[mk][name][year] = rrCar{Class: s.Subclass, Weight: s.MinWeight}
+		for _, y := range years {
+			dup := false
+			for _, c := range cars[mk][name][y] {
+				if c == car {
+					dup = true
+					break
+				}
+			}
+			if !dup {
+				cars[mk][name][y] = append(cars[mk][name][y], car)
+			}
+		}
 	}
 	return cars
 }

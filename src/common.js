@@ -9798,22 +9798,26 @@ function lookupRRCar() { // eslint-disable-line no-unused-vars
   const make = sessionStorage.getItem('rrMake');
   const model = sessionStorage.getItem('rrModel');
   const year = sessionStorage.getItem('rrYear');
-  const car = (make && model && year && allRRCars[make] && allRRCars[make][model]) ?
+  const cars = (make && model && year && allRRCars[make] && allRRCars[make][model]) ?
       allRRCars[make][model][year] : null;
   if (!result) {
     return;
   }
-  if (!car) {
+  if (!cars || cars.length === 0) {
     result.innerHTML = '';
     return;
   }
-  result.innerHTML = 'Your car runs in <strong>' + car.class +
-      '</strong> with a minimum competition weight of <strong>' + car.weight +
-      ' lbs</strong>.';
-  const cell = document.getElementById('rrClass-' + car.class);
-  if (cell) {
-    cell.classList.add('highlighted');
+  let html = '';
+  for (const car of cars) {
+    html += '<p>Your car runs in <strong>' + car.class +
+        '</strong> with a minimum competition weight of <strong>' + car.weight +
+        ' lbs</strong>' + (car.notes ? ' <em>(' + car.notes + ')</em>' : '') + '.</p>';
+    const cell = document.getElementById('rrClass-' + car.class);
+    if (cell) {
+      cell.classList.add('highlighted');
+    }
   }
+  result.innerHTML = html;
 }
 
 /**
