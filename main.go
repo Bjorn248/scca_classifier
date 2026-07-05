@@ -27,7 +27,6 @@ type Chapter struct {
 	OverviewSections  []SubChapter // Informational sections rendered on the landing page (e.g. Purpose, Intent)
 	QuestionSections  []SubChapter // Sections rendered as yes/no eligibility questions
 	Subclasses        []string     // Category subclasses (e.g. ITR/ITS/ITA/ITB/ITC); the specific one is set by a car's spec line
-	SplitPerSubclass  bool         // Render one questionnaire page per subclass (ITR/ITS/... each get their own page) instead of one page for the whole category
 	IndexCategory     string       // Class-table column this chapter's subclasses belong under; defaults to Name. Lets sibling rule sets (e.g. Touring T1 and T2-T4) share one "Touring" column.
 	Sections          []string     // Section names for classes without SubChapters (e.g., "Bodywork", "Safety")
 	CarFlags          []string     // Question IDs for carFlags (auto-populated from SubChapters/Sections)
@@ -807,11 +806,9 @@ func roadRacingChapters() []Chapter {
 			Name:      "Improved Touring",
 			ShortName: "it",
 			Number:    "n/a",
-			// Each IT subclass gets its own questionnaire page (itr.html, its.html, ...). The
-			// GCR's 9.1.3 preparation rules are one shared text, so the questions are the same
-			// on each page, but which cars are eligible (and their weights) is per-subclass.
-			Subclasses:       []string{"ITR", "ITS", "ITA", "ITB", "ITC"},
-			SplitPerSubclass: true,
+			// Improved Touring is a category; a car's specific subclass is set by its ITCS
+			// spec line and minimum weight (handled later by the spec-table parser / selector).
+			Subclasses: []string{"ITR", "ITS", "ITA", "ITB", "ITC"},
 			// No leading newline anchor: the heading is preceded by a stray form feed left
 			// over from the PDF. This exact text occurs once and differs from the table-of-
 			// contents entry ("9.1.3.\nIMPROVED TOURING CATEGORY CLASSES...").
@@ -1220,35 +1217,6 @@ func generateRRIndex(funcMap template.FuncMap, chapters []Chapter, specLines []S
 	}
 }
 
-// expandSubclassChapters replaces each SplitPerSubclass chapter with one copy per subclass:
-// "Improved Touring" with subclasses ITR/ITS/... becomes five chapters named "Improved
-// Touring (ITR)" etc., each rendered to its own page (itr.html) with its own question state.
-// The copies share the source chapter's anchors and text region, and keep the base name as
-// their IndexCategory so they stack under one column in the class table.
-func expandSubclassChapters(chapters []Chapter) []Chapter {
-	var out []Chapter
-	for _, ch := range chapters {
-		if !ch.SplitPerSubclass || len(ch.Subclasses) < 2 {
-			out = append(out, ch)
-			continue
-		}
-		for _, sc := range ch.Subclasses {
-			sub := ch
-			sub.Name = fmt.Sprintf("%s (%s)", ch.Name, sc)
-			sub.ShortName = strings.ToLower(sc)
-			sub.outputFile = fmt.Sprintf("./src/rr/%s.html", sub.ShortName)
-			sub.Subclasses = []string{sc}
-			if sub.IndexCategory == "" {
-				sub.IndexCategory = ch.Name
-			}
-			// Fresh section slice: each copy's sections get their own body readers.
-			sub.SubChapters = append([]SubChapter(nil), ch.SubChapters...)
-			out = append(out, sub)
-		}
-	}
-	return out
-}
-
 // processRRChapters parses gcr_layout.txt, populates each road-racing chapter's section
 // bodies and carFlags, and renders its questionnaire page. It returns the chapters so their
 // carFlags can be included in common.js. The -layout extraction is used (rather than the -raw
@@ -1257,7 +1225,7 @@ func expandSubclassChapters(chapters []Chapter) []Chapter {
 // not indentation, since pdftotext re-detects columns per page — see formatRRBody.)
 func processRRChapters(funcMap template.FuncMap) []Chapter {
 	gcr := readLayoutFile("gcr_layout.txt")
-	rrChapters := expandSubclassChapters(roadRacingChapters())
+	rrChapters := roadRacingChapters()
 
 	// Attach the parsed Improved Touring spec lines to the IT category so the eligible result
 	// can list each car's subclass and minimum weight.
