@@ -118,7 +118,7 @@ A road racing "class" is usually a **category with subclasses**, exactly like au
 ### ✅ DONE — PR1: generator architecture + Improved Touring + homepage nav
 (pending owner review)
 - RR generator + template + `common.js` guard, as described above.
-- **Improved Touring** (`/rr/it.html`) generates: overview (Purpose/Intent/Specifications +
+- **Improved Touring** generates: overview (Purpose/Intent/Specifications +
   modifications preamble) on the landing page; **13 questions** — Engine (Reciprocating),
   Engine (Rotary), Engine (Turbocharged), Engine Cooling System, Transmission/Final Drive,
   Chassis & Suspension, Brakes, Wheels & Tires, Body & Structure, Driver/Passenger
@@ -128,6 +128,21 @@ A road racing "class" is usually a **category with subclasses**, exactly like au
 - Homepage Road Racing button enabled; both homepage buttons use identical styling.
 - `src/rr/index.html` restyled; only Improved Touring is linked (rest "coming soon").
 - Verified: `go vet`, `eslint`, `npm run build` all pass; section bodies clean of cruft.
+
+### Per-subclass questionnaire pages
+Road racing subclasses differ in their rules (unlike autocross, where a category's classes
+share one prep level), so each subclass gets its own questionnaire page:
+- `Chapter.SplitPerSubclass` + `expandSubclassChapters` render one page per subclass from a
+  shared chapter definition: **Improved Touring** → `itr/its/ita/itb/itc.html`, each with its
+  own question state (`itrCar`...) and title, stacked under one "Improved Touring" column on
+  the index. The GCR's 9.1.3 prep text is one shared ruleset, so the *questions* are the same
+  on each page; per-class specifics (rim widths, weights) appear inline in the text.
+- **Super Touring** was split the source-text way: STU (`9.1.4.1`) and STL (`9.1.4.2`) are
+  separate GCR rule sets, so they are separate `Chapter`s with their own anchors.
+- **Caveat — GT**: `gt.html` covers only the GT-1 ruleset; GT-2/GT-3/GT-Lite have their own
+  rule sections in the GCR and need their own chapters (anchors) to be split properly.
+- Production (EP/FP/HP), Touring (T2-T4), and B-Spec (B/C-Spec) still share one page each;
+  set `SplitPerSubclass: true` on them to split (same shared-text caveat as IT).
 
 ### ⬜ Task 5 — remaining prose classes (next, reuses PR1 machinery)
 Add to `roadRacingChapters()`, one `Chapter` each, with hand-derived section anchors from
@@ -246,6 +261,6 @@ ITR → ITS → ITA → ITB → ITC, then Super Touring. Bound each by its title
 ```
 go run main.go && npm run lint && npm run build
 # inspect a page, e.g. render a section as text:
-awk '/id="improvedtouringEngine"/{f=1} f{print} /id="improvedtouringRotaryEngine"/{exit}' src/rr/it.html \
+awk '/id="improvedtouringitrEngine"/{f=1} f{print} /id="improvedtouringitrRotaryEngine"/{exit}' src/rr/itr.html \
   | sed 's/<br>/\n/g; s/<[^>]*>//g'
 ```

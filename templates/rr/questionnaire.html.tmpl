@@ -79,8 +79,10 @@
       <div class="possibleClasses">
         <p>
         Based on your answers, your car can be built to {{ $name }} specifications.
-{{ if .Subclasses }}        {{ $name }} is divided into {{ range $i, $s := .Subclasses }}{{ if $i }}, {{ end }}{{ $s }}{{ end }} &mdash;
+{{ if gt (len .Subclasses) 1 }}        {{ $name }} is divided into {{ range $i, $s := .Subclasses }}{{ if $i }}, {{ end }}{{ $s }}{{ end }} &mdash;
         the class your car runs in (and its minimum weight) is set by its spec line.
+{{ else if .Subclasses }}        Whether your specific car is classified in {{ index .Subclasses 0 }} (and its
+        minimum weight) is set by its spec line.
 {{ end }}        </p>
         <p>
         To find your specific car's class and minimum weight, use the
