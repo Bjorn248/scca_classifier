@@ -537,6 +537,9 @@ var (
 	yearPartRe = regexp.MustCompile(`^(\d{2}|\d{4})(?:-(\d{2}|\d{4}))?$`)
 	// A PDF soft line wrap after a slash ("328i/ is" was "328i/is" in the rulebook).
 	wrapSlashRe = regexp.MustCompile(`(\S)/ +`)
+	// A PDF soft line wrap inside a word ("ex- clude" was "exclude"). Only joined between
+	// lowercase letters so real hyphens ("non-turbo") in mixed contexts survive.
+	softWrapRe = regexp.MustCompile(`([a-z])- ([a-z])`)
 	// A chassis code ("E36", "(E46)"): moved to the entry's note so generations of one model
 	// fold together and the year picks the generation.
 	chassisRe = regexp.MustCompile(`\(?\bE\d{2}\b\)?`)
@@ -616,7 +619,8 @@ func parseModel(model string) (mk, name, year, note string) {
 		year = inner
 		if trailing := strings.TrimSpace(model[locs[i][1]:]); trailing != "" {
 			if m := parenRe.FindStringSubmatch(trailing); m != nil && parenRe.FindString(trailing) == trailing {
-				note = m[1]
+				// Rejoin PDF soft line wraps ("ex- clude Cobra" was "exclude Cobra").
+				note = softWrapRe.ReplaceAllString(m[1], "$1$2")
 			}
 		}
 		model = strings.TrimSpace(model[:locs[i][0]])
@@ -760,7 +764,10 @@ func buildRRCars(specs []SpecLine) map[string]map[string]map[string][]rrCar {
 			}
 			fixNote = fix.Note
 		}
-		car := rrCar{Class: s.Subclass, Weight: s.MinWeight, Notes: joinNotes(chassis, fixNote, note, s.Notes)}
+		// The note only carries what distinguishes generations/variants of the model (chassis
+		// code, trim, body style) — the ITCS Notes column text (fuel cell allowances, required
+		// restrictors, ...) is shown in the questionnaire's spec-line table instead.
+		car := rrCar{Class: s.Subclass, Weight: s.MinWeight, Notes: joinNotes(chassis, fixNote, note)}
 		years := expandYears(year)
 		if years == nil {
 			years = []string{"all"}
