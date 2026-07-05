@@ -80,7 +80,8 @@ different rulebook and have a different structure.
 - `main.go` — generator (autocross + RR).
 - `templates/rr/questionnaire.html.tmpl` — shared template for all prose RR classes.
 - `templates/common.js.tmpl` → `src/common.js` — carFlags + shared questionnaire JS.
-- `src/rr/index.html` — RR landing page (card-styled; lists available + coming-soon classes).
+- `src/rr/index.html` — RR landing page: make/model/year selector + class table (generated
+  from `templates/rr/index.html.tmpl` by `generateRRIndex`).
 - `src/index.html` — homepage (both Autocross + Road Racing buttons, identical styling).
 - `gcr.txt` — road racing rulebook text (gitignored; ~89k lines; Chapter 9 = Cars & Equipment).
 
@@ -122,58 +123,62 @@ A road racing "class" is usually a **category with subclasses**, exactly like au
 
 ---
 
-## Task status
+## Status — where we are (2026-07-05)
 
-### ✅ DONE — PR1: generator architecture + Improved Touring + homepage nav
-(pending owner review)
-- RR generator + template + `common.js` guard, as described above.
-- **Improved Touring** (`/rr/it.html`) generates: overview (Purpose/Intent/Specifications +
-  modifications preamble) on the landing page; **13 questions** — Engine (Reciprocating),
-  Engine (Rotary), Engine (Turbocharged), Engine Cooling System, Transmission/Final Drive,
-  Chassis & Suspension, Brakes, Wheels & Tires, Body & Structure, Driver/Passenger
-  Compartment, Electrical, Safety, Measurement Standards.
-- Question UX: heading is "Does your car meet the requirements below?" + a smaller
-  `.questionContext` line "These requirements are for <section>."
-- Homepage Road Racing button enabled; both homepage buttons use identical styling.
-- `src/rr/index.html` restyled; only Improved Touring is linked (rest "coming soon").
-- Verified: `go vet`, `eslint`, `npm run build` all pass; section bodies clean of cruft.
+**All questionnaires are live.** Every class in the table links to a rules questionnaire
+generated from its GCR region, each verified for cruft/bleed when added:
+- `it.html` Improved Touring (ITR/ITS/ITA/ITB/ITC) · `as.html` American Sedan ·
+  `t1.html` / `t2t4.html` Touring · `prod.html` Production (EP/FP/HP) · `smx.html` Spec MX-5 ·
+  `bspec.html` B-Spec/C-Spec · `stu.html` / `stl.html` Super Touring ·
+  `gt.html` GT-1 (GT1/GTA/GTX) · `gt23l.html` GT-2/3/Lite (from `9.1.2.F`) ·
+  `specmiata.html` Spec Miata.
+- Result pages are styled as white cards (the old black-on-dark text was illegible); the
+  single-subclass eligible wording says "Whether your specific car is classified in X…".
 
-### ⬜ Task 5 — remaining prose classes (next, reuses PR1 machinery)
-Add to `roadRacingChapters()`, one `Chapter` each, with hand-derived section anchors from
-`gcr.txt`. Then add their buttons to `src/rr/index.html`.
-- **American Sedan** (`9.1.6`): sections A Purpose, B Intent, C Specifications, D Authorized
-  Modifications (split into its areas), E Car Classification, F Engine Build Sheets,
-  G Measurement Standards. Ends before its car-eligibility list.
-- **Touring T1** (`9.1.9.1`) and **T2–T4** (`9.1.9.2`): lettered areas (Bodywork, Aero,
-  Interior, Chassis, Engine, …) map directly to questions.
-- **Spec MX-5** (`9.1.7.1`): prose; smaller.
-- **Super Touring** (`9.1.4`): **messy** — repeats sections A–O for each subclass (STU/STL/
-  etc.). Needs per-subclass handling or a simplified single questionnaire. Do this last.
+**The make/model/year selector covers IT, GT-2/3/Lite, and Spec Miata** (57 makes /
+~600 models). Data shape: make → model → **individual 4-digit year** → list of
+`{class, weight, notes}`; dual-classed cars show every entry (a '95 Miata is ITA + SM, a '78
+911SC is ITR + GT2). Notes carry only generation/variant distinguishers (E36, S13, "incl.
+Ci") — GCR note text stays out of the selector result. Details below under Task 2.
 
-Process per class: read the category region in `gcr.txt`, list the logical section heading
-lines, write `anchor` regexes, set the `end` anchor to where the prose stops (start of the
-car spec table), regenerate, and **inspect the rendered bodies** for cruft/bleed before moving on.
+## What's next (priority order)
 
-### 🔶 Task 2 — spec-line parser (IN PROGRESS: foundation laid)
-Extract per-car data (make/model/year → subclass + min weight, plus wheelbase/notes) from the
-GCR spec tables. This feeds the eligible-result subclass determination and the Task 3 table.
+1. **GT-1 approved automobiles → selector** (`9.1.2.E`): FIA-homologation-style list with
+   per-car weights/restrictors; rows explode one-field-per-line at page tops. Needs its own
+   parser (or hand-transcription — it's a few dozen cars). Until then GT-1 cars aren't in
+   the selector.
+2. **Car lists for the remaining categories → selector**: Touring T1–T4, Production (PCS),
+   American Sedan, B-Spec eligible cars, Super Touring STL engine/car list. Each is a
+   different table shape feeding `allRRCars` (add the parser, feed `specLines` in
+   `processRRChapters`).
+3. **Systematic ITCS spot-check**: verify the ~499 parsed IT weights against the GCR (repairs
+   and samples are verified; the full set never has been).
+4. **Embedded tables in prose sections**: e.g. IT Wheels & Tires rim-width table renders as
+   fragmented lines inside the questionnaire; replace with parsed layout data.
+5. Minor rough spots: soft-hyphenation in prose bodies; `rrSpecFixes` cleanup applies only to
+   the selector (nothing else consumes the raw spec lines today); GTA/GTX cells point at the
+   GT-1 page (roughly right — they run GT-1-style prep — but they have their own GCR
+   sections if we ever want to be exact).
 
-**Done so far:**
-- `generate_rules_txt.sh` now also produces **`gcr_layout.txt`** via `pdftotext -layout`
-  (added to `.gitignore`). Rationale: `-raw` (used for prose) collapses the spec tables to one
-  field per line, but `-layout` preserves column alignment so each car's fields line up. The
-  spec-line parser reads `gcr_layout.txt`; the prose parser reads `gcr.txt`.
-- **ITCS parser written and working** (`parseITCSSpecLines` + `itcsWeight` in `main.go`).
-  Parses **489 cars** across ITR=71/ITS=78/ITA=126/ITB=132/ITC=82, each as a `SpecLine`
-  {Subclass, Model, MinWeight, Notes}. Verified against known values (Acura Integra Type R →
-  ITR 2413; Audi TT Quattro → 2531 "32mm TIR required."; Mazda RX-8 → ITR 2743; rotary RX-7
-  weight 2680 with note). Detects a primary row by its engine column (`itcsEngineRe`:
-  cyl/rotor/V-config/displacement), takes the rightmost numeric field as weight, and folds
-  model/year continuation lines (col1) into the model. `main()` currently just prints a count
-  summary — the returned data is NOT yet emitted anywhere (that's the wiring step below).
-- Known limitations to revisit: hyphenated model wraps show a stray space (`(non- turbo FWD)`);
-  some models with a trailing `/` (e.g. `Mazda RX-7/ Convertible`) read awkwardly; cars with
-  multiple weight variants on separate lines may need checking. Spot-check the full output.
+---
+
+## Task reference
+
+### Task 2 — spec-line parsers (ITCS + GT-2/3/Lite + SM done; see "What's next" for the rest)
+Extract per-car data (make/model/year → subclass + min weight) from the GCR spec tables;
+everything below feeds `buildRRCars` → the selector's `allRRCars` JSON.
+
+**ITCS (Improved Touring) parser** (`parseITCSSpecLines` + `itcsWeight`):
+- `generate_rules_txt.sh` produces **`gcr_layout.txt`** via `pdftotext -layout` (gitignored).
+  `-raw` collapses spec tables to one field per line; `-layout` keeps columns aligned.
+- Parses **~499 cars** (ITR/ITS/ITA/ITB/ITC) as `SpecLine{Subclass, Make?, Model, MinWeight,
+  Notes}`, wired into the selector. Detects a primary row by its engine column
+  (`itcsEngineRe`: cyl/rotor/V-config/inline/displacement), takes the rightmost numeric field
+  as weight, folds model/year continuation lines (col1) into the model. The cruft skip is
+  narrow (a car note mentioning "SCCA" must not eat the row); 4 cars with unrecoverable rows
+  (page-top exploded blocks / engineless rows: Alfa GTV-6, 300-ZX 2+2, Audi 4000, Chevrolet
+  Spark) are re-added by hand at the end of `parseITCSSpecLines`, and their mangled host rows
+  are repaired via `rrSpecFixes`.
 
 **Layout format (ITCS example, `gcr_layout.txt`):**
 - Each IT subclass table starts with a title line like `ITR    Engine    Bore x    Weight ... Notes:`
@@ -194,16 +199,7 @@ GCR spec tables. This feeds the eligible-result subclass determination and the T
 **ITCS region (in `gcr_layout.txt`, line numbers differ from `gcr.txt`):** subclass tables run
 ITR → ITS → ITA → ITB → ITC, then Super Touring. Bound each by its title line / running header.
 
-**Remaining:**
-1. Spot-check the full ITCS output for parse errors before relying on the weights.
-2. **GT-1 approved automobiles** (`9.1.2.E`, FIA-homologation style with per-car weights and
-   restrictors; rows explode one-field-per-line at page tops) — not parsed yet.
-3. Spec lines / car lists for the other categories: Touring T1-T4, Production (PCS), American
-   Sedan, B-Spec, Super Touring STL engine list.
-- Also relevant: embedded spec tables inside prose sections (e.g. IT Wheels & Tires rim widths)
-  that the prose formatter renders as fragments — the same layout data can replace them.
-
-**GT-2/3/Lite + Spec Miata (DONE):**
+**GT-2/3/Lite + Spec Miata parsers:**
 - `parseGTSpecLines` parses the "GTx Cars - MAKE" approved-automobile tables (GT2 `p.332+`,
   GT3 `p.354+`, GTL as the "GTL-FP Cars" listings — printed twice in the GCR, deduped).
   Columns are located by the x-offsets of each table's header row and each 2+-space chunk is
@@ -229,7 +225,7 @@ ITR → ITS → ITA → ITB → ITC, then Super Touring. Bound each by its title
   weights; alternate-bore weight in the note). A 1995 Miata now shows ITA + SM together.
 - `populateRRMakes` now calls `lookupRRCar()` on load so a revisit restores the result.
 
-**Selector data cleanup (DONE for IT):**
+**Selector data cleanup (shared by all parsers):**
 - `expandYears` expands year designations into **individual 4-digit years** (like the
   autocross data): `96-99`, `97-98/00-01`, `2001- 03`, `86 1/2-92` (rounds down), `99-00`
   (crosses century). `parseModel` takes the **rightmost parenthetical that parses as a year**
@@ -243,27 +239,21 @@ ITR → ITS → ITA → ITB → ITC, then Super Touring. Bound each by its title
 - A year now maps to a **list** of `{class, weight, notes}` (dual-classed cars, and merged
   generations overlapping on a year — e.g. 328i in 1999 is E36 ITR@2714 *and* E46 ITR@2823);
   `lookupRRCar` renders one line per entry, notes in parentheses.
-- Parser fixes: cruft skip is now narrow (a car note mentioning "SCCA" no longer eats the row
-  — restored Civic Si 99-00 etc.), `Inline 5` counts as an engine column (Volvo 850 GLT), and
-  4 cars whose rows are unrecoverable (page-top "exploded" one-field-per-line blocks or
-  engineless rows: Alfa GTV-6, 300-ZX 2+2, Audi 4000, Chevrolet Spark) are re-added by hand at
-  the end of `parseITCSSpecLines`.
-- Still raw: `Chapter.SpecLines` (the questionnaire's eligible-result table) shows the
-  unnormalized model strings; the fixes currently apply only inside `buildRRCars`.
+- The fixes apply only inside `buildRRCars` (the selector); nothing else consumes the raw
+  spec lines today.
 
-### ✅ Task 3 — road racing make/model/year selector (DONE for IT)
+### Task 3 — road racing make/model/year selector (live; covers IT + GT-2/3/Lite + SM)
 `src/rr/index.html` is generated from `templates/rr/index.html.tmpl` (by `generateRRIndex`):
-- **MMY selector**: make→model→year dropdowns backed by `allRRCars` (built by `buildRRCars`/
-  `parseModel` from the ITCS spec lines, embedded inline as JSON). Selecting a car shows its
-  class + min weight (`lookupRRCar`) and highlights the matching row in the class table.
-- **Class table**: ITR/ITS/ITA/ITB/ITC rows linking to the IT questionnaire; "coming soon" note.
-- JS engine in `common.js`: `populateRRMakes/Models/Years`, `lookupRRCar`, `fillSelect`
-  (`/* global allRRCars */`). The IT questionnaire's eligible result now points users here
-  instead of embedding the full table.
-- **To extend**: as other categories' spec parsers land (Task 2), feed their lines into
-  `allRRCars` and add their subclasses to the class table.
-- Selector data shape: make → model → **individual year** → list of `{class, weight, notes}`
-  (see "Selector data cleanup" under Task 2). Odd rows are repaired/merged via `rrSpecFixes`.
+- **MMY selector**: make→model→year dropdowns backed by `allRRCars` (built by `buildRRCars`
+  from every parsed spec line, embedded inline as JSON). Selecting a car shows one line per
+  entry — class + min weight, or "weight is set by the engine spec line" for GT — and
+  highlights the matching cells in the class table. The result re-renders on page load.
+- **Class table**: one column per `IndexCategory`, subclasses stacked below, each cell
+  linking to its questionnaire (GT1/GTA/GTX → `gt.html`, GT2/GT3/GTL → `gt23l.html`).
+- JS engine in `common.js`: `populateRRMakes/Models/Years`, `lookupRRCar`, `fillSelect`.
+- **To extend**: as other categories' spec parsers land (Task 2), append their lines to
+  `specLines` in `processRRChapters` — the selector and class-table highlighting pick them
+  up automatically.
 
 ## Known rough spots
 - Embedded spec **tables** inside prose sections (e.g. IT Wheels & Tires rim widths) render as
