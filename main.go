@@ -1371,11 +1371,14 @@ func roadRacingChapters() []Chapter {
 			},
 		},
 		{
-			Name:       "GT",
-			ShortName:  "gt",
-			Number:     "n/a",
-			Subclasses: []string{"GT1", "GT2", "GT3", "GTL", "GTA", "GTX"},
-			start:      regexp.MustCompile(`9\.1\.2\. GT1 CATEGORY SPECIFICATIONS[ \t]*\n`),
+			Name:      "GT-1",
+			ShortName: "gt",
+			Number:    "n/a",
+			// GTA and GTX run GT-1-style preparation; GT-2/3/Lite have their own rule set
+			// (the next chapter).
+			Subclasses:    []string{"GT1", "GTA", "GTX"},
+			IndexCategory: "GT",
+			start:         regexp.MustCompile(`9\.1\.2\. GT1 CATEGORY SPECIFICATIONS[ \t]*\n`),
 			// The GT-1 ruleset (A-D) is the questionnaire; end at the Approved Automobiles notes
 			// (and the per-car spec lines / GT-2/3/Lite rulesets that follow).
 			end:               regexp.MustCompile(`(?m)^[ \t]*E\.[ \t]+APPROVED AUTOMOBILES`),
@@ -1400,6 +1403,49 @@ func roadRacingChapters() []Chapter {
 				{Name: "Bodywork", DisplayName: "Body & Structure", anchor: regexp.MustCompile(`8\.[ \t]+Body/Structure \(GT-1\)`)},
 				{Name: "Interior", DisplayName: "Driver / Passenger Compartment", anchor: regexp.MustCompile(`9\.[ \t]+Driver/Passenger Compartment`)},
 				{Name: "Safety", DisplayName: "Safety", anchor: regexp.MustCompile(`10\.[ \t]+Safety \(GT-1\)`)},
+			},
+		},
+		{
+			Name:          "GT-2 / GT-3 / GT-Lite",
+			ShortName:     "gt23l",
+			Number:        "n/a",
+			Subclasses:    []string{"GT2", "GT3", "GTL"},
+			IndexCategory: "GT",
+			// 9.1.2.F is one shared rule set for GT-2/3/Lite, with per-class provisions
+			// inline (h/i/l are GT3-specific, k is GT-Lite-specific). The ALL-CAPS heading
+			// distinguishes the section from its mixed-case TOC entry.
+			start: regexp.MustCompile(`9\.1\.2\.F\. GT-2, 3, LITE CATEGORY SPECIFICATIONS`),
+			// The prose ends where the approved-automobile listings begin.
+			end:               regexp.MustCompile(`(?m)^[ \t]*GT2 Cars[ \t]*$`),
+			ChapterFillerText: regexp.MustCompile(`(?m)^[ \t]*\d+\.\d+\.\d+(?:\.\d+)?\.?[ \t]+.*(?:Category Specifications|Spec Lines)[ \t]*$`),
+			templateFile:      "./templates/rr/questionnaire.html.tmpl",
+			outputFile:        "./src/rr/gt23l.html",
+			// F.4 (cars registered before 1990) and F.5 (after) are alternative baselines —
+			// a car meets one OR the other — so they are informational rather than yes/no
+			// questions. F.7's lettered modification areas are the questions, listed in the
+			// PDF's physical order (… h, i, m, n, j, k, l).
+			SubChapters: []SubChapter{
+				{Name: "Purpose", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*F\.1\.[ \t]+PURPOSE`)},
+				{Name: "Intent", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*F\.2\.[ \t]+INTENT`)},
+				{Name: "Specifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*F\.3\.[ \t]+SPECIFICATIONS`)},
+				{Name: "PreNinety", DisplayName: "Cars Registered Before 1990", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*F\.4\.[ \t]+GT Cars registered[^\n]*`)},
+				{Name: "PostNinety", DisplayName: "Cars Registered After 1990", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*F\.5\.[ \t]+GT cars registered[^\n]*`)},
+				{Name: "Safety", DisplayName: "Safety Equipment", anchor: regexp.MustCompile(`(?m)^[ \t]*F\.6\.[ \t]+Safety Equipment[^\n]*`)},
+				{Name: "Modifications", DisplayName: "About These Modifications", Informational: true, anchor: regexp.MustCompile(`(?m)^[ \t]*F\.7\.[ \t]+Authorized Modifications`)},
+				{Name: "General", DisplayName: "General", anchor: regexp.MustCompile(`(?m)^[ \t]*a\.[ \t]+General[ \t]*$`)},
+				{Name: "Bodywork", DisplayName: "Chassis & Bodywork", anchor: regexp.MustCompile(`(?m)^[ \t]*b\.[ \t]+Chassis and Bodywork`)},
+				{Name: "Suspension", DisplayName: "Suspension & Wheels", anchor: regexp.MustCompile(`(?m)^[ \t]*c\.[ \t]+Suspension and Wheels`)},
+				{Name: "Electrical", DisplayName: "Electrical Systems", anchor: regexp.MustCompile(`(?m)^[ \t]*d\.[ \t]+Electrical Systems`)},
+				{Name: "Drivetrain", DisplayName: "Engine & Drivetrain (General)", anchor: regexp.MustCompile(`(?m)^[ \t]*e\.[ \t]+Engine and Drivetrain/General`)},
+				{Name: "Engine", DisplayName: "Engine (Reciprocating)", anchor: regexp.MustCompile(`(?m)^[ \t]*f\.[ \t]+Engine, Reciprocating`)},
+				{Name: "RotaryEngine", DisplayName: "Engine (Rotary)", anchor: regexp.MustCompile(`(?m)^[ \t]*g\.[ \t]+Engine, Rotary Piston`)},
+				{Name: "TurboBuilt", DisplayName: "Engine (GT3 Turbocharged, Built)", anchor: regexp.MustCompile(`(?m)^[ \t]*h\.[ \t]+Engines, GT3 Turbocharged Built`)},
+				{Name: "TurboOEM", DisplayName: "Engine (GT3 Turbocharged, OEM)", anchor: regexp.MustCompile(`(?m)^[ \t]*i\.[ \t]+Engines, GT3 Turbocharged OEM`)},
+				{Name: "Cooling", DisplayName: "Cooling Systems", anchor: regexp.MustCompile(`(?m)^[ \t]*m\.[ \t]+Cooling Systems`)},
+				{Name: "FuelInduction", DisplayName: "Fuel Induction System", anchor: regexp.MustCompile(`(?m)^[ \t]*n\.[ \t]+Fuel Induction System`)},
+				{Name: "Brakes", DisplayName: "Brakes", anchor: regexp.MustCompile(`(?m)^[ \t]*j\.[ \t]+Brakes`)},
+				{Name: "GTLWeights", DisplayName: "GT-Lite Weights, Chokes & SIRs", anchor: regexp.MustCompile(`(?m)^[ \t]*k\.[ \t]+GTLite Rules Concerning`)},
+				{Name: "GT3Weights", DisplayName: "GT3 Weights & SIRs", anchor: regexp.MustCompile(`(?m)^[ \t]*l\.[ \t]+GT3 Rules Concerning`)},
 			},
 		},
 		{

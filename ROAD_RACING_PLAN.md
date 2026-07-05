@@ -114,8 +114,11 @@ A road racing "class" is usually a **category with subclasses**, exactly like au
   shared across its subclasses (IT, Production, T2-T4, B-Spec). A per-subclass split was tried
   for IT and reverted — the five pages asked identical questions. Split only when the GCR has
   separate rule sets per subclass, the way STU (`9.1.4.1`) / STL (`9.1.4.2`) are separate
-  chapters. **Caveat — GT:** `gt.html` covers only the GT-1 ruleset; GT-2/GT-3/GT-Lite have
-  their own rule sections and need their own chapters (anchors) to be covered properly.
+  chapters. **GT is split the same way**: `gt.html` is the GT-1 rule set (GT1/GTA/GTX cells)
+  and `gt23l.html` is the shared GT-2/3/Lite rule set from `9.1.2.F` (GT2/GT3/GTL cells) —
+  F.1-F.5 informational (F.4/F.5 are alternative pre/post-1990 baselines, not yes/no
+  questions), F.6 Safety + F.7's lettered areas as questions in PDF order (… h, i, m, n, j,
+  k, l). Both stack under one "GT" column via `IndexCategory`.
 
 ---
 
