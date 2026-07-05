@@ -192,15 +192,33 @@ GCR spec tables. This feeds the eligible-result subclass determination and the T
 ITR → ITS → ITA → ITB → ITC, then Super Touring. Bound each by its title line / running header.
 
 **Remaining:**
-1. DONE for IT: the parsed `SpecLine`s are attached to the IT `Chapter` (`Chapter.SpecLines`)
-   in `processRRChapters` and rendered in the eligible result as a searchable table (Car /
-   Class / Min Weight / Notes) filtered by `filterSpecLines` in `common.js`. Next: do the same
-   for other categories as their spec parsers land, and/or fold into `common.js` for Task 3.
-2. Extend to GT `9.1.2` (single-line rows: `Civic 96-06 2dr FWD 103.2 ...`) and Spec Miata
-   `9.1.7` — different layouts, likely separate row parsers.
-3. Spot-check the full ~499-row output for parse errors before relying on the weights.
+1. Spot-check the full ITCS output for parse errors before relying on the weights.
+2. **GT-1 approved automobiles** (`9.1.2.E`, FIA-homologation style with per-car weights and
+   restrictors; rows explode one-field-per-line at page tops) — not parsed yet.
+3. Spec lines / car lists for the other categories: Touring T1-T4, Production (PCS), American
+   Sedan, B-Spec, Super Touring STL engine list.
 - Also relevant: embedded spec tables inside prose sections (e.g. IT Wheels & Tires rim widths)
   that the prose formatter renders as fragments — the same layout data can replace them.
+
+**GT-2/3/Lite + Spec Miata (DONE):**
+- `parseGTSpecLines` parses the "GTx Cars - MAKE" approved-automobile tables (GT2 `p.332+`,
+  GT3 `p.354+`, GTL as the "GTL-FP Cars" listings — printed twice in the GCR, deduped).
+  Columns are located by the x-offsets of each table's header row and each 2+-space chunk is
+  assigned to the **nearest column center** (values are centered, so boundary slicing clips).
+  Wrapped model names ("240Z / 260Z / 280Z") fold around their value line: a row absorbs as
+  many trailing model fragments as it had leading ones. Value lines are recognized by the
+  drive-line cell (FWD/RWD/AWD) **or** a body-style cell ("2 Dr") when the drive cell wraps.
+  Gotchas handled: headers that wrap "Body Style"/"Wheel-base" onto adjacent lines, `©SCCA`
+  glued to a heading (blanked in place to keep column alignment), and far-right "9.1.2. GT2
+  Spec Lines" running headers (a table-end marker only counts at indent < 60).
+- GT weights are **per-engine, not per-car** → `MinWeight` 0; `lookupRRCar` says "minimum
+  weight is set by the engine spec line in the GCR" for weight-less entries.
+- `SpecLine.Make` (new) carries multi-word makes ("BMC thru Rover Group") verbatim past the
+  first-word make split; `normalizeGTMake` title-cases the shouted headings (KIA→Kia) keeping
+  initialisms (BMW/AMC/TVR/BMC).
+- **Spec Miata** (`9.1.7`): 4 fixed rows hand-transcribed in `smSpecLines` (standard-bore
+  weights; alternate-bore weight in the note). A 1995 Miata now shows ITA + SM together.
+- `populateRRMakes` now calls `lookupRRCar()` on load so a revisit restores the result.
 
 **Selector data cleanup (DONE for IT):**
 - `expandYears` expands year designations into **individual 4-digit years** (like the

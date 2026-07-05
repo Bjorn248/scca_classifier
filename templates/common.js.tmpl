@@ -9477,6 +9477,7 @@ function populateRRMakes() { // eslint-disable-line no-unused-vars
   }
   fillSelect(makeSelect, Object.keys(allRRCars).sort(), sessionStorage.getItem('rrMake'));
   populateRRModels();
+  lookupRRCar();
 }
 
 /**
@@ -9537,9 +9538,17 @@ function lookupRRCar() { // eslint-disable-line no-unused-vars
   }
   let html = '';
   for (const car of cars) {
-    html += '<p>Your car runs in <strong>' + car.class +
-        '</strong> with a minimum competition weight of <strong>' + car.weight +
-        ' lbs</strong>' + (car.notes ? ' <em>(' + car.notes + ')</em>' : '') + '.</p>';
+    const note = car.notes ? ' <em>(' + car.notes + ')</em>' : '';
+    if (car.weight) {
+      html += '<p>Your car runs in <strong>' + car.class +
+          '</strong> with a minimum competition weight of <strong>' + car.weight +
+          ' lbs</strong>' + note + '.</p>';
+    } else {
+      // GT-2/3/Lite weights are set per-engine, not per-car.
+      html += '<p>Your car runs in <strong>' + car.class +
+          '</strong> — its minimum weight is set by the engine spec line in the GCR' +
+          note + '.</p>';
+    }
     const cell = document.getElementById('rrClass-' + car.class);
     if (cell) {
       cell.classList.add('highlighted');

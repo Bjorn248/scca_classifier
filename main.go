@@ -398,9 +398,13 @@ func subChapterText(r io.Reader, chapterText *regexp.Regexp) string {
 }
 
 // SpecLine is one car's entry in a road-racing spec table: its category subclass, full model
-// designation (make/model/years), minimum competition weight, and any per-car note.
+// designation (make/model/years), minimum competition weight, and any per-car note. Make is
+// optional: when set it is used verbatim (needed for multi-word makes like "BMC thru Rover
+// Group"); when empty the make is split off the Model's first word. A zero MinWeight means
+// the class sets weight elsewhere (GT-2/3/Lite weights are per-engine, not per-car).
 type SpecLine struct {
 	Subclass  string `json:"subclass"`
+	Make      string `json:"make,omitempty"`
 	Model     string `json:"model"`
 	MinWeight int    `json:"minWeight"`
 	Notes     string `json:"notes,omitempty"`
@@ -522,6 +526,222 @@ func itcsWeight(fields []string) (int, string) {
 	return 0, ""
 }
 
+var (
+	// A GT approved-automobiles section heading: "GT2 Cars", "GT3 Cars - ACURA",
+	// "GTL-FP Cars - HONDA" (the GT-Lite list is shared with F Production).
+	gtCarsHeadingRe = regexp.MustCompile(`^\s*(GT2|GT3|GTL)(?:-FP)? Cars(?:\s*-\s*(.+?))?\s*$`)
+	// The car table's column header row; its x-offsets define the column boundaries. Some
+	// tables wrap "Body Style" / "Wheel-base (in)" onto the adjacent lines, so only Model and
+	// Years are required here (the rest fall back to the previous line).
+	gtHeaderRe = regexp.MustCompile(`^\s*Model\s{2,}Years\b`)
+	gtDriveRe  = regexp.MustCompile(`^(FWD|RWD|AWD|4WD)$`)
+	// A body-style value ("2dr", "2 Dr", "2, 4dr"): the fallback value-line signal for rows
+	// whose drive-line cell wraps ("Rear en-" / "gine/RWD").
+	gtBodyRe = regexp.MustCompile(`^\d(?:,\s*\d)?\s*[Dd]r\b`)
+	// A structural line that ends the current car table (per-engine spec tables, rule
+	// sections, restrictor tables).
+	gtTableEndRe = regexp.MustCompile(`^\s*(Engines\b|\d+\.\d+\.|[A-Z]\.\d+\.|SCCA Restrictor)`)
+	// A run of text whose internal gaps are single spaces; 2+ spaces separate columns.
+	gtChunkRe   = regexp.MustCompile(`\S+(?: \S+)*`)
+	allCapsWord = regexp.MustCompile(`^[A-Z][A-Z]+$`)
+)
+
+// normalizeGTMake converts the heading's shouted make ("ALFA ROMEO", "CHRYSLER/DODGE/
+// PLYMOUTH") to the title case the rest of the selector data uses, keeping initialisms
+// (BMW, AMC, MG) as-is and matching existing make spellings.
+func normalizeGTMake(s string) string {
+	initialism := map[string]bool{"BMW": true, "AMC": true, "TVR": true, "NSU": true, "BMC": true}
+	fix := map[string]string{"Mercedes Benz": "Mercedes-Benz", "Chevy": "Chevrolet"}
+	words := strings.Fields(strings.TrimPrefix(strings.TrimSpace(s), "- "))
+	for i, w := range words {
+		parts := strings.Split(w, "/")
+		for j, p := range parts {
+			if len(p) >= 3 && allCapsWord.MatchString(p) && !initialism[p] {
+				parts[j] = p[:1] + strings.ToLower(p[1:])
+			}
+		}
+		words[i] = strings.Join(parts, "/")
+	}
+	out := strings.Join(words, " ")
+	if f, ok := fix[out]; ok {
+		return f
+	}
+	return out
+}
+
+// gtRow tracks the approved automobile most recently assembled from a value line, so wrapped
+// model-column fragments below that line can be folded in (pdftotext centers a wrapped model
+// around the line that carries the Years/Body/Drive values, so a row takes as many trailing
+// fragments as it had leading ones). idx indexes the output slice — a pointer would dangle
+// when append reallocates.
+type gtRow struct {
+	idx       int
+	pre, post int
+}
+
+// parseGTSpecLines extracts the GT-2 / GT-3 / GT-Lite approved automobiles from their
+// "GTx Cars - MAKE" tables in gcr_layout.txt. Columns are sliced by the x-offsets of each
+// table's header row (values are centered under the headers, so a small margin is applied).
+// GT weights are set per-engine rather than per-car, so MinWeight stays 0. The GT-1 approved
+// list (FIA-homologation style) is a different shape and is not parsed yet.
+func parseGTSpecLines() []SpecLine {
+	data, err := os.ReadFile("gcr_layout.txt")
+	if err != nil {
+		fmt.Println("warning: gcr_layout.txt not found; skipping GT spec-line parse")
+		return nil
+	}
+	var out []SpecLine
+	subclass, mk := "", ""
+	var centers []int // header center offsets: model, years, body, drive, wheelbase, notes (-1 = absent)
+	var pending []string
+	var last *gtRow
+	// Values are centered under their column headers, so each 2+-space-separated chunk is
+	// assigned to the column whose header center is nearest to the chunk's center.
+	colOf := func(start, end int) int {
+		mid, best, bestDist := (start+end)/2, 0, 1<<30
+		for i, c := range centers {
+			if c < 0 {
+				continue
+			}
+			d := mid - c
+			if d < 0 {
+				d = -d
+			}
+			if d < bestDist {
+				best, bestDist = i, d
+			}
+		}
+		return best
+	}
+	split := func(line string) (cols [6][]string) {
+		for _, loc := range gtChunkRe.FindAllStringIndex(line, -1) {
+			i := colOf(loc[0], loc[1])
+			cols[i] = append(cols[i], line[loc[0]:loc[1]])
+		}
+		return cols
+	}
+	flushRow := func(model, years string) {
+		model = strings.TrimSpace(multiSpace.ReplaceAllString(model, " "))
+		if model == "" {
+			return
+		}
+		if years != "" && !strings.EqualFold(years, "NA") {
+			model += " (" + strings.Trim(years, "()") + ")"
+		}
+		out = append(out, SpecLine{Subclass: subclass, Make: mk, Model: model})
+		last = &gtRow{idx: len(out) - 1, pre: len(pending)}
+		pending = nil
+	}
+	lines := strings.Split(string(data), "\n")
+	for li, raw := range lines {
+		// A page footer marker can share a line with real content ("©SCCA   GT3 Cars -
+		// MERCURY"); blank it in place (© displays one column, so 5 spaces keep alignment).
+		if strings.HasPrefix(strings.TrimSpace(raw), "©SCCA") {
+			raw = strings.Replace(raw, "©SCCA", "     ", 1)
+		}
+		if m := gtCarsHeadingRe.FindStringSubmatch(raw); m != nil {
+			subclass, mk = m[1], normalizeGTMake(m[2])
+			centers, pending, last = nil, nil, nil
+			continue
+		}
+		if subclass == "" {
+			continue
+		}
+		if gtHeaderRe.MatchString(raw) {
+			// Column headers can wrap ("Body" / "Wheel-base" above, "Style" / "(in)" below
+			// the Model/Years line), so absent tokens fall back to the previous line.
+			prev := ""
+			if li > 0 {
+				prev = lines[li-1]
+			}
+			centers = nil
+			for _, h := range []string{"Model", "Years", "Body", "Drive", "Wheel-base", "Notes"} {
+				if i := strings.Index(raw, h); i != -1 {
+					centers = append(centers, i+len(h)/2)
+				} else if i := strings.Index(prev, h); i != -1 {
+					centers = append(centers, i+len(h)/2)
+				} else {
+					centers = append(centers, -1)
+				}
+			}
+			pending, last = nil, nil
+			continue
+		}
+		// A structural line ends the table only at normal indent — "9.1.2. GT2 Spec Lines"
+		// running headers sit far right (col 150+) on otherwise-blank lines.
+		if loc := gtTableEndRe.FindStringIndex(raw); loc != nil && len(raw)-len(strings.TrimLeft(raw, " \t\f")) < 60 {
+			centers, pending, last = nil, nil, nil
+			subclass = ""
+			continue
+		}
+		if centers == nil {
+			// Between the section heading and its header row, a bare heading ("GT2 Cars")
+			// carries the first make on its own line.
+			if t := strings.TrimSpace(raw); mk == "" && t != "" {
+				mk = normalizeGTMake(t)
+			}
+			continue
+		}
+		if strings.TrimSpace(raw) == "" {
+			// Blank lines separate rows; wrapped fragments are always adjacent.
+			pending, last = nil, nil
+			continue
+		}
+		if strings.Contains(raw, "GCR V.") {
+			continue
+		}
+		cols := split(raw)
+		model, years := strings.Join(cols[0], " "), strings.Join(cols[1], " ")
+		body, drive := strings.Join(cols[2], " "), strings.Join(cols[3], " ")
+		if gtDriveRe.MatchString(drive) || gtBodyRe.MatchString(body) {
+			flushRow(strings.Join(append(append([]string{}, pending...), model), " "), years)
+			continue
+		}
+		if model == "" {
+			continue // wheelbase/notes wrap
+		}
+		// A model-column fragment: the previous row absorbs one for each fragment it had
+		// above its value line; the rest lead the next row.
+		if last != nil && last.post < last.pre {
+			// The trailing fragment belongs inside the model, before any "(years)" suffix
+			// flushRow added.
+			s := &out[last.idx]
+			if i := strings.LastIndex(s.Model, " ("); i != -1 {
+				s.Model = s.Model[:i] + " " + model + s.Model[i:]
+			} else {
+				s.Model = strings.TrimSpace(s.Model + " " + model)
+			}
+			last.post++
+		} else {
+			pending = append(pending, model)
+		}
+	}
+	// The GCR prints the GT-Lite listing twice; drop exact duplicate rows.
+	seen := map[string]bool{}
+	deduped := out[:0]
+	for _, s := range out {
+		key := s.Subclass + "|" + s.Make + "|" + s.Model
+		if !seen[key] {
+			seen[key] = true
+			deduped = append(deduped, s)
+		}
+	}
+	return deduped
+}
+
+// smSpecLines returns the Spec Miata (9.1.7) spec table. The table is four fixed rows whose
+// columns pdftotext explodes one field per line, so they are transcribed by hand from
+// gcr_layout.txt rather than parsed. Weights are for standard bore; the alternate-bore
+// weight is in the note.
+func smSpecLines() []SpecLine {
+	return []SpecLine{
+		{Subclass: "SM", Make: "Mazda", Model: "MX-5 / Miata (90-93)", MinWeight: 2275, Notes: "2290 with alternate bore."},
+		{Subclass: "SM", Make: "Mazda", Model: "MX-5 / Miata (94-97)", MinWeight: 2385, Notes: "2400 with alternate bore. Must update to the 4.30:1 rear axle ratio as found in the 99+ cars."},
+		{Subclass: "SM", Make: "Mazda", Model: "MX-5 / Miata (99-00)", MinWeight: 2400, Notes: "2415 with alternate bore. Maximum L dimension of 1.815” is permitted."},
+		{Subclass: "SM", Make: "Mazda", Model: "MX-5 / Miata (01-05)", MinWeight: 2450, Notes: "2465 with alternate bore."},
+	}
+}
+
 // rrCar is one car's road-racing classification for the make/model/year selector. A model
 // year maps to a list of these because one car can hold several spec lines (e.g. dual-classed
 // cars, or merged generations distinguished by the note).
@@ -600,14 +820,14 @@ func expandYears(s string) []string {
 	return out
 }
 
-// parseModel splits a spec line's model designation into make, model, year designation, and
-// note, e.g. "Acura Integra Type R (97-98/00-01)" -> ("Acura", "Integra Type R",
-// "97-98/00-01", ""). The year is the rightmost parenthetical that parses as one (others are
-// trim notes: "S2000 (04-09) (Exclude CR package)" -> note "Exclude CR package"). With no
-// year parenthetical, a trailing unparenthesized range is tried ("TT Quattro 2001-2006",
-// or "Capri I 72-74)" whose "(" the PDF lost); otherwise the year is "all". Text after the
-// year that is not a single parenthesized note is table bleed and is dropped.
-func parseModel(model string) (mk, name, year, note string) {
+// extractModelYear pulls the year designation and trailing note out of a model designation,
+// e.g. "Integra Type R (97-98/00-01)" -> ("Integra Type R", "97-98/00-01", ""). The year is
+// the rightmost parenthetical that parses as one (others are trim notes: "S2000 (04-09)
+// (Exclude CR package)" -> note "Exclude CR package"). With no year parenthetical, a trailing
+// unparenthesized range is tried ("TT Quattro 2001-2006", or "Capri I 72-74)" whose "(" the
+// PDF lost); otherwise the year is "all". Text after the year that is not a single
+// parenthesized note is table bleed and is dropped.
+func extractModelYear(model string) (name, year, note string) {
 	model = strings.TrimSpace(model)
 	year = "all"
 	locs := parenRe.FindAllStringSubmatchIndex(model, -1)
@@ -635,7 +855,16 @@ func parseModel(model string) (mk, name, year, note string) {
 			}
 		}
 	}
-	parts := strings.SplitN(model, " ", 2)
+	return model, year, note
+}
+
+// parseModel splits a spec line's model designation into make, model, year designation, and
+// note, e.g. "Acura Integra Type R (97-98/00-01)" -> ("Acura", "Integra Type R",
+// "97-98/00-01", ""). The make is the first word (see extractModelYear for the year/note
+// rules); spec lines with a multi-word make set SpecLine.Make instead.
+func parseModel(model string) (mk, name, year, note string) {
+	name, year, note = extractModelYear(model)
+	parts := strings.SplitN(name, " ", 2)
 	mk = parts[0]
 	if len(parts) > 1 {
 		name = parts[1]
@@ -701,6 +930,7 @@ var rrSpecFixes = map[string]rrSpecFix{
 	"Toyota|Celica III 2.4":         {Model: "Celica", Note: "2.4L"},
 	"Toyota|Celica III GTS":         {Model: "Celica GTS"},
 	"Toyota|Celica ST":              {Model: "Celica", Note: "ST"},
+	"Porsche|911 SC":                {Model: "911SC"},
 	"Porsche|911S 2.0":              {Model: "911S", Note: "2.0L"},
 	"Porsche|911S 2.2":              {Model: "911S", Note: "2.2L"},
 	"Porsche|911S 2.4":              {Model: "911S", Note: "2.4L"},
@@ -748,7 +978,13 @@ func joinNotes(parts ...string) string {
 func buildRRCars(specs []SpecLine) map[string]map[string]map[string][]rrCar {
 	cars := map[string]map[string]map[string][]rrCar{}
 	for _, s := range specs {
-		mk, name, year, note := parseModel(s.Model)
+		var mk, name, year, note string
+		if s.Make != "" {
+			mk = s.Make
+			name, year, note = extractModelYear(s.Model)
+		} else {
+			mk, name, year, note = parseModel(s.Model)
+		}
 		var chassis string
 		name, chassis = normalizeRRModel(name)
 		fixNote := ""
@@ -1227,11 +1463,13 @@ func processRRChapters(funcMap template.FuncMap) []Chapter {
 	gcr := readLayoutFile("gcr_layout.txt")
 	rrChapters := roadRacingChapters()
 
-	// Attach the parsed Improved Touring spec lines to the IT category so the eligible result
-	// can list each car's subclass and minimum weight.
+	// The make/model/year selector is fed by every category's parsed spec lines.
 	itcs := parseITCSSpecLines()
-	fmt.Printf("Parsed %d ITCS spec lines\n", len(itcs))
-	generateRRIndex(funcMap, rrChapters, itcs)
+	gt := parseGTSpecLines()
+	sm := smSpecLines()
+	fmt.Printf("Parsed %d ITCS, %d GT, %d SM spec lines\n", len(itcs), len(gt), len(sm))
+	specLines := append(append(itcs, gt...), sm...)
+	generateRRIndex(funcMap, rrChapters, specLines)
 
 	// Page footers and running headers that bleed in from the GCR PDF layout. In -layout each
 	// is its own line: a centered footer ("©SCCA   2026 GCR V.06 p.402") and a left running
