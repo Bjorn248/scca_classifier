@@ -1090,10 +1090,32 @@ fieldset label {
 }
 
 .notEligibleExplanation {
-  color: black;
+  background-color: white;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-gray-200);
+  color: #374151;
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-base);
-  margin: var(--space-3) 0;
+  text-align: left;
+  width: min(92%, 42rem);
+  margin: var(--space-6) auto 0;
+}
+
+.notEligibleExplanation h2 {
+  color: #111827;
+  font-size: var(--font-size-lg);
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.notEligibleExplanation a {
+  color: #2563eb;
+}
+
+.notEligibleExplanation .questionContext {
+  color: #6b7280;
 }
 
 /* Modern Select Dropdown Styling */
@@ -1242,9 +1264,29 @@ td:hover {
 }
 
 .possibleClasses {
-  color: #000000;
-  width: 50%;
-  margin: 0 auto;
+  background-color: white;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-gray-200);
+  color: #374151;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  text-align: left;
+  width: min(92%, 42rem);
+  margin: var(--space-6) auto 0;
+}
+
+.possibleClasses p {
+  margin-bottom: var(--space-4);
+}
+
+.possibleClasses p:last-child {
+  margin-bottom: 0;
+}
+
+.possibleClasses a {
+  color: #2563eb;
 }
 
 /* Table toggle and eligible classes list */
