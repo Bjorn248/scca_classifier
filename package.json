@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/Bjorn248/scca_classifier#readme",
   "devDependencies": {
-    "cssnano": "^5.1.15",
+    "cssnano": "^9.8.0",
     "eslint": "^8.57.0",
     "eslint-config-google": "^0.14.0",
     "html-minifier": "^4.0.0",
