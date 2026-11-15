@@ -18,6 +18,16 @@ Look for them again in each new rulebook.
   with a nil pointer error.
 - Some page footers have an incorrect year ("192 — 2025 SCCA® National Solo®
   Rules" in the 2026 book). The page-number patterns must accept each year.
+- A font change can split one printed line into two `pdftotext` lines at the
+  same y-position ("Mustang" + "(non-GT350,"). `appendix_a.py` joins them
+  (`join_split_lines`). Some pages also have small "ghost" text (for example
+  "non-" at x = 180 near an Isuzu entry). It goes into the nearest entry.
+- The right column starts at x >= 191 (page width 396 pt). Lines with a smaller
+  x belong to the left column (`RIGHT_COLUMN_X`).
+- Street Prepared make headings can use two lines and name many makes
+  ("Chevrolet, Pontiac, Buick," + "Oldsmobile, Geo, & Suzuki"). A heading that
+  ends with "," or "&" continues on the next line. `compare` splits such a
+  heading into the allSoloCars make keys (`template_makes`).
 - Advertisement text (Tire Rack) is on some Appendix A pages. `appendix_a.py`
   ignores the known advertisement lines (`AD_RE`). If a new advertisement
   occurs, an entry with tire names or a phone number shows it. Add the new text
@@ -28,7 +38,7 @@ Look for them again in each new rulebook.
 - Typos in year ranges: "(2020-235)" (BMW 3 Series G20, FS). The extractor gives
   a warning. Use the range that agrees with the other categories.
 - Typos in names: "EGallardo", "Ionic 5", "exclc.", "Civis Si", "Leguna Seca".
-- Year formats: "(1992-10)" means 1992-2010. "(AWD/Performance 18-23)" means
+- Year formats: "(1993.5-98)" means 1993-1998. "(1992-10)" means 1992-2010. "(AWD/Performance 18-23)" means
   2018-2023. "(1993½-98)" means 1993-1998. "(2017-26, exc. Quadrifoglio Revial)"
   has text after the years. "(MORIZO Edition (2023-24 )" has a missing ")".
 - An entry can be in two Street classes. Examples in the 2026 book:
@@ -37,6 +47,10 @@ Look for them again in each new rulebook.
   - Tesla Model 3 RWD 2024: DS lists "Model 3 (RWD) (2018-24)", and SS lists
     "Model 3 (all) (2024-26)".
   Use the more specific entry and tell the maintainer.
+- The 2026 book lists two cars in two Street Prepared classes without "Limited
+  Prep": Mitsubishi 3000GT Turbo (CSP and DSP) and Volvo 700 Series (ESP and
+  FSP).
+- "E36 AMG (2010-16)" in DSP is the E63 AMG.
 - A new printing can move a car to a different class without other changes.
   Example: Subaru Legacy 2.5GT moved from GS (December 2025 file) to HS (July
   2026 file).
@@ -66,6 +80,9 @@ Look for them again in each new rulebook.
   variant. Tell the maintainer.
 - Some cars have two keys for the same car, for example `Porsche / Cayman GTS`
   and `Porsche / Cayman GTS 4.0`. Change the two keys together.
+- Before the 2026 update, many Street Prepared codes were one class off, mostly
+  `dsp` where the book gives ESP or CSP (for example Isuzu, Mitsubishi, and Saab
+  turbo models, Mazda MX-5, Honda S2000). Examine SP with `compare --by-make`.
 - Approximately 70 year keys have a duplicate code (for example
   `['ssp', 'ssp']`). These existed before the 2026 update. `allsolocars.py
   check -v` shows them.

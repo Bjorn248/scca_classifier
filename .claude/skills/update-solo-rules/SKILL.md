@@ -93,12 +93,14 @@ python3 $S/appendix_a.py extract rules.pdf -o /tmp/appendix_a.tsv
 python3 $S/appendix_a.py diff old_rules.pdf rules.pdf > /tmp/appendix_a_diff.txt
 python3 $S/appendix_a.py compare /tmp/appendix_a.tsv > /tmp/street_worksheet.txt
 python3 $S/appendix_a.py compare /tmp/appendix_a.tsv --classes SST,AST,BST,CST,DST,EST,GST > /tmp/st_worksheet.txt
-python3 $S/appendix_a.py compare /tmp/appendix_a.tsv --classes SSP,CSP,DSP,ESP,FSP > /tmp/sp_worksheet.txt
+python3 $S/appendix_a.py compare /tmp/appendix_a.tsv --classes SSP,CSP,DSP,ESP,FSP --by-make > /tmp/sp_worksheet.txt
 ```
 
 - The `diff` output gives the changes of the new book. Apply all of them.
 - The `compare` worksheets also show old differences between the book and the
   data. Fix them when the book is clear (see step 4).
+- For Street Prepared, use `--by-make`. Cars often move between SP classes, and
+  this view shows all SP classes of a make together.
 - Read the warnings of `extract`. They show year ranges that the script cannot
   read (usually typos in the book).
 - Before you use an entry, make sure that it agrees with the PDF. The `page`
@@ -125,6 +127,10 @@ Use these rules for each worksheet difference:
 6. If two book entries disagree, or an entry has a typo, use the more specific
    entry and tell the maintainer in the pull request.
 7. A year key has a maximum of one Street code (`ss` to `hs`).
+8. Street Prepared "Limited Prep" entries also get their code. Thus, one car
+   can have two SP codes (for example `csp` and `dsp` for the BRZ).
+9. Street Prepared: do not add a code to a car that has no SP code when only a
+   catch-all covers it. Tell the maintainer in the pull request.
 
 ### 5. Edit allSoloCars
 

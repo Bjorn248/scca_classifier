@@ -11,10 +11,12 @@ Use this script when a new rulebook is published. It has three commands:
       Show the entries that were added, removed, or changed between two
       rulebooks. OLD and NEW can be a PDF or a TSV file from "extract".
 
-  compare  PDF|TSV [--classes SS,AS,...] [--make NAME] [--template PATH]
+  compare  PDF|TSV [--classes SS,AS,...] [--make NAME] [--by-make] [--template PATH]
       For each class and make, show the rulebook entries ("R" lines) next to
       the allSoloCars models that have that class code ("T" lines, with
       compressed model years). The default is the nine Street classes.
+      With --by-make, the output has one section for each make, and it shows
+      all selected classes together ("R DSP ...", "T model => 1990-2005:csp").
       This is a worksheet for a person or an agent. The script does not
       match rulebook entries to allSoloCars models, and it does not change
       allSoloCars.
@@ -57,14 +59,10 @@ CATEGORY_HEADINGS = OrderedDict([
 # formulas, not vehicle lists, thus the script does not read them.
 END_HEADING = 'STREET MODIFIED CATEGORY'
 
-# Rulebook make name -> allSoloCars make key(s).
+# Rulebook make name -> allSoloCars make key(s). template_makes() also splits
+# headings with more than one make ("Ford & Mercury", "Nissan/Datsun").
 MAKE_ALIASES = {
-    'Chrysler & Plymouth': ['Chrysler', 'Plymouth'],
-    'Chrysler/Plymouth': ['Chrysler', 'Plymouth'],
-    'Datsun/Nissan': ['Datsun', 'Nissan'],
-    'Nissan/Datsun': ['Nissan', 'Datsun'],
     'Dodge & SRT': ['Dodge'],
-    'Dodge/SRT': ['Dodge'],
     'Fiat & Bertone': ['Fiat'],
     'General Motors': ['NOC (Not Otherwise Classified)'],
     'Mercedes-Benz': ['Mercedes'],
@@ -104,7 +102,10 @@ CATCH_ALL_RE = re.compile(r'^[“"]?Catch-all[”"]?:?(.*)$', re.I)
 # Advertisement text on some Appendix A pages.
 AD_RE = re.compile(r'tirerack|888-380-8473|FREE SHIPPING|R-COMPOUND TIRES|Tire Shaving|'
                    r'^On orders over|^orders over|^©20\d\d$|^Tire Rack|Pilot Sport|RT615K|'
-                   r'3-rib/4-rib|STREET AND ST-CLASS TIRES|Potenza|g-Force|Proxes|ADVAN', re.I)
+                   r'3-rib/4-rib|STREET AND ST-CLASS TIRES|Potenza|g-Force|Proxes|ADVAN|'
+                   r'AZENIS|ExtremeContact|Direzza|Ventus|Ecsta|Supercar 3|NEOVA|Wet H2O|RT660|'
+                   r'Sportnex|Eagle F1|D\.O\.T\. Radial|^A7 / R7$|^\(240\)$|^CR-S$|^Force( |$)|'
+                   r'Competition Pads', re.I)
 
 
 # --------------------------------------------------------------------------
@@ -120,17 +121,41 @@ def bbox_lines(pdf_path):
             data = f.read()
     pages = []
     line_re = re.compile(
-        r'<line xMin="([\d.]+)" yMin="([\d.]+)" xMax="[\d.]+" yMax="[\d.]+">(.*?)</line>', re.S)
+        r'<line xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="[\d.]+">(.*?)</line>', re.S)
     word_re = re.compile(r'<word[^>]*>(.*?)</word>', re.S)
     for page in re.findall(r'<page .*?</page>', data, re.S):
         lines = []
         for m in line_re.finditer(page):
-            words = [html.unescape(w) for w in word_re.findall(m.group(3))]
+            words = [html.unescape(w) for w in word_re.findall(m.group(4))]
             text = ' '.join(words).strip()
             if text:
-                lines.append((float(m.group(1)), float(m.group(2)), text))
-        pages.append(lines)
+                lines.append([float(m.group(1)), float(m.group(2)), float(m.group(3)), text])
+        pages.append(join_split_lines(lines))
     return pages
+
+
+RIGHT_COLUMN_X = 188
+
+
+def join_split_lines(lines):
+    """Join parts of one printed line that pdftotext gives as two lines.
+
+    A font change in an entry ("Mustang" + "(non-GT350,") can split a line.
+    The parts have the same y-position, and the second part starts directly
+    after the end of the first part.
+    """
+    lines = sorted(lines, key=lambda l: (round(l[1]), l[0]))
+    out = []
+    for line in lines:
+        prev = out[-1] if out else None
+        # The right column starts at x >= 191 (page size 396 x 612 pt).
+        if (prev and abs(prev[1] - line[1]) <= 2 and 0 <= line[0] - prev[2] <= 40
+                and line[0] < RIGHT_COLUMN_X):
+            prev[2] = line[2]
+            prev[3] = prev[3] + ' ' + line[3]
+            continue
+        out.append(list(line))
+    return [(x, y, text) for x, y, _, text in out]
 
 
 def appendix_a_pages(pages):
@@ -186,6 +211,7 @@ def parse_years(text):
     """
     warnings = []
     text = text.replace('½', '')
+    text = re.sub(r'((?:19|20)\d\d)\.5\b', r'\1', text)   # "(1993.5-98)"
     groups = re.findall(r'\(([^()]*\d{2}[^()]*)\)', text)
     if not groups:
         # Some entries have a missing ")" at the end, for example "(2023- 24".
@@ -310,7 +336,8 @@ def extract(pdf_path):
         lines = [(x, y, t) for x, y, t in pages[pno] if not is_page_furniture(y, t)]
         if not lines:
             continue
-        columns = [[l for l in lines if l[0] < 120], [l for l in lines if l[0] >= 120]]
+        columns = [[l for l in lines if l[0] < RIGHT_COLUMN_X],
+                   [l for l in lines if l[0] >= RIGHT_COLUMN_X]]
         for col in columns:
             if not col:
                 continue
@@ -326,6 +353,7 @@ def extract(pdf_path):
             else:
                 edge = min(x for x, y, t in col)
             footnote = False
+            make_continues = False
             for x, y, text in col:
                 if text == END_HEADING:
                     flush()
@@ -366,11 +394,19 @@ def extract(pdf_path):
                 if footnote and not known_make:
                     continue
                 footnote = False
+                if make_continues:
+                    # "Chevrolet, Pontiac, Buick," + "Oldsmobile, Geo, & Suzuki"
+                    make_continues = False
+                    if not re.search(r'\(\s*(?:19|20)\d\d', text):
+                        make = make + ' ' + text.rstrip(':').strip()
+                        make_continues = make.endswith((',', '&'))
+                        continue
                 has_years = re.search(r'\(\s*(?:19|20)\d\d', text) is not None
                 if known_make or (offset < MAKE_MAX_OFFSET and not has_years
-                                  and not text.startswith('•')):
+                                  and text[:1].isupper()):
                     flush()
                     make = text.rstrip(':').strip()
+                    make_continues = make.endswith((',', '&'))
                     edge = x
                 elif (offset < ENTRY_MAX_OFFSET or entry is None
                       or (COMPLETE_ENTRY_RE.search(entry['text']) and re.match(r'[A-Z0-9]', text))):
@@ -496,6 +532,65 @@ def template_years(model, code):
     return text
 
 
+def template_makes(bmake, cars):
+    """Return the allSoloCars make keys for a rulebook make heading.
+
+    A heading can name more than one make, for example
+    "Chevrolet, Pontiac, Buick, Oldsmobile, & Geo" or "Nissan/Datsun".
+    """
+    if bmake in MAKE_ALIASES:
+        return MAKE_ALIASES[bmake]
+    by_fold = {k.casefold(): k for k in cars}
+    keys = []
+    for part in re.split(r'\s*(?:,|&|/)\s*', bmake):
+        part = part.strip()
+        if not part:
+            continue
+        for k in MAKE_ALIASES.get(part, [by_fold.get(part.casefold(), part)]):
+            if k not in keys:
+                keys.append(k)
+    return keys or [bmake]
+
+
+def compare_by_make(rows, cars, classes, make_filter):
+    """For each allSoloCars make, show the entries of all selected classes together.
+
+    A car often moves between classes of one category (for example DSP to
+    ESP). This view shows the rulebook class of each entry ("R CLASS") and
+    the selected codes of each model by year range ("T").
+    """
+    codes = [c.lower() for c in classes]
+    book = OrderedDict()
+    for r in rows:
+        if r['class'] in classes:
+            for mk in template_makes(r['make'] or '', cars):
+                book.setdefault(mk, []).append(r)
+
+    def ranges(model):
+        out, prev = [], None
+        for k, v in model.items():
+            have = ','.join(c for c in v if c in codes) or '-'
+            if (prev and k.isdigit() and prev[1].isdigit()
+                    and int(k) == int(prev[1]) + 1 and have == prev[2]):
+                prev[1] = k
+                continue
+            if prev:
+                out.append(prev)
+            prev = [k, k, have]
+        if prev:
+            out.append(prev)
+        return '; '.join((a if a == b else a + '-' + b) + ':' + c for a, b, c in out)
+
+    for mk in sorted(set(book) | set(cars), key=str.lower):
+        if make_filter and make_filter not in mk.lower():
+            continue
+        print('== %s' % mk)
+        for r in book.get(mk, []):
+            print('   R %-4s %s   [%s]' % (r['class'], r['entry'], r['years'] or 'all'))
+        for model, data in cars.get(mk, {}).items():
+            print('   T      %s => %s' % (model, ranges(data)))
+
+
 def cmd_compare(args):
     rows = load_rows(args.source)
     cars = load_template(args.template)
@@ -506,6 +601,9 @@ def cmd_compare(args):
             if r['category'] == 'Street' and r['class'] not in classes:
                 classes.append(r['class'])
     make_filter = args.make.lower() if args.make else None
+    if args.by_make:
+        compare_by_make(rows, cars, classes, make_filter)
+        return
     for cls in classes:
         code = cls.lower()
         book = defaultdict(list)
@@ -521,8 +619,7 @@ def cmd_compare(args):
         # Map each rulebook make to allSoloCars make keys.
         groups = OrderedDict()
         for bmake in book:
-            keys = MAKE_ALIASES.get(bmake, [bmake])
-            groups.setdefault(bmake, keys)
+            groups.setdefault(bmake, template_makes(bmake, cars))
         used = {k for keys in groups.values() for k in keys}
         for tmake in tpl:
             if tmake not in used:
@@ -560,6 +657,9 @@ def main():
                    '(default: all Street classes)')
     c.add_argument('--make', help='show only makes that contain this text')
     c.add_argument('--template', default='templates/common.js.tmpl')
+    c.add_argument('--by-make', action='store_true',
+                   help='one section for each make with all selected classes together '
+                   '(use it for Street Prepared, where cars move between SP classes)')
     c.set_defaults(func=cmd_compare)
     args = p.parse_args()
     args.func(args)
