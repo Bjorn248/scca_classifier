@@ -29,3 +29,6 @@ old_rules.*
 
 # goenv
 .go-version
+
+# Python bytecode from the update-solo-rules skill scripts
+__pycache__/
