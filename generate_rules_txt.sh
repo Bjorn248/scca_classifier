@@ -10,7 +10,11 @@ then
 fi
 
 echo "Downloading Rules PDF..."
-curl -L https://www.scca.com/downloads/78494/download -o rules.pdf
+# SCCA National Solo Rules, 2026 Edition (Fifty Third printing, January 2026,
+# uploaded by SCCA in July 2026). The old https://www.scca.com/downloads/<id>/download
+# links do not give a PDF at this time. Make sure that the URL gives a PDF
+# ("file rules.pdf") when you change it.
+curl -L https://www.scca.com/wp-content/uploads/2026/08/Autocross_Rulebook.pdf -o rules.pdf
 echo "Done"
 
 if ! command -v pdftotext &> /dev/null
@@ -23,7 +27,6 @@ then
 fi
 
 echo "Converting PDF to txt..."
-# Use -raw to extract text in content stream order (column by column)
-# rather than default which reads line by line across columns
+# main.go reads the default pdftotext output (not -raw and not -layout).
 pdftotext rules.pdf rules.txt
 echo "Done"

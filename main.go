@@ -65,7 +65,10 @@ func getSubChapters(rules, chapterNumber string) []SubChapter {
 		SubChapters = append(SubChapters,
 			SubChapter{
 				Number: fmt.Sprintf("%s.%s", chapterNumber, match[i][1]),
-				Name:   match[i][2],
+				// Some printings put a space before the dot leaders in the table of
+				// contents ("13.1 Authorized Modifications ......"). The chapter body
+				// does not have this space, thus remove it before the body search.
+				Name: strings.TrimSpace(match[i][2]),
 			},
 		)
 	}

@@ -41,7 +41,8 @@ npm run generate_site
 ```
 
 ## Rules
-This has been updated for the 2024 Solo (autocross) rules.
+This has been updated for the 2026 Solo (autocross) rules (2026 Edition, Fifty Third printing,
+January 2026, as uploaded by SCCA in July 2026).
 
 The download URL for the set of rules used to build the current version of the website can be found
-here: https://www.scca.com/downloads/72794/download
+here: https://www.scca.com/wp-content/uploads/2026/08/Autocross_Rulebook.pdf
