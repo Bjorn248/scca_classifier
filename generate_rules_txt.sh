@@ -10,7 +10,10 @@ then
 fi
 
 echo "Downloading Rules PDF..."
-curl -L https://www.scca.com/downloads/78494/download -o rules.pdf
+# SCCA National Solo Rules, 2026 Edition (Fifty Third printing, January 2026).
+# The old https://www.scca.com/downloads/<id>/download link now returns HTML;
+# SCCA hosts the current book at this wp-content link (verified 2026-11-14).
+curl -L https://www.scca.com/wp-content/uploads/2026/08/Autocross_Rulebook.pdf -o rules.pdf
 echo "Done"
 
 if ! command -v pdftotext &> /dev/null
