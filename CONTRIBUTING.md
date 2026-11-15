@@ -59,6 +59,16 @@ PRs must include a change to both the file in `templates` and the file in `src`.
 Adjusting the classing for a car should be as simple as finding it and fixing the array that defines
 its classes.
 
+## Updating to a new rulebook
+When SCCA publishes a new Solo rulebook, use the `update-solo-rules` skill in
+`.claude/skills/update-solo-rules/` (`.agents` is a link to `.claude`). `SKILL.md` gives the
+procedure. The scripts in its `scripts` folder do these tasks:
+
+- `appendix_a.py` reads the Appendix A vehicle lists from `rules.pdf`, compares two rulebooks,
+  and shows the rulebook entries next to the `allSoloCars` data.
+- `allsolocars.py` shows and examines the `allSoloCars` data, and applies logged changes to
+  `templates/common.js.tmpl`.
+
 ## Adding a class
 This is a bit more complicated, but basically it boils down to copying an existing class page, such
 as `src/a/xs.html` and replacing all instances of `xs` and `xtreme street` with your new class
